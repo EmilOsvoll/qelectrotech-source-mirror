@@ -61,7 +61,7 @@ DEFINES += QET_ALLOW_OVERRIDE_CD_OPTION
 DEFINES += QET_ALLOW_OVERRIDE_DD_OPTION
 
 #comment the line below to disable the project database export
-DEFINES += QET_EXPORT_PROJECT_DB
+#DEFINES += QET_EXPORT_PROJECT_DB
 
 # warn on *any* usage of deprecated APIs
 #DEFINES += QT_DEPRECATED_WARNINGS
@@ -259,7 +259,7 @@ TARGET = qelectrotech
 
 # Ajustement des bibliotheques utilisees lors de l'edition des liens
 unix:QMAKE_LIBS_THREAD -= -lpthread
-unix|win32: PKGCONFIG += sqlite3
+#unix|win32: PKGCONFIG += sqlite3
 
 # Enable C++17
 QMAKE_CXXFLAGS += -std=c++17
