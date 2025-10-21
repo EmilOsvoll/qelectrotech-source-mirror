@@ -21,7 +21,7 @@ Include(FetchContent)
 option(BUILD_PUGIXML "Build pugixml library, use system one otherwise" YES)
 
 if(BUILD_PUGIXML)
-
+  message("Fetching pugixml from source")
   FetchContent_Declare(
     pugixml
     GIT_REPOSITORY https://github.com/zeux/pugixml.git
@@ -29,5 +29,6 @@ if(BUILD_PUGIXML)
 
   FetchContent_MakeAvailable(pugixml)
 else()
+  message("Using system pugixml")
   find_package(pugixml REQUIRED)
 endif()

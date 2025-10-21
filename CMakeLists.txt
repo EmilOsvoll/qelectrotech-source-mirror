@@ -40,9 +40,12 @@ include(cmake/start_options.cmake)
 include(cmake/developer_options.cmake)
 include(cmake/git_update_submodules.cmake)
 include(cmake/git_last_commit_sha.cmake)
+# Use system KF5 packages from vcpkg instead of fetching
+set(BUILD_WITH_KF5 OFF)
 include(cmake/fetch_kdeaddons.cmake)
 include(cmake/fetch_singleapplication.cmake)
-include(cmake/fetch_pugixml.cmake)
+# Use system pugixml from vcpkg directly
+find_package(pugixml REQUIRED)
 include(cmake/qet_compilation_vars.cmake)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -70,6 +73,8 @@ find_package(
  ${QET_COMPONENTS}
  REQUIRED)
 
+# KF5 libraries will be found by fetch_kdeaddons.cmake
+
 set(CMAKE_AUTOUIC_SEARCH_PATHS ${QET_DIR}/sources/ui)
 qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 set_source_files_properties(${TS_FILES} PROPERTIES OUTPUT_LOCATION "${QET_DIR}/lang")
@@ -92,7 +97,8 @@ target_link_libraries(
   PRIVATE
   pugixml::pugixml
   SingleApplication::SingleApplication
-  ${KF5_PRIVATE_LIBRARIES}
+  KF5::CoreAddons
+  KF5::WidgetsAddons
   ${QET_PRIVATE_LIBRARIES}
   )
 

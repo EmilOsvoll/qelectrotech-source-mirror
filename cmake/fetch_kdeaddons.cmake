@@ -44,6 +44,9 @@ if(DEFINED BUILD_WITH_KF5)
       GIT_TAG        ${KF5_GIT_TAG})
     FetchContent_MakeAvailable(ecm)
 
+    # Set ECM_DIR so KCoreAddons can find it
+    set(ECM_DIR "${ecm_SOURCE_DIR}/build")
+
     FetchContent_Declare(
       kcoreaddons
       GIT_REPOSITORY https://invent.kde.org/frameworks/kcoreaddons.git
