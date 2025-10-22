@@ -27,6 +27,7 @@
 
 #include <QLocale>
 #include <QSqlError>
+#include <QDate>
 
 #include <QSqlDriver>
 #include <sqlite3.h>
@@ -87,6 +88,9 @@ void projectDataBase::updateDB()
 	populateDiagramInfoTable();
 	populateElementTable();
 	populateElementInfoTable();
+	populateAssemblyTable();
+	populateAssemblyChildrenTable();
+	populateAssemblyPropertiesTable();
 	emit dataBaseUpdated();
 }
 
@@ -318,11 +322,62 @@ bool projectDataBase::createDataBase()
 		qDebug() << " element_info_table query : " << query_.lastError();
 	}
 
+	createAssemblyTables();
 	createElementNomenclatureView();
 	createSummaryView();
 	prepareQuery();
 	updateDB();
 	return true;
+}
+
+/**
+	@brief projectDataBase::createAssemblyTables
+	Create the assembly-related tables in the database
+*/
+void projectDataBase::createAssemblyTables()
+{
+	QSqlQuery query_(m_data_base);
+
+	// Create assembly table
+	QString assembly_table("CREATE TABLE assembly ("
+						   "assembly_id VARCHAR(50) PRIMARY KEY NOT NULL,"
+						   "assembly_name VARCHAR(100) NOT NULL,"
+						   "assembly_type VARCHAR(50) NOT NULL,"
+						   "description VARCHAR(500),"
+						   "location VARCHAR(100),"
+						   "responsible VARCHAR(100),"
+						   "revision VARCHAR(20),"
+						   "created_date DATE,"
+						   "modified_date DATE"
+						   ")");
+	if (!query_.exec(assembly_table)) {
+		qDebug() << "assembly_table query: " << query_.lastError();
+	}
+
+	// Create assembly_children table (many-to-many relationship)
+	QString assembly_children_table("CREATE TABLE assembly_children ("
+									"assembly_id VARCHAR(50) NOT NULL,"
+									"child_element_uuid VARCHAR(50) NOT NULL,"
+									"PRIMARY KEY (assembly_id, child_element_uuid),"
+									"FOREIGN KEY (assembly_id) REFERENCES assembly (assembly_id),"
+									"FOREIGN KEY (child_element_uuid) REFERENCES element (uuid)"
+									")");
+	if (!query_.exec(assembly_children_table)) {
+		qDebug() << "assembly_children_table query: " << query_.lastError();
+	}
+
+	// Create assembly_properties table
+	QString assembly_properties_table("CREATE TABLE assembly_properties ("
+									  "assembly_id VARCHAR(50) NOT NULL,"
+									  "property_key VARCHAR(100) NOT NULL,"
+									  "property_value VARCHAR(500) NOT NULL,"
+									  "property_type VARCHAR(20) DEFAULT 'inherited',"
+									  "PRIMARY KEY (assembly_id, property_key),"
+									  "FOREIGN KEY (assembly_id) REFERENCES assembly (assembly_id)"
+									  ")");
+	if (!query_.exec(assembly_properties_table)) {
+		qDebug() << "assembly_properties_table query: " << query_.lastError();
+	}
 }
 
 /**
@@ -595,6 +650,31 @@ void projectDataBase::prepareQuery()
 	update_str.append(" WHERE element_uuid = :uuid");
 	m_update_element_query = QSqlQuery(m_data_base);
 	m_update_element_query.prepare(update_str);
+
+	// Assembly query preparations
+	// INSERT ASSEMBLY
+	m_insert_assembly_query = QSqlQuery(m_data_base);
+	m_insert_assembly_query.prepare("INSERT INTO assembly (assembly_id, assembly_name, assembly_type, created_date, modified_date) VALUES (:assembly_id, :assembly_name, :assembly_type, :created_date, :modified_date)");
+
+	// REMOVE ASSEMBLY
+	m_remove_assembly_query = QSqlQuery(m_data_base);
+	m_remove_assembly_query.prepare("DELETE FROM assembly WHERE assembly_id = :assembly_id");
+
+	// INSERT ASSEMBLY CHILD
+	m_insert_assembly_child_query = QSqlQuery(m_data_base);
+	m_insert_assembly_child_query.prepare("INSERT INTO assembly_children (assembly_id, child_element_uuid) VALUES (:assembly_id, :child_element_uuid)");
+
+	// REMOVE ASSEMBLY CHILD
+	m_remove_assembly_child_query = QSqlQuery(m_data_base);
+	m_remove_assembly_child_query.prepare("DELETE FROM assembly_children WHERE assembly_id = :assembly_id AND child_element_uuid = :child_element_uuid");
+
+	// INSERT ASSEMBLY PROPERTY
+	m_insert_assembly_property_query = QSqlQuery(m_data_base);
+	m_insert_assembly_property_query.prepare("INSERT OR REPLACE INTO assembly_properties (assembly_id, property_key, property_value, property_type) VALUES (:assembly_id, :property_key, :property_value, :property_type)");
+
+	// REMOVE ASSEMBLY PROPERTY
+	m_remove_assembly_property_query = QSqlQuery(m_data_base);
+	m_remove_assembly_property_query.prepare("DELETE FROM assembly_properties WHERE assembly_id = :assembly_id AND property_key = :property_key");
 }
 
 /**
@@ -712,5 +792,173 @@ void projectDataBase::exportDb(projectDataBase *db,
 		file_db.close();
 	}
 	QSqlDatabase::removeDatabase(connection_name);
+}
+
+// Assembly management methods implementation
+
+/**
+	@brief projectDataBase::addAssembly
+	Add a new assembly to the database
+	@param assembly_id : Unique identifier for the assembly
+	@param assembly_name : Name of the assembly
+	@param assembly_type : Type of assembly (Assembly, SubAssembly, Component)
+*/
+void projectDataBase::addAssembly(const QString &assembly_id, const QString &assembly_name, const QString &assembly_type)
+{
+	m_insert_assembly_query.bindValue(":assembly_id", assembly_id);
+	m_insert_assembly_query.bindValue(":assembly_name", assembly_name);
+	m_insert_assembly_query.bindValue(":assembly_type", assembly_type);
+	m_insert_assembly_query.bindValue(":created_date", QDate::currentDate());
+	m_insert_assembly_query.bindValue(":modified_date", QDate::currentDate());
+	
+	if (!m_insert_assembly_query.exec()) {
+		qDebug() << "Error adding assembly:" << m_insert_assembly_query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::removeAssembly
+	Remove an assembly from the database
+	@param assembly_id : ID of the assembly to remove
+*/
+void projectDataBase::removeAssembly(const QString &assembly_id)
+{
+	m_remove_assembly_query.bindValue(":assembly_id", assembly_id);
+	
+	if (!m_remove_assembly_query.exec()) {
+		qDebug() << "Error removing assembly:" << m_remove_assembly_query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::updateAssembly
+	Update a field of an assembly
+	@param assembly_id : ID of the assembly to update
+	@param field : Field name to update
+	@param value : New value for the field
+*/
+void projectDataBase::updateAssembly(const QString &assembly_id, const QString &field, const QString &value)
+{
+	QString query_str = QString("UPDATE assembly SET %1 = :value, modified_date = :modified_date WHERE assembly_id = :assembly_id").arg(field);
+	QSqlQuery query(m_data_base);
+	query.prepare(query_str);
+	query.bindValue(":value", value);
+	query.bindValue(":modified_date", QDate::currentDate());
+	query.bindValue(":assembly_id", assembly_id);
+	
+	if (!query.exec()) {
+		qDebug() << "Error updating assembly:" << query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::addAssemblyChild
+	Add a child element to an assembly
+	@param assembly_id : ID of the assembly
+	@param child_element_uuid : UUID of the child element
+*/
+void projectDataBase::addAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
+{
+	m_insert_assembly_child_query.bindValue(":assembly_id", assembly_id);
+	m_insert_assembly_child_query.bindValue(":child_element_uuid", child_element_uuid);
+	
+	if (!m_insert_assembly_child_query.exec()) {
+		qDebug() << "Error adding assembly child:" << m_insert_assembly_child_query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::removeAssemblyChild
+	Remove a child element from an assembly
+	@param assembly_id : ID of the assembly
+	@param child_element_uuid : UUID of the child element to remove
+*/
+void projectDataBase::removeAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
+{
+	m_remove_assembly_child_query.bindValue(":assembly_id", assembly_id);
+	m_remove_assembly_child_query.bindValue(":child_element_uuid", child_element_uuid);
+	
+	if (!m_remove_assembly_child_query.exec()) {
+		qDebug() << "Error removing assembly child:" << m_remove_assembly_child_query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::setAssemblyProperty
+	Set a property for an assembly
+	@param assembly_id : ID of the assembly
+	@param property_key : Property key
+	@param property_value : Property value
+*/
+void projectDataBase::setAssemblyProperty(const QString &assembly_id, const QString &property_key, const QString &property_value)
+{
+	m_insert_assembly_property_query.bindValue(":assembly_id", assembly_id);
+	m_insert_assembly_property_query.bindValue(":property_key", property_key);
+	m_insert_assembly_property_query.bindValue(":property_value", property_value);
+	m_insert_assembly_property_query.bindValue(":property_type", "inherited");
+	
+	if (!m_insert_assembly_property_query.exec()) {
+		qDebug() << "Error setting assembly property:" << m_insert_assembly_property_query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::removeAssemblyProperty
+	Remove a property from an assembly
+	@param assembly_id : ID of the assembly
+	@param property_key : Property key to remove
+*/
+void projectDataBase::removeAssemblyProperty(const QString &assembly_id, const QString &property_key)
+{
+	m_remove_assembly_property_query.bindValue(":assembly_id", assembly_id);
+	m_remove_assembly_property_query.bindValue(":property_key", property_key);
+	
+	if (!m_remove_assembly_property_query.exec()) {
+		qDebug() << "Error removing assembly property:" << m_remove_assembly_property_query.lastError();
+	}
+	
+	emit dataBaseUpdated();
+}
+
+/**
+	@brief projectDataBase::populateAssemblyTable
+	Populate the assembly table with data from the project
+*/
+void projectDataBase::populateAssemblyTable()
+{
+	// This method will be implemented to populate assembly data from project elements
+	// For now, it's a placeholder
+}
+
+/**
+	@brief projectDataBase::populateAssemblyChildrenTable
+	Populate the assembly_children table with data from the project
+*/
+void projectDataBase::populateAssemblyChildrenTable()
+{
+	// This method will be implemented to populate assembly children data from project elements
+	// For now, it's a placeholder
+}
+
+/**
+	@brief projectDataBase::populateAssemblyPropertiesTable
+	Populate the assembly_properties table with data from the project
+*/
+void projectDataBase::populateAssemblyPropertiesTable()
+{
+	// This method will be implemented to populate assembly properties data from project elements
+	// For now, it's a placeholder
 }
 #endif

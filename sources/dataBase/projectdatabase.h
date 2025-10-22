@@ -58,6 +58,15 @@ class projectDataBase : public QObject
 		void diagramInfoChanged (Diagram *diagram);
 		void diagramOrderChanged();
 
+		// Assembly management methods
+		void addAssembly        (const QString &assembly_id, const QString &assembly_name, const QString &assembly_type);
+		void removeAssembly     (const QString &assembly_id);
+		void updateAssembly     (const QString &assembly_id, const QString &field, const QString &value);
+		void addAssemblyChild   (const QString &assembly_id, const QString &child_element_uuid);
+		void removeAssemblyChild(const QString &assembly_id, const QString &child_element_uuid);
+		void setAssemblyProperty(const QString &assembly_id, const QString &property_key, const QString &property_value);
+		void removeAssemblyProperty(const QString &assembly_id, const QString &property_key);
+
 	signals:
 		void dataBaseUpdated();
 
@@ -74,6 +83,12 @@ class projectDataBase : public QObject
 				Element *elmt);
 		void bindDiagramInfoValues(QSqlQuery &query, Diagram *diagram);
 
+		// Assembly database methods
+		void createAssemblyTables();
+		void populateAssemblyTable();
+		void populateAssemblyChildrenTable();
+		void populateAssemblyPropertiesTable();
+
 	private:
 		QPointer<QETProject> m_project;
 		QSqlDatabase m_data_base;
@@ -86,7 +101,15 @@ class projectDataBase : public QObject
 				  m_insert_diagram_info_query,
 				  m_update_diagram_info_query,
 				  m_diagram_order_changed,
-				  m_diagram_info_order_changed;
+				  m_diagram_info_order_changed,
+				  // Assembly queries
+				  m_insert_assembly_query,
+				  m_remove_assembly_query,
+				  m_update_assembly_query,
+				  m_insert_assembly_child_query,
+				  m_remove_assembly_child_query,
+				  m_insert_assembly_property_query,
+				  m_remove_assembly_property_query;
 
 #ifdef QET_EXPORT_PROJECT_DB
 	public:
