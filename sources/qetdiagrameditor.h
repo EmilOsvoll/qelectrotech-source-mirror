@@ -20,6 +20,7 @@
 
 #include "SearchAndReplace/ui/searchandreplacewidget.h"
 #include "qetmainwindow.h"
+#include "assembly/ui/assemblydockwidget.h"
 
 #include <QActionGroup>
 #include <QCloseEvent>
@@ -42,6 +43,7 @@ class RecentFiles;
 class DiagramPropertiesEditorDockWidget;
 class ElementsCollectionWidget;
 class AutoNumberingDockWidget;
+class AssemblyDockWidget;
 
 #ifdef BUILD_WITHOUT_KF5
 #else
@@ -85,6 +87,7 @@ class QETDiagramEditor : public QETMainWindow
 		void setUpUndoStack     ();
 		void setUpSelectionPropertiesEditor();
 		void setUpAutonumberingWidget();
+		void setUpAssemblyWidget();
 		void setUpActions       ();
 		void setUpToolBar       ();
 		void setUpMenu          ();
@@ -240,6 +243,7 @@ class QETDiagramEditor : public QETMainWindow
 		
 		QUndoGroup undo_group;
 		AutoNumberingDockWidget *m_autonumbering_dock;
+		AssemblyDockWidget *m_assembly_dock;
 		int activeSubWindowIndex;
 		bool m_first_show = true;
 		SearchAndReplaceWidget m_search_and_replace_widget;

@@ -106,6 +106,7 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 	setUpUndoStack();
 	setUpSelectionPropertiesEditor();
 	setUpAutonumberingWidget();
+	setUpAssemblyWidget();
 
 	setUpActions();
 	setUpToolBar();
@@ -254,6 +255,52 @@ void QETDiagramEditor::setUpAutonumberingWidget()
 				|QDockWidget::DockWidgetMovable
 				|QDockWidget::DockWidgetFloatable);
 	addDockWidget(Qt::RightDockWidgetArea, m_autonumbering_dock);
+}
+
+/**
+	@brief QETDiagramEditor::setUpAssemblyWidget
+	Setup the dock for Assembly Management
+*/
+void QETDiagramEditor::setUpAssemblyWidget()
+{
+	m_assembly_dock = new AssemblyDockWidget(nullptr, this);
+	m_assembly_dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+	m_assembly_dock->setFeatures(
+				QDockWidget::DockWidgetClosable
+				|QDockWidget::DockWidgetMovable
+				|QDockWidget::DockWidgetFloatable);
+	m_assembly_dock->setMinimumWidth(300);
+	addDockWidget(Qt::RightDockWidgetArea, m_assembly_dock);
+	
+	// Connect assembly dock signals
+	connect(m_assembly_dock, &AssemblyDockWidget::requestCreateAssembly, this, [this]() {
+		// TODO: Implement assembly creation dialog
+		QMessageBox::information(this, tr("Assembly Management", "dialog title"), tr("Assembly creation dialog will be implemented here", "placeholder message"));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestEditAssembly, this, [this](const QString &assembly_id) {
+		// TODO: Implement assembly editing dialog
+		QMessageBox::information(this, tr("Assembly Management", "dialog title"), 
+								 tr("Assembly editing dialog will be implemented here for: %1", "placeholder message").arg(assembly_id));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestDeleteAssembly, this, [this](const QString &assembly_id) {
+		// TODO: Implement assembly deletion confirmation
+		QMessageBox::information(this, tr("Assembly Management", "dialog title"), 
+								 tr("Assembly deletion confirmation will be implemented here for: %1", "placeholder message").arg(assembly_id));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestAddChildToAssembly, this, [this](const QString &assembly_id) {
+		// TODO: Implement child element addition
+		QMessageBox::information(this, tr("Assembly Management", "dialog title"), 
+								 tr("Child element addition will be implemented here for assembly: %1", "placeholder message").arg(assembly_id));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestRemoveChildFromAssembly, this, [this](const QString &assembly_id, const QString &child_uuid) {
+		// TODO: Implement child element removal
+		QMessageBox::information(this, tr("Assembly Management", "dialog title"), 
+								 tr("Child element removal will be implemented here for assembly: %1, child: %2", "placeholder message").arg(assembly_id).arg(child_uuid));
+	});
 }
 
 /**
