@@ -21,6 +21,7 @@
 #include "propertiesinterface.h"
 #include "../diagramcontext.h"
 #include "../NameList/nameslist.h"
+#include "../assembly/assemblyinfo.h"
 
 /**
  * @brief The ElementData class
@@ -129,6 +130,37 @@ class ElementData : public PropertiesInterface
 		static ElementData::TerminalFunction terminalFunctionFromString(const QString &string);
 		static QString translatedTerminalFunction(ElementData::TerminalFunction function);
 
+		// Assembly-related methods
+		void setAssemblyInfo(const QString& assembly_id, const QString& assembly_name, const QString& assembly_type);
+		void setAssemblyInfo(const AssemblyInfo& assembly_info);
+		AssemblyInfo getAssemblyInfo() const;
+		bool isAssembly() const;
+		bool isSubAssembly() const;
+		bool hasAssemblyInfo() const;
+		void clearAssemblyInfo();
+		
+		// Child element management
+		void addChildElement(const QString& element_ref);
+		void removeChildElement(const QString& element_ref);
+		bool hasChildElement(const QString& element_ref) const;
+		QStringList getChildElements() const;
+		int getChildElementCount() const;
+		
+		// Property inheritance
+		void setInheritedProperty(const QString& key, const QVariant& value);
+		QVariant getInheritedProperty(const QString& key) const;
+		bool hasInheritedProperty(const QString& key) const;
+		void removeInheritedProperty(const QString& key);
+		
+		void setOverriddenProperty(const QString& key, const QVariant& value);
+		QVariant getOverriddenProperty(const QString& key) const;
+		bool hasOverriddenProperty(const QString& key) const;
+		void removeOverriddenProperty(const QString& key);
+		
+		// Effective property resolution
+		QVariant getEffectiveProperty(const QString& key) const;
+		QMap<QString, QVariant> getAllEffectiveProperties() const;
+
 		// must be public, because this class is a private member
 		// of Element/ element editor and they must access this data
 		ElementData::Type       m_type = ElementData::Simple;
@@ -145,6 +177,9 @@ class ElementData : public PropertiesInterface
 		DiagramContext m_informations;
 		NamesList m_names_list;
 		QString m_drawing_information;
+		
+		// Assembly-related data members
+		AssemblyInfo m_assembly_info;
 
 	private:
 		ElementData::TerminalType m_override_terminal_type = ElementData::TTGeneric;

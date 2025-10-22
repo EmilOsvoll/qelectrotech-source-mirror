@@ -30,8 +30,15 @@ void ElementData::fromSettings(const QSettings &settings, const QString prefix) 
 }
 
 QDomElement ElementData::toXml(QDomDocument &xml_element) const {
-	Q_UNUSED(xml_element)
-	return QDomElement();
+	QDomElement element = xml_element.createElement(QStringLiteral("element_data"));
+	
+	// Add assembly information if present
+	if (hasAssemblyInfo()) {
+		QDomElement assembly_elem = m_assembly_info.toXml(xml_element);
+		element.appendChild(assembly_elem);
+	}
+	
+	return element;
 }
 
 /**
@@ -581,4 +588,132 @@ void ElementData::kindInfoFromXml(const QDomElement &xml_element)
 			}
 		}
 	}
+	
+	// Load assembly information if present
+	QDomElement assembly_elem = xml_element.firstChildElement(QStringLiteral("assembly_info"));
+	if (!assembly_elem.isNull()) {
+		m_assembly_info.fromXml(assembly_elem);
+	}
+}
+
+// Assembly-related methods implementation
+
+void ElementData::setAssemblyInfo(const QString& assembly_id, const QString& assembly_name, const QString& assembly_type)
+{
+	m_assembly_info.assembly_id = assembly_id;
+	m_assembly_info.assembly_name = assembly_name;
+	m_assembly_info.assembly_type = assembly_type;
+}
+
+void ElementData::setAssemblyInfo(const AssemblyInfo& assembly_info)
+{
+	m_assembly_info = assembly_info;
+}
+
+AssemblyInfo ElementData::getAssemblyInfo() const
+{
+	return m_assembly_info;
+}
+
+bool ElementData::isAssembly() const
+{
+	return !m_assembly_info.assembly_id.isEmpty() && 
+	       m_assembly_info.assembly_type == QStringLiteral("Assembly");
+}
+
+bool ElementData::isSubAssembly() const
+{
+	return !m_assembly_info.assembly_id.isEmpty() && 
+	       m_assembly_info.assembly_type == QStringLiteral("SubAssembly");
+}
+
+bool ElementData::hasAssemblyInfo() const
+{
+	return !m_assembly_info.assembly_id.isEmpty();
+}
+
+void ElementData::clearAssemblyInfo()
+{
+	m_assembly_info = AssemblyInfo();
+}
+
+// Child element management
+
+void ElementData::addChildElement(const QString& element_ref)
+{
+	m_assembly_info.addChildElement(element_ref);
+}
+
+void ElementData::removeChildElement(const QString& element_ref)
+{
+	m_assembly_info.removeChildElement(element_ref);
+}
+
+bool ElementData::hasChildElement(const QString& element_ref) const
+{
+	return m_assembly_info.hasChildElement(element_ref);
+}
+
+QStringList ElementData::getChildElements() const
+{
+	return m_assembly_info.child_elements;
+}
+
+int ElementData::getChildElementCount() const
+{
+	return m_assembly_info.getChildElementCount();
+}
+
+// Property inheritance
+
+void ElementData::setInheritedProperty(const QString& key, const QVariant& value)
+{
+	m_assembly_info.setInheritedProperty(key, value);
+}
+
+QVariant ElementData::getInheritedProperty(const QString& key) const
+{
+	return m_assembly_info.getInheritedProperty(key);
+}
+
+bool ElementData::hasInheritedProperty(const QString& key) const
+{
+	return m_assembly_info.hasInheritedProperty(key);
+}
+
+void ElementData::removeInheritedProperty(const QString& key)
+{
+	m_assembly_info.inherited_properties.remove(key);
+}
+
+void ElementData::setOverriddenProperty(const QString& key, const QVariant& value)
+{
+	m_assembly_info.setOverriddenProperty(key, value);
+}
+
+QVariant ElementData::getOverriddenProperty(const QString& key) const
+{
+	return m_assembly_info.getOverriddenProperty(key);
+}
+
+bool ElementData::hasOverriddenProperty(const QString& key) const
+{
+	return m_assembly_info.hasOverriddenProperty(key);
+}
+
+void ElementData::removeOverriddenProperty(const QString& key)
+{
+	m_assembly_info.overridden_properties.remove(key);
+}
+
+// Effective property resolution
+
+QVariant ElementData::getEffectiveProperty(const QString& key) const
+{
+	return m_assembly_info.getEffectiveProperty(key);
+}
+
+QMap<QString, QVariant> ElementData::getAllEffectiveProperties() const
+{
+	return m_assembly_info.getAllEffectiveProperties();
 }
