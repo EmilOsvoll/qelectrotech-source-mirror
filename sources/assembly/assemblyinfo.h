@@ -59,6 +59,11 @@ public:
     QString assembly_type;
     QString parent_assembly;
     QString description;
+    QString location;      // Physical location reference
+    QString responsible;  // Engineer responsible for design
+    QString revision;     // Assembly revision number
+    QString created_date; // Creation date
+    QString modified_date; // Last modification date
     
     // Child elements and properties
     QStringList child_elements;

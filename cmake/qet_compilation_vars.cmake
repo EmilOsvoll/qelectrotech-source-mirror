@@ -240,6 +240,14 @@ set(QET_SRC_FILES
   ${QET_DIR}/sources/dataBase/ui/elementquerywidget.h
   ${QET_DIR}/sources/dataBase/ui/summaryquerywidget.cpp
   ${QET_DIR}/sources/dataBase/ui/summaryquerywidget.h
+  ${QET_DIR}/sources/assembly/assemblyinfo.cpp
+  ${QET_DIR}/sources/assembly/assemblyinfo.h
+  ${QET_DIR}/sources/assembly/assemblymanager.cpp
+  ${QET_DIR}/sources/assembly/assemblymanager.h
+  ${QET_DIR}/sources/assembly/ui/assemblydockwidget.cpp
+  ${QET_DIR}/sources/assembly/ui/assemblydockwidget.h
+  ${QET_DIR}/sources/assembly/ui/assemblypropertydialog.cpp
+  ${QET_DIR}/sources/assembly/ui/assemblypropertydialog.h
 
   ${QET_DIR}/sources/diagramevent/diagrameventaddelement.cpp
   ${QET_DIR}/sources/diagramevent/diagrameventaddelement.h

@@ -134,6 +134,8 @@ target_include_directories(
   ${QET_DIR}/pugixml/src
   ${QET_DIR}/sources/dataBase
   ${QET_DIR}/sources/dataBase/ui
+  ${QET_DIR}/sources/assembly
+  ${QET_DIR}/sources/assembly/ui
   ${QET_DIR}/sources/factory/ui
   ${QET_DIR}/sources/print
   )

@@ -42,7 +42,7 @@ AssemblyManager::AssemblyManager(QETProject *project, QObject *parent) :
 {
 	// Get the project's database
 	if (m_project) {
-		m_database = m_project->projectDataBase();
+		m_database = m_project->dataBase();
 	}
 }
 

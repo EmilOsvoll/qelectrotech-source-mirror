@@ -23,6 +23,7 @@
 #include <QDomDocument>
 #include <QRegularExpression>
 #include <QUuid>
+#include <QDate>
 
 /**
  * @brief AssemblyInfo::AssemblyInfo
@@ -62,6 +63,21 @@ void AssemblyInfo::initializeDefaults()
     }
     if (assembly_type.isEmpty()) {
         assembly_type = QStringLiteral("Assembly");
+    }
+    if (location.isEmpty()) {
+        location = QStringLiteral("");
+    }
+    if (responsible.isEmpty()) {
+        responsible = QStringLiteral("");
+    }
+    if (revision.isEmpty()) {
+        revision = QStringLiteral("1.0");
+    }
+    if (created_date.isEmpty()) {
+        created_date = QDate::currentDate().toString(Qt::ISODate);
+    }
+    if (modified_date.isEmpty()) {
+        modified_date = QDate::currentDate().toString(Qt::ISODate);
     }
 }
 
@@ -336,6 +352,26 @@ QDomElement AssemblyInfo::toXml(QDomDocument& document) const
         assembly_elem.setAttribute(QStringLiteral("description"), description);
     }
     
+    if (!location.isEmpty()) {
+        assembly_elem.setAttribute(QStringLiteral("location"), location);
+    }
+    
+    if (!responsible.isEmpty()) {
+        assembly_elem.setAttribute(QStringLiteral("responsible"), responsible);
+    }
+    
+    if (!revision.isEmpty()) {
+        assembly_elem.setAttribute(QStringLiteral("revision"), revision);
+    }
+    
+    if (!created_date.isEmpty()) {
+        assembly_elem.setAttribute(QStringLiteral("created_date"), created_date);
+    }
+    
+    if (!modified_date.isEmpty()) {
+        assembly_elem.setAttribute(QStringLiteral("modified_date"), modified_date);
+    }
+    
     // Child elements
     if (!child_elements.isEmpty()) {
         QDomElement children_elem = document.createElement(QStringLiteral("child_elements"));
@@ -404,6 +440,11 @@ bool AssemblyInfo::fromXml(const QDomElement& element)
     assembly_type = element.attribute(QStringLiteral("assembly_type"));
     parent_assembly = element.attribute(QStringLiteral("parent_assembly"));
     description = element.attribute(QStringLiteral("description"));
+    location = element.attribute(QStringLiteral("location"));
+    responsible = element.attribute(QStringLiteral("responsible"));
+    revision = element.attribute(QStringLiteral("revision"));
+    created_date = element.attribute(QStringLiteral("created_date"));
+    modified_date = element.attribute(QStringLiteral("modified_date"));
     
     // Child elements
     child_elements.clear();

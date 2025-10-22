@@ -170,13 +170,13 @@ void AssemblyPropertyDialog::setupUI()
 	m_button_layout->addStretch();
 	
 	m_ok_button = new QPushButton(tr("OK", "dialog button"));
-	m_ok_button->setIcon(QET::Icons::Ok);
+	m_ok_button->setIcon(QET::Icons::DialogOk);
 	
 	m_cancel_button = new QPushButton(tr("Cancel", "dialog button"));
 	m_cancel_button->setIcon(QET::Icons::Cancel);
 	
 	m_apply_button = new QPushButton(tr("Apply", "dialog button"));
-	m_apply_button->setIcon(QET::Icons::Apply);
+	m_apply_button->setIcon(QET::Icons::DialogOk);
 	m_apply_button->setEnabled(false);
 	
 	m_button_layout->addWidget(m_ok_button);

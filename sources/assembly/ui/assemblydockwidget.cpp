@@ -167,12 +167,12 @@ void AssemblyDockWidget::setupToolbar()
 	m_create_button->setToolTip(tr("Create a new assembly", "tooltip"));
 	
 	m_edit_button = new QPushButton(tr("Edit", "assembly action"));
-	m_edit_button->setIcon(QET::Icons::Edit);
+	m_edit_button->setIcon(QET::Icons::ElementEdit);
 	m_edit_button->setToolTip(tr("Edit selected assembly", "tooltip"));
 	m_edit_button->setEnabled(false);
 	
 	m_delete_button = new QPushButton(tr("Delete", "assembly action"));
-	m_delete_button->setIcon(QET::Icons::Delete);
+	m_delete_button->setIcon(QET::Icons::EditDelete);
 	m_delete_button->setToolTip(tr("Delete selected assembly", "tooltip"));
 	m_delete_button->setEnabled(false);
 	
@@ -187,7 +187,7 @@ void AssemblyDockWidget::setupToolbar()
 	m_remove_child_button->setEnabled(false);
 	
 	m_refresh_button = new QPushButton(tr("Refresh", "assembly action"));
-	m_refresh_button->setIcon(QET::Icons::Refresh);
+	m_refresh_button->setIcon(QET::Icons::ViewRefresh);
 	m_refresh_button->setToolTip(tr("Refresh assembly tree", "tooltip"));
 	
 	// Add buttons to layout
@@ -256,13 +256,13 @@ void AssemblyDockWidget::setupContextMenu()
 	m_context_menu = new QMenu(this);
 	
 	m_create_action = m_context_menu->addAction(QET::Icons::Add, tr("Create Assembly", "context menu"));
-	m_edit_action = m_context_menu->addAction(QET::Icons::Edit, tr("Edit Assembly", "context menu"));
-	m_delete_action = m_context_menu->addAction(QET::Icons::Delete, tr("Delete Assembly", "context menu"));
+	m_edit_action = m_context_menu->addAction(QET::Icons::ElementEdit, tr("Edit Assembly", "context menu"));
+	m_delete_action = m_context_menu->addAction(QET::Icons::EditDelete, tr("Delete Assembly", "context menu"));
 	m_context_menu->addSeparator();
 	m_add_child_action = m_context_menu->addAction(QET::Icons::Add, tr("Add Child Element", "context menu"));
 	m_remove_child_action = m_context_menu->addAction(QET::Icons::Remove, tr("Remove Child Element", "context menu"));
 	m_context_menu->addSeparator();
-	m_refresh_action = m_context_menu->addAction(QET::Icons::Refresh, tr("Refresh", "context menu"));
+	m_refresh_action = m_context_menu->addAction(QET::Icons::ViewRefresh, tr("Refresh", "context menu"));
 }
 
 /**
