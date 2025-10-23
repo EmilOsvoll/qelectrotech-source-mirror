@@ -2234,7 +2234,7 @@ Nota: Estas opciones NO permiten o bloquean las Numeraciones automáticas, solo 
 <context>
     <name>CustomElementGraphicPart</name>
     <message>
-        <location filename="../sources/editor/graphicspart/customelementgraphicpart.cpp" line="1362"/>
+        <location filename="../sources/editor/graphicspart/customelementgraphicpart.cpp" line="1356"/>
         <source>Move a primitive</source>
         <translation>Mover una primitiva</translation>
     </message>
@@ -18599,7 +18599,7 @@ Los otros campos no se utilizan.</translation>
 <context>
     <name>StyleEditor</name>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="378"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="376"/>
         <source>Antialiasing</source>
         <translation>Antialiasing</translation>
     </message>
@@ -18871,422 +18871,446 @@ Los otros campos no se utilizan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="90"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="87"/>
         <source>Brown : Wheat</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="91"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="59"/>
+        <source>Pink : PaleVioletRed</source>
+        <comment>element part color</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="60"/>
+        <source>Pink : MediumVioletRed</source>
+        <comment>element part color</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="90"/>
         <source>Brown : Burlywood</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="92"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="91"/>
         <source>Brown : Tan</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="93"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="92"/>
         <source>Brown : RosyBrown</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="94"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="93"/>
         <source>Brown : SandyBrown</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="95"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="94"/>
         <source>Brown : Goldenrod</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="96"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="95"/>
         <source>Brown : DarkGoldenrod</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="97"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="96"/>
         <source>Brown : Peru</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="98"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="97"/>
         <source>Brown : Chocolate</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="99"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="98"/>
         <source>Brown : SaddleBrown</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="100"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="99"/>
         <source>Brown : Sienna</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="101"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="100"/>
         <source>Brown : Brown</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="102"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="101"/>
         <source>Brown : Maroon</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="103"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="102"/>
         <source>Green : DarkOliveGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="104"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="103"/>
         <source>Green : Olive</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="105"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="104"/>
         <source>Green : OliveDrab</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="106"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="105"/>
         <source>Green : YellowGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="107"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="106"/>
         <source>Green : LimeGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="108"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="107"/>
         <source>Green : Lime</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="109"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="108"/>
         <source>Green : LawnGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="110"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="109"/>
         <source>Green : Chartreuse</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="111"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="110"/>
         <source>Green : GreenYellow</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="112"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="111"/>
         <source>Green : SpringGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="113"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="112"/>
         <source>Green : MediumSpringGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="114"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="113"/>
         <source>Green : LightGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="115"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="114"/>
         <source>Green : PaleGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="116"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="115"/>
         <source>Green : DarkSeaGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="117"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="116"/>
         <source>Green : MediumAquamarine</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="118"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="117"/>
         <source>Green : MediumSeaGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="119"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="118"/>
         <source>Green : SeaGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="120"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="119"/>
         <source>Green : ForestGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="121"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="120"/>
         <source>Green : Green</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="122"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="121"/>
         <source>Green : DarkGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="123"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="122"/>
         <source>Cyan : Aqua</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="124"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="123"/>
         <source>Cyan : Cyan</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="125"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="124"/>
         <source>Cyan : LightCyan</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="126"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="125"/>
         <source>Cyan : PaleTurquoise</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="127"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="126"/>
         <source>Cyan : Aquamarine</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="128"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="127"/>
         <source>Cyan : Turquoise</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="129"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="128"/>
         <source>Cyan : MediumTurquoise</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="130"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="129"/>
         <source>Cyan : DarkTurquoise</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="131"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="130"/>
         <source>Cyan : LightSeaGreen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="132"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="131"/>
         <source>Cyan : CadetBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="133"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="132"/>
         <source>Cyan : DarkCyan</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="134"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="133"/>
         <source>Cyan : Teal</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="135"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="134"/>
         <source>Blue : LightSteelBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="136"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="135"/>
         <source>Blue : PowderBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="137"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="136"/>
         <source>Blue : LightBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="138"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="137"/>
         <source>Blue : SkyBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="139"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="138"/>
         <source>Blue : LightSkyBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="141"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="140"/>
         <source>Blue : DodgerBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="142"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="141"/>
         <source>Blue : CornflowerBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="143"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="142"/>
         <source>Blue : SteelBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="144"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="143"/>
         <source>Blue : RoyalBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="145"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="144"/>
         <source>Blue : Blue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="146"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="145"/>
         <source>Blue : MediumBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="147"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="146"/>
         <source>Blue : DarkBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="148"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="147"/>
         <source>Blue : Navy</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="149"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="148"/>
         <source>Blue : MidnightBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="150"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="149"/>
         <source>Purple : Lavender</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="151"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="150"/>
         <source>Purple : Thistle</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="152"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="151"/>
         <source>Purple : Plum</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="154"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="153"/>
         <source>Purple : Orchid</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="155"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="154"/>
         <source>Purple : Fuchsia</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="156"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="155"/>
         <source>Purple : Magenta</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="157"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="156"/>
         <source>Purple : MediumOrchid</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="158"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="157"/>
         <source>Purple : MediumPurple</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="161"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="158"/>
+        <source>Purple : BlueViolet</source>
+        <comment>element part color</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="159"/>
+        <source>Purple : DarkViolet</source>
+        <comment>element part color</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="160"/>
         <source>Purple : DarkOrchid</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="162"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="161"/>
         <source>Purple : DarkMagenta</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="153"/>
-        <location filename="../sources/editor/styleeditor.cpp" line="163"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="152"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="162"/>
         <source>Purple : Purple</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
@@ -19304,247 +19328,217 @@ Los otros campos no se utilizan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="59"/>
-        <source>Pink : PalePurpleRed</source>
-        <comment>element part color</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="60"/>
-        <source>Pink : MediumPurpleRed</source>
-        <comment>element part color</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="87"/>
-        <source>Brown : WhitehedAlmond</source>
-        <comment>element part color</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="140"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="139"/>
         <source>Blue : ToepSkyBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="159"/>
-        <source>Purple : BluePurple</source>
-        <comment>element part color</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="160"/>
-        <source>Purple : DarkPurple</source>
-        <comment>element part color</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="164"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="163"/>
         <source>Purple : Indigo</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="165"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="164"/>
         <source>Purple : DarkSlateBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="166"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="165"/>
         <source>Purple : SlateBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="167"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="166"/>
         <source>Purple : MediumSlateBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="168"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="167"/>
         <source>White : White</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="169"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="168"/>
         <source>White : Snow</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="170"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="169"/>
         <source>White : Honeydew</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="171"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="170"/>
         <source>White : MintCream</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="172"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="171"/>
         <source>White : Azure</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="173"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="172"/>
         <source>White : AliceBlue</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="174"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="173"/>
         <source>White : GhostWhite</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="175"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="174"/>
         <source>White : WhiteSmoke</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="176"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="175"/>
         <source>White : Seashell</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="177"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="176"/>
         <source>White : Beige</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="178"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="177"/>
         <source>White : OldLace</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="179"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="178"/>
         <source>White : FloralWhite</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="180"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="179"/>
         <source>White : Ivory</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="181"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="180"/>
         <source>White : AntiqueWhite</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="182"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="181"/>
         <source>White : Linen</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="183"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="182"/>
         <source>White : LavenderBlush</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="184"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="183"/>
         <source>White : MistyRose</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="185"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="184"/>
         <source>Gray : Gainsboro</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="186"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="185"/>
         <source>Gray : LightGray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="187"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="186"/>
         <source>Gray : Silver</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="188"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="187"/>
         <source>Gray : DarkGray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="189"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="188"/>
         <source>Gray : Gray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="190"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="189"/>
         <source>Gray : DimGray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="191"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="190"/>
         <source>Gray : LightSlateGray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="192"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="191"/>
         <source>Gray : SlateGray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="193"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="192"/>
         <source>Gray : DarkSlateGray</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="194"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="193"/>
         <source>Gray : Black</source>
         <comment>element part color</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="196"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="195"/>
         <source>None</source>
         <comment>element part color</comment>
         <translation>Ninguno</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="200"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="199"/>
         <source>Normal</source>
         <comment>element part line style</comment>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="201"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="200"/>
         <source>Dashed</source>
         <comment>element part line style</comment>
         <translation>Raya</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="202"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="201"/>
         <source>Dotted</source>
         <comment>element part line style</comment>
         <translation>Línea de puntos</translation>
@@ -19555,114 +19549,114 @@ Los otros campos no se utilizan.</translation>
         <translation type="vanished">Líneas y puntos</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="208"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="207"/>
         <source>None</source>
         <comment>element part weight</comment>
         <translation>Ninguna</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="209"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="208"/>
         <source>Thin</source>
         <comment>element part weight</comment>
         <translation>Delgada</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="210"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="209"/>
         <source>Normal</source>
         <comment>element part weight</comment>
         <translation>Normalizar</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="211"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="210"/>
         <source>Strong</source>
         <comment>element part weight</comment>
         <translation>Fuerte</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="212"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="211"/>
         <source>High</source>
         <comment>element part weight</comment>
         <translation>Alto</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="216"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="215"/>
         <source>None</source>
         <comment>element part filling</comment>
         <translation>Ninguno</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="217"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="216"/>
         <source>Black</source>
         <comment>element part filling</comment>
         <translation>Negro</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="218"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="217"/>
         <source>White</source>
         <comment>element part filling</comment>
         <translation>Blanco</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="219"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="218"/>
         <source>Green</source>
         <comment>element part filling</comment>
         <translation>Verde</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="220"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="219"/>
         <source>Red</source>
         <comment>element part filling</comment>
         <translation>Rojo</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="221"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="220"/>
         <source>Blue</source>
         <comment>element part filling</comment>
         <translation>Azul</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="222"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="221"/>
         <source>Gray</source>
         <comment>element part filling</comment>
         <translation>Gris</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="223"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="222"/>
         <source>Brown</source>
         <comment>element part filling</comment>
         <translation>Marrón</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="224"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="223"/>
         <source>Yellow</source>
         <comment>element part filling</comment>
         <translation>Amarillo</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="225"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="224"/>
         <source>Cyan</source>
         <comment>element part filling</comment>
         <translation>Cyan</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="226"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="225"/>
         <source>Magenta</source>
         <comment>element part filling</comment>
         <translation>Magenta</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="373"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="371"/>
         <source>Lignes Greenicales</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="385"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="383"/>
         <source>Appearance :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="427"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="425"/>
         <source>style line</source>
         <translation type="unfinished"></translation>
     </message>
@@ -19672,866 +19666,860 @@ Los otros campos no se utilizan.</translation>
         <translation type="vanished">Gris claro</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="228"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="227"/>
         <source>Orange</source>
         <comment>element part filling</comment>
         <translation>Naranja</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="229"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="228"/>
         <source>Purple</source>
         <comment>element part filling</comment>
         <translation>Violeta</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="231"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="230"/>
         <source>Pink: Pink</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="232"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="231"/>
         <source>Pink : LightPink</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="233"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="232"/>
         <source>Pink : HotPink</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="237"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="236"/>
         <source>Red : LightSalmon</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="238"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="237"/>
         <source>Red : Salmon</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="239"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="238"/>
         <source>Red : DarkSalmon</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="240"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="239"/>
         <source>Red : LightCoral</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="241"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="240"/>
         <source>Red : IndianRed</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="242"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="241"/>
         <source>Red : Crimson</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="243"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="242"/>
         <source>Red : Firebrick</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="244"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="243"/>
         <source>Red : DarkRed</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="245"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="244"/>
         <source>Red : Red</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="246"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="245"/>
         <source>Orange : OrangeRed</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="247"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="246"/>
         <source>Orange : Tomato</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="248"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="247"/>
         <source>Orange : Coral</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="249"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="248"/>
         <source>Orange : DarkOrange</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="250"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="249"/>
         <source>Orange : Orange</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="251"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="250"/>
         <source>Yellow : Yellow</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="252"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="251"/>
         <source>Yellow : LightYellow</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="253"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="252"/>
         <source>Yellow : LemonChiffon</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="254"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="253"/>
         <source>Yellow : LightGoldenrodYellow</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="255"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="254"/>
         <source>Yellow : PapayaWhip</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="256"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="255"/>
         <source>Yellow : Moccasin</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="257"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="256"/>
         <source>Yellow : PeachPuff</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="258"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="257"/>
         <source>Yellow : PaleGoldenrod</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="259"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="258"/>
         <source>Yellow : Khaki</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="260"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="259"/>
         <source>Yellow : DarkKhaki</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="261"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="260"/>
         <source>Yellow : Gold</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="262"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="261"/>
         <source>Brown : Cornsilk</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="264"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="263"/>
         <source>Brown : Bisque</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="265"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="264"/>
         <source>Brown : NavajoWhite</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="266"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="262"/>
         <source>Brown : Wheat</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="267"/>
-        <source>Brown : Burlywood</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="268"/>
-        <source>Brown : Tan</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="269"/>
-        <source>Brown : RosyBrown</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="270"/>
-        <source>Brown : SandyBrown</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="271"/>
-        <source>Brown : Goldenrod</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="272"/>
-        <source>Brown : DarkGoldenrod</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="273"/>
-        <source>Brown : Peru</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="274"/>
-        <source>Brown : Chocolate</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="275"/>
-        <source>Brown : SaddleBrown</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="276"/>
-        <source>Brown : Sienna</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="277"/>
-        <source>Brown : Brown</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="278"/>
-        <source>Brown : Maroon</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="279"/>
-        <source>Green : DarkOliveGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="280"/>
-        <source>Green : Olive</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="281"/>
-        <source>Green : OliveDrab</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="282"/>
-        <source>Green : YellowGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="283"/>
-        <source>Green : LimeGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="284"/>
-        <source>Green : Lime</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="285"/>
-        <source>Green : LawnGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="286"/>
-        <source>Green : Chartreuse</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="287"/>
-        <source>Green : GreenYellow</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="288"/>
-        <source>Green : SpringGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="289"/>
-        <source>Green : MediumSpringGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="290"/>
-        <source>Green : LightGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="291"/>
-        <source>Green : PaleGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="292"/>
-        <source>Green : DarkSeaGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="293"/>
-        <source>Green : MediumAquamarine</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="294"/>
-        <source>Green : MediumSeaGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="295"/>
-        <source>Green : SeaGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="296"/>
-        <source>Green : ForestGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="297"/>
-        <source>Green : Green</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="298"/>
-        <source>Green : DarkGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="299"/>
-        <source>Cyan : Aqua</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="300"/>
-        <source>Cyan : Cyan</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="301"/>
-        <source>Cyan : LightCyan</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="302"/>
-        <source>Cyan : PaleTurquoise</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="303"/>
-        <source>Cyan : Aquamarine</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="304"/>
-        <source>Cyan : Turquoise</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="305"/>
-        <source>Cyan : MediumTurquoise</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="306"/>
-        <source>Cyan : DarkTurquoise</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="307"/>
-        <source>Cyan : LightSeaGreen</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="308"/>
-        <source>Cyan : CadetBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="309"/>
-        <source>Cyan : DarkCyan</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="310"/>
-        <source>Cyan : Teal</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="311"/>
-        <source>Blue : LightSteelBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="312"/>
-        <source>Blue : PowderBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="313"/>
-        <source>Blue : LightBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="314"/>
-        <source>Blue : SkyBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="315"/>
-        <source>Blue : LightSkyBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="317"/>
-        <source>Blue : DodgerBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="318"/>
-        <source>Blue : CornflowerBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="319"/>
-        <source>Blue : SteelBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="320"/>
-        <source>Blue : RoyalBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="321"/>
-        <source>Blue : Blue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="322"/>
-        <source>Blue : MediumBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="323"/>
-        <source>Blue : DarkBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="324"/>
-        <source>Blue : Navy</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="325"/>
-        <source>Blue : MidnightBlue</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="326"/>
-        <source>Purple : Lavender</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="327"/>
-        <source>Purple : Thistle</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="328"/>
-        <source>Purple : Plum</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="330"/>
-        <source>Purple : Orchid</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="331"/>
-        <source>Purple : Fuchsia</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="332"/>
-        <source>Purple : Magenta</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="333"/>
-        <source>Purple : MediumOrchid</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="334"/>
-        <source>Purple : MediumPurple</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="337"/>
-        <source>Purple : DarkOrchid</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="338"/>
-        <source>Purple : DarkMagenta</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="329"/>
-        <location filename="../sources/editor/styleeditor.cpp" line="339"/>
-        <source>Purple : Purple</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="203"/>
-        <source>Dots &amp;&amp; dashes</source>
-        <comment>element part line style</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="227"/>
-        <source>Gray clair</source>
-        <comment>element part filling</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/editor/styleeditor.cpp" line="234"/>
-        <source>Pink : ToepPink</source>
+        <source>Pink : PaleVioletRed</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/editor/styleeditor.cpp" line="235"/>
-        <source>Pink : PalePurpleRed</source>
+        <source>Pink : MediumVioletRed</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="236"/>
-        <source>Pink : MediumPurpleRed</source>
+        <location filename="../sources/editor/styleeditor.cpp" line="265"/>
+        <source>Brown : Burlywood</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="263"/>
-        <source>Brown : WhitehedAlmond</source>
+        <location filename="../sources/editor/styleeditor.cpp" line="266"/>
+        <source>Brown : Tan</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="267"/>
+        <source>Brown : RosyBrown</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="268"/>
+        <source>Brown : SandyBrown</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="269"/>
+        <source>Brown : Goldenrod</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="270"/>
+        <source>Brown : DarkGoldenrod</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="271"/>
+        <source>Brown : Peru</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="272"/>
+        <source>Brown : Chocolate</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="273"/>
+        <source>Brown : SaddleBrown</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="274"/>
+        <source>Brown : Sienna</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="275"/>
+        <source>Brown : Brown</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="276"/>
+        <source>Brown : Maroon</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="277"/>
+        <source>Green : DarkOliveGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="278"/>
+        <source>Green : Olive</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="279"/>
+        <source>Green : OliveDrab</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="280"/>
+        <source>Green : YellowGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="281"/>
+        <source>Green : LimeGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="282"/>
+        <source>Green : Lime</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="283"/>
+        <source>Green : LawnGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="284"/>
+        <source>Green : Chartreuse</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="285"/>
+        <source>Green : GreenYellow</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="286"/>
+        <source>Green : SpringGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="287"/>
+        <source>Green : MediumSpringGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="288"/>
+        <source>Green : LightGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="289"/>
+        <source>Green : PaleGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="290"/>
+        <source>Green : DarkSeaGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="291"/>
+        <source>Green : MediumAquamarine</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="292"/>
+        <source>Green : MediumSeaGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="293"/>
+        <source>Green : SeaGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="294"/>
+        <source>Green : ForestGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="295"/>
+        <source>Green : Green</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="296"/>
+        <source>Green : DarkGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="297"/>
+        <source>Cyan : Aqua</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="298"/>
+        <source>Cyan : Cyan</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="299"/>
+        <source>Cyan : LightCyan</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="300"/>
+        <source>Cyan : PaleTurquoise</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="301"/>
+        <source>Cyan : Aquamarine</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="302"/>
+        <source>Cyan : Turquoise</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="303"/>
+        <source>Cyan : MediumTurquoise</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="304"/>
+        <source>Cyan : DarkTurquoise</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="305"/>
+        <source>Cyan : LightSeaGreen</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="306"/>
+        <source>Cyan : CadetBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="307"/>
+        <source>Cyan : DarkCyan</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="308"/>
+        <source>Cyan : Teal</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="309"/>
+        <source>Blue : LightSteelBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="310"/>
+        <source>Blue : PowderBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="311"/>
+        <source>Blue : LightBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="312"/>
+        <source>Blue : SkyBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="313"/>
+        <source>Blue : LightSkyBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="315"/>
+        <source>Blue : DodgerBlue</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/editor/styleeditor.cpp" line="316"/>
-        <source>Blue : ToepSkyBlue</source>
+        <source>Blue : CornflowerBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="317"/>
+        <source>Blue : SteelBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="318"/>
+        <source>Blue : RoyalBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="319"/>
+        <source>Blue : Blue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="320"/>
+        <source>Blue : MediumBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="321"/>
+        <source>Blue : DarkBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="322"/>
+        <source>Blue : Navy</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="323"/>
+        <source>Blue : MidnightBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="324"/>
+        <source>Purple : Lavender</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="325"/>
+        <source>Purple : Thistle</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="326"/>
+        <source>Purple : Plum</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="328"/>
+        <source>Purple : Orchid</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="329"/>
+        <source>Purple : Fuchsia</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="330"/>
+        <source>Purple : Magenta</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="331"/>
+        <source>Purple : MediumOrchid</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="332"/>
+        <source>Purple : MediumPurple</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="333"/>
+        <source>Purple : BlueViolet</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="334"/>
+        <source>Purple : DarkViolet</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/editor/styleeditor.cpp" line="335"/>
-        <source>Purple : BluePurple</source>
+        <source>Purple : DarkOrchid</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/editor/styleeditor.cpp" line="336"/>
-        <source>Purple : DarkPurple</source>
+        <source>Purple : DarkMagenta</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="340"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="327"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="337"/>
+        <source>Purple : Purple</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="202"/>
+        <source>Dots &amp;&amp; dashes</source>
+        <comment>element part line style</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="226"/>
+        <source>Gray clair</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="233"/>
+        <source>Pink : ToepPink</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="314"/>
+        <source>Blue : ToepSkyBlue</source>
+        <comment>element part filling</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="338"/>
         <source>Purple : Indigo</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="341"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="339"/>
         <source>Purple : DarkSlateBlue</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="342"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="340"/>
         <source>Purple : SlateBlue</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="343"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="341"/>
         <source>Purple : MediumSlateBlue</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="344"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="342"/>
         <source>White : White</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="345"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="343"/>
         <source>White : Snow</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="346"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="344"/>
         <source>White : Honeydew</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="347"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="345"/>
         <source>White : MintCream</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="348"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="346"/>
         <source>White : Azure</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="349"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="347"/>
         <source>White : AliceBlue</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="350"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="348"/>
         <source>White : GhostWhite</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="351"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="349"/>
         <source>White : WhiteSmoke</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="352"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="350"/>
         <source>White : Seashell</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="353"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="351"/>
         <source>White : Beige</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="354"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="352"/>
         <source>White : OldLace</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="355"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="353"/>
         <source>White : FloralWhite</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="356"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="354"/>
         <source>White : Ivory</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="357"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="355"/>
         <source>White : AntiqueWhite</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="358"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="356"/>
         <source>White : Linen</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="359"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="357"/>
         <source>White : LavenderBlush</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="360"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="358"/>
         <source>White : MistyRose</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="361"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="359"/>
         <source>Gray : Gainsboro</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="362"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="360"/>
         <source>Gray : LightGray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="363"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="361"/>
         <source>Gray : Silver</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="364"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="362"/>
         <source>Gray : DarkGray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="365"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="363"/>
         <source>Gray : Gray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="366"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="364"/>
         <source>Gray : DimGray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="367"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="365"/>
         <source>Gray : LightSlateGray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="368"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="366"/>
         <source>Gray : SlateGray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="369"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="367"/>
         <source>Gray : DarkSlateGray</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="370"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="368"/>
         <source>Gray : Black</source>
         <comment>element part filling</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="372"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="370"/>
         <source>Horizontal lines</source>
         <comment>element part filling</comment>
         <translation>Líneas horizontales</translation>
@@ -20542,13 +20530,13 @@ Los otros campos no se utilizan.</translation>
         <translation type="vanished">Líneas verticales</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="374"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="372"/>
         <source>Hatch left</source>
         <comment>element part filling</comment>
         <translation>Líneas diagonales \</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="375"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="373"/>
         <source>Hatch right</source>
         <comment>element part filling</comment>
         <translation>Líneas diagonales /</translation>
@@ -20558,37 +20546,37 @@ Los otros campos no se utilizan.</translation>
         <translation type="vanished">Apariencia :</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="390"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="388"/>
         <source>outline:</source>
         <translation>Contorno :</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="392"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="390"/>
         <source>Filling :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="394"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="392"/>
         <source>Style:</source>
         <translation type="unfinished">Estilo:</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="396"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="394"/>
         <source>Thickness :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="403"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="401"/>
         <source>geometry:</source>
         <translation>Geometría :</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="415"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="413"/>
         <source>antialiasing style</source>
         <translation>estilo antialiasing</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="421"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="419"/>
         <source>color style</source>
         <translation>estilo color</translation>
     </message>
@@ -20597,12 +20585,12 @@ Los otros campos no se utilizan.</translation>
         <translation type="vanished">estilo línea</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="433"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="431"/>
         <source>weight style</source>
         <translation>estilo grosor</translation>
     </message>
     <message>
-        <location filename="../sources/editor/styleeditor.cpp" line="439"/>
+        <location filename="../sources/editor/styleeditor.cpp" line="437"/>
         <source>filling style</source>
         <translation>estilo relleno</translation>
     </message>

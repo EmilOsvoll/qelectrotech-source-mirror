@@ -16,7 +16,7 @@
 		along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "diaLogwaiting.h"
+#include "dialogwaiting.h"
 #include "ui_diaLogwaiting.h"
 #include <QPushButton>
 

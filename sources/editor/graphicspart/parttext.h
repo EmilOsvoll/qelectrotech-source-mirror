@@ -23,7 +23,7 @@
 #include <QtWidgets>
 
 class TextEditor;
-class ElementPrimitiveTocorator;
+class ElementPrimitiveDecorator;
 /**
 	This class represents an static text primitive which may be used to compose
 	the drawing of an electrical element within the element editor.

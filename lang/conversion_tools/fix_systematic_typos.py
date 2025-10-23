@@ -317,28 +317,48 @@ def fix_typos_in_file(file_path):
             (r"\bLogoType\b", "LogoType"),
             (r"\bLogo_name_\b", "Logo_name_"),
             (r"\bLogo_type_\b", "Logo_type_"),
-            (r"\bon_m_Log_comboBox_currentTextChanged\b", "on_m_Log_comboBox_currentTextChanged"),
+            (
+                r"\bon_m_Log_comboBox_currentTextChanged\b",
+                "on_m_Log_comboBox_currentTextChanged",
+            ),
             (r"\bsetTotal\b", "setTotal"),
             (r"\bgetBom\b", "getBom"),
             (r"\bui\b", "ui"),
-            # Color name typos (Color prefix)
-            (r"\bColorHTMLPurpleBluePurple\b", "ColorHTMLPurpleBluePurple"),
-            (r"\bColorHTMLPurpleDarkPurple\b", "ColorHTMLPurpleDarkPurple"),
-            (r"\bColorHTMLPinkToepPink\b", "ColorHTMLPinkDeepPink"),
-            (r"\bColorHTMLPinkPalePurpleRed\b", "ColorHTMLPinkPalePurpleRed"),
-            (r"\bColorHTMLPinkMediumPurpleRed\b", "ColorHTMLPinkMediumPurpleRed"),
-            (r"\bColorHTMLBrownWhitehedAlmond\b", "ColorHTMLBrownWheatAlmond"),
-            (r"\bColorHTMLBlueToepSkyBlue\b", "ColorHTMLBlueDeepSkyBlue"),
+            # Color name typos (Color prefix) - these should be removed as they don't exist
+            (r"\bColorHTMLPurpleBluePurple\b", "QET::Icons::ColorHTMLPurpleBluePurple"),
+            (r"\bColorHTMLPurpleDarkPurple\b", "QET::Icons::ColorHTMLPurpleDarkPurple"),
+            (r"\bColorHTMLPinkToepPink\b", "QET::Icons::ColorHTMLPinkDeepPink"),
+            (
+                r"\bColorHTMLPinkPalePurpleRed\b",
+                "QET::Icons::ColorHTMLPinkPalePurpleRed",
+            ),
+            (
+                r"\bColorHTMLPinkMediumPurpleRed\b",
+                "QET::Icons::ColorHTMLPinkMediumPurpleRed",
+            ),
+            (
+                r"\bColorHTMLBrownWhitehedAlmond\b",
+                "QET::Icons::ColorHTMLBrownWheatAlmond",
+            ),
+            (r"\bColorHTMLBlueToepSkyBlue\b", "QET::Icons::ColorHTMLBlueDeepSkyBlue"),
             # Additional variable name typos
             (r"\bLogo_box_\b", "logo_box_"),
             (r"\bLogos_label_\b", "logos_label_"),
             (r"\bLogos_view_\b", "logos_view_"),
             (r"\bLogo_name_\b", "logo_name_"),
             (r"\bLogo_type_\b", "logo_type_"),
+            (r"\bLogo_input_\b", "logo_input_"),
+            # Class name typos
+            (r"\bElementPrimitiveTocorator\b", "ElementPrimitiveDecorator"),
             # Method name typos
             (r"\bsetTotal\b", "setTotal"),
             # Variable name typos
             (r"\bangle\b", "angle"),
+            # UI file include typos
+            (r"\baboutqetdiaLog\.h\b", "aboutqetdialog.h"),
+            (r"\bdiaLogwaiting\.h\b", "dialogwaiting.h"),
+            # Signal/slot typos
+            (r"\bLogosChanged\b", "logosChanged"),
         ]
 
         # Apply replacements
@@ -346,7 +366,11 @@ def fix_typos_in_file(file_path):
             content = re.sub(pattern, replacement, content)
 
         # Handle && replacement only for non-UI files and non-C++ files
-        if not file_path.endswith(".ui") and not file_path.endswith(".cpp") and not file_path.endswith(".h"):
+        if (
+            not file_path.endswith(".ui")
+            and not file_path.endswith(".cpp")
+            and not file_path.endswith(".h")
+        ):
             content = re.sub(r"\band\b", "&&", content)
 
         # Only write if content changed

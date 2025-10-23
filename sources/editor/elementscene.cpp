@@ -597,7 +597,7 @@ QRectF ElementScene::elementSceneGeometricRect() const
 {
 	QRectF esgr;
 	foreach (QGraphicsItem *qgi, items()) {
-		if (qgi->type() == ElementPrimitiveTocorator::Type) continue;
+		if (qgi->type() == ElementPrimitiveDecorator::Type) continue;
 		if (qgi->type() == QGraphicsRectItem::Type) continue;
 		if (qgi->type() == PartText::Type) continue;
 		if (qgi->type() == PartDynamicTextField::Type) continue;
@@ -1012,7 +1012,7 @@ QList<QGraphicsItem *> ElementScene::zItems(ItemOptions options) const
 		i.next();
 		QGraphicsItem *qgi = i.value();
 		if (
-			qgi -> type() == ElementPrimitiveTocorator::Type ||
+			qgi -> type() == ElementPrimitiveDecorator::Type ||
 			qgi -> type() == QGraphicsRectItem::Type ||
 			qgi->type() == QetGraphicsHandlerItem::Type
 		) {
@@ -1125,7 +1125,7 @@ QRectF ElementScene::elementContentBoundingRect(
 	QRectF bounding_rect;
 	foreach(QGraphicsItem *qgi, content) {
 		// skip non-primitives QGraphicsItems (paste area, selection decorator)
-		if (qgi -> type() == ElementPrimitiveTocorator::Type) continue;
+		if (qgi -> type() == ElementPrimitiveDecorator::Type) continue;
 		if (qgi -> type() == QGraphicsRectItem::Type) continue;
 		bounding_rect |= qgi -> sceneBoundingRect();
 	}
@@ -1258,7 +1258,7 @@ ElementContent ElementScene::addContentAtPos(
 /**
 	@brief ElementScene::addPrimitive
 	Add a primitive to the scene by wrapping it within an
-	ElementPrimitiveTocorator group.
+	ElementPrimitiveDecorator group.
 	@param primitive
 */
 void ElementScene::addPrimitive(QGraphicsItem *primitive)
@@ -1329,7 +1329,7 @@ void ElementScene::centerElementToOrigin()
 	int offsetX = qRound(size.center().x()) * (-1);
 	int offsetY = qRound(size.center().y()) * (-1);
 	foreach (QGraphicsItem *qgi, items()) {
-		if (qgi -> type() == ElementPrimitiveTocorator::Type) continue;
+		if (qgi -> type() == ElementPrimitiveDecorator::Type) continue;
 		if (qgi -> type() == QGraphicsRectItem::Type) continue;
 		// deselect item to disable decorator
 		qgi -> setSelected(false);
@@ -1351,7 +1351,7 @@ void ElementScene::managePrimitivesGroups()
 
 	if (!m_decorator)
 	{
-		m_decorator = new ElementPrimitiveTocorator();
+		m_decorator = new ElementPrimitiveDecorator();
 		connect(m_decorator,
 			SIGNAL(actionFinished(ElementEditionCommand*)),
 			this, SLOT(stackAction(ElementEditionCommand *)));

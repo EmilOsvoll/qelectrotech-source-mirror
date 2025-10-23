@@ -30,7 +30,7 @@
 #include "titleblock/qettemplateeditor.h"
 #include "ui/borderpropertieswidget.h"
 #include "ui/conductorpropertieswidget.h"
-#include "ui/diaLogwaiting.h"
+#include "ui/dialogwaiting.h"
 #include "ui/projectpropertiesdiaLog.h"
 #include "ui/titleblockpropertieswidget.h"
 

@@ -592,7 +592,7 @@ void QETTitleBlockTemplateEditor::initLogoManager()
 	Logo_manager_ -> setReadOnly(read_only_);
 	connect(
 		Logo_manager_,
-		SIGNAL(LogosChanged(const TitleBlockTemplate *)),
+		SIGNAL(logosChanged(const TitleBlockTemplate *)),
 		template_cell_editor_widget_,
 		SLOT(updateLogosComboBox(const TitleBlockTemplate *))
 	);

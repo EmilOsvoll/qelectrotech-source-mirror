@@ -37,7 +37,7 @@
 #include "recentfiles.h"
 #include "ui/bomexportdiaLog.h"
 #include "ui/diagrampropertieseditordockwidget.h"
-#include "ui/diaLogwaiting.h"
+#include "ui/dialogwaiting.h"
 #include "undocommand/addelementtextcommand.h"
 #include "undocommand/rotateselectioncommand.h"
 #include "undocommand/rotatetextscommand.h"

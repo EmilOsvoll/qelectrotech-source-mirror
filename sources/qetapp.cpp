@@ -33,7 +33,7 @@
 #include "titleblock/qettemplateeditor.h"
 #include "titleblock/templatescollection.h"
 #include "titleblocktemplate.h"
-#include "ui/aboutqetdiaLog.h"
+#include "ui/aboutqetdialog.h"
 #include "ui/configpage/generalconfigurationpage.h"
 #include "machine_info.h"
 #include "TerminalStrip/ui/terminalstripeditorwindow.h"

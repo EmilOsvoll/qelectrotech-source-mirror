@@ -70,8 +70,8 @@ void TitleBlockTemplateCellWidget::initWidgets()
 	
 	// widgets specific to Logo cells
 	Logo_label_ = new QLabel(tr("Logo"));
-	Logo_input_ = new QComboBox();
-	Logo_input_ -> addItem(tr("None Logo"));
+	logo_input_ = new QComboBox();
+	logo_input_ -> addItem(tr("None Logo"));
 	add_Logo_input_ = new QPushButton(QET::Icons::InsertImage, tr("Gérer les Logos"));
 	
 	// widgets specific to text cells
@@ -134,7 +134,7 @@ void TitleBlockTemplateCellWidget::initWidgets()
 	cell_editor_text_layout_ -> addWidget(font_size_input_,    4, 1);
 	cell_editor_text_layout_ -> addWidget(font_adjust_input_,  4, 2, 1, 2, Qt::AlignLeft);
 	cell_editor_text_layout_ -> addWidget(Logo_label_,         5, 0);
-	cell_editor_text_layout_ -> addWidget(Logo_input_,         5, 1);
+	cell_editor_text_layout_ -> addWidget(logo_input_,         5, 1);
 	cell_editor_text_layout_ -> addWidget(add_Logo_input_,     5, 2);
 	cell_editor_text_layout_ -> addWidget(empty_label_,        6, 0);
 	cell_editor_text_layout_ -> setColumnStretch(4, 4000);
@@ -158,7 +158,7 @@ void TitleBlockTemplateCellWidget::initWidgets()
 	connect(vert_align_input_,  SIGNAL(activated(int)),           this, SLOT(editAlignment()));
 	connect(font_size_input_,   SIGNAL(valueChanged(int)),        this, SLOT(editFontSize()));
 	connect(font_adjust_input_, SIGNAL(clicked(bool)),            this, SLOT(editAdjust()));
-	connect(Logo_input_,        SIGNAL(activated(int)),           this, SLOT(editLogo()));
+	connect(logo_input_,        SIGNAL(activated(int)),           this, SLOT(editLogo()));
 	
 	updateFormType(TitleBlockCell::TextCell);
 }
@@ -177,7 +177,7 @@ void TitleBlockTemplateCellWidget::updateFormType(int cell_type) {
 	empty_label_       -> setVisible(cell_type == TitleBlockCell::EmptyCell);
 	
 	Logo_label_        -> setVisible(cell_type == TitleBlockCell::LogoCell);
-	Logo_input_        -> setVisible(cell_type == TitleBlockCell::LogoCell);
+	logo_input_        -> setVisible(cell_type == TitleBlockCell::LogoCell);
 	add_Logo_input_    -> setVisible(cell_type == TitleBlockCell::LogoCell);
 	
 	label_checkbox_    -> setVisible(cell_type == TitleBlockCell::TextCell);
@@ -221,7 +221,7 @@ void TitleBlockTemplateCellWidget::edit(TitleBlockCell *cell) {
 	font_size_input_   -> setValue(TitleBlockTemplate::fontForCell(*cell).pointSize());
 	font_size_input_   -> blockSignals(false);
 	
-	Logo_input_        -> setCurrentIndex(Logo_input_ -> findData(cell -> Logo_reference));
+	logo_input_        -> setCurrentIndex(logo_input_ -> findData(cell -> Logo_reference));
 }
 
 /**
@@ -306,7 +306,7 @@ void TitleBlockTemplateCellWidget::editAdjust()
 */
 void TitleBlockTemplateCellWidget::editLogo()
 {
-	emitModification("Logo", Logo_input_ -> currentText());
+	emitModification("Logo", logo_input_ -> currentText());
 }
 
 /**
@@ -315,23 +315,23 @@ void TitleBlockTemplateCellWidget::editLogo()
 */
 void TitleBlockTemplateCellWidget::updateLogosComboBox(const TitleBlockTemplate *parent_template) {
 	// saves the current value before erasing all entries
-	QVariant current_value = Logo_input_ -> itemData(Logo_input_ -> currentIndex());
-	Logo_input_ -> clear();
+	QVariant current_value = logo_input_ -> itemData(logo_input_ -> currentIndex());
+	logo_input_ -> clear();
 	
 	// default choice (the parent template may have no Logo yet)
-	Logo_input_ -> addItem(
+	logo_input_ -> addItem(
 		tr("None Logo", "text displayed in the combo box when a template has no Logo"),
 		QVariant(QString(""))
 	);
-	Logo_input_ -> setCurrentIndex(0);
+	logo_input_ -> setCurrentIndex(0);
 	
 	if (!parent_template) return;
 	foreach (QString Logo, parent_template -> Logos()) {
-		Logo_input_ -> addItem(Logo, QVariant(Logo));
+		logo_input_ -> addItem(Logo, QVariant(Logo));
 	}
-	int current_value_index = Logo_input_ -> findData(current_value);
+	int current_value_index = logo_input_ -> findData(current_value);
 	if (current_value_index != -1) {
-		Logo_input_ -> setCurrentIndex(current_value_index);
+		logo_input_ -> setCurrentIndex(current_value_index);
 	}
 }
 
@@ -343,7 +343,7 @@ void TitleBlockTemplateCellWidget::setReadOnly(bool read_only) {
 	read_only_ = read_only;
 	
 	cell_type_input_ -> setEnabled(!read_only_);
-	Logo_input_ -> setEnabled(!read_only_);
+	logo_input_ -> setEnabled(!read_only_);
 	name_input_ -> setReadOnly(read_only_);
 	label_checkbox_ -> setEnabled(!read_only_);
 	label_edit_ -> setEnabled(!read_only_);

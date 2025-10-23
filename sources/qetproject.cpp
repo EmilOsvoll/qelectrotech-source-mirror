@@ -29,7 +29,7 @@
 #include "titleblock/integrationmovetemplateshandler.h"
 #include "titleblock/movetemplateshandler.h"
 #include "titleblocktemplate.h"
-#include "ui/diaLogwaiting.h"
+#include "ui/dialogwaiting.h"
 #include "ui/importelementdiaLog.h"
 #include "TerminalStrip/terminalstrip.h"
 #include "qetxml.h"

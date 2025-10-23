@@ -65,11 +65,11 @@ bool TitleBlockTemplateLogoManager::isReadOnly() const
 }
 
 /**
-	Emit the LogosChanged() signal.
+	Emit the logosChanged() signal.
 */
 void TitleBlockTemplateLogoManager::emitLogosChangedSignal()
 {
-	emit(LogosChanged(const_cast<const TitleBlockTemplate *>(managed_template_)));
+	emit(logosChanged(const_cast<const TitleBlockTemplate *>(managed_template_)));
 }
 
 /**
