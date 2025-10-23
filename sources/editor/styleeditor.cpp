@@ -55,7 +55,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	outline_color -> addItem(QET::Icons::ColorHTMLPinkPink, tr("Pink: Pink", "element part color"), CustomElementGraphicPart::HTMLPinkPinkColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLPinkLightPink, tr("Pink : LightPink", "element part color"), CustomElementGraphicPart::HTMLPinkLightPinkColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLPinkHotPink, tr("Pink : HotPink", "element part color"), CustomElementGraphicPart::HTMLPinkHotPinkColor);
-	outline_color -> addItem(QET::Icons::ColorHTMLPinkToepPink, tr("Pink : ToepPink", "element part color"), CustomElementGraphicPart::HTMLPinkToepPinkColor);
+	outline_color -> addItem(QET::Icons::ColorHTMLPinkDeepPink, tr("Pink : ToepPink", "element part color"), CustomElementGraphicPart::HTMLPinkDeepPinkColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLPinkPalePurpleRed, tr("Pink : PalePurpleRed", "element part color"), CustomElementGraphicPart::HTMLPinkPalePurpleRedColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLPinkMediumPurpleRed, tr("Pink : MediumPurpleRed", "element part color"), CustomElementGraphicPart::HTMLPinkMediumPurpleRedColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLRedLightSalmon, tr("Red : LightSalmon", "element part color"), CustomElementGraphicPart::HTMLRedLightSalmonColor);
@@ -84,7 +84,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	outline_color -> addItem(QET::Icons::ColorHTMLYellowDarkKhaki, tr("Yellow : DarkKhaki", "element part color"), CustomElementGraphicPart::HTMLYellowDarkKhakiColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLYellowGold, tr("Yellow : Gold", "element part color"), CustomElementGraphicPart::HTMLYellowGoldColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBrownCornsilk, tr("Brown : Cornsilk", "element part color"), CustomElementGraphicPart::HTMLBrownCornsilkColor);
-	outline_color -> addItem(QET::Icons::ColorHTMLBrownWhitehedAlmond, tr("Brown : WhitehedAlmond", "element part color"), CustomElementGraphicPart::HTMLBrownWhitehedAlmondColor);
+	outline_color -> addItem(QET::Icons::ColorHTMLBrownWheatAlmond, tr("Brown : WhitehedAlmond", "element part color"), CustomElementGraphicPart::HTMLBrownWheatAlmondColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBrownBisque, tr("Brown : Bisque", "element part color"), CustomElementGraphicPart::HTMLBrownBisqueColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBrownNavajoWhite, tr("Brown : NavajoWhite", "element part color"), CustomElementGraphicPart::HTMLBrownNavajoWhiteColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBrownWheat, tr("Brown : Wheat", "element part color"), CustomElementGraphicPart::HTMLBrownWheatColor);
@@ -137,7 +137,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	outline_color -> addItem(QET::Icons::ColorHTMLBlueLightBlue, tr("Blue : LightBlue", "element part color"), CustomElementGraphicPart::HTMLBlueLightBlueColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBlueSkyBlue, tr("Blue : SkyBlue", "element part color"), CustomElementGraphicPart::HTMLBlueSkyBlueColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBlueLightSkyBlue, tr("Blue : LightSkyBlue", "element part color"), CustomElementGraphicPart::HTMLBlueLightSkyBlueColor);
-	outline_color -> addItem(QET::Icons::ColorHTMLBlueToepSkyBlue, tr("Blue : ToepSkyBlue", "element part color"), CustomElementGraphicPart::HTMLBlueToepSkyBlueColor);
+	outline_color -> addItem(QET::Icons::ColorHTMLBlueDeepSkyBlue, tr("Blue : ToepSkyBlue", "element part color"), CustomElementGraphicPart::HTMLBlueDeepSkyBlueColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBlueDodgerBlue, tr("Blue : DodgerBlue", "element part color"), CustomElementGraphicPart::HTMLBlueDodgerBlueColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBlueCornflowerBlue, tr("Blue : CornflowerBlue", "element part color"), CustomElementGraphicPart::HTMLBlueCornflowerBlueColor);
 	outline_color -> addItem(QET::Icons::ColorHTMLBlueSteelBlue, tr("Blue : SteelBlue", "element part color"), CustomElementGraphicPart::HTMLBlueSteelBlueColor);
@@ -231,7 +231,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	filling_color -> addItem(QET::Icons::ColorHTMLPinkPink, tr("Pink: Pink", "element part filling"), CustomElementGraphicPart::HTMLPinkPinkFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLPinkLightPink, tr("Pink : LightPink", "element part filling"), CustomElementGraphicPart::HTMLPinkLightPinkFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLPinkHotPink, tr("Pink : HotPink", "element part filling"), CustomElementGraphicPart::HTMLPinkHotPinkFilling);
-	filling_color -> addItem(QET::Icons::ColorHTMLPinkToepPink, tr("Pink : ToepPink", "element part filling"), CustomElementGraphicPart::HTMLPinkToepPinkFilling);
+	filling_color -> addItem(QET::Icons::ColorHTMLPinkDeepPink, tr("Pink : ToepPink", "element part filling"), CustomElementGraphicPart::HTMLPinkDeepPinkFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLPinkPalePurpleRed, tr("Pink : PalePurpleRed", "element part filling"), CustomElementGraphicPart::HTMLPinkPalePurpleRedFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLPinkMediumPurpleRed, tr("Pink : MediumPurpleRed", "element part filling"), CustomElementGraphicPart::HTMLPinkMediumPurpleRedFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLRedLightSalmon, tr("Red : LightSalmon", "element part filling"), CustomElementGraphicPart::HTMLRedLightSalmonFilling);
@@ -260,7 +260,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	filling_color -> addItem(QET::Icons::ColorHTMLYellowDarkKhaki, tr("Yellow : DarkKhaki", "element part filling"), CustomElementGraphicPart::HTMLYellowDarkKhakiFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLYellowGold, tr("Yellow : Gold", "element part filling"), CustomElementGraphicPart::HTMLYellowGoldFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBrownCornsilk, tr("Brown : Cornsilk", "element part filling"), CustomElementGraphicPart::HTMLBrownCornsilkFilling);
-	filling_color -> addItem(QET::Icons::ColorHTMLBrownWhitehedAlmond, tr("Brown : WhitehedAlmond", "element part filling"), CustomElementGraphicPart::HTMLBrownWhitehedAlmondFilling);
+	filling_color -> addItem(QET::Icons::ColorHTMLBrownWheatAlmond, tr("Brown : WhitehedAlmond", "element part filling"), CustomElementGraphicPart::HTMLBrownWheatAlmondFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBrownBisque, tr("Brown : Bisque", "element part filling"), CustomElementGraphicPart::HTMLBrownBisqueFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBrownNavajoWhite, tr("Brown : NavajoWhite", "element part filling"), CustomElementGraphicPart::HTMLBrownNavajoWhiteFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBrownWheat, tr("Brown : Wheat", "element part filling"), CustomElementGraphicPart::HTMLBrownWheatFilling);
@@ -313,7 +313,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	filling_color -> addItem(QET::Icons::ColorHTMLBlueLightBlue, tr("Blue : LightBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueLightBlueFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBlueSkyBlue, tr("Blue : SkyBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueSkyBlueFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBlueLightSkyBlue, tr("Blue : LightSkyBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueLightSkyBlueFilling);
-	filling_color -> addItem(QET::Icons::ColorHTMLBlueToepSkyBlue, tr("Blue : ToepSkyBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueToepSkyBlueFilling);
+	filling_color -> addItem(QET::Icons::ColorHTMLBlueDeepSkyBlue, tr("Blue : ToepSkyBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueDeepSkyBlueFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBlueDodgerBlue, tr("Blue : DodgerBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueDodgerBlueFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBlueCornflowerBlue, tr("Blue : CornflowerBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueCornflowerBlueFilling);
 	filling_color -> addItem(QET::Icons::ColorHTMLBlueSteelBlue, tr("Blue : SteelBlue", "element part filling"), CustomElementGraphicPart::HTMLBlueSteelBlueFilling);

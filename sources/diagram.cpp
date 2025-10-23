@@ -1856,7 +1856,7 @@ void Diagram::loadFolioSeqHash(QHash<QString,
 	Change the Z value of the current selected item, according to option
 	@param option
 */
-void Diagram::changeZValue(QET::TopthOption option)
+void Diagram::changeZValue(QET::DepthOption option)
 {
 	DiagramContent dc(this);
 	QUndoCommand *undo = new QUndoCommand(tr("Change the depth"));

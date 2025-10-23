@@ -49,7 +49,7 @@ QString TitleBlockTemplateLogoManager::currentLogo() const
 {
 	if (!managed_template_) return QString();
 
-	QListWidgetItem *current_item = Logos_view_ -> currentItem();
+	QListWidgetItem *current_item = logos_view_ -> currentItem();
 	if (!current_item) return QString();
 
 	return(current_item -> text());
@@ -82,28 +82,28 @@ void TitleBlockTemplateLogoManager::initWidgets()
 	setWindowTitle(tr("Gestionnaire de Logos"));
 	setWindowIcon(QET::Icons::InsertImage);
 	setWindowFlags(Qt::Dialog);
-	Logos_label_ = new QLabel(tr("Logos embedded within this template:"));
-	Logos_view_ = new QListWidget();
-	Logos_view_ -> setViewMode(QListView::IconMode);
-	Logos_view_ -> setGridSize(iconsize() * 1.4);
-	Logos_view_ -> setMinimumSize(iconsize() * 2.9);
-	Logos_view_ -> setIconSize(iconsize());
-	Logos_view_ -> setWrapping(true);
-	Logos_view_ -> setMovement(QListView::Static);
-	Logos_view_ -> setResizeMode(QListView::Adjust);
+	logos_label_ = new QLabel(tr("Logos embedded within this template:"));
+	logos_view_ = new QListWidget();
+	logos_view_ -> setViewMode(QListView::IconMode);
+	logos_view_ -> setGridSize(iconsize() * 1.4);
+	logos_view_ -> setMinimumSize(iconsize() * 2.9);
+	logos_view_ -> setIconSize(iconsize());
+	logos_view_ -> setWrapping(true);
+	logos_view_ -> setMovement(QListView::Static);
+	logos_view_ -> setResizeMode(QListView::Adjust);
 	add_button_ = new QPushButton(QET::Icons::Add, tr("Add un Logo"));
 	export_button_ = new QPushButton(QET::Icons::DocumentExport, tr("Export ce Logo"));
 	delete_button_ = new QPushButton(QET::Icons::Remove, tr("Delete ce Logo"));
-	Logo_box_ = new QGroupBox(tr("Propertys"));
+	logo_box_ = new QGroupBox(tr("Propertys"));
 	Logo_name_label_ = new QLabel(tr("Name :"));
-	Logo_name_ = new QLineEdit();
+	logo_name_ = new QLineEdit();
 	rename_button_ = new QPushButton(QET::Icons::EditRename, tr("Renamemer"));
-	Logo_type_ = new QLabel(tr("Type:"));
+	logo_type_ = new QLabel(tr("Type:"));
 	buttons_ = new QDialogButtonBox(QDialogButtonBox::Ok);
 
 	hlayout1_ = new QHBoxLayout();
 	hlayout1_ -> addWidget(Logo_name_label_);
-	hlayout1_ -> addWidget(Logo_name_);
+	hlayout1_ -> addWidget(logo_name_);
 	hlayout1_ -> addWidget(rename_button_);
 
 	hlayout0_ = new QHBoxLayout();
@@ -112,19 +112,19 @@ void TitleBlockTemplateLogoManager::initWidgets()
 
 	vlayout1_ = new QVBoxLayout();
 	vlayout1_ -> addLayout(hlayout1_);
-	vlayout1_ -> addWidget(Logo_type_);
-	Logo_box_ -> setLayout(vlayout1_);
+	vlayout1_ -> addWidget(logo_type_);
+	logo_box_ -> setLayout(vlayout1_);
 
 	vlayout0_ = new QVBoxLayout();
-	vlayout0_ -> addWidget(Logos_label_);
-	vlayout0_ -> addWidget(Logos_view_);
+	vlayout0_ -> addWidget(logos_label_);
+	vlayout0_ -> addWidget(logos_view_);
 	vlayout0_ -> addWidget(add_button_);
 	vlayout0_ -> addLayout(hlayout0_);
-	vlayout0_ -> addWidget(Logo_box_);
+	vlayout0_ -> addWidget(logo_box_);
 	setLayout(vlayout0_);
 
 	connect(
-		Logos_view_,
+		logos_view_,
 		SIGNAL(currentItemChanged(QListWidgetItem *, QListWidgetItem *)),
 		this,
 		SLOT(updateLogoInformations(QListWidgetItem *, QListWidgetItem *))
@@ -141,7 +141,7 @@ void TitleBlockTemplateLogoManager::initWidgets()
 void TitleBlockTemplateLogoManager::fillView()
 {
 	if (!managed_template_) return;
-	Logos_view_ -> clear();
+	logos_view_ -> clear();
 
 	foreach (QString Logo_name, managed_template_ -> Logos()) {
 		QIcon current_icon;
@@ -162,10 +162,10 @@ void TitleBlockTemplateLogoManager::fillView()
 		}
 		QListWidgetItem *qlwi = new QListWidgetItem(current_icon, Logo_name);
 		qlwi -> setTextAlignment(Qt::AlignBottom | Qt::AlignHCenter);
-		Logos_view_ -> insertItem(0, qlwi);
+		logos_view_ -> insertItem(0, qlwi);
 	}
 
-	QListWidgetItem *current_item = Logos_view_ -> currentItem();
+	QListWidgetItem *current_item = logos_view_ -> currentItem();
 	updateLogoInformations(current_item, nullptr);
 }
 
@@ -256,14 +256,14 @@ void TitleBlockTemplateLogoManager::updateLogoInformations(QListWidgetItem *curr
 	Q_UNUSED(previous);
 	if (current) {
 		QString Logo_name = current -> text();
-		Logo_name_ -> setText(Logo_name);
+		logo_name_ -> setText(Logo_name);
 		if (managed_template_) {
 			QString Logo_type = managed_template_ -> LogoType(Logo_name);
-			Logo_type_ -> setText(tr("Type: %1% {1?}").arg(Logo_type));
+			logo_type_ -> setText(tr("Type: %1% {1?}").arg(Logo_type));
 		}
 	} else {
-		Logo_name_ -> setText(QString());
-		Logo_type_ -> setText(tr("Type:"));
+		logo_name_ -> setText(QString());
+		logo_type_ -> setText(tr("Type:"));
 	}
 }
 
@@ -347,7 +347,7 @@ void TitleBlockTemplateLogoManager::renameLogo()
 	QString current_Logo = currentLogo();
 	if (current_Logo.isNull()) return;
 
-	QString entered_name = Logo_name_ -> text();
+	QString entered_name = logo_name_ -> text();
 	QString warning_title = tr("Renamemer un Logo");
 	if (entered_name == current_Logo) {
 		QMessageBox::warning(
@@ -393,5 +393,5 @@ void TitleBlockTemplateLogoManager::setReadOnly(bool read_only) {
 	add_button_ -> setEnabled(!read_only_);
 	delete_button_ -> setEnabled(!read_only_);
 	rename_button_ -> setEnabled(!read_only_);
-	Logo_name_ -> setReadOnly(read_only_);
+	logo_name_ -> setReadOnly(read_only_);
 }

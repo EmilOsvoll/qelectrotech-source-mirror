@@ -149,9 +149,9 @@ void ElementsCollectionWidget::setUpAction()
 				 tr("Open the underlying directory"), this);
 	m_edit_element = new QAction(QET::Icons::ElementEdit,
 					 tr("Edit l'élément"), this);
-	m_delete_element = new QAction(QET::Icons::ElementTolete,
+	m_delete_element = new QAction(QET::Icons::ElementDelete,
 					   tr("Delete element"), this);
-	m_delete_dir = new QAction(QET::Icons::FolderTolete,
+	m_delete_dir = new QAction(QET::Icons::FolderDelete,
 				   tr("Delete folder"), this);
 	m_reload = new QAction(QET::Icons::ViewRefresh,
 				   tr("Reload collections"), this);
@@ -191,10 +191,10 @@ void ElementsCollectionWidget::setUpWidget()
 	m_tree_view->setIconSize(QSize(50, 50));
 	m_tree_view->setDragDropMode(QAbstractItemView::DragDrop);
 	m_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
-	m_tree_view->setAutoExpandTolay(500);
+	m_tree_view->setAutoExpandDelay(500);
 	m_tree_view->setAnimated(true);
 	m_tree_view->setMouseTracking(true);
-	m_tree_view->setGreenicalScrollMode(QAbstractItemView::ScrollPerPixel);
+	m_tree_view->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 	m_main_vlayout->addWidget(m_tree_view);
 
 	//Setup the progress bar

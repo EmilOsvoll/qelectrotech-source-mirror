@@ -32,9 +32,9 @@
 #	endif
 #endif
 #include <QMarginsF>
-#include <QPageSetupDiaLog>
+#include <QPageSetupDialog>
 #include <QPainter>
-#include <QPrintDiaLog>
+#include <QPrintDialog>
 #include <QPrintPreviewWidget>
 #include <QScreen>
 
@@ -45,7 +45,7 @@
  * @param format : native format to print in physical printer, or pdf format to export in pdf
  * @param parent : parent widget
  */
-void ProjectPrintWindow::launchDiaLog(QETProject *project, QPrinter::OutputFormat format, QWidget *parent)
+void ProjectPrintWindow::launchDialog(QETProject *project, QPrinter::OutputFormat format, QWidget *parent)
 {
 	auto printer_ = new QPrinter();
 	QPrinter printer(QPrinter::HighResolution);
@@ -61,20 +61,20 @@ void ProjectPrintWindow::launchDiaLog(QETProject *project, QPrinter::OutputForma
 
 	if (format == QPrinter::NativeFormat) //To physical printer
 	{
-		QPrintDiaLog print_diaLog(printer_, parent);
+		QPrintDialog print_dialog(printer_, parent);
 #ifdef Q_OS_MACOS
-		print_diaLog.setWindowFlags(Qt::Sheet);
+		print_dialog.setWindowFlags(Qt::Sheet);
 #endif
-		print_diaLog.setWindowTitle(tr("Print options", "window title"));
+		print_dialog.setWindowTitle(tr("Print options", "window title"));
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)	// ### Qt 6: remove
-		print_diaLog.setEnabledOptions(QAbstractPrintDiaLog::PrintShowPageSize);
+		print_dialog.setEnabledOptions(QAbstractPrintDialog::PrintShowPageSize);
 #else
 #if TODO_LIST
 #pragma message("@TODO remove code for QT 6 or later")
 #endif
 		qDebug()<<"Help code for QT 6 or later";
 #endif
-		if (print_diaLog.exec() == QDialog::Rejected) {
+		if (print_dialog.exec() == QDialog::Rejected) {
 			delete  printer_;
 			return;
 		}
@@ -114,7 +114,7 @@ QString ProjectPrintWindow::docName(QETProject *project)
 
 /**
  * @brief ProjectPrintWindow::ProjectPrintWindow
- * Constructor, don't use this class directly, instead use ProjectPrintWindow::launchDiaLog static function.
+ * Constructor, don't use this class directly, instead use ProjectPrintWindow::launchDialog static function.
  * @param project
  * @param printer : QPrinter to use. Note that ProjectPrintWindow take ownerchip of @printer
  * @param parent
@@ -160,7 +160,7 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 
 #ifdef Q_OS_WINDOWS
 	/*
-	 * On windows, the QPageSetupDiaLog use the native diaLog.
+	 * On windows, the QPageSetupDialog use the native diaLog.
 	 * This diaLog can only manage physical printer ("native printer")
 	 */
 	if (m_printer->outputFormat() == QPrinter::PdfFormat)
@@ -344,7 +344,7 @@ QRect ProjectPrintWindow::diagramRect(Diagram *diagram, const ExportProperties &
 		//Adjust the border of diagram to 1px (width of the line)
 	diagram_rect.adjust(0,0,1,1);
 
-	return (diagram_rect.toAlinedRect());
+	return (diagram_rect.toAlignedRect());
 }
 
 /**
@@ -748,7 +748,7 @@ void ProjectPrintWindow::on_m_display_all_page_action_triggered() {
 
 void ProjectPrintWindow::on_m_page_setup_triggered()
 {
-	QPageSetupDiaLog d(m_printer, this);
+	QPageSetupDialog d(m_printer, this);
 	if (d.exec() == QDialog::Accepted) {
 		m_preview->updatePreview();
 	}

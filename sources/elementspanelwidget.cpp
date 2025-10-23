@@ -71,7 +71,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Delete this template"),              this);
 
 
-	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Tolete));
+	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Delete));
 	prj_move_diagram_up -> setShortcut(QKeySequence(Qt::Key_F3));
 	prj_move_diagram_down -> setShortcut(QKeySequence(Qt::Key_F4));
 	prj_move_diagram_top -> setShortcut(QKeySequence(Qt::Key_F5));
@@ -466,7 +466,7 @@ void ElementsPanelWidget::filterEdited(const QString &next_text) {
 */
 void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
 	switch(e -> key()) {
-				case Qt::Key_Tolete: //delete diagram through elements panel widget
+				case Qt::Key_Delete: //delete diagram through elements panel widget
 					if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
 						emit(requestForDiagramToletion(selected_diagram));
 					}

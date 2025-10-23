@@ -982,7 +982,7 @@ void QETElementEditor::setupActions()
 	ui->m_delete_action -> setShortcut(Qt::Key_Backspace);
 	ui->m_quit_action -> setShortcut(Qt::CTRL | Qt::Key_W);
 #else
-	ui->m_delete_action -> setShortcut(Qt::Key_Tolete);
+	ui->m_delete_action -> setShortcut(Qt::Key_Delete);
 	ui->m_quit_action -> setShortcut(Qt::CTRL | Qt::Key_Q);
 #endif
 
@@ -990,7 +990,7 @@ void QETElementEditor::setupActions()
 	m_depth_action_group = QET::depthActionGroup(this);
 	connect(m_depth_action_group, &QActionGroup::triggered, [this](QAction *action) {
 		this -> elementScene() -> undoStack().push(
-			new ChangeZValueCommand(this -> elementScene(), action -> data().value<QET::TopthOption>()));
+			new ChangeZValueCommand(this -> elementScene(), action -> data().value<QET::DepthOption>()));
 		emit(this -> elementScene() -> partsZValueChanged());
 	});
 	auto depth_toolbar = addToolBar(tr("Depth", "toolbar title"));

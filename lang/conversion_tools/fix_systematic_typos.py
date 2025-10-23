@@ -263,10 +263,81 @@ def fix_typos_in_file(file_path):
             (r"\bsetTotal\b", "setTotal"),
             (r"\bgetBom\b", "getBom"),
             (r"\bHTMLPurpleDarkPurpleColor\b", "HTMLPurpleDarkPurpleColor"),
+            (r"\bHTMLPinkToepPinkColor\b", "HTMLPinkDeepPinkColor"),
+            (r"\bHTMLPinkToepPink\b", "HTMLPinkDeepPink"),
+            (r"\bHTMLBlueToepSkyBlueColor\b", "HTMLBlueDeepSkyBlueColor"),
+            (r"\bHTMLBlueToepSkyBlueFilling\b", "HTMLBlueDeepSkyBlueFilling"),
+            (r"\bHTMLPurpleBluePurpleColor\b", "HTMLPurpleBluePurpleColor"),
+            (r"\bHTMLPurpleBluePurpleFilling\b", "HTMLPurpleBluePurpleFilling"),
+            (r"\bHTMLPurpleDarkPurpleFilling\b", "HTMLPurpleDarkPurpleFilling"),
+            (r"\bHTMLPinkPalePurpleRedColor\b", "HTMLPinkPalePurpleRedColor"),
+            (r"\bHTMLPinkMediumPurpleRedColor\b", "HTMLPinkMediumPurpleRedColor"),
+            (r"\bHTMLPinkPalePurpleRedFilling\b", "HTMLPinkPalePurpleRedFilling"),
+            (r"\bHTMLPinkMediumPurpleRedFilling\b", "HTMLPinkMediumPurpleRedFilling"),
+            (r"\bHTMLBrownWhitehedAlmondColor\b", "HTMLBrownWheatAlmondColor"),
+            (r"\bHTMLBrownWhitehedAlmondFilling\b", "HTMLBrownWheatAlmondFilling"),
+            (r"\bHTMLPinkToepPinkFilling\b", "HTMLPinkDeepPinkFilling"),
             (r"\bdrawable_rect\b", "drawable_rect"),
             (r"\bnew_size\b", "new_size"),
             (r"\bm_help_text\b", "m_help_text"),
             (r"\bui\b", "ui"),
+            (r"\bangle\b", "angle"),
+            # Qt key typos
+            (r"\bKey_Tolete\b", "Key_Delete"),
+            # Class name typos
+            (r"\bQPrintDiaLog\b", "QPrintDialog"),
+            (r"\bQPageSetupDiaLog\b", "QPageSetupDialog"),
+            (r"\bQAbstractPrintDiaLog\b", "QAbstractPrintDialog"),
+            # Method name typos
+            (r"\bsetAutoExpandTolay\b", "setAutoExpandDelay"),
+            (r"\bsetGreenicalScrollMode\b", "setVerticalScrollMode"),
+            (r"\btoAlinedRect\b", "toAlignedRect"),
+            (r"\bLogicalDotsPerInch\b", "LogicalDotsPerInch"),
+            # Enum value typos
+            (r"\bPlayOn\b", "PlayOn"),
+            (r"\bPlayOff\b", "PlayOff"),
+            # Icon name typos
+            (r"\bElementTolete\b", "ElementDelete"),
+            (r"\bFolderTolete\b", "FolderDelete"),
+            # Option name typos
+            (r"\bTopthOption\b", "DepthOption"),
+            (r"\bPrintShowPageSize\b", "PrintShowPageSize"),
+            # Command name typos
+            (r"\bRotateThinElementsCommand\b", "RotateThinElementsCommand"),
+            # Method name typos
+            (r"\blaunchDiaLog\b", "launchDialog"),
+            (r"\bprint_diaLog\b", "print_dialog"),
+            # Variable name typos
+            (r"\bcurrentPlant\b", "currentPlant"),
+            (r"\bm_current_strip\b", "m_current_strip"),
+            (r"\bLocation\b", "Location"),
+            (r"\bPlant\b", "Plant"),
+            (r"\bLogos_view_\b", "Logos_view_"),
+            (r"\bLogos\b", "Logos"),
+            (r"\bLogoType\b", "LogoType"),
+            (r"\bLogo_name_\b", "Logo_name_"),
+            (r"\bLogo_type_\b", "Logo_type_"),
+            (r"\bon_m_Log_comboBox_currentTextChanged\b", "on_m_Log_comboBox_currentTextChanged"),
+            (r"\bsetTotal\b", "setTotal"),
+            (r"\bgetBom\b", "getBom"),
+            (r"\bui\b", "ui"),
+            # Color name typos (Color prefix)
+            (r"\bColorHTMLPurpleBluePurple\b", "ColorHTMLPurpleBluePurple"),
+            (r"\bColorHTMLPurpleDarkPurple\b", "ColorHTMLPurpleDarkPurple"),
+            (r"\bColorHTMLPinkToepPink\b", "ColorHTMLPinkDeepPink"),
+            (r"\bColorHTMLPinkPalePurpleRed\b", "ColorHTMLPinkPalePurpleRed"),
+            (r"\bColorHTMLPinkMediumPurpleRed\b", "ColorHTMLPinkMediumPurpleRed"),
+            (r"\bColorHTMLBrownWhitehedAlmond\b", "ColorHTMLBrownWheatAlmond"),
+            (r"\bColorHTMLBlueToepSkyBlue\b", "ColorHTMLBlueDeepSkyBlue"),
+            # Additional variable name typos
+            (r"\bLogo_box_\b", "logo_box_"),
+            (r"\bLogos_label_\b", "logos_label_"),
+            (r"\bLogos_view_\b", "logos_view_"),
+            (r"\bLogo_name_\b", "logo_name_"),
+            (r"\bLogo_type_\b", "logo_type_"),
+            # Method name typos
+            (r"\bsetTotal\b", "setTotal"),
+            # Variable name typos
             (r"\bangle\b", "angle"),
         ]
 
@@ -274,8 +345,8 @@ def fix_typos_in_file(file_path):
         for pattern, replacement in replacements:
             content = re.sub(pattern, replacement, content)
 
-        # Handle && replacement only for non-UI files
-        if not file_path.endswith(".ui"):
+        # Handle && replacement only for non-UI files and non-C++ files
+        if not file_path.endswith(".ui") and not file_path.endswith(".cpp") and not file_path.endswith(".h"):
             content = re.sub(r"\band\b", "&&", content)
 
         # Only write if content changed

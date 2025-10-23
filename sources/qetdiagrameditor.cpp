@@ -327,7 +327,7 @@ void QETDiagramEditor::setUpActions()
 	connect(m_print, &QAction::triggered, [this]() {
 		auto project = currentProject();
 		if (project) {
-			ProjectPrintWindow::launchDiaLog(project, QPrinter::NativeFormat ,this);
+			ProjectPrintWindow::launchDialog(project, QPrinter::NativeFormat ,this);
 		}
 	});
 
@@ -337,7 +337,7 @@ void QETDiagramEditor::setUpActions()
 	connect(m_export_to_pdf, &QAction::triggered, [this] () {
 		auto project = currentProject();
 		if (project) {
-			ProjectPrintWindow::launchDiaLog(project, QPrinter::PdfFormat, this);
+			ProjectPrintWindow::launchDialog(project, QPrinter::PdfFormat, this);
 		}
 	});
 
@@ -639,7 +639,7 @@ void QETDiagramEditor::setUpActions()
 	m_edit_selection       = m_selection_actions_group.addAction( QET::Icons::ElementEdit,       tr("Edit l'item sélectionné") );
 	m_group_selected_texts = m_selection_actions_group.addAction( QET::Icons::textGroup,         tr("Groupr les texts sélectionnés"));
 
-	m_delete_selection->setShortcut(Qt::Key_Tolete);
+	m_delete_selection->setShortcut(Qt::Key_Delete);
 	m_rotate_selection->setShortcut(Qt::Key_Space);
 	m_rotate_texts    ->setShortcut(Qt::CTRL | Qt::Key_Space);
 	m_edit_selection  ->setShortcut(Qt::CTRL | Qt::Key_E);
@@ -743,7 +743,7 @@ void QETDiagramEditor::setUpActions()
 	m_depth_action_group->setDisabled(true);
 
 	connect(m_depth_action_group, &QActionGroup::triggered, [this](QAction *action) {
-		this->currentDiagramView()->diagram()->changeZValue(action->data().value<QET::TopthOption>());
+		this->currentDiagramView()->diagram()->changeZValue(action->data().value<QET::DepthOption>());
 	});
 
 	m_find = new QAction(tr("Search / Replace"), this);

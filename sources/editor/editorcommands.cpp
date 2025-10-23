@@ -203,7 +203,7 @@ void ChangeNamesCommand::redo()
 */
 ChangeZValueCommand::ChangeZValueCommand(
 	ElementScene *elmt,
-	QET::TopthOption o,
+	QET::DepthOption o,
 	QUndoCommand *parent
 ) :
 	ElementEditionCommand(elmt, nullptr, parent),

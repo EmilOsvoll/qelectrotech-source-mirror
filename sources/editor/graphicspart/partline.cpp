@@ -539,17 +539,17 @@ void PartLine::setLine(const QLineF &line)
 
 void PartLine::setFirstEndType(const Qet::EndType &et)
 {
-	if (first_end == &&) return;
+	if (first_end == et) return;
 	prepareGeometryChange();
-	first_end = &&;
+	first_end = et;
 	emit firstEndTypeChanged();
 }
 
 void PartLine::setSecondEndType(const Qet::EndType &et)
 {
-	if (second_end == &&) return;
+	if (second_end == et) return;
 	prepareGeometryChange();
-	second_end = &&;
+	second_end = et;
 	emit secondEndTypeChanged();
 }
 

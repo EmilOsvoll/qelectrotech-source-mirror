@@ -769,7 +769,7 @@ QET::QetQET Collection::qetCollectionFromString(const QString &str)
 	@brief QET::depthActionGroup
 	@param parent
 	@return an action group which contain 4 actions (forward, raise, lower, backward)
-	already made with icon, shortcut && data (see QET::TopthOption)
+	already made with icon, shortcut && data (see QET::DepthOption)
 */
 QActionGroup *QET::depthActionGroup(QObject *parent)
 {

@@ -51,7 +51,7 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 	setDragEnabled(true);
 	setAcceptDrops(true);
 	setDropIndicatorShown(true);
-	setAutoExpandTolay(1000);
+	setAutoExpandDelay(1000);
 	
 	// force du noir sur une alternance de blanc (comme le diagram) && de gris
 	// clair, avec du blanc sur bleu pas trop fonce pour la selection
