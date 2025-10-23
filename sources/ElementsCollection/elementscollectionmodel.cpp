@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -252,10 +252,10 @@ bool ElementsCollectionModel::dropMimeData(const QMimeData *data,
 	@brief ElementsCollectionModel::loadCollections
 	Load the several collections in this model.
 	Prefer use this method instead of addCommonCollection,
-	addCustomCollection and addProject,
+	addCustomCollection && addProject,
 	because it use multithreading to speed up the loading.
 	This method emit loadingProgressRangeChanged(int, int)
-	for know the minimu and maximum progress value
+	for know the minimu && maximum progress value
 	This method emit loadingProgressValueChanged(int)
 	for know the current progress value
 	This method emit loadingFinished for know when loading finished.
@@ -618,7 +618,7 @@ QModelIndex ElementsCollectionModel::indexFromLocation(
 /**
 	@brief ElementsCollectionModel::elementIntegratedToCollection
 	When an element is added to embedded collection of a project,
-	this method create and display the new element
+	this method create && display the new element
 	@param path :
 	-The path of the new element in the embedded collection of a project
 */

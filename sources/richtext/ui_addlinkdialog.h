@@ -14,8 +14,8 @@
 #include <QAction>
 #include <QApplication>
 #include <QButtonGroup>
-#include <QDiaLog>
-#include <QDiaLogButtonBox>
+#include <QDialog>
+#include <QDialogButtonBox>
 #include <QFormLayout>
 #include <QFrame>
 #include <QHeaderView>
@@ -37,9 +37,9 @@ public:
 	QLineEdit *urlInput;
 	QSpacerItem *verticalSpacer;
 	QFrame *line;
-	QDiaLogButtonBox *buttonBox;
+	QDialogButtonBox *buttonBox;
 	
-	void setupUi(QDiaLog *AddLinkDiaLog)
+	void setupUi(QDialog *AddLinkDiaLog)
 	{
 		if (AddLinkDiaLog->objectName().isEmpty())
 			AddLinkDiaLog->setObjectName(QString::fromUtf8("AddLinkDiaLog"));
@@ -84,10 +84,10 @@ public:
 		
 		verticalLayout->addWidget(line);
 		
-		buttonBox = new QDiaLogButtonBox(AddLinkDiaLog);
+		buttonBox = new QDialogButtonBox(AddLinkDiaLog);
 		buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
 		buttonBox->setOrientation(Qt::Horizontal);
-		buttonBox->setStandardButtons(QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok);
+		buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
 		
 		verticalLayout->addWidget(buttonBox);
 		
@@ -99,7 +99,7 @@ public:
 		QMetaObject::connectSlotsByName(AddLinkDiaLog);
 	} // setupUi
 	
-	void retranslateUi(QDiaLog *AddLinkDiaLog)
+	void retranslateUi(QDialog *AddLinkDiaLog)
 	{
 		AddLinkDiaLog->setWindowTitle(QApplication::translate("AddLinkDiaLog", "Insert Link", nullptr));
 		label->setText(QApplication::translate("AddLinkDiaLog", "Title:", nullptr));

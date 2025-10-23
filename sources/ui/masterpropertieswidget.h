@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -70,7 +70,7 @@ class MasterPropertiesWidget : public AbstractElementPropertiesEditorWidget
 		void on_link_button_clicked();
 		void on_unlink_button_clicked();
 		void showElementFromTWI(QTreeWidgetItem *qtwi, int column);
-		void showedElementWasToleted ();
+		void showedElementWasDeleted ();
 		void diagramWasdeletedFromProject();
 		void customContextMenu(const QPoint &pos, int i=0);
 

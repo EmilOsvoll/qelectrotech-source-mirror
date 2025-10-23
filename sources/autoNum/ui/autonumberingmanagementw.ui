@@ -119,7 +119,7 @@
     </widget>
    </item>
    <item row="4" column="0" colspan="2">
-    <widget class="QDiaLogButtonBox" name="buttonBox">
+    <widget class="QDialogButtonBox" name="buttonBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -127,7 +127,7 @@
       </sizepolicy>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Apply|QDiaLogButtonBox::Help</set>
+      <set>QDialogButtonBox::Apply|QDialogButtonBox::Help</set>
      </property>
     </widget>
    </item>
@@ -419,7 +419,7 @@
    <item row="3" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

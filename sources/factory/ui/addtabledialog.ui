@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddTableDiaLog</class>
- <widget class="QDiaLog" name="AddTableDiaLog">
+ <class>AddTableDialog</class>
+ <widget class="QDialog" name="AddTableDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -43,7 +43,7 @@
           <bool>true</bool>
          </property>
          <property name="text">
-          <string>Add new folio and table if necessary.</string>
+          <string>Add new folio &amp; table if necessary.</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -206,7 +206,7 @@
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -221,9 +221,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="m_button_box">
+    <widget class="QDialogButtonBox" name="m_button_box">
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -254,7 +254,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>accepted()</signal>
-   <receiver>AddTableDiaLog</receiver>
+   <receiver>AddTableDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -270,7 +270,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>rejected()</signal>
-   <receiver>AddTableDiaLog</receiver>
+   <receiver>AddTableDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

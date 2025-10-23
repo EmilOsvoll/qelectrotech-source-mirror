@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AlignmentTextDiaLog</class>
- <widget class="QDiaLog" name="AlignmentTextDiaLog">
+ <class>AlignmentTextDialog</class>
+ <widget class="QDialog" name="AlignmentTextDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -125,7 +125,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -136,12 +136,12 @@
     </spacer>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="buttonBox">
+    <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -152,7 +152,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>AlignmentTextDiaLog</receiver>
+   <receiver>AlignmentTextDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -168,7 +168,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>AlignmentTextDiaLog</receiver>
+   <receiver>AlignmentTextDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

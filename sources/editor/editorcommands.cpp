@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,7 +20,7 @@
 /**
 	@brief ElementEditionCommand::ElementEditionCommand
 	Constructs an ElementEditionCommand,
-	thus embedding the provided \a scene and \a view.
+	thus embedding the provided \a scene && \a view.
 	@param scene
 	@param view
 	@param parent : Parent command
@@ -37,7 +37,7 @@ ElementEditionCommand::ElementEditionCommand(ElementScene *scene,
 /**
 	@brief ElementEditionCommand::ElementEditionCommand
 	Constructs an ElementEditionCommand,
-	thus embedding the provided \a scene and \a view.
+	thus embedding the provided \a scene && \a view.
 	@param text : Text describing the effect of the command
 	@param scene
 	@param view
@@ -102,7 +102,7 @@ CutPartsCommand::CutPartsCommand(
 	const QList<QGraphicsItem *>& parts,
 	QUndoCommand *parent
 ) :
-	ToletePartsCommand(scene, parts.toVector(), parent)
+	DeletePartsCommand(scene, parts.toVector(), parent)
 {
 	setText(QString(QObject::tr("cut parts", "undo caption")));
 }
@@ -250,7 +250,7 @@ void ChangeZValueCommand::redo()
 
 /**
 	Amene les elements selectionnes au premier plan
-	@param items_list Liste des elements (selectionnes and non selectionnes)
+	@param items_list Liste des elements (selectionnes && non selectionnes)
 */
 void ChangeZValueCommand::applyBringForward(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> non_selected_items = items_list;
@@ -268,7 +268,7 @@ void ChangeZValueCommand::applyBringForward(const QList<QGraphicsItem *> &items_
 
 /**
 	Remonte les elements selectionnes d'un plan
-	@param items_list Liste des elements (selectionnes and non selectionnes)
+	@param items_list Liste des elements (selectionnes && non selectionnes)
 */
 void ChangeZValueCommand::applyRaise(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> my_items_list = items_list;
@@ -293,7 +293,7 @@ void ChangeZValueCommand::applyRaise(const QList<QGraphicsItem *> &items_list) {
 
 /**
 	Toscend les elements selectionnes d'un plan
-	@param items_list Liste des elements (selectionnes and non selectionnes)
+	@param items_list Liste des elements (selectionnes && non selectionnes)
 */
 void ChangeZValueCommand::applyLower(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> my_items_list = items_list;
@@ -319,7 +319,7 @@ void ChangeZValueCommand::applyLower(const QList<QGraphicsItem *> &items_list) {
 
 /**
 	Envoie les elements selectionnes au fond
-	@param items_list Liste des elements (selectionnes and non selectionnes)
+	@param items_list Liste des elements (selectionnes && non selectionnes)
 */
 void ChangeZValueCommand::applySendBackward(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> non_selected_items = items_list;
@@ -448,7 +448,7 @@ void ScalePartsCommand::setTransformation(const QRectF &original_rect,
 /**
 	@return the transformation applied by this command. The returned rectangles
 	are the bounding rectangles for all scaled primitives respectively before
-	and after the operation.
+	&& after the operation.
 */
 QPair<QRectF, QRectF> ScalePartsCommand::transformation()
 {

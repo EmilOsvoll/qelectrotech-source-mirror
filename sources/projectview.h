@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -44,7 +44,7 @@ public:
 		double scale_factor = 0.005; // Decrease or increase speed of mouse wheel (0.04 = decrease)
 			if (event->modifiers() & Qt::ControlModifier) {
 				if (index != -1) {
-					delta = event->delta() * scale_factor; // Read and scale the scroll value
+					delta = event->delta() * scale_factor; // Read && scale the scroll value
 					if (delta > 0 && (temp_index > -1)) temp_index = temp_index - abs(delta);
 					if (delta < 0 && (temp_index < count())) temp_index = temp_index + abs(delta);
 

@@ -1,17 +1,17 @@
-#include "compositetextditdiaLog.h"
+#include "compositetexteditdialog.h"
 
 #include "../qetapp.h"
 #include "../qetgraphicsitem/conductor.h"
 #include "../qetgraphicsitem/dynamicelementtextitem.h"
 #include "../qetgraphicsitem/element.h"
 #include "../qetinformation.h"
-#include "ui_compositetextditdiaLog.h"
+#include "ui_compositetexteditdialog.h"
 
 #include <utility>
 
-CompositeTextEditDiaLog::CompositeTextEditDiaLog(DynamicElementTextItem *text, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::CompositeTextEditDiaLog),
+CompositeTextEditDialog::CompositeTextEditDialog(DynamicElementTextItem *text, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::CompositeTextEditDialog),
 	m_text(text)
 {
 	ui->setupUi(this);
@@ -26,9 +26,9 @@ CompositeTextEditDiaLog::CompositeTextEditDiaLog(DynamicElementTextItem *text, Q
 	setUpComboBox(report);
 }
 
-CompositeTextEditDiaLog::CompositeTextEditDiaLog(QString text, bool report, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::CompositeTextEditDiaLog)
+CompositeTextEditDialog::CompositeTextEditDialog(QString text, bool report, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::CompositeTextEditDialog)
 {
 	ui->setupUi(this);
 	m_default_text = std::move(text);
@@ -37,25 +37,25 @@ CompositeTextEditDiaLog::CompositeTextEditDiaLog(QString text, bool report, QWid
 	setUpComboBox(report);
 }
 
-CompositeTextEditDiaLog::~CompositeTextEditDiaLog()
+CompositeTextEditDialog::~CompositeTextEditDialog()
 {
 	delete ui;
 }
 
 /**
-	@brief CompositeTextEditDiaLog::plainText
+	@brief CompositeTextEditDialog::plainText
 	@return The edited text
 */
-QString CompositeTextEditDiaLog::plainText() const
+QString CompositeTextEditDialog::plainText() const
 {
 	return ui->m_plain_text_edit->toPlainText();
 }
 
 /**
-	@brief CompositeTextEditDiaLog::setUpComboBox
+	@brief CompositeTextEditDialog::setUpComboBox
 	Add the available element information in the combo box
 */
-void CompositeTextEditDiaLog::setUpComboBox(bool is_report)
+void CompositeTextEditDialog::setUpComboBox(bool is_report)
 {
 	QStringList qstrl;
 
@@ -75,19 +75,19 @@ void CompositeTextEditDiaLog::setUpComboBox(bool is_report)
 	}
 }
 
-void CompositeTextEditDiaLog::on_m_info_cb_activated(const QString &arg1)
+void CompositeTextEditDialog::on_m_info_cb_activated(const QString &arg1)
 {
 	Q_UNUSED(arg1)
 	ui->m_plain_text_edit->insertPlainText(ui->m_info_cb->currentData().toString());
 }
 
 /**
-	@brief CompositeTextEditDiaLog::focusInEvent
+	@brief CompositeTextEditDialog::focusInEvent
 	Reimplemented from QWidget::focusInEvent
 	@param event
 */
-void CompositeTextEditDiaLog::focusInEvent(QFocusEvent *event)
+void CompositeTextEditDialog::focusInEvent(QFocusEvent *event)
 {
 	ui->m_plain_text_edit->setFocus();
-	QDiaLog::focusInEvent(event);
+	QDialog::focusInEvent(event);
 }

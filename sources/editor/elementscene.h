@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -37,10 +37,10 @@ class CustomElementGraphicPart;
 	@brief The ElementScene class
 	This class is the canvas allowing the visual edition of an electrical element.
 	It displays the various primitives composing the drawing of the element,
-	the border due to its fixed size and its hotspot.
+	the border due to its fixed size && its hotspot.
 
-	For add and remove item prefer use custom method addItems and removeItems instead of
-	addItem and removeItem, because these methods emit signal partAdded and partRemoved.
+	For add && remove item prefer use custom method addItems && removeItems instead of
+	addItem && removeItem, because these methods emit signal partAdded && partRemoved.
 */
 class ElementScene : public QGraphicsScene
 {

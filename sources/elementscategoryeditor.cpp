@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,7 +23,7 @@
 #include "qetmessagebox.h"
 #include "qfilenameedit.h"
 
-#include <QDiaLogButtonBox>
+#include <QDialogButtonBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -36,7 +36,7 @@
 	@param parent : parent widget
 */
 ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location, bool edit, QWidget *parent) :
-	QDiaLog(parent),
+	QDialog(parent),
 	m_edit_mode(edit),
 	m_location(location)
 {
@@ -113,7 +113,7 @@ void ElementsCategoryEditor::setUpWidget()
 	m_file_name = new QLabel(tr("Name interne : "));
 	m_file_line_edit = new QFileNameEdit();
 	
-	m_buttons = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
+	m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	connect(m_buttons, SIGNAL(rejected()), this, SLOT(reject()));
 	
 	QHBoxLayout *internal_name_layout = new QHBoxLayout();
@@ -133,7 +133,7 @@ void ElementsCategoryEditor::setUpWidget()
 void ElementsCategoryEditor::acceptCreation()
 {
 	if (!m_location.isWritable()) {
-		QDiaLog::accept();
+		QDialog::accept();
 	}
 	
 		//there must be at least one name
@@ -174,7 +174,7 @@ void ElementsCategoryEditor::acceptCreation()
 		return;
 	}
 	
-	QDiaLog::accept();
+	QDialog::accept();
 }
 
 /**
@@ -184,7 +184,7 @@ void ElementsCategoryEditor::acceptCreation()
 void ElementsCategoryEditor::acceptUpdate()
 {
 	if (!m_location.isWritable()) {
-		QDiaLog::accept();
+		QDialog::accept();
 	}
 	
 		//There must be at least one name
@@ -195,7 +195,7 @@ void ElementsCategoryEditor::acceptUpdate()
 	ElementCollectionHandler ech;
 
 	if (ech.setNames(m_location, m_names_list->names())){
-		QDiaLog::accept();
+		QDialog::accept();
 	}
 	else {
 		return;

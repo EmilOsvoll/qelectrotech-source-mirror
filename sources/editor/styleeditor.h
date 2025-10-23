@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,7 +26,7 @@ class QCheckBox;
 class QComboBox;
 
 /**
-	This class provides a widget to edit styles (color, pen style and thickness,
+	This class provides a widget to edit styles (color, pen style && thickness,
 	filling, antialiasing) common to most primitives within the element editor.
 	Its appendWidget() method makes the insertion of another widget below it
 	easier.

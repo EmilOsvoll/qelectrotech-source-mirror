@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -30,7 +30,7 @@ PartDynamicTextField::PartDynamicTextField(QETElementEditor *editor, QGraphicsIt
 	CustomElementPart(editor),
 	m_uuid(QUuid::createUuid())
 {
-	setTofaultTextColor(Qt::black);
+	setDefaultTextColor(Qt::black);
 	setFont(QETApp::dynamicTextsItemFont());
 	QSettings settings;
 	QGraphicsObject::setRotation(QET::correctAngle(settings.value("diagrameditor/dynamic_text_rotation", 0).toInt()));
@@ -47,7 +47,7 @@ PartDynamicTextField::PartDynamicTextField(QETElementEditor *editor, QGraphicsIt
 	QTextOption option = document() -> defaultTextOption();
 	option.setAlignment(Qt::AlignHCenter);
 	option.setWrapMode(QTextOption::WordWrap);
-	document() -> setTofaultTextOption(option);
+	document() -> setDefaultTextOption(option);
 }
 
 QString PartDynamicTextField::name() const
@@ -77,8 +77,8 @@ void PartDynamicTextField::mirror() {
 	QGraphicsObject::setRotation(QET::correctAngle(360-rotation(), true));
 	// then see, where we need to re-position depending on the angle!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
-	qreal c = qCos(qTogreesToRadians(rot));
-	qreal s = qSin(qTogreesToRadians(rot));
+	qreal c = qCos(qDegreesToRadians(rot));
+	qreal s = qSin(qDegreesToRadians(rot));
 	qreal x = (-1) * pos().x() - c * boundingRect().width();
 	qreal y = pos().y() - s * boundingRect().width();
 	setPos(x, y);
@@ -89,8 +89,8 @@ void PartDynamicTextField::flip() {
 	QGraphicsObject::setRotation(QET::correctAngle(360-rotation(), true));
 	// then see, where we need to re-position depending on the angle!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
-	qreal c = qCos(qTogreesToRadians(rot));
-	qreal s = qSin(qTogreesToRadians(rot));
+	qreal c = qCos(qDegreesToRadians(rot));
+	qreal s = qSin(qDegreesToRadians(rot));
 	qreal x = pos().x() + s * boundingRect().height();
 	qreal y = (-1) * pos().y() - c * boundingRect().height();
 	setPos(x, y);
@@ -199,7 +199,7 @@ const QDomElement PartDynamicTextField::toXml(QDomDocument &dom_doc) const
 */
 void PartDynamicTextField::fromXml(const QDomElement &dom_elmt) {
 	if (dom_elmt.tagName() != xmlName()) {
-		qTobug() << "PartDynamicTextField::fromXml : Wrong tagg name";
+		qDebug() << "PartDynamicTextField::fromXml : Wrong tagg name";
 		return;
 	}
 
@@ -294,7 +294,7 @@ void PartDynamicTextField::fromTextFieldXml(const QDomElement &dom_element)
 	QGraphicsObject::setRotation(QET::correctAngle(dom_element.attribute("rotation", "0").toDouble()));
 
 	//the origin transformation point of PartDynamicTextField is the top left corner, no matter the font size
-	//The origin transformation point of PartTextField is the middle of left edge, and so by definition, change with the size of the font
+	//The origin transformation point of PartTextField is the middle of left edge, && so by definition, change with the size of the font
 	//We need to use a QTransform to find the pos of this text from the saved pos of text item
 	QTransform transform;
 	//First make the rotation
@@ -402,7 +402,7 @@ QString PartDynamicTextField::compositeText() const
 	@param color set text color to color
 */
 void PartDynamicTextField::setColor(const QColor& color) {
-	setTofaultTextColor(color);
+	setDefaultTextColor(color);
 	emit colorChanged(color);
 }
 
@@ -497,7 +497,7 @@ bool PartDynamicTextField::keepVisualRotation() const {
 void PartDynamicTextField::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
 	if((event -> buttons() & Qt::LeftButton) && (flags() & QGraphicsItem::ItemIsMovable)) {
 		QPointF pos = event -> scenePos() + (m_origin_pos - event -> buttonDownScenePos(Qt::LeftButton));
-		event -> modifiers() == Qt::ControlEdit ? setPos(pos) : setPos(elementScene() -> snapToGrid(pos));
+		event -> modifiers() == Qt::ControlModifier ? setPos(pos) : setPos(elementScene() -> snapToGrid(pos));
 	}
 	else
 		QGraphicsObject::mouseMoveEvent(event);

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -35,7 +35,7 @@
 
 /**
 	@brief ElementPropertiesWidget::ElementPropertiesWidget
-	Tofault constructor
+	Default constructor
 	@param elmt
 	@param parent
 */
@@ -56,7 +56,7 @@ ElementPropertiesWidget::ElementPropertiesWidget(Element *elmt,
 	is the parent element of text.
 	The only difference with default constructor,
 	is that the current tab is the tab for dynamic texts,
-	and the item in the tree that represent text is expanded and selected.
+	&& the item in the tree that represent text is expanded && selected.
 	@param text
 	@param parent
 */
@@ -80,7 +80,7 @@ ElementPropertiesWidget::ElementPropertiesWidget(DynamicElementTextItem *text,
 	is the parent element of group.
 	The only difference with default constructor,
 	is that the current tab is the tab for dynamic texts,
-	and the item in the tree that represent group is expanded and selected.
+	&& the item in the tree that represent group is expanded && selected.
 	@param group
 	@param parent
 */
@@ -132,7 +132,7 @@ void ElementPropertiesWidget::setElement(Element *element)
 	same as call : ElementPropertiesWidget::setElement,
 	with parameter the parent element of text.
 	Set the dynamics text tab as current tab,
-	expand and select the item that represent text
+	expand && select the item that represent text
 	@param text
 */
 void ElementPropertiesWidget::setDynamicText(DynamicElementTextItem *text)
@@ -158,7 +158,7 @@ void ElementPropertiesWidget::setDynamicText(DynamicElementTextItem *text)
 	same as call : ElementPropertiesWidget::setElement,
 	with parameter the parent element of group.
 	Set the dynamics text tab as current tab,
-	expand and select the item that represent group
+	expand && select the item that represent group
 	@param group
 */
 void ElementPropertiesWidget::setTextsGroup(ElementTextItemGroup *group)
@@ -240,7 +240,7 @@ void ElementPropertiesWidget::findInPanel()
 
 /**
 	@brief ElementPropertiesWidget::editElement
-	If m_element is a custom element, emit findElementRequired and editElementRequired
+	If m_element is a custom element, emit findElementRequired && editElementRequired
 */
 void ElementPropertiesWidget::editElement()
 {
@@ -275,9 +275,9 @@ void ElementPropertiesWidget::updateUi()
 	QString tab_text;
 	tab_text = m_tab->tabText(m_tab->currentIndex());
 
-		//Purge the tab widget and delete all widget
+		//Purge the tab widget && delete all widget
 	m_tab->clear();
-	qToleteAll(m_list_editor);
+	qDeleteAll(m_list_editor);
 	m_list_editor.clear();
 	if(m_general_widget) {
 		delete m_general_widget;
@@ -354,7 +354,7 @@ void ElementPropertiesWidget::addGeneralWidget()
 
 /**
 	@brief ElementPropertiesWidget::generalWidget
-	@return build and return the "general" widget
+	@return build && return the "general" widget
 */
 QWidget *ElementPropertiesWidget::generalWidget()
 {

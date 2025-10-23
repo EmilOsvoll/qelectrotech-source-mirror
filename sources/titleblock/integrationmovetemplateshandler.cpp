@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,7 +27,7 @@
 IntegrationMoveTitleBlockTemplatesHandler::IntegrationMoveTitleBlockTemplatesHandler(QWidget *parent) :
 	MoveTitleBlockTemplatesHandler(parent),
 	parent_widget_(parent),
-	integ_diaLog_(nullptr)
+	integ_dialog_(nullptr)
 {
 }
 
@@ -56,9 +56,9 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::templateAlreadyExists(con
 	
 	
 	// first, we compare templates (actually we compare their XML code... sadly not the most efficient approach)
-	QDomElement src_xml_elmt = src.getTemplateXmlToscription();
+	QDomElement src_xml_elmt = src.getTemplateXmlDescription();
 	if (src_xml_elmt.isNull()) return(errorWithATemplate(src, cant_get_xml_description_error_message));
-	QDomElement dst_xml_elmt = dst.getTemplateXmlToscription();
+	QDomElement dst_xml_elmt = dst.getTemplateXmlDescription();
 	if (dst_xml_elmt.isNull()) return(errorWithATemplate(dst, cant_get_xml_description_error_message));
 	
 	QDomDocument src_tbt_document;
@@ -69,7 +69,7 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::templateAlreadyExists(con
 	
 	if (src_tbt_document.toString(0) == dst_tbt_document.toString(0)) {
 		// the templates are the same, consider the integration is done
-		qTobug() << Q_FUNC_INFO << "Not integrating" << src.parentCollection() << "/" << src.name()<< "because it is already present in the project";
+		qDebug() << Q_FUNC_INFO << "Not integrating" << src.parentCollection() << "/" << src.name()<< "because it is already present in the project";
 		return(QET::Managed);
 	} else {
 		return(askUser(src, dst));
@@ -127,9 +127,9 @@ QString IntegrationMoveTitleBlockTemplatesHandler::newNameForTemplate(const Titl
 */
 QET::Action IntegrationMoveTitleBlockTemplatesHandler::askUser(const TitleBlockTemplateLocation &src, const TitleBlockTemplateLocation &dst) {
 	Q_UNUSED(src)
-	initDiaLog();
-	int result = integ_diaLog_ -> exec();
-	if (result == QDiaLog::Accepted) {
+	initDialog();
+	int result = integ_dialog_ -> exec();
+	if (result == QDialog::Accepted) {
 		if (use_existing_template_ -> isChecked()) {
 			return(QET::Managed);
 		} else if (erase_template_ -> isChecked()) {
@@ -146,13 +146,13 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::askUser(const TitleBlockT
 /**
 	Initialize the user diaLog.
 */
-void IntegrationMoveTitleBlockTemplatesHandler::initDiaLog()
+void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
 {
-	if (integ_diaLog_) return;
-	integ_diaLog_ = new QDiaLog(parent_widget_);
-	integ_diaLog_ -> setWindowTitle(tr("Integration of a title block template"));
+	if (integ_dialog_) return;
+	integ_dialog_ = new QDialog(parent_widget_);
+	integ_dialog_ -> setWindowTitle(tr("Integration of a title block template"));
 	
-	diaLog_label_ = new QLabel(
+	dialog_label_ = new QLabel(
 		QString(
 			tr(
 				"Le modèle a déjà été "
@@ -212,24 +212,24 @@ void IntegrationMoveTitleBlockTemplatesHandler::initDiaLog()
 	integrate_new_template_ -> setChecked(true);
 	integrate_both_ -> setChecked(true);
 	
-	buttons_ = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
+	buttons_ = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	
-	diaLog_glayout = new QGridLayout();
-	diaLog_glayout -> setColumnMinimumWidth(0, 20);
-	diaLog_glayout -> addWidget(erase_template_,  0, 1);
-	diaLog_glayout -> addWidget(integrate_both_, 1, 1);
+	dialog_glayout = new QGridLayout();
+	dialog_glayout -> setColumnMinimumWidth(0, 20);
+	dialog_glayout -> addWidget(erase_template_,  0, 1);
+	dialog_glayout -> addWidget(integrate_both_, 1, 1);
 	
-	diaLog_vlayout_ = new QVBoxLayout(integ_diaLog_);
-	diaLog_vlayout_ -> addWidget(diaLog_label_);
-	diaLog_vlayout_ -> addWidget(use_existing_template_);
-	diaLog_vlayout_ -> addWidget(integrate_new_template_);
-	diaLog_vlayout_ -> addLayout(diaLog_glayout);
-	diaLog_vlayout_ -> addWidget(buttons_);
+	dialog_vlayout_ = new QVBoxLayout(integ_dialog_);
+	dialog_vlayout_ -> addWidget(dialog_label_);
+	dialog_vlayout_ -> addWidget(use_existing_template_);
+	dialog_vlayout_ -> addWidget(integrate_new_template_);
+	dialog_vlayout_ -> addLayout(dialog_glayout);
+	dialog_vlayout_ -> addWidget(buttons_);
 	
 	connect(use_existing_template_,  SIGNAL(toggled(bool)), this,          SLOT(correctRadioButtons()));
 	connect(integrate_new_template_, SIGNAL(toggled(bool)), this,          SLOT(correctRadioButtons()));
-	connect(buttons_,                SIGNAL(accepted()),    integ_diaLog_, SLOT(accept()));
-	connect(buttons_,                SIGNAL(rejected()),    integ_diaLog_, SLOT(reject()));
+	connect(buttons_,                SIGNAL(accepted()),    integ_dialog_, SLOT(accept()));
+	connect(buttons_,                SIGNAL(rejected()),    integ_dialog_, SLOT(reject()));
 }
 
 /**

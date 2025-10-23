@@ -2,7 +2,7 @@
     Copyright 2006-2025 The QElectroTech Team
     This file is part of QElectroTech.
 
-    QElectroTech is free software: you can redistribute it and/or modify
+    QElectroTech is free software: you can redistribute it &&/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 2 of the License, or
     (at your option) any later version.
@@ -26,8 +26,8 @@ class QRectF;
 
 /**
  * @namespace QETSVG
- * @brief the QETSVG namespace provide function read and write svg.
- * Some function work on xml element (ex rect) and some other
+ * @brief the QETSVG namespace provide function read && write svg.
+ * Some function work on xml element (ex rect) && some other
  * work on attribute of an element (ex x)
  */
 namespace QETSVG

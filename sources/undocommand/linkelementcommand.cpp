@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -57,10 +57,10 @@ bool LinkElementCommand::mergeWith(const QUndoCommand *other)
 	@param element_a
 	@param element_b
 	@param already_linked
-	@return true if element_a and element_b can be linked between them.
+	@return true if element_a && element_b can be linked between them.
 	There is few condition to be linked :
-	1- element_a and element_b must be linkable type. (Ex: A is master and B is slave 'OK', A and B is master 'KO')
-	2- For element type slave and report (no matter if element is 'A' or 'B'), the element must be free (not connected to an element)
+	1- element_a && element_b must be linkable type. (Ex: A is master && B is slave 'OK', A && B is master 'KO')
+	2- For element type slave && report (no matter if element is 'A' or 'B'), the element must be free (not connected to an element)
 	3- we can override the section 2 by set already_linked to true. In this case, if slave or report is already
 	linked to the other element ('A' or 'B') return true, but if linked to another element (not 'A' or 'B') return false
 */
@@ -76,7 +76,7 @@ bool LinkElementCommand::isLinkable(Element *element_a, Element *element_b, bool
 			if (element_b->linkType() != Element::PreviousReport) return false;
 				//two report is free
 			if (element_a->isFree() && element_b->isFree()) return true;
-				//Reports aren't free but are already linked between them and and already_linked is true
+				//Reports aren't free but are already linked between them && && already_linked is true
 			if (element_a->linkedElements().contains(element_b) && already_linked) return true;
 
 			return false;
@@ -88,7 +88,7 @@ bool LinkElementCommand::isLinkable(Element *element_a, Element *element_b, bool
 		if (element_b->linkType() != Element::NextReport) return false;
 			//two report is free
 		if (element_a->isFree() && element_b->isFree()) return true;
-			//Reports aren't free but are already linked between them and and already_linked is true
+			//Reports aren't free but are already linked between them && && already_linked is true
 		if (element_a->linkedElements().contains(element_b) && already_linked) return true;
 
 		return false;
@@ -100,7 +100,7 @@ bool LinkElementCommand::isLinkable(Element *element_a, Element *element_b, bool
 		if (element_b->linkType() != Element::Slave) return false;
 			//element_b is free
 		if (element_b->isFree()) return true;
-			//element_b isn't free but already linked to element_a and already_linked is true
+			//element_b isn't free but already linked to element_a && already_linked is true
 		if (element_a->linkedElements().contains(element_b) && already_linked) return true;
 
 		return false;
@@ -112,7 +112,7 @@ bool LinkElementCommand::isLinkable(Element *element_a, Element *element_b, bool
 			if (element_b->linkType() != Element::Master) return false;
 				//Element_a is free
 			if (element_a->isFree()) return true;
-				//element_a isn't free but already linked to element_b and already_linked is true;
+				//element_a isn't free but already linked to element_b && already_linked is true;
 			if (element_b->linkedElements().contains(element_a) && already_linked) return true;
 
 			return false;
@@ -190,7 +190,7 @@ void LinkElementCommand::redo()
 	makeLink(m_linked_after);
 
 		//If the action is to link two reports together, we check if the conductors
-		//of the new potential have the same text, function, and protocol.
+		//of the new potential have the same text, function, && protocol.
 		//if not, a diaLog ask what do to.
 	if (m_first_redo && (m_element->linkType() & Element::AllReport) \
 		&& m_element->conductors().size() \
@@ -215,7 +215,7 @@ void LinkElementCommand::redo()
 			//check text list, isn't same in potential, ask user what to do
 		if (!QET::eachStrIsEqual(str_txt) || !QET::eachStrIsEqual(str_funct) || !QET::eachStrIsEqual(str_tens))
 		{
-			PotentialSelectorDiaLog psd(m_element, this);
+			PotentialSelectorDialog psd(m_element, this);
 			psd.exec();
 		}
 		m_first_redo = false;
@@ -245,7 +245,7 @@ void LinkElementCommand::setUpNewLink(
 	}
 	else
 	{
-		qTobug() << "LinkElementCommand::setUpNewLink : try to link several elements to a report element or slave element,"
+		qDebug() << "LinkElementCommand::setUpNewLink : try to link several elements to a report element or slave element,"
 					" only the first element of the list will be taken to be linked";
 		foreach(Element *elmt, element_list)
 			if (isLinkable(m_element, elmt, already_link))
@@ -258,7 +258,7 @@ void LinkElementCommand::setUpNewLink(
 
 /**
 	@brief LinkElementCommand::makeLink
-	Make the link between m_element and element_list;
+	Make the link between m_element && element_list;
 	This method unlinks elements if needed.
 	@param element_list
 */

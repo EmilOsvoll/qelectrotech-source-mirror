@@ -2,7 +2,7 @@
 		Copyright 2006-2025 The QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -156,7 +156,7 @@ QString FileElementCollectionItem::localName()
 /**
 	@brief FileElementCollectionItem::localName
 	Surcharged method, unlike the default method,
-	avoid to create an elementLocation and so, gain time.
+	avoid to create an elementLocation && so, gain time.
 	@param location
 	@return
 */
@@ -292,7 +292,7 @@ void FileElementCollectionItem::setUpData()
 			 | Qt::ItemIsDragEnabled
 			 | Qt::ItemIsEnabled);
 		
-		//Set the local name and all informations of the element
+		//Set the local name && all informations of the element
 		//in the data Qt::UserRole+1, these data will be use for search.
 		ElementsLocation loc(collectionPath());
 		DiagramContext context = loc.elementInformations();

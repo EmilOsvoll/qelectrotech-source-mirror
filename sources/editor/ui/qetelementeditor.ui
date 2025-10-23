@@ -370,7 +370,7 @@
      <normaloff>:/ico/22x22/names.png</normaloff>:/ico/22x22/names.png</iconset>
    </property>
    <property name="text">
-    <string>Edit le name and les traductions de l'élément</string>
+    <string>Edit the name &amp; translations of the element</string>
    </property>
   </action>
   <action name="m_edit_author_action">

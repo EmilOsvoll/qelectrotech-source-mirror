@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,26 +26,26 @@
 
 #include <QAbstractButton>
 
-ReplaceElementDiaLog::ReplaceElementDiaLog(DiagramContext context, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::ReplaceElementDiaLog)
+ReplaceElementDialog::ReplaceElementDialog(DiagramContext context, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::ReplaceElementDialog)
 {
 	ui->setupUi(this);
 	buildWidget();
 	setContext(context);
 }
 
-ReplaceElementDiaLog::~ReplaceElementDiaLog()
+ReplaceElementDialog::~ReplaceElementDialog()
 {
 	delete ui;
 }
 
 /**
-	@brief ReplaceElementDiaLog::setContext
+	@brief ReplaceElementDialog::setContext
 	Set the current diagram context to be edited
 	@param context
 */
-void ReplaceElementDiaLog::setContext(DiagramContext context)
+void ReplaceElementDialog::setContext(DiagramContext context)
 {
 	m_context = context;
 	
@@ -55,10 +55,10 @@ void ReplaceElementDiaLog::setContext(DiagramContext context)
 }
 
 /**
-	@brief ReplaceElementDiaLog::context
+	@brief ReplaceElementDialog::context
 	@return The edited diagram context
 */
-DiagramContext ReplaceElementDiaLog::context() const
+DiagramContext ReplaceElementDialog::context() const
 {
 	DiagramContext context;
 	for (ElementInfoPartWidget *eipw : m_eipw_list) {
@@ -68,9 +68,9 @@ DiagramContext ReplaceElementDiaLog::context() const
 	return context;
 }
 
-void ReplaceElementDiaLog::buildWidget()
+void ReplaceElementDialog::buildWidget()
 {
-	connect(ui->m_button_box, &QDiaLogButtonBox::clicked, [this](QAbstractButton *button_) {
+	connect(ui->m_button_box, &QDialogButtonBox::clicked, [this](QAbstractButton *button_) {
 		this->done(ui->m_button_box->buttonRole(button_));
 	});
 	

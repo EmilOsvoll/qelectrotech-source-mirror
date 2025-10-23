@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -140,8 +140,8 @@ ElementsLocation ECHSFileToFile::copyElement(ElementsLocation &source, ElementsL
 	if (rb)
 	{
 #ifdef Q_OS_WIN
-		//On windows when user drag and drop an element from the common elements collection
-		//to the custom elements collection, the element file stay in read only mode, and so
+		//On windows when user drag && drop an element from the common elements collection
+		//to the custom elements collection, the element file stay in read only mode, && so
 		//user can't save the element
 		extern Q_CORE_EXPORT int qt_ntfs_permission_lookup;
 		qt_ntfs_permission_lookup++;
@@ -314,7 +314,7 @@ ElementCollectionHandler::~ElementCollectionHandler()
 /**
 	@brief ElementCollectionHandler::copy
 	Copy the content of collection represented by source to the collection represented by destination.
-	Destination must be a directory, else the copy do nothing and return a null ElementLocation
+	Destination must be a directory, else the copy do nothing && return a null ElementLocation
 	if destination have an item with the same name of source, a dialog ask to user what to do.
 	@param source
 	@param destination
@@ -345,7 +345,7 @@ ElementsLocation ElementCollectionHandler::copy(ElementsLocation &source, Elemen
 */
 ElementsLocation ElementCollectionHandler::createDir(ElementsLocation &parent, const QString &name, const NamesList &name_list)
 {
-	//Parent must be a directory and writable
+	//Parent must be a directory && writable
 	if (!(parent.isDirectory() && parent.isWritable() && parent.exist())) {
 		qDebug() << "ElementCollectionHandler::createDir : the prerequisites are not valid. " << parent;
 		return ElementsLocation();
@@ -415,7 +415,7 @@ bool ElementCollectionHandler::importFromProject(QETProject *project,
 	
 	QList <QString> names;
 	
-	//Get the parent of location and find if exist in embedded collection of project
+	//Get the parent of location && find if exist in embedded collection of project
 	ElementsLocation source = location.parent();
 	names.append(location.fileName());
 	

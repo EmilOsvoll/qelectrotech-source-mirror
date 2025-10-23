@@ -2,7 +2,7 @@
 	Copyright 2006-2025 QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,7 +20,7 @@
 #include "../diagram.h"
 #include "../diagramcommands.h"
 #include "../qetapp.h"
-#include "../richtext/richtextditor_p.h"
+#include "../richtext/richtexteditor_p.h"
 
 /**
 	@brief DiagramTextItem::DiagramTextItem
@@ -50,7 +50,7 @@ void DiagramTextItem::build()
 		//set Zvalue at 10 to be upper than the DiagramImageItem
 	setZValue(10);
 	setAcceptHoverEvents(true);
-	setTofaultTextColor(Qt::black);
+	setDefaultTextColor(Qt::black);
 	setFont(QETApp::diagramTextsItemFont());
 	setFlags(QGraphicsItem::ItemIsSelectable|QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemSendsGeometryChanges);
 	setNoEditable(false);
@@ -68,7 +68,7 @@ Diagram *DiagramTextItem::diagram() const
 
 /**
 	@brief DiagramTextItem::toXml
-	This method do nothing and return an empty DomElement
+	This method do nothing && return an empty DomElement
 	This is used to be inherited by child class
 	@return
 */
@@ -173,7 +173,7 @@ void DiagramTextItem::setFont(const QFont &font)
 
 void DiagramTextItem::setColor(const QColor& color)
 {
-	setTofaultTextColor(color);
+	setDefaultTextColor(color);
 	emit colorChanged(color);
 }
 
@@ -354,7 +354,7 @@ void DiagramTextItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
 
 		//Set the actual pos
 		QPointF new_pos = event->scenePos() + m_mouse_to_origin_movement;
-		event->modifiers() == Qt::ControlEdit ? setPos(new_pos) : setPos(Diagram::snapToGrid(new_pos));
+		event->modifiers() == Qt::ControlModifier ? setPos(new_pos) : setPos(Diagram::snapToGrid(new_pos));
 
 
 		//Update the actual movement for other selected item
@@ -382,7 +382,7 @@ void DiagramTextItem::mouseReleaseEvent (QGraphicsSceneMouseEvent *event)
 			return;
 		}
 	}
-	if (event->modifiers() & Qt::ControlEdit && (event->button() == Qt::LeftButton))
+	if (event->modifiers() & Qt::ControlModifier && (event->button() == Qt::LeftButton))
 	{
 		setSelected(!isSelected());
 		event->accept();
@@ -465,8 +465,8 @@ void DiagramTextItem::edit()
 	if (scene() && scene()->views().size())
 		parent = scene()->views().first();
 
-	qdesigner_internal::RichTextEditorDiaLog editor(parent);
-	connect(&editor, &qdesigner_internal::RichTextEditorDiaLog::applyEditText, [this](QString text) {this->setHtml(text);});
+	qdesigner_internal::RichTextEditorDialog editor(parent);
+	connect(&editor, &qdesigner_internal::RichTextEditorDialog::applyEditText, [this](QString text) {this->setHtml(text);});
 	editor.setText(toHtml());
 	editor.exec();
 }

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -252,7 +252,7 @@ DiagramContext ElementInfoWidget::currentInfo() const
 		if (!eipw->text().isEmpty())
 		{
 			QString txt{eipw->text()};
-				//remove line feed and carriage return
+				//remove line feed && carriage return
 			txt.remove(QStringLiteral("\r"));
 			txt.remove(QStringLiteral("\n"));
 			info_.addValue(eipw->key(), txt);

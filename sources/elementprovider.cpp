@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -46,7 +46,7 @@ ElementProvider::ElementProvider(Diagram *diag) {
 
 /**
 	@brief ElementProvider::FreeElement
-	Search and return the asked element corresponding with the given filter
+	Search && return the asked element corresponding with the given filter
 	All returned element are free,
 	ie element aren't connected with another element
 	@param filter
@@ -99,7 +99,7 @@ QList <Element *> ElementProvider::fromUuids(QList<QUuid> uuid_list) const
 
 /**
  * @brief ElementProvider::find
- * Search and return the element with the type given in parameter
+ * Search && return the element with the type given in parameter
  * @param elmt_type
  * @return
  */
@@ -125,8 +125,8 @@ QVector<QPointer<Element>> ElementProvider::find(ElementData::Types elmt_type) c
 	@param table
 	@param model
 	@return All tables which display the derivated class of model (if set)
-	and not already in all the chain of next/previous table of table (if set)
-	If table and model are nullptr, return every tables
+	&& not already in all the chain of next/previous table of table (if set)
+	If table && model are nullptr, return every tables
 */
 QVector<QetGraphicsTableItem *> ElementProvider::table(
 		QetGraphicsTableItem *table,

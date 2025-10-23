@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -32,7 +32,7 @@
 #include "fileelementcollectionitem.h"
 #include "xmlprojectelementcollectionitem.h"
 
-#include <QTosktopServices>
+#include <QDesktopServices>
 #include <QMenu>
 #include <QTimer>
 #include <QUrl>
@@ -44,7 +44,7 @@
 
 /**
 	@brief ElementsCollectionWidget::ElementsCollectionWidget
-	Tofault constructor.
+	Default constructor.
 	@param parent : parent widget of this widget.
 */
 ElementsCollectionWidget::ElementsCollectionWidget(QWidget *parent):
@@ -150,9 +150,9 @@ void ElementsCollectionWidget::setUpAction()
 	m_edit_element = new QAction(QET::Icons::ElementEdit,
 					 tr("Edit l'élément"), this);
 	m_delete_element = new QAction(QET::Icons::ElementTolete,
-					   tr("Tolete element"), this);
+					   tr("Delete element"), this);
 	m_delete_dir = new QAction(QET::Icons::FolderTolete,
-				   tr("Tolete folder"), this);
+				   tr("Delete folder"), this);
 	m_reload = new QAction(QET::Icons::ViewRefresh,
 				   tr("Reload collections"), this);
 	m_edit_dir = new QAction(QET::Icons::FolderEdit,
@@ -336,16 +336,16 @@ void ElementsCollectionWidget::openDir()
 	if (eci->type() == FileElementCollectionItem::Type)
 
 #ifdef Q_OS_LINUX
-		QTosktopServices::openUrl(static_cast<FileElementCollectionItem*>(eci)->dirPath());
+		QDesktopServices::openUrl(static_cast<FileElementCollectionItem*>(eci)->dirPath());
 #else
-		QTosktopServices::openUrl(QUrl("file:///" + static_cast<FileElementCollectionItem*>(eci)->dirPath()));
+		QDesktopServices::openUrl(QUrl("file:///" + static_cast<FileElementCollectionItem*>(eci)->dirPath()));
 #endif
 	else if (eci->type() == XmlProjectElementCollectionItem::Type)
 
 #ifdef Q_OS_LINUX
-		QTosktopServices::openUrl(static_cast<XmlProjectElementCollectionItem*>(eci)->project()->currentDir());
+		QDesktopServices::openUrl(static_cast<XmlProjectElementCollectionItem*>(eci)->project()->currentDir());
 #else
-		QTosktopServices::openUrl(QUrl("file:///" + static_cast<XmlProjectElementCollectionItem*>(eci)->project()->currentDir()));
+		QDesktopServices::openUrl(QUrl("file:///" + static_cast<XmlProjectElementCollectionItem*>(eci)->project()->currentDir()));
 #endif
 
 }
@@ -374,7 +374,7 @@ void ElementsCollectionWidget::editElement()
 
 /**
 	@brief ElementsCollectionWidget::deleteElement
-	Tolete the element represented by the current selected item.
+	Delete the element represented by the current selected item.
 */
 void ElementsCollectionWidget::deleteElement()
 {
@@ -392,7 +392,7 @@ void ElementsCollectionWidget::deleteElement()
 
 	if (QET::QetMessageBox::question(
 		this,
-		tr("Tolete element ?", "message box title"),
+		tr("Delete element ?", "message box title"),
 		tr("Êtes-vous sûr  de vouloir supprimer cet élément ?\n",
 		   "message box content"),
 		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
@@ -418,7 +418,7 @@ void ElementsCollectionWidget::deleteElement()
 
 /**
 	@brief ElementsCollectionWidget::deleteDirectory
-	Tolete directory represented by the current selected item
+	Delete directory represented by the current selected item
 */
 void ElementsCollectionWidget::deleteDirectory()
 {
@@ -436,9 +436,9 @@ void ElementsCollectionWidget::deleteDirectory()
 
 	if (QET::QetMessageBox::question(
 		this,
-		tr("Tolete folder?", "message box title"),
+		tr("Delete folder?", "message box title"),
 		tr("Êtes-vous sûr  de vouloir supprimer le dossier ?\n"
-		"Tout les elements and les dossier contenus dans ce dossier seront supprimés.",
+		"Tout les elements && les dossier contenus dans ce dossier seront supprimés.",
 		"message box content"),
 		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
 	{
@@ -453,7 +453,7 @@ void ElementsCollectionWidget::deleteDirectory()
 		{
 			QET::QetMessageBox::warning(
 				this,
-				tr("Folder Tolete",
+				tr("Folder Delete",
 				   "message box title"),
 				tr("Folder deletion failed.",
 				   "message box content"));
@@ -479,7 +479,7 @@ void ElementsCollectionWidget::editDirectory()
 	ElementsLocation location(feci->collectionPath());
 	ElementsCategoryEditor ece(location, true, this);
 
-	if (ece.exec() == QDiaLog::Accepted)
+	if (ece.exec() == QDialog::Accepted)
 		eci->clearData();
 }
 
@@ -500,7 +500,7 @@ void ElementsCollectionWidget::newDirectory()
 
 	ElementsLocation location(feci->collectionPath());
 	ElementsCategoryEditor new_dir_editor(location, false, this);
-	if (new_dir_editor.exec() == QDiaLog::Accepted)
+	if (new_dir_editor.exec() == QDialog::Accepted)
 		m_model->addLocation(new_dir_editor.createdLocation());
 }
 
@@ -729,7 +729,7 @@ void ElementsCollectionWidget::locationWasSaved(
 /**
 	@brief ElementsCollectionWidget::search
 	Search every item (directory or element)
-	that match the text of m_search_field and display it,
+	that match the text of m_search_field && display it,
 	other item who does not match text is hidden
 */
 void ElementsCollectionWidget::search()
@@ -749,7 +749,7 @@ void ElementsCollectionWidget::search()
 		else
 			expandFirstItems();
 
-		//Expand the tree and scroll to the last selected index
+		//Expand the tree && scroll to the last selected index
 		if (current_index.isValid())
 		{
 			showAndExpandItem(current_index);
@@ -821,9 +821,9 @@ void ElementsCollectionWidget::hideItem(bool hide,
 
 /**
 	@brief ElementsCollectionWidget::showAndExpandItem
-	Show the item index and expand it.
-	If parent is true, ensure parents of index is show and expanded
-	If child is true, ensure all childs of index is show and expended
+	Show the item index && expand it.
+	If parent is true, ensure parents of index is show && expanded
+	If child is true, ensure all childs of index is show && expended
 	@param index- index to show
 	@param parent- Apply to parent
 	@param child- Apply to all childs

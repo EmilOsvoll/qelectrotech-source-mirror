@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -43,7 +43,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 	ui(new Ui::TitleBlockPropertiesWidget)
 {
 	ui->setupUi(this);
-	initDiaLog(current_date, project);
+	initDialog(current_date, project);
 	setProperties(titleblock);
 }
 
@@ -66,7 +66,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 	ui(new Ui::TitleBlockPropertiesWidget)
 {
 	ui->setupUi(this);
-	initDiaLog(current_date,project);
+	initDialog(current_date,project);
 	addCollection(tbt_collection);
 	updateTemplateList();
 	setProperties(titleblock);
@@ -74,7 +74,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 
 /**
 	@brief TitleBlockPropertiesWidget::TitleBlockPropertiesWidget
-	Tofault constructor with several template collection
+	Default constructor with several template collection
 	@param tbt_collection template list
 	@param titleblock properties to edit
 	@param current_date if true, display the radio button "current date"
@@ -91,7 +91,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 	ui(new Ui::TitleBlockPropertiesWidget)
 {
 	ui->setupUi(this);
-	initDiaLog(current_date,project);
+	initDialog(current_date,project);
 	foreach (TitleBlockTemplatesCollection *c, tbt_collection)
 		addCollection(c);
 	updateTemplateList();
@@ -266,7 +266,7 @@ TitleBlockTemplateLocation TitleBlockPropertiesWidget::currentTitleBlockLocation
 
 /**
 	@brief TitleBlockPropertiesWidget::setTitleBlockTemplatesVisible
-	if true, title block template combo box and menu button is visible
+	if true, title block template combo box && menu button is visible
 */
 void TitleBlockPropertiesWidget::setTitleBlockTemplatesVisible(
 		const bool &visible)
@@ -310,12 +310,12 @@ void TitleBlockPropertiesWidget::addCollection(
 }
 
 /**
-	@brief TitleBlockPropertiesWidget::initDiaLog
+	@brief TitleBlockPropertiesWidget::initDialog
 	Init this diaLog
 	@param current_date : true for display current date radio button
 	@param project
 */
-void TitleBlockPropertiesWidget::initDiaLog(
+void TitleBlockPropertiesWidget::initDialog(
 		const bool &current_date,QETProject *project)
 {
 	m_dcw = new DiagramContextWidget();
@@ -325,7 +325,7 @@ void TitleBlockPropertiesWidget::initDiaLog(
 	ui -> m_current_date_rb -> setVisible(current_date);
 
 	m_tbt_edit = new QAction(tr("Edit this template", "menu entry"), this);
-	m_tbt_duplicate = new QAction(tr("Duplicate and edit this template",
+	m_tbt_duplicate = new QAction(tr("Duplicate && edit this template",
 					 "menu entry"),
 				      this);
 

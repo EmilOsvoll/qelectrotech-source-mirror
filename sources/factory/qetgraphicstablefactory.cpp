@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -17,8 +17,8 @@
 */
 #include "qetgraphicstablefactory.h"
 
-#include "../dataBottome/ui/elementquerywidget.h"
-#include "../dataBottome/ui/summaryquerywidget.h"
+#include "../dataBase/ui/elementquerywidget.h"
+#include "../dataBase/ui/summaryquerywidget.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/ViewItem/projectdbmodel.h"
 #include "../qetgraphicsitem/ViewItem/qetgraphicsheaderitem.h"
@@ -26,7 +26,7 @@
 #include "../utils/qetutils.h"
 #include "ui/addtablediaLog.h"
 
-#include <QDiaLog>
+#include <QDialog>
 
 QetGraphicsTableFactory::QetGraphicsTableFactory()
 {
@@ -34,15 +34,15 @@ QetGraphicsTableFactory::QetGraphicsTableFactory()
 }
 
 /**
-	@brief QetGraphicsTableFactory::createAndAddNameenclature
+	@brief QetGraphicsTableFactory::createAndAddNomenclature
 	Open a diaLog for ask user the config of the table,
-	create a nameenclature table and add it to diagram
+	create a nameenclature table && add it to diagram
 	@param diagram
 */
-void QetGraphicsTableFactory::createAndAddNameenclature(Diagram *diagram)
+void QetGraphicsTableFactory::createAndAddNomenclature(Diagram *diagram)
 {
-	QScopedPointer<AddTableDiaLog> d(
-				new AddTableDiaLog(
+	QScopedPointer<AddTableDialog> d(
+				new AddTableDialog(
 					new ElementQueryWidget(),
 					diagram->views().first()));
 	d->setWindowTitle(QObject::tr("Add a nameenclature"));
@@ -55,13 +55,13 @@ void QetGraphicsTableFactory::createAndAddNameenclature(Diagram *diagram)
 /**
 	@brief QetGraphicsTableFactory::createAndAddSummary
 	Open a diaLog for ask user the config of the table,
-	create a summary table and add it to diagram
+	create a summary table && add it to diagram
 	@param diagram
 */
 void QetGraphicsTableFactory::createAndAddSummary(Diagram *diagram)
 {
-	QScopedPointer<AddTableDiaLog> d(
-				new AddTableDiaLog(
+	QScopedPointer<AddTableDialog> d(
+				new AddTableDialog(
 					new SummaryQueryWidget(),
 					diagram->views().first()));
 	d->setWindowTitle(QObject::tr("Add a summary"));
@@ -71,14 +71,14 @@ void QetGraphicsTableFactory::createAndAddSummary(Diagram *diagram)
 	}
 }
 
-void QetGraphicsTableFactory::create(Diagram *diagram, AddTableDiaLog *diaLog)
+void QetGraphicsTableFactory::create(Diagram *diagram, AddTableDialog *diaLog)
 {
 	auto table_ = newTable(diagram, diaLog);
 	if (diaLog->adjustTableToFolio()) {
 		QetGraphicsTableItem::adjustTableToFolio(table_);
 	}
 
-		//Add new table if needed and option checked
+		//Add new table if needed && option checked
 	if (diaLog->addNewTableToNewDiagram()
 		&& table_->displayNRow() > 0
 		&& table_->model()->rowCount() > table_->displayNRow())
@@ -113,11 +113,11 @@ void QetGraphicsTableFactory::create(Diagram *diagram, AddTableDiaLog *diaLog)
 	Create a new table .
 	@param diagram : Diagram where we must add the new table.
 	@param diaLog : diaLog conf, it's used to setup the model.
-	@param previous_table : If you know that the new table will have a previous table and you already now the previous table,
+	@param previous_table : If you know that the new table will have a previous table && you already now the previous table,
 	set it now they will improve time needed for creating the new table by avoiding to create a new model.
 	@return the new table
 */
-QetGraphicsTableItem *QetGraphicsTableFactory::newTable(Diagram *diagram, AddTableDiaLog *diaLog, QetGraphicsTableItem *previous_table)
+QetGraphicsTableItem *QetGraphicsTableFactory::newTable(Diagram *diagram, AddTableDialog *diaLog, QetGraphicsTableItem *previous_table)
 {
 	auto table = new QetGraphicsTableItem();
 	table->setTableName(diaLog->tableName());

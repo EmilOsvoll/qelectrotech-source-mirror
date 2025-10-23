@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ElementPropertiesEditorWidget</class>
- <widget class="QDiaLog" name="ElementPropertiesEditorWidget">
+ <widget class="QDialog" name="ElementPropertiesEditorWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -139,7 +139,7 @@
        <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -178,12 +178,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="m_buttonBox">
+    <widget class="QDialogButtonBox" name="m_buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>

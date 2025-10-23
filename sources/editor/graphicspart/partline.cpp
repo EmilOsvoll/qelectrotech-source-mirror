@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -81,7 +81,7 @@ void PartLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *options,
 	QPen t = painter -> pen();
 	t.setJoinStyle(Qt::MiterJoin);
 
-	t.setCosmetic(options && options -> levelOfTotailFromTransform(painter->worldTransform()) < 1.0);
+	t.setCosmetic(options && options -> levelOfDetailFromTransform(painter->worldTransform()) < 1.0);
 	if (isSelected()) t.setColor(Qt::red);
 
 	painter -> setPen(t);
@@ -161,7 +161,7 @@ QVariant PartLine::itemChange(QGraphicsItem::GraphicsItemChange change, const QV
 	}
 	else if (change == ItemSceneChange)
 	{
-		setSelected(false); //This is item removed from scene, then we deselect this, and so, the handlers is also removed.
+		setSelected(false); //This is item removed from scene, then we deselect this, && so, the handlers is also removed.
 	}
 
 	return QGraphicsItem::itemChange(change, value);
@@ -253,7 +253,7 @@ void PartLine::handlerMouseMoveEvent(QetGraphicsHandlerItem *qghi, QGraphicsScen
 	Q_UNUSED(qghi)
 
 	QPointF new_pos = event->scenePos();
-	if (event->modifiers() != Qt::ControlEdit)
+	if (event->modifiers() != Qt::ControlModifier)
 		new_pos = elementScene()->snapToGrid(event->scenePos());
 	new_pos = mapFromScene(new_pos);
 
@@ -315,7 +315,7 @@ void PartLine::removeHandler()
 {
 	if (!m_handler_vector.isEmpty())
 	{
-		qToleteAll(m_handler_vector);
+		qDeleteAll(m_handler_vector);
 		m_handler_vector.clear();
 	}
 }
@@ -444,8 +444,8 @@ QRectF PartLine::boundingRect() const
 
 /**
 	@brief PartLine::isUseless
-	@return true if this part is irrelevant and does not deserve to be Retained / registered.
-	A line is relevant when start-point and end-point are different
+	@return true if this part is irrelevant && does not deserve to be Retained / registered.
+	A line is relevant when start-point && end-point are different
 */
 bool PartLine::isUseless() const
 {
@@ -456,7 +456,7 @@ bool PartLine::isUseless() const
 	@brief PartLine::sceneGeometricRect
 	@return the minimum, margin-less rectangle this part can fit into, in scene
 	coordinates. It is different from boundingRect() because it is not supposed
-	to imply any margin, and it is different from shape because it is a regular
+	to imply any margin, && it is different from shape because it is a regular
 	rectangle, not a complex shape.
 */
 QRectF PartLine::sceneGeometricRect() const
@@ -501,16 +501,16 @@ void PartLine::handleUserTransformation(const QRectF &initial_selection_rect, co
  *		C : point at a distance of length O - O is the projection of C on the line
 	@param end_point : The concerned extremity
 	@param other_point : other needed point to define the line
-	@param length : length to use between the extremity and the point O
+	@param length : length to use between the extremity && the point O
 	@return
 */
 QList<QPointF> PartLine::fourEndPoints(const QPointF &end_point, const QPointF &other_point, const qreal &length)
 {
-		//Vector and length of the line
+		//Vector && length of the line
 	QPointF line_vector = end_point - other_point;
 	qreal line_length = sqrt(pow(line_vector.x(), 2) + pow(line_vector.y(), 2));
 
-		//Unitary vector and perpendicular vector
+		//Unitary vector && perpendicular vector
 	QPointF u(line_vector / line_length * length);
 	QPointF v(-u.y(), u.x());
 
@@ -539,17 +539,17 @@ void PartLine::setLine(const QLineF &line)
 
 void PartLine::setFirstEndType(const Qet::EndType &et)
 {
-	if (first_end == and) return;
+	if (first_end == &&) return;
 	prepareGeometryChange();
-	first_end = and;
+	first_end = &&;
 	emit firstEndTypeChanged();
 }
 
 void PartLine::setSecondEndType(const Qet::EndType &et)
 {
-	if (second_end == and) return;
+	if (second_end == &&) return;
 	prepareGeometryChange();
-	second_end = and;
+	second_end = &&;
 	emit secondEndTypeChanged();
 }
 
@@ -622,7 +622,7 @@ void PartLine::mirror() {
 	@return this line has a QPainterPath.
 	It's notably use when this line have an end type (circle, triangle andc....),
 	because return a QPainterPath with end already draw.
-	Else if there isn't an end type get P1 and P2 of line is better (faster).
+	Else if there isn't an end type get P1 && P2 of line is better (faster).
 */
 QPainterPath PartLine::path() const
 {
@@ -710,7 +710,7 @@ QPainterPath PartLine::path() const
 		}
 		else if (second_end == Qet::Triangle)
 		{/**
-	@return true si cette partie n'est pas pertinente and ne merite pas d'etre
+	@return true si cette partie n'est pas pertinente && ne merite pas d'etre
 	conservee / enregistree.
 	Une line est pertinente des lors que ses deux points sont differents
 */

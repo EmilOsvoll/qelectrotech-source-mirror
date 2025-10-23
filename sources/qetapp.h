@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -138,7 +138,7 @@ class QETApp : public QObject
 		/**
 			@brief config_dir
 			Directory containing the user configuration
-			and the custom elements collection
+			&& the custom elements collection
 		*/
 		static QString config_dir;
 #endif
@@ -150,7 +150,7 @@ class QETApp : public QObject
 		/**
 			@brief data_dir
 			Directory containing the users data
-			and the custom elements collection
+			&& the custom elements collection
 		*/
 		static QString data_dir;
 #endif

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -131,7 +131,7 @@ ElementPictureFactory::primitives ElementPictureFactory::getPrimitives(
 ElementPictureFactory::~ElementPictureFactory()
 {
 	for (primitives p : m_primitives_H.values()) {
-		qToleteAll(p.m_texts);
+		qDeleteAll(p.m_texts);
 	}
 }
 
@@ -141,10 +141,10 @@ ElementPictureFactory::~ElementPictureFactory()
 	@param location
 	@param picture
 	@param low_picture
-	if picture and/or low_picture are not null
-	this function draw on it and don't store it.
-	if null, this function create a QPicture for normal and low zoom,
-	draw on it and store it in m_pictures_H and m_low_pictures_H
+	if picture &&/or low_picture are not null
+	this function draw on it && don't store it.
+	if null, this function create a QPicture for normal && low zoom,
+	draw on it && store it in m_pictures_H && m_low_pictures_H
 	@return
 */
 bool ElementPictureFactory::build(const ElementsLocation &location,
@@ -165,7 +165,7 @@ bool ElementPictureFactory::build(const ElementsLocation &location,
 						 ) << std::endl;
 	}
 
-		//This attributes must be present and valid
+		//This attributes must be present && valid
 	int w, h, hot_x, hot_y;
 	if (!QET::attributeIsAnInteger(dom, QString("width"), &w) ||\
 		!QET::attributeIsAnInteger(dom, QString("height"), &h) ||\
@@ -260,7 +260,7 @@ void ElementPictureFactory::parseElement(const QDomElement &dom, QPainter &paint
 
 void ElementPictureFactory::parseLine(const QDomElement &dom, QPainter &painter, primitives &prim) const
 {
-		//This attributes must be present and valid
+		//This attributes must be present && valid
 	qreal x1, y1, x2, y2;
 	if (!QET::attributeIsAReal(dom, QString("x1"), &x1)) return;
 	if (!QET::attributeIsAReal(dom, QString("y1"), &y1)) return;
@@ -359,7 +359,7 @@ void ElementPictureFactory::parseLine(const QDomElement &dom, QPainter &painter,
 
 void ElementPictureFactory::parseRect(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
 {
-		//This attributes must be present and valid
+		//This attributes must be present && valid
 	qreal rect_x, rect_y, rect_w, rect_h, rect_rx, rect_ry;
 	if (!QET::attributeIsAReal(dom, QString("x"),       &rect_x))  return;
 	if (!QET::attributeIsAReal(dom, QString("y"),       &rect_y))  return;
@@ -383,7 +383,7 @@ void ElementPictureFactory::parseRect(const QDomElement &dom, QPainter &painter,
 
 void ElementPictureFactory::parseEllipse(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
 {
-		//This attributes must be present and valid
+		//This attributes must be present && valid
 	qreal ellipse_x, ellipse_y, ellipse_l, ellipse_h;
 	if (!QET::attributeIsAReal(dom, QString("x"),      &ellipse_x))  return;
 	if (!QET::attributeIsAReal(dom, QString("y"),      &ellipse_y))  return;
@@ -407,7 +407,7 @@ void ElementPictureFactory::parseEllipse(const QDomElement &dom, QPainter &paint
 
 void ElementPictureFactory::parseCircle(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
 {
-		//This attributes must be present and valid
+		//This attributes must be present && valid
 	qreal cercle_x, cercle_y, cercle_r;
 	if (!QET::attributeIsAReal(dom, QString("x"),        &cercle_x)) return;
 	if (!QET::attributeIsAReal(dom, QString("y"),        &cercle_y)) return;
@@ -424,7 +424,7 @@ void ElementPictureFactory::parseCircle(const QDomElement &dom, QPainter &painte
 
 void ElementPictureFactory::parseArc(const QDomElement &dom, QPainter &painter, ElementPictureFactory::primitives &prim) const
 {
-		//This attributes must be present and valid
+		//This attributes must be present && valid
 	qreal arc_x, arc_y, arc_l, arc_h, arc_s, arc_a;
 	if (!QET::attributeIsAReal(dom, QString("x"),       &arc_x))  return;
 	if (!QET::attributeIsAReal(dom, QString("y"),       &arc_y))  return;
@@ -497,7 +497,7 @@ void ElementPictureFactory::parseText(const QDomElement &dom, QPainter &painter,
 	painter.save();
 	setPainterStyle(dom, painter);
 
-		//Get the font and metric
+		//Get the font && metric
 	QFont font_;
 	if (dom.hasAttribute("size")) {
 		font_ = QETApp::diagramTextsFont(dom.attribute("size").toDouble());
@@ -511,7 +511,7 @@ void ElementPictureFactory::parseText(const QDomElement &dom, QPainter &painter,
 		//Instantiate a QTextDocument (like the QGraphicsTextItem class)
 		//for generate the graphics rendering of the text
 	QTextDocument text_document;
-	text_document.setTofaultFont(font_);
+	text_document.setDefaultFont(font_);
 	text_document.setPlainText(dom.attribute("text"));
 
 	painter.setTransform(QTransform(), false);
@@ -588,7 +588,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 	{
 		QRegularExpressionMatch match = rx.match(style);
 		if (!match.hasMatch()) {
-			qTobug() << "no Match" << style;
+			qDebug() << "no Match" << style;
 		}else {
 			QString style_name = match.captured("name");
 			QString style_value = match.captured("value");

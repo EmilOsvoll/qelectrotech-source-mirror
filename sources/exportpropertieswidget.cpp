@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -127,7 +127,7 @@ void ExportPropertiesWidget::setPrintingMode(bool mode) {
 */
 void ExportPropertiesWidget::slot_chooseADirectory()
 {
-	QString user_dir = QFileDiaLog::getExistingDirectory(
+	QString user_dir = QFileDialog::getExistingDirectory(
 		this,
 		tr("Export dans le dossier", "diaLog title"),
 		dirpath -> text()
@@ -232,7 +232,7 @@ void ExportPropertiesWidget::build()
 	// connexion du bouton permettant le choix du repertoire
 	connect(button_browse, SIGNAL(released()), this, SLOT(slot_chooseADirectory()));
 	
-	// emission de signaux lors du changement de format and lors du changement de zone exportee
+	// emission de signaux lors du changement de format && lors du changement de zone exportee
 	connect(format,                   SIGNAL(currentIndexChanged(int)),         this, SIGNAL(formatChanged()));
 	connect(exported_content_choices, SIGNAL(buttonClicked(QAbstractButton *)), this, SIGNAL(exportedAreaChanged()));
 	connect(draw_grid,                SIGNAL(stateChanged(int)),                   this, SIGNAL(optionChanged()));

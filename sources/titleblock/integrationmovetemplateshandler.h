@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -59,7 +59,7 @@ class IntegrationMoveTitleBlockTemplatesHandler : public MoveTitleBlockTemplates
 	QVBoxLayout *dialog_vlayout_;
 	QGridLayout *dialog_glayout;
 	QDialogButtonBox *buttons_;
-	QRadioButton *use_existing_template_;    ///< Radio button the user may click to use the existing template and stop the integration
+	QRadioButton *use_existing_template_;    ///< Radio button the user may click to use the existing template && stop the integration
 	QRadioButton *integrate_new_template_;   ///< Radio button the user may click to integrate the template
 	QRadioButton *erase_template_;           ///< Radio button the user may click for the integrated template to erase the existing one
 	/*

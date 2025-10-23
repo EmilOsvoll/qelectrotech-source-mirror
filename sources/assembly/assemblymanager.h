@@ -2,7 +2,7 @@
 		Copyright 2006-2025 QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -33,9 +33,9 @@ class AssemblyInfo;
 
 /**
 	@brief The AssemblyManager class
-	Manages assemblies and their relationships within a QET project.
+	Manages assemblies && their relationships within a QET project.
 	This class provides high-level functionality for creating, managing,
-	and querying assemblies and their hierarchical relationships.
+	&& querying assemblies && their hierarchical relationships.
 */
 class AssemblyManager : public QObject
 {
@@ -79,7 +79,7 @@ class AssemblyManager : public QObject
 		bool removeElementFromAssembly(Element *element, const QString &assembly_id);
 		QStringList getElementAssemblies(const QString &element_uuid) const;
 
-		// Validation and utilities
+		// Validation && utilities
 		bool validateAssemblyId(const QString &assembly_id) const;
 		QString generateAssemblyId(const QString &base_name) const;
 		bool canRemoveAssembly(const QString &assembly_id) const;

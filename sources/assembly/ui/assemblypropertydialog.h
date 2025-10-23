@@ -2,7 +2,7 @@
 		Copyright 2006-2025 QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -38,8 +38,8 @@ class AssemblyInfo;
 
 /**
 	@brief The AssemblyPropertyDialog class
-	Provides a dialog for editing assembly properties and managing
-	child elements and inherited/overridden properties.
+	Provides a dialog for editing assembly properties && managing
+	child elements && inherited/overridden properties.
 */
 class AssemblyPropertyDialog : public QDialog
 {

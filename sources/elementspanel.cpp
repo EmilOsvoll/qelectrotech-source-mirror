@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,7 +25,7 @@
 
 /*
 	Lorsque le flag ENABLE_PANEL_DND_CHECKS est defini, le panel d'elements
-	effectue des verifications lors des drag'n drop d'elements and categories.
+	effectue des verifications lors des drag'n drop d'elements && categories.
 	Par exemple, il verifie qu'une categorie cible est accessible en ecriture
 	avant d'y autoriser le drop d'un element.
 	Delete ce flag permet de tester le comportement des fonctions de gestion
@@ -53,7 +53,7 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 	setDropIndicatorShown(true);
 	setAutoExpandTolay(1000);
 	
-	// force du noir sur une alternance de blanc (comme le diagram) and de gris
+	// force du noir sur une alternance de blanc (comme le diagram) && de gris
 	// clair, avec du blanc sur bleu pas trop fonce pour la selection
 	QPalette qp = palette();
 	qp.setColor(QPalette::Text,            Qt::black);
@@ -189,7 +189,7 @@ QTreeWidgetItem *ElementsPanel::updateTemplateItem(
 				freshly_created);
 	item -> setStatusTip(
 		0,
-		tr("Drag and drop this title block template onto a folio to apply it.",
+		tr("Drag && drop this title block template onto a folio to apply it.",
 		   "Status tip displayed when selecting a title block template"
 		)
 	);
@@ -237,7 +237,7 @@ void ElementsPanel::reload()
 	company_tbt_collection_item_ = addTemplatesCollection(company_tbt_collection, invisibleRootItem());
 	company_tbt_collection_item_ -> setIcon(0, company_icon);
 	company_tbt_collection_item_ -> setStatusTip(0, tr("Double-click to collapse or expand the title block company collection", "Status tip"));
-	company_tbt_collection_item_ -> setWhatsThis(0, tr("This is the title block company collection -- use it to create, store and edit your own title blocks.", "\"What's this\" tip"));
+	company_tbt_collection_item_ -> setWhatsThis(0, tr("This is the title block company collection -- use it to create, store && edit your own title blocks.", "\"What's this\" tip"));
 	if (first_reload_) company_tbt_collection_item_ -> setExpanded(true);
 
 	// load the custom title block templates collection
@@ -245,7 +245,7 @@ void ElementsPanel::reload()
 	custom_tbt_collection_item_ = addTemplatesCollection(custom_tbt_collection, invisibleRootItem());
 	custom_tbt_collection_item_ -> setIcon(0, user_icon);
 	custom_tbt_collection_item_ -> setStatusTip(0, tr("Double-click to collapse or expand your own title blocks collection", "Status tip"));
-	custom_tbt_collection_item_ -> setWhatsThis(0, tr("This is your custom title blocks collection -- use it to create, store and edit your own title blocks.", "\"What's this\" tip"));
+	custom_tbt_collection_item_ -> setWhatsThis(0, tr("This is your custom title blocks collection -- use it to create, store && edit your own title blocks.", "\"What's this\" tip"));
 	if (first_reload_) custom_tbt_collection_item_ -> setExpanded(true);
 	
 	// add projects
@@ -323,7 +323,7 @@ QString ElementsPanel::filePathForItem(QTreeWidgetItem *item) {
 /**
 	Hide items that do not match the provided string, ensure others are visible
 	along with their parent hierarchy. When ending the filtering, restore the tree
-	as it was before the filtering (except the current item) and scroll to the
+	as it was before the filtering (except the current item) && scroll to the
 	currently selected item.
 	@param m String to be matched
 	@param filtering whether to begin/apply/end the filtering
@@ -390,10 +390,10 @@ void ElementsPanel::buildFilterList()
 	if (filter_.isEmpty()) return;
 	filter_list_ = filter_.split( '+' );
 	/*
-	qTobug() << "*******************";
+	qDebug() << "*******************";
 	foreach( QString filter , filter_list_ )	{
 		filter = filter.trimmed();
-		qTobug() << filter;
+		qDebug() << filter;
 	}
 	*/
 }
@@ -423,7 +423,7 @@ void ElementsPanel::applyCurrentFilter(const QList<QTreeWidgetItem *> &items) {
 
 /**
 	@param items une liste de QTreeWidgetItem pour lesquels il faut s'assurer
-	que eux and leurs parents sont visibles
+	que eux && leurs parents sont visibles
 */
 void ElementsPanel::ensureHierarchyIsVisible(const QList<QTreeWidgetItem *> &items) {
 	// remonte l'arborescence pour lister les categories contenant les elements filtres

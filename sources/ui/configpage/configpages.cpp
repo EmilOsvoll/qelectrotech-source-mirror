@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -32,20 +32,20 @@
 #include "../xrefpropertieswidget.h"
 
 #include <QFont>
-#include <QFontDiaLog>
+#include <QFontDialog>
 #include <QSizePolicy>
 #include <utility>
 
 /**
 	@brief NewDiagramPage::NewDiagramPage
-	Tofault constructor
+	Default constructor
 	@param project : QETProject
 	@param parent : QWidget
-	@param ppd : ProjectPropertiesDiaLog
+	@param ppd : ProjectPropertiesDialog
 */
 NewDiagramPage::NewDiagramPage(QETProject *project,
 			       QWidget *parent,
-			       ProjectPropertiesDiaLog *ppd) :
+			       ProjectPropertiesDialog *ppd) :
 	ConfigPage (parent),
 	ppd_ (ppd),
 	m_project  (project)
@@ -127,31 +127,31 @@ void NewDiagramPage::applyConf()
 
 		BorderProperties new_border_prop = bpw -> properties();
 		if (m_project -> defaultBorderProperties() != new_border_prop) {
-			m_project -> setTofaultBorderProperties(bpw -> properties());
+			m_project -> setDefaultBorderProperties(bpw -> properties());
 			modified_project = true;
 		}
 
 		TitleBlockProperties new_tbt_prop = ipw -> properties();
 		if (m_project -> defaultTitleBlockProperties() != new_tbt_prop) {
-			m_project -> setTofaultTitleBlockProperties(ipw -> properties());
+			m_project -> setDefaultTitleBlockProperties(ipw -> properties());
 			modified_project = true;
 		}
 
 		ConductorProperties new_conductor_prop = m_cpw -> properties();
 		if (m_project -> defaultConductorProperties() != new_conductor_prop) {
-			m_project -> setTofaultConductorProperties(m_cpw -> properties());
+			m_project -> setDefaultConductorProperties(m_cpw -> properties());
 			modified_project = true;
 		}
 
 		QString new_report_prop = rpw -> ReportProperties();
 		if (m_project -> defaultReportProperties() != new_report_prop) {
-			m_project -> setTofaultReportProperties(new_report_prop);
+			m_project -> setDefaultReportProperties(new_report_prop);
 			modified_project = true;
 		}
 
 		QHash<QString, XRefProperties> new_xref_properties = xrefpw -> properties();
 		if (m_project -> defaultXRefProperties() != new_xref_properties) {
-			m_project -> setTofaultXRefProperties(new_xref_properties);
+			m_project -> setDefaultXRefProperties(new_xref_properties);
 			modified_project = true;
 		}
 
@@ -212,7 +212,7 @@ QString NewDiagramPage::title() const
 void NewDiagramPage::changeToAutoFolioTab()
 {
 	if (m_project){
-		ppd_->setCurrentPage(ProjectPropertiesDiaLog::Autonum);
+		ppd_->setCurrentPage(ProjectPropertiesDialog::Autonum);
 		ppd_->changeToFolio();
 		ppd_->exec();
 	}
@@ -255,7 +255,7 @@ ExportConfigPage::ExportConfigPage(QWidget *parent) : ConfigPage(parent) {
 	// epw contains les options d'export
 	epw = new ExportPropertiesWidget(ExportProperties::defaultExportProperties());
 
-	// layout vertical contenant le titre, une line horizontale and epw
+	// layout vertical contenant le titre, une line horizontale && epw
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 
 	QLabel *title = new QLabel(this -> title());
@@ -306,7 +306,7 @@ PrintConfigPage::PrintConfigPage(QWidget *parent) : ConfigPage(parent) {
 	epw = new ExportPropertiesWidget(ExportProperties::defaultPrintProperties());
 	epw -> setPrintingMode(true);
 
-	// layout vertical contenant le titre, une line horizontale and epw
+	// layout vertical contenant le titre, une line horizontale && epw
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 
 	QLabel *title = new QLabel(this -> title());

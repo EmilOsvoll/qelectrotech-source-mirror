@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ class ElementsTreeView;
 /**
 	@brief The ElementsCollectionWidget class
 	This widget embedd a tree view that display the element collection (common, custom, embedded)
-	and all action needed to use this widget.
+	&& all action needed to use this widget.
 	This is the element collection widget used in the diagram editor.
 */
 class ElementsCollectionWidget : public QWidget

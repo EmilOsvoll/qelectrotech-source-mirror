@@ -150,7 +150,7 @@
           <item row="13" column="0">
            <spacer name="verticalSpacer">
             <property name="orientation">
-             <enum>Qt::Greenical</enum>
+             <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>

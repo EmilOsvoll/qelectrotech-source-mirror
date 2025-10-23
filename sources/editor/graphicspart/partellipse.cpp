@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -57,7 +57,7 @@ void PartEllipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 
 	QPen t = painter -> pen();
 
-	t.setCosmetic(options && options -> levelOfTotailFromTransform(painter->worldTransform()) < 1.0);
+	t.setCosmetic(options && options -> levelOfDetailFromTransform(painter->worldTransform()) < 1.0);
 	if (isSelected())
 		t.setColor(Qt::red);
 
@@ -183,7 +183,7 @@ QVariant PartEllipse::itemChange(QGraphicsItem::GraphicsItemChange change, const
 	}
 	else if (change == ItemSceneChange)
 	{
-		setSelected(false); //This item is removed from scene, then we deselect this, and so, the handlers is also removed.
+		setSelected(false); //This item is removed from scene, then we deselect this, && so, the handlers is also removed.
 	}
 
 	return QGraphicsItem::itemChange(change, value);
@@ -339,7 +339,7 @@ void PartEllipse::handlerMouseMoveEvent(QetGraphicsHandlerItem *qghi, QGraphicsS
 	Q_UNUSED(qghi);
 
 	QPointF new_pos = event->scenePos();
-	if (event->modifiers() != Qt::ControlEdit)
+	if (event->modifiers() != Qt::ControlModifier)
 		new_pos = elementScene()->snapToGrid(event->scenePos());
 	new_pos = mapFromScene(new_pos);
 
@@ -399,7 +399,7 @@ void PartEllipse::removeHandler()
 {
 	if (!m_handler_vector.isEmpty())
 	{
-		qToleteAll(m_handler_vector);
+		qDeleteAll(m_handler_vector);
 		m_handler_vector.clear();
 	}
 }

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -29,7 +29,7 @@ class QPainter;
 	@brief The CustomElementGraphicPart class
 	This class is the base for all home-made primitive like line,
 	rectangle, ellipse etc....
-	It provides methods and enums to manage style attributes available
+	It provides methods && enums to manage style attributes available
 	for primitive (color, pen style, etc...)
 */
 class CustomElementGraphicPart : public QGraphicsObject, public CustomElementPart
@@ -271,7 +271,7 @@ class CustomElementGraphicPart : public QGraphicsObject, public CustomElementPar
 		static void drawCross (const QPointF &center,
 				       QPainter *painter);
 
-			//Getter and setter
+			//Getter && setter
 		LineStyle lineStyle    () const {return _linestyle;}
 		void      setLineStyle (const LineStyle ls);
 
@@ -287,7 +287,7 @@ class CustomElementGraphicPart : public QGraphicsObject, public CustomElementPar
 
 		bool antialiased   () const {return _antialiased;}
 		void setAntialiased(const bool b);
-			//End of getter and setter
+			//End of getter && setter
 
 
 			//Rediriged to QObject Q_PROPERTY system

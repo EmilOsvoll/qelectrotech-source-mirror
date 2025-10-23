@@ -67,7 +67,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Greenical:</string>
+         <string>Vertical:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -117,7 +117,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

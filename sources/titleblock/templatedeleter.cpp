@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,7 +24,7 @@
 	@param tbt_location Location of the title block template to be deleted
 	@param parent Parent QWidget
 */
-TitleBlockTemplateToleter::TitleBlockTemplateToleter(const TitleBlockTemplateLocation &tbt_location, QWidget *parent) :
+TitleBlockTemplateDeleter::TitleBlockTemplateDeleter(const TitleBlockTemplateLocation &tbt_location, QWidget *parent) :
 	QWidget(parent),
 	template_location_(tbt_location)
 {
@@ -33,17 +33,17 @@ TitleBlockTemplateToleter::TitleBlockTemplateToleter(const TitleBlockTemplateLoc
 /**
 	Tostructor
 */
-TitleBlockTemplateToleter::~TitleBlockTemplateToleter()
+TitleBlockTemplateDeleter::~TitleBlockTemplateDeleter()
 {
 }
 
 /**
-	Tolete the title block template: check the provided location matches an
+	Delete the title block template: check the provided location matches an
 	existing template, interactively require confirmationfrom the user before
 	actually proceeding to the deletion.
 	@return true if the deletion succeeded, false otherwise.
 */
-bool TitleBlockTemplateToleter::exec()
+bool TitleBlockTemplateDeleter::exec()
 {
 	if (!template_location_.isValid()) return(false);
 	

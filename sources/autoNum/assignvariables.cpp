@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -182,7 +182,7 @@ namespace autonum
 		@param formula - the formula to work
 		@param seqStruct - struct where is stocked int values
 		(struct is passed as a reference
-		and modified by this static method)
+		&& modified by this static method)
 		@param diagram - the diagram where occure the formula.
 		@param elmt - parent element (if any) of the formula
 		@return the string with variable assigned.
@@ -485,7 +485,7 @@ namespace autonum
 		}
 		else if (hash.contains(autoNumName))
 		{
-				//Load the String List and update it
+				//Load the String List && update it
 			QStringList max = hash.value(autoNumName);
 			for (int i = 0; i < list.size(); i++)
 			{

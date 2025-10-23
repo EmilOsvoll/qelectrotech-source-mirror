@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -28,8 +28,8 @@ class QParallelAnimationGroup;
 
 /**
 	@brief The RotateTextsCommand class
-	Open a dialog for edit the rotation of the current selected texts and texts group in diagram.
-	Just instantiate this undo command and push it in a QUndoStack.
+	Open a dialog for edit the rotation of the current selected texts && texts group in diagram.
+	Just instantiate this undo command && push it in a QUndoStack.
 */
 class RotateTextsCommand : public QUndoCommand
 {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ReplaceConductorDiaLog</class>
- <widget class="QDiaLog" name="ReplaceConductorDiaLog">
+ <class>ReplaceConductorDialog</class>
+ <widget class="QDialog" name="ReplaceConductorDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -102,7 +102,7 @@
           <item row="2" column="5">
            <widget class="QCheckBox" name="m_erase_formula_cb">
             <property name="toolTip">
-             <string>Tolete this text</string>
+             <string>Delete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -137,7 +137,7 @@
           <item row="4" column="5">
            <widget class="QCheckBox" name="m_erase_function_cb">
             <property name="toolTip">
-             <string>Tolete this text</string>
+             <string>Delete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -166,7 +166,7 @@
           <item row="3" column="5">
            <widget class="QCheckBox" name="m_erase_text_cb">
             <property name="toolTip">
-             <string>Tolete this text</string>
+             <string>Delete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -215,7 +215,7 @@
           <item row="5" column="5">
            <widget class="QCheckBox" name="m_erase_tension_protocol_cb">
             <property name="toolTip">
-             <string>Tolete this text</string>
+             <string>Delete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -492,7 +492,7 @@
        <item row="4" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -608,12 +608,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="m_button_box">
+    <widget class="QDialogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok|QDiaLogButtonBox::Reset</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
      </property>
     </widget>
    </item>

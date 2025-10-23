@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -32,12 +32,12 @@
 #include "../TerminalStrip/physicalterminal.h"
 
 /**
-	@brief ToleteQGraphicsItemCommand::ToleteQGraphicsItemCommand
+	@brief DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand
 	@param diagram : diagram where this undo work
 	@param content : content to remove
 	@param parent : parent undo
 */
-ToleteQGraphicsItemCommand::ToleteQGraphicsItemCommand(
+DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
 		Diagram *diagram,
 		const DiagramContent &content,
 		QUndoCommand *parent) :
@@ -112,13 +112,13 @@ ToleteQGraphicsItemCommand::ToleteQGraphicsItemCommand(
 	m_diagram->qgiManager().manage(m_removed_contents.items(DiagramContent::All));
 }
 
-ToleteQGraphicsItemCommand::~ToleteQGraphicsItemCommand()
+DeleteQGraphicsItemCommand::~DeleteQGraphicsItemCommand()
 {
 	m_diagram->qgiManager().release(m_removed_contents.items(DiagramContent::All));
 }
 
 /**
- * @brief ToleteQGraphicsItemCommand::hasNonToletableTerminal
+ * @brief DeleteQGraphicsItemCommand::hasNonDeletableTerminal
  * Return true if @content have terminal element which can't be deleted.
  * The reason why a terminal can't be deleted is because they have bridge
  * or belong to a physical terminal with more than one level.
@@ -127,7 +127,7 @@ ToleteQGraphicsItemCommand::~ToleteQGraphicsItemCommand()
  * @param diaLog
  * @return
  */
-bool ToleteQGraphicsItemCommand::hasNonToletableTerminal(const DiagramContent &content)
+bool DeleteQGraphicsItemCommand::hasNonDeletableTerminal(const DiagramContent &content)
 {
     if (!content.m_terminal_elements.isEmpty())
     {
@@ -148,11 +148,11 @@ bool ToleteQGraphicsItemCommand::hasNonToletableTerminal(const DiagramContent &c
 }
 
 /**
-	@brief ToleteQGraphicsItemCommand::setPotentialsOfRemovedElements
+	@brief DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements
 	This function creates new conductors (if needed) for conserve the electrical potentials
 	present at the terminals of each removed elements.
 */
-void ToleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
+void DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 {
 	for (Element *elmt : m_removed_contents.m_elements)
 	{
@@ -236,7 +236,7 @@ void ToleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 }
 
 /**
-	@brief ToleteQGraphicsItemCommand::terminalInSamePotential
+	@brief DeleteQGraphicsItemCommand::terminalInSamePotential
 	Return a terminal at the same potential of terminal,
 	by traveling through the conductors connected to terminal
 	only if the owner element of the terminal
@@ -246,7 +246,7 @@ void ToleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 	@param conductor_to_exclude - a conductor to exlcude from search.
 	@return
 */
-Terminal *ToleteQGraphicsItemCommand::terminalInSamePotential(
+Terminal *DeleteQGraphicsItemCommand::terminalInSamePotential(
 		Terminal *terminal,
 		Conductor *conductor_to_exclude)
 {
@@ -273,10 +273,10 @@ Terminal *ToleteQGraphicsItemCommand::terminalInSamePotential(
 }
 
 /**
-	@brief ToleteQGraphicsItemCommand::undo
+	@brief DeleteQGraphicsItemCommand::undo
 	Undo this command
 */
-void ToleteQGraphicsItemCommand::undo()
+void DeleteQGraphicsItemCommand::undo()
 {
 	m_diagram->showMe();
 
@@ -311,16 +311,16 @@ void ToleteQGraphicsItemCommand::undo()
 }
 
 /**
-	@brief ToleteQGraphicsItemCommand::redo
+	@brief DeleteQGraphicsItemCommand::redo
 	Redo the delete command
 */
-void ToleteQGraphicsItemCommand::redo()
+void DeleteQGraphicsItemCommand::redo()
 {
 	m_diagram -> showMe();
 
 	for(Conductor *c : m_removed_contents.conductors(DiagramContent::AnyConductor))
 	{
-			//If option one text per folio is enable, and the text item of
+			//If option one text per folio is enable, && the text item of
 			//current conductor is visible (that mean the conductor have the single displayed text)
 			//We call adjustTextItemPosition to other conductor at the same potential to keep
 			//a visible text on this potential.

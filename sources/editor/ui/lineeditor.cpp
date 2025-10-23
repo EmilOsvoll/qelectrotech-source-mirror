@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -232,7 +232,7 @@ void LineEditor::disconnectChangeConnections()
 
 /**
  * @brief LineEditor::activeConnection
- * Active or not the connection between the signals from widgets of this editor and the slots
+ * Active or not the connection between the signals from widgets of this editor && the slots
  * @param active
  */
 void LineEditor::activeConnection(bool active)

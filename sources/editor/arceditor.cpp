@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -249,7 +249,7 @@ void ArcEditor::updateRect()
 
 /**
 	@brief ArcEditor::activeConnections
-	Enable/disable connection between editor widget and slot editingFinished
+	Enable/disable connection between editor widget && slot editingFinished
 	True == enable | false == disable
 	@param active
 */

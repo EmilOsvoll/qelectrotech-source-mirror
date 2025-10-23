@@ -2,7 +2,7 @@
    Copyright 2006-2025 The QElectroTech Team
    This file is part of QElectroTech.
 
-   QElectroTech is free software: you can redistribute it and/or modify
+   QElectroTech is free software: you can redistribute it &&/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 2 of the License, or
    (at your option) any later version.
@@ -17,7 +17,7 @@
 */
 #include "bomexportdiaLog.h"
 
-#include "../dataBottome/ui/elementquerywidget.h"
+#include "../dataBase/ui/elementquerywidget.h"
 #include "../qetapp.h"
 #include "../qetinformation.h"
 #include "../qetproject.h"
@@ -28,13 +28,13 @@
 #include <QSqlRecord>
 
 /**
-	@brief BOMExportDiaLog::BOMExportDiaLog
+	@brief BOMExportDialog::BOMExportDialog
 	@param project
 	@param parent
 */
-BOMExportDiaLog::BOMExportDiaLog(QETProject *project, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::BOMExportDiaLog),
+BOMExportDialog::BOMExportDialog(QETProject *project, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::BOMExportDialog),
 	m_project(project)
 {
 	ui->setupUi(this);
@@ -46,27 +46,27 @@ BOMExportDiaLog::BOMExportDiaLog(QETProject *project, QWidget *parent) :
 }
 
 /**
-	@brief BOMExportDiaLog::~BOMExportDiaLog
+	@brief BOMExportDialog::~BOMExportDialog
 */
-BOMExportDiaLog::~BOMExportDiaLog()
+BOMExportDialog::~BOMExportDialog()
 {
 	delete ui;
 }
 
 /**
-	@brief BOMExportDiaLog::exec
+	@brief BOMExportDialog::exec
 	@return
 */
-int BOMExportDiaLog::exec()
+int BOMExportDialog::exec()
 {
-	auto r = QDiaLog::exec();
-	if (r == QDiaLog::Accepted)
+	auto r = QDialog::exec();
+	if (r == QDialog::Accepted)
 	{
 			//save in csv file in same directory as project by default
 		QString dir = m_project->currentDir();
 		if (dir.isEmpty()) dir = QETApp::documentDir();
 		QString file_name = dir % "/" % tr("parts list_") % QString(m_project ->title() % ".csv");
-		QString file_path = QFileDiaLog::getSaveFileName(this, tr("Save As... "), file_name, tr("Files csv (*.csv)"));
+		QString file_path = QFileDialog::getSaveFileName(this, tr("Save As... "), file_name, tr("Files csv (*.csv)"));
 		QFile file(file_path);
 		if (!file_path.isEmpty())
 		{
@@ -80,7 +80,7 @@ int BOMExportDiaLog::exec()
 										  "Tostination : "+file_path+"\n");
 				}
 			}
-			if (file.open(QIOTovice::WriteOnly | QIOTovice::Text))
+			if (file.open(QIODevice::WriteOnly | QIODevice::Text))
 			{
 				QTextStream stream(&file);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)	// ### Qt 6: remove
@@ -97,14 +97,14 @@ int BOMExportDiaLog::exec()
 	return r;
 }
 
-QString BOMExportDiaLog::getBom()
+QString BOMExportDialog::getBom()
 {
-	m_project->dataBottome()->updateDB();
-	auto query_ = m_project->dataBottome()->newQuery(m_query_widget->queryStr());
+	m_project->dataBase()->updateDB();
+	auto query_ = m_project->dataBase()->newQuery(m_query_widget->queryStr());
 	QString return_string;
 
 	if (!query_.exec()) {
-		qTobug() << "BOMExportDiaLog::getBom : query errir : " << query_.lastError();
+		qDebug() << "BOMExportDialog::getBom : query errir : " << query_.lastError();
 	}
 	else
 	{
@@ -117,7 +117,7 @@ QString BOMExportDiaLog::getBom()
 			{
 				auto field_name = record_.fieldName(i);
 
-				qTobug() << "field name = " << field_name;
+				qDebug() << "field name = " << field_name;
 				if (field_name == "position") {
 					header_name << tr("Position");
 				} else if (field_name == "diagram_position") {
@@ -156,15 +156,15 @@ QString BOMExportDiaLog::getBom()
 		}
 	}
 
-	qTobug() << return_string;
+	qDebug() << return_string;
 	return return_string;
 }
 
 /**
-	@brief BOMExportDiaLog::on_m_format_as_bom_clicked
+	@brief BOMExportDialog::on_m_format_as_bom_clicked
 	@param checked
 */
-void BOMExportDiaLog::on_m_format_as_bom_clicked(bool checked) {
+void BOMExportDialog::on_m_format_as_bom_clicked(bool checked) {
 	m_query_widget->setGroupBy("designation", checked);
 	m_query_widget->setCount("COUNT(*) AS designation_qty", checked);
 }

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,7 +20,7 @@
 #include <QKeyEvent>
 #include <QRegularExpression>
 #include <QToolTip>
-#include <QtTobug>
+#include <QtDebug>
 
 /**
 	Constructeur
@@ -58,7 +58,7 @@ bool QFileNameEdit::isEmpty()
 }
 
 /**
-	@return true si le champ de text n'est pas vide and est valide
+	@return true si le champ de text n'est pas vide && est valide
 */
 bool QFileNameEdit::isValid()
 {
@@ -78,7 +78,7 @@ void QFileNameEdit::init()
 			"Les caractères autorisés sont : \n"
 			" - les chiffres [0-9]\n"
 			" - les minuscules [a-z]\n"
-			" - le tiret [-], l'underscore [_] and le point [.]\n",
+			" - le tiret [-], l'underscore [_] && le point [.]\n",
 			"tooltip content when editing a filename"
 		)
 	);

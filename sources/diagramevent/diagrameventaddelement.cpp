@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -117,7 +117,7 @@ void DiagramEventAddElement::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 
 /**
 	@brief DiagramEventAddElement::mouseReleaseEvent
-	Right button finish this event (isRunning = false) and emit finish.
+	Right button finish this event (isRunning = false) && emit finish.
 	Left button add an element to diagram
 	the event is always accepted
 	@param event
@@ -145,7 +145,7 @@ void DiagramEventAddElement::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 
 /**
 	@brief DiagramEventAddElement::mouseDoubleClickEvent
-	If mouse left double clic, finish this event (isRunning = false) and emit finish
+	If mouse left double clic, finish this event (isRunning = false) && emit finish
 	the event is always accepted
 	@param event
 */
@@ -166,7 +166,7 @@ void DiagramEventAddElement::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *eve
 /**
 	@brief DiagramEventAddElement::keyPressEvent
 	Press space key rotate the element to 90° (return true)
-	else  call DiagramEventInterface::keyPressEvent(event), and return the value.
+	else  call DiagramEventInterface::keyPressEvent(event), && return the value.
 	@param event
 */
 void DiagramEventAddElement::keyPressEvent(QKeyEvent *event)
@@ -202,7 +202,7 @@ bool DiagramEventAddElement::buildElement()
 		m_integrate_path = import_loc.projectCollectionPath();
 	}
 	else {
-		qTobug() << "DiagramView::addDroppedElement : Impossible d'ajouter l'element.";
+		qDebug() << "DiagramView::addDroppedElement : Impossible d'ajouter l'element.";
 		return false;
 	}
 
@@ -220,8 +220,8 @@ bool DiagramEventAddElement::buildElement()
 
 /**
 	@brief DiagramEventAddElement::addElement
-	Add an element at the current pos and current rotation,
-	if project autoconductor option is enable, and the element can be wired, we do it.
+	Add an element at the current pos && current rotation,
+	if project autoconductor option is enable, && the element can be wired, we do it.
 */
 void DiagramEventAddElement::addElement()
 {
@@ -249,15 +249,15 @@ void DiagramEventAddElement::addElement()
 	new AddGraphicsObjectCommand(element, m_diagram, m_element -> pos(), undo_object);
 
 		//When we search for free alined terminal we temporally remove m_element to
-		//avoid any interaction with the function Element::AlinedFreeTerminals
+		//avoid any interaction with the function Element::AlignedFreeTerminals
 		//This is useful when an element has two (or more) terminals on opposite sides,
 		//because m_element is exactly at the same pos of the new element
 		//added to the scene so new conductor are created between terminal of the new element
-		//and the opposite terminal of m_element.
+		//&& the opposite terminal of m_element.
 	m_diagram->removeItem(m_element);
-	while (!element -> AlinedFreeTerminals().isEmpty() && m_diagram -> project() -> autoConductor())
+	while (!element -> AlignedFreeTerminals().isEmpty() && m_diagram -> project() -> autoConductor())
 	{
-		QPair <Terminal *, Terminal *> pair = element -> AlinedFreeTerminals().takeFirst();
+		QPair <Terminal *, Terminal *> pair = element -> AlignedFreeTerminals().takeFirst();
 
 		Conductor *conductor = new Conductor(pair.first, pair.second);
 		new AddGraphicsObjectCommand(conductor, m_diagram, QPointF(), undo_object);

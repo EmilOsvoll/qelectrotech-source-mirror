@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,7 +23,7 @@
 
 /**
  * Inside this namespace you will find all information used in QElectrotech for
- * element, conductor and diagram.
+ * element, conductor && diagram.
  * Each information have 3 values :
  * #1 the info key = the key of an information as a QString used in the code (example : label)
  * #2 the info key to variable = the key in form of a variable.

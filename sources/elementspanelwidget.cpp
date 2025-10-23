@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,14 +27,14 @@
 
 /*
 	When the ENABLE_PANEL_WIDGET_DND_CHECKS flag is set, the panel
-	performs checks during drag'n drop of items and categories.
+	performs checks during drag'n drop of items && categories.
 	For example, it checks that a target category is writable
 	before authorizing the drop of an element.
 	Removing this flag allows you to test the behavior of management functions
 	items (copy, move, andc.).
 
 	Lorsque le flag ENABLE_PANEL_WIDGET_DND_CHECKS est defini, le panel
-	effectue des verifications lors des drag'n drop d'elements and categories.
+	effectue des verifications lors des drag'n drop d'elements && categories.
 	Par exemple, il verifie qu'une categorie cible est accessible en ecriture
 	avant d'y autoriser le drop d'un element.
 	Delete ce flag permet de tester le comportement des fonctions de gestion
@@ -58,7 +58,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_edit_prop            = new QAction(QET::Icons::DiaLogInformation,      tr("Propertys du project"),          this);
 	prj_prop_diagram         = new QAction(QET::Icons::DiaLogInformation,      tr("Folio properties"),       this);
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
-	prj_del_diagram          = new QAction(QET::Icons::DiagramTolete,          tr("Tolete this folio"),              this);
+	prj_del_diagram          = new QAction(QET::Icons::DiagramTolete,          tr("Delete this folio"),              this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move up  this folio"),               this);
 	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move down this folio"),               this);
 	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move up  this folio x10"),           this);
@@ -68,7 +68,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Move down this folio x100"),           this);
 	tbt_add               = new QAction(QET::Icons::TitleBlock,                tr("New template"),                   this);
 	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Edit ce modèle"),              this);
-	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Tolete this template"),              this);
+	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Delete this template"),              this);
 
 
 	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Tolete));
@@ -146,7 +146,7 @@ void ElementsPanelWidget::openDirectoryForSelectedItem()
 	if (QTreeWidgetItem *qtwi = elements_panel -> currentItem()) {
 		QString dir_path = elements_panel -> dirPathForItem(qtwi);
 		if (!dir_path.isEmpty()) {
-			QTosktopServices::openUrl(QUrl::fromLocalFile(dir_path));
+			QDesktopServices::openUrl(QUrl::fromLocalFile(dir_path));
 		}
 	}
 }
@@ -340,13 +340,13 @@ void ElementsPanelWidget::editTitleBlockTemplate()
 }
 
 /**
-	Tolete the currently selected title block template, if any.
+	Delete the currently selected title block template, if any.
 */
 void ElementsPanelWidget::removeTitleBlockTemplate()
 {
 	QTreeWidgetItem *current_item = elements_panel -> currentItem();
 	if (current_item && current_item -> type() == QET::TitleBlockTemplate) {
-		TitleBlockTemplateToleter(
+		TitleBlockTemplateDeleter(
 			elements_panel -> templateLocationForItem(current_item),
 			this
 		).exec();

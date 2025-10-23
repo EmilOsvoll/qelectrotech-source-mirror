@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,40 +20,40 @@
 #include "../searchandreplaceworker.h"
 #include "ui_replaceconductordiaLog.h"
 
-#include <QColorDiaLog>
+#include <QColorDialog>
 #include <QPainter>
 
 typedef SearchAndReplaceWorker sarw;
 
 /**
-	@brief ReplaceConductorDiaLog::ReplaceConductorDiaLog
+	@brief ReplaceConductorDialog::ReplaceConductorDialog
 	@param properties
 	@param parent
 */
-ReplaceConductorDiaLog::ReplaceConductorDiaLog(
+ReplaceConductorDialog::ReplaceConductorDialog(
 		const ConductorProperties &properties,
 		QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::ReplaceConductorDiaLog)
+	QDialog(parent),
+	ui(new Ui::ReplaceConductorDialog)
 {
 	ui->setupUi(this);
 	initWidget();
 	setProperties(properties);
 }
 
-ReplaceConductorDiaLog::~ReplaceConductorDiaLog()
+ReplaceConductorDialog::~ReplaceConductorDialog()
 {
 	delete ui;
 }
 
 /**
-	@brief ReplaceConductorDiaLog::updatePreview
+	@brief ReplaceConductorDialog::updatePreview
 	Update the preview for single line
 	@param b :
 	true: update from the value displayed by this widget
 	false: update from the properties given at the constructor of this widget
 */
-void ReplaceConductorDiaLog::updatePreview(bool b)
+void ReplaceConductorDialog::updatePreview(bool b)
 {
 	const QRect pixmap_rect(0, 0, 96, 96);
 	QPixmap pixmap(pixmap_rect.width(), pixmap_rect.height());
@@ -73,7 +73,7 @@ void ReplaceConductorDiaLog::updatePreview(bool b)
 	ui -> m_preview_label -> setPixmap(pixmap);
 }
 
-void ReplaceConductorDiaLog::setProperties(const ConductorProperties &properties)
+void ReplaceConductorDialog::setProperties(const ConductorProperties &properties)
 {
 	m_properties = properties;
 	
@@ -129,10 +129,10 @@ void ReplaceConductorDiaLog::setProperties(const ConductorProperties &properties
 }
 
 /**
-	@brief ReplaceConductorDiaLog::properties
+	@brief ReplaceConductorDialog::properties
 	@return the properties edited by this widget
 */
-ConductorProperties ReplaceConductorDiaLog::properties() const
+ConductorProperties ReplaceConductorDialog::properties() const
 {
 	ConductorProperties properties_;
 	if (ui->m_multi_gb->isChecked()) {
@@ -150,13 +150,13 @@ ConductorProperties ReplaceConductorDiaLog::properties() const
 	properties_.m_wire_color =ui->m_wire_color_le->text();
 	properties_.m_wire_section =ui->m_wire_section_le->text();
 	switch (ui->m_vertical_align_cb->currentIndex()) {
-		case 0: properties_.m_vertical_alignment = Qt::AlignAbsolutete; break;
+		case 0: properties_.m_vertical_alignment = Qt::AlignAbsolute; break;
 		case 1: properties_.m_vertical_alignment = Qt::AlignLeft;     break;
 		case 2: properties_.m_vertical_alignment = Qt::AlignRight;    break;
 		default:break;
 	}
 	switch (ui->m_horizontal_align_cb->currentIndex()) {
-		case 0: properties_.m_horizontal_alignment = Qt::AlignAbsolutete; break;
+		case 0: properties_.m_horizontal_alignment = Qt::AlignAbsolute; break;
 		case 1: properties_.m_horizontal_alignment = Qt::AlignTop; break;
 		case 2: properties_.m_horizontal_alignment = Qt::AlignBottom; break;
 		default: break;
@@ -191,9 +191,9 @@ ConductorProperties ReplaceConductorDiaLog::properties() const
 	return properties_;
 }
 
-void ReplaceConductorDiaLog::initWidget()
+void ReplaceConductorDialog::initWidget()
 {
-	connect(ui->m_button_box, &QDiaLogButtonBox::clicked,
+	connect(ui->m_button_box, &QDialogButtonBox::clicked,
 		[this](QAbstractButton *button_) {
 		this->done(ui->m_button_box->buttonRole(button_));
 	});
@@ -207,8 +207,8 @@ void ReplaceConductorDiaLog::initWidget()
 	ui->m_line_style_cb->addItem(tr("Dashed line",
 					"conductor style: dashed line"),
 				     QPen(Qt::DashLine));
-	ui->m_line_style_cb->addItem(tr("Dots and dashes",
-					"conductor style: dashed and dotted line"),
+	ui->m_line_style_cb->addItem(tr("Dots && dashes",
+					"conductor style: dashed && dotted line"),
 				     QPen(Qt::DashDotLine));
 	
 	connect(ui->m_multi_gb,
@@ -227,7 +227,7 @@ void ReplaceConductorDiaLog::initWidget()
 	ui->m_singlewire_gb->setChecked(true);
 }
 
-void ReplaceConductorDiaLog::setColorButton(const QColor &color)
+void ReplaceConductorDialog::setColorButton(const QColor &color)
 {
 	QPalette palette;
 	palette.setColor(QPalette::Button, color);
@@ -237,7 +237,7 @@ void ReplaceConductorDiaLog::setColorButton(const QColor &color)
 			" border-radius: 4px;").arg(color.name()));
 }
 
-void ReplaceConductorDiaLog::setColorButton2(const QColor &color)
+void ReplaceConductorDialog::setColorButton2(const QColor &color)
 {
 	QPalette palette;
 	palette.setColor(QPalette::Button, color);
@@ -250,7 +250,7 @@ void ReplaceConductorDiaLog::setColorButton2(const QColor &color)
 					color.name()));
 }
 
-void ReplaceConductorDiaLog::on_m_erase_formula_cb_clicked()
+void ReplaceConductorDialog::on_m_erase_formula_cb_clicked()
 {
 	ui->m_formula_le->setText(ui->m_erase_formula_cb->isChecked()
 			      ? SearchAndReplaceWorker::eraseText()
@@ -258,7 +258,7 @@ void ReplaceConductorDiaLog::on_m_erase_formula_cb_clicked()
 	ui->m_formula_le->setDisabled(ui->m_erase_formula_cb->isChecked());
 }
 
-void ReplaceConductorDiaLog::on_m_erase_text_cb_clicked()
+void ReplaceConductorDialog::on_m_erase_text_cb_clicked()
 {
 	ui->m_text_le->setText(ui->m_erase_text_cb->isChecked()
 			       ? SearchAndReplaceWorker::eraseText()
@@ -266,7 +266,7 @@ void ReplaceConductorDiaLog::on_m_erase_text_cb_clicked()
 	ui->m_text_le->setDisabled(ui->m_erase_text_cb->isChecked());
 }
 
-void ReplaceConductorDiaLog::on_m_erase_function_cb_clicked()
+void ReplaceConductorDialog::on_m_erase_function_cb_clicked()
 {
 	ui->m_function_le->setText(ui->m_erase_function_cb->isChecked()
 				   ? SearchAndReplaceWorker::eraseText()
@@ -274,7 +274,7 @@ void ReplaceConductorDiaLog::on_m_erase_function_cb_clicked()
 	ui->m_function_le->setDisabled(ui->m_erase_function_cb->isChecked());
 }
 
-void ReplaceConductorDiaLog::on_m_erase_tension_protocol_cb_clicked()
+void ReplaceConductorDialog::on_m_erase_tension_protocol_cb_clicked()
 {
 	ui->m_tension_protocol_le->setText(
 				ui->m_erase_tension_protocol_cb->isChecked()
@@ -284,7 +284,7 @@ void ReplaceConductorDiaLog::on_m_erase_tension_protocol_cb_clicked()
 				ui->m_erase_tension_protocol_cb->isChecked());
 }
 
-void ReplaceConductorDiaLog::on_m_erase_m_wire_color_cb_clicked()
+void ReplaceConductorDialog::on_m_erase_m_wire_color_cb_clicked()
 {
 	ui->m_wire_color_le->setText(ui->m_erase_wire_color_cb->isChecked()
 				     ? SearchAndReplaceWorker::eraseText()
@@ -293,7 +293,7 @@ void ReplaceConductorDiaLog::on_m_erase_m_wire_color_cb_clicked()
 				ui->m_erase_wire_color_cb->isChecked());
 }
 
-void ReplaceConductorDiaLog::on_m_erase_m_wire_section_cb_clicked()
+void ReplaceConductorDialog::on_m_erase_m_wire_section_cb_clicked()
 {
 	ui->m_wire_section_le->setText(ui->m_erase_wire_section_cb->isChecked()
 				       ? SearchAndReplaceWorker::eraseText()
@@ -302,7 +302,7 @@ void ReplaceConductorDiaLog::on_m_erase_m_wire_section_cb_clicked()
 				ui->m_erase_wire_section_cb->isChecked());
 }
 
-void ReplaceConductorDiaLog::on_m_earth_cb_toggled(bool checked)
+void ReplaceConductorDialog::on_m_earth_cb_toggled(bool checked)
 {
 	if (checked && ui->m_neutral_cb -> isChecked()) {
 		 ui -> m_pen_cb -> setEnabled(true);
@@ -311,7 +311,7 @@ void ReplaceConductorDiaLog::on_m_earth_cb_toggled(bool checked)
 	}
 }
 
-void ReplaceConductorDiaLog::on_m_neutral_cb_toggled(bool checked)
+void ReplaceConductorDialog::on_m_neutral_cb_toggled(bool checked)
 {
 	if (checked && ui->m_earth_cb->isChecked()) {
 		ui->m_pen_cb->setEnabled(true);
@@ -320,22 +320,22 @@ void ReplaceConductorDiaLog::on_m_neutral_cb_toggled(bool checked)
 	}
 }
 
-void ReplaceConductorDiaLog::on_m_update_preview_pb_clicked()
+void ReplaceConductorDialog::on_m_update_preview_pb_clicked()
 {
 	updatePreview();
 }
 
-void ReplaceConductorDiaLog::on_m_color_pb_clicked()
+void ReplaceConductorDialog::on_m_color_pb_clicked()
 {
-	QColor color = QColorDiaLog::getColor(m_properties.color, this);
+	QColor color = QColorDialog::getColor(m_properties.color, this);
 	if (color.isValid()) {
 		setColorButton(color);
 	}
 }
 
-void ReplaceConductorDiaLog::on_m_color_2_pb_clicked()
+void ReplaceConductorDialog::on_m_color_2_pb_clicked()
 {
-	QColor color = QColorDiaLog::getColor(m_properties.m_color_2, this);
+	QColor color = QColorDialog::getColor(m_properties.m_color_2, this);
 	if (color.isValid()) {
 		setColorButton2(color);
 	}

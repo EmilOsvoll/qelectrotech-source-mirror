@@ -2,7 +2,7 @@
 	Copyright 2024-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -21,7 +21,7 @@
 
 #include <QFile>
 #include <QProcess>
-#include <QInputDiaLog>
+#include <QInputDialog>
 #include <QMessageBox>
 
 /**
@@ -40,7 +40,7 @@ QByteArray ElementScaler(const QString &file_path, QWidget *parent)
 	}
 
 	bool ok;
-	double fx = QInputDiaLog::getDouble(parent, QObject::tr("Enter the scale factor"),
+	double fx = QInputDialog::getDouble(parent, QObject::tr("Enter the scale factor"),
 										QObject::tr("X Factor:"), 1.0, 0.1, 100, 5, &ok,
 										Qt::WindowFlags());
 	QString sFactorX = "1.0";
@@ -49,7 +49,7 @@ QByteArray ElementScaler(const QString &file_path, QWidget *parent)
 	else
 		return QByteArray();
 
-	double fy = QInputDiaLog::getDouble(parent, QObject::tr("Enter the scale factor"),
+	double fy = QInputDialog::getDouble(parent, QObject::tr("Enter the scale factor"),
 										QObject::tr("Y Factor:"), fx, 0.1, 100, 5, &ok,
 										Qt::WindowFlags());
 	QString sFactorY = "1.0";
@@ -62,7 +62,7 @@ QByteArray ElementScaler(const QString &file_path, QWidget *parent)
 							QObject::tr("horizontal"),
 							QObject::tr("vertical"),
 							QObject::tr("horizontal + vertical")};
-	QString item = QInputDiaLog::getItem(parent,
+	QString item = QInputDialog::getItem(parent,
 										 QObject::tr("Mirror element :"),
 										 QObject::tr("direction"), items, 0, false, &ok);
 	int8_t mirrorIndex = 0;
@@ -147,13 +147,13 @@ bool ElementScalerIsPresent(bool install_diaLog, QWidget *parent)
 	if (!exist && install_diaLog)
 	{
 		auto string_{QObject::tr("Le Logiciel QET_ElementScaler est nécessaire pour mettre les elements à l'échelle.\n"
-								 "Veuillez télécharger celui-ci en suivant le lien ci dessous and le dézipper dans le dossier d'installation")};
+								 "Veuillez télécharger celui-ci en suivant le lien ci dessous && le dézipper dans le dossier d'installation")};
 
-		ThirdPartyBinaryInstallDiaLog diaLog_(string_,
+		ThirdPartyBinaryInstallDialog dialog_(string_,
 											  QStringLiteral("https://github.com/plc-user/QET_ElementScaler/releases"),
 											  ElementScalerDirPath(),
 											  parent);
-		diaLog_.exec();
+		dialog_.exec();
 	}
 	return exist;
 }

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -114,7 +114,7 @@ void TitleBlockTemplateLocation::fromString(const QString &loc_str)
 	QRegularExpressionMatch match = name_from_url.match(loc_str);
 	if (!match.hasMatch())
 	{
-		qTobug()<<"no Match => return"
+		qDebug()<<"no Match => return"
 			<<loc_str;
 		name_ = QString();
 		return;
@@ -157,12 +157,12 @@ QString TitleBlockTemplateLocation::protocol() const
 
 /**
 	This is a convenience method equivalent to
-	parentCollection() -> getTemplateXmlToscription
+	parentCollection() -> getTemplateXmlDescription
 */
-QDomElement TitleBlockTemplateLocation::getTemplateXmlToscription() const
+QDomElement TitleBlockTemplateLocation::getTemplateXmlDescription() const
 {
 	if (!collection_ || name_.isEmpty()) return(QDomElement());
-	return(collection_ -> getTemplateXmlToscription(name_));
+	return(collection_ -> getTemplateXmlDescription(name_));
 }
 
 /**

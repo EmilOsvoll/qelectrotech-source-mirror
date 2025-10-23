@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -19,12 +19,12 @@
 #include "../elementscene.h"
 
 /**
- * @brief ToletePartsCommand::ToletePartsCommand
+ * @brief DeletePartsCommand::DeletePartsCommand
  * @param scene
  * @param parts
  * @param parent
  */
-ToletePartsCommand::ToletePartsCommand(QPointer<ElementScene> scene,
+DeletePartsCommand::DeletePartsCommand(QPointer<ElementScene> scene,
 									   const QVector<QGraphicsItem *> &parts,
 									   QUndoCommand *parent) :
 	QUndoCommand{parent},
@@ -36,9 +36,9 @@ ToletePartsCommand::ToletePartsCommand(QPointer<ElementScene> scene,
 }
 
 /**
- * @brief ToletePartsCommand::~ToletePartsCommand
+ * @brief DeletePartsCommand::~DeletePartsCommand
  */
-ToletePartsCommand::~ToletePartsCommand()
+DeletePartsCommand::~DeletePartsCommand()
 {
 	if (m_scene) {
 		m_scene->qgiManager().release(m_parts);
@@ -46,9 +46,9 @@ ToletePartsCommand::~ToletePartsCommand()
 }
 
 /**
- * @brief ToletePartsCommand::undo
+ * @brief DeletePartsCommand::undo
  */
-void ToletePartsCommand::undo()
+void DeletePartsCommand::undo()
 {
 	if (m_scene) {
 		m_scene->addItems(m_parts);
@@ -56,9 +56,9 @@ void ToletePartsCommand::undo()
 }
 
 /**
- * @brief ToletePartsCommand::redo
+ * @brief DeletePartsCommand::redo
  */
-void ToletePartsCommand::redo()
+void DeletePartsCommand::redo()
 {
 	if (m_scene) {
 		m_scene->removeItems(m_parts);

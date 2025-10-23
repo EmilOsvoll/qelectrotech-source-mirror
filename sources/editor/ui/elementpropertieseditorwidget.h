@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -31,7 +31,7 @@ namespace Ui {
 /**
 	@brief The ElementPropertiesEditorWidget class
 	This class provide a dialog for edit various property of element, like
-	the type (master, slave, report etc....) and kind info.
+	the type (master, slave, report etc....) && kind info.
 */
 class ElementPropertiesEditorWidget : public QDialog
 {

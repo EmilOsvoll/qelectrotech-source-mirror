@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -55,7 +55,7 @@ bool ElementsMover::isReady() const
 	@brief ElementsMover::beginMovement
 	Start a new movement
 	@param diagram diagram where the movement is applied
-	@param driver_item item moved by mouse and don't be moved by Element mover
+	@param driver_item item moved by mouse && don't be moved by Element mover
 	@return the numbers of items to be moved or -1 if movement can't be init.
 */
 int ElementsMover::beginMovement(Diagram *diagram, QGraphicsItem *driver_item)
@@ -85,7 +85,7 @@ int ElementsMover::beginMovement(Diagram *diagram, QGraphicsItem *driver_item)
 	m_moved_content = DiagramContent(diagram);
 	m_moved_content.removeNonMovableItems();
 
-		//Remove element text and text group, if the parent element is selected.
+		//Remove element text && text group, if the parent element is selected.
 	const auto element_text{m_moved_content.m_element_texts};
 	for(const auto &deti : element_text) {
 		if(m_moved_content.m_elements.contains(deti->parentElement())) {
@@ -162,7 +162,7 @@ void ElementsMover::continueMovement(const QPointF &movement)
 	@brief ElementsMover::endMovement
 	Ended the current movement by creating an undo added to the undostack of the diagram.
 	If there is only one element moved, we try to auto-connect new conductor from this element
-	and other possible element.
+	&& other possible element.
 */
 void ElementsMover::endMovement()
 {
@@ -178,7 +178,7 @@ void ElementsMover::endMovement()
 		undo_object->setText(quc->text());
 	}
 
-		//There is only one element moved, and project authorize auto conductor,
+		//There is only one element moved, && project authorize auto conductor,
 		//we try auto connection of conductor;
 	typedef DiagramContent dc;
 	if (m_moved_content.items(dc::TextFields
@@ -189,7 +189,7 @@ void ElementsMover::endMovement()
 		&& m_diagram->project()->autoConductor())
 	{
 		const Element *elmt{m_moved_content.m_elements.first()};
-		const auto alined_free_terminals{elmt->AlinedFreeTerminals()};
+		const auto alined_free_terminals{elmt->AlignedFreeTerminals()};
 
 		if (const int acc = alined_free_terminals.size())
 		{

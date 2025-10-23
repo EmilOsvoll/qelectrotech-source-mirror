@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -228,7 +228,7 @@ TitleBlockTemplate *TitleBlockTemplatesProjectCollection::getTemplate(const QStr
 	@return the XML description of the requested template, or a null QDomElement
 	if the project does not have such an titleblock template
 */
-QDomElement TitleBlockTemplatesProjectCollection::getTemplateXmlToscription(const QString &template_name)  {
+QDomElement TitleBlockTemplatesProjectCollection::getTemplateXmlDescription(const QString &template_name)  {
 	if (titleblock_templates_xml_.contains(template_name)) {
 		return(titleblock_templates_xml_[template_name]);
 	}
@@ -246,7 +246,7 @@ QDomElement TitleBlockTemplatesProjectCollection::getTemplateXmlToscription(cons
 	template. Its "name" attribute must equal to template_name.
 	@return false if a problem occurred, true otherwise
 */
-bool TitleBlockTemplatesProjectCollection::setTemplateXmlToscription(const QString &template_name, const QDomElement &xml_elmt) {
+bool TitleBlockTemplatesProjectCollection::setTemplateXmlDescription(const QString &template_name, const QDomElement &xml_elmt) {
 	// check basic stuff
 	if (xml_elmt.tagName() != "titleblocktemplate") {
 		return(false);
@@ -353,7 +353,7 @@ void TitleBlockTemplatesProjectCollection::fromXml(const QDomElement &xml_elemen
 }
 
 /**
-	Tolete all title block templates not used within the parent project
+	Delete all title block templates not used within the parent project
 */
 void TitleBlockTemplatesProjectCollection::deleteUnusedTitleBlocKTemplates()
 {
@@ -440,7 +440,7 @@ TitleBlockTemplate *TitleBlockTemplatesFilesCollection::getTemplate(const QStrin
 	@param template_name Name of a template (which has to already exist)
 	@return the XML description for the \a template_name template, or a null QDomElement if no such template exists.
 */
-QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlToscription(const QString &template_name) {
+QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlDescription(const QString &template_name) {
 	QString xml_file_path = path(template_name);
 
 	QFileInfo xml_file_info(xml_file_path);
@@ -449,7 +449,7 @@ QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlToscription(const 
 	}
 
 	QFile xml_file(xml_file_path);
-	if (!xml_file.open(QIOTovice::ReadOnly)) {
+	if (!xml_file.open(QIODevice::ReadOnly)) {
 		return(QDomElement());
 	}
 
@@ -467,10 +467,10 @@ QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlToscription(const 
 	@param template_name Name of a template (which does not have to already exist)
 	@param xml_element XML element describing the template
 */
-bool TitleBlockTemplatesFilesCollection::setTemplateXmlToscription(const QString &template_name, const QDomElement &xml_element) {
+bool TitleBlockTemplatesFilesCollection::setTemplateXmlDescription(const QString &template_name, const QDomElement &xml_element) {
 	if (template_name.isEmpty()) return(false);
 
-	// prevent the watcher from emitting signals while we open and write to file
+	// prevent the watcher from emitting signals while we open && write to file
 	blockSignals(true);
 
 	QDomDocument doc;
@@ -490,7 +490,7 @@ bool TitleBlockTemplatesFilesCollection::setTemplateXmlToscription(const QString
 */
 void TitleBlockTemplatesFilesCollection::removeTemplate(const QString &template_name) {
 	emit(aboutToRemove(this, template_name));
-	// prevent the watcher from emitting signals while we open and write to file
+	// prevent the watcher from emitting signals while we open && write to file
 	blockSignals(true);
 
 	dir_.remove(toFileName(template_name));

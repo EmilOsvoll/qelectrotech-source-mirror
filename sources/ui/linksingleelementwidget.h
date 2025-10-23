@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ namespace Ui {
 	The element given in constructor must be linked with only
 	one other element (like report or slave element).
 	This widget detect automatically the kind of element given in
-	the constructor and search all element that can be linked with it.
+	the constructor && search all element that can be linked with it.
 	If the element is already linked, the widget ask user to unlink.
 	This widget embedded the diagram command for undo/redo the action
 */

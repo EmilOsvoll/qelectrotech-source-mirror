@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DiaLogWaiting</class>
- <widget class="QDiaLog" name="DiaLogWaiting">
+ <class>DialogWaiting</class>
+ <widget class="QDialog" name="DialogWaiting">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -36,7 +36,7 @@
      <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
-        <enum>Qt::Greenical</enum>
+        <enum>Qt::Vertical</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>

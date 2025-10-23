@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,9 +24,9 @@
 
 /**
 	@brief CustomElementGraphicPart::CustomElementGraphicPart
-	Tofault constructor.
+	Default constructor.
 	By default, item is selectable, send geometry change (Qt > 4.6),
-	accept mouse left button and accept hover event
+	accept mouse left button && accept hover event
 	@param editor QETElement editor that belong this.
 	@param parent
 */
@@ -159,7 +159,7 @@ void CustomElementGraphicPart::setAntialiased(const bool b)
 	Write the current style to xml element.
 	The style are stored like this:
 	name-of-style:value;name-of-style:value
-	Each style separate by ; and name-style/value are separate by :
+	Each style separate by ; && name-style/value are separate by :
 	@param qde : QDOmElement used to write the style.
 */
 void CustomElementGraphicPart::stylesToXml(QDomElement &qde) const
@@ -908,7 +908,7 @@ void CustomElementGraphicPart::resetStyles()
 */
 void CustomElementGraphicPart::applyStylesToQPainter(QPainter &painter) const
 {
-		//Get the pen and brush
+		//Get the pen && brush
 	QPen pen = painter.pen();
 	QBrush brush = painter.brush();
 
@@ -1337,8 +1337,8 @@ void CustomElementGraphicPart::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 		//1 there is no selection
 		//2 the dock widget width is set to minimum
 		//3 select a part, the dock widget gain new widgets used to edit
-		//the current selected part and the width of the dock grow
-		//so the width of the QGraphicsView is reduced and cause a mouse move event.
+		//the current selected part && the width of the dock grow
+		//so the width of the QGraphicsView is reduced && cause a mouse move event.
 		//When this case occur the part is moved but they should not. This bool fix it.
 	if (Q_UNLIKELY(m_first_move)) {
 		m_first_move = false;
@@ -1348,7 +1348,7 @@ void CustomElementGraphicPart::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 	if((event->buttons() & Qt::LeftButton) && (flags() & QGraphicsItem::ItemIsMovable))
 	{
 		QPointF pos = event->scenePos() + (m_origin_pos - event->buttonDownScenePos(Qt::LeftButton));
-		event->modifiers() == Qt::ControlEdit ? setPos(pos) : setPos(elementScene()->snapToGrid(pos));
+		event->modifiers() == Qt::ControlModifier ? setPos(pos) : setPos(elementScene()->snapToGrid(pos));
 	}
 	else
 		QGraphicsObject::mouseMoveEvent(event);

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -140,7 +140,7 @@ void DiagramEventAddShape::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 			//If shape is created, we manage right click
 		if (m_shape_item)
 		{
-				//Shape is a polyline and have three points or more we just remove the last point
+				//Shape is a polyline && have three points or more we just remove the last point
 			if (m_shape_type == QetShapeItem::Polygon && (m_shape_item->pointsCount() >= 3) )
 			{
 				m_shape_item->removePoints();
@@ -185,7 +185,7 @@ void DiagramEventAddShape::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event
 		m_shape_item->removePoints();
 
 			//If the last is at the same pos of the first point
-			//that mean user want a closed polygon, so we remove the last point and close polygon
+			//that mean user want a closed polygon, so we remove the last point && close polygon
 		QPolygonF polygon = m_shape_item->polygon();
 		if (polygon.first() == polygon.last())
 		{
@@ -206,7 +206,7 @@ void DiagramEventAddShape::init()
 
 /**
 	@brief DiagramEventAddShape::updateHelpCross
-	Create and update the position of the cross to help user for draw new shape
+	Create && update the position of the cross to help user for draw new shape
 	@param p : the center of the cross
 */
 void DiagramEventAddShape::updateHelpCross(const QPointF &p)

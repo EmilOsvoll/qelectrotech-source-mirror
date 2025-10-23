@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -84,7 +84,7 @@ QRectF AbstractPartEllipse::boundingRect() const
 	margin-less rectangle this part can fit into in scene coordinates.
 	It is different from boundingRect() because it is not supposed
 	to imply any margin,
-	and it is different from shape because it is a regular
+	&& it is different from shape because it is a regular
 	rectangle, not a complex shape.
 */
 QRectF AbstractPartEllipse::sceneGeometricRect() const
@@ -114,9 +114,9 @@ QRectF AbstractPartEllipse::rect() const
 	@brief AbstractPartEllipse::setRect
 	Sets the item's ellipse geometry to rect.
 	The rectangle's left edge defines the left edge of the ellipse,
-	and the rectangle's top edge describes the top of the ellipse
-	The height and width of the rectangle
-	describe the height and width of the ellipse.
+	&& the rectangle's top edge describes the top of the ellipse
+	The height && width of the rectangle
+	describe the height && width of the ellipse.
 	@param rect
 */
 void AbstractPartEllipse::setRect(const QRectF &rect)
@@ -131,7 +131,7 @@ void AbstractPartEllipse::setRect(const QRectF &rect)
 /**
 	@brief AbstractPartEllipse::isUseless
 	@return true if this part is irrelevant
-	and does not deserve to be Retained / registered.
+	&& does not deserve to be Retained / registered.
 	An ellipse is relevant when is rect is not null.
 */
 bool AbstractPartEllipse::isUseless() const

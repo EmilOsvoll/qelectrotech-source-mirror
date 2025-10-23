@@ -64,12 +64,12 @@
          <number>6</number>
         </property>
         <property name="sizeConstraint">
-         <enum>QLayout::SetTofaultConstraint</enum>
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
         <item>
          <spacer name="verticalSpacer">
           <property name="orientation">
-           <enum>Qt::Greenical</enum>
+           <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -113,7 +113,7 @@
         <item>
          <widget class="QPushButton" name="m_remove_pb">
           <property name="toolTip">
-           <string>Tolete selection</string>
+           <string>Delete selection</string>
           </property>
           <property name="text">
            <string/>
@@ -141,7 +141,7 @@
         <item>
          <spacer name="verticalSpacer_2">
           <property name="orientation">
-           <enum>Qt::Greenical</enum>
+           <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
@@ -275,7 +275,7 @@
          <item row="2" column="1">
           <widget class="QCheckBox" name="m_button_cb">
            <property name="text">
-            <string>Buttons and switches</string>
+            <string>Buttons &amp; switches</string>
            </property>
            <property name="checked">
             <bool>true</bool>
@@ -305,7 +305,7 @@
          <item row="1" column="1">
           <widget class="QCheckBox" name="m_coil_cb">
            <property name="text">
-            <string>Contactors and relays</string>
+            <string>Contactors &amp; relays</string>
            </property>
            <property name="checked">
             <bool>true</bool>

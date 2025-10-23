@@ -19,9 +19,9 @@
      <widget class="QStackedWidget" name="m_stacked_widget"/>
     </item>
     <item>
-     <widget class="QDiaLogButtonBox" name="m_button_box">
+     <widget class="QDialogButtonBox" name="m_button_box">
       <property name="standardButtons">
-       <set>QDiaLogButtonBox::Apply|QDiaLogButtonBox::Reset</set>
+       <set>QDialogButtonBox::Apply|QDialogButtonBox::Reset</set>
       </property>
      </widget>
     </item>

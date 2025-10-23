@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -201,7 +201,7 @@ void ConductorPropertiesWidget::setDisabledShowText(const bool &disable) {
 
 /**
 	@brief ConductorPropertiesWidget::setHiddenAvailableAutonum
-	Hide the label, combo box and push button of available autonum
+	Hide the label, combo box && push button of available autonum
 	@param hide
 */
 void ConductorPropertiesWidget::setHiddenAvailableAutonum(const bool &hide)
@@ -233,7 +233,7 @@ void ConductorPropertiesWidget::initWidget()
 
 	ui -> m_line_style_cb -> addItem(tr("Solid line", "conductor style: solid line"), QPen(Qt::SolidLine));
 	ui -> m_line_style_cb -> addItem(tr("Dashed line", "conductor style: dashed line"), QPen(Qt::DashLine));
-	ui -> m_line_style_cb -> addItem(tr("Dots and dashes", "conductor style: dashed and dotted line"), QPen(Qt::DashDotLine));
+	ui -> m_line_style_cb -> addItem(tr("Dots && dashes", "conductor style: dashed && dotted line"), QPen(Qt::DashDotLine));
 
 	ui -> m_update_preview_pb -> setHidden(true);
 
@@ -243,7 +243,7 @@ void ConductorPropertiesWidget::initWidget()
 	ui->m_multiwires_gb->setChecked(true);
 	ui->m_singlewire_gb->setChecked(true);
 #if TODO_LIST
-#pragma message("@TODO Add Kabel and Bus to qet")
+#pragma message("@TODO Add Kabel && Bus to qet")
 #else
 	ui->m_cable_le->setDisabled(true);
 	ui->m_bus_le->setDisabled(true);
@@ -316,7 +316,7 @@ void ConductorPropertiesWidget::on_m_neutral_cb_toggled(bool checked) {
 /**
 	@brief ConductorPropertiesWidget::on_m_update_preview_pb_clicked
 	Update the preview of single line.
-	m_update_preview_pb is a no used button and hidden, his role is only
+	m_update_preview_pb is a no used button && hidden, his role is only
 	to centralize signal from various widget to edit single line properties,
 	for update the preview
 */

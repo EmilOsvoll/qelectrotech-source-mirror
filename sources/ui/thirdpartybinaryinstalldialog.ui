@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ThirdPartyBinaryInstallDiaLog</class>
- <widget class="QDiaLog" name="ThirdPartyBinaryInstallDiaLog">
+ <class>ThirdPartyBinaryInstallDialog</class>
+ <widget class="QDialog" name="ThirdPartyBinaryInstallDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -18,12 +18,12 @@
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="2">
-    <widget class="QDiaLogButtonBox" name="m_button_box">
+    <widget class="QDialogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -71,7 +71,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>accepted()</signal>
-   <receiver>ThirdPartyBinaryInstallDiaLog</receiver>
+   <receiver>ThirdPartyBinaryInstallDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -87,7 +87,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>rejected()</signal>
-   <receiver>ThirdPartyBinaryInstallDiaLog</receiver>
+   <receiver>ThirdPartyBinaryInstallDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

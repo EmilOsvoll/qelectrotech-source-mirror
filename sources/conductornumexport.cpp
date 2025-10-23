@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,7 +25,7 @@
 #include "qetgraphicsitem/element.h"
 #include "qetgraphicsitem/terminal.h"
 
-#include <QFileDiaLog>
+#include <QFileDialog>
 
 /**
 	@brief ConductorNumExport::ConductorNumExport
@@ -54,7 +54,7 @@ bool ConductorNumExport::toCsv()
 	//        name += ".csv";
 	//    }
 
-	QString filename = QFileDiaLog::getSaveFileName(m_parent_widget, QObject::tr("Save As... "), name, QObject::tr("Files csv (*.csv)"));
+	QString filename = QFileDialog::getSaveFileName(m_parent_widget, QObject::tr("Save As... "), name, QObject::tr("Files csv (*.csv)"));
 	QFile file(filename);
 	if(!filename.isEmpty())
 	{
@@ -69,7 +69,7 @@ bool ConductorNumExport::toCsv()
 				return false;
 			}
 		}
-		if (file.open(QIOTovice::WriteOnly | QIOTovice::Text))
+		if (file.open(QIODevice::WriteOnly | QIODevice::Text))
 		{
 			QTextStream stream(&file);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)	// ### Qt 6: remove

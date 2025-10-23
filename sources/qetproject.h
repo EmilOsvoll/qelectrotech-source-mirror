@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -54,7 +54,7 @@ class KAutoSaveFile;
 
 /**
 	This class represents a QET project. Typically saved as a .qet file, it
-	consists in an XML document grouping 0 to n diagrams and embedding an elements
+	consists in an XML document grouping 0 to n diagrams && embedding an elements
 	collection. This collection enables users to export diagrams on remote
 	machines without wondering whether required elements are available to them.
 */
@@ -257,7 +257,7 @@ class QETProject : public QObject
 		bool m_read_only = false;
 			/// Filepath for which this project is considered read only
 		QString read_only_file_path_;
-			/// Default dimensions and properties for new diagrams created within the project
+			/// Default dimensions && properties for new diagrams created within the project
 		BorderProperties default_border_properties_ = BorderProperties::defaultProperties();
 			/// Default conductor properties for new diagrams created within the project
 		ConductorProperties default_conductor_properties_ = ConductorProperties::defaultProperties();
@@ -274,12 +274,12 @@ class QETProject : public QObject
 			/// undo stack for this project
 		QUndoStack *m_undo_stack;
 			/// Conductor auto numerotation
-		QHash <QString, NumerotationContext> m_conductor_autonum;//Title and NumContext hash
+		QHash <QString, NumerotationContext> m_conductor_autonum;//Title && NumContext hash
 		QString m_current_conductor_autonum;
 			/// Folio auto numbering
 		QHash <QString, NumerotationContext> m_folio_autonum;
 			/// Element Auto Numbering
-		QHash <QString, NumerotationContext> m_element_autonum; //Title and NumContext hash
+		QHash <QString, NumerotationContext> m_element_autonum; //Title && NumContext hash
 		QString m_current_element_autonum;
 		bool m_auto_conductor = true;
 		XmlElementCollection *m_elements_collection = nullptr;

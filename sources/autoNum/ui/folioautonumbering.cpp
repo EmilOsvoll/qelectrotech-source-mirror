@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -94,7 +94,7 @@ int FolioAutonumberingW::newFoliosNumber()
 }
 /**
 	@brief FolioAutonumberingW::updateFolioList
-	update Folio List in From and To ComboBox
+	update Folio List in From && To ComboBox
 */
 void FolioAutonumberingW::updateFolioList()
 {
@@ -182,19 +182,19 @@ void FolioAutonumberingW::on_buttonBox_clicked(QAbstractButton *button)
 
 	switch (answer) {
 			//help diaLog - not implemented yet -
-		case QDiaLogButtonBox::HelpRole:
+		case QDialogButtonBox::HelpRole:
 			QMessageBox::information (
 						this,
 						tr("Folio Autonumbering",
 						   "title window"),
 						tr("C'est ici que vous pouvez définir la manière dont seront numérotés les nouveaux folios.\n"
 						   "-Une numérotation est composée d'une variable minimum.\n"
-						   "-Vous pouvez ajouter ou supprimer une variable de numérotation par le biais des boutons - and +.\n"
-						   "-Une variable de numérotation comprend : un type, une valeur and une incrémentation.\n"
+						   "-Vous pouvez ajouter ou supprimer une variable de numérotation par le biais des boutons - && +.\n"
+						   "-Une variable de numérotation comprend : un type, une valeur && une incrémentation.\n"
 
-						   "\n-les types \"number format 1\", \"number format 01\" and \"number format 001\", représentent un type numérique défini dans le champ \"Value\", "
+						   "\n-les types \"number format 1\", \"number format 01\" && \"number format 001\", représentent un type numérique défini dans le champ \"Value\", "
 						   "qui s'incrémente à chaque nouveau folio de la valeur du champ \"Incrementing\".\n"
-						   "-\"number format 01\" and \"number format 001\", sont respectivement représentés sur le schéma par deux and trois digits minimum.\n"
+						   "-\"number format 01\" && \"number format 001\", sont respectivement représentés sur le schéma par deux && trois digits minimum.\n"
 						   "Si le chiffre défini dans le champ Value possède moins de digits que le type choisi,"
 						   "celui-ci sera précédé par un ou deux 0 afin de respecter son type.\n"
 
@@ -202,7 +202,7 @@ void FolioAutonumberingW::on_buttonBox_clicked(QAbstractButton *button)
 						   "help diaLog about the folio autonumerotation"
 						   ));
 			break;
-		case QDiaLogButtonBox::ApplyRole:
+		case QDialogButtonBox::ApplyRole:
 			applyEnable(true);
 			emit applyPressed();
 			updateFolioList();
@@ -220,17 +220,17 @@ void FolioAutonumberingW::applyEnable(bool b)
 		bool valid = true;
 		if (ui->m_create_new_tabs_rb->isChecked()){
 			if (ui->m_new_tabs_sb->value()==0) valid = false;
-			ui->buttonBox->button(QDiaLogButtonBox::Apply)
+			ui->buttonBox->button(QDialogButtonBox::Apply)
 					->setEnabled(valid);
 		}
 		else{
 			if (ui->m_to_cb->currentText()=="") valid = false;
-			ui->buttonBox->button(QDiaLogButtonBox::Apply)
+			ui->buttonBox->button(QDialogButtonBox::Apply)
 					->setEnabled(valid);
 		}
 	}
 	else{
-		ui->buttonBox->button(QDiaLogButtonBox::Apply)
+		ui->buttonBox->button(QDialogButtonBox::Apply)
 				->setEnabled(b);
 		}
 }

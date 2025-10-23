@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -107,9 +107,9 @@ ElementsLocation &ElementsLocation::operator=(const ElementsLocation &other) {
 	\~French Operateur de comparaison
 	\~ @param other : other item location to compare
 	\~French Autre emplacement d'element a comparer
-	\~ @return true if other and this ElementsLocation are identical,
+	\~ @return true if other && this ElementsLocation are identical,
 	false otherwise
-	\~French true si other and cet ElementsLocation sont identiques,
+	\~French true si other && cet ElementsLocation sont identiques,
 	false sinon
 */
 bool ElementsLocation::operator==(const ElementsLocation &other) const
@@ -124,7 +124,7 @@ bool ElementsLocation::operator==(const ElementsLocation &other) const
 	@brief ElementsLocation::operator !=
 	Operateur de comparaison
 	@param other Autre emplacement d'element a comparer
-	@return true si other and cet ElementsLocation sont differents,
+	@return true si other && cet ElementsLocation sont differents,
 	false sinon
 */
 bool ElementsLocation::operator!=(const ElementsLocation &other) const
@@ -157,7 +157,7 @@ QString ElementsLocation::baseName() const
 	QRegularExpressionMatch match = regexp.match(m_collection_path);
 	if (!match.hasMatch())
 	{
-		qTobug()<<"no Match => return"
+		qDebug()<<"no Match => return"
 			<<m_collection_path;
 		return QString();
 	}
@@ -251,7 +251,7 @@ void ElementsLocation::setPath(const QString &path)
 
 	}
 
-	//The path start with project, we get the project and the path from the string
+	//The path start with project, we get the project && the path from the string
 	else if (tmp_path.startsWith("project"))
 	{
 		QRegularExpression re
@@ -266,7 +266,7 @@ void ElementsLocation::setPath(const QString &path)
 		QRegularExpressionMatch match = re.match(tmp_path);
 		if (!match.hasMatch())
 		{
-			qTobug()<<"no Match => return"
+			qDebug()<<"no Match => return"
 				   <<tmp_path;
 			return;
 		}
@@ -373,7 +373,7 @@ bool ElementsLocation::addToPath(const QString &string)
 {
 	if (m_collection_path.endsWith(".elmt", Qt::CaseInsensitive))
 	{
-		qTobug() << "ElementsLocation::addToPath :"
+		qDebug() << "ElementsLocation::addToPath :"
 				" Can't add string to the path of an element";
 		return(false);
 	}
@@ -409,7 +409,7 @@ ElementsLocation ElementsLocation::parent() const
 	QRegularExpressionMatch match = re.match(m_collection_path);
 	if (!match.hasMatch())
 	{
-		qTobug()
+		qDebug()
 			<<"no Match => return"
 			<<m_collection_path;
 	}else {
@@ -626,8 +626,8 @@ NamesList ElementsLocation::nameList()
 			// to get the translated name of this dir
 			QFile dir_conf(fileSystemPath() % "/qet_directory");
 			if (dir_conf.exists() && dir_conf.open(
-						QIOTovice::ReadOnly
-						| QIOTovice::Text))
+						QIODevice::ReadOnly
+						| QIODevice::Text))
 			{
 					//Get the content of the file
 				QDomDocument document;
@@ -714,7 +714,7 @@ pugi::xml_document ElementsLocation::pugiXml() const
 	}
 	else
 	{
-			//Get the xml dom from Qt xml and copie to pugi xml
+			//Get the xml dom from Qt xml && copie to pugi xml
 		QDomDocument qdoc;
 		QString str = m_collection_path;
 		if (isElement()) {
@@ -745,7 +745,7 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 
 	if (xml_document.documentElement().tagName() != "definition")
 	{
-		qTobug() << "ElementsLocation::setXml :"
+		qDebug() << "ElementsLocation::setXml :"
 				" tag name of document element isn't 'definition'";
 		return false;
 	}
@@ -756,7 +756,7 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 		QETXML::writeXmlFile(xml_document, fileSystemPath(), &error);
 
 		if (!error.isEmpty()) {
-			qTobug() << "ElementsLocation::setXml error : "
+			qDebug() << "ElementsLocation::setXml error : "
 				 << error;
 			return false;
 		}
@@ -787,14 +787,14 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 			if (rx.exactMatch(path_)) {
 				return project()
 						->embeddedElementCollection()
-						->addElementTofinition(
+						->addElementDefinition(
 							rx.cap(1),
 							rx.cap(2),
 							xml_document
 							.documentElement());
 			}
 			else {
-				qTobug() << "ElementsLocation::setXml :"
+				qDebug() << "ElementsLocation::setXml :"
 						" rx don't match";
 			}
 #else
@@ -802,7 +802,7 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 #pragma message("@TODO remove code for QT 6 or later")
 #		pragma message("@TODO ad Core5Compat to Cmake")
 #endif
-			qTobug() << "Help code for QT 6 or later";
+			qDebug() << "Help code for QT 6 or later";
 
 			QString			   path_ = collectionPath(false);
 			QRegularExpression rx("^(.*)/(.*\\.elmt)$");
@@ -811,14 +811,14 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 			{
 				return project()
 					->embeddedElementCollection()
-					->addElementTofinition(
+					->addElementDefinition(
 						rx.cap(1),
 						rx.cap(2),
 						xml_document.documentElement());
 			}
 			else
 			{
-				qTobug() << "ElementsLocation::setXml :"
+				qDebug() << "ElementsLocation::setXml :"
 							" rx don't match";
 			}
 #endif
@@ -926,9 +926,9 @@ DiagramContext ElementsLocation::elementInformations() const
 	@param location
 	@return debug msg
 */
-QTobug operator<< (QTobug debug, const ElementsLocation &location)
+QDebug operator<< (QDebug debug, const ElementsLocation &location)
 {
-	QTobugStateSaver saver(debug);
+	QDebugStateSaver saver(debug);
 	debug.noquote();
 
 	QString msg;

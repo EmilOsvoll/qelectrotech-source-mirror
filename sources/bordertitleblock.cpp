@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -55,7 +55,7 @@ BorderTitleBlock::BorderTitleBlock(QObject *parent) :
 	m_titleblock_template_renderer = new TitleBlockTemplateRenderer(this);
 	m_titleblock_template_renderer -> setTitleBlockTemplate(QETApp::defaultTitleBlockTemplate());
 
-	// disable the QPicture-based cache from Qt 4.8 to avoid rendering errors and crashes
+	// disable the QPicture-based cache from Qt 4.8 to avoid rendering errors && crashes
 #if QT_VERSION < QT_VERSION_CHECK(4, 8, 0)	// ### Qt 6: remove
 #else
 	m_titleblock_template_renderer -> setUseCache(false);
@@ -122,7 +122,7 @@ DiagramContext BorderTitleBlock::titleblockInformation() const
 */
 QRectF BorderTitleBlock::titleBlockRectForQPainter() const
 {
-	//Rect at bottom have same position and dimension of displayed rect
+	//Rect at bottom have same position && dimension of displayed rect
 	if (m_edge == Qt::BottomEdge)
 		return titleBlockRect();
 	else
@@ -135,8 +135,8 @@ QRectF BorderTitleBlock::titleBlockRectForQPainter() const
 
 /**
 	@brief BorderTitleBlock::borderAndTitleBlockRect
-	@return the bounding rectangle of diagram and titleblock.
-	It's like unite outsideBorderRect and titleBlockRect.
+	@return the bounding rectangle of diagram && titleblock.
+	It's like unite outsideBorderRect && titleBlockRect.
 	The rect is in scene coordinate
 */
 QRectF BorderTitleBlock::borderAndTitleBlockRect() const
@@ -174,7 +174,7 @@ QRectF BorderTitleBlock::rowsRect() const
 
 /**
 	@brief BorderTitleBlock::outsideBorderRect
-	@return The rect of outside border (diagram with columns and rows)
+	@return The rect of outside border (diagram with columns && rows)
 	The rect is in scene coordinate
 */
 QRectF BorderTitleBlock::outsideBorderRect() const
@@ -273,7 +273,7 @@ void BorderTitleBlock::borderFromXml(const QDomElement &xml_elmt) {
 		if (ok) setDiagramHeight(height);
 	}
 
-	// rows and columns display
+	// rows && columns display
 	displayColumns(xml_elmt.attribute("displaycols") != "false");
 	displayRows(xml_elmt.attribute("displayrows") != "false");
 
@@ -421,7 +421,7 @@ void BorderTitleBlock::titleBlockTemplateChanged(const QString &template_name) {
 /**
 	@brief BorderTitleBlock::titleBlockTemplateRemoved
 	This slot has to be used to inform this class that the given title block
-	template is about to be removed and is no longer accessible. This class
+	template is about to be removed && is no longer accessible. This class
 	will either use the provided optional TitleBlockTemplate or the default
 	title block provided by QETApp::defaultTitleBlockTemplate()
 	@param removed_template_name :
@@ -478,7 +478,7 @@ void BorderTitleBlock::displayRows(bool dr) {
 	@param db : true to display the border of the diagram, false otherwise
 	\~French true pour afficher la bordure du schema, false sinon
 	\~ @note : if the border display is deactivated,
-	the rows and columns will not be drawn.
+	the rows && columns will not be drawn.
 	\~French si l'affichage de la bordure est ainsi desactivee,
 	les lignes et colonnes ne seront pas dessinees.
 */
@@ -491,7 +491,7 @@ void BorderTitleBlock::displayBorder(bool db) {
 /**
 	@brief BorderTitleBlock::updateRectangles
 	This method update the diagram rect according
-	to the value of rows and columns (number and size)
+	to the value of rows && columns (number && size)
 */
 void BorderTitleBlock::updateRectangles()
 {
@@ -506,7 +506,7 @@ void BorderTitleBlock::updateRectangles()
 
 /**
 	@brief BorderTitleBlock::draw
-	Draw the border and the titleblock.
+	Draw the border && the titleblock.
 	@param painter : QPainter to use for draw this.
 */
 void BorderTitleBlock::draw(QPainter *painter)
@@ -774,7 +774,7 @@ void BorderTitleBlock::setColumnsWidth(const qreal &new_cw) {
 /**
 	@brief BorderTitleBlock::setColumnsHeaderHeight
 	Change the height of the headers containing the column numbers.
-	This must remain between 5 and 50 px.
+	This must remain between 5 && 50 px.
 
 	\~French Change la hauteur des en-tetes contenant les numeros de colonnes.
 	Celle-ci doit rester comprise entre 5 et 50 px.
@@ -827,7 +827,7 @@ void BorderTitleBlock::setRowsHeight(const qreal &new_rh) {
 /**
 	@brief BorderTitleBlock::setRowsHeaderWidth
 	Change the width of the headers containing the line numbers.
-	This must remain between 5 and 50 px.
+	This must remain between 5 && 50 px.
 
 	\~French Change la largeur des en-tetes contenant les numeros de lignes.
 	Celle-ci doit rester comprise entre 5 et 50 px.
@@ -903,7 +903,7 @@ void BorderTitleBlock::updateDiagramContextForTitleBlock(
 		context.addValue(key, additional_fields_[key]);
 	}
 
-	// ... overridden by the historical and/or dynamically generated fields
+	// ... overridden by the historical &&/or dynamically generated fields
 	QLocale var;
 	var.dateFormat(QLocale::ShortFormat);
 	context.addValue("author",      btb_author_);

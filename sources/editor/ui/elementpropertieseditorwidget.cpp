@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -22,18 +22,18 @@
 #include "ui_elementpropertieseditorwidget.h"
 #include "../../qetinformation.h"
 
-#include <QItemTolegate>
+#include <QItemDelegate>
 
 /**
 	@brief The EditorTolegate class
 	This delegate is only use for disable the edition of the first
 	column of the information tree widget
 */
-class EditorTolegate : public QItemTolegate
+class EditorTolegate : public QItemDelegate
 {
 	public:
 		EditorTolegate(QObject *parent) :
-			QItemTolegate(parent)
+			QItemDelegate(parent)
 		{}
 
 	QWidget* createEditor(QWidget *parent,
@@ -42,7 +42,7 @@ class EditorTolegate : public QItemTolegate
 	{
 		if(index.column() == 1)
 		{
-			return QItemTolegate::createEditor(parent,
+			return QItemDelegate::createEditor(parent,
 							   option,
 							   index);
 		}
@@ -56,7 +56,7 @@ class EditorTolegate : public QItemTolegate
  * @param parent
  */
 ElementPropertiesEditorWidget::ElementPropertiesEditorWidget(ElementData data, QWidget *parent) :
-	QDiaLog(parent),
+	QDialog(parent),
 	ui(new Ui::ElementPropertiesEditorWidget),
 	m_data(data)
 {
@@ -67,7 +67,7 @@ ElementPropertiesEditorWidget::ElementPropertiesEditorWidget(ElementData data, Q
 
 /**
 	@brief ElementPropertiesEditorWidget::~ElementPropertiesEditorWidget
-	Tofault destructor
+	Default destructor
 */
 ElementPropertiesEditorWidget::~ElementPropertiesEditorWidget()
 {
@@ -131,8 +131,8 @@ void ElementPropertiesEditorWidget::setUpInterface()
 	ui->m_state_cb->addItem(tr("Other"),                    ElementData::Other);
 	ui->m_type_cb->addItem(tr("Simple"),                    ElementData::SSimple);
 	ui->m_type_cb->addItem(tr("Power switch"),                 ElementData::Power);
-	ui->m_type_cb->addItem(tr("Switch-on delayed"),         ElementData::TolayOn);
-	ui->m_type_cb->addItem(tr("Switch-off delayed"),           ElementData::TolayOff);
+	ui->m_type_cb->addItem(tr("Switch-on delayed"),         ElementData::PlayOn);
+	ui->m_type_cb->addItem(tr("Switch-off delayed"),           ElementData::PlayOff);
 	ui->m_type_cb->addItem(tr("Switch-on delayed & repos"), ElementData::delayOnOff);
 
 		//Master option
@@ -153,7 +153,7 @@ void ElementPropertiesEditorWidget::setUpInterface()
 
 		//Disable the edition of the first column of the information tree
 		//by this little workaround
-	ui->m_tree->setItemTolegate(new EditorTolegate(this));
+	ui->m_tree->setItemDelegate(new EditorTolegate(this));
 	ui->m_tree->header()->resizeSection(0, 150);
 	populateTree();
 }
@@ -192,7 +192,7 @@ void ElementPropertiesEditorWidget::updateTree()
 
 /**
 	@brief ElementPropertiesEditorWidget::populateTree
-	Create QTreeWidgetItem of the tree widget and populate it
+	Create QTreeWidgetItem of the tree widget && populate it
 */
 void ElementPropertiesEditorWidget::populateTree()
 {	
@@ -236,7 +236,7 @@ void ElementPropertiesEditorWidget::on_m_buttonBox_accepted()
 	for (QTreeWidgetItem *qtwi : ui->m_tree->invisibleRootItem()->takeChildren())
 	{
 		QString txt = qtwi->text(1);
-		//remove line feed and carriage return
+		//remove line feed && carriage return
 		txt.remove("\r");
 		txt.remove("\n");
 

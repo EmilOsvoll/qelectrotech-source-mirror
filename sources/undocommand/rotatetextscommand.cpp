@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,7 +27,7 @@
 
 /**
 	@brief RotateTextsCommand::RotateTextsCommand
-	@param diagram : Apply the rotation to the selected texts and group of texts
+	@param diagram : Apply the rotation to the selected texts && group of texts
 	of diagram at construction time. 
 	@param parent : undo parent
 */
@@ -49,11 +49,11 @@ m_diagram(diagram)
 		}
 	}
 	for(ElementTextItemGroup *etig : dc.selectedTextsGroup())
-		groups_list << andig;
+		groups_list << angle;
 	
 	if(texts_list.count() || groups_list.count())
 	{
-		openDiaLog();
+		openDialog();
 		
 		QString text;
 		if(texts_list.count())
@@ -63,7 +63,7 @@ m_diagram(diagram)
 			if(text.isEmpty())
 				text.append(QObject::tr("Rotate"));
 			else
-				text.append(QObject::tr(" and"));
+				text.append(QObject::tr(" &&"));
 			
 			text.append(QObject::tr(" %1 groups of texts").arg(groups_list.count()));
 		}
@@ -104,10 +104,10 @@ void RotateTextsCommand::redo()
 		cti->forceMovedByUser(true);
 }
 
-void RotateTextsCommand::openDiaLog()
+void RotateTextsCommand::openDialog()
 {
 		//Open the diaLog
-	QDiaLog ori_text_diaLog;
+	QDialog ori_text_diaLog;
 	ori_text_diaLog.setSizeGripEnabled(false);
 #ifdef Q_OS_MACOS
 	ori_text_diaLog.setWindowFlags(Qt::Sheet);
@@ -119,7 +119,7 @@ void RotateTextsCommand::openDiaLog()
 	ori_widget->setParent(&ori_text_diaLog);
 	ori_widget->spinBox()->selectAll();
 	
-	QDiaLogButtonBox buttons(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
+	QDialogButtonBox buttons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	QObject::connect(&buttons, SIGNAL(accepted()), &ori_text_diaLog, SLOT(accept()));
 	QObject::connect(&buttons, SIGNAL(rejected()), &ori_text_diaLog, SLOT(reject()));
 	
@@ -129,7 +129,7 @@ void RotateTextsCommand::openDiaLog()
 	layout_v.addStretch();
 	layout_v.addWidget(&buttons);
 	
-	if (ori_text_diaLog.exec() == QDiaLog::Accepted)
+	if (ori_text_diaLog.exec() == QDialog::Accepted)
 		m_rotation = ori_widget->orientation();
 	else
 		setObsolete(true);

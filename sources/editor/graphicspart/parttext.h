@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -31,7 +31,7 @@ class ElementPrimitiveTocorator;
 class PartText : public QGraphicsTextItem, public CustomElementPart {
 	Q_OBJECT
 	Q_PROPERTY(qreal real_size READ realSize WRITE setRealSize)
-	Q_PROPERTY(QColor color READ defaultTextColor WRITE setTofaultTextColor NOTIFY colorChanged)
+	Q_PROPERTY(QColor color READ defaultTextColor WRITE setDefaultTextColor NOTIFY colorChanged)
 	Q_PROPERTY(QString text READ toPlainText WRITE setPlainText NOTIFY plainTextChanged)
 	Q_PROPERTY(QFont font READ font WRITE setFont NOTIFY fontChanged)
 
@@ -74,7 +74,7 @@ class PartText : public QGraphicsTextItem, public CustomElementPart {
 
 		qreal realSize() const {return real_font_size_;}
 		void setRealSize(qreal rs) {real_font_size_ = rs;}
-		void setTofaultTextColor(const QColor &color);
+		void setDefaultTextColor(const QColor &color);
 		void setPlainText(const QString &text);
 		void setFont(const QFont &font);
 

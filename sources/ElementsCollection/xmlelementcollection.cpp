@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -32,7 +32,7 @@
 			</category>
 		</collection>
 	@endcode
-	All elements and category are stored as child of <category name="import>
+	All elements && category are stored as child of <category name="import>
 	@param project : the project of this collection
 */
 XmlElementCollection::XmlElementCollection(QETProject *project) :
@@ -167,7 +167,7 @@ QDomNodeList XmlElementCollection::childs(
 	If parent_element have child element
 	with an attribute name = child_name, return it,
 	else return a null QDomElement.
-	Only search for element with tag-name "category" and "element"
+	Only search for element with tag-name "category" && "element"
 	(if child_name end with ".elmt")
 	@param parent_element : the parent DomElement where we search for child.
 	parent_element must be a child node of this XmlElementCollection.
@@ -361,7 +361,7 @@ QDomElement XmlElementCollection::directory(const QString &path) const
 */
 QString XmlElementCollection::addElement(ElementsLocation &location)
 {
-	//location must be an element and exist
+	//location must be an element && exist
 	if (!(location.exist() && location.isElement()))
 		return QString();
 
@@ -539,7 +539,7 @@ bool XmlElementCollection::addElementDefinition(
 	@brief XmlElementCollection::removeElement
 	Remove the element at path path.
 	@param path
-	@return True if element is removed and emit the signal elementRemoved.
+	@return True if element is removed && emit the signal elementRemoved.
 	else false.
 */
 bool XmlElementCollection::removeElement(const QString& path)
@@ -644,7 +644,7 @@ bool XmlElementCollection::createDir(const QString& path,
 	@brief XmlElementCollection::removeDir
 	Remove the directory at path path.
 	@param path
-	@return true if successfully removed and emit directoryRemoved(QString),
+	@return true if successfully removed && emit directoryRemoved(QString),
 	else false.
 */
 bool XmlElementCollection::removeDir(const QString& path)
@@ -660,7 +660,7 @@ bool XmlElementCollection::removeDir(const QString& path)
 
 /**
 	@brief XmlElementCollection::elementsLocation
-	Return all locations stored in dom_element (element and directory).
+	Return all locations stored in dom_element (element && directory).
 	If dom_element is null, return all location owned by this collection
 	dom_element must be a child of this collection.
 	@param dom_element : dom_element where we must search location.

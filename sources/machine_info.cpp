@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,7 +24,7 @@
 #include <QScreen>
 #include <QProcess>
 #include <QApplication>
-#include <QTobug>
+#include <QDebug>
 #include <QSysInfo>
 #include <QStorageInfo>
 #include <QLibraryInfo>
@@ -235,7 +235,7 @@ void MachineInfo::send_info_to_debug()
 	
 	foreach (const QStorageInfo &storage, QStorageInfo::mountedVolumes()) {
 			if (storage.isReadOnly())
-				qTobug() << "isReadOnly:" << storage.isReadOnly();
+				qDebug() << "isReadOnly:" << storage.isReadOnly();
 		 
 			qInfo() << "DISK :" << storage.rootPath().toLocal8Bit().constData() <<  " ";
 			qInfo()  << "FileSystemType:" << storage.fileSystemType();
@@ -246,7 +246,7 @@ void MachineInfo::send_info_to_debug()
 	QStorageInfo storage(qApp->applicationDirPath());
 		
 			if (storage.isReadOnly())
-			qTobug() << "isReadOnly:" << storage.isReadOnly();
+			qDebug() << "isReadOnly:" << storage.isReadOnly();
 	
 			qInfo() << "DISK USED:" << storage.rootPath().toLocal8Bit().constData() <<  " ";
 			qInfo()  << "FileSystemType:" << storage.fileSystemType();
@@ -258,7 +258,7 @@ void MachineInfo::send_info_to_debug()
 
 /**
 	@brief MachineInfo::init_get_Screen_info
-	Finds the largest screen and saves the values
+	Finds the largest screen && saves the values
 */
 void MachineInfo::init_get_Screen_info()
 {

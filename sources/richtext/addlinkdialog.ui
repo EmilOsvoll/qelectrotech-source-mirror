@@ -1,6 +1,6 @@
 <ui version="4.0" >
  <class>AddLinkDiaLog</class>
- <widget class="QDiaLog" name="AddLinkDiaLog" >
+ <widget class="QDialog" name="AddLinkDiaLog" >
   <property name="windowTitle" >
    <string>Insert Link</string>
   </property>
@@ -45,7 +45,7 @@
    <item>
     <spacer name="verticalSpacer" >
      <property name="orientation" >
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0" >
       <size>
@@ -63,12 +63,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="buttonBox" >
+    <widget class="QDialogButtonBox" name="buttonBox" >
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons" >
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>

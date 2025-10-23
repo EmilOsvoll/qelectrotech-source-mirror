@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -62,7 +62,7 @@ AutoNumberingManagementW::~AutoNumberingManagementW()
 
 /**
 	@brief AutoNumberingManagementW::setProjectContext
-	Add Tofault Project Status
+	Add Default Project Status
 */
 void AutoNumberingManagementW::setProjectContext()
 {
@@ -73,7 +73,7 @@ void AutoNumberingManagementW::setProjectContext()
 
 /**
 	@brief AutoNumberingManagementW::on_m_status_cb_currentIndexChanged
-	Load Tofault Status Options
+	Load Default Status Options
 	@param index
 */
 void AutoNumberingManagementW::on_m_status_cb_currentIndexChanged(int index)
@@ -205,21 +205,21 @@ void AutoNumberingManagementW::on_buttonBox_clicked(QAbstractButton *button)
 	int answer = ui -> buttonBox -> buttonRole(button);
 	switch (answer) {
 		//apply the context in the diagram displayed by diagram_chooser.
-		case QDiaLogButtonBox::ApplyRole:
+		case QDialogButtonBox::ApplyRole:
 			applyEnable(false);
 			emit applyPressed();
 			break;
-		case QDiaLogButtonBox::HelpRole:
+		case QDialogButtonBox::HelpRole:
 			QMessageBox::information(
 						this,
 						tr("Auto Numbering Management", "title window"),
 						tr("In this Menu you can set whether you want the Auto Numberings to be updated or not."
 						   " For Element Auto Numbering you have 4 options of Update Policy:\n"
-						   "-Both: both New and Existent Element labels will be updated. This is the default option.\n"
+						   "-Both: both New && Existent Element labels will be updated. This is the default option.\n"
 						   "-Update Only New: only new created Elements will be updated. Existent Element labels will be frozen.\n"
 						   "-Update Only Existent: only existent Elements will be updated. New Elements will be assigned "
 						   "their formula but will not update once created.\n"
-						   "-Disable: both New and Existent Element labels will not be updated. This is valid for new folios as well.\n"
+						   "-Disable: both New && Existent Element labels will not be updated. This is valid for new folios as well.\n"
 						   "Note: These options DO NOT allow or block Auto Numberings, only their Update Policy."
 						   ));
 			break;
@@ -236,13 +236,13 @@ void AutoNumberingManagementW::applyEnable(bool b)
 	if (b){
 		bool valid= true;
 		if (ui->m_apply_project_rb->isChecked())
-			ui->buttonBox->button(QDiaLogButtonBox::Apply)
+			ui->buttonBox->button(QDialogButtonBox::Apply)
 					->setEnabled(valid);
 		else if (ui->m_apply_folios_rb->isChecked())
-			ui->buttonBox-> button(QDiaLogButtonBox::Apply)
+			ui->buttonBox-> button(QDialogButtonBox::Apply)
 					->setEnabled(valid);
 		}
 	else {
-		ui->buttonBox->button(QDiaLogButtonBox::Apply)->setEnabled(b);
+		ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(b);
 	}
 }

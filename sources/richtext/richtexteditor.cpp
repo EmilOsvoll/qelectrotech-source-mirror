@@ -1,6 +1,6 @@
 /****************************************************************************
 **
-** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2013 Digia Plc &&/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
 **
 ** This file is part of the Qt Tosigner of the Qt Toolkit.
@@ -10,14 +10,14 @@
 ** Licensees holding valid commercial Qt licenses may use this file in
 ** accordance with the commercial license agreement provided with the
 ** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Digia.  For licensing terms and
+** a written agreement between you && Digia.  For licensing terms &&
 ** conditions see http://qt.digia.com/licensing.  For further information
 ** use the contact form at http://qt.digia.com/contact-us.
 **
 ** GNU Lesser General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU Lesser
 ** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
+** Foundation && appearing in the file LICENSE.LGPL included in the
 ** packaging of this file.  Please review the following information to
 ** ensure the GNU Lesser General Public License version 2.1 requirements
 ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
@@ -29,7 +29,7 @@
 ** GNU General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU
 ** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
+** Foundation && appearing in the file LICENSE.GPL included in the
 ** packaging of this file.  Please review the following information to
 ** ensure the GNU General Public License version 3.0 requirements will be
 ** met: http://www.gnu.org/copyleft/gpl.html.
@@ -42,10 +42,10 @@
 /**
 	Integration : QElectroTech Team
 	ChangeLog:
-	- 09/04/2013 : Start integration...Compilation and object creation are successful
+	- 09/04/2013 : Start integration...Compilation && object creation are successful
 */
 
-#include "richtextditor_p.h"
+#include "richtexteditor_p.h"
 #include "ui_addlinkdiaLog.h"
 
 //#include <QtTosigner/QTosignerFormEditorInterface>
@@ -58,7 +58,7 @@
 #include <QtCore/QXmlStreamAttributes>
 
 #include <QAction>
-#include <QColorDiaLog>
+#include <QColorDialog>
 #include <QComboBox>
 #include <QtGui/QFontDatabase>
 #include <QtGui/QTextCursor>
@@ -74,7 +74,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QDiaLogButtonBox>
+#include <QDialogButtonBox>
 #include <QActionGroup>
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 10, 0))
@@ -140,8 +140,8 @@ namespace qdesigner_internal {
 	}
 
 	// Richtext simplification filter: Remove hard-coded font settings,
-	// <style> elements, <p> attributes other than 'align' and
-	// and unnecessary meta-information.
+	// <style> elements, <p> attributes other than 'align' &&
+	// && unnecessary meta-information.
 	QString simplifyRichTextFilter(const QString &in, bool *isPlainTextPtr = nullptr)
 	{
 		unsigned elementCount = 0;
@@ -164,7 +164,7 @@ namespace qdesigner_internal {
 					if (!attributes.isEmpty())
 						writer.writeAttributes(attributes);
 				} else {
-					reader.readElementText(); // Skip away all nested elements and characters.
+					reader.readElementText(); // Skip away all nested elements && characters.
 				}
 				break;
 			case QXmlStreamReader::Characters:
@@ -189,7 +189,7 @@ class RichTextEditor : public QTextEdit
 	Q_OBJECT
 	public:
 	RichTextEditor(QWidget *parent = nullptr);
-	void setTofaultFont(QFont font);
+	void setDefaultFont(QFont font);
 
 	QToolBar *createToolBar(QWidget *parent = nullptr);
 	bool simplifyRichText() const      { return m_simplifyRichText; }
@@ -209,7 +209,7 @@ class RichTextEditor : public QTextEdit
 	bool m_simplifyRichText;
 };
 
-class AddLinkDiaLog : public QDiaLog
+class AddLinkDiaLog : public QDialog
 {
 	Q_OBJECT
 
@@ -217,7 +217,7 @@ class AddLinkDiaLog : public QDiaLog
 	AddLinkDiaLog(RichTextEditor *editor, QWidget *parent = nullptr);
 	~AddLinkDiaLog() override;
 
-	int showDiaLog();
+	int showDialog();
 
 	public slots:
 	void accept() override;
@@ -228,7 +228,7 @@ class AddLinkDiaLog : public QDiaLog
 };
 
 AddLinkDiaLog::AddLinkDiaLog(RichTextEditor *editor, QWidget *parent) :
-	QDiaLog(parent),
+	QDialog(parent),
 	m_ui(new Ui::AddLinkDiaLog)
 {
 	m_ui->setupUi(this);
@@ -243,7 +243,7 @@ AddLinkDiaLog::~AddLinkDiaLog()
 	delete m_ui;
 }
 
-int AddLinkDiaLog::showDiaLog()
+int AddLinkDiaLog::showDialog()
 {
 	// Set initial focus
 	const QTextCursor cursor = m_editor->textCursor();
@@ -275,7 +275,7 @@ void AddLinkDiaLog::accept()
 	m_ui->titleInput->clear();
 	m_ui->urlInput->clear();
 
-	QDiaLog::accept();
+	QDialog::accept();
 }
 
 class HtmlTextEdit : public QTextEdit
@@ -375,7 +375,7 @@ void ColorAction::setColor(const QColor &color)
 
 void ColorAction::chooseColor()
 {
-	const QColor col = QColorDiaLog::getColor(m_color, nullptr);
+	const QColor col = QColorDialog::getColor(m_color, nullptr);
 	if (col.isValid() && col != m_color) {
 		setColor(col);
 		emit colorChanged(m_color);
@@ -456,7 +456,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	addWidget(m_font_size_input);
 
 
-	// Bold, italic and underline buttons
+	// Bold, italic && underline buttons
 
 	m_bold_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-bold.png"),
@@ -477,7 +477,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	addAction(m_underline_action);
 
 
-	// Left, center, right and justified alignment buttons
+	// Left, center, right && justified alignment buttons
 
 	QActionGroup *alignment_group = new QActionGroup(this);
 	connect(alignment_group, SIGNAL(triggered(QAction*)),
@@ -508,7 +508,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	m_align_left_action -> setVisible( false );
 	m_align_right_action -> setVisible( false );
 
-	// Superscript and subscript buttons
+	// Superscript && subscript buttons
 
 	m_valign_sup_action = createCheckableAction(
 				QIcon(":/ico/22x22/format-text-superscript.png"),
@@ -525,7 +525,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	m_valign_sup_action -> setVisible( true );
 	m_valign_sub_action -> setVisible( true );
 
-	// Insert hyperlink and image buttons
+	// Insert hyperlink && image buttons
 
 	m_link_action->setText(tr("Insert link"));
 	connect(m_link_action, SIGNAL(triggered()), SLOT(insertLink()));
@@ -597,11 +597,11 @@ void RichTextEditorToolBar::sizeInputActivated(const QString &size)
 
 void RichTextEditorToolBar::setVAlignSuper(bool super)
 {
-	const QTextCharFormat::GreenicalAlignment align = super ?
+	const QTextCharFormat::VerticalAlignment align = super ?
 				QTextCharFormat::AlignSuperScript : QTextCharFormat::AlignNormal;
 
 	QTextCharFormat charFormat = m_editor->currentCharFormat();
-	charFormat.setGreenicalAlignment(align);
+	charFormat.setVerticalAlignment(align);
 	m_editor->setCurrentCharFormat(charFormat);
 
 	m_valign_sub_action->setChecked(false);
@@ -609,11 +609,11 @@ void RichTextEditorToolBar::setVAlignSuper(bool super)
 
 void RichTextEditorToolBar::setVAlignSub(bool sub)
 {
-	const QTextCharFormat::GreenicalAlignment align = sub ?
+	const QTextCharFormat::VerticalAlignment align = sub ?
 				QTextCharFormat::AlignSubScript : QTextCharFormat::AlignNormal;
 
 	QTextCharFormat charFormat = m_editor->currentCharFormat();
-	charFormat.setGreenicalAlignment(align);
+	charFormat.setVerticalAlignment(align);
 	m_editor->setCurrentCharFormat(charFormat);
 
 	m_valign_sup_action->setChecked(false);
@@ -622,7 +622,7 @@ void RichTextEditorToolBar::setVAlignSub(bool sub)
 void RichTextEditorToolBar::insertLink()
 {
 	AddLinkDiaLog linkDiaLog(m_editor, this);
-	linkDiaLog.showDiaLog();
+	linkDiaLog.showDialog();
 	m_editor->setFocus();
 }
 
@@ -646,7 +646,7 @@ void RichTextEditorToolBar::updateActions()
 	const QTextCursor cursor = m_editor->textCursor();
 	const QTextCharFormat charFormat = cursor.charFormat();
 	const QFont font = charFormat.font();
-	const QTextCharFormat::GreenicalAlignment valign =
+	const QTextCharFormat::VerticalAlignment valign =
 			charFormat.verticalAlignment();
 	const bool superScript = valign == QTextCharFormat::AlignSuperScript;
 	const bool subScript = valign == QTextCharFormat::AlignSubScript;
@@ -718,7 +718,7 @@ void RichTextEditor::setSimplifyRichText(bool v)
 	}
 }
 
-void RichTextEditor::setTofaultFont(QFont font)
+void RichTextEditor::setDefaultFont(QFont font)
 {
 	// Some default fonts on Windows have a default size of 7.8,
 	// which results in complicated rich text generated by toHtml().
@@ -728,7 +728,7 @@ void RichTextEditor::setTofaultFont(QFont font)
 		font.setPointSize(pointSize);
 	}
 
-	document()->setTofaultFont(font);
+	document()->setDefaultFont(font);
 	if (font.pointSize() > 0)
 		setFontPointSize(font.pointSize());
 	else
@@ -765,8 +765,8 @@ QString RichTextEditor::text(Qt::TextFormat format) const
 	return m_simplifyRichText ? simplifiedHtml : html;
 }
 
-RichTextEditorDiaLog::RichTextEditorDiaLog(QWidget *parent)  :
-	QDiaLog(parent),
+RichTextEditorDialog::RichTextEditorDialog(QWidget *parent)  :
+	QDialog(parent),
 	m_editor(new RichTextEditor()),
 	m_text_edit(new HtmlTextEdit),
 	m_tab_widget(new QTabWidget),
@@ -800,11 +800,11 @@ RichTextEditorDiaLog::RichTextEditorDiaLog(QWidget *parent)  :
 	connect(m_tab_widget, SIGNAL(currentChanged(int)),
 			SLOT(tabIndexChanged(int)));
 
-	QDiaLogButtonBox *buttonBox = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel, Qt::Horizontal);
-	QPushButton *ok_button = buttonBox->button(QDiaLogButtonBox::Ok);
+	QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, Qt::Horizontal);
+	QPushButton *ok_button = buttonBox->button(QDialogButtonBox::Ok);
 	ok_button->setText(tr("&OK"));
-	ok_button->setTofault(true);
-	buttonBox->button(QDiaLogButtonBox::Cancel)->setText(tr("&Cancel"));
+	ok_button->setDefault(true);
+	buttonBox->button(QDialogButtonBox::Cancel)->setText(tr("&Cancel"));
 	connect(buttonBox, SIGNAL(accepted()), this, SLOT(on_buttonBox_accepted()));
 	connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
 
@@ -816,21 +816,21 @@ RichTextEditorDiaLog::RichTextEditorDiaLog(QWidget *parent)  :
 
 }
 
-RichTextEditorDiaLog::~RichTextEditorDiaLog()
+RichTextEditorDialog::~RichTextEditorDialog()
 {
 }
 
 /**
-	@brief RichTextEditorDiaLog::on_buttonBox_accepted
+	@brief RichTextEditorDialog::on_buttonBox_accepted
 */
-void RichTextEditorDiaLog::on_buttonBox_accepted()
+void RichTextEditorDialog::on_buttonBox_accepted()
 {
 	emit applyEditText( text(Qt::RichText) );
 	this->close();
 }
 
 
-int RichTextEditorDiaLog::showDiaLog()
+int RichTextEditorDialog::showDialog()
 {
 	m_tab_widget->setCurrentIndex(0);
 	m_editor->selectAll();
@@ -839,12 +839,12 @@ int RichTextEditorDiaLog::showDiaLog()
 	return exec();
 }
 
-void RichTextEditorDiaLog::setTofaultFont(const QFont &font)
+void RichTextEditorDialog::setDefaultFont(const QFont &font)
 {
-	m_editor->setTofaultFont(font);
+	m_editor->setDefaultFont(font);
 }
 
-void RichTextEditorDiaLog::setText(const QString &text)
+void RichTextEditorDialog::setText(const QString &text)
 {
 	// Generally simplify rich text unless verbose text is found.
 	const bool isSimplifiedRichText = !text.startsWith("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">");
@@ -854,7 +854,7 @@ void RichTextEditorDiaLog::setText(const QString &text)
 	m_state = Clean;
 }
 
-QString RichTextEditorDiaLog::text(Qt::TextFormat format) const
+QString RichTextEditorDialog::text(Qt::TextFormat format) const
 {
 	// In autotext mode, if the user has changed the source, use that
 	if (format == Qt::AutoText && (m_state == Clean || m_state == SourceChanged))
@@ -867,7 +867,7 @@ QString RichTextEditorDiaLog::text(Qt::TextFormat format) const
 	return m_editor->text(format);
 }
 
-void RichTextEditorDiaLog::tabIndexChanged(int newIndex)
+void RichTextEditorDialog::tabIndexChanged(int newIndex)
 {
 	// Anything changed, is there a need for a conversion?
 	if (newIndex == SourceIndex && m_state != RichTextChanged)
@@ -895,12 +895,12 @@ void RichTextEditorDiaLog::tabIndexChanged(int newIndex)
 	m_state = oldState; // Changed is triggered by setting the text
 }
 
-void RichTextEditorDiaLog::richTextChanged()
+void RichTextEditorDialog::richTextChanged()
 {
 	m_state = RichTextChanged;
 }
 
-void RichTextEditorDiaLog::sourceChanged()
+void RichTextEditorDialog::sourceChanged()
 {
 	m_state = SourceChanged;
 }
@@ -909,4 +909,4 @@ void RichTextEditorDiaLog::sourceChanged()
 
 QT_END_NAMESPACE
 
-#include "richtextditor.moc"
+#include "richtexteditor.moc"

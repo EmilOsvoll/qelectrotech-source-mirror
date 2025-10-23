@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -29,7 +29,7 @@ class QetGraphicsHandlerItem;
 	This class only provide common method for edit the ellipse
 	like rect that contain the ellipse.
 	All coordinates is in item coordinate, except pos(),
-	center(), centerX() and centerY()
+	center(), centerX() && centerY()
 	which are in parent coordinate (or scene if no parent).
 
 	In several points,

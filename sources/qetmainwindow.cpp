@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,7 +20,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include <QDragEnterEvent>
-#include <QTosktopServices>
+#include <QDesktopServices>
 
 #include "qetmainwindow.h"
 #include "qeticons.h"
@@ -95,7 +95,7 @@ void QETMainWindow::initCommonActions()
 
 	connect(manual_online_, &QAction::triggered, [](bool) {
 	QString link = "https://download.qelectrotech.org/qet/manual_0.7/build/index.html";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 	});
 
 	manual_online_ -> setShortcut(Qt::Key_F1);
@@ -105,7 +105,7 @@ void QETMainWindow::initCommonActions()
 
 	connect(youtube_, &QAction::triggered, [](bool) {
 	QString link = "https://www.youtube.com/user/scorpio8101/videos";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 	});
 
 	upgrade_ = new QAction(QET::Icons::QETDownload, tr("Download a new version (dev)"), this);
@@ -116,12 +116,12 @@ void QETMainWindow::initCommonActions()
 
 	connect(upgrade_, &QAction::triggered, [](bool) {
 	QString link = "https://qelectrotech.org/download_windows.php";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 	});
 
 	connect(upgrade_M, &QAction::triggered, [](bool) {
 	QString link = "https://qelectrotech.org/download_mac.php";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 	});
 
 	donate_ = new QAction(QET::Icons::QETDonate, tr("Soutenir le project par un don"), this);
@@ -129,7 +129,7 @@ void QETMainWindow::initCommonActions()
 
 	connect(donate_, &QAction::triggered, [](bool) {
 	QString link = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZZHC9D7C3MDPC";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 	});
 
 	about_qt_ = new QAction(QET::Icons::QtLogo,  tr("About de &Qt"), this);
@@ -224,7 +224,7 @@ void QETMainWindow::updateFullScreenAction()
 }
 
 /**
-	Check whether a sub menu dedicated to docks and toolbars can be inserted on
+	Check whether a sub menu dedicated to docks && toolbars can be inserted on
 	top of the settings menu.
 */
 void QETMainWindow::checkToolbarsmenu()

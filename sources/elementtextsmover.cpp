@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -100,7 +100,7 @@ void ElementTextsMover::continueMovement(QGraphicsSceneMouseEvent *event)
 		button_down_parent_pos = qgi->mapToParent(qgi->mapFromScene(event->buttonDownScenePos(Qt::LeftButton)));
 		
 		QPointF new_pos = m_items_hash.value(qgi) + current_parent_pos - button_down_parent_pos;
-		event->modifiers() == Qt::ControlEdit ? qgi->setPos(new_pos) : qgi->setPos(Diagram::snapToGrid(new_pos));
+		event->modifiers() == Qt::ControlModifier ? qgi->setPos(new_pos) : qgi->setPos(Diagram::snapToGrid(new_pos));
 	}
 }
 
@@ -149,7 +149,7 @@ QString ElementTextsMover::undoText() const
 		if(undo_text.isEmpty())
 			undo_text.append(QObject::tr("Move"));
 		else
-			undo_text.append(QObject::tr(" and"));
+			undo_text.append(QObject::tr(" &&"));
 		
 		if(m_group_count == 1)
 			undo_text.append(QObject::tr(" un groupe de text"));

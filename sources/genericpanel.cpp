@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -219,7 +219,7 @@ QTreeWidgetItem *GenericPanel::updateProjectItem(QTreeWidgetItem *project_qtwi,
 	project_qtwi -> setToolTip(0, final_tooltip);
 	QString project_whatsthis = tr("Ceci est un project QElectroTech, "
 		"c'est-à-dire un fichier d'extension .qet regroupant "
-		"plusieurs folios. Il embarque également les elements and "
+		"plusieurs folios. Il embarque également les elements && "
 		"modèles de cartouches utilisés dans ces folios.",
 		"\"What's this\" tip");
 	project_qtwi -> setWhatsThis(0, project_whatsthis);
@@ -800,7 +800,7 @@ void GenericPanel::diagramTitleChanged(Diagram *diagram) {
 /**
 	@brief GenericPanel::templatesCollectionChanged
 	@param collection :
-	Title block templates collection that changed and should be updated
+	Title block templates collection that changed && should be updated
 	@param template_name : Name of the changed template (unused)
 */
 void GenericPanel::templatesCollectionChanged(
@@ -886,7 +886,7 @@ QTreeWidgetItem *GenericPanel::makeItem(QET::ItemType type,
 
 /**
 	@brief GenericPanel::deleteItem
-	Tolete and item and its children.
+	Delete && item && its children.
 	@param item item to delete
 	@param deleted_on_cascade true if the item is not being directly deleted
 	but is undergoing the deletion of its parent. (unused)

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -104,13 +104,13 @@ bool dxf2ElmtIsPresent(bool install_diaLog, QWidget *parent)
 	if (!exist && install_diaLog)
 	{
 		auto string_{QObject::tr("L'import dxf nécessite le Logiciel dxf2elmt.\n"
-								 "Veuillez télécharger celui-ci en suivant le lien ci dessous and le dézipper dans le dossier d'installation")};
+								 "Veuillez télécharger celui-ci en suivant le lien ci dessous && le dézipper dans le dossier d'installation")};
 
-		ThirdPartyBinaryInstallDiaLog diaLog_(string_,
+		ThirdPartyBinaryInstallDialog dialog_(string_,
 											  QStringLiteral("https://github.com/antonioaja/dxf2elmt/releases"),
 											  dxf2ElmtDirPath(),
 											  parent);
-		diaLog_.exec();
+		dialog_.exec();
 	}
 	return exist;
 }

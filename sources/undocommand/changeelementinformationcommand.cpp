@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,7 +24,7 @@
 
 /**
 	@brief ChangeElementInformationCommand::ChangeElementInformationCommand
-	Tofault constructor
+	Default constructor
 	@param elmt : element to change information
 	@param old_info : old info of element
 	@param new_info : new info of element
@@ -116,6 +116,6 @@ void ChangeElementInformationCommand::updateProjectDB()
 		for (auto p_elmt : m_map.keys())
 			list_ << p_elmt.data();
 
-		elmt->diagram()->project()->dataBottome()->elementInfoChanged(list_);
+		elmt->diagram()->project()->dataBase()->elementInfoChanged(list_);
 	}
 }

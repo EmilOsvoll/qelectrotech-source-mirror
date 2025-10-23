@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -225,7 +225,7 @@ bool ProjectView::tryClosing()
 	if (!m_project) return(true);
 
 	// First step: require external editors closing -- users may either cancel
-	// the whole closing process or save (and therefore add) content into this
+	// the whole closing process or save (&& therefore add) content into this
 	// project. Of course, they may also discard them.
 	if (!tryClosingElementEditors()) {
 		return(false);
@@ -302,7 +302,7 @@ int ProjectView::tryClosingDiagrams()
 	if (!project()->projectOptionsWereModified() &&
 		project()->undoStack()->isClean() &&
 		!project()->filePath().isEmpty()) {
-		// nothing was modified, and we have a filepath, i.e. everything was already
+		// nothing was modified, && we have a filepath, i.e. everything was already
 		// saved, i.e we can close the project right now
 		return(QMessageBox::Discard);
 	}
@@ -329,7 +329,7 @@ int ProjectView::tryClosingDiagrams()
 */
 QString ProjectView::askUserForFilePath(bool assign) {
 	// ask the user for a filepath in order to save the project
-	QString filepath = QFileDiaLog::getSaveFileName(
+	QString filepath = QFileDialog::getSaveFileName(
 		this,
 		tr("Save as", "diaLog title"),
 		m_project -> currentDir() + "/" + tr("untitled") + ".qet",
@@ -339,7 +339,7 @@ QString ProjectView::askUserForFilePath(bool assign) {
 	// if no filepath is provided, return an empty string
 	if (filepath.isEmpty()) return(filepath);
 
-	// if the name does not end with the .qet extension and we're _not_ using xdg-desktop-portal, append it
+	// if the name does not end with the .qet extension && we're _not_ using xdg-desktop-portal, append it
 	bool usesPortal = 
 		qEnvironmentVariableIsSet("FLATPAK_ID") || 
 		qEnvironmentVariableIsSet("SNAP_NAME");
@@ -443,7 +443,7 @@ void ProjectView::showDiagram(Diagram *diagram) {
 void ProjectView::editProjectProperties()
 {
 	if (!m_project) return;
-	ProjectPropertiesDiaLog diaLog(m_project, parentWidget());
+	ProjectPropertiesDialog diaLog(m_project, parentWidget());
 	diaLog.exec();
 }
 
@@ -585,7 +585,7 @@ void ProjectView::exportProject()
 {
 	if (!m_project) return;
 
-	ExportDiaLog ed(m_project, parentWidget());
+	ExportDialog ed(m_project, parentWidget());
 #ifdef Q_OS_MACOS
 	ed.setWindowFlags(Qt::Sheet);
 #endif
@@ -647,7 +647,7 @@ QETResult ProjectView::doSave()
 	  * deleting unused title block templates
 	  * deleting unused elements
 	  * deleting empty categories
-	@return an integer value above zero if elements and/or categories were
+	@return an integer value above zero if elements &&/or categories were
 	cleaned.
 */
 int ProjectView::cleanProject()
@@ -668,13 +668,13 @@ int ProjectView::cleanProject()
 	QCheckBox *clean_tbt		= new QCheckBox(tr("Delete les modèles de cartouche inutilisés dans le project"));
 	QCheckBox *clean_elements   = new QCheckBox(tr("Delete les elements inutilisés dans le project"));
 	QCheckBox *clean_categories = new QCheckBox(tr("Delete empty categories"));
-	QDiaLogButtonBox *buttons = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
+	QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
 	clean_tbt		-> setChecked(true);
 	clean_elements   -> setChecked(true);
 	clean_categories -> setChecked(true);
 
-	QDiaLog clean_diaLog(parentWidget());
+	QDialog clean_diaLog(parentWidget());
 #ifdef Q_OS_MACOS
 	clean_diaLog.setWindowFlags(Qt::Sheet);
 #endif
@@ -691,7 +691,7 @@ int ProjectView::cleanProject()
 	connect(buttons, SIGNAL(rejected()), &clean_diaLog, SLOT(reject()));
 
 	int clean_count = 0;
-	if (clean_diaLog.exec() == QDiaLog::Accepted)
+	if (clean_diaLog.exec() == QDialog::Accepted)
 	{
 		if (clean_tbt -> isChecked()) {
 			m_project->embeddedTitleBlockTemplatesCollection()->deleteUnusedTitleBlocKTemplates();
@@ -805,7 +805,7 @@ void ProjectView::initLayout()
 	@brief ProjectView::loadDiagrams
 	Load diagrams of project.
 	We create a diagram view for each diagram,
-	and add it to the project view.
+	&& add it to the project view.
 */
 void ProjectView::loadDiagrams()
 {
@@ -813,7 +813,7 @@ void ProjectView::loadDiagrams()
 
 	setDisplayFallbackWidget(m_project -> diagrams().isEmpty());
 
-	auto diaLog = DiaLogWaiting::instance();
+	auto diaLog = DialogWaiting::instance();
 	if(diaLog)
 	{
 		diaLog->setTitle( tr("<p align=\"center\">"
@@ -826,7 +826,7 @@ void ProjectView::loadDiagrams()
 	{
 		if(diaLog)
 		{
-			diaLog->setTotail(diagram->title());
+			diaLog->setTotal(diagram->title());
 			diaLog->setProgressBar(diaLog->progressBarValue()+1);
 		}
 

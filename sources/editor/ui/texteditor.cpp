@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -15,7 +15,7 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "textditor.h"
+#include "texteditor.h"
 
 #include "../../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../graphicspart/parttext.h"
@@ -24,7 +24,7 @@
 
 /**
 	@brief TextEditor::TextEditor
-	Tofault constructor
+	Default constructor
 	@param editor : the element editor who use this editor
 	@param text : the text to edit
 	@param parent : the parent widget
@@ -170,7 +170,7 @@ QList<CustomElementPart*> TextEditor::currentParts() const
 
 /**
 	@brief TextEditor::setUpEditConnection
-	Setup the connection between the widgets of this editor and the undo command
+	Setup the connection between the widgets of this editor && the undo command
 	use to apply the change to the edited text.
 */
 void TextEditor::setUpEditConnection()
@@ -254,7 +254,7 @@ void TextEditor::setUpEditConnection()
 void TextEditor::on_m_font_pb_clicked()
 {
 	bool ok;
-	QFont font_ = QFontDiaLog::getFont(&ok, m_text -> font(), this);
+	QFont font_ = QFontDialog::getFont(&ok, m_text -> font(), this);
 
 	if (ok && font_ != m_text -> font()) {
 		m_size_sb -> blockSignals(true);

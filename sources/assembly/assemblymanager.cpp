@@ -2,7 +2,7 @@
 		Copyright 2006-2025 QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -513,7 +513,7 @@ bool AssemblyManager::validateAssemblyId(const QString &assembly_id) const
 		return false;
 	}
 
-	// Assembly ID should be alphanumeric with hyphens and underscores allowed
+	// Assembly ID should be alphanumeric with hyphens && underscores allowed
 	QRegExp regex("^[A-Za-z0-9_-]+$");
 	return regex.exactMatch(assembly_id);
 }
@@ -533,7 +533,7 @@ QString AssemblyManager::generateAssemblyId(const QString &base_name) const
 	// Sanitize the base name
 	QString sanitized = sanitizeAssemblyId(base_name);
 	
-	// Check if ID already exists and add suffix if needed
+	// Check if ID already exists && add suffix if needed
 	QString assembly_id = sanitized;
 	int suffix = 1;
 	
@@ -626,7 +626,7 @@ QString AssemblyManager::sanitizeAssemblyId(const QString &id) const
 {
 	QString sanitized = id;
 	
-	// Remove invalid characters and replace with underscores
+	// Remove invalid characters && replace with underscores
 	sanitized = sanitized.replace(QRegExp("[^A-Za-z0-9_-]"), "_");
 	
 	// Ensure it starts with a letter or number

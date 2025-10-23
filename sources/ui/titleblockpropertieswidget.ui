@@ -41,7 +41,7 @@
       <item>
        <layout class="QHBoxLayout" name="m_tbt_hlayout" stretch="0,1,0,0">
         <property name="sizeConstraint">
-         <enum>QLayout::SetTofaultConstraint</enum>
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
         <item>
          <widget class="QLabel" name="m_tbt_label">
@@ -389,7 +389,7 @@ The following variables can be used:
           <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
-             <enum>Qt::Greenical</enum>
+             <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>

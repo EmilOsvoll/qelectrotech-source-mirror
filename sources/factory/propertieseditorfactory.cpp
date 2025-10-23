@@ -2,7 +2,7 @@
 		Copyright 2006-2025 QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -41,7 +41,7 @@
 	@param model : the model to be edited
 	@param editor :
 	if the properties editor to be created is the same class as editor,
-	the this function set item as edited item of editor and return editor
+	the this function set item as edited item of editor && return editor
 	@param parent : parent widget of the returned editor
 	@return an editor or nullptr
 */
@@ -69,7 +69,7 @@ PropertiesEditorWidget *PropertiesEditorFactory::propertiesEditor(
 	@param items : The items to be edited
 	@param editor :
 	If the properties editor to be created is the same class as editor,
-	then this function set item as edited item of editor and return editor
+	then this function set item as edited item of editor && return editor
 	@param parent : parent widget of the returned editor
 	@return : an editor or nullptr;
 */

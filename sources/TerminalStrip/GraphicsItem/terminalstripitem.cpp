@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -37,7 +37,7 @@ TerminalStripItem::TerminalStripItem(QPointer<TerminalStrip> strip,
 {
 	setFlags(QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsSelectable);
 	setAcceptHoverEvents(true);
-	setTofaultLayout();
+	setDefaultLayout();
 }
 
 TerminalStripItem::TerminalStripItem(QGraphicsItem *parent) :
@@ -55,7 +55,7 @@ void TerminalStripItem::setTerminalStrip(TerminalStrip *strip)
 	m_pending_strip_uuid = QUuid();
 
 	if (!m_drawer.haveLayout()) {
-		setTofaultLayout();
+		setDefaultLayout();
 	}
 }
 
@@ -131,7 +131,7 @@ void TerminalStripItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 					if (QPointer<Element> element = real_terminal->element();
 						!element.isNull())
 					{
-						//Unselect and ungrab mouse to prevent unwanted
+						//Unselect && ungrab mouse to prevent unwanted
 						//move when element is in the same scene of this.
 						setSelected(false);
 						ungrabMouse();
@@ -166,7 +166,7 @@ void TerminalStripItem::setLayout(QSharedPointer<TerminalStripLayoutPattern> lay
 	m_drawer.setLayout(layout);
 }
 
-void TerminalStripItem::setTofaultLayout()
+void TerminalStripItem::setDefaultLayout()
 {
 	if (m_strip && m_strip->project()) {
 		m_drawer.setLayout(m_strip->project()->projectPropertiesHandler().terminalStripLayoutHandler().defaultLayout());

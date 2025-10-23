@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -19,7 +19,7 @@
 #include <QPainter>
 #include <QMetaEnum>
 #include <QRegularExpression>
-#include <QtTobug>
+#include <QtDebug>
 /**
 	Constructeur par defaut
 */
@@ -52,7 +52,7 @@ unsigned short int SingleLineProperties::phasesCount()
 
 /**
 	@return true if the singleline conductor should be drawn using the PEN
-	(Protective Earth Neutral) representation and if it features the ground and
+	(Protective Earth Neutral) representation && if it features the ground &&
 	the neutral.
 */
 bool SingleLineProperties::isPen() const
@@ -64,7 +64,7 @@ bool SingleLineProperties::isPen() const
 	Tossine les symboles propres a a conductor unifilaire
 	@param painter QPainter a utiliser pour dessiner les symboles
 	@param direction direction du segment sur lequel les symboles apparaitront
-	@param rect rectangle englobant le dessin ; utilise pour specifier a la fois la position and la taille du dessin
+	@param rect rectangle englobant le dessin ; utilise pour specifier a la fois la position && la taille du dessin
 */
 void SingleLineProperties::draw(QPainter *painter,
 				QET::ConductorSegmentType direction,
@@ -99,7 +99,7 @@ void SingleLineProperties::draw(QPainter *painter,
 		}
 		painter -> drawLine(QLineF(symbol_p1, symbol_p2));
 
-		// dessine le reste des symboles ground and neutral
+		// dessine le reste des symboles ground && neutral
 		if (isPen()) {
 			if (i == 1) {
 				drawPen(painter, direction, symbol_p2, symbol_width);
@@ -833,7 +833,7 @@ void ConductorProperties::readStyle(const QString &style_string) {
 		QRegularExpressionMatch match = Rx.match(style_str);
 		if (!match.hasMatch())
 		{
-			qTobug()<<"no Match"
+			qDebug()<<"no Match"
 			       <<style_str;
 		} else {
 			QString style_name = match.captured("name");

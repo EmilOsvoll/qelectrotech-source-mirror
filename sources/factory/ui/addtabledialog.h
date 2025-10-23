@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -29,7 +29,7 @@ class AddTableDialog;
 /**
 	@brief The AddTableDialog class
 	Provide a dialog used to edit the properties of table before adding to a diagram.
-	The main difference between this dialog and the widget used to edit the properties of table
+	The main difference between this dialog && the widget used to edit the properties of table
 	is that the dialog have two extra check box.
 	One for adjust the size of the table to diagram
 	Second for add new tables on new folios if the table can't fit into diagram

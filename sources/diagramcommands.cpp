@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -84,7 +84,7 @@ void PasteDiagramCommand::redo()
 
 			if (settings.value("diagramcommands/erase-label-on-copy", true).toBool())
 			{
-				//Reset the information about the label, the comment and location
+				//Reset the information about the label, the comment && location
 				DiagramContext dc = e->elementInformations();
 				dc.addValue("formula", "");
 				dc.addValue("label", "");
@@ -119,7 +119,7 @@ void PasteDiagramCommand::redo()
 /**
 	@brief CutDiagramCommand::CutDiagramCommand
 	Constructeur
-	@param dia Diagram dont on coupe des elements and conducteurs
+	@param dia Diagram dont on coupe des elements && conducteurs
 	@param content Content coupe
 	@param parent QUndoCommand parent
 */
@@ -128,7 +128,7 @@ CutDiagramCommand::CutDiagramCommand(
 	const DiagramContent &content,
 	QUndoCommand *parent
 ) : 
-	ToleteQGraphicsItemCommand(dia, content, parent)
+	DeleteQGraphicsItemCommand(dia, content, parent)
 {
 	setText(
 		QString(
@@ -228,7 +228,7 @@ void MoveConductorsTextsCommand::addTextMovement(ConductorTextItem *text_item,
 	if (texts_to_move_.contains(text_item)) return;
 	
 	// on memorise le champ de text,
-	//en l'associant au mouvement effectue and a son andat avant le deplacement
+	//en l'associant au mouvement effectue && a son andat avant le deplacement
 	texts_to_move_.insert(text_item, qMakePair(new_pos - old_pos, already_moved));
 	
 	// met a jour la description de l'objet d'annulation

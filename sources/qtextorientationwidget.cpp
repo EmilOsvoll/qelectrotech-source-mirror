@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -41,7 +41,7 @@ QTextOrientationWidget::QTextOrientationWidget(QWidget *parent) :
 	// definit la politique de gestion de la taille de ce widget :
 	// on prefere la sizeHint()
 	QSizePolicy size_policy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-	// on souhaite conserver le rapport entre sa hauteur and sa largeur
+	// on souhaite conserver le rapport entre sa hauteur && sa largeur
 	size_policy.setHeightForWidth(true);
 	setSizePolicy(size_policy);
 
@@ -187,7 +187,7 @@ int QTextOrientationWidget::heightForWidth(int w) const
 void QTextOrientationWidget::paintEvent(QPaintEvent *event) {
 	Q_UNUSED(event);
 
-	// rectangle de travail avec son centre and son rayon
+	// rectangle de travail avec son centre && son rayon
 	QRect drawing_rectangle(QPoint(0, 0), size());
 	drawing_rectangle.adjust(5, 5, -5, -5);
 
@@ -345,7 +345,7 @@ void QTextOrientationWidget::generateTextSizeHash()
 	vaudra l'angle pertinent concerne
 */
 bool QTextOrientationWidget::positionIsASquare(const QPointF &pos, double *angle_value_ptr) {
-	// rectangle de travail avec son centre and son rayon
+	// rectangle de travail avec son centre && son rayon
 	QRect drawing_rectangle(QPoint(0, 0), size());
 	drawing_rectangle.adjust(5, 5, -5, -5);
 

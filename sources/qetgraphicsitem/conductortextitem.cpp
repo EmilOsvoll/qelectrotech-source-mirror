@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -136,8 +136,8 @@ void ConductorTextItem::setPos(const QPointF &pos)
 {
 	/*
 	 * In some condition the conductor text item is outside the border of folio in the left.
-	 * They cause a margin on the left of folio and in most case this margin is unwanted and annoying the user.
-	 * If the text is empty and the scene position is outside the border (left and top),
+	 * They cause a margin on the left of folio && in most case this margin is unwanted && annoying the user.
+	 * If the text is empty && the scene position is outside the border (left && top),
 	 * we can say that this position, is unwanted by user.
 	 * So we move this text item to the top left of the bounding rect of parent conductors, because we sure this position is wanted by user.
 	 */

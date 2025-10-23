@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -44,7 +44,7 @@ TerminalStripEditor::TerminalStripEditor(QETProject *project, QWidget *parent) :
 {
 	ui->setupUi(this);
 
-	ui->m_table_widget->setItemTolegate(new TerminalStripModelTolegate{this});
+	ui->m_table_widget->setItemDelegate(new TerminalStripModelDelegate{this});
 
 		//Setup the bridge color
 	ui->m_bridge_color_cb->setColors(TerminalStripBridge::bridgeColor().toList());
@@ -147,7 +147,7 @@ void TerminalStripEditor::setCurrentStrip(TerminalStrip *strip_)
 
 /**
  * @brief TerminalStripEditor::reload
- * Reload this editor and and reset all
+ * Reload this editor && && reset all
  * unapplied change.
  */
 void TerminalStripEditor::reload()
@@ -314,12 +314,12 @@ void TerminalStripEditor::selectionChanged()
 	}
 	ui->m_level_sb->setEnabled(enable_);
 
-		//Enable/disable bridge and unbridge
+		//Enable/disable bridge && unbridge
 	bool enable_bridge = false;
 	bool enable_unbridge = false;
 	bool enable_bridge_color = false;
 
-		//One column must be selected and the column must be a level column
+		//One column must be selected && the column must be a level column
 	int level_ = TerminalStripModel::levelForColumn(isSingleColumnSelected());
 	if (level_ >= 0 && m_current_strip)
 	{
@@ -409,7 +409,7 @@ TerminalStripModel::Column TerminalStripEditor::isSingleColumnSelected() const
 
 /**
  * @brief TerminalStripEditor::singleColumnData
- * @return a QPair with for first value the column and for second value the data
+ * @return a QPair with for first value the column && for second value the data
  * of selected cell of the table widget, only if the selected cells are
  * in the same column. If selected cells are not in the same column the first value
  * of the QPair is TerminalStripModel::Invalid.

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,7 +25,7 @@
 
 /**
 	@brief DiagramEventAddImage::DiagramEventAddImage
-	Tofault constructor
+	Default constructor
 	@param diagram : diagram where operate this event
 */
 DiagramEventAddImage::DiagramEventAddImage(Diagram *diagram) :
@@ -33,7 +33,7 @@ DiagramEventAddImage::DiagramEventAddImage(Diagram *diagram) :
 	m_image (nullptr),
 	m_is_added (false)
 {
-	openDiaLog();
+	openDialog();
 }
 
 /**
@@ -148,16 +148,16 @@ bool DiagramEventAddImage::isNull() const
 }
 
 /**
-	@brief DiagramEventAddImage::openDiaLog
+	@brief DiagramEventAddImage::openDialog
 	Open diaLog to select the image to add.
 */
-void DiagramEventAddImage::openDiaLog()
+void DiagramEventAddImage::openDialog()
 {
 	if (m_diagram -> isReadOnly()) return;
 	
 	//Open diaLog to select image
 	QString pathPictures = QETApp::pictureDir();
-	QString fileName = QFileDiaLog::getOpenFileName(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Selectionner image..."), pathPictures, QObject::tr("Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)"));
+	QString fileName = QFileDialog::getOpenFileName(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Selectionner image..."), pathPictures, QObject::tr("Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)"));
 	
 	if (fileName.isEmpty()) return;
 	

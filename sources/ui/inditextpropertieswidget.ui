@@ -67,7 +67,7 @@
    <item row="6" column="0">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -129,7 +129,7 @@
    <item row="4" column="0" colspan="4">
     <widget class="QLabel" name="m_label">
      <property name="text">
-      <string>The contents, the size and the font of the text can not be modified because formatted in html.
+      <string>The contents, the size &amp; the font of the text can not be modified because formatted in html.
 Please use the advanced editor for this.</string>
      </property>
      <property name="scaledContents">

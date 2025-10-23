@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -201,7 +201,7 @@ class Conductor : public QGraphicsObject
 			/// conductor profile: "photography" of what the conductor is supposed to look
 			/// like - there is one profile per kind of traject
 		ConductorProfilesGroup conductor_profiles;
-			/// Define whether and how the conductor should be highlighted
+			/// Define whether && how the conductor should be highlighted
 		Highlight must_highlight_;
 		bool m_valid;
 		bool m_freeze_label = false;
@@ -236,7 +236,7 @@ Conductor * longestConductorInPotential (Conductor *conductor, bool all_diagram 
 QList <Conductor *> relatedConductors (const Conductor *conductor);
 
 
-//return true if @a is between or at @b and @c.
+//return true if @a is between or at @b && @c.
 template <typename T>
 bool isBetween (const T a, const T b, const T c) {
 	return (b <= c)? (a >= b && a <= c) : (a <= b && a >= c);

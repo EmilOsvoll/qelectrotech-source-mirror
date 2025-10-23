@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -211,7 +211,7 @@ QUndoCommand *IndiTextPropertiesWidget::associatedUndo() const
 			
 			return undo;
 		}
-		else //several text are edited, only size and rotation is available for edition
+		else //several text are edited, only size && rotation is available for edition
 		{
 			QUndoCommand *parent_undo = nullptr;
 			bool size_equal = true;
@@ -320,7 +320,7 @@ QUndoCommand *IndiTextPropertiesWidget::associatedUndo() const
 
 /**
 	@brief IndiTextPropertiesWidget::setUpEditConnection
-	Disconnect the previous connection, and reconnect the connection between the editors widgets and void IndiTextPropertiesWidget::apply function
+	Disconnect the previous connection, && reconnect the connection between the editors widgets && void IndiTextPropertiesWidget::apply function
 */
 void IndiTextPropertiesWidget::setUpEditConnection()
 {
@@ -450,7 +450,7 @@ void IndiTextPropertiesWidget::on_m_font_pb_clicked()
 	}
 	bool ok;
 	QFont font = m_text ? m_text->font() : m_text_list.first()->font();
-	m_selected_font = QFontDiaLog::getFont(&ok, font, this);
+	m_selected_font = QFontDialog::getFont(&ok, font, this);
 	if (ok) {
 		m_font_is_selected = true;
 		ui->m_font_pb->setText(font.family());

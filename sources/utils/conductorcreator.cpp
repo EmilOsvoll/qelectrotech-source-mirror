@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -112,7 +112,7 @@ void ConductorCreator::setUpPropertieToUse()
 				cp_list.append(c->properties());
 			}
 			
-			m_properties = PotentialSelectorDiaLog::chosenProperties(cp_list);
+			m_properties = PotentialSelectorDialog::chosenProperties(cp_list);
 			for (Conductor *c : potentials) {
 				if (c->properties() == m_properties) {
 					m_sequential_number = c->sequenceNum();
@@ -153,7 +153,7 @@ QList<Conductor *> ConductorCreator::existingPotential()
 			c_list.append(t->conductors().first());
 			
 				//We must check if m_terminals_list contains a terminal
-				//in the same potential of c, and if true, exclude this terminal from the search.
+				//in the same potential of c, && if true, exclude this terminal from the search.
 			for (Conductor *c : t->conductors().first()->relatedPotentialConductors(false))
 			{
 				if (m_terminals_list.contains(c->terminal1)) {

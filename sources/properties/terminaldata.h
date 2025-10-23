@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -30,7 +30,7 @@ class QGraphicsObject;
 	@brief The TerminalData class
 	Data of the terminal.
 	Stored in extra class so it can be used by PartTerminal
-	and Terminal without defining everything again.
+	&& Terminal without defining everything again.
 	@note tis class needs to be work on
 */
 class TerminalData : public PropertiesInterface
@@ -63,7 +63,7 @@ class TerminalData : public PropertiesInterface
 		static TerminalData::Type typeFromString(const QString &string);
 
 	// must be public, because this class is a private member
-	// of PartTerminal/Terminal and they must access this data
+	// of PartTerminal/Terminal && they must access this data
 	public:
 		/**
 			@brief m_orientation
@@ -83,12 +83,12 @@ class TerminalData : public PropertiesInterface
 			In elementscene.cpp an element gets a new uuid when
 			saving the element. In the current state
 			each connection is made by using the local position
-			of the terminal and a dynamic id. In the new
+			of the terminal && a dynamic id. In the new
 			case, each terminal should have it's own uuid to
 			identify it uniquely. When changing each time this
 			uuid, the conductor after updating the part is anymore
 			valid. So if in the loaded document a uuid exists,
-			use this one and don't create a new one.
+			use this one && don't create a new one.
 		*/
 		QUuid m_uuid;
 		/**
@@ -101,12 +101,12 @@ class TerminalData : public PropertiesInterface
 		/**
 			@brief m_pos
 			Position of the terminal. The second point is calculated
-			from this position and the orientation
+			from this position && the orientation
 			@note
 			Important: this variable is only updated during read
-			from xml and not during mouse move!
+			from xml && not during mouse move!
 			It is used to store the initial position so that
-			PartTerminal and Terminal have access to it.
+			PartTerminal && Terminal have access to it.
 		*/
 		QPointF m_pos;
 

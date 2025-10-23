@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -21,7 +21,7 @@
 
 #include <QtXml>
 /**
-	This class represents a list of names, used by elements and categories
+	This class represents a list of names, used by elements && categories
 	to embed the same name in several languages.
 	Languages are represented by two or five letters (typically the first
 	two of the system locale); examples: en for English, fr for French,

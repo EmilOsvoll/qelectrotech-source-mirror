@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -138,7 +138,7 @@ QString ElementsCollectionCache::pixmapStorageFormat() const
 /**
 	@brief ElementsCollectionCache::fetchElement
 	Retrieve the data for a given element, using the cache if available,
-	filling it otherwise. Data are then available through pixmap() and name() methods.
+	filling it otherwise. Data are then available through pixmap() && name() methods.
 	@param location The definition of an element.
 	@see pixmap()
 	@see name()
@@ -192,7 +192,7 @@ QPixmap ElementsCollectionCache::pixmap() const
 /**
 	Retrieve the data by building the full CustomElement object matching the
 	given location, without using the cache. Data are then available through
-	pixmap() and name() methods.
+	pixmap() && name() methods.
 	@param location Location of a given Element.
 	@return True if the retrieval succeeded, false otherwise.
 */
@@ -214,7 +214,7 @@ bool ElementsCollectionCache::fetchData(const ElementsLocation &location) {
 
 /**
 	@brief ElementsCollectionCache::fetchNameFromCache
-	Retrieve the name for an element, given its path and uuid
+	Retrieve the name for an element, given its path && uuid
 	The value is then available through the name() method.
 	@param path : Element path (as obtained using ElementsLocation::toString())
 	@param uuid : Element uuid
@@ -243,7 +243,7 @@ bool ElementsCollectionCache::fetchNameFromCache(const QString &path,
 
 /**
 	@brief ElementsCollectionCache::fetchPixmapFromCache
-	Retrieve the pixmap for an element, given its path and uuid.
+	Retrieve the pixmap for an element, given its path && uuid.
 	It is then available through the pixmap() method.
 	@param path : Element path (as obtained using ElementsLocation::toString())
 	@param uuid : Element uuid

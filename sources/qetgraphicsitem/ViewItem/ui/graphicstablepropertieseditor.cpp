@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -28,7 +28,7 @@
 #include "ui_graphicstablepropertieseditor.h"
 
 #include <QAbstractItemModel>
-#include <QFontDiaLog>
+#include <QFontDialog>
 
 /**
 	@brief GraphicsTablePropertiesEditor::GraphicsTablePropertiesEditor
@@ -255,7 +255,7 @@ void GraphicsTablePropertiesEditor::on_m_header_font_pb_clicked()
 	if (m_table_item && m_table_item->model())
 	{
 		bool ok;
-		auto font = QFontDiaLog::getFont(
+		auto font = QFontDialog::getFont(
 					&ok,
 					m_table_item->model()->headerData(
 						0,
@@ -288,7 +288,7 @@ void GraphicsTablePropertiesEditor::on_m_table_font_pb_clicked()
 		auto old_font = m_table_item->model()->data(
 					index,
 					Qt::FontRole).value<QFont>();
-		auto new_font = QFontDiaLog::getFont(&ok, old_font, this);
+		auto new_font = QFontDialog::getFont(&ok, old_font, this);
 
 		if (ok && m_table_item->diagram())
 		{

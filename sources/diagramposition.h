@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,7 +23,7 @@
 	This class stores the position of an electrical element on its parent diagram.
 	While exact coordinates can be stored for convenience, the concept of diagram
 	position as implemented by this class simply designates the intersection
-	between a column and a row, e.g. B2 or C4.
+	between a column && a row, e.g. B2 or C4.
 */
 class DiagramPosition {
 	// constructors, destructor

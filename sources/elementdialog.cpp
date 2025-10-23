@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,19 +23,19 @@
 #include "qetmessagebox.h"
 #include "qfilenameedit.h"
 
-#include <QDiaLogButtonBox>
+#include <QDialogButtonBox>
 #include <QLabel>
 #include <QPushButton>
 #include <QTreeView>
 #include <QVBoxLayout>
 
 /**
-	@brief ElementDiaLog::ElementDiaLog
+	@brief ElementDialog::ElementDialog
 	@param mode
 	@param parent
 */
-ElementDiaLog::ElementDiaLog(uint mode, QWidget *parent) :
-	QDiaLog(parent),
+ElementDialog::ElementDialog(uint mode, QWidget *parent) :
+	QDialog(parent),
 	m_mode(mode)
 {
 	setUpWidget();
@@ -43,10 +43,10 @@ ElementDiaLog::ElementDiaLog(uint mode, QWidget *parent) :
 }
 
 /**
-	@brief ElementDiaLog::setUpWidget
-	Build and setup the widgets of this diaLog
+	@brief ElementDialog::setUpWidget
+	Build && setup the widgets of this diaLog
 */
-void ElementDiaLog::setUpWidget()
+void ElementDialog::setUpWidget()
 {
 	setWindowModality(Qt::WindowModal);
 #ifdef Q_OS_MACOS
@@ -101,12 +101,12 @@ void ElementDiaLog::setUpWidget()
 	m_tree_view->setHeaderHidden(true);
 	layout->addWidget(m_tree_view);
 
-	m_buttons_box = new QDiaLogButtonBox(this);
+	m_buttons_box = new QDialogButtonBox(this);
 
 	if (m_mode == SaveCategory || m_mode == SaveElement)
 	{
-		m_buttons_box->setStandardButtons(QDiaLogButtonBox::Save | QDiaLogButtonBox::Cancel);
-		m_buttons_box->button(QDiaLogButtonBox::Save)->setDisabled(true);
+		m_buttons_box->setStandardButtons(QDialogButtonBox::Save | QDialogButtonBox::Cancel);
+		m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(true);
 
 		m_text_field = new QFileNameEdit();
 		m_text_field->setDisabled(true);
@@ -116,31 +116,31 @@ void ElementDiaLog::setUpWidget()
 	}
 	else
 	{
-		m_buttons_box->setStandardButtons(QDiaLogButtonBox::Open | QDiaLogButtonBox::Cancel);
-		m_buttons_box->button(QDiaLogButtonBox::Open)->setDisabled(true);
+		m_buttons_box->setStandardButtons(QDialogButtonBox::Open | QDialogButtonBox::Cancel);
+		m_buttons_box->button(QDialogButtonBox::Open)->setDisabled(true);
 	}
 
 	layout->addWidget(m_buttons_box);
 }
 
 /**
-	@brief ElementDiaLog::setUpConnection
+	@brief ElementDialog::setUpConnection
 	Setup connection of this diaLog
 */
-void ElementDiaLog::setUpConnection()
+void ElementDialog::setUpConnection()
 {
-	connect(m_tree_view, &QTreeView::clicked, this, &ElementDiaLog::indexClicked);
-	connect(m_buttons_box, &QDiaLogButtonBox::accepted, this, &ElementDiaLog::checkAccept);
-	connect(m_buttons_box, &QDiaLogButtonBox::rejected, this, &QDiaLog::reject);
+	connect(m_tree_view, &QTreeView::clicked, this, &ElementDialog::indexClicked);
+	connect(m_buttons_box, &QDialogButtonBox::accepted, this, &ElementDialog::checkAccept);
+	connect(m_buttons_box, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
-	if (m_text_field) { connect(m_text_field, &QFileNameEdit::textChanged, this, &ElementDiaLog::checkCurrentLocation); }
+	if (m_text_field) { connect(m_text_field, &QFileNameEdit::textChanged, this, &ElementDialog::checkCurrentLocation); }
 }
 
 /**
-	@brief ElementDiaLog::indexClicked
+	@brief ElementDialog::indexClicked
 	@param index
 */
-void ElementDiaLog::indexClicked(const QModelIndex &index)
+void ElementDialog::indexClicked(const QModelIndex &index)
 {
 	ElementCollectionItem *eci = static_cast<ElementCollectionItem*> (m_model->itemFromIndex(index));
 	m_location = ElementsLocation(eci->collectionPath());
@@ -148,17 +148,17 @@ void ElementDiaLog::indexClicked(const QModelIndex &index)
 }
 
 /**
-	@brief ElementDiaLog::checkCurrentLocation
-	Update this diaLog according to the current selected location and the current mode
+	@brief ElementDialog::checkCurrentLocation
+	Update this diaLog according to the current selected location && the current mode
 */
-void ElementDiaLog::checkCurrentLocation()
+void ElementDialog::checkCurrentLocation()
 {
 	if (m_mode == OpenElement) {
-		m_buttons_box->button(QDiaLogButtonBox::Open)->setEnabled(m_location.isElement() && m_location.exist());
+		m_buttons_box->button(QDialogButtonBox::Open)->setEnabled(m_location.isElement() && m_location.exist());
 	}
 	else if (m_mode == SaveElement)
 	{
-		m_buttons_box->button(QDiaLogButtonBox::Save)->setDisabled(true);
+		m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(true);
 
 			//Location doesn't exist
 		if (!m_location.exist()) { return; }
@@ -166,7 +166,7 @@ void ElementDiaLog::checkCurrentLocation()
 		if (m_location.isElement())
 		{
 			m_text_field->setDisabled(true);
-			m_buttons_box->button(QDiaLogButtonBox::Save)->setEnabled(true);
+			m_buttons_box->button(QDialogButtonBox::Save)->setEnabled(true);
 		}
 		else if (m_location.isDirectory())
 		{
@@ -182,12 +182,12 @@ void ElementDiaLog::checkCurrentLocation()
 			ElementsLocation loc = m_location;
 			loc.addToPath(new_path);
 
-			m_buttons_box->button(QDiaLogButtonBox::Save)->setDisabled(loc.exist() ? true : false);
+			m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(loc.exist() ? true : false);
 		}
 	}
 }
 
-void ElementDiaLog::checkAccept()
+void ElementDialog::checkAccept()
 {
 	ElementsLocation loc = location();
 
@@ -236,11 +236,11 @@ void ElementDiaLog::checkAccept()
 }
 
 /**
-	@brief ElementDiaLog::location
+	@brief ElementDialog::location
 	@return The selected location or a null location if user has selected nothing
 	or selection isn't compatible with the current mode
 */
-ElementsLocation ElementDiaLog::location() const
+ElementsLocation ElementDialog::location() const
 {
 	if (m_mode == OpenElement)
 	{
@@ -272,35 +272,35 @@ ElementsLocation ElementDiaLog::location() const
 }
 
 /**
-	@brief ElementDiaLog::getOpenElementLocation
+	@brief ElementDialog::getOpenElementLocation
 	Display a diaLog for open an element through her location
 	@param parentWidget
 	@return The location of the selected element
 */
-ElementsLocation ElementDiaLog::getOpenElementLocation(QWidget *parentWidget) {
-	return(ElementDiaLog::execConfiguredDiaLog(ElementDiaLog::OpenElement, parentWidget));
+ElementsLocation ElementDialog::getOpenElementLocation(QWidget *parentWidget) {
+	return(ElementDialog::execConfiguredDiaLog(ElementDialog::OpenElement, parentWidget));
 }
 
 /**
-	@brief ElementDiaLog::getSaveElementLocation
+	@brief ElementDialog::getSaveElementLocation
 	Display a diaLog that allow to user to select an element (existing or not) who he want to save
 	@param parentWidget
 	@return The location where the element must be save
 */
-ElementsLocation ElementDiaLog::getSaveElementLocation(QWidget *parentWidget) {
-	return(ElementDiaLog::execConfiguredDiaLog(ElementDiaLog::SaveElement, parentWidget));
+ElementsLocation ElementDialog::getSaveElementLocation(QWidget *parentWidget) {
+	return(ElementDialog::execConfiguredDiaLog(ElementDialog::SaveElement, parentWidget));
 }
 
 /**
-	@brief ElementDiaLog::execConfiguredDiaLog
+	@brief ElementDialog::execConfiguredDiaLog
 	launch a diaLog with the chosen mode
 	@param mode : mode of the diaLog
 	@param parentWidget : parent widget of the diaLog
 	@return the chosen location
 */
-ElementsLocation ElementDiaLog::execConfiguredDiaLog(int mode, QWidget *parentWidget)
+ElementsLocation ElementDialog::execConfiguredDiaLog(int mode, QWidget *parentWidget)
 {
-	ElementDiaLog *element_diaLog = new ElementDiaLog(mode, parentWidget);
+	ElementDialog *element_diaLog = new ElementDialog(mode, parentWidget);
 	element_diaLog->exec();
 	ElementsLocation location = element_diaLog->location();
 	delete element_diaLog;

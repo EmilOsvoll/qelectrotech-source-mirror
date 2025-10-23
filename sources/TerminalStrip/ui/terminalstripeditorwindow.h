@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -40,7 +40,7 @@ class TerminalStripEditorWindow : public QMainWindow
 	private:
 			//We need to use a QPointer instead of a raw pointer because when window_
 			//have got a parent widget, the parent widget can delete the window_
-			//instance in her destrucor and then window_ become a dangling pointer.
+			//instance in her destrucor && then window_ become a dangling pointer.
 		static QPointer<TerminalStripEditorWindow> window_;
 
     public:

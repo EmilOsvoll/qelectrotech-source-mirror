@@ -27,7 +27,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="sizeConstraint">
-    <enum>QLayout::SetTofaultConstraint</enum>
+    <enum>QLayout::SetDefaultConstraint</enum>
    </property>
    <item>
     <widget class="QGroupBox" name="groupBox">
@@ -99,14 +99,14 @@
      </property>
      <property name="text">
       <string>You can use the following variables to your formula:
- -%prefix: Tofault Element Prefix
+ -%prefix: Default Element Prefix
  -%l: Element Line
  -%c: Element Column
  -%F: Folio Name
  -%f or %id: Folio ID
  -%total: Total of folios
 You can also assign any other titleblock variable 
-that you create. Text and number inputs are
+that you create. Text &amp; number inputs are
  also available.</string>
      </property>
     </widget>
@@ -114,7 +114,7 @@ that you create. Text and number inputs are
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

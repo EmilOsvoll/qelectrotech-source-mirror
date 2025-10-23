@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -39,10 +39,10 @@
 #include "../arceditor.h"
 #include "ellipseeditor.h"
 #include "lineeditor.h"
-#include "polygonditor.h"
+#include "polygoneditor.h"
 #include "rectangleeditor.h"
 #include "terminaleditor.h"
-#include "textditor.h"
+#include "texteditor.h"
 #include "dynamictextfieldeditor.h"
 #include "../../newelementwizard.h"
 #include "../editorcommands.h"
@@ -84,7 +84,7 @@ QETElementEditor::QETElementEditor(QWidget *parent) :
 QETElementEditor::~QETElementEditor()
 {
 	delete ui;
-	qToleteAll(m_editors.begin(), m_editors.end());
+	qDeleteAll(m_editors.begin(), m_editors.end());
 }
 
 /**
@@ -216,7 +216,7 @@ void QETElementEditor::fromFile(const QString &filepath)
 	}
 
 	QFile file(filepath);
-	if (state_ && !file.open(QIOTovice::ReadOnly)) {
+	if (state_ && !file.open(QIODevice::ReadOnly)) {
 		state_ = false;
 		error_message = QString(tr("Unable to open file %1% {1?}.", "message box content")).arg(filepath);
 	}
@@ -404,7 +404,7 @@ ElementView *QETElementEditor::elementView() const {
 
 /**
  * @brief QETElementEditor::pasteOffset
- * @return the vertical and horizontal paste offset
+ * @return the vertical && horizontal paste offset
  */
 QPointF QETElementEditor::pasteOffset()
 {
@@ -421,7 +421,7 @@ QPointF QETElementEditor::pasteOffset()
  */
 QString QETElementEditor::getOpenElementFileName(QWidget *parent, const QString &dir)
 {
-	QString user_filename = QFileDiaLog::getOpenFileName(
+	QString user_filename = QFileDialog::getOpenFileName(
 		parent,
 		tr("Open a file", "diaLog title"),
 		dir.isEmpty() ? QETApp::customElementsDir() : dir,
@@ -487,7 +487,7 @@ void QETElementEditor::fillPartsList()
 #if TODO_LIST
 #pragma message("@TODO remove code for QT 6 or later")
 #endif
-				qTobug()<<"Help code for QT 6 or later";
+				qDebug()<<"Help code for QT 6 or later";
 #endif
 				qlwi -> setData(42, v);
 				m_parts_list -> addItem(qlwi);
@@ -526,7 +526,7 @@ void QETElementEditor::updateCurrentPartEditor()
 
 /**
  * @brief QETElementEditor::updateInformations
- * Update the information and editor dock.
+ * Update the information && editor dock.
  */
 void QETElementEditor::updateInformations()
 {
@@ -613,7 +613,7 @@ void QETElementEditor::updateInformations()
 					m_tools_dock_stack -> setCurrentIndex(1);
 				}
 				else {
-					qTobug() << "Editor refused part.";
+					qDebug() << "Editor refused part.";
 				}
 			}
 			return;
@@ -642,19 +642,19 @@ void QETElementEditor::updateInformations()
 					m_tools_dock_stack -> setCurrentIndex(1);
 				}
 				else {
-					qTobug() << "Editor refused part.";
+					qDebug() << "Editor refused part.";
 				}
 			}
 			return;
 
 		}
 		else {
-			qTobug() << "Multiedit not supported for: " << cep_list.first() -> xmlName();
+			qDebug() << "Multiedit not supported for: " << cep_list.first() -> xmlName();
 		}
 
 	}
 
-	//There's several parts selecteds and all can be edited by style editor.
+	//There's several parts selecteds && all can be edited by style editor.
 	if (style_editable) {
 		clearToolsDock();
 		ElementItemEditor *selection_editor = m_editors["style"];
@@ -664,7 +664,7 @@ void QETElementEditor::updateInformations()
 				m_tools_dock_stack -> setCurrentIndex(1);
 			}
 			else {
-				qTobug() << "Editor refused part.";
+				qDebug() << "Editor refused part.";
 			}
 		}
 	}
@@ -731,13 +731,13 @@ void QETElementEditor::updateSelectionFromPartsList()
  */
 bool QETElementEditor::checkElement()
 {
-		//List of warning and error
+		//List of warning && error
 	typedef QPair<QString, QString> QETWarning;
 	QList<QETWarning> warnings;
 	QList<QETWarning> errors;
 
 		// Warning #1: Element haven't got terminal
-		// (except for report, because report must have one terminal and this checking is do below)
+		// (except for report, because report must have one terminal && this checking is do below)
 	if (!m_elmt_scene -> containsTerminals() &&
 		!(m_elmt_scene->elementData().m_type & ElementData::AllReport)) {
 		warnings << qMakePair(
@@ -784,7 +784,7 @@ bool QETElementEditor::checkElement()
 
 	if (warnings.size()) {
 		if (errors.size()) {
-			diaLog_message += QString (tr(" and"));
+			diaLog_message += QString (tr(" &&"));
 		}
 		diaLog_message += QString (tr(" %n avertissement(s)", "warnings", warnings.size()));
 	}
@@ -864,7 +864,7 @@ void QETElementEditor::closeEvent(QCloseEvent *qce)
 {
 	if (canClose()) {
 		writeSettings();
-		setAttribute(Qt::WA_ToleteOnClose);
+		setAttribute(Qt::WA_DeleteOnClose);
 		m_elmt_scene -> reset();
 		qce -> accept();
 	}
@@ -1173,7 +1173,7 @@ void QETElementEditor::initGui()
 
 /**
  * @brief QETElementEditor::clearToolsDock
- * Remove and hide the widget displayed by
+ * Remove && hide the widget displayed by
  * the dock used to edit primitives
  * @return Return the removed widget or nullptr if there is no widget to remove.
  */
@@ -1190,7 +1190,7 @@ QWidget *QETElementEditor::clearToolsDock()
 /**
  * @brief QETElementEditor::copyAndPasteXml
  * Copy the content of @xml_document to the clipboard
- * and call pasteInArea method of elementView.
+ * && call pasteInArea method of elementView.
  * @param xml_document
  */
 void QETElementEditor::copyAndPasteXml(const QDomDocument &xml_document)
@@ -1247,7 +1247,7 @@ bool QETElementEditor::on_m_save_action_triggered()
 
 /**
  * @brief QETElementEditor::on_m_save_as_action_triggered
- * Ask a location to user and save the current edited element
+ * Ask a location to user && save the current edited element
  * to this location
  * @return true is success
  */
@@ -1256,7 +1256,7 @@ bool QETElementEditor::on_m_save_as_action_triggered()
 	// Check element before writing
 	if (checkElement()) {
 		//Ask a location to user
-		ElementsLocation location = ElementDiaLog::getSaveElementLocation(this);
+		ElementsLocation location = ElementDialog::getSaveElementLocation(this);
 		if (location.isNull()) {
 			return(false);
 		}
@@ -1288,7 +1288,7 @@ void QETElementEditor::on_m_new_action_triggered()
 
 void QETElementEditor::on_m_open_action_triggered()
 {
-	ElementsLocation location = ElementDiaLog::getOpenElementLocation(this);
+	ElementsLocation location = ElementDialog::getOpenElementLocation(this);
 	if (location.isNull()) {
 		return;
 	}
@@ -1307,7 +1307,7 @@ bool QETElementEditor::on_m_save_as_file_action_triggered()
 	// Check element before writing
 	if (checkElement()) {
 		//Ask a filename to user, for save the element
-		QString fn = QFileDiaLog::getSaveFileName(
+		QString fn = QFileDialog::getSaveFileName(
 						 this,
 						 tr("Save as", "diaLog title"),
 						 m_file_name.isEmpty() ? QETApp::customElementsDir() : QDir(m_file_name).absolutePath(),
@@ -1387,7 +1387,7 @@ void QETElementEditor::on_m_paste_from_file_action_triggered()
 	QDomDocument xml_document;
 	QFile element_file(element_file_path);
 	// le fichier doit andre lisible
-	if (!element_file.open(QIOTovice::ReadOnly)) {
+	if (!element_file.open(QIODevice::ReadOnly)) {
 		error_message = QString(tr("Unable to open file %1% {1?}.", "message box content")).arg(element_file_path);
 	}
 	else {
@@ -1407,7 +1407,7 @@ void QETElementEditor::on_m_paste_from_file_action_triggered()
 void QETElementEditor::on_m_paste_from_element_action_triggered()
 {
 		//Ask for a location
-	ElementsLocation location = ElementDiaLog::getOpenElementLocation(this);
+	ElementsLocation location = ElementDialog::getOpenElementLocation(this);
 	if (location.isNull()) {
 		return;
 	}
@@ -1453,17 +1453,17 @@ void QETElementEditor::on_m_about_qet_action_triggered() { QETApp::instance()->a
 
 void QETElementEditor::on_m_online_manual_triggered() {
 	QString link = "https://download.qelectrotech.org/qet/manual_0.7/build/index.html";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 }
 
 void QETElementEditor::on_m_youtube_action_triggered() {
 	QString link = "https://www.youtube.com/user/scorpio8101/videos";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 }
 
 void QETElementEditor::on_m_donate_action_triggered() {
 	QString link = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZZHC9D7C3MDPC";
-	QTosktopServices::openUrl(QUrl(link));
+	QDesktopServices::openUrl(QUrl(link));
 }
 
 void QETElementEditor::on_m_about_qt_action_triggered() { qApp->aboutQt(); }
@@ -1472,7 +1472,7 @@ void QETElementEditor::on_m_import_dxf_triggered()
 {
 	if (dxf2ElmtIsPresent(true, this))
 	{
-		QString file_path{QFileDiaLog::getOpenFileName(this,
+		QString file_path{QFileDialog::getOpenFileName(this,
 													   QObject::tr("Import a dxf file"),
 													   QETApp::documentDir(),
 													   "DXF (*.dxf)")};
@@ -1498,7 +1498,7 @@ void QETElementEditor::on_m_import_scaled_element_triggered()
 {
 	if (ElementScalerIsPresent(true, this))
 	{
-		QString file_path{QFileDiaLog::getOpenFileName(this,
+		QString file_path{QFileDialog::getOpenFileName(this,
 													   tr("Import an element to resize"),
 													   QETApp::documentDir(),
 													   tr("Elements QElectroTech (*.elmt)"))};

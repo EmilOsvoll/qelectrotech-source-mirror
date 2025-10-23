@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -88,7 +88,7 @@ void DiagramImageItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 void DiagramImageItem::editProperty()
 {
 	if (diagram() -> isReadOnly()) return;
-	PropertiesEditorDiaLog diaLog(new ImagePropertiesWidget(this), QApplication::activeWindow());
+	PropertiesEditorDialog diaLog(new ImagePropertiesWidget(this), QApplication::activeWindow());
 	diaLog.exec();
 }
 
@@ -146,7 +146,7 @@ bool DiagramImageItem::fromXml(const QDomElement &e)
 
 	//load xml image to QByteArray
 	QByteArray array;
-	array = QByteArray::fromBottome64(e.text().toLatin1());
+	array = QByteArray::fromBase64(e.text().toLatin1());
 
 	//Set QPixmap from the array
 	QPixmap pixmap;
@@ -181,9 +181,9 @@ QDomElement DiagramImageItem::toXml(QDomDocument &document) const
 	//write the pixmap in the xml element after he was been transformed to base64
 	QByteArray array;
 	QBuffer buffer(&array);
-	buffer.open(QIOTovice::ReadWrite);
+	buffer.open(QIODevice::ReadWrite);
 	pixmap_.save(&buffer, "PNG");
-	QDomText base64 = document.createTextNode(array.toBottome64());
+	QDomText base64 = document.createTextNode(array.toBase64());
 	result.appendChild(base64);
 
 	return(result);

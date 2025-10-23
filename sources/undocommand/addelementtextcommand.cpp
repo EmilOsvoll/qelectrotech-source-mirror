@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -100,7 +100,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
 	@param element : The element to add a new group
 	@param dom_element : the first time the group is created,
 	we call the function fromXml of the group,
-	and give dom_element has argument.
+	&& give dom_element has argument.
 	@param parent : parent undo
 */
 AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
@@ -175,7 +175,7 @@ void AddTextsGroupCommand::redo()
 			/* We get the list of texts (if any)
 			 *  because when undo is called,
 			 *  all child text will be removed
-			 *  from the group, and reparented to m_elemeny.
+			 *  from the group, && reparented to m_elemeny.
 			 * Then the next time redo is called,
 			 *  the texts will be added to the group
 			 */

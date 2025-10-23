@@ -37,7 +37,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Geometry and lines</string>
+          <string>Geometry &amp; lines</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0,0,0,0,0,0,0">
           <item row="1" column="4">
@@ -540,7 +540,7 @@
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -560,7 +560,7 @@
        <item>
         <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

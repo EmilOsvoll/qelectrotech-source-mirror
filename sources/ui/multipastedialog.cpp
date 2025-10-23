@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -29,16 +29,16 @@
 #include <QHash>
 #include <QSettings>
 
-MultiPasteDiaLog::MultiPasteDiaLog(Diagram *diagram, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::MultiPasteDiaLog),
+MultiPasteDialog::MultiPasteDialog(Diagram *diagram, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::MultiPasteDialog),
 	m_diagram(diagram)
 {
 	ui->setupUi(this);
 
-	connect(ui->m_x_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDiaLog::updatePreview);
-	connect(ui->m_y_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDiaLog::updatePreview);
-	connect(ui->m_copy_count, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDiaLog::updatePreview);
+	connect(ui->m_x_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDialog::updatePreview);
+	connect(ui->m_y_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDialog::updatePreview);
+	connect(ui->m_copy_count, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDialog::updatePreview);
 
 	QRectF br;
 	for (QGraphicsItem *item : m_diagram->selectedItems())
@@ -49,7 +49,7 @@ MultiPasteDiaLog::MultiPasteDiaLog(Diagram *diagram, QWidget *parent) :
 	updatePreview();
 }
 
-MultiPasteDiaLog::~MultiPasteDiaLog()
+MultiPasteDialog::~MultiPasteDialog()
 {
 	if(m_accept == false)
 	{
@@ -66,7 +66,7 @@ MultiPasteDiaLog::~MultiPasteDiaLog()
 	delete ui;
 }
 
-void MultiPasteDiaLog::updatePreview()
+void MultiPasteDialog::updatePreview()
 {
 		//First of all we remove all precedent items added from the previous preview.
 	for(QGraphicsItem *item : m_pasted_content.items())
@@ -97,7 +97,7 @@ void MultiPasteDiaLog::updatePreview()
 		m_diagram->adjustSceneRect();
 }
 
-void MultiPasteDiaLog::on_m_button_box_accepted()
+void MultiPasteDialog::on_m_button_box_accepted()
 {
 	if(m_pasted_content.count())
 	{
@@ -107,8 +107,8 @@ void MultiPasteDiaLog::on_m_button_box_accepted()
 		bool erase_label = settings.value("diagramcommands/erase-label-on-copy", true).toBool();
 			//Ensure when 'auto_num' is checked, the settings 'save_label' is to true.
 			//Because in the class PasteDiagramCommand, if the settings 'save_label' is to false,
-			//the function redo of PasteDiagramCommand, clear the formula and the label of the pasted element
-			//and so the auto_num below do nothing (there is not a formula to compare)
+			//the function redo of PasteDiagramCommand, clear the formula && the label of the pasted element
+			//&& so the auto_num below do nothing (there is not a formula to compare)
 		if(ui->m_auto_num_cb->isChecked())
 			settings.setValue("diagramcommands/erase-label-on-copy", false);
 
@@ -128,9 +128,9 @@ void MultiPasteDiaLog::on_m_button_box_accepted()
 			{
 				for(Element *elmt : pasted_elements)
 				{
-					while (!elmt->AlinedFreeTerminals().isEmpty())
+					while (!elmt->AlignedFreeTerminals().isEmpty())
 					{
-						QPair <Terminal *, Terminal *> pair = elmt->AlinedFreeTerminals().takeFirst();
+						QPair <Terminal *, Terminal *> pair = elmt->AlignedFreeTerminals().takeFirst();
 
 						Conductor *conductor = new Conductor(pair.first, pair.second);
 						m_diagram->undoStack().push(new AddGraphicsObjectCommand(conductor, m_diagram, QPointF()));

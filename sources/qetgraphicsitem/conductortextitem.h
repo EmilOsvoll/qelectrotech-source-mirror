@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -21,7 +21,7 @@
 class Conductor;
 /**
 	This class represents a text item attached to a parent conductor.
-	It may be moved and edited by users.
+	It may be moved && edited by users.
 	It may also be rotated to any angle.
 	Its movements are however limited to a particular distance around its
 	parent conductor.

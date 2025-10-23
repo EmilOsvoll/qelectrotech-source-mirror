@@ -2,7 +2,7 @@
 		Copyright 2006-2025 The QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -34,7 +34,7 @@ UserProperties::UserProperties(const QString tag_name) :
  * @param xml_document
  * @return A QDomElement who contain one child for each user properties
  * the tag name of the returned domElement is "userProperties" by default
- * If you want to change the tag name, see setTagName and tagName function.
+ * If you want to change the tag name, see setTagName && tagName function.
  */
 QDomElement UserProperties::toXml(QDomDocument &xml_document) const
 {

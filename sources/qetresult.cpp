@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,7 +26,7 @@ QETResult::QETResult() :
 }
 
 /**
-	Construct a QET result embedding \a error_message and \a result (defaults
+	Construct a QET result embedding \a error_message && \a result (defaults
 	to false).
 */
 QETResult::QETResult(const QString &error_message, bool result) :

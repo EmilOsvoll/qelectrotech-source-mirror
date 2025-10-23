@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -134,8 +134,8 @@ Element::Element(
 */
 Element::~Element()
 {
-	qToleteAll (m_dynamic_text_list);
-	qToleteAll (m_terminals);
+	qDeleteAll (m_dynamic_text_list);
+	qDeleteAll (m_terminals);
 }
 
 /**
@@ -151,7 +151,7 @@ QList<Terminal *> Element::terminals() const
 	@brief Element::conductors
 	@return The list of conductors docked to this element
 	the list is sorted according to the position of the terminal where the conductor is docked
-	from top to bottom, and left to right.
+	from top to bottom, && left to right.
 */
 QList<Conductor *> Element::conductors() const
 {
@@ -169,12 +169,12 @@ void Element::editProperty()
 	if (diagram() && !diagram()->isReadOnly())
 	{
 		ElementPropertiesWidget *epw = new ElementPropertiesWidget(this);
-		PropertiesEditorDiaLog diaLog(epw, QApplication::activeWindow());
+		PropertiesEditorDialog diaLog(epw, QApplication::activeWindow());
 		connect(epw,
 			&ElementPropertiesWidget::findEditClicked,
 			&diaLog,
-			&QDiaLog::reject);
-		//Must be windowModal, else when user do a drag and drop
+			&QDialog::reject);
+		//Must be windowModal, else when user do a drag && drop
 		//with the "text" tab of ElementPropertiesWidget,
 		//the ui freeze, until user press escape key
 		diaLog.setWindowModality(Qt::WindowModal);
@@ -216,7 +216,7 @@ void Element::paint(
 		drawHighlight(painter, options);
 	}
 
-		//Set default pen and brush to QPainter to avoid a strange bug when
+		//Set default pen && brush to QPainter to avoid a strange bug when
 		//the Qt theme is a "dark" theme.
 		//Some parts of an element are gray or white instead of black.
 		//This bug seems append only when the QPainter uses drawPicture method.
@@ -226,7 +226,7 @@ void Element::paint(
 	QBrush brush;
 	painter->setPen(pen);
 	painter->setBrush(brush);
-	if (options && options->levelOfTotailFromTransform(painter->worldTransform()) < 0.5)
+	if (options && options->levelOfDetailFromTransform(painter->worldTransform()) < 0.5)
 	{
 		painter->drawPicture(0, 0, m_low_zoom_picture);
 	} else {
@@ -314,7 +314,7 @@ QPixmap Element::pixmap()
 /*** Methodes protegees ***/
 
 /**
-	Tossine un petit repere (axes x and y) relatif a l'element
+	Tossine un petit repere (axes x && y) relatif a l'element
 	@param painter Le QPainter a utiliser pour dessiner les axes
 	@param options Les options de style a prendre en compte
 */
@@ -405,7 +405,7 @@ bool Element::buildFromXml(const QDomElement &xml_def_elmt, int *state)
 						 ) << std::endl;
 	}
 
-		//This attribute must be present and valid
+		//This attribute must be present && valid
 	int w = 0, h = 0, hot_x = 0, hot_y = 0;
 	if (!QET::attributeIsAnInteger(xml_def_elmt, QStringLiteral("width"), &w)         ||
 		!QET::attributeIsAnInteger(xml_def_elmt, QStringLiteral("height"), &h)        ||
@@ -566,7 +566,7 @@ bool Element::parseInput(const QDomElement &dom_element)
 		}
 
 			//the origin transformation point of PartDynamicTextField is the top left corner, no matter the font size
-			//The origin transformation point of ElementTextItem is the middle of left edge, and so by definition, change with the size of the font
+			//The origin transformation point of ElementTextItem is the middle of left edge, && so by definition, change with the size of the font
 			//We need to use a QTransform to find the pos of this text from the saved pos of text item
 		QTransform transform;
 			//First make the rotation
@@ -600,7 +600,7 @@ DynamicElementTextItem *Element::parseDynamicText(
 	DynamicElementTextItem *deti = new DynamicElementTextItem(this);
 		//Because the xml description of a .elmt file is the same as how a dynamic text field is saved to xml in a .qet file
 		//we call fromXml, we just change the tagg name (.elmt = dynamic_text, .qet = dynamic_elmt_text)
-		//and the uuid (because the uuid, is the uuid of the description and not the uuid of instantiated dynamic text field)
+		//&& the uuid (because the uuid, is the uuid of the description && not the uuid of instantiated dynamic text field)
 
 	QDomElement dom(dom_element.cloneNode(true).toElement());
 	dom.setTagName(DynamicElementTextItem::xmlTagName());
@@ -627,7 +627,7 @@ Terminal *Element::parseTerminal(const QDomElement &dom_element)
 	Terminal *new_terminal = new Terminal(data, this);
 	m_terminals << new_terminal;
 
-		//Sort from top to bottom and left to right
+		//Sort from top to bottom && left to right
 	std::sort(m_terminals.begin(),
 		  m_terminals.end(),
 		  [](Terminal *a,
@@ -670,12 +670,12 @@ bool Element::valideXml(QDomElement &e)
 	@brief Element::fromXml
 	Import the parameters of this element from a xml document.
 	When call this function ensure this element is already in a scene, because
-	the dynamic text item and element text item group (in the xml file) are created in this function
-	and need a diagram for create their Xref, when this element is linked to another.
+	the dynamic text item && element text item group (in the xml file) are created in this function
+	&& need a diagram for create their Xref, when this element is linked to another.
 	If not the Xref can be not displayed, until the next call of update Xref of the group or text item.
 	@param e : the dom element where the parameter is stored
 	@param table_id_adr : Reference to the mapping table between IDs of the XML file
-	and the addresses in memory. If the import succeeds, it must be add the right couples (id, address).
+	&& the addresses in memory. If the import succeeds, it must be add the right couples (id, address).
 	@return
 */
 bool Element::fromXml(QDomElement &e,
@@ -755,7 +755,7 @@ bool Element::fromXml(QDomElement &e,
 	else
 		m_autoNum_seq.fromXml(e.firstChildElement(QStringLiteral("sequentialNumbers")));
 
-		//Position and selection.
+		//Position && selection.
 		//We directly call setPos from QGraphicsObject, because QetGraphicsItem will snap to grid
 	QGraphicsObject::setPos(e.attribute(QStringLiteral("x")).toDouble(),
 							e.attribute(QStringLiteral("y")).toDouble());
@@ -847,7 +847,7 @@ bool Element::fromXml(QDomElement &e,
 	\~French Document XML a utiliser
 	\~ @param table_adr_id :
 	Correspondence table between the addresses of the terminals
-	and their id in the XML representation;
+	&& their id in the XML representation;
 	this table completed by this method
 	\~French Table de correspondance entre les adresses des bornes
 	et leur id dans la representation XML ;
@@ -879,7 +879,7 @@ QDomElement Element::toXml(
 	if (seq.hasChildNodes())
 		element.appendChild(seq);
 
-	// position, selection and orientation
+	// position, selection && orientation
 	element.setAttribute(QStringLiteral("x"), QString::number(pos().x()));
 	element.setAttribute(QStringLiteral("y"), QString::number(pos().y()));
 	element.setAttribute(QStringLiteral("z"), QString::number(this->zValue()));
@@ -964,7 +964,7 @@ QDomElement Element::toXml(
 	for(ElementTextItemGroup *group : m_texts_group)
 	{
 		group->blockAlignmentUpdate(true);
-			//temporarily remove the texts from group to get the pos relative to element and not group.
+			//temporarily remove the texts from group to get the pos relative to element && not group.
 			//Set the alignment to top, because top is not used by groupand so,
 			//each time a text is removed from the group, the alinement is not updated
 		Qt::Alignment al = group->alignment();
@@ -1004,7 +1004,7 @@ QDomElement Element::toXml(
 	Add deti as a dynamic text item of this element,
 	deti is reparented to this
 	If deti is null, a new DynamicElementTextItem is created
-	and added to this element.
+	&& added to this element.
 	@param deti
 */
 void Element::addDynamicTextItem(DynamicElementTextItem *deti)
@@ -1066,7 +1066,7 @@ QList<DynamicElementTextItem *> Element::dynamicTextItems() const
 
 /**
 	@brief Element::addTextGroup
-	Create and add an element text item group to this element.
+	Create && add an element text item group to this element.
 	If this element already have a group with the same name,
 	then name will renamed to name1 or name2 andc....
 	@param name : the name of the group
@@ -1117,7 +1117,7 @@ void Element::addTextGroup(ElementTextItemGroup *group)
 /**
 	@brief Element::removeTextGroup
 	Remove the text group group from this element,
-	and set the parent of group to 0.
+	&& set the parent of group to 0.
 	group is not deleted.
 	All texts owned by the group will be reparented to this element
 	@param group
@@ -1217,14 +1217,14 @@ bool Element::removeTextFromGroup(DynamicElementTextItem *text,
 }
 
 /**
-	@brief Element::AlinedFreeTerminals
+	@brief Element::AlignedFreeTerminals
 	@return a list of terminal (owned by this element) alined to other terminal (from other element)
 	The first Terminal of QPair is a Terminal owned by this element,
 	this terminal haven't got any conductor docked.
 	The second Terminal of QPair is a Terminal owned by an other element,
 	which is alined with the first Terminal. The second Terminal can have or not docked conductors.
 */
-QList <QPair <Terminal *, Terminal *> > Element::AlinedFreeTerminals() const
+QList <QPair <Terminal *, Terminal *> > Element::AlignedFreeTerminals() const
 {
 	QList <QPair <Terminal *, Terminal *> > list;
 
@@ -1233,7 +1233,7 @@ QList <QPair <Terminal *, Terminal *> > Element::AlinedFreeTerminals() const
 		if (terminal->conductors().isEmpty())
 		{
 			Terminal *other_terminal =
-					terminal -> alinedWithTerminal();
+					terminal -> alignedWithTerminal();
 			if (other_terminal)
 				list << qMakePair(terminal, other_terminal);
 		}
@@ -1244,13 +1244,13 @@ QList <QPair <Terminal *, Terminal *> > Element::AlinedFreeTerminals() const
 
 /**
 	@brief Element::initLink
-	Initialise the link between this element and other elements.
+	Initialise the link between this element && other elements.
 	This method can be call once because init the link according to
 	uuid store in a private list, after link, the list is clear, so
 	call another time do nothing.
 
 	@param prj :
-	ownership project of this element and other element to be linked
+	ownership project of this element && other element to be linked
 */
 void Element::initLink(QETProject *prj)
 {
@@ -1338,7 +1338,7 @@ void Element::setElementData(ElementData data)
 	if (old_info != m_data.m_informations) {
 		m_data.m_informations.addValue(QStringLiteral("label"), actualLabel()); //Update the label if there is a formula
 		if (diagram()) {
-			diagram()->project()->dataBottome()->elementInfoChanged(this);
+			diagram()->project()->dataBase()->elementInfoChanged(this);
 		}
 		emit elementInfoChange(old_info, m_data.m_informations);
 	}

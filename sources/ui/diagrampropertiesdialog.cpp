@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,13 +26,13 @@
 #include "titleblockpropertieswidget.h"
 
 /**
-	@brief DiagramPropertiesDiaLog::DiagramPropertiesDiaLog
-	Tofault constructor
+	@brief DiagramPropertiesDialog::DiagramPropertiesDialog
+	Default constructor
 	@param diagram : diagram to edit properties
 	@param parent : parent widget
 */
-DiagramPropertiesDiaLog::DiagramPropertiesDiaLog(Diagram *diagram, QWidget *parent) :
-	QDiaLog (parent),
+DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *parent) :
+	QDialog (parent),
 	m_diagram (diagram)
 {
 	bool diagram_is_read_only = diagram -> isReadOnly();
@@ -73,10 +73,10 @@ DiagramPropertiesDiaLog::DiagramPropertiesDiaLog(Diagram *diagram, QWidget *pare
 	autonum_combobox->addItems(diagram->project()->conductorAutoNum().keys());
 	autonum_combobox->setCurrentIndex(autonum_combobox->findText(diagram->conductorsAutonumName()));
 
-	connect(m_cpw->editAutonumPushButton(), &QPushButton::clicked, this, &DiagramPropertiesDiaLog::editAutonum);
+	connect(m_cpw->editAutonumPushButton(), &QPushButton::clicked, this, &DiagramPropertiesDialog::editAutonum);
 
 		// Buttons
-	QDiaLogButtonBox boutons(diagram_is_read_only ? QDiaLogButtonBox::Ok : QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
+	QDialogButtonBox boutons(diagram_is_read_only ? QDialogButtonBox::Ok : QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 	connect(&boutons, SIGNAL(accepted()), this, SLOT(accept()));
 	connect(&boutons, SIGNAL(rejected()), this, SLOT(reject()));
 
@@ -90,7 +90,7 @@ DiagramPropertiesDiaLog::DiagramPropertiesDiaLog(Diagram *diagram, QWidget *pare
 	vlayout.addWidget(&boutons);
 
 	// if diaLog is accepted
-	if (this -> exec() == QDiaLog::Accepted && !diagram_is_read_only)
+	if (this -> exec() == QDialog::Accepted && !diagram_is_read_only)
 	{
 		TitleBlockProperties new_titleblock = titleblock_infos  -> properties();
 		BorderProperties     new_border     = border_infos -> properties();
@@ -125,36 +125,36 @@ DiagramPropertiesDiaLog::DiagramPropertiesDiaLog(Diagram *diagram, QWidget *pare
 }
 
 /**
-	@brief DiagramPropertiesDiaLog::diagramPropertiesDiaLog
-	Static method to get a DiagramPropertiesDiaLog.
+	@brief DiagramPropertiesDialog::diagramPropertiesDialog
+	Static method to get a DiagramPropertiesDialog.
 	@param diagram : diagram to edit properties
 	@param parent : parent widget
 */
-void DiagramPropertiesDiaLog::diagramPropertiesDiaLog(Diagram *diagram, QWidget *parent) {
-	DiagramPropertiesDiaLog diaLog(diagram, parent);
+void DiagramPropertiesDialog::diagramPropertiesDialog(Diagram *diagram, QWidget *parent) {
+	DiagramPropertiesDialog diaLog(diagram, parent);
 }
 
 /**
-	@brief DiagramPropertiesDiaLog::editAutonum
+	@brief DiagramPropertiesDialog::editAutonum
 	Open conductor autonum editor
 */
-void DiagramPropertiesDiaLog::editAutonum()
+void DiagramPropertiesDialog::editAutonum()
 {
-	ProjectPropertiesDiaLog ppd (m_diagram->project(), this);
-	ppd.setCurrentPage(ProjectPropertiesDiaLog::Autonum);
+	ProjectPropertiesDialog ppd (m_diagram->project(), this);
+	ppd.setCurrentPage(ProjectPropertiesDialog::Autonum);
 	ppd.exec();
 	m_cpw->autonumComboBox()->clear();
 	m_cpw->autonumComboBox()->addItems(m_diagram->project()->conductorAutoNum().keys());
 }
 
 /**
-	@brief DiagramPropertiesDiaLog::editAutonum
+	@brief DiagramPropertiesDialog::editAutonum
 	Open folio autonum editor
 */
-void DiagramPropertiesDiaLog::editAutoFolioNum ()
+void DiagramPropertiesDialog::editAutoFolioNum ()
 {
-	ProjectPropertiesDiaLog ppd (m_diagram->project(), this);
-	ppd.setCurrentPage(ProjectPropertiesDiaLog::Autonum);
+	ProjectPropertiesDialog ppd (m_diagram->project(), this);
+	ppd.setCurrentPage(ProjectPropertiesDialog::Autonum);
 	ppd.changeToFolio();
 	ppd.exec();
 }

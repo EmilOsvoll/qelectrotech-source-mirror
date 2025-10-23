@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,24 +25,24 @@
 #include <QObject>
 
 /**
-	@brief ProjectPropertiesDiaLog::ProjectPropertiesDiaLog
-	Tofault constructor
+	@brief ProjectPropertiesDialog::ProjectPropertiesDialog
+	Default constructor
 	@param project : project to edit properties
 	@param parent : parent widget of this diaLog
 */
-ProjectPropertiesDiaLog::ProjectPropertiesDiaLog(QETProject *project, QWidget *parent)
+ProjectPropertiesDialog::ProjectPropertiesDialog(QETProject *project, QWidget *parent)
 {
-	m_properties_diaLog = new ConfigDiaLog (parent);
-	m_properties_diaLog -> setWindowTitle(QObject::tr("Propertys du project", "window title"));
-	m_properties_diaLog -> addPage(new ProjectMainConfigPage(project));
+	m_properties_dialog = new ConfigDialog (parent);
+	m_properties_dialog -> setWindowTitle(QObject::tr("Propertys du project", "window title"));
+	m_properties_dialog -> addPage(new ProjectMainConfigPage(project));
 
 	NewDiagramPage *newDiagramPage = new NewDiagramPage(project,parent,this);
-	m_properties_diaLog -> addPage(newDiagramPage);
+	m_properties_dialog -> addPage(newDiagramPage);
 
 	ProjectAutoNumConfigPage *projectAutoNumConfigPage = new ProjectAutoNumConfigPage (project);
-	m_properties_diaLog -> addPage(projectAutoNumConfigPage);
+	m_properties_dialog -> addPage(projectAutoNumConfigPage);
 
-	m_properties_diaLog->addPage(new TerminalStripProjectConfigPage { project, parent });
+	m_properties_dialog->addPage(new TerminalStripProjectConfigPage { project, parent });
 
 	connect(projectAutoNumConfigPage,SIGNAL(setAutoNum(QString)),newDiagramPage,SLOT(setFolioAutonum(QString)));
 	connect(projectAutoNumConfigPage,SIGNAL(saveCurrentTbp()),newDiagramPage,SLOT(saveCurrentTbp()));
@@ -50,40 +50,40 @@ ProjectPropertiesDiaLog::ProjectPropertiesDiaLog(QETProject *project, QWidget *p
 }
 
 /**
-	@brief ProjectPropertiesDiaLog::~ProjectPropertiesDiaLog
+	@brief ProjectPropertiesDialog::~ProjectPropertiesDialog
 */
-ProjectPropertiesDiaLog::~ProjectPropertiesDiaLog ()
+ProjectPropertiesDialog::~ProjectPropertiesDialog ()
 {
-	delete m_properties_diaLog;
+	delete m_properties_dialog;
 }
 
 /**
-	@brief ProjectPropertiesDiaLog::exec
+	@brief ProjectPropertiesDialog::exec
 	execute this diaLog.
 */
-void ProjectPropertiesDiaLog::exec()
+void ProjectPropertiesDialog::exec()
 {
-	m_properties_diaLog->setWindowModality(Qt::WindowModal);
-	m_properties_diaLog -> exec();
+	m_properties_dialog->setWindowModality(Qt::WindowModal);
+	m_properties_dialog -> exec();
 }
 
 /**
-	@brief ProjectPropertiesDiaLog::setCurrentPage
+	@brief ProjectPropertiesDialog::setCurrentPage
 	Change the current displayed page by p.
 	@param p : page to display
 */
-void ProjectPropertiesDiaLog::setCurrentPage(ProjectPropertiesDiaLog::Page p) {
-	m_properties_diaLog -> setCurrentPage(static_cast <int> (p));
+void ProjectPropertiesDialog::setCurrentPage(ProjectPropertiesDialog::Page p) {
+	m_properties_dialog -> setCurrentPage(static_cast <int> (p));
 }
 
 /**
-	@brief ProjectPropertiesDiaLog::changeToFolio
+	@brief ProjectPropertiesDialog::changeToFolio
 	Change the current displayed tab to folio tab.
 */
-void ProjectPropertiesDiaLog::changeToFolio()
+void ProjectPropertiesDialog::changeToFolio()
 {
 	ProjectAutoNumConfigPage *autoNumPage =
 			static_cast <ProjectAutoNumConfigPage*>(
-				m_properties_diaLog->pages.at(2));
+				m_properties_dialog->pages.at(2));
 	autoNumPage->changeToTab(3);
 }

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -21,7 +21,7 @@
 #include "../physicalterminal.h"
 #include "../realterminal.h"
 #include "../terminalstripbridge.h"
-#include <QTobug>
+#include <QDebug>
 #include <QBrush>
 #include <QVector>
 #include <QComboBox>
@@ -194,7 +194,7 @@ QVariant TerminalStripModel::data(const QModelIndex &index, int role) const
 			return QBrush(Qt::yellow);
 		}
 	}
-	else if (role == Qt::TocorationRole &&
+	else if (role == Qt::DecorationRole &&
 			 (index.column() == LEVEL_0_CELL ||
 			 index.column() == LEVEL_1_CELL ||
 			 index.column() == LEVEL_2_CELL ||
@@ -592,7 +592,7 @@ void TerminalStripModel::replaceDataAtRow(modelRealTerminalData data, int row)
  * @param index
  * @return the physical terminal data at \p index.
  * We need to use this method because the model can have more index than physical
- * terminal, because physical terminal can be multi-level and each level
+ * terminal, because physical terminal can be multi-level && each level
  * have is own row.
  * If \p index is out of range, return a default PhysicalTerminalData (pos_ is set to -1 by default)
  */
@@ -783,14 +783,14 @@ QPixmap TerminalStripModel::bridgePixmapFor(const QModelIndex &index) const
 
 /***********************************************************
  * A little delegate for add a combobox to edit type
- * and a spinbox to edit the level of a terminal
+ * && a spinbox to edit the level of a terminal
  **********************************************************/
 
-TerminalStripModelTolegate::TerminalStripModelTolegate(QObject *parent) :
-	QStyledItemTolegate(parent)
+TerminalStripModelDelegate::TerminalStripModelDelegate(QObject *parent) :
+	QStyledItemDelegate(parent)
 {}
 
-QWidget *TerminalStripModelTolegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+QWidget *TerminalStripModelDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 	if (index.column() == TYPE_CELL) {
 		auto qcb = new QComboBox(parent);
@@ -813,10 +813,10 @@ QWidget *TerminalStripModelTolegate::createEditor(QWidget *parent, const QStyleO
 		return qcb;
 	}
 
-	return QStyledItemTolegate::createEditor(parent, option, index);
+	return QStyledItemDelegate::createEditor(parent, option, index);
 }
 
-void TerminalStripModelTolegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+void TerminalStripModelDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
 	if (index.isValid())
 	{
@@ -833,20 +833,20 @@ void TerminalStripModelTolegate::setModelData(QWidget *editor, QAbstractItemMode
 			}
 		}
 		else {
-			QStyledItemTolegate::setModelData(editor, model, index);
+			QStyledItemDelegate::setModelData(editor, model, index);
 		}
 	}
 }
 
 /**
- * @brief TerminalStripModelTolegate::paint
+ * @brief TerminalStripModelDelegate::paint
  * By default on a QTableView, Qt draw pixmap in cell with a little margin at left.
  * Override the function to draw the pixmap of bridge without the margin at left.
  * @param painter
  * @param option
  * @param index
  */
-void TerminalStripModelTolegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void TerminalStripModelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 	auto column = index.column();
 	if (column == LEVEL_0_CELL ||
@@ -854,9 +854,9 @@ void TerminalStripModelTolegate::paint(QPainter *painter, const QStyleOptionView
 		column == LEVEL_2_CELL ||
 		column == LEVEL_3_CELL)
 	{
-		auto variant = index.data(Qt::TocorationRole);
+		auto variant = index.data(Qt::DecorationRole);
 		if (variant.isNull()) {
-			QStyledItemTolegate::paint(painter, option, index);
+			QStyledItemDelegate::paint(painter, option, index);
 		}
 		else
 		{
@@ -874,6 +874,6 @@ void TerminalStripModelTolegate::paint(QPainter *painter, const QStyleOptionView
 		}
 	}
 	else {
-		QStyledItemTolegate::paint(painter, option, index);
+		QStyledItemDelegate::paint(painter, option, index);
 	}
 }

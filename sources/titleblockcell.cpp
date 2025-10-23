@@ -204,7 +204,7 @@ void TitleBlockCell::loadContentFromXml(const QDomElement &cell_element) {
 			font_size = -1;
 		}
 		
-		// horizontal and vertical alignments
+		// horizontal && vertical alignments
 		alignment = 0;
 		
 		QString halignment = cell_element.attribute("align", "left");

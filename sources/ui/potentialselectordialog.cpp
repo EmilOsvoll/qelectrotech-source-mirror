@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -76,7 +76,7 @@ class NewConductorPotentialSelector : public AbstractPotentialSelector
 		/**
 			@brief getPotential
 			Get the conductor properties of the potential at terminal,
-			and the number of wire in this potential.
+			&& the number of wire in this potential.
 			@param terminal
 			@param seq_num
 			@param number
@@ -188,7 +188,7 @@ class LinkReportPotentialSelector : public AbstractPotentialSelector
 //### END PRIVATE CLASS ###//
 
 
-ConductorProperties PotentialSelectorDiaLog::chosenProperties(QList<ConductorProperties> list, QWidget *widget)
+ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorProperties> list, QWidget *widget)
 {
 	if (list.isEmpty()) {
 		return ConductorProperties() ;
@@ -196,7 +196,7 @@ ConductorProperties PotentialSelectorDiaLog::chosenProperties(QList<ConductorPro
 		return list.first();
 	}
 
-	QDiaLog diaLog(widget);
+	QDialog diaLog(widget);
 	QVBoxLayout layout(widget);
 	diaLog.setLayout(&layout);
 	QLabel label(tr("Veuillez choisir un potentiel électrique de la liste \n"
@@ -222,9 +222,9 @@ ConductorProperties PotentialSelectorDiaLog::chosenProperties(QList<ConductorPro
 		layout.addWidget(b);
 		H.insert(b, cp);
 	}
-	QDiaLogButtonBox *button_box = new QDiaLogButtonBox(QDiaLogButtonBox::Ok, &diaLog);
+	QDialogButtonBox *button_box = new QDialogButtonBox(QDialogButtonBox::Ok, &diaLog);
 	layout.addWidget(button_box);
-	connect(button_box, &QDiaLogButtonBox::accepted, &diaLog, &QDiaLog::accept);
+	connect(button_box, &QDialogButtonBox::accepted, &diaLog, &QDialog::accept);
 
 	diaLog.exec();
 	for (QRadioButton *b : H.keys()) {
@@ -237,17 +237,17 @@ ConductorProperties PotentialSelectorDiaLog::chosenProperties(QList<ConductorPro
 }
 
 /**
-	@brief PotentialSelectorDiaLog::PotentialSelectorDiaLog
+	@brief PotentialSelectorDialog::PotentialSelectorDialog
 	Constructor when we link two potentiels together, with a conductor
 	@param conductor : the new conductor who connect to existing potential
 	@param parent_undo : undo parent to use.
 	@param parent : parent widget.
 */
-PotentialSelectorDiaLog::PotentialSelectorDiaLog(Conductor *conductor,
+PotentialSelectorDialog::PotentialSelectorDialog(Conductor *conductor,
 						 QUndoCommand *parent_undo,
 						 QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::PotentialSelectorDiaLog),
+	QDialog(parent),
+	ui(new Ui::PotentialSelectorDialog),
 	m_conductor(conductor),
 	m_report(nullptr),
 	m_parent_undo(parent_undo)
@@ -258,18 +258,18 @@ PotentialSelectorDiaLog::PotentialSelectorDiaLog(Conductor *conductor,
 }
 
 /**
-	@brief PotentialSelectorDiaLog::PotentialSelectorDiaLog
+	@brief PotentialSelectorDialog::PotentialSelectorDialog
 	Constructor when we link two potentiels together, with a folio report.
 	@param report : one of the report used to link the potentials
 	(report must be linked to another report)
 	@param parent_undo : undo parent to use
 	@param parent : parent widget
 */
-PotentialSelectorDiaLog::PotentialSelectorDiaLog(Element *report,
+PotentialSelectorDialog::PotentialSelectorDialog(Element *report,
 						 QUndoCommand *parent_undo,
 						 QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::PotentialSelectorDiaLog),
+	QDialog(parent),
+	ui(new Ui::PotentialSelectorDialog),
 	m_conductor(nullptr),
 	m_report(report),
 	m_parent_undo(parent_undo)
@@ -279,17 +279,17 @@ PotentialSelectorDiaLog::PotentialSelectorDiaLog(Element *report,
 	buildWidget();
 }
 
-PotentialSelectorDiaLog::~PotentialSelectorDiaLog()
+PotentialSelectorDialog::~PotentialSelectorDialog()
 {
 	delete ui;
 	delete m_potential_selector;
 }
 
 /**
-	@brief PotentialSelectorDiaLog::buildWidget
+	@brief PotentialSelectorDialog::buildWidget
 	Build the diaLog
 */
-void PotentialSelectorDiaLog::buildWidget()
+void PotentialSelectorDialog::buildWidget()
 {
 	QString text1(tr("%n conducteurs composent le potentiel suivant :",
 			 "",
@@ -345,7 +345,7 @@ void PotentialSelectorDiaLog::buildWidget()
 				.arg("wouldn't this be nice?"), this);
 
 #if TODO_LIST
-#pragma message("@TODO Add Kabel and Bus to qet")
+#pragma message("@TODO Add Kabel && Bus to qet")
 #else
 	rbk->setDisabled(true);
 	rbb->setDisabled(true);
@@ -380,7 +380,7 @@ void PotentialSelectorDiaLog::buildWidget()
 	});
 
 	//Set the radio button of potential with the bigger number of conductors,
-	//at first position, and check it
+	//at first position, && check it
 	if (m_potential_selector->m_conductor_number_1 >=
 			m_potential_selector->m_conductor_number_2)
 	{
@@ -400,10 +400,10 @@ void PotentialSelectorDiaLog::buildWidget()
 }
 
 /**
-	@brief PotentialSelectorDiaLog::on_buttonBox_accepted
+	@brief PotentialSelectorDialog::on_buttonBox_accepted
 	Action when user click on OK button
 */
-void PotentialSelectorDiaLog::on_buttonBox_accepted()
+void PotentialSelectorDialog::on_buttonBox_accepted()
 {
 	if (!m_potential_selector->isValid())
 		return;
@@ -470,7 +470,7 @@ void PotentialSelectorDiaLog::on_buttonBox_accepted()
 									"Veuillez saisir une formule compatible pour ce potentiel.\n"
 									"Les variables suivantes sont incompatibles :\n"
 									"%sequf_  %seqtf_  %seqhf_  %id  %F  %M  %LM"));
-					FormulaAssistantDiaLog fag(this);
+					FormulaAssistantDialog fag(this);
 					fag.setForbiddenVariables(forbidden_str);
 					fag.setText(text);
 					fag.setFormula(cp.m_formula);

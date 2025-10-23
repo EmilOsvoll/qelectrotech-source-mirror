@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -555,7 +555,7 @@ bool AssemblyInfo::operator!=(const AssemblyInfo& other) const
 QString AssemblyInfo::generateAssemblyId(const QString& prefix)
 {
     QString base_id = prefix.isEmpty() ? QStringLiteral("ASSEMBLY") : prefix;
-    QString uuid = QUuid::createUuid().toString().mid(1, 8); // Remove braces and take first 8 chars
+    QString uuid = QUuid::createUuid().toString().mid(1, 8); // Remove braces && take first 8 chars
     return QStringLiteral("%1-%2").arg(base_id, uuid);
 }
 

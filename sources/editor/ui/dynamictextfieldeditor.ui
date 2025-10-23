@@ -27,7 +27,7 @@
    <item row="13" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -79,7 +79,7 @@
    <item row="4" column="1">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
@@ -216,7 +216,7 @@
    <item row="8" column="1">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>

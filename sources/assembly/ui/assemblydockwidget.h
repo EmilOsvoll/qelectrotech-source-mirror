@@ -2,7 +2,7 @@
 		Copyright 2006-2025 QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -39,8 +39,8 @@ class AssemblyInfo;
 /**
 	@brief The AssemblyDockWidget class
 	Provides a dock widget for managing assemblies in a QET project.
-	This widget displays a tree view of assemblies and their hierarchical
-	relationships, along with controls for creating, editing, and managing assemblies.
+	This widget displays a tree view of assemblies && their hierarchical
+	relationships, along with controls for creating, editing, && managing assemblies.
 */
 class AssemblyDockWidget : public QDockWidget
 {

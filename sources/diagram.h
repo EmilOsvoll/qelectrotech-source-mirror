@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -50,7 +50,7 @@ class QETProject;
 	@brief The Diagram class
 	This class represents an electric diagram.
 	It manages its various child elements,
-	conductors and texts and handles their graphic rendering.
+	conductors && texts && handles their graphic rendering.
 */
 class Diagram : public QGraphicsScene
 {
@@ -79,7 +79,7 @@ class Diagram : public QGraphicsScene
 		enum NumerotationType { Conductors };
 		/// Default properties for new conductors
 		ConductorProperties defaultConductorProperties;
-		/// Diagram dimensions and title block
+		/// Diagram dimensions && title block
 		BorderTitleBlock border_and_titleblock;
 		/// abscissa grid step size
 		static int xGrid;
@@ -249,7 +249,7 @@ class Diagram : public QGraphicsScene
 		void setFreezeNewConductors(bool);
 		bool freezeNewConductors();
 	
-		//methods related to insertion and loading of folio sequential
+		//methods related to insertion && loading of folio sequential
 		void insertFolioSeqHash (QHash<QString, QStringList> *hash,
 					 const QString& title,
 					 const QString& seq,
@@ -342,7 +342,7 @@ inline bool Diagram::displayGrid() {
 
 /**
 	@brief Diagram::setUseBorder
-	Set whether the diagram border (including rows/columns headers and the title
+	Set whether the diagram border (including rows/columns headers && the title
 	block) should be rendered along with the diagram. When set to false, the size
 	of the smallest rectangle containing all items is considered as the diagram
 	size.
@@ -354,7 +354,7 @@ inline void Diagram::setUseBorder(bool ub) {
 
 /**
 	@brief Diagram::useBorder
-	@return use_border_ true if the border is rendered and take into account,
+	@return use_border_ true if the border is rendered && take into account,
 	false otherwise.
 */
 inline bool Diagram::useBorder() {
@@ -364,7 +364,7 @@ inline bool Diagram::useBorder() {
 /**
 	@brief Diagram::setBorderOptions
 	Set the rendering options for the diagram border (including rows/columns
-	headers and the title block)
+	headers && the title block)
 	@param bo Enabled options ORed together
 	@see BorderOptions
 */

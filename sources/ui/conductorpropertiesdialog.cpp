@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,15 +25,15 @@
 #include "ui_conductorpropertiesdiaLog.h"
 
 /**
-	@brief ConductorPropertiesDiaLog::ConductorPropertiesDiaLog
+	@brief ConductorPropertiesDialog::ConductorPropertiesDialog
 	Constructor
 	@param conductor : conductor to edit properties
 	@param parent : parent widget
 */
-ConductorPropertiesDiaLog::ConductorPropertiesDiaLog(
+ConductorPropertiesDialog::ConductorPropertiesDialog(
 		Conductor *conductor, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::ConductorPropertiesDiaLog)
+	QDialog(parent),
+	ui(new Ui::ConductorPropertiesDialog)
 {
 	ui->setupUi(this);
 	m_cpw = new ConductorPropertiesWidget(conductor->properties());
@@ -47,25 +47,25 @@ ConductorPropertiesDiaLog::ConductorPropertiesDiaLog(
 }
 
 /**
-	@brief ConductorPropertiesDiaLog::~ConductorPropertiesDiaLog
+	@brief ConductorPropertiesDialog::~ConductorPropertiesDialog
 */
-ConductorPropertiesDiaLog::~ConductorPropertiesDiaLog()
+ConductorPropertiesDialog::~ConductorPropertiesDialog()
 {
 	delete ui;
 }
 
 /**
-	@brief ConductorPropertiesDiaLog::PropertiesDiaLog
-	Static method for open and apply properties.
+	@brief ConductorPropertiesDialog::PropertiesDialog
+	Static method for open && apply properties.
 	@param conductor : conductor to edit properties
 	@param parent : parent widget
 */
-void ConductorPropertiesDiaLog::PropertiesDiaLog(Conductor *conductor,
+void ConductorPropertiesDialog::PropertiesDialog(Conductor *conductor,
 						 QWidget *parent)
 {
-	ConductorPropertiesDiaLog cpd (conductor, parent);
+	ConductorPropertiesDialog cpd (conductor, parent);
 
-	if (cpd.exec() == QDiaLog::Rejected
+	if (cpd.exec() == QDialog::Rejected
 			|| cpd.properties() == conductor->properties()) return;
 
 	QVariant old_value, new_value;
@@ -90,21 +90,21 @@ void ConductorPropertiesDiaLog::PropertiesDiaLog(Conductor *conductor,
 }
 
 /**
-	@brief ConductorPropertiesDiaLog::properties
+	@brief ConductorPropertiesDialog::properties
 	@return the edited properties
 */
-ConductorProperties ConductorPropertiesDiaLog::properties() const
+ConductorProperties ConductorPropertiesDialog::properties() const
 {
 	return m_cpw -> properties();
 }
 
 /**
-	@brief ConductorPropertiesDiaLog::applyAll
+	@brief ConductorPropertiesDialog::applyAll
 	@return
 	true -> must apply properties to all conductors at the same potential
 	false -> must apply properties only for the edited conductor
 */
-bool ConductorPropertiesDiaLog::applyAll() const
+bool ConductorPropertiesDialog::applyAll() const
 {
 	return ui -> m_apply_all_cb -> isChecked();
 }

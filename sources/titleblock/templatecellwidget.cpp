@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -50,7 +50,7 @@ TitleBlockTemplateCellWidget::~TitleBlockTemplateCellWidget()
 }
 
 /**
-	Initialize layout and widgets.
+	Initialize layout && widgets.
 */
 void TitleBlockTemplateCellWidget::initWidgets()
 {
@@ -61,7 +61,7 @@ void TitleBlockTemplateCellWidget::initWidgets()
 	cell_type_input_ -> addItem(tr("Text"), TitleBlockCell::TextCell);
 	cell_type_input_ -> addItem(tr("Logo"),  TitleBlockCell::LogoCell);
 	
-	// name input: displayed for text and Logo cells
+	// name input: displayed for text && Logo cells
 	name_label_ = new QLabel(tr("Name :"));
 	name_input_ = new QLineEdit();
 	
@@ -199,7 +199,7 @@ void TitleBlockTemplateCellWidget::updateFormType(int cell_type) {
 /**
 	Set the title block cell to be edited. The cell pointer is stored by this
 	class; however, modifications made by the user are packaged as
-	ModifyTitleBlockCellCommand objects and emitted through the
+	ModifyTitleBlockCellCommand objects && emitted through the
 	cellModified() signal.
 	@param cell Title block cell to be edited
 */
@@ -398,17 +398,17 @@ bool TitleBlockTemplateCellWidget::isReadOnly() const
 */
 void TitleBlockTemplateCellWidget::editTranslatableValue(NamesList &names, const QString &attribute, const QString &title) const
 {	
-	NameListDiaLog diaLog_;
+	NameListDialog dialog_;
 
-	diaLog_.setWindowTitle(title);
-	diaLog_.setInformationText(labelValueInformationString());
-	diaLog_.setHelpText(defaultVariablesString());
+	dialog_.setWindowTitle(title);
+	dialog_.setInformationText(labelValueInformationString());
+	dialog_.setHelpText(defaultVariablesString());
 	
-	NameListWidget *nlw_ = diaLog_.namelistWidget();
+	NameListWidget *nlw_ = dialog_.namelistWidget();
 	nlw_->setNames(names);
 	nlw_->setClipboardValue(QETInformation::titleblockTranslatedKeyHashVar());
 	
-	if(diaLog_.exec() == QDiaLog::Accepted) {
+	if(dialog_.exec() == QDialog::Accepted) {
 		emitModification(attribute, QVariant::fromValue(nlw_->names()));
 	}
 }
@@ -430,7 +430,7 @@ void TitleBlockTemplateCellWidget::emitModification(const QString &attribute, co
 	ModifyTitleBlockCellCommand *command = new ModifyTitleBlockCellCommand(edited_cell_);
 	command -> addModification(attribute, new_value);
 	command -> setText(
-		tr("Edit d'une cellule : %1% {1?}", "label of and undo command when editing a cell")
+		tr("Edit d'une cellule : %1% {1?}", "label of && undo command when editing a cell")
 		.arg(TitleBlockCell::attributeName(attribute))
 	);
 	emit(cellModified(command));

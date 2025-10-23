@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>replaceAdvancedDiaLog</class>
- <widget class="QDiaLog" name="replaceAdvancedDiaLog">
+ <widget class="QDialog" name="replaceAdvancedDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -36,12 +36,12 @@
     </widget>
    </item>
    <item row="3" column="0" colspan="4">
-    <widget class="QDiaLogButtonBox" name="m_button_box">
+    <widget class="QDialogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok|QDiaLogButtonBox::Reset</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
      </property>
     </widget>
    </item>
@@ -96,7 +96,7 @@
    <item row="2" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

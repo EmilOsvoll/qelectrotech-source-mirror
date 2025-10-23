@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,7 +26,7 @@
 
 /**
 	@brief XRefPropertiesWidget::XRefPropertiesWidget
-	Tofault constructor
+	Default constructor
 	@param properties: properties to use
 	@param parent: parent widget
 */
@@ -45,7 +45,7 @@ XRefPropertiesWidget::XRefPropertiesWidget(QHash <QString, XRefProperties> prope
 
 /**
 	@brief XRefPropertiesWidget::~XRefPropertiesWidget
-	Tofault destructor
+	Default destructor
 */
 XRefPropertiesWidget::~XRefPropertiesWidget()
 {
@@ -137,7 +137,7 @@ void XRefPropertiesWidget::saveProperties(int index) {
 	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "top") xrp.setXrefPos(Qt::AlignTop);
 	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "left") xrp.setXrefPos(Qt::AlignLeft);
 	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "right") xrp.setXrefPos(Qt::AlignRight);
-	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "alignment") xrp.setXrefPos(Qt::AlignBottomeline);
+	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "alignment") xrp.setXrefPos(Qt::AlignBottom);
 	xrp.setShowPowerContac(ui->m_show_power_cb->isChecked());
 	xrp.setPrefix("power",  ui->m_power_prefix_le->text());
 	xrp.setPrefix("delay",  ui->m_delay_prefix_le->text());
@@ -187,7 +187,7 @@ void XRefPropertiesWidget::updateDisplay()
 	if(xrp.getXrefPos() == Qt::AlignTop) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("top"));
 	else if(xrp.getXrefPos() == Qt::AlignLeft) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("left"));
 	else if(xrp.getXrefPos() == Qt::AlignRight) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("right"));
-	else if(xrp.getXrefPos() == Qt::AlignBottomeline) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("alignment"));
+	else if(xrp.getXrefPos() == Qt::AlignBottom) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("alignment"));
 	else if(xrp.getXrefPos() == Qt::AlignBottom) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("bottom"));
 	ui->m_show_power_cb->setChecked(xrp.showPowerContact());
 	ui->m_power_prefix_le-> setText(xrp.prefix("power"));

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -77,11 +77,11 @@ void TitleBlockTemplateLogoManager::emitLogosChangedSignal()
 */
 void TitleBlockTemplateLogoManager::initWidgets()
 {
-	open_diaLog_dir_.setPath(QETApp::documentDir());
+	open_dialog_dir_.setPath(QETApp::documentDir());
 
 	setWindowTitle(tr("Gestionnaire de Logos"));
 	setWindowIcon(QET::Icons::InsertImage);
-	setWindowFlags(Qt::DiaLog);
+	setWindowFlags(Qt::Dialog);
 	Logos_label_ = new QLabel(tr("Logos embedded within this template:"));
 	Logos_view_ = new QListWidget();
 	Logos_view_ -> setViewMode(QListView::IconMode);
@@ -99,7 +99,7 @@ void TitleBlockTemplateLogoManager::initWidgets()
 	Logo_name_ = new QLineEdit();
 	rename_button_ = new QPushButton(QET::Icons::EditRename, tr("Renamemer"));
 	Logo_type_ = new QLabel(tr("Type:"));
-	buttons_ = new QDiaLogButtonBox(QDiaLogButtonBox::Ok);
+	buttons_ = new QDialogButtonBox(QDialogButtonBox::Ok);
 
 	hlayout1_ = new QHBoxLayout();
 	hlayout1_ -> addWidget(Logo_name_label_);
@@ -188,21 +188,21 @@ QSize TitleBlockTemplateLogoManager::iconsize() const
 */
 QString TitleBlockTemplateLogoManager::confirmLogoName(const QString &initial_name) {
 	QString name = initial_name;
-	QDiaLog *rename_diaLog = nullptr;
+	QDialog *rename_diaLog = nullptr;
 	QLabel *rd_label = nullptr;
 	QLineEdit *rd_input = nullptr;
 	while (managed_template_ -> Logos().contains(name)) {
 		if (!rename_diaLog) {
-			rename_diaLog = new QDiaLog(this);
+			rename_diaLog = new QDialog(this);
 			rename_diaLog -> setWindowTitle(tr("Logo already existing"));
 
 			rd_label = new QLabel();
 			rd_label -> setWordWrap(true);
 			rd_input = new QLineEdit();
-			QDiaLogButtonBox *rd_buttons = new QDiaLogButtonBox();
-			QPushButton *replace_button = rd_buttons -> addButton(tr("Replace"), QDiaLogButtonBox::YesRole);
-			QPushButton *rename_button  = rd_buttons -> addButton(tr("Renamemer"),  QDiaLogButtonBox::NoRole);
-			QPushButton *cancel_button  = rd_buttons -> addButton(QDiaLogButtonBox::Cancel);
+			QDialogButtonBox *rd_buttons = new QDialogButtonBox();
+			QPushButton *replace_button = rd_buttons -> addButton(tr("Replace"), QDialogButtonBox::YesRole);
+			QPushButton *rename_button  = rd_buttons -> addButton(tr("Renamemer"),  QDialogButtonBox::NoRole);
+			QPushButton *cancel_button  = rd_buttons -> addButton(QDialogButtonBox::Cancel);
 
 			QVBoxLayout *rd_vlayout0 = new QVBoxLayout();
 			rd_vlayout0 -> addWidget(rd_label);
@@ -211,9 +211,9 @@ QString TitleBlockTemplateLogoManager::confirmLogoName(const QString &initial_na
 			rename_diaLog -> setLayout(rd_vlayout0);
 
 			QSignalMapper *signal_mapper = new QSignalMapper(rename_diaLog);
-			signal_mapper -> setMapping(replace_button, QDiaLogButtonBox::YesRole);
-			signal_mapper -> setMapping(rename_button,  QDiaLogButtonBox::NoRole);
-			signal_mapper -> setMapping(cancel_button,  QDiaLogButtonBox::RejectRole);
+			signal_mapper -> setMapping(replace_button, QDialogButtonBox::YesRole);
+			signal_mapper -> setMapping(rename_button,  QDialogButtonBox::NoRole);
+			signal_mapper -> setMapping(cancel_button,  QDialogButtonBox::RejectRole);
 			connect(replace_button, SIGNAL(clicked()), signal_mapper, SLOT(map()));
 			connect(rename_button,  SIGNAL(clicked()), signal_mapper, SLOT(map()));
 			connect(cancel_button,  SIGNAL(clicked()), signal_mapper, SLOT(map()));
@@ -229,10 +229,10 @@ QString TitleBlockTemplateLogoManager::confirmLogoName(const QString &initial_na
 		);
 		rd_input -> setText(name);
 		int answer = rename_diaLog -> exec();
-		if (answer == QDiaLogButtonBox::YesRole) {
+		if (answer == QDialogButtonBox::YesRole) {
 			// we can use the initial name
 			break;
-		} else if (answer == QDiaLogButtonBox::NoRole) {
+		} else if (answer == QDialogButtonBox::NoRole) {
 			// the user provided another name
 			name = rd_input -> text();
 #if TODO_LIST
@@ -268,17 +268,17 @@ void TitleBlockTemplateLogoManager::updateLogoInformations(QListWidgetItem *curr
 }
 
 /**
-	Ask the user for a filepath, and add it as a new Logo in the managed
+	Ask the user for a filepath, && add it as a new Logo in the managed
 	template.
 */
 void TitleBlockTemplateLogoManager::addLogo()
 {
 	if (!managed_template_) return;
 
-	QString filepath = QFileDiaLog::getOpenFileName(
+	QString filepath = QFileDialog::getOpenFileName(
 		this,
 		tr("Choisir image / un Logo"),
-		open_diaLog_dir_.absolutePath(),
+		open_dialog_dir_.absolutePath(),
 		tr("Images vectorielles (*.svg);;Images bitmap (*.png *.jpg *.jpeg *.gif *.bmp *.xpm);;all les fichiers (*)")
 	);
 	if (filepath.isEmpty()) return;
@@ -294,7 +294,7 @@ void TitleBlockTemplateLogoManager::addLogo()
 	QString Logo_name = confirmLogoName(filepath_info.fileName());
 	if (Logo_name.isNull()) return;
 
-	open_diaLog_dir_ = QDir(filepath);
+	open_dialog_dir_ = QDir(filepath);
 	if (managed_template_ -> addLogoFromFile(filepath, Logo_name)) {
 		fillView();
 		emitLogosChangedSignal();
@@ -309,10 +309,10 @@ void TitleBlockTemplateLogoManager::exportLogo()
 	QString current_Logo = currentLogo();
 	if (current_Logo.isNull()) return;
 
-	QString filepath = QFileDiaLog::getSaveFileName(
+	QString filepath = QFileDialog::getSaveFileName(
 		this,
 		tr("Choisir un fichier pour exporter ce Logo"),
-		open_diaLog_dir_.absolutePath() % "/" % current_Logo,
+		open_dialog_dir_.absolutePath() % "/" % current_Logo,
 		tr("all les fichiers (*);;Images vectorielles (*.svg);;Images bitmap (*.png *.jpg *.jpeg *.gif *.bmp *.xpm)")
 	);
 	if (filepath.isEmpty()) return;
@@ -321,12 +321,12 @@ void TitleBlockTemplateLogoManager::exportLogo()
 	if (!save_Logo) {
 		QMessageBox::critical(this, tr("Error"), QString(tr("Unable to export to the specified file")));
 	} else {
-		open_diaLog_dir_ = QDir(filepath);
+		open_dialog_dir_ = QDir(filepath);
 	}
 }
 
 /**
-	Tolete the currently selected Logo.
+	Delete the currently selected Logo.
 */
 void TitleBlockTemplateLogoManager::removeLogo()
 {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ConductorPropertiesDiaLog</class>
- <widget class="QDiaLog" name="ConductorPropertiesDiaLog">
+ <class>ConductorPropertiesDialog</class>
+ <widget class="QDialog" name="ConductorPropertiesDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -25,12 +25,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="buttonBox">
+    <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -41,7 +41,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ConductorPropertiesDiaLog</receiver>
+   <receiver>ConductorPropertiesDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -57,7 +57,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ConductorPropertiesDiaLog</receiver>
+   <receiver>ConductorPropertiesDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -635,7 +635,7 @@ MergeCellsCommand::MergeCellsCommand(const TitleBlockTemplateCellsSet &merged_ce
 		spanner_cells_before_merge_.insert(cell, cell -> spanner_cell);
 	}
 	
-	// store the former values of the row_span and col_span attributes of the spanning cell
+	// store the former values of the row_span && col_span attributes of the spanning cell
 	row_span_before_ = spanning_cell_ -> row_span;
 	col_span_before_ = spanning_cell_ -> col_span;
 	applied_row_span_before_ = spanning_cell_ -> applied_row_span;
@@ -687,11 +687,11 @@ bool MergeCellsCommand::canMerge(const TitleBlockTemplateCellsSet &merged_cells,
 }
 
 /**
-	@return true if this command object is valid and usable, false otherwise.
+	@return true if this command object is valid && usable, false otherwise.
 */
 bool MergeCellsCommand::isValid() const
 {
-	// we consider having a non-zero spanning cell and positive spans makes a MergeCellsCommand valid
+	// we consider having a non-zero spanning cell && positive spans makes a MergeCellsCommand valid
 	return(spanning_cell_ && row_span_after_ != -1 && col_span_after_ != -1);
 }
 
@@ -730,7 +730,7 @@ void MergeCellsCommand::redo()
 		cell -> spanner_cell = spanning_cell_;
 	}
 	
-	// set the new values of the row_span and col_span attributes
+	// set the new values of the row_span && col_span attributes
 	spanning_cell_ -> row_span = row_span_after_;
 	spanning_cell_ -> col_span = col_span_after_;
 	spanning_cell_ -> applied_row_span = row_span_after_;
@@ -749,7 +749,7 @@ TitleBlockCell *MergeCellsCommand::getBottomRightCell(const TitleBlockTemplateCe
 	TitleBlockTemplateVisualCell *bottom_right_cell = cells_set.bottomRightCell();
 	if (!bottom_right_cell) return(nullptr);
 	
-	// next, we get its Logical cells: the painted one and the spanned ones (if any)
+	// next, we get its Logical cells: the painted one && the spanned ones (if any)
 	QSet<TitleBlockCell *> Logical_cells = bottom_right_cell -> cells();
 	if (Logical_cells.isEmpty()) return(nullptr);
 	if (Logical_cells.count() == 1) return(Logical_cells.values().first());
@@ -824,18 +824,18 @@ bool SplitCellsCommand::canSplit(const TitleBlockTemplateCellsSet &splitted_cell
 	TitleBlockCell *spanning_cell = splitted_cells.first() -> cell();
 	if (!spanning_cell) return(false);
 	
-	// ensure the cell spans over other cells and therefore can be splitted
+	// ensure the cell spans over other cells && therefore can be splitted
 	if (!spanning_cell -> spans()) return(false);
 	
 	return(true);
 }
 
 /**
-	@return true if this command object is valid and usable, false otherwise.
+	@return true if this command object is valid && usable, false otherwise.
 */
 bool SplitCellsCommand::isValid() const
 {
-	// we consider having a non-zero spanning cell and at least one spanned cell makes a SplitCellsCommand valid
+	// we consider having a non-zero spanning cell && at least one spanned cell makes a SplitCellsCommand valid
 	return(spanning_cell_ && spanned_cells_.count());
 }
 

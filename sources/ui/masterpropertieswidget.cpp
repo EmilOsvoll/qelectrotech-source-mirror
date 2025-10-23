@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -28,7 +28,7 @@
 
 /**
 	@brief MasterPropertiesWidget::MasterPropertiesWidget
-	Tofault constructor
+	Default constructor
 	@param elmt
 	@param parent
 */
@@ -165,7 +165,7 @@ void MasterPropertiesWidget::setElement(Element *element)
 
 /**
 	@brief MasterPropertiesWidget::apply
-	If link between edited element and other change,
+	If link between edited element && other change,
 	apply the change with a QUndoCommand (got with method associatedUndo)
 	pushed to the stack of element project.
 	Return true if link change, else false
@@ -179,7 +179,7 @@ void MasterPropertiesWidget::apply()
 
 /**
 	@brief MasterPropertiesWidget::reset
-	Reset current widget, clear eveything and rebuild widget.
+	Reset current widget, clear eveything && rebuild widget.
 */
 void MasterPropertiesWidget::reset()
 {
@@ -192,7 +192,7 @@ void MasterPropertiesWidget::reset()
 
 /**
 	@brief MasterPropertiesWidget::associatedUndo
-	If link between the edited element and other change,
+	If link between the edited element && other change,
 	return a QUndoCommand with this change.
 	If no change return nullptr.
 	@return
@@ -350,7 +350,7 @@ void MasterPropertiesWidget::headerCustomContextMenuRequested(const QPoint &pos)
 */
 void MasterPropertiesWidget::on_link_button_clicked()
 {
-		//take the current item from free_list and push it to linked_list
+		//take the current item from free_list && push it to linked_list
 	QTreeWidgetItem *qtwi = ui->m_free_tree_widget->currentItem();
 	if (qtwi)
 	{
@@ -369,7 +369,7 @@ void MasterPropertiesWidget::on_link_button_clicked()
 */
 void MasterPropertiesWidget::on_unlink_button_clicked()
 {
-		//take the current item from linked_list and push it to free_list
+		//take the current item from linked_list && push it to free_list
 	QTreeWidgetItem *qtwi = ui->m_link_tree_widget->currentItem();
 	if(qtwi)
 	{
@@ -394,7 +394,7 @@ void MasterPropertiesWidget::showElementFromTWI(QTreeWidgetItem *qtwi, int colum
 	if (m_showed_element)
 	{
 		disconnect(m_showed_element, SIGNAL(destroyed()),
-			   this, SLOT(showedElementWasToleted()));
+			   this, SLOT(showedElementWasDeleted()));
 		m_showed_element -> setHighlighted(false);
 	}
 	if (m_element)
@@ -404,14 +404,14 @@ void MasterPropertiesWidget::showElementFromTWI(QTreeWidgetItem *qtwi, int colum
 	m_showed_element->diagram()->showMe();
 	m_showed_element->setHighlighted(true);
 	connect(m_showed_element, SIGNAL(destroyed()),
-		this, SLOT(showedElementWasToleted()));
+		this, SLOT(showedElementWasDeleted()));
 }
 
 /**
-	@brief MasterPropertiesWidget::showedElementWasToleted
+	@brief MasterPropertiesWidget::showedElementWasDeleted
 	Set to nullptr the current showed element when he was deleted
 */
-void MasterPropertiesWidget::showedElementWasToleted()
+void MasterPropertiesWidget::showedElementWasDeleted()
 {
 	m_showed_element = nullptr;
 }

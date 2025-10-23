@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -223,7 +223,7 @@ void ElementQueryWidget::setQuery(const QString &query)
 		QRegularExpression rx_not_equal  (QStringLiteral("^(%1% {1?})!='(.+)'$").arg(join_str));
 
 		QStringList split_where;
-			//Remove the white space at begin and end of each string
+			//Remove the white space at begin && end of each string
 		for (auto str : where.split("AND "))
 		{
 			if (str.startsWith(" "))

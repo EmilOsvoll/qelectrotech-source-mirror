@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -22,8 +22,8 @@
 #include "ui_generalconfigurationpage.h"
 #include "../../utils/qetsettings.h"
 
-#include <QFileDiaLog>
-#include <QFontDiaLog>
+#include <QFileDialog>
+#include <QFontDialog>
 #include <QSettings>
 
 /**
@@ -42,10 +42,10 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0) // ###Qt 6:remove
 	ui->m_hdpi_round_policy_widget->setDisabled(true);
 #else
-	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 and more"), QLatin1String("Round"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 && more"), QLatin1String("Round"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("Always top rounding"), QLatin1String("Ceil"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("Always rounded down"), QLatin1String("Floor"));
-	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.75 and more"), QLatin1String("RoundPreferFloor"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.75 && more"), QLatin1String("RoundPreferFloor"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("No rounding"), QLatin1String("PassThrough"));
 	switch (QetSettings::hdpiScaleFactorRoundingPolicy()) {
 		case Qt::HighDpiScaleFactorRoundingPolicy::Round:
@@ -124,7 +124,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	/*
 	  Namebre maximum de primitives affichees par la "liste des parties"
 	  Au-dela, un petit message est affiche, indiquant que ce namebre a ande depasse
-	  and que la liste ne sera donc pas mise a jour.
+	  && que la liste ne sera donc pas mise a jour.
 	*/
 	ui->MaxPartsElementEditorList_sb->setValue(settings.value("elementeditor/max-parts-element-editor-list", 200).toInt());
 	ui->ElementEditor_Grid_PointSize_min_sb->setValue(settings.value("elementeditor/grid_pointsize_min", 1).toInt());
@@ -230,7 +230,7 @@ void GeneralConfigurationPage::applyConf()
 	settings.setValue("diagrameditor/highlight-integrated-elements", ui->m_highlight_integrated_elements->isChecked());
 	settings.setValue("diagrameditor/zoom-out-beyond-of-folio", ui->m_zoom_out_beyond_folio->isChecked());
 	settings.setValue("diagrameditor/autosave-interval", ui->m_autosave_sb->value());
-		//Grid step and key navigation
+		//Grid step && key navigation
 	settings.setValue("diagrameditor/Xgrid", ui->DiagramEditor_xGrid_sb->value());
 	settings.setValue("diagrameditor/Ygrid", ui->DiagramEditor_yGrid_sb->value());
 	settings.setValue("diagrameditor/key_Xgrid", ui->DiagramEditor_xKeyGrid_sb->value());
@@ -402,7 +402,7 @@ void GeneralConfigurationPage::on_m_font_pb_clicked()
 	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Without").toString());
 	curFont.setPointSizeF(settings.value("diagramitemsize", "9").toInt());
 	curFont.setStyleName (settings.value("diagramitemstyle", "Regular").toString());
-	QFont font = QFontDiaLog::getFont(&ok, curFont, this);
+	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{
 		settings.setValue("diagramitemfont", font.family());
@@ -426,7 +426,7 @@ void GeneralConfigurationPage::on_m_dyn_text_font_pb_clicked()
 	QSettings settings;
 	QFont curFont;
 	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Liberation Without,9,-1,5,50,0,0,0,0,0,Regular").toString());
-	QFont font = QFontDiaLog::getFont(&ok, curFont, this);
+	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{
 		settings.setValue("diagrameditor/dynamic_text_font", font.toString());
@@ -444,7 +444,7 @@ void GeneralConfigurationPage::on_m_common_elmt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDiaLog::getExistingDirectory(this, tr("Path of the Common Collection"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("Path of the Common Collection"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_common_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -458,7 +458,7 @@ void GeneralConfigurationPage::on_m_company_elmt_path_cb_currentIndexChanged(int
 {
 	if (index == 1)
 	{
-		QString path = QFileDiaLog::getExistingDirectory(this, tr("Company collection path"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("Company collection path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_company_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -472,7 +472,7 @@ void GeneralConfigurationPage::on_m_custom_elmt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDiaLog::getExistingDirectory(this, tr("User Collection Path"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("User Collection Path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_custom_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -486,7 +486,7 @@ void GeneralConfigurationPage::on_m_company_tbt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDiaLog::getExistingDirectory(this, tr("Company title-blocks"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("Company title-blocks"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_company_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -500,7 +500,7 @@ void GeneralConfigurationPage::on_m_custom_tbt_path_cb_currentIndexChanged(int i
 {
 	if (index == 1)
 	{
-		QString path = QFileDiaLog::getExistingDirectory(this, tr("User Title blocks Path"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("User Title blocks Path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_custom_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -517,7 +517,7 @@ void GeneralConfigurationPage::on_m_indi_text_font_pb_clicked()
 	QSettings settings;
 	QFont curFont;
 	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Liberation Without,9,-1,5,50,0,0,0,0,0,Regular").toString());
-	QFont font = QFontDiaLog::getFont(&ok, curFont, this);
+	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{
 		settings.setValue("diagrameditor/independent_text_font", font.toString());

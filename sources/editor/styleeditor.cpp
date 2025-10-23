@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -200,7 +200,7 @@ StyleEditor::StyleEditor(QETElementEditor *editor, CustomElementGraphicPart *p, 
 	line_style -> addItem(tr("Normal",       "element part line style"), CustomElementGraphicPart::NormalStyle);
 	line_style -> addItem(tr("Dashed",        "element part line style"), CustomElementGraphicPart::DashedStyle);
 	line_style -> addItem(tr("Dotted", "element part line style"), CustomElementGraphicPart::DottedStyle);
-	line_style -> addItem(tr("Dots and dashes", "element part line style"), CustomElementGraphicPart::DashdottedStyle);
+	line_style -> addItem(tr("Dots && dashes", "element part line style"), CustomElementGraphicPart::DashdottedStyle);
 	//normal_style -> setChecked(true);
 
 	// epaisseur

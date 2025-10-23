@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,9 +20,9 @@
 #include <QDate>
 #include "ui_renamediaLog.h"
 
-RenameDiaLog::RenameDiaLog(QString path, QWidget *parent) :
-	QDiaLog(parent),
-	ui(new Ui::RenameDiaLog),
+RenameDialog::RenameDialog(QString path, QWidget *parent) :
+	QDialog(parent),
+	ui(new Ui::RenameDialog),
 	m_path(std::move(path))
 {
 	ui->setupUi(this);
@@ -32,12 +32,12 @@ RenameDiaLog::RenameDiaLog(QString path, QWidget *parent) :
 	ui->lineEdit->setText(m_name + QDate::currentDate().toString("dd-MM-yy"));
 }
 
-RenameDiaLog::~RenameDiaLog()
+RenameDialog::~RenameDialog()
 {
 	delete ui;
 }
 
-void RenameDiaLog::on_lineEdit_textEdited(const QString &arg1)
+void RenameDialog::on_lineEdit_textEdited(const QString &arg1)
 {
 	if (arg1.isEmpty() || (arg1 == m_name))
 		ui->m_rename_pb->setDisabled(true);
@@ -45,13 +45,13 @@ void RenameDiaLog::on_lineEdit_textEdited(const QString &arg1)
 		ui->m_rename_pb->setEnabled(true);
 }
 
-void RenameDiaLog::on_m_erase_pb_clicked()
+void RenameDialog::on_m_erase_pb_clicked()
 {
 	m_action = QET::Erase;
 	accept();
 }
 
-void RenameDiaLog::on_m_rename_pb_clicked()
+void RenameDialog::on_m_rename_pb_clicked()
 {
 	m_action = QET::Rename;
 	m_new_name = ui->lineEdit->text();
@@ -59,7 +59,7 @@ void RenameDiaLog::on_m_rename_pb_clicked()
 	accept();
 }
 
-void RenameDiaLog::on_m_cancel_pb_clicked()
+void RenameDialog::on_m_cancel_pb_clicked()
 {
 	m_action = QET::Abort;
 	reject();

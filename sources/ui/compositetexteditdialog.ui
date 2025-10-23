@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CompositeTextEditDiaLog</class>
- <widget class="QDiaLog" name="CompositeTextEditDiaLog">
+ <class>CompositeTextEditDialog</class>
+ <widget class="QDialog" name="CompositeTextEditDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -25,12 +25,12 @@
     </widget>
    </item>
    <item row="2" column="0" colspan="2">
-    <widget class="QDiaLogButtonBox" name="m_button_box">
+    <widget class="QDialogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -44,7 +44,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>accepted()</signal>
-   <receiver>CompositeTextEditDiaLog</receiver>
+   <receiver>CompositeTextEditDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -60,7 +60,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>rejected()</signal>
-   <receiver>CompositeTextEditDiaLog</receiver>
+   <receiver>CompositeTextEditDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

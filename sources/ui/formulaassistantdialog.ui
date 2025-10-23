@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FormulaAssistantDiaLog</class>
- <widget class="QDiaLog" name="FormulaAssistantDiaLog">
+ <class>FormulaAssistantDialog</class>
+ <widget class="QDialog" name="FormulaAssistantDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -31,7 +31,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Greenical</enum>
+      <enum>Qt::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -42,12 +42,12 @@
     </spacer>
    </item>
    <item>
-    <widget class="QDiaLogButtonBox" name="m_button_box">
+    <widget class="QDialogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDiaLogButtonBox::Ok</set>
+      <set>QDialogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -58,7 +58,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>accepted()</signal>
-   <receiver>FormulaAssistantDiaLog</receiver>
+   <receiver>FormulaAssistantDialog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -74,7 +74,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>rejected()</signal>
-   <receiver>FormulaAssistantDiaLog</receiver>
+   <receiver>FormulaAssistantDialog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,12 +23,12 @@
 #include "../../qetapp.h"
 #include "../../qetinformation.h"
 #include "../../ui/alignmenttextdiaLog.h"
-#include "../../ui/compositetextditdiaLog.h"
+#include "../../ui/compositetexteditdialog.h"
 #include "../ui/qetelementeditor.h"
 #include "../elementscene.h"
 #include "ui_dynamictextfieldeditor.h"
 
-#include <QColorDiaLog>
+#include <QColorDialog>
 #include <QGraphicsItem>
 #include <QPointer>
 
@@ -369,7 +369,7 @@ void DynamicTextFieldEditor::on_m_composite_text_pb_clicked()
 		isReport = true;
 	}
 
-	CompositeTextEditDiaLog ctd(m_text_field.data() -> compositeText(), isReport, this);
+	CompositeTextEditDialog ctd(m_text_field.data() -> compositeText(), isReport, this);
 	if(ctd.exec()) {
 		QString ct = ctd.plainText();
 		for (int i = 0; i < m_parts.length(); i++) {
@@ -384,7 +384,7 @@ void DynamicTextFieldEditor::on_m_composite_text_pb_clicked()
 
 void DynamicTextFieldEditor::on_m_alignment_pb_clicked()
 {
-	AlignmentTextDiaLog atd(m_text_field.data() -> alignment(), this);
+	AlignmentTextDialog atd(m_text_field.data() -> alignment(), this);
 	atd.exec();
 
 	for (int i = 0; i < m_parts.length(); i++) {
@@ -401,7 +401,7 @@ void DynamicTextFieldEditor::on_m_alignment_pb_clicked()
 void DynamicTextFieldEditor::on_m_font_pb_clicked()
 {
 	bool ok;
-	QFont font_ = QFontDiaLog::getFont(&ok, m_text_field -> font(), this);
+	QFont font_ = QFontDialog::getFont(&ok, m_text_field -> font(), this);
 	if (ok && font_ != this -> font()) {
 		ui -> m_font_pb -> setText(font_.family());
 		ui -> m_size_sb -> setValue(font_.pointSize());

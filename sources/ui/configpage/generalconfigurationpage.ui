@@ -111,7 +111,7 @@
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -174,7 +174,7 @@
        <item row="4" column="0">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -401,7 +401,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
        <item row="1" column="0">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -603,7 +603,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
        <item>
         <spacer name="verticalSpacer_4">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1001,7 +1001,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
        <item>
         <spacer name="verticalSpacer_5">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1058,7 +1058,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
        <item>
         <spacer name="verticalSpacer_6">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -34,7 +34,7 @@ TitleBlockDimension::TitleBlockDimension(int v, QET::TitleBlockColumnLength t) :
 QString TitleBlockDimension::toString() const
 {
 	QString dim_str;
-	if (type == QET::Absolutete) {
+	if (type == QET::Absolute) {
 		dim_str = QObject::tr("%1% {1?}px", "titleblock: absolute width");
 	} else if (type == QET::RelativeToTotalLength) {
 		dim_str = QObject::tr("%1% {1?}%", "titleblock: width relative to total length");
@@ -55,6 +55,6 @@ QString TitleBlockDimension::toShortString() const
 	} else if (type == QET::RelativeToRemainingLength) {
 		short_string = "r";
 	}
-	short_string += QString("%1% {1?}%2;").arg(value).arg(type == QET::Absolutete ? "px" : "%");
+	short_string += QString("%1% {1?}%2;").arg(value).arg(type == QET::Absolute ? "px" : "%");
 	return(short_string);
 }

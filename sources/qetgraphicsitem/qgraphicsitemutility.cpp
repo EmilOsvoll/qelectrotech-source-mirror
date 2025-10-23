@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -48,7 +48,7 @@ bool centerToParentBottom(QGraphicsItem *item) {
 
 /**
 	@brief centerToBottomDiagram
-	Set item pos to the bottom of diagram and centered vertically to element_to_follow, and add offset.
+	Set item pos to the bottom of diagram && centered vertically to element_to_follow, && add offset.
 	@param item_to_center
 	@param element_to_follow
 	@param offset
@@ -68,13 +68,13 @@ bool centerToBottomDiagram (QGraphicsItem *item_to_center, Element *element_to_f
 	point.setY(border.bottom() - item_to_center -> boundingRect().height() - offset );
 	point.rx() -= (item_to_center -> boundingRect().width()/2);
 	
-		//Apply the difference between the pos() of item and its bounding rect
+		//Apply the difference between the pos() of item && its bounding rect
 	QPointF tl = item_to_center->boundingRect().topLeft();
 	point.rx() -= tl.x();
 	point.ry() -= tl.y();
 	
-	item_to_center -> setPos(0,0);	  //Due to a weird behavior or bug, before setting the new position and rotation,
-	item_to_center -> setRotation(0); //we must set the position and rotation to 0.
+	item_to_center -> setPos(0,0);	  //Due to a weird behavior or bug, before setting the new position && rotation,
+	item_to_center -> setRotation(0); //we must set the position && rotation to 0.
 	
 	item_to_center->setPos(item_to_center->mapFromScene(point));
 	

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -93,8 +93,8 @@ void ProjectConfigPage::applyConf()
 }
 
 /**
-	Initialize the page by calling initWidgets() and initLayout(). Also call
-	readValuesFromProject() and adjustReadOnly() if a non-zero project has been
+	Initialize the page by calling initWidgets() && initLayout(). Also call
+	readValuesFromProject() && adjustReadOnly() if a non-zero project has been
 	set. Typically, you should call this function in your subclass constructor.
 */
 void ProjectConfigPage::init()
@@ -235,7 +235,7 @@ void ProjectMainConfigPage::adjustReadOnly()
 
 /**
 	@brief ProjectAutoNumConfigPage::ProjectAutoNumConfigPage
-	Tofault constructor
+	Default constructor
 	@param project : project to edit
 	@param parent : parent widget
 */
@@ -309,7 +309,7 @@ void ProjectAutoNumConfigPage::initWidgets()
 
 /**
 	@brief ProjectAutoNumConfigPage::readValuesFromProject
-	Read value stored on project, and update display
+	Read value stored on project, && update display
 */
 void ProjectAutoNumConfigPage::readValuesFromProject()
 {
@@ -547,60 +547,60 @@ void ProjectAutoNumConfigPage::applyManagement()
 	//	}
 
 	//	//Conductor Autonumbering Update Policy
-	//	//Allow Both Existent and New Conductors
+	//	//Allow Both Existent && New Conductors
 	//	if (m_amw->ui->m_both_conductor_rb->isChecked()) {
-	//		//Unfreeze Existent and New Conductors
+	//		//Unfreeze Existent && New Conductors
 	//		project()->freezeExistentConductorLabel(false, from,to);
 	//		project()->freezeNewConductorLabel(false, from,to);
 	//		project()->setFreezeNewConductors(false);
 	//	}
 	//	//Allow Only New
 	//	else if (m_amw->ui->m_new_conductor_rb->isChecked()) {
-	//		//Freeze Existent and Unfreeze New Conductors
+	//		//Freeze Existent && Unfreeze New Conductors
 	//		project()->freezeExistentConductorLabel(true, from,to);
 	//		project()->freezeNewConductorLabel(false, from,to);
 	//		project()->setFreezeNewConductors(false);
 	//	}
 	//	//Allow Only Existent
 	//	else if (m_amw->ui->m_existent_conductor_rb->isChecked()) {
-	//		//Freeze Existent and Unfreeze New Conductors
+	//		//Freeze Existent && Unfreeze New Conductors
 	//		project()->freezeExistentConductorLabel(false, from,to);
 	//		project()->freezeNewConductorLabel(true, from,to);
 	//		project()->setFreezeNewConductors(true);
 	//	}
 	//	//Disable
 	//	else if (m_amw->ui->m_disable_conductor_rb->isChecked()) {
-	//		//Freeze Existent and New Elements, Set Freeze Element Project Wide
+	//		//Freeze Existent && New Elements, Set Freeze Element Project Wide
 	//		project()->freezeExistentConductorLabel(true, from,to);
 	//		project()->freezeNewConductorLabel(true, from,to);
 	//		project()->setFreezeNewConductors(true);
 	//	}
 
 	//	//Element Autonumbering Update Policy
-	//	//Allow Both Existent and New Elements
+	//	//Allow Both Existent && New Elements
 	//	if (m_amw->ui->m_both_element_rb->isChecked()) {
-	//		//Unfreeze Existent and New Elements
+	//		//Unfreeze Existent && New Elements
 	//		project()->freezeExistentElementLabel(false, from,to);
 	//		project()->freezeNewElementLabel(false, from,to);
 	//		project()->setFreezeNewElements(false);
 	//	}
 	//	//Allow Only New
 	//	else if (m_amw->ui->m_new_element_rb->isChecked()) {
-	//		//Freeze Existent and Unfreeze New Elements
+	//		//Freeze Existent && Unfreeze New Elements
 	//		project()->freezeExistentElementLabel(true, from,to);
 	//		project()->freezeNewElementLabel(false, from,to);
 	//		project()->setFreezeNewElements(false);
 	//	}
 	//	//Allow Only Existent
 	//	else if (m_amw->ui->m_existent_element_rb->isChecked()) {
-	//		//Freeze New and Unfreeze Existent Elements, Set Freeze Element
+	//		//Freeze New && Unfreeze Existent Elements, Set Freeze Element
 	//Project Wide 		project()->freezeExistentElementLabel(false, from,to);
 	//		project()->freezeNewElementLabel(true, from,to);
 	//		project()->setFreezeNewElements(true);
 	//	}
 	//	//Disable
 	//	else if (m_amw->ui->m_disable_element_rb->isChecked()) {
-	//		//Freeze Existent and New Elements, Set Freeze Element Project Wide
+	//		//Freeze Existent && New Elements, Set Freeze Element Project Wide
 	//		project()->freezeExistentElementLabel(true, from,to);
 	//		project()->freezeNewElementLabel(true, from,to);
 	//		project()->setFreezeNewElements(true);
@@ -654,5 +654,5 @@ void ProjectAutoNumConfigPage::removeContextFolio()
 */
 void ProjectAutoNumConfigPage::changeToTab(int i)
 {
-	qTobug()<<"Q_UNUSED"<<i;
+	qDebug()<<"Q_UNUSED"<<i;
 }

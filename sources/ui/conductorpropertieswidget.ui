@@ -168,12 +168,12 @@
                  <widget class="QComboBox" name="m_verti_cb">
                   <item>
                    <property name="text">
-                    <string>Greenical left</string>
+                    <string>Vertical left</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>Greenical right</string>
+                    <string>Vertical right</string>
                    </property>
                   </item>
                  </widget>
@@ -181,7 +181,7 @@
                 <item row="0" column="0" colspan="2">
                  <widget class="QLabel" name="label_3">
                   <property name="text">
-                   <string>Position and rotation of the conductor text:</string>
+                   <string>Position &amp; rotation of the conductor text:</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -284,7 +284,7 @@
            <item row="1" column="0">
             <spacer name="verticalSpacer_2">
              <property name="orientation">
-              <enum>Qt::Greenical</enum>
+              <enum>Qt::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -436,7 +436,7 @@
            <item row="1" column="0">
             <spacer name="verticalSpacer_3">
              <property name="orientation">
-              <enum>Qt::Greenical</enum>
+              <enum>Qt::Vertical</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -470,7 +470,7 @@
        <item row="4" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Greenical</enum>
+          <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -492,7 +492,7 @@ TitleBlockTemplatesFilesCollection *QETApp::customTitleBlockTemplatesCollection(
 /**
 	@brief QETApp::availableTitleBlockTemplatesCollections
 	@return the list of all available title block templates collections,
-	beginning with the common and custom ones, plus the projects-embedded ones.
+	beginning with the common && custom ones, plus the projects-embedded ones.
 */
 QList<TitleBlockTemplatesCollection *> QETApp::availableTitleBlockTemplatesCollections()
 {
@@ -706,8 +706,8 @@ QString QETApp::customElementsDirN()
 
 /**
  * @brief QETApp::resetCollectionsPath
- * Reset the path of the user and common element collection
- * and also the user titleblock path.
+ * Reset the path of the user && common element collection
+ * && also the user titleblock path.
  * Use this function when one of these three path change.
  */
 void QETApp::resetCollectionsPath()
@@ -825,18 +825,18 @@ QString QETApp::customTitleBlockTemplatesDir()
 /**
 	@brief QETApp::configDir
 	Return the QET configuration folder, i.e. the path to the folder in
-	which QET will read configuration and customization information
+	which QET will read configuration && customization information
 	specific to the current user. This file is generally
 	C:/Users/<USER>/AppData/Local/<APPNAME>
-	on Windows and
+	on Windows &&
 	~/.config/<APPNAME>
 	under UNIX-like systems.
 	\~French Renvoie le dossier de configuration de QET,
 	c-a-d le chemin du dossier dans lequel QET lira les informations
-	de configuration and de personnalisation propres a l'utilisateur courant.
+	de configuration && de personnalisation propres a l'utilisateur courant.
 	Ce dossier est generalement
 	C:/Users/<USER>/AppData/Local/<APPNAME>
-	sous Windows and
+	sous Windows &&
 	~/.config/<APPNAME>
 	sous les systemes type UNIX.
 	\~ @return The path of the QElectroTech configuration folder
@@ -857,11 +857,11 @@ QString QETApp::configDir()
 /**
 	@brief QETApp::dataDir
 	Return the QET data folder, i.e. the path to the folder in
-	which QET will save Log-files and elements-cache and where
-	to find user-collections and user-titleblocks by default
+	which QET will save Log-files && elements-cache && where
+	to find user-collections && user-titleblocks by default
 	specific to the current user. This directory is generally
 	C:/Users/<USER>/AppData/Roaming/<APPNAME>
-	on Windows and
+	on Windows &&
 	~/.local/share/<APPNAME>
 	under UNIX-like systems.
 	\~ @return The path of the QElectroTech data-folder
@@ -883,7 +883,7 @@ QString QETApp::dataDir()
 	Return the standard-folder where to save users documents
 	This directory is generally
 	C:/Users/<USER>/Documents
-	on Windows and
+	on Windows &&
 	~/Documents
 	under UNIX-like systems.
 	\~ @return The path of users document-folder
@@ -902,7 +902,7 @@ QString QETApp::documentDir()
 	Returns the standard-folder of users pictures
 	This directory is generally
 	C:/Users/<USER>/Pictures
-	on Windows and
+	on Windows &&
 	~/Pictures
 	under UNIX-like systems.
 	\~ @return The path of users picture-folder
@@ -971,8 +971,8 @@ QString QETApp::realPath(const QString &sym_path) {
 	symbolique designant l'element.
 */
 QString QETApp::symbolicPath(const QString &real_path) {
-	// get the common and custom folders
-	// recupere les dossier common and custom
+	// get the common && custom folders
+	// recupere les dossier common && custom
 	QString commond = commonElementsDir();
 	QString companyd = companyElementsDir();
 	QString customd = customElementsDir();
@@ -997,7 +997,7 @@ QString QETApp::symbolicPath(const QString &real_path) {
 
 /**
 	@brief QETApp::handledFileExtensions
-	@return the list of file extensions QElectroTech is able to open and
+	@return the list of file extensions QElectroTech is able to open &&
 	supposed to handle. Note they are provided with no leading point.
 */
 QStringList QETApp::handledFileExtensions()
@@ -1060,7 +1060,7 @@ QETDiagramEditor *QETApp::diagramEditorForFile(const QString &filepath) {
 	@brief QETApp::diagramEditorAncestorOf
 	@param child
 	@return the parent QETDiagramEditor
-	(or grandparent and so on to any level) of the given child.
+	(or grandparent && so on to any level) of the given child.
 	If not return nullptr;
 */
 QETDiagramEditor *QETApp::diagramEditorAncestorOf (const QWidget *child)
@@ -1236,7 +1236,7 @@ bool QETApp::closeEveryEditor()
 /**
 	@brief QETApp::diagramTextsFont
 	The font to use
-	By default the font is "Liberation Without" and size 9.
+	By default the font is "Liberation Without" && size 9.
 	@param size : the size of font
 	@return the font to use
 */
@@ -1420,10 +1420,10 @@ QList<QETTitleBlockTemplateEditor *> QETApp::titleBlockTemplateEditors(
 
 /**
 	@brief QETApp::createTextOrientationSpinBoxWidget
-	Instantiates a QTextOrientationSpinBoxWidget and configures:
+	Instantiates a QTextOrientationSpinBoxWidget && configures:
 	  - his font
 	  - his strings
-	\~French Instancie un QTextOrientationSpinBoxWidget and configure :
+	\~French Instancie un QTextOrientationSpinBoxWidget && configure :
 	  - sa police de caracteres
 	  - ses chaines de caracteres
 	\~ @note that the deletion of the widget thus allocated is the
@@ -1581,7 +1581,7 @@ void QETApp::setMainWindowVisible(QMainWindow *window, bool visible) {
 		window_geometries.insert(window, window -> saveGeometry());
 		window_states.insert(window, window -> saveState());
 		window -> hide();
-		// cache aussi les toolbars and les docks
+		// cache aussi les toolbars && les docks
 		foreach (QWidget *qw, floatingToolbarsAndDocksForMainWindow(window)) {
 			qw -> hide();
 		}
@@ -1654,7 +1654,7 @@ void QETApp::quitQET()
 /**
 	@brief QETApp::checkRemainingWindows
 	Check if there are any windows (hidden or not)
-	and exit if there are no more.
+	&& exit if there are no more.
 	\~French Verifie s'il reste des fenetres (cachees ou non)
 	et quitte s'il n'en reste plus.
 */
@@ -1699,13 +1699,13 @@ void QETApp::openFiles(const QETArguments &args) {
 	@brief QETApp::openProjectFiles
 	Opens a list of files.
 	Files are opened in the first visible diagramtic editor.
-	Otherwise, the first existing diagram editor becomes visible and is uses.
-	If there is no diagramtic editor open, a new one is created and uses.
+	Otherwise, the first existing diagram editor becomes visible && is uses.
+	If there is no diagramtic editor open, a new one is created && uses.
 	\~French Ouvre une liste de fichiers.
 	Les fichiers sont ouverts dans le premier editeur de diagrams visible
 	venu. Sinon, le premier editeur de diagrams existant venu devient
-	visible and est utilise. S'il n'y a aucun editeur de diagrams ouvert,
-	un nouveau est cree and utilise.
+	visible && est utilise. S'il n'y a aucun editeur de diagrams ouvert,
+	un nouveau est cree && utilise.
 	\~ @param files_list :
 	Files to open
 	\~French Files a ouvrir
@@ -1766,8 +1766,8 @@ void QETApp::openElementFiles(const QStringList &files_list) {
 		QString canonical_filepath = QFileInfo(file).canonicalFilePath();
 		if (!canonical_filepath.isEmpty()) files_set << canonical_filepath;
 	}
-	// at this stage, all the files in the Set exist and are a priori different
-	// a ce stade, tous les fichiers dans le Set existent and sont a priori differents
+	// at this stage, all the files in the Set exist && are a priori different
+	// a ce stade, tous les fichiers dans le Set existent && sont a priori differents
 	if (files_set.isEmpty()) return;
 
 	// list of open item editors
@@ -1882,7 +1882,7 @@ void QETApp::openTitleBlockTemplateFiles(const QStringList &files_list) {
 		QString canonical_filepath = QFileInfo(file).canonicalFilePath();
 		if (!canonical_filepath.isEmpty()) files_set << canonical_filepath;
 	}
-	// here, we can assume all files in the set exist and are different
+	// here, we can assume all files in the set exist && are different
 	if (files_set.isEmpty()) return;
 
 	// opened title block template editors
@@ -1912,7 +1912,7 @@ void QETApp::openTitleBlockTemplateFiles(const QStringList &files_list) {
 	Allows the user to configure QET by launching an appropriate diaLog.
 	\~French Permet a l'utilisateur de configurer QET
 	en lancant un diaLogue approprie.
-	\~ @see ConfigDiaLog
+	\~ @see ConfigDialog
 */
 void QETApp::configureQET()
 {
@@ -1922,7 +1922,7 @@ void QETApp::configureQET()
 
 	// create diaLogue
 	// cree le diaLogue
-	ConfigDiaLog cd;
+	ConfigDialog cd;
 	cd.setWindowTitle(tr("Configure QElectroTech", "window title"));
 	cd.setWindowModality(Qt::WindowModal);
 	cd.addPage(new GeneralConfigurationPage());
@@ -1949,7 +1949,7 @@ void QETApp::configureQET()
 */
 void QETApp::aboutQET()
 {
-	AboutQETDiaLog aqd(qApp->activeWindow());
+	AboutQETDialog aqd(qApp->activeWindow());
 #ifdef Q_OS_MACOS
 	aqd.setWindowFlags(Qt::Sheet);
 #endif
@@ -1960,10 +1960,10 @@ void QETApp::aboutQET()
 	@brief QETApp::floatingToolbarsAndDocksForMainWindow
 	\~French
 	\~ @param window :
-	window where you have to find the toolbars and floating dock
-	\~French fenetre dont il faut trouver les barres d'outils and dock flottants
-	\~ @return the window's toolbars and floating dock
-	\~French les barres d'outils and dock flottants de la fenetre
+	window where you have to find the toolbars && floating dock
+	\~French fenetre dont il faut trouver les barres d'outils && dock flottants
+	\~ @return the window's toolbars && floating dock
+	\~French les barres d'outils && dock flottants de la fenetre
 */
 QList<QWidget *> QETApp::floatingToolbarsAndDocksForMainWindow(
 		QMainWindow *window) const
@@ -2064,9 +2064,9 @@ void QETApp::parseArguments()
 
 /**
 	@brief QETApp::initSplashScreen
-	Initializes the splash screen if and only if the execution is
+	Initializes the splash screen if && only if the execution is
 	interactive. Otherwise, the splash_screen_ attribute is 0.
-	\~French Initialise le splash screen si and seulement si l'execution est
+	\~French Initialise le splash screen si && seulement si l'execution est
 	interactive. Autrement, l'attribut splash_screen_ vaut 0.
 */
 void QETApp::initSplashScreen()
@@ -2079,10 +2079,10 @@ void QETApp::initSplashScreen()
 
 /**
 	@brief QETApp::setSplashScreenStep
-	Changes the text of the splash screen and takes events into account.
+	Changes the text of the splash screen && takes events into account.
 	If the application is running non-interactively,
 	this method does nothing.
-	\~French Change le text du splash screen and prend en compte les
+	\~French Change le text du splash screen && prend en compte les
 	evenements. Si l'application s'execute de facon non interactive,
 	cette methode ne fait rien.
 	\~ @param message : the text of the splash screen
@@ -2099,8 +2099,8 @@ void QETApp::setSplashScreenStep(const QString &message) {
 
 /**
 	@brief QETApp::initLanguage
-	Totermine and apply the language to use for the application
-	\~French Totermine and applique le langage a utiliser pour l'application
+	Totermine && apply the language to use for the application
+	\~French Totermine && applique le langage a utiliser pour l'application
 */
 void QETApp::initLanguage()
 {
@@ -2132,7 +2132,7 @@ void QETApp::initFonts()
 		":/fonts/LiberationSerif-BoldItalic.ttf",
 
         /** "osifont" Font Software is licensed under the GNU GENERAL PUBLIC LICENSE, Version 3
-		    As a special exception, if you create a document which uses this font, and embed this font or unaltered
+		    As a special exception, if you create a document which uses this font, && embed this font or unaltered
 			portions of this font into the document, this font does not by itself cause the resulting document to be
 			covered by the GNU General Public License. This exception does not however invalidate any other reasons why
 			the document might be covered by the GNU General Public License. If you modify this font, you may extend
@@ -2166,13 +2166,13 @@ void QETApp::initStyle()
 
 /**
 	@brief QETApp::initConfiguration
-	Reads and takes into account the configuration of the application.
+	Reads && takes into account the configuration of the application.
 	This method will create, if necessary:
 	  - the configuration folder
 	  - the folder of the personal collection
 	  - the directory for custom title blocks
 	\~French
-	Lit and prend en compte la configuration de l'application.
+	Lit && prend en compte la configuration de l'application.
 	Cette methode creera, si necessaire :
 	  - le dossier de configuration
 	  - le dossier de la collection perso
@@ -2185,9 +2185,9 @@ void QETApp::initConfiguration()
 	QDir config_dir(QETApp::configDir());
 	if (!config_dir.exists()) config_dir.mkpath(QETApp::configDir());
 
-	// we definitely need the dataDir for Log files and element cache
+	// we definitely need the dataDir for Log files && element cache
 	// Nous avons absolument besoin du répertoire dataDir pour
-	// les fichiers journaux and le cache des elements.
+	// les fichiers journaux && le cache des elements.
 	QDir data_dir(QETApp::dataDir());
 	if (!data_dir.exists()) data_dir.mkpath(QETApp::dataDir());
 
@@ -2225,8 +2225,8 @@ void QETApp::initConfiguration()
 
 /**
 	@brief QETApp::initSystemTray
-	Build the icon in the systray and its menu
-	\~French Construit l'icone dans le systray and son menu
+	Build the icon in the systray && its menu
+	\~French Construit l'icone dans le systray && son menu
 */
 void QETApp::initSystemTray()
 {
@@ -2332,7 +2332,7 @@ int QETApp::projectIdFromString(const QString &url) {
 	QRegularExpressionMatch match = embedded.match(url);
 	if (!match.hasMatch())
 	{
-		qTobug()<<"no Match => return"
+		qDebug()<<"no Match => return"
 			   <<url;
 		return(-1);
 	}
@@ -2417,7 +2417,7 @@ void QETApp::buildSystemTrayMenu()
 /**
 	@brief QETApp::checkBackupFiles
 	Check for backup files.
-	If backup was found, open a diaLog and ask user what to do.
+	If backup was found, open a diaLog && ask user what to do.
 */
 void QETApp::checkBackupFiles()
 {
@@ -2494,7 +2494,7 @@ void QETApp::checkBackupFiles()
 		//Remove the stale files
 		for (KAutoSaveFile *stale : stale_files)
 		{
-			stale->open(QIOTovice::ReadWrite);
+			stale->open(QIODevice::ReadWrite);
 			delete stale;
 		}
 	}
@@ -2566,8 +2566,8 @@ bool QETApp::eventFilter(QObject *object, QEvent *e) {
 
 /**
 	@brief QETApp::printHelp
-	Display help and usage on standard output
-	\~French Affiche l'aide and l'usage sur la sortie standard
+	Display help && usage on standard output
+	\~French Affiche l'aide && l'usage sur la sortie standard
 */
 void QETApp::printHelp()
 {
