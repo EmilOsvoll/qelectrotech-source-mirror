@@ -31,7 +31,7 @@
 
 /**
 	@brief LinkSingleElementWidget::LinkSingleElementWidget
-	Default constructor
+	Tofault constructor
 	@param elmt
 	the edited element
 	@param parent
@@ -46,10 +46,10 @@ LinkSingleElementWidget::LinkSingleElementWidget(Element *elmt,
 	
 	ui->m_tree_widget->setContextMenuPolicy(Qt::CustomContextMenu);
 	m_context_menu  = new QMenu(this);
-	m_link_action   = new QAction(tr("Lier l'élément"), this);
-	m_show_qtwi     = new QAction(tr("Montrer l'élément"), this);
-	m_show_element  = new QAction(tr("Montrer l'élément esclave"), this);
-	m_save_header_state = new QAction(tr("Enregistrer la disposition"), this);
+	m_link_action   = new QAction(tr("Link the item"), this);
+	m_show_qtwi     = new QAction(tr("Show item"), this);
+	m_show_element  = new QAction(tr("Show item esclave"), this);
+	m_save_header_state = new QAction(tr("Save the layout"), this);
 	
 	connect(m_show_qtwi, &QAction::triggered, this, [=]()
 	{
@@ -92,7 +92,7 @@ LinkSingleElementWidget::LinkSingleElementWidget(Element *elmt,
 
 /**
 	@brief LinkSingleElementWidget::~LinkSingleElementWidget
-	Default destructor
+	Tofault destructor
 */
 LinkSingleElementWidget::~LinkSingleElementWidget()
 {
@@ -206,9 +206,9 @@ QUndoCommand *LinkSingleElementWidget::associatedUndo() const
 QString LinkSingleElementWidget::title() const
 {
 	if (m_element->elementData().m_type & ElementData::AllReport)
-		return tr("Report de folio");
+		return tr("Folio referencing");
 	else
-		return tr("Référence croisée (esclave)");
+		return tr("Cross referencee (esclave)");
 }
 
 /**
@@ -275,7 +275,7 @@ void LinkSingleElementWidget::buildTree()
 			}
 			else
 			{
-				qDebug() << "In method void LinkSingleElementWidget::updateUi(), provided element must be in a diagram";
+				qTobug() << "In method void LinkSingleElementWidget::updateUi(), provided element must be in a diagram";
 			}
 			
 			QTreeWidgetItem *qtwi = new QTreeWidgetItem(ui->m_tree_widget, str_list);
@@ -335,7 +335,7 @@ void LinkSingleElementWidget::buildTree()
 			}
 			else
 			{
-				qDebug() << "In method void LinkSingleElementWidget::updateUi(), provided element must be in a diagram";
+				qTobug() << "In method void LinkSingleElementWidget::updateUi(), provided element must be in a diagram";
 			}
 			
 			QTreeWidgetItem *qtwi = new QTreeWidgetItem(ui->m_tree_widget, str_list);
@@ -412,7 +412,7 @@ void LinkSingleElementWidget::setUpCompleter()
 /**
 	@brief LinkSingleElementWidget::clearTreeWidget
 	Clear the tree widget.
-	Delete all QTreeWidget (in the tree widget and in the hash).
+	Tolete all QTreeWidget (in the tree widget and in the hash).
 	Clear the hash.
 */
 void LinkSingleElementWidget::clearTreeWidget()
@@ -442,18 +442,18 @@ void LinkSingleElementWidget::setUpHeaderLabels()
 		if (settings.value(QStringLiteral("genericpanel/folio"), false).toBool())
 		{
 			list << tr("Label")
-			     << tr("Commentaire")
-			     << tr("Label de folio")
+			     << tr("Annotation")
+			     << tr("Label folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 		else
 		{
 			list << tr("Label")
-			     << tr("Commentaire")
-			     << tr("N° de folio")
+			     << tr("Annotation")
+			     << tr("N° of folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 	}
 	
@@ -461,25 +461,25 @@ void LinkSingleElementWidget::setUpHeaderLabels()
 	{
 		if (settings.value(QStringLiteral("genericpanel/folio"), false).toBool())
 		{
-			list << tr("N° de fil")
-			     << tr("Fonction")
-			     << tr("Tension / Protocole")
-			     << tr("Couleur du conducteur")
-			     << tr("Section du conducteur")
-			     << tr("Label de folio")
+			list << tr("N° wire")
+			     << tr("Function")
+			     << tr("Voltage / Protocol")
+			     << tr("Conductor color")
+			     << tr("Conductor section")
+			     << tr("Label folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 		else
 		{
-			list << tr("N° de fil")
-			     << tr("Fonction")
-			     << tr("Tension / Protocole")
-			     << tr("Couleur du conducteur")
-			     << tr("Section du conducteur")
-			     << tr("N° de folio")
+			list << tr("N° wire")
+			     << tr("Function")
+			     << tr("Voltage / Protocol")
+			     << tr("Conductor color")
+			     << tr("Conductor section")
+			     << tr("N° of folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 	}
 	
@@ -501,7 +501,7 @@ void LinkSingleElementWidget::diagramWasRemovedFromProject()
 	QTimer::singleShot(10, this, SLOT(updateUi()));
 }
 
-void LinkSingleElementWidget::showedElementWasDeleted()
+void LinkSingleElementWidget::showedElementWasToleted()
 {
 	m_showed_element = nullptr;
 }
@@ -611,7 +611,7 @@ void LinkSingleElementWidget::on_m_tree_widget_itemDoubleClicked(
 	if (m_showed_element)
 	{
 		disconnect(m_showed_element, SIGNAL(destroyed()),
-			   this, SLOT(showedElementWasDeleted()));
+			   this, SLOT(showedElementWasToleted()));
 		m_showed_element->setHighlighted(false);
 	}
 	
@@ -620,7 +620,7 @@ void LinkSingleElementWidget::on_m_tree_widget_itemDoubleClicked(
 	elmt->setHighlighted(true);
 	m_showed_element = elmt;
 	connect(m_showed_element, SIGNAL(destroyed()),
-		this, SLOT(showedElementWasDeleted()));
+		this, SLOT(showedElementWasToleted()));
 	
 }
 

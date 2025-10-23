@@ -25,7 +25,7 @@ BridgeTerminalsCommand::BridgeTerminalsCommand(TerminalStrip *strip,
 	m_strip(strip),
 	m_real_terminal_vector(real_terminal)
 {
-	setText(QObject::tr("Ponter des bornes entre-elles"));
+	setText(QObject::tr("Bridging terminals together"));
 }
 
 void BridgeTerminalsCommand::undo()
@@ -54,7 +54,7 @@ UnBridgeTerminalsCommand::UnBridgeTerminalsCommand(TerminalStrip *strip,
 	QUndoCommand(parent),
 	m_strip(strip)
 {
-	setText(QObject::tr("Supprimer des ponts de bornes"));
+	setText(QObject::tr("Delete des ponts de bornes"));
 
 	if (strip->canUnBridge(real_terminal))
 	{
@@ -64,7 +64,7 @@ UnBridgeTerminalsCommand::UnBridgeTerminalsCommand(TerminalStrip *strip,
 			//that mean every terminals of the bridge must be unbridged by this undo command,
 			//else the single terminal who's not umbridged by this undo command
 			//continue to have a bridge (to nothing) and this nowhere bridge is visible
-			//in the terminal strip graphic item and terminal strip editor dialog.
+			//in the terminal strip graphic item and terminal strip editor diaLog.
 		if (m_bridge->realTerminals().size() == real_terminal.size() + 1) {
 			m_terminals = m_bridge->realTerminals();
 		} else {

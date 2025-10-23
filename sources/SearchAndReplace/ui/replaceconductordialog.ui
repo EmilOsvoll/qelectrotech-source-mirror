@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ReplaceConductorDialog</class>
- <widget class="QDialog" name="ReplaceConductorDialog">
+ <class>ReplaceConductorDiaLog</class>
+ <widget class="QDiaLog" name="ReplaceConductorDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -39,7 +39,7 @@
           <item row="4" column="1" colspan="4">
            <widget class="QLineEdit" name="m_function_le">
             <property name="placeholderText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="clearButtonEnabled">
              <bool>true</bool>
@@ -49,28 +49,28 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>Taille du texte :</string>
+             <string>Text size :</string>
             </property>
            </widget>
           </item>
           <item row="8" column="1">
            <widget class="QComboBox" name="m_vertical_align_cb">
             <property name="currentText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <item>
              <property name="text">
-              <string>Ne pas modifier</string>
+              <string>Do not change</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>À gauche</string>
+              <string>From gauche</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>À droite</string>
+              <string>From droite</string>
              </property>
             </item>
            </widget>
@@ -78,7 +78,7 @@
           <item row="9" column="2">
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>Angle :</string>
+             <string>Angle:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -88,21 +88,21 @@
           <item row="6" column="0">
            <widget class="QLabel" name="label_15">
             <property name="text">
-             <string>Couleur du conducteur</string>
+             <string>Conductor color</string>
             </property>
            </widget>
           </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Texte :</string>
+             <string>Text:</string>
             </property>
            </widget>
           </item>
           <item row="2" column="5">
            <widget class="QCheckBox" name="m_erase_formula_cb">
             <property name="toolTip">
-             <string>Supprimer ce texte</string>
+             <string>Tolete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -115,7 +115,7 @@
              <bool>true</bool>
             </property>
             <property name="specialValueText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="suffix">
              <string>°</string>
@@ -137,7 +137,7 @@
           <item row="4" column="5">
            <widget class="QCheckBox" name="m_erase_function_cb">
             <property name="toolTip">
-             <string>Supprimer ce texte</string>
+             <string>Tolete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -148,17 +148,17 @@
            <widget class="QComboBox" name="m_horizontal_align_cb">
             <item>
              <property name="text">
-              <string>Ne pas modifier</string>
+              <string>Do not change</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>En haut</string>
+              <string>Up</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>En bas</string>
+              <string>Below</string>
              </property>
             </item>
            </widget>
@@ -166,7 +166,7 @@
           <item row="3" column="5">
            <widget class="QCheckBox" name="m_erase_text_cb">
             <property name="toolTip">
-             <string>Supprimer ce texte</string>
+             <string>Tolete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -176,7 +176,7 @@
           <item row="2" column="1" colspan="4">
            <widget class="QLineEdit" name="m_formula_le">
             <property name="placeholderText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="clearButtonEnabled">
              <bool>true</bool>
@@ -189,7 +189,7 @@
              <bool>true</bool>
             </property>
             <property name="specialValueText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="suffix">
              <string>°</string>
@@ -208,14 +208,14 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Formule du texte :</string>
+             <string>Text Formula :</string>
             </property>
            </widget>
           </item>
           <item row="5" column="5">
            <widget class="QCheckBox" name="m_erase_tension_protocol_cb">
             <property name="toolTip">
-             <string>Supprimer ce texte</string>
+             <string>Tolete this text</string>
             </property>
             <property name="text">
              <string/>
@@ -225,7 +225,7 @@
           <item row="3" column="1" colspan="3">
            <widget class="QLineEdit" name="m_text_le">
             <property name="placeholderText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="clearButtonEnabled">
              <bool>true</bool>
@@ -235,14 +235,14 @@
           <item row="8" column="0">
            <widget class="QLabel" name="label_6">
             <property name="text">
-             <string>Texte sur conducteur vertical :</string>
+             <string>Text sur conducteur vertical:</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1" colspan="4">
            <widget class="QSpinBox" name="m_text_size_sb">
             <property name="specialValueText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="accelerated">
              <bool>false</bool>
@@ -258,14 +258,14 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
-             <string>Fonction :</string>
+             <string>Function :</string>
             </property>
            </widget>
           </item>
           <item row="8" column="2">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Angle :</string>
+             <string>Angle:</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -275,7 +275,7 @@
           <item row="3" column="4">
            <widget class="QCheckBox" name="m_show_text">
             <property name="toolTip">
-             <string>Texte visible</string>
+             <string>Text visible</string>
             </property>
             <property name="text">
              <string/>
@@ -285,7 +285,7 @@
           <item row="5" column="1" colspan="4">
            <widget class="QLineEdit" name="m_tension_protocol_le">
             <property name="placeholderText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="clearButtonEnabled">
              <bool>true</bool>
@@ -295,21 +295,21 @@
           <item row="9" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>Texte sur conducteur horizontal :</string>
+             <string>Text sur conducteur horizontal:</string>
             </property>
            </widget>
           </item>
           <item row="5" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Tension / protocol :</string>
+             <string>Voltage / Protocol :</string>
             </property>
            </widget>
           </item>
           <item row="7" column="0">
            <widget class="QLabel" name="label_16">
             <property name="text">
-             <string>Section du conducteur</string>
+             <string>Conductor section</string>
             </property>
            </widget>
           </item>
@@ -339,7 +339,7 @@
        <item>
         <widget class="QGroupBox" name="m_singlewire_gb">
          <property name="title">
-          <string>Unifilaire</string>
+          <string>Single line</string>
          </property>
          <property name="flat">
           <bool>false</bool>
@@ -378,7 +378,7 @@
           <item row="2" column="3">
            <widget class="QSpinBox" name="m_phase_sb">
             <property name="toolTip">
-             <string>Nombre de phase</string>
+             <string>Number of phase</string>
             </property>
             <property name="minimum">
              <number>1</number>
@@ -391,10 +391,10 @@
           <item row="1" column="1">
            <widget class="QCheckBox" name="m_neutral_cb">
             <property name="toolTip">
-             <string>Neutre</string>
+             <string>Neutral</string>
             </property>
             <property name="text">
-             <string>neutre</string>
+             <string>neutral</string>
             </property>
             <property name="icon">
              <iconset resource="../../../qelectrotech.qrc">
@@ -411,7 +411,7 @@
              </sizepolicy>
             </property>
             <property name="toolTip">
-             <string>Nombre de phase</string>
+             <string>Number of phase</string>
             </property>
             <property name="minimum">
              <number>1</number>
@@ -427,10 +427,10 @@
           <item row="0" column="1">
            <widget class="QCheckBox" name="m_earth_cb">
             <property name="toolTip">
-             <string>Terre</string>
+             <string>Ground</string>
             </property>
             <property name="text">
-             <string>terre</string>
+             <string>ground</string>
             </property>
             <property name="icon">
              <iconset resource="../../../qelectrotech.qrc">
@@ -462,20 +462,20 @@
      </widget>
      <widget class="QWidget" name="widget">
       <attribute name="title">
-       <string>Apparence</string>
+       <string>Appearance</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0,1,0">
        <item row="2" column="1">
         <widget class="QLabel" name="label_13">
          <property name="text">
-          <string>Taille :</string>
+          <string>Size :</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
         <widget class="QLabel" name="label_10">
          <property name="text">
-          <string>Couleur :</string>
+          <string>Color :</string>
          </property>
         </widget>
        </item>
@@ -492,7 +492,7 @@
        <item row="4" column="1">
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -505,14 +505,14 @@
        <item row="1" column="1">
         <widget class="QLabel" name="label_11">
          <property name="text">
-          <string>Style :</string>
+          <string>Style:</string>
          </property>
         </widget>
        </item>
        <item row="0" column="3">
         <widget class="QCheckBox" name="m_mod_color_cb">
          <property name="toolTip">
-          <string>Modifier</string>
+          <string>Edit</string>
          </property>
          <property name="text">
           <string/>
@@ -522,7 +522,7 @@
        <item row="3" column="1" colspan="3">
         <widget class="QGroupBox" name="m_second_color_gb">
          <property name="title">
-          <string>Couleur secondaire :</string>
+          <string>Secondary color :</string>
          </property>
          <property name="checkable">
           <bool>true</bool>
@@ -544,21 +544,21 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_14">
             <property name="text">
-             <string>Taille de trait :</string>
+             <string>Line size :</string>
             </property>
            </widget>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_12">
             <property name="text">
-             <string>Couleur :</string>
+             <string>Color :</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2">
            <widget class="QCheckBox" name="m_mod_color_2_cb">
             <property name="toolTip">
-             <string>Modifier</string>
+             <string>Edit</string>
             </property>
             <property name="text">
              <string/>
@@ -568,7 +568,7 @@
           <item row="1" column="1" colspan="2">
            <widget class="QSpinBox" name="m_color_2_dash_size_sb">
             <property name="specialValueText">
-             <string>Ne pas modifier</string>
+             <string>Do not change</string>
             </property>
             <property name="suffix">
              <string>px</string>
@@ -587,7 +587,7 @@
        <item row="2" column="2" colspan="2">
         <widget class="QDoubleSpinBox" name="m_cond_size_sb">
          <property name="specialValueText">
-          <string>Ne pas modifier</string>
+          <string>Do not change</string>
          </property>
          <property name="minimum">
           <double>0.200000000000000</double>
@@ -608,12 +608,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="m_button_box">
+    <widget class="QDiaLogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok|QDiaLogButtonBox::Reset</set>
      </property>
     </widget>
    </item>

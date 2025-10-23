@@ -22,13 +22,13 @@
 #include "../../editor/graphicspart/partdynamictextfield.h"
 #include "../../qetapp.h"
 #include "../../qetinformation.h"
-#include "../../ui/alignmenttextdialog.h"
-#include "../../ui/compositetexteditdialog.h"
+#include "../../ui/alignmenttextdiaLog.h"
+#include "../../ui/compositetextditdiaLog.h"
 #include "../ui/qetelementeditor.h"
 #include "../elementscene.h"
 #include "ui_dynamictextfieldeditor.h"
 
-#include <QColorDialog>
+#include <QColorDiaLog>
 #include <QGraphicsItem>
 #include <QPointer>
 
@@ -237,7 +237,7 @@ void DynamicTextFieldEditor::on_m_x_sb_editingFinished()
 	double value = ui -> m_x_sb -> value();
 	for (int i = 0; i < m_parts.length(); i++) {
 		QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "x", m_parts[i] -> x(), value);
-		undo -> setText(tr("Déplacer un champ texte"));
+		undo -> setText(tr("Move a text field"));
 		undo -> enableAnimation(true);
 		undoStack().push(undo);
 	}
@@ -248,7 +248,7 @@ void DynamicTextFieldEditor::on_m_y_sb_editingFinished()
 	double value = ui -> m_y_sb -> value();
 	for (int i = 0; i < m_parts.length(); i++) {
 		QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "y", m_parts[i] -> y(), value);
-		undo -> setText(tr("Déplacer un champ texte"));
+		undo -> setText(tr("Move a text field"));
 		undo -> enableAnimation(true);
 		undoStack().push(undo);
 	}
@@ -259,7 +259,7 @@ void DynamicTextFieldEditor::on_m_rotation_sb_editingFinished()
 	int value = ui -> m_rotation_sb -> value();
 	for (int i = 0; i < m_parts.length(); i++) {
 		QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "rotation", m_parts[i] -> rotation(), value);
-		undo -> setText(tr("Pivoter un champ texte"));
+		undo -> setText(tr("Rotate a text field"));
 		undo -> enableAnimation(true);
 		undoStack().push(undo);
 	}
@@ -270,7 +270,7 @@ void DynamicTextFieldEditor::on_m_user_text_le_editingFinished()
 	QString text = ui -> m_user_text_le -> text();
 	for (int i = 0; i < m_parts.length(); i++) {
 		QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "text", m_parts[i] -> text(), text);
-		undo -> setText(tr("Modifier le texte d'un champ texte"));
+		undo -> setText(tr("Edit the text of a text field"));
 		undoStack().push(undo);
 	}
 }
@@ -281,7 +281,7 @@ void DynamicTextFieldEditor::on_m_size_sb_editingFinished()
 	font_.setPointSize(ui -> m_size_sb -> value());
 	for (int i = 0; i < m_parts.length(); i++) {
 		QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "font", m_parts[i] -> font(), font_);
-		undo -> setText(tr("Modifier la police d'un champ texte"));
+		undo -> setText(tr("Change the font of a text field"));
 		undoStack().push(undo);
 	}
 }
@@ -293,7 +293,7 @@ void DynamicTextFieldEditor::on_m_frame_cb_clicked()
 	for (int i = 0; i < m_parts.length(); i++) {
 		if(frame != m_parts[i] -> frame()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "frame", m_parts[i] -> frame(), frame);
-			undo -> setText(tr("Modifier le cadre d'un champ texte"));
+			undo -> setText(tr("Modify the frame of a text field"));
 			undoStack().push(undo);
 		}
 	}
@@ -306,7 +306,7 @@ void DynamicTextFieldEditor::on_m_width_sb_editingFinished()
 	for (int i = 0; i < m_parts.length(); i++) {
 		if(width != m_parts[i] -> textWidth()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "textWidth", m_parts[i] -> textWidth(), width);
-			undo -> setText(tr("Modifier la largeur d'un texte"));
+			undo -> setText(tr("Change the width of a text"));
 			undoStack().push(undo);
 		}
 	}
@@ -319,7 +319,7 @@ void DynamicTextFieldEditor::on_m_elmt_info_cb_activated(const QString &arg1) {
 	for (int i = 0; i < m_parts.length(); i++) {
 		if(info != m_parts[i] -> infoName()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "infoName", m_parts[i] -> infoName(), info);
-			undo->setText(tr("Modifier l'information d'un texte"));
+			undo->setText(tr("Edit text information"));
 			undoStack().push(undo);
 			m_parts[i]->setPlainText(
 						elementEditor()->elementScene()->elementData().m_informations.value(m_parts[i] -> infoName()).toString());
@@ -356,7 +356,7 @@ void DynamicTextFieldEditor::on_m_text_from_cb_activated(int index) {
 	for (int i = 0; i < m_parts.length(); i++) {
 		if(tf != m_parts[i] -> textFrom()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "textFrom", m_parts[i] -> textFrom(), tf);
-			undo -> setText(tr("Modifier la source de texte, d'un texte"));
+			undo -> setText(tr("Change text source, text"));
 			undoStack().push(undo);
 		}
 	}
@@ -369,7 +369,7 @@ void DynamicTextFieldEditor::on_m_composite_text_pb_clicked()
 		isReport = true;
 	}
 
-	CompositeTextEditDialog ctd(m_text_field.data() -> compositeText(), isReport, this);
+	CompositeTextEditDiaLog ctd(m_text_field.data() -> compositeText(), isReport, this);
 	if(ctd.exec()) {
 		QString ct = ctd.plainText();
 		for (int i = 0; i < m_parts.length(); i++) {
@@ -384,7 +384,7 @@ void DynamicTextFieldEditor::on_m_composite_text_pb_clicked()
 
 void DynamicTextFieldEditor::on_m_alignment_pb_clicked()
 {
-	AlignmentTextDialog atd(m_text_field.data() -> alignment(), this);
+	AlignmentTextDiaLog atd(m_text_field.data() -> alignment(), this);
 	atd.exec();
 
 	for (int i = 0; i < m_parts.length(); i++) {
@@ -392,7 +392,7 @@ void DynamicTextFieldEditor::on_m_alignment_pb_clicked()
 			QPropertyUndoCommand *undo =\
 				new QPropertyUndoCommand(
 					m_parts[i], "alignment", QVariant(m_parts[i] -> alignment()), QVariant(atd.alignment()));
-			undo -> setText(tr("Modifier l'alignement d'un champ texte"));
+			undo -> setText(tr("Modify the alignment of a text field"));
 			undoStack().push(undo);
 		}
 	}
@@ -401,14 +401,14 @@ void DynamicTextFieldEditor::on_m_alignment_pb_clicked()
 void DynamicTextFieldEditor::on_m_font_pb_clicked()
 {
 	bool ok;
-	QFont font_ = QFontDialog::getFont(&ok, m_text_field -> font(), this);
+	QFont font_ = QFontDiaLog::getFont(&ok, m_text_field -> font(), this);
 	if (ok && font_ != this -> font()) {
 		ui -> m_font_pb -> setText(font_.family());
 		ui -> m_size_sb -> setValue(font_.pointSize());
 
 		for (int i = 0; i < m_parts.length(); i++) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "font", m_parts[i] -> font(), font_);
-			undo -> setText(tr("Modifier la police d'un champ texte"));
+			undo -> setText(tr("Change the font of a text field"));
 			undoStack().push(undo);
 		}
 	}
@@ -422,7 +422,7 @@ void DynamicTextFieldEditor::m_color_kpb_changed(QColor newColor) {
 	for (int i = 0; i < m_parts.length(); i++) {
 		if(newColor != m_parts[i] -> color()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "color", m_parts[i] -> color(), newColor);
-			undo -> setText(tr("Modifier la couleur d'un champ texte"));
+			undo -> setText(tr("Change the color of a text field"));
 			undoStack().push(undo);
 		}
 	}
@@ -435,7 +435,7 @@ void DynamicTextFieldEditor::on_m_keep_visual_rotation_cb_clicked()
 	for (int i = 0; i < m_parts.length(); i++) {
 		if(keep != m_parts[i] -> keepVisualRotation()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_parts[i], "keepVisualRotation", m_parts[i] -> frame(), keep);
-			undo -> setText(tr("Modifier la conservation de l'angle"));
+			undo -> setText(tr("Modify the conservation of the angle"));
 			undoStack().push(undo);
 		}
 	}

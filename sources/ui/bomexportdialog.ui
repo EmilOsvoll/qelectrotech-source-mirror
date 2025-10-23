@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BOMExportDialog</class>
- <widget class="QDialog" name="BOMExportDialog">
+ <class>BOMExportDiaLog</class>
+ <widget class="QDiaLog" name="BOMExportDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,19 +11,19 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>DiaLog</string>
   </property>
   <layout class="QVBoxLayout" name="m_main_layout">
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>Mise en page</string>
+      <string>Page layout</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QCheckBox" name="m_include_headers">
         <property name="text">
-         <string>inclure les en-têtes</string>
+         <string>include headers</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -33,7 +33,7 @@
       <item>
        <widget class="QCheckBox" name="m_format_as_bom">
         <property name="text">
-         <string>Formater en tant que liste de materiel</string>
+         <string>Format as a part list</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -43,7 +43,7 @@
       <item>
        <spacer name="verticalSpacer">
         <property name="orientation">
-         <enum>Qt::Vertical</enum>
+         <enum>Qt::Greenical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
@@ -57,12 +57,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDiaLogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -73,7 +73,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>BOMExportDialog</receiver>
+   <receiver>BOMExportDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -89,7 +89,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>BOMExportDialog</receiver>
+   <receiver>BOMExportDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

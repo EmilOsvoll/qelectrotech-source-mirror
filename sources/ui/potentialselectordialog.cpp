@@ -16,7 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "potentialselectordialog.h"
+#include "potentialselectordiaLog.h"
 
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../autoNum/assignvariables.h"
@@ -25,8 +25,8 @@
 #include "../qetgraphicsitem/element.h"
 #include "../qetgraphicsitem/reportelement.h"
 #include "../qetgraphicsitem/terminal.h"
-#include "../ui_potentialselectordialog.h"
-#include "formulaassistantdialog.h"
+#include "../ui_potentialselectordiaLog.h"
+#include "formulaassistantdiaLog.h"
 
 #include <QHash>
 #include <QRadioButton>
@@ -188,7 +188,7 @@ class LinkReportPotentialSelector : public AbstractPotentialSelector
 //### END PRIVATE CLASS ###//
 
 
-ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorProperties> list, QWidget *widget)
+ConductorProperties PotentialSelectorDiaLog::chosenProperties(QList<ConductorProperties> list, QWidget *widget)
 {
 	if (list.isEmpty()) {
 		return ConductorProperties() ;
@@ -196,9 +196,9 @@ ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorPro
 		return list.first();
 	}
 
-	QDialog dialog(widget);
+	QDiaLog diaLog(widget);
 	QVBoxLayout layout(widget);
-	dialog.setLayout(&layout);
+	diaLog.setLayout(&layout);
 	QLabel label(tr("Veuillez choisir un potentiel électrique de la liste \n"
 					"à utiliser pour le nouveau potentiel"));
 	layout.addWidget(&label);
@@ -208,25 +208,25 @@ ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorPro
 	{
 		QString text;
 		if(!cp.text.isEmpty())
-			text.append(tr("\nNuméro : %1").arg(cp.text));
+			text.append(tr("\nNuméro : %1% {1?}").arg(cp.text));
 		if(!cp.m_function.isEmpty())
-			text.append(tr("\nFonction : %1").arg(cp.m_function));
+			text.append(tr("\nFunction : %1% {1?}").arg(cp.m_function));
 		if(!cp.m_tension_protocol.isEmpty())
-			text.append(tr("\nTension/protocole : %1").arg(cp.m_tension_protocol));
+			text.append(tr("\nTension/protocole : %1% {1?}").arg(cp.m_tension_protocol));
 		if(!cp.m_wire_color.isEmpty())
-			text.append(tr("\nCouleur du conducteur : %1").arg(cp.m_wire_color));
+			text.append(tr("\nConductor color : %1% {1?}").arg(cp.m_wire_color));
 		if(!cp.m_wire_section.isEmpty())
-			text.append(tr("\nSection du conducteur : %1").arg(cp.m_wire_section));
+			text.append(tr("\nConductor section : %1% {1?}").arg(cp.m_wire_section));
 
-		QRadioButton *b = new QRadioButton(text, &dialog);
+		QRadioButton *b = new QRadioButton(text, &diaLog);
 		layout.addWidget(b);
 		H.insert(b, cp);
 	}
-	QDialogButtonBox *button_box = new QDialogButtonBox(QDialogButtonBox::Ok, &dialog);
+	QDiaLogButtonBox *button_box = new QDiaLogButtonBox(QDiaLogButtonBox::Ok, &diaLog);
 	layout.addWidget(button_box);
-	connect(button_box, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+	connect(button_box, &QDiaLogButtonBox::accepted, &diaLog, &QDiaLog::accept);
 
-	dialog.exec();
+	diaLog.exec();
 	for (QRadioButton *b : H.keys()) {
 		if(b->isChecked()) {
 			return H.value(b);
@@ -237,17 +237,17 @@ ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorPro
 }
 
 /**
-	@brief PotentialSelectorDialog::PotentialSelectorDialog
+	@brief PotentialSelectorDiaLog::PotentialSelectorDiaLog
 	Constructor when we link two potentiels together, with a conductor
 	@param conductor : the new conductor who connect to existing potential
 	@param parent_undo : undo parent to use.
 	@param parent : parent widget.
 */
-PotentialSelectorDialog::PotentialSelectorDialog(Conductor *conductor,
+PotentialSelectorDiaLog::PotentialSelectorDiaLog(Conductor *conductor,
 						 QUndoCommand *parent_undo,
 						 QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::PotentialSelectorDialog),
+	QDiaLog(parent),
+	ui(new Ui::PotentialSelectorDiaLog),
 	m_conductor(conductor),
 	m_report(nullptr),
 	m_parent_undo(parent_undo)
@@ -258,18 +258,18 @@ PotentialSelectorDialog::PotentialSelectorDialog(Conductor *conductor,
 }
 
 /**
-	@brief PotentialSelectorDialog::PotentialSelectorDialog
+	@brief PotentialSelectorDiaLog::PotentialSelectorDiaLog
 	Constructor when we link two potentiels together, with a folio report.
 	@param report : one of the report used to link the potentials
 	(report must be linked to another report)
 	@param parent_undo : undo parent to use
 	@param parent : parent widget
 */
-PotentialSelectorDialog::PotentialSelectorDialog(Element *report,
+PotentialSelectorDiaLog::PotentialSelectorDiaLog(Element *report,
 						 QUndoCommand *parent_undo,
 						 QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::PotentialSelectorDialog),
+	QDiaLog(parent),
+	ui(new Ui::PotentialSelectorDiaLog),
 	m_conductor(nullptr),
 	m_report(report),
 	m_parent_undo(parent_undo)
@@ -279,17 +279,17 @@ PotentialSelectorDialog::PotentialSelectorDialog(Element *report,
 	buildWidget();
 }
 
-PotentialSelectorDialog::~PotentialSelectorDialog()
+PotentialSelectorDiaLog::~PotentialSelectorDiaLog()
 {
 	delete ui;
 	delete m_potential_selector;
 }
 
 /**
-	@brief PotentialSelectorDialog::buildWidget
-	Build the dialog
+	@brief PotentialSelectorDiaLog::buildWidget
+	Build the diaLog
 */
-void PotentialSelectorDialog::buildWidget()
+void PotentialSelectorDiaLog::buildWidget()
 {
 	QString text1(tr("%n conducteurs composent le potentiel suivant :",
 			 "",
@@ -300,17 +300,17 @@ void PotentialSelectorDialog::buildWidget()
 		cp1 = m_potential_selector->m_properties_list_1.first();;
 
 	if(!cp1.text.isEmpty())
-		text1.append(tr("\nNuméro : %1").arg(cp1.text));
+		text1.append(tr("\nNuméro : %1% {1?}").arg(cp1.text));
 	if(!cp1.m_function.isEmpty())
-		text1.append(tr("\nFonction : %1").arg(cp1.m_function));
+		text1.append(tr("\nFunction : %1% {1?}").arg(cp1.m_function));
 	if(!cp1.m_tension_protocol.isEmpty())
-		text1.append(tr("\nTension/protocole : %1")
+		text1.append(tr("\nTension/protocole : %1% {1?}")
 			     .arg(cp1.m_tension_protocol));
 	if(!cp1.m_wire_color.isEmpty())
-		text1.append(tr("\nCouleur du conducteur : %1")
+		text1.append(tr("\nConductor color : %1% {1?}")
 			     .arg(cp1.m_wire_color));
 	if(!cp1.m_wire_section.isEmpty())
-		text1.append(tr("\nSection du conducteur : %1")
+		text1.append(tr("\nConductor section : %1% {1?}")
 			     .arg(cp1.m_wire_section));
 
 	QString text2(tr("%n conducteurs composent le potentiel suivant :",
@@ -321,27 +321,27 @@ void PotentialSelectorDialog::buildWidget()
 		cp2 = m_potential_selector->m_properties_list_2.first();
 
 	if(!cp2.text.isEmpty())
-		text2.append(tr("\nNuméro : %1").arg(cp2.text));
+		text2.append(tr("\nNuméro : %1% {1?}").arg(cp2.text));
 	if(!cp2.m_function.isEmpty())
-		text2.append(tr("\nFonction : %1").arg(cp2.m_function));
+		text2.append(tr("\nFunction : %1% {1?}").arg(cp2.m_function));
 	if(!cp2.m_tension_protocol.isEmpty())
-		text2.append(tr("\nTension/protocole : %1")
+		text2.append(tr("\nTension/protocole : %1% {1?}")
 			     .arg(cp2.m_tension_protocol));
 	if(!cp2.m_wire_color.isEmpty())
-		text2.append(tr("\nCouleur du conducteur : %1")
+		text2.append(tr("\nConductor color : %1% {1?}")
 			     .arg(cp2.m_wire_color));
 	if(!cp2.m_wire_section.isEmpty())
-		text2.append(tr("\nSection du conducteur : %1")
+		text2.append(tr("\nConductor section : %1% {1?}")
 			     .arg(cp2.m_wire_section));
 
 	QRadioButton *rb1 = new QRadioButton(text1, this);
 	QRadioButton *rb2 = new QRadioButton(text2, this);
 
 	QRadioButton *rbk = new QRadioButton(
-				tr("Ajouter au câble: %1")
+				tr("Add to cable: %1% {1?}")
 				.arg("wouldn't this be nice?"), this);
 	QRadioButton *rbb = new QRadioButton(
-				tr("Ajouter au bus: %1")
+				tr("Add to bus: %1% {1?}")
 				.arg("wouldn't this be nice?"), this);
 
 #if TODO_LIST
@@ -400,10 +400,10 @@ void PotentialSelectorDialog::buildWidget()
 }
 
 /**
-	@brief PotentialSelectorDialog::on_buttonBox_accepted
+	@brief PotentialSelectorDiaLog::on_buttonBox_accepted
 	Action when user click on OK button
 */
-void PotentialSelectorDialog::on_buttonBox_accepted()
+void PotentialSelectorDiaLog::on_buttonBox_accepted()
 {
 	if (!m_potential_selector->isValid())
 		return;
@@ -413,7 +413,7 @@ void PotentialSelectorDialog::on_buttonBox_accepted()
 		undo = m_parent_undo;
 	else
 		undo = new QUndoCommand(
-				tr("Modifier les propriétés de plusieurs conducteurs",
+				tr("Edit the properties of several conductors",
 				   "undo caption"));
 
 	Diagram * diagram = nullptr;
@@ -466,11 +466,11 @@ void PotentialSelectorDialog::on_buttonBox_accepted()
 						      << "%M"
 						      << "%LM";
 
-					QString text(tr("La formule du nouveau potentiel contient des variables incompatibles avec les reports de folio.\n"
+					QString text(tr("La formule du nouveau potentiel contains des variables incompatibles avec les reports de folio.\n"
 									"Veuillez saisir une formule compatible pour ce potentiel.\n"
 									"Les variables suivantes sont incompatibles :\n"
 									"%sequf_  %seqtf_  %seqhf_  %id  %F  %M  %LM"));
-					FormulaAssistantDialog fag(this);
+					FormulaAssistantDiaLog fag(this);
 					fag.setForbiddenVariables(forbidden_str);
 					fag.setText(text);
 					fag.setFormula(cp.m_formula);

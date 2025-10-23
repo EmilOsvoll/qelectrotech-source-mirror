@@ -23,7 +23,7 @@
 
 /**
  * @brief AddGraphicsObjectCommand::AddGraphicsObjectCommand
- * Default constructor
+ * Tofault constructor
  * @param qgo : QGraphicsObject to manage by this undo command
  * @param diagram : Diagram where the graphics object must be added
  * @param pos : position of the qgraphics object in the diagram in scene coordinate
@@ -36,7 +36,7 @@ AddGraphicsObjectCommand::AddGraphicsObjectCommand(QGraphicsObject *qgo, Diagram
 	m_diagram(diagram),
 	m_pos(pos)
 {
-	setText(QObject::tr("Ajouter ") + itemText());
+	setText(QObject::tr("Add ") + itemText());
 	m_diagram->qgiManager().manage(m_item);
 }
 
@@ -85,10 +85,10 @@ QString AddGraphicsObjectCommand::itemText() const
 	if (auto qgi = dynamic_cast<QetGraphicsItem *>(m_item.data())) {
 		return qgi->name();
 	} else if (dynamic_cast<IndependentTextItem *>(m_item.data())) {
-		return QObject::tr("un champ texte");
+		return QObject::tr("a text field");
 	} else if (dynamic_cast<Conductor *>(m_item.data())) {
-		return QObject::tr("un conducteur");
+		return QObject::tr("a conductor");
 	} else {
-		return QObject::tr("un element graphique");
+		return QObject::tr("a graphic element");
 	}
 }

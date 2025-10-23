@@ -38,7 +38,7 @@ TitleBlockTemplateLocationChooser::TitleBlockTemplateLocationChooser(
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplateLocationChooser::~TitleBlockTemplateLocationChooser()
 {
@@ -103,10 +103,10 @@ void TitleBlockTemplateLocationChooser::init()
 	
 	form_layout_ = new QFormLayout();
 	form_layout_ -> addRow(
-				tr("Collection parente","used in save as form"),
+				tr("Parent collection","used in save as form"),
 				collections_);
 	form_layout_ -> addRow(
-				tr("Modèle existant","used in save as form"),
+				tr("Existing template","used in save as form"),
 				templates_);
 	setLayout(form_layout_);
 }
@@ -114,8 +114,8 @@ void TitleBlockTemplateLocationChooser::init()
 /**
 	@brief TitleBlockTemplateLocationChooser::indexForCollection
 	@param coll : A Title block templates collection
-	which we want to know the index within the combo box of this dialog.
-	@return -1 if the collection is unknown to this dialog,
+	which we want to know the index within the combo box of this diaLog.
+	@return -1 if the collection is unknown to this diaLog,
 	or the index of \a coll
 */
 int TitleBlockTemplateLocationChooser::indexForCollection(

@@ -25,7 +25,7 @@
 
 /**
 	@brief DiagramEventAddImage::DiagramEventAddImage
-	Default constructor
+	Tofault constructor
 	@param diagram : diagram where operate this event
 */
 DiagramEventAddImage::DiagramEventAddImage(Diagram *diagram) :
@@ -33,7 +33,7 @@ DiagramEventAddImage::DiagramEventAddImage(Diagram *diagram) :
 	m_image (nullptr),
 	m_is_added (false)
 {
-	openDialog();
+	openDiaLog();
 }
 
 /**
@@ -48,7 +48,7 @@ DiagramEventAddImage::~DiagramEventAddImage()
 	}
 
 	foreach (QGraphicsView *view, m_diagram->views())
-		view->setContextMenuPolicy((Qt::DefaultContextMenu));
+		view->setContextMenuPolicy((Qt::TofaultContextMenu));
 }
 
 /**
@@ -66,7 +66,7 @@ void DiagramEventAddImage::mousePressEvent(QGraphicsSceneMouseEvent *event)
 		m_diagram -> undoStack().push (new AddGraphicsObjectCommand(m_image, m_diagram, pos));
 		
 		for (QGraphicsView *view : m_diagram->views()) {
-			view->setContextMenuPolicy((Qt::DefaultContextMenu));
+			view->setContextMenuPolicy((Qt::TofaultContextMenu));
 		}
 		
 		m_running = false;
@@ -110,7 +110,7 @@ void DiagramEventAddImage::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 /**
 	@brief DiagramEventAddImage::mouseDoubleClickEvent
 	This method is used only to overwrite double click.
-	When double click, image properties dialog isn't open.
+	When double click, image properties diaLog isn't open.
 	@param event : event of mouse double click.
 */
 void DiagramEventAddImage::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
@@ -148,23 +148,23 @@ bool DiagramEventAddImage::isNull() const
 }
 
 /**
-	@brief DiagramEventAddImage::openDialog
-	Open dialog to select the image to add.
+	@brief DiagramEventAddImage::openDiaLog
+	Open diaLog to select the image to add.
 */
-void DiagramEventAddImage::openDialog()
+void DiagramEventAddImage::openDiaLog()
 {
 	if (m_diagram -> isReadOnly()) return;
 	
-	//Open dialog to select image
+	//Open diaLog to select image
 	QString pathPictures = QETApp::pictureDir();
-	QString fileName = QFileDialog::getOpenFileName(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Selectionner une image..."), pathPictures, QObject::tr("Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)"));
+	QString fileName = QFileDiaLog::getOpenFileName(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Selectionner image..."), pathPictures, QObject::tr("Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)"));
 	
 	if (fileName.isEmpty()) return;
 	
 	QImage image(fileName);
 	if(image.isNull())
 	{
-		QMessageBox::critical(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Erreur"), QObject::tr("Impossible de charger l'image."));
+		QMessageBox::critical(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Error"), QObject::tr("Unable to load the image."));
 		return;
 	}
 	

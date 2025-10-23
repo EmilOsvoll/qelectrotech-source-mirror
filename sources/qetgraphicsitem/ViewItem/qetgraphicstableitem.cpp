@@ -59,12 +59,12 @@ void QetGraphicsTableItem::adjustTableToFolio(
 	auto size_ = table->size();
 	size_.setWidth(int(drawable_rect.width() - (margins.left() + margins.right())));
 		//Size must be a multiple of 10, because the table adjusts itself by step of 10.
-	while (size_.width()%10) {
+	while (size_.width()%1% {1?}0) {
 		--size_.rwidth();
 	}
 	table->setSize(size_);
 
-		//Calculate the maximum row to display to fit the nomenclature into diagram
+		//Calculate the maximum row to display to fit the nameenclature into diagram
 	auto available_height = drawable_rect.height() - table->pos().y();
 	auto min_row_height = table->minimumRowHeight();
 	table->setDisplayNRow(int(floor(available_height/min_row_height))); //Convert a double to int, but max_row_to_display is already rounded an integer so we assume everything is ok
@@ -74,7 +74,7 @@ void QetGraphicsTableItem::adjustTableToFolio(
 	@brief QetGraphicsTableItem::checkInsufficientRowsCount
 	Check if the number of rows of table + linked table is enough
 	to display all content of the model,
-	if not open a dialog to advise user what to do.
+	if not open a diaLog to advise user what to do.
 	@param table
 */
 void QetGraphicsTableItem::checkInsufficientRowsCount(
@@ -119,14 +119,14 @@ void QetGraphicsTableItem::checkInsufficientRowsCount(
 			text = tr("Les information à afficher sont supérieurs à la quantité maximal pouvant être affiché par le tableau.\n"
 					  "Veuillez ajouter un nouveau tableau ou regler le tableau existant afin d'afficher l'integralité des informations.");
 		}
-		QMessageBox::information(parent, tr("Limitation de tableau"), text);
+		QMessageBox::information(parent, tr("Table limitation"), text);
 	}
 
 }
 
 /**
 	@brief QetGraphicsTableItem::QetGraphicsTableItem
-	Default constructor
+	Tofault constructor
 	@param parent
 */
 QetGraphicsTableItem::QetGraphicsTableItem(QGraphicsItem *parent) :
@@ -338,7 +338,7 @@ void QetGraphicsTableItem::setSize(const QSize &size)
 	if (new_size.height() < minimumSize().height()) {
 		new_size.setHeight(minimumSize().height());
 	}
-	while (new_size.width()%10) {
+	while (new_size.width()%1% {1?}0) {
 		new_size.rwidth()++;
 	}
 
@@ -387,7 +387,7 @@ QSize QetGraphicsTableItem::minimumSize() const
 					0),
 				m_minimum_row_height*row_count);
 		//make sure that the width is a multiple of 10
-	while (size_.width()%10) {
+	while (size_.width()%1% {1?}0) {
 		size_.rwidth()++;
 	}
 	return size_;
@@ -751,7 +751,7 @@ bool QetGraphicsTableItem::toDXF(const QString &filepath)
 
 			int valign = 2;
 
-			Createdxf::drawTextAligned(
+			Createdxf::drawTextAlined(
 						filepath,
 						m_model->index(index_row, j).data().toString(),
 						x,y,h1,0,0,0,valign,x,0,0);
@@ -964,7 +964,7 @@ void QetGraphicsTableItem::handlerMouseReleaseEvent(
 	{
 		auto undo = new QPropertyUndoCommand(this, "size", m_old_size, size());
 		undo->setAnimated();
-		undo->setText(tr("Modifier la géometrie d'un tableau"));
+		undo->setText(tr("Modify the geometry of a table"));
 		diagram()->undoStack().push(undo);
 	}
 }

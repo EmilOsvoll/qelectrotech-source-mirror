@@ -53,7 +53,7 @@ void SearchAndReplaceWorker::replaceDiagram(QList<Diagram *> diagram_list)
 	}
 
 	QUndoStack *us = project->undoStack();
-	us->beginMacro(QObject::tr("Chercher/remplacer les propriétés de folio"));
+	us->beginMacro(QObject::tr("Search / Replace les propriétés de folio"));
 	for (Diagram *d : diagram_list)
 	{
 		TitleBlockProperties old_propertie = d->border_and_titleblock.exportTitleBlock();
@@ -117,7 +117,7 @@ void SearchAndReplaceWorker::replaceElement(QList<Element *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Chercher/remplacer les propriétés d'éléments."));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace les propriétés d'elements."));
 	for (Element *elmt : list)
 	{
 			//We apply change only for master, slave, and terminal element.
@@ -170,7 +170,7 @@ void SearchAndReplaceWorker::replaceIndiText(QList<IndependentTextItem *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Chercher/remplacer des textes independants"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace des texts independants"));
 	for (IndependentTextItem *text : list)
 	{
 		QString before = text->toPlainText();
@@ -210,7 +210,7 @@ void SearchAndReplaceWorker::replaceConductor(QList<Conductor *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Chercher/remplacer les propriétés de conducteurs."));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace les propriétés de conducteurs."));
 	for (Conductor *c : list)
 	{
 		ConductorProperties cp = applyChange(c->properties(), m_conductor_properties);
@@ -297,7 +297,7 @@ void SearchAndReplaceWorker::replaceAdvanced(
 		return;
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Rechercher / remplacer avancé"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / remplacer advanced"));
 	if (who == 0)
 	{
 		for (Diagram *diagram : diagrams)
@@ -392,8 +392,8 @@ ConductorProperties SearchAndReplaceWorker::invalidConductorProperties()
 		//init with invalid value the conductor properties
 	cp.text_size = 0;
 	cp.text.clear();
-	cp.m_vertical_alignment = Qt::AlignAbsolute;
-	cp.m_horizontal_alignment = Qt::AlignAbsolute;
+	cp.m_vertical_alignment = Qt::AlignAbsolutete;
+	cp.m_horizontal_alignment = Qt::AlignAbsolutete;
 	cp.verti_rotate_text = -1;
 	cp.horiz_rotate_text = -1;
 	cp.color = QColor();

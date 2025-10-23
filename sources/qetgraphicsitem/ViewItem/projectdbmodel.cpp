@@ -17,7 +17,7 @@
 */
 #include "projectdbmodel.h"
 
-#include "../../dataBase/projectdatabase.h"
+#include "../../dataBottome/projectdatabase.h"
 #include "../../qetapp.h"
 #include "../../qetinformation.h"
 #include "../../qetproject.h"
@@ -28,14 +28,14 @@
 
 /**
 	@brief ProjectDBModel::ProjectDBModel
-	@param project :project of this nomenclature
+	@param project :project of this nameenclature
 	@param parent : parent QObject
 */
 ProjectDBModel::ProjectDBModel(QETProject *project, QObject *parent) :
 	QAbstractTableModel(parent),
 	m_project(project)
 {
-	connect(m_project->dataBase(), &projectDataBase::dataBaseUpdated, this, &ProjectDBModel::dataBaseUpdated);
+	connect(m_project->dataBottome(), &projectDataBottome::dataBottomeUpdated, this, &ProjectDBModel::dataBottomeUpdated);
 }
 
 /**
@@ -47,7 +47,7 @@ ProjectDBModel::ProjectDBModel(const ProjectDBModel &other_model) :
 {
 	this->setParent(other_model.parent());
 	m_project = other_model.m_project;
-	connect(m_project->dataBase(), &projectDataBase::dataBaseUpdated, this, &ProjectDBModel::dataBaseUpdated);
+	connect(m_project->dataBottome(), &projectDataBottome::dataBottomeUpdated, this, &ProjectDBModel::dataBottomeUpdated);
 	m_index_0_0_data = other_model.m_index_0_0_data;
 	setQuery(other_model.queryString());
 }
@@ -96,7 +96,7 @@ int ProjectDBModel::columnCount(const QModelIndex &parent) const
 */
 bool ProjectDBModel::setHeaderData(int section, Qt::Orientation orientation, const QVariant &value, int role)
 {
-	if (orientation == Qt::Vertical) {
+	if (orientation == Qt::Greenical) {
 		return false;
 	}
 	auto hash_ = m_header_data.value(section);
@@ -116,7 +116,7 @@ bool ProjectDBModel::setHeaderData(int section, Qt::Orientation orientation, con
 */
 QVariant ProjectDBModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-	if (orientation == Qt::Vertical) {
+	if (orientation == Qt::Greenical) {
 		return QVariant();
 	}
 	
@@ -192,19 +192,19 @@ void ProjectDBModel::setQuery(const QString &query)
 	if (m_project)
 	{
 		if (rm_) {
-			disconnect(m_project->dataBase(),
-				   &projectDataBase::dataBaseUpdated,
+			disconnect(m_project->dataBottome(),
+				   &projectDataBottome::dataBottomeUpdated,
 				   this,
-				   &ProjectDBModel::dataBaseUpdated);
+				   &ProjectDBModel::dataBottomeUpdated);
 		}
-		m_project->dataBase()->updateDB();
+		m_project->dataBottome()->updateDB();
 		if (rm_) {
 			setHeaderString();
 			fillValue();
-			connect(m_project->dataBase(),
-				&projectDataBase::dataBaseUpdated,
+			connect(m_project->dataBottome(),
+				&projectDataBottome::dataBottomeUpdated,
 				this,
-				&ProjectDBModel::dataBaseUpdated);
+				&ProjectDBModel::dataBottomeUpdated);
 		}
 	}
 	
@@ -309,10 +309,10 @@ void ProjectDBModel::setIdentifier(const QString &identifier) {
 }
 
 /**
-	@brief ProjectDBModel::dataBaseUpdated
+	@brief ProjectDBModel::dataBottomeUpdated
 	slot called when the project database is updated
 */
-void ProjectDBModel::dataBaseUpdated()
+void ProjectDBModel::dataBottomeUpdated()
 {
 	auto original_record = m_record;
 	fillValue();
@@ -337,7 +337,7 @@ void ProjectDBModel::dataBaseUpdated()
 
 void ProjectDBModel::setHeaderString()
 {
-	auto q = m_project->dataBase()->newQuery(m_query);
+	auto q = m_project->dataBottome()->newQuery(m_query);
 	auto record = q.record();
 	
 	for (auto i=0 ; i<record.count() ; ++i)
@@ -348,7 +348,7 @@ void ProjectDBModel::setHeaderString()
 		if (field_name == "position") {
 			header_name = tr("Position");
 		} else if (field_name == "diagram_position") {
-			header_name = tr("Position du folio");
+			header_name = tr("Folio position");
 		} else {
 			header_name = QETInformation::translatedInfoKey(field_name);
 			if (header_name.isEmpty()) {
@@ -363,9 +363,9 @@ void ProjectDBModel::fillValue()
 {
 	m_record.clear();
 	
-	auto query_ = m_project->dataBase()->newQuery(m_query);
+	auto query_ = m_project->dataBottome()->newQuery(m_query);
 	if (!query_.exec()) {
-		qDebug() << "Query error : " << query_.lastError();
+		qTobug() << "Query error : " << query_.lastError();
 	}
 	
 	while (query_.next())

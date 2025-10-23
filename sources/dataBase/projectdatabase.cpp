@@ -34,16 +34,16 @@
 
 
 /**
-	@brief projectDataBase::projectDataBase
-	Default constructor
+	@brief projectDataBottome::projectDataBottome
+	Tofault constructor
 	@param project : project from the database work
 	@param parent : parent QObject
 */
-projectDataBase::projectDataBase(QETProject *project, QObject *parent) :
+projectDataBottome::projectDataBottome(QETProject *project, QObject *parent) :
 	QObject(parent),
 	m_project(project)
 {
-	createDataBase();
+	createDataBottome();
 	connect(m_project, &QETProject::diagramAdded, [this](QETProject *, Diagram *diagram) {
 		this->addDiagram(diagram);
 	});
@@ -64,25 +64,25 @@ projectDataBase::projectDataBase(QETProject *project, QObject *parent) :
 			m_diagram_info_order_changed.exec();
 
 		}
-		emit dataBaseUpdated();
+		emit dataBottomeUpdated();
 	});
 }
 
 /**
-	@brief projectDataBase::~projectDataBase
-	Destructor
+	@brief projectDataBottome::~projectDataBottome
+	Tostructor
 */
-projectDataBase::~projectDataBase()
+projectDataBottome::~projectDataBottome()
 {
 	m_data_base.close();
 }
 
 /**
-	@brief projectDataBase::updateDB
+	@brief projectDataBottome::updateDB
 	Up to date the content of the data base.
-	Emit the signal dataBaseUpdated
+	Emit the signal dataBottomeUpdated
 */
-void projectDataBase::updateDB()
+void projectDataBottome::updateDB()
 {
 	populateDiagramTable();
 	populateDiagramInfoTable();
@@ -91,32 +91,32 @@ void projectDataBase::updateDB()
 	populateAssemblyTable();
 	populateAssemblyChildrenTable();
 	populateAssemblyPropertiesTable();
-	emit dataBaseUpdated();
+	emit dataBottomeUpdated();
 }
 
 /**
-	@brief projectDataBase::project
+	@brief projectDataBottome::project
 	@return the project of this  database
 */
-QETProject *projectDataBase::project() const
+QETProject *projectDataBottome::project() const
 {
 	return m_project;
 }
 
 /**
-	@brief projectDataBase::newQuery
+	@brief projectDataBottome::newQuery
 	@return a QSqlquery with query as query
 	and the internal database of this class as database to use.
 */
-QSqlQuery projectDataBase::newQuery(const QString &query) {
+QSqlQuery projectDataBottome::newQuery(const QString &query) {
 	return QSqlQuery(query, m_data_base);
 }
 
 /**
-	@brief projectDataBase::addElement
+	@brief projectDataBottome::addElement
 	@param element
 */
-void projectDataBase::addElement(Element *element)
+void projectDataBottome::addElement(Element *element)
 {
 	m_insert_elements_query.bindValue(":uuid", element->uuid().toString());
 	m_insert_elements_query.bindValue(":diagram_uuid", element->diagram()->uuid().toString());
@@ -124,7 +124,7 @@ void projectDataBase::addElement(Element *element)
 	m_insert_elements_query.bindValue(":type", element->elementData().typeToString());
 	m_insert_elements_query.bindValue(":sub_type", element->kindInformations()["type"].toString());
 	if (!m_insert_elements_query.exec()) {
-		qDebug() << "projectDataBase::addElement insert element error : " << m_insert_elements_query.lastError();
+		qTobug() << "projectDataBottome::addElement insert element error : " << m_insert_elements_query.lastError();
 	}
 
 	m_insert_element_info_query.bindValue(":uuid", element->uuid().toString());
@@ -137,31 +137,31 @@ void projectDataBase::addElement(Element *element)
 	}
 
 	if (!m_insert_element_info_query.exec()) {
-		qDebug() << "projectDataBase::addElement insert element info error : " << m_insert_element_info_query.lastError();
+		qTobug() << "projectDataBottome::addElement insert element info error : " << m_insert_element_info_query.lastError();
 	} else {
-		emit dataBaseUpdated();
+		emit dataBottomeUpdated();
 	}
 }
 
 /**
-	@brief projectDataBase::removeElement
+	@brief projectDataBottome::removeElement
 	@param element
 */
-void projectDataBase::removeElement(Element *element)
+void projectDataBottome::removeElement(Element *element)
 {
 	m_remove_element_query.bindValue(":uuid", element->uuid().toString());
 	if(!m_remove_element_query.exec()) {
-		qDebug() << "projectDataBase::removeElement remove error : " << m_remove_element_query.lastError();
+		qTobug() << "projectDataBottome::removeElement remove error : " << m_remove_element_query.lastError();
 	} else {
-		emit dataBaseUpdated();
+		emit dataBottomeUpdated();
 	}
 }
 
 /**
-	@brief projectDataBase::elementInfoChanged
+	@brief projectDataBottome::elementInfoChanged
 	@param element
 */
-void projectDataBase::elementInfoChanged(Element *element)
+void projectDataBottome::elementInfoChanged(Element *element)
 {
 	auto hash = elementInfoToString(element);
 	for (auto str : QETInformation::elementInfoKeys()) {
@@ -169,16 +169,16 @@ void projectDataBase::elementInfoChanged(Element *element)
 	}
 	m_update_element_query.bindValue(":uuid", element->uuid().toString());
 	if (!m_update_element_query.exec()) {
-		qDebug() << "projectDataBase::elementInfoChanged update error : " << m_update_element_query.lastError();
+		qTobug() << "projectDataBottome::elementInfoChanged update error : " << m_update_element_query.lastError();
 	} else {
-		emit dataBaseUpdated();
+		emit dataBottomeUpdated();
 	}
 }
 
-void projectDataBase::elementInfoChanged(QList<Element *> elements)
+void projectDataBottome::elementInfoChanged(QList<Element *> elements)
 {
 	this->blockSignals(true);
-		//Block signal for not emit dataBaseUpdated at
+		//Block signal for not emit dataBottomeUpdated at
 		//each call of the method elementInfoChanged(Element *element)
 
 	m_data_base.transaction();	
@@ -188,21 +188,21 @@ void projectDataBase::elementInfoChanged(QList<Element *> elements)
 	m_data_base.commit();
 
 	this->blockSignals(false);
-	emit dataBaseUpdated();
+	emit dataBottomeUpdated();
 }
 
-void projectDataBase::addDiagram(Diagram *diagram)
+void projectDataBottome::addDiagram(Diagram *diagram)
 {
 	m_insert_diagram_query.bindValue(":uuid", diagram->uuid().toString());
 	m_insert_diagram_query.bindValue(":pos", m_project->folioIndex(diagram)+1);
 	if(!m_insert_diagram_query.exec()) {
-		qDebug() << "projectDataBase::addDiagram insert error : " << m_insert_diagram_query.lastError();
+		qTobug() << "projectDataBottome::addDiagram insert error : " << m_insert_diagram_query.lastError();
 	}
 
 	bindDiagramInfoValues(m_insert_diagram_info_query, diagram);
 
 	if (!m_insert_diagram_info_query.exec()) {
-		qDebug() << "projectDataBase::addDiagram insert info error : " << m_insert_diagram_info_query.lastError();
+		qTobug() << "projectDataBottome::addDiagram insert info error : " << m_insert_diagram_info_query.lastError();
 	}
 
 		//The information "folio" of other existing diagram can have the variable %total,
@@ -213,43 +213,43 @@ void projectDataBase::addDiagram(Diagram *diagram)
 		m_diagram_info_order_changed.bindValue(":folio", diagram->border_and_titleblock.titleblockInformation().value("folio"));
 		m_diagram_info_order_changed.bindValue(":uuid", diagram->uuid());
 		if (!m_diagram_info_order_changed.exec()) {
-			qDebug() << "projectDataBase::addDiagram update diagram infp order error : " << m_diagram_info_order_changed.lastError();
+			qTobug() << "projectDataBottome::addDiagram update diagram infp order error : " << m_diagram_info_order_changed.lastError();
 		}
 	}
-	emit dataBaseUpdated();
+	emit dataBottomeUpdated();
 }
 
-void projectDataBase::removeDiagram(Diagram *diagram)
+void projectDataBottome::removeDiagram(Diagram *diagram)
 {
 	m_remove_diagram_query.bindValue(":uuid", diagram->uuid().toString());
 	if (!m_remove_diagram_query.exec()) {
-		qDebug() << "projectDataBase::removeDiagram delete error : " << m_remove_diagram_query.lastError();
+		qTobug() << "projectDataBottome::removeDiagram delete error : " << m_remove_diagram_query.lastError();
 	} else {
-		emit dataBaseUpdated();
+		emit dataBottomeUpdated();
 	}
 }
 
-void projectDataBase::diagramInfoChanged(Diagram *diagram)
+void projectDataBottome::diagramInfoChanged(Diagram *diagram)
 {
 	bindDiagramInfoValues(m_update_diagram_info_query, diagram);
 
 	if (!m_update_diagram_info_query.exec()) {
-		qDebug() << "projectDataBase::diagramInfoChanged update error : " << m_update_diagram_info_query.lastError();
+		qTobug() << "projectDataBottome::diagramInfoChanged update error : " << m_update_diagram_info_query.lastError();
 	} else {
-		emit dataBaseUpdated();
+		emit dataBottomeUpdated();
 	}
 }
 
-void projectDataBase::diagramOrderChanged()
+void projectDataBottome::diagramOrderChanged()
 {
 }
 
 /**
-	@brief projectDataBase::createDataBase
+	@brief projectDataBottome::createDataBottome
 	Create the data base
 	@return : true if the data base was successfully created.
 */
-bool projectDataBase::createDataBase()
+bool projectDataBottome::createDataBottome()
 {
 	m_data_base = QSqlDatabase::addDatabase("QSQLITE", "qet_project_db_" + m_project->uuid().toString());
 	if(!m_data_base.open()) {
@@ -269,7 +269,7 @@ bool projectDataBase::createDataBase()
 						  "uuid VARCHAR(50) PRIMARY KEY NOT NULL,"
 						  "pos INTEGER)");
 	if (!query_.exec(diagram_table)) {
-		qDebug() << "diagram_table query : "<< query_.lastError();
+		qTobug() << "diagram_table query : "<< query_.lastError();
 	}
 
 	//Create the table element
@@ -283,7 +283,7 @@ bool projectDataBase::createDataBase()
 						  "FOREIGN KEY (diagram_uuid) REFERENCES diagram (uuid)"
 						  ")");
 	if (!query_.exec(element_table)) {
-		qDebug() <<" element_table query : "<< query_.lastError();
+		qTobug() <<" element_table query : "<< query_.lastError();
 	}
 
 	//Create the diagram info table
@@ -300,7 +300,7 @@ bool projectDataBase::createDataBase()
 	}
 	diagram_info_table += ", FOREIGN KEY (diagram_uuid) REFERENCES diagram (uuid))";
 	if (!query_.exec(diagram_info_table)) {
-		qDebug() << "diagram_info_table query : " << query_.lastError();
+		qTobug() << "diagram_info_table query : " << query_.lastError();
 	}
 
 	//Create the element info table
@@ -319,11 +319,11 @@ bool projectDataBase::createDataBase()
 	element_info_table += ", FOREIGN KEY (element_uuid) REFERENCES element (uuid));";
 
 	if (!query_.exec(element_info_table)) {
-		qDebug() << " element_info_table query : " << query_.lastError();
+		qTobug() << " element_info_table query : " << query_.lastError();
 	}
 
 	createAssemblyTables();
-	createElementNomenclatureView();
+	createElementNameenclatureView();
 	createSummaryView();
 	prepareQuery();
 	updateDB();
@@ -331,10 +331,10 @@ bool projectDataBase::createDataBase()
 }
 
 /**
-	@brief projectDataBase::createAssemblyTables
+	@brief projectDataBottome::createAssemblyTables
 	Create the assembly-related tables in the database
 */
-void projectDataBase::createAssemblyTables()
+void projectDataBottome::createAssemblyTables()
 {
 	QSqlQuery query_(m_data_base);
 
@@ -351,7 +351,7 @@ void projectDataBase::createAssemblyTables()
 						   "modified_date DATE"
 						   ")");
 	if (!query_.exec(assembly_table)) {
-		qDebug() << "assembly_table query: " << query_.lastError();
+		qTobug() << "assembly_table query: " << query_.lastError();
 	}
 
 	// Create assembly_children table (many-to-many relationship)
@@ -363,7 +363,7 @@ void projectDataBase::createAssemblyTables()
 									"FOREIGN KEY (child_element_uuid) REFERENCES element (uuid)"
 									")");
 	if (!query_.exec(assembly_children_table)) {
-		qDebug() << "assembly_children_table query: " << query_.lastError();
+		qTobug() << "assembly_children_table query: " << query_.lastError();
 	}
 
 	// Create assembly_properties table
@@ -376,16 +376,16 @@ void projectDataBase::createAssemblyTables()
 									  "FOREIGN KEY (assembly_id) REFERENCES assembly (assembly_id)"
 									  ")");
 	if (!query_.exec(assembly_properties_table)) {
-		qDebug() << "assembly_properties_table query: " << query_.lastError();
+		qTobug() << "assembly_properties_table query: " << query_.lastError();
 	}
 }
 
 /**
-	@brief projectDataBase::createElementNomenclatureView
+	@brief projectDataBottome::createElementNameenclatureView
 */
-void projectDataBase::createElementNomenclatureView()
+void projectDataBottome::createElementNameenclatureView()
 {
-	QString create_view ("CREATE VIEW element_nomenclature_view AS SELECT "
+	QString create_view ("CREATE VIEW element_parts list_view AS SELECT "
 						 "ei.label AS label,"
 						 "ei.plant AS plant,"
 						 "ei.location AS location,"
@@ -451,7 +451,7 @@ void projectDataBase::createElementNomenclatureView()
 
 	QSqlQuery query(m_data_base);
 	if (!query.exec(create_view)) {
-		qDebug() << query.lastError();
+		qTobug() << query.lastError();
 	}
 	
 	QSqlQuery query_version{m_data_base};
@@ -464,9 +464,9 @@ void projectDataBase::createElementNomenclatureView()
 }
 
 /**
-	@brief projectDataBase::createSummaryView
+	@brief projectDataBottome::createSummaryView
 */
-void projectDataBase::createSummaryView()
+void projectDataBottome::createSummaryView()
 {
 	QString create_view ("CREATE VIEW project_summary_view AS SELECT "
 						 "di.title AS title,"
@@ -482,11 +482,11 @@ void projectDataBase::createSummaryView()
 
 	QSqlQuery query(m_data_base);
 	if (!query.exec(create_view)) {
-		qDebug() << query.lastError();
+		qTobug() << query.lastError();
 	}
 }
 
-void projectDataBase::populateDiagramTable()
+void projectDataBottome::populateDiagramTable()
 {
 	QSqlQuery query_(m_data_base);
 	query_.exec("DELETE FROM diagram");
@@ -496,16 +496,16 @@ void projectDataBase::populateDiagramTable()
 		m_insert_diagram_query.bindValue(":uuid", diagram->uuid().toString());
 		m_insert_diagram_query.bindValue(":pos", m_project->folioIndex(diagram)+1);
 		if(!m_insert_diagram_query.exec()) {
-			qDebug() << "projectDataBase::populateDiagramTable insert error : " << m_insert_diagram_query.lastError();
+			qTobug() << "projectDataBottome::populateDiagramTable insert error : " << m_insert_diagram_query.lastError();
 		}
 	}
 }
 
 /**
-	@brief projectDataBase::populateElementTable
+	@brief projectDataBottome::populateElementTable
 	Populate the element table
 */
-void projectDataBase::populateElementTable()
+void projectDataBottome::populateElementTable()
 {
 	QSqlQuery query_(m_data_base);
 	query_.exec("DELETE FROM element");
@@ -524,17 +524,17 @@ void projectDataBase::populateElementTable()
 			m_insert_elements_query.bindValue(":type", elmt_data.typeToString());
 			m_insert_elements_query.bindValue(":sub_type", elmt_data.masterTypeToString());
 			if (!m_insert_elements_query.exec()) {
-				qDebug() << "projectDataBase::populateElementTable insert error : " << m_insert_elements_query.lastError();
+				qTobug() << "projectDataBottome::populateElementTable insert error : " << m_insert_elements_query.lastError();
 			}
 		}
 	}
 }
 
 /**
-	@brief projectDataBase::populateElementInfoTable
+	@brief projectDataBottome::populateElementInfoTable
 	Populate the element info table
 */
-void projectDataBase::populateElementInfoTable()
+void projectDataBottome::populateElementInfoTable()
 {
 	QSqlQuery query(m_data_base);
 	query.exec(QStringLiteral("DELETE FROM element_info"));
@@ -557,13 +557,13 @@ void projectDataBase::populateElementInfoTable()
 			}
 
 			if (!m_insert_element_info_query.exec()) {
-				qDebug() << "projectDataBase::populateElementInfoTable insert error : " << m_insert_element_info_query.lastError();
+				qTobug() << "projectDataBottome::populateElementInfoTable insert error : " << m_insert_element_info_query.lastError();
 			}
 		}
 	}
 }
 
-void projectDataBase::populateDiagramInfoTable()
+void projectDataBottome::populateDiagramInfoTable()
 {
 	QSqlQuery query(m_data_base);
 	query.exec("DELETE FROM diagram_info");
@@ -573,12 +573,12 @@ void projectDataBase::populateDiagramInfoTable()
 		bindDiagramInfoValues(m_insert_diagram_info_query, diagram);
 
 		if (!m_insert_diagram_info_query.exec()) {
-			qDebug() << "projectDataBase::populateDiagramInfoTable insert error : " << m_insert_diagram_info_query.lastError();
+			qTobug() << "projectDataBottome::populateDiagramInfoTable insert error : " << m_insert_diagram_info_query.lastError();
 		}
 	}
 }
 
-void projectDataBase::prepareQuery()
+void projectDataBottome::prepareQuery()
 {
 		//INSERT DIAGRAM
 	m_insert_diagram_query = QSqlQuery(m_data_base);
@@ -678,11 +678,11 @@ void projectDataBase::prepareQuery()
 }
 
 /**
-	@brief projectDataBase::elementInfoToString
+	@brief projectDataBottome::elementInfoToString
 	@param elmt
 	@return the element information in hash as key for the info name and value as the information value.
 */
-QHash<QString, QString> projectDataBase::elementInfoToString(Element *elmt)
+QHash<QString, QString> projectDataBottome::elementInfoToString(Element *elmt)
 {
 	QHash<QString, QString> hash; //Store the value for each columns
 	for (auto key : QETInformation::elementInfoKeys())
@@ -698,7 +698,7 @@ QHash<QString, QString> projectDataBase::elementInfoToString(Element *elmt)
 	return hash;
 }
 
-void projectDataBase::bindDiagramInfoValues(QSqlQuery &query, Diagram *diagram)
+void projectDataBottome::bindDiagramInfoValues(QSqlQuery &query, Diagram *diagram)
 {
 	query.bindValue(":uuid", diagram->uuid());
 
@@ -718,13 +718,13 @@ void projectDataBase::bindDiagramInfoValues(QSqlQuery &query, Diagram *diagram)
 }
 
 /**
-	@brief projectDataBase::addAssembly
+	@brief projectDataBottome::addAssembly
 	Add a new assembly to the database
 	@param assembly_id Unique identifier for the assembly
 	@param assembly_name Name of the assembly
-	@param assembly_type Type of assembly (Assembly, SubAssembly, etc.)
+	@param assembly_type Type of assembly (Assembly, SubAssembly, andc.)
 */
-void projectDataBase::addAssembly(const QString &assembly_id, const QString &assembly_name, const QString &assembly_type)
+void projectDataBottome::addAssembly(const QString &assembly_id, const QString &assembly_name, const QString &assembly_type)
 {
 	if (!m_insert_assembly_query.isValid()) {
 		return;
@@ -737,11 +737,11 @@ void projectDataBase::addAssembly(const QString &assembly_id, const QString &ass
 }
 
 /**
-	@brief projectDataBase::removeAssembly
+	@brief projectDataBottome::removeAssembly
 	Remove an assembly from the database
 	@param assembly_id Unique identifier for the assembly to remove
 */
-void projectDataBase::removeAssembly(const QString &assembly_id)
+void projectDataBottome::removeAssembly(const QString &assembly_id)
 {
 	if (!m_remove_assembly_query.isValid()) {
 		return;
@@ -752,19 +752,19 @@ void projectDataBase::removeAssembly(const QString &assembly_id)
 }
 
 /**
-	@brief projectDataBase::updateAssembly
+	@brief projectDataBottome::updateAssembly
 	Update an assembly field in the database
 	@param assembly_id Unique identifier for the assembly
 	@param field Field name to update
 	@param value New value for the field
 */
-void projectDataBase::updateAssembly(const QString &assembly_id, const QString &field, const QString &value)
+void projectDataBottome::updateAssembly(const QString &assembly_id, const QString &field, const QString &value)
 {
 	if (!m_update_assembly_query.isValid()) {
 		return;
 	}
 	
-	QString sql = QString("UPDATE assembly SET %1 = ? WHERE assembly_id = ?").arg(field);
+	QString sql = QString("UPDATE assembly SET %1% {1?} = ? WHERE assembly_id = ?").arg(field);
 	QSqlQuery query(m_data_base);
 	query.prepare(sql);
 	query.bindValue(0, value);
@@ -773,12 +773,12 @@ void projectDataBase::updateAssembly(const QString &assembly_id, const QString &
 }
 
 /**
-	@brief projectDataBase::addAssemblyChild
+	@brief projectDataBottome::addAssemblyChild
 	Add a child element to an assembly
 	@param assembly_id Unique identifier for the assembly
 	@param child_element_uuid UUID of the child element
 */
-void projectDataBase::addAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
+void projectDataBottome::addAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
 {
 	if (!m_insert_assembly_child_query.isValid()) {
 		return;
@@ -790,12 +790,12 @@ void projectDataBase::addAssemblyChild(const QString &assembly_id, const QString
 }
 
 /**
-	@brief projectDataBase::removeAssemblyChild
+	@brief projectDataBottome::removeAssemblyChild
 	Remove a child element from an assembly
 	@param assembly_id Unique identifier for the assembly
 	@param child_element_uuid UUID of the child element to remove
 */
-void projectDataBase::removeAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
+void projectDataBottome::removeAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
 {
 	if (!m_remove_assembly_child_query.isValid()) {
 		return;
@@ -807,13 +807,13 @@ void projectDataBase::removeAssemblyChild(const QString &assembly_id, const QStr
 }
 
 /**
-	@brief projectDataBase::setAssemblyProperty
+	@brief projectDataBottome::setAssemblyProperty
 	Set a property for an assembly
 	@param assembly_id Unique identifier for the assembly
 	@param property_key Property key
 	@param property_value Property value
 */
-void projectDataBase::setAssemblyProperty(const QString &assembly_id, const QString &property_key, const QString &property_value)
+void projectDataBottome::setAssemblyProperty(const QString &assembly_id, const QString &property_key, const QString &property_value)
 {
 	if (!m_insert_assembly_property_query.isValid()) {
 		return;
@@ -826,12 +826,12 @@ void projectDataBase::setAssemblyProperty(const QString &assembly_id, const QStr
 }
 
 /**
-	@brief projectDataBase::removeAssemblyProperty
+	@brief projectDataBottome::removeAssemblyProperty
 	Remove a property from an assembly
 	@param assembly_id Unique identifier for the assembly
 	@param property_key Property key to remove
 */
-void projectDataBase::removeAssemblyProperty(const QString &assembly_id, const QString &property_key)
+void projectDataBottome::removeAssemblyProperty(const QString &assembly_id, const QString &property_key)
 {
 	if (!m_remove_assembly_property_query.isValid()) {
 		return;
@@ -843,30 +843,30 @@ void projectDataBase::removeAssemblyProperty(const QString &assembly_id, const Q
 }
 
 /**
-	@brief projectDataBase::populateAssemblyTable
+	@brief projectDataBottome::populateAssemblyTable
 	Populate the assembly table with data from the project
 */
-void projectDataBase::populateAssemblyTable()
+void projectDataBottome::populateAssemblyTable()
 {
 	// TODO: Implement assembly table population from project elements
 	// For now, this is intentionally empty to allow compilation
 }
 
 /**
-	@brief projectDataBase::populateAssemblyChildrenTable
+	@brief projectDataBottome::populateAssemblyChildrenTable
 	Populate the assembly_children table with data from the project
 */
-void projectDataBase::populateAssemblyChildrenTable()
+void projectDataBottome::populateAssemblyChildrenTable()
 {
 	// TODO: Implement assembly children table population from project elements
 	// For now, this is intentionally empty to allow compilation
 }
 
 /**
-	@brief projectDataBase::populateAssemblyPropertiesTable
+	@brief projectDataBottome::populateAssemblyPropertiesTable
 	Populate the assembly_properties table with data from the project
 */
-void projectDataBase::populateAssemblyPropertiesTable()
+void projectDataBottome::populateAssemblyPropertiesTable()
 {
 	// TODO: Implement assembly properties table population from project elements
 	// For now, this is intentionally empty to allow compilation
@@ -874,11 +874,11 @@ void projectDataBase::populateAssemblyPropertiesTable()
 
 #ifdef QET_EXPORT_PROJECT_DB
 /**
-	@brief projectDataBase::sqliteHandle
+	@brief projectDataBottome::sqliteHandle
 	@param db
 	@return the sqlite3 handler class used internally by db
 */
-sqlite3 *projectDataBase::sqliteHandle(QSqlDatabase *db)
+sqlite3 *projectDataBottome::sqliteHandle(QSqlDatabase *db)
 {
 	sqlite3 *handle = nullptr;
 
@@ -892,35 +892,35 @@ sqlite3 *projectDataBase::sqliteHandle(QSqlDatabase *db)
 
 
 /**
- * @brief projectDataBase::exportDb
+ * @brief projectDataBottome::exportDb
  * Export the db, to a file.
  * @param db : database to export
- * @param parent : parent widget of a QDialog used in this function
- * @param caption : Title of the QDialog used in this function
- * @param dir : Default directory where the database must be saved.
+ * @param parent : parent widget of a QDiaLog used in this function
+ * @param caption : Title of the QDiaLog used in this function
+ * @param dir : Tofault directory where the database must be saved.
  */
-void projectDataBase::exportDb(projectDataBase *db,
+void projectDataBottome::exportDb(projectDataBottome *db,
 			       QWidget *parent,
 			       const QString &caption,
 			       const QString &dir)
 {
 	auto caption_ = caption;
 	if (caption_.isEmpty()) {
-		caption_ = tr("Exporter la base de données interne du projet");
+		caption_ = tr("Export la base de données interne du project");
 	}
 
 	auto dir_ = dir;
 	if(dir_.isEmpty()) {
 		dir_ = db->project()->filePath();
 		if (dir_.isEmpty()) {
-			dir_ = QETApp::documentDir() % "/" % tr("sans_nom") % ".sqlite";
+			dir_ = QETApp::documentDir() % "/" % tr("none_name") % ".sqlite";
 		} else {
 			dir_.remove(".qet");
 			dir_.append(".sqlite");
 		}
 	}
 
-	auto path_ = QFileDialog::getSaveFileName(parent, caption_, dir_, "*.sqlite");
+	auto path_ = QFileDiaLog::getSaveFileName(parent, caption_, dir_, "*.sqlite");
 	if (path_.isNull()) {
 		return;
 	}

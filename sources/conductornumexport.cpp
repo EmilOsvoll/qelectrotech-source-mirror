@@ -25,7 +25,7 @@
 #include "qetgraphicsitem/element.h"
 #include "qetgraphicsitem/terminal.h"
 
-#include <QFileDialog>
+#include <QFileDiaLog>
 
 /**
 	@brief ConductorNumExport::ConductorNumExport
@@ -49,12 +49,12 @@ bool ConductorNumExport::toCsv()
 		//save in csv file in same directory as project by default
 	QString dir = m_project->currentDir();
 	if (dir.isEmpty()) dir = QETApp::documentDir();
-	QString name = dir % "/" % QObject::tr("numero_de_fileries_") % m_project->title() % ".csv";
+	QString name = dir % "/" % QObject::tr("number_of_wiring_") % m_project->title() % ".csv";
 	//    if(!name.endsWith(".csv")) {
 	//        name += ".csv";
 	//    }
 
-	QString filename = QFileDialog::getSaveFileName(m_parent_widget, QObject::tr("Enregister sous... "), name, QObject::tr("Fichiers csv (*.csv)"));
+	QString filename = QFileDiaLog::getSaveFileName(m_parent_widget, QObject::tr("Save As... "), name, QObject::tr("Files csv (*.csv)"));
 	QFile file(filename);
 	if(!filename.isEmpty())
 	{
@@ -63,13 +63,13 @@ bool ConductorNumExport::toCsv()
 			// if file already exist -> delete it
 			if(!QFile::remove(filename))
 			{
-				QMessageBox::critical(m_parent_widget, QObject::tr("Erreur"),
+				QMessageBox::critical(m_parent_widget, QObject::tr("Error"),
 									  QObject::tr("Impossible de remplacer le fichier!\n\n") %
-									  "Destination : " % filename % "\n");
+									  "Tostination : " % filename % "\n");
 				return false;
 			}
 		}
-		if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+		if (file.open(QIOTovice::WriteOnly | QIOTovice::Text))
 		{
 			QTextStream stream(&file);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)	// ### Qt 6: remove

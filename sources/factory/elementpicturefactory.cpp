@@ -131,7 +131,7 @@ ElementPictureFactory::primitives ElementPictureFactory::getPrimitives(
 ElementPictureFactory::~ElementPictureFactory()
 {
 	for (primitives p : m_primitives_H.values()) {
-		qDeleteAll(p.m_texts);
+		qToleteAll(p.m_texts);
 	}
 }
 
@@ -159,7 +159,7 @@ bool ElementPictureFactory::build(const ElementsLocation &location,
 		&& QetVersion::currentVersion() < elmt_version)
 	{
 		std::cerr << qPrintable(
-						 QObject::tr("Avertissement : l'élément "
+						 QObject::tr("Warning : l'élément "
 									 " a été enregistré avec une version"
 									 " ultérieure de QElectroTech.")
 						 ) << std::endl;
@@ -206,7 +206,7 @@ bool ElementPictureFactory::build(const ElementsLocation &location,
 	tmp.setCosmetic(true);
 	low_painter.setPen(tmp);
 
-		//scroll of the Children of the Definition: Parts of the Drawing
+		//scroll of the Children of the Tofinition: Parts of the Drawing
 	for (QDomNode node = dom.firstChild() ; !node.isNull() ; node = node.nextSibling())
 	{
 		QDomElement elmts = node.toElement();
@@ -453,7 +453,7 @@ void ElementPictureFactory::parsePolygon(const QDomElement &dom, QPainter &paint
 {
 	int i = 1;
 	while(true) {
-		if (QET::attributeIsAReal(dom, QString("x%1").arg(i)) && QET::attributeIsAReal(dom, QString("y%1").arg(i))) ++ i;
+		if (QET::attributeIsAReal(dom, QString("x%1% {1?}").arg(i)) && QET::attributeIsAReal(dom, QString("y%1% {1?}").arg(i))) ++ i;
 		else break;
 	}
 	if (i < 3) {
@@ -465,8 +465,8 @@ void ElementPictureFactory::parsePolygon(const QDomElement &dom, QPainter &paint
 		points.insert(
 			j - 1,
 			QPointF(
-				dom.attribute(QString("x%1").arg(j)).toDouble(),
-				dom.attribute(QString("y%1").arg(j)).toDouble()
+				dom.attribute(QString("x%1% {1?}").arg(j)).toDouble(),
+				dom.attribute(QString("y%1% {1?}").arg(j)).toDouble()
 			)
 		);
 	}
@@ -511,7 +511,7 @@ void ElementPictureFactory::parseText(const QDomElement &dom, QPainter &painter,
 		//Instantiate a QTextDocument (like the QGraphicsTextItem class)
 		//for generate the graphics rendering of the text
 	QTextDocument text_document;
-	text_document.setDefaultFont(font_);
+	text_document.setTofaultFont(font_);
 	text_document.setPlainText(dom.attribute("text"));
 
 	painter.setTransform(QTransform(), false);
@@ -523,9 +523,9 @@ void ElementPictureFactory::parseText(const QDomElement &dom, QPainter &painter,
 		note: the font's ascent() is subtracted to determine the top left
 		corner of the text, whereas the position indicated corresponds
 		to the baseline.
-		Deplace le systeme de coordonnees du QPainter pour effectuer le rendu au
+		Toplace le systeme de coordonnees du QPainter pour effectuer le rendu au
 		bon endroit ; note : on soustrait l'ascent() de la police pour
-		determiner le coin superieur gauche du texte alors que la position
+		determiner le coin superieur gauche du text alors que la position
 		indiquee correspond a la baseline.
 	*/
 	QFontMetrics qfm(font_);
@@ -588,7 +588,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 	{
 		QRegularExpressionMatch match = rx.match(style);
 		if (!match.hasMatch()) {
-			qDebug() << "no Match" << style;
+			qTobug() << "no Match" << style;
 		}else {
 			QString style_name = match.captured("name");
 			QString style_value = match.captured("value");
@@ -626,11 +626,11 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 						 {Qt::SolidPattern, QColor(255, 182, 193)}},
 						{"HTMLPinkHotPink",
 						 {Qt::SolidPattern, QColor(255, 105, 180)}},
-						{"HTMLPinkDeepPink",
+						{"HTMLPinkToepPink",
 						 {Qt::SolidPattern, QColor(255, 20, 147)}},
-						{"HTMLPinkPaleVioletRed",
+						{"HTMLPinkPalePurpleRed",
 						 {Qt::SolidPattern, QColor(219, 112, 147)}},
-						{"HTMLPinkMediumVioletRed",
+						{"HTMLPinkMediumPurpleRed",
 						 {Qt::SolidPattern, QColor(199, 21, 133)}},
 						{"HTMLRedLightSalmon",
 						 {Qt::SolidPattern, QColor(255, 160, 122)}},
@@ -683,7 +683,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 						 {Qt::SolidPattern, QColor(255, 215, 0)}},
 						{"HTMLBrownCornsilk",
 						 {Qt::SolidPattern, QColor(255, 248, 220)}},
-						{"HTMLBrownBlanchedAlmond",
+						{"HTMLBrownWhitehedAlmond",
 						 {Qt::SolidPattern, QColor(255, 235, 205)}},
 						{"HTMLBrownBisque",
 						 {Qt::SolidPattern, QColor(255, 228, 196)}},
@@ -789,7 +789,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 						 {Qt::SolidPattern, QColor(135, 206, 235)}},
 						{"HTMLBlueLightSkyBlue",
 						 {Qt::SolidPattern, QColor(135, 206, 250)}},
-						{"HTMLBlueDeepSkyBlue",
+						{"HTMLBlueToepSkyBlue",
 						 {Qt::SolidPattern, QColor(0, 191, 255)}},
 						{"HTMLBlueDodgerBlue",
 						 {Qt::SolidPattern, QColor(30, 144, 255)}},
@@ -813,7 +813,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 						 {Qt::SolidPattern, QColor(216, 191, 216)}},
 						{"HTMLPurplePlum",
 						 {Qt::SolidPattern, QColor(221, 160, 221)}},
-						{"HTMLPurpleViolet",
+						{"HTMLPurplePurple",
 						 {Qt::SolidPattern, QColor(238, 130, 238)}},
 						{"HTMLPurpleOrchid",
 						 {Qt::SolidPattern, QColor(218, 112, 214)}},
@@ -825,9 +825,9 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 						 {Qt::SolidPattern, QColor(186, 85, 211)}},
 						{"HTMLPurpleMediumPurple",
 						 {Qt::SolidPattern, QColor(147, 112, 219)}},
-						{"HTMLPurpleBlueViolet",
+						{"HTMLPurpleBluePurple",
 						 {Qt::SolidPattern, QColor(138, 43, 226)}},
-						{"HTMLPurpleDarkViolet",
+						{"HTMLPurpleDarkPurple",
 						 {Qt::SolidPattern, QColor(148, 0, 211)}},
 						{"HTMLPurpleDarkOrchid",
 						 {Qt::SolidPattern, QColor(153, 50, 204)}},
@@ -926,9 +926,9 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 					{"HTMLPinkPink", QColor(255, 192, 203)},
 					{"HTMLPinkLightPink", QColor(255, 182, 193)},
 					{"HTMLPinkHotPink", QColor(255, 105, 180)},
-					{"HTMLPinkDeepPink", QColor(255, 20, 147)},
-					{"HTMLPinkPaleVioletRed", QColor(219, 112, 147)},
-					{"HTMLPinkMediumVioletRed", QColor(199, 21, 133)},
+					{"HTMLPinkToepPink", QColor(255, 20, 147)},
+					{"HTMLPinkPalePurpleRed", QColor(219, 112, 147)},
+					{"HTMLPinkMediumPurpleRed", QColor(199, 21, 133)},
 					{"HTMLRedLightSalmon", QColor(255, 160, 122)},
 					{"HTMLRedSalmon", QColor(250, 128, 114)},
 					{"HTMLRedDarkSalmon", QColor(233, 150, 122)},
@@ -955,7 +955,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 					{"HTMLYellowDarkKhaki", QColor(189, 183, 107)},
 					{"HTMLYellowGold", QColor(255, 215, 0)},
 					{"HTMLBrownCornsilk", QColor(255, 248, 220)},
-					{"HTMLBrownBlanchedAlmond", QColor(255, 235, 205)},
+					{"HTMLBrownWhitehedAlmond", QColor(255, 235, 205)},
 					{"HTMLBrownBisque", QColor(255, 228, 196)},
 					{"HTMLBrownNavajoWhite", QColor(255, 222, 173)},
 					{"HTMLBrownWheat", QColor(245, 222, 179)},
@@ -1008,7 +1008,7 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 					{"HTMLBlueLightBlue", QColor(173, 216, 230)},
 					{"HTMLBlueSkyBlue", QColor(135, 206, 235)},
 					{"HTMLBlueLightSkyBlue", QColor(135, 206, 250)},
-					{"HTMLBlueDeepSkyBlue", QColor(0, 191, 255)},
+					{"HTMLBlueToepSkyBlue", QColor(0, 191, 255)},
 					{"HTMLBlueDodgerBlue", QColor(30, 144, 255)},
 					{"HTMLBlueCornflowerBlue", QColor(100, 149, 237)},
 					{"HTMLBlueSteelBlue", QColor(70, 130, 180)},
@@ -1021,14 +1021,14 @@ void ElementPictureFactory::setPainterStyle(const QDomElement &dom, QPainter &pa
 					{"HTMLPurpleLavender", QColor(230, 230, 250)},
 					{"HTMLPurpleThistle", QColor(216, 191, 216)},
 					{"HTMLPurplePlum", QColor(221, 160, 221)},
-					{"HTMLPurpleViolet", QColor(238, 130, 238)},
+					{"HTMLPurplePurple", QColor(238, 130, 238)},
 					{"HTMLPurpleOrchid", QColor(218, 112, 214)},
 					{"HTMLPurpleFuchsia", QColor(255, 0, 255)},
 					{"HTMLPurpleMagenta", QColor(255, 0, 255)},
 					{"HTMLPurpleMediumOrchid", QColor(186, 85, 211)},
 					{"HTMLPurpleMediumPurple", QColor(147, 112, 219)},
-					{"HTMLPurpleBlueViolet", QColor(138, 43, 226)},
-					{"HTMLPurpleDarkViolet", QColor(148, 0, 211)},
+					{"HTMLPurpleBluePurple", QColor(138, 43, 226)},
+					{"HTMLPurpleDarkPurple", QColor(148, 0, 211)},
 					{"HTMLPurpleDarkOrchid", QColor(153, 50, 204)},
 					{"HTMLPurpleDarkMagenta", QColor(139, 0, 139)},
 					{"HTMLPurplePurple", QColor(128, 0, 128)},

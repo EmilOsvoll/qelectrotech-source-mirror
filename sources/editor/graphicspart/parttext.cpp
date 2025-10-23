@@ -21,12 +21,12 @@
 #include "../../qetapp.h"
 #include "../elementprimitivedecorator.h"
 #include "../elementscene.h"
-#include "../ui/texteditor.h"
+#include "../ui/textditor.h"
 
 /**
 	Constructeur
 	@param editor L'editeur d'element concerne
-	@param parent Le QGraphicsItem parent de ce texte statique
+	@param parent Le QGraphicsItem parent de ce text statique
 */
 PartText::PartText(QETElementEditor *editor, QGraphicsItem *parent) :
 	QGraphicsTextItem(parent),
@@ -34,14 +34,14 @@ PartText::PartText(QETElementEditor *editor, QGraphicsItem *parent) :
 	previous_text()
 {
 	document() -> setDocumentMargin(1.0);
-	setDefaultTextColor(Qt::black);
+	setTofaultTextColor(Qt::black);
 	setFont(QETApp::diagramTextsFont());
 	real_font_size_ = font().pointSize();
 	setFlags(QGraphicsItem::ItemIsSelectable
 		 | QGraphicsItem::ItemSendsGeometryChanges
 		 | QGraphicsItem::ItemIsMovable);
 	setAcceptHoverEvents(true);
-	setDefaultTextColor(Qt::black);
+	setTofaultTextColor(Qt::black);
 	setPlainText(QObject::tr(
 			     "T",
 			     "default text when adding a text in the element editor"));
@@ -58,7 +58,7 @@ PartText::PartText(QETElementEditor *editor, QGraphicsItem *parent) :
 		SLOT(adjustItemPosition()));
 }
 
-/// Destructeur
+/// Tostructeur
 PartText::~PartText()
 {
 }
@@ -81,8 +81,8 @@ void PartText::mirror() {
 	qreal textwidth  = qfm.horizontalAdvance(toPlainText());
 	// ... and angle!!!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
-	qreal c = qCos(qDegreesToRadians(rot));
-	qreal s = qSin(qDegreesToRadians(rot));
+	qreal c = qCos(qTogreesToRadians(rot));
+	qreal s = qSin(qTogreesToRadians(rot));
 	// Now: Move!
 	qreal x = (-1) * pos().x() - c * (textwidth);
 	qreal y = pos().y() - s * (textwidth);
@@ -97,8 +97,8 @@ void PartText::flip() {
 	qreal textheight = realSize() - qfm.descent();
 	// ... and angle!!!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
-	qreal c = qCos(qDegreesToRadians(rot));
-	qreal s = qSin(qDegreesToRadians(rot));
+	qreal c = qCos(qTogreesToRadians(rot));
+	qreal s = qSin(qTogreesToRadians(rot));
 	// Now: Move!
 	qreal x = pos().x() - s * (textheight);
 	qreal y = (-1) * pos().y() + c * (textheight);
@@ -107,7 +107,7 @@ void PartText::flip() {
 
 
 /**
-	Importe les proprietes d'un texte statique depuis un element XML
+	Importe les proprietes d'un text statique depuis un element XML
 	@param xml_element Element XML a lire
 */
 void PartText::fromXml(const QDomElement &xml_element) {
@@ -128,7 +128,7 @@ void PartText::fromXml(const QDomElement &xml_element) {
 		setFont(font_);
 	}
 
-	setDefaultTextColor(QColor(xml_element.attribute("color", "#000000")));
+	setTofaultTextColor(QColor(xml_element.attribute("color", "#000000")));
 	setPlainText(xml_element.attribute("text"));
 	setPos(xml_element.attribute("x").toDouble(),
 			xml_element.attribute("y").toDouble());
@@ -136,9 +136,9 @@ void PartText::fromXml(const QDomElement &xml_element) {
 }
 
 /**
-	Exporte le texte statique en XML
+	Exporte le text statique en XML
 	@param xml_document Document XML a utiliser pour creer l'element XML
-	@return un element XML decrivant le texte statique
+	@return un element XML decrivant le text statique
 */
 const QDomElement PartText::toXml(QDomDocument &xml_document) const
 {
@@ -158,7 +158,7 @@ const QDomElement PartText::toXml(QDomDocument &xml_document) const
 }
 
 /**
-	@return Les coordonnees du point situe en bas a gauche du texte.
+	@return Les coordonnees du point situe en bas a gauche du text.
 			The coordinates of the point at the bottom left of the text.
 */
 QPointF PartText::margin() const
@@ -169,10 +169,10 @@ QPointF PartText::margin() const
 
 	QPointF margin(
 		// margin around the text
-		// marge autour du texte
+		// marge autour du text
 		document_margin,
 		// margin above the text + distance between the top of the text and the baseline
-		// marge au-dessus du texte + distance entre le plafond du texte et la baseline
+		// marge au-dessus du text + distance entre le plafond du text and la baseline
 		document_margin + qfm.ascent()
 	);
 	return(margin);
@@ -217,7 +217,7 @@ void PartText::keyPressEvent(QKeyEvent *event) {
 }
 
 /**
-	Permet a l'element texte de devenir editable lorsqu'on double-clique dessus
+	Permet a l'element text de devenir editable lorsqu'on double-clique dessus
 	@param e Le QGraphicsSceneMouseEvent qui decrit le double-clic
 */
 void PartText::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *e) {
@@ -230,7 +230,7 @@ void PartText::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *e) {
 /**
 	Gere les changements intervenant sur cette partie
 	@param change Type de changement
-	@param value Valeur numerique relative au changement
+	@param value Value numerique relative au changement
 */
 QVariant PartText::itemChange(GraphicsItemChange change, const QVariant &value) {
 	if (change == QGraphicsItem::ItemPositionHasChanged ||
@@ -252,9 +252,9 @@ QRectF PartText::boundingRect() const
 }
 
 /**
-	@return true si cette partie n'est pas pertinente et ne merite pas d'etre
+	@return true si cette partie n'est pas pertinente and ne merite pas d'etre
 	conservee / enregistree.
-	Un texte statique n'est pas pertinent lorsque son texte est vide.
+	Un text statique n'est pas pertinent lorsque son text est vide.
 */
 bool PartText::isUseless() const
 {
@@ -296,9 +296,9 @@ void PartText::handleUserTransformation(const QRectF &initial_selection_rect, co
 	setProperty("real_size", qMax(1, qRound(new_font_size)));
 }
 
-void PartText::setDefaultTextColor(const QColor &color) {
+void PartText::setTofaultTextColor(const QColor &color) {
 	if (color != this -> defaultTextColor()) {
-		QGraphicsTextItem::setDefaultTextColor(color);
+		QGraphicsTextItem::setTofaultTextColor(color);
 		emit colorChanged(color);
 	}
 }
@@ -320,7 +320,7 @@ void PartText::setFont(const QFont &font) {
 void PartText::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
 	if((event -> buttons() & Qt::LeftButton) && (flags() & QGraphicsItem::ItemIsMovable)) {
 		QPointF pos = event -> scenePos() + (m_origin_pos - event -> buttonDownScenePos(Qt::LeftButton));
-		event -> modifiers() == Qt::ControlModifier ? setPos(pos) : setPos(elementScene() -> snapToGrid(pos));
+		event -> modifiers() == Qt::ControlEdit ? setPos(pos) : setPos(elementScene() -> snapToGrid(pos));
 	}
 	else {
 		QGraphicsObject::mouseMoveEvent(event);
@@ -340,7 +340,7 @@ void PartText::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 		m_origin_pos != pos())
 	{
 		QPropertyUndoCommand *undo = new QPropertyUndoCommand(this, "pos", QVariant(m_origin_pos), QVariant(pos()));
-		undo -> setText(tr("Déplacer un texte"));
+		undo -> setText(tr("Move a text"));
 		undo -> enableAnimation();
 		elementScene() -> undoStack().push(undo);
 	}
@@ -349,11 +349,11 @@ void PartText::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 }
 
 /**
-	Cette methode s'assure que la position du champ de texte est coherente
+	Cette methode s'assure que la position du champ de text est coherente
 	en repositionnant son origine (c-a-d le milieu du bord gauche du champ de
-	texte) a la position originale. Cela est notamment utile lorsque le champ
-	de texte est agrandi ou retreci verticalement (ajout ou retrait de lignes).
-	@param new_block_count Nombre de blocs dans le PartText
+	text) a la position originale. Cela est notamment utile lorsque le champ
+	de text est agrandi ou retreci verticalement (ajout ou retrait de lines).
+	@param new_block_count Namebre de blocs dans le PartText
 */
 void PartText::adjustItemPosition(int new_block_count) {
 	Q_UNUSED(new_block_count);
@@ -400,13 +400,13 @@ void PartText::endEdition()
 		QString new_text = toPlainText();
 		if (previous_text != new_text) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(this, "text", previous_text, new_text);
-			undo -> setText(tr("Modifier un champ texte"));
+			undo -> setText(tr("Edit the text field"));
 			undoStack().push(undo);
 			previous_text = QString();
 		}
 	}
 
-	// deselectionne le texte
+	// deselectionne le text
 	QTextCursor qtc = textCursor();
 	qtc.clearSelection();
 	setTextCursor(qtc);

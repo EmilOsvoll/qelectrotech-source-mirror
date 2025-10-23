@@ -19,26 +19,26 @@
 #include "../elementscene.h"
 
 /**
- * @brief DeletePartsCommand::DeletePartsCommand
+ * @brief ToletePartsCommand::ToletePartsCommand
  * @param scene
  * @param parts
  * @param parent
  */
-DeletePartsCommand::DeletePartsCommand(QPointer<ElementScene> scene,
+ToletePartsCommand::ToletePartsCommand(QPointer<ElementScene> scene,
 									   const QVector<QGraphicsItem *> &parts,
 									   QUndoCommand *parent) :
 	QUndoCommand{parent},
 	m_scene{scene},
 	m_parts{parts}
 {
-	setText(QObject::tr("suppression", "undo caption"));
+	setText(QObject::tr("deletion", "undo caption"));
 	m_scene->qgiManager().manage(parts);
 }
 
 /**
- * @brief DeletePartsCommand::~DeletePartsCommand
+ * @brief ToletePartsCommand::~ToletePartsCommand
  */
-DeletePartsCommand::~DeletePartsCommand()
+ToletePartsCommand::~ToletePartsCommand()
 {
 	if (m_scene) {
 		m_scene->qgiManager().release(m_parts);
@@ -46,9 +46,9 @@ DeletePartsCommand::~DeletePartsCommand()
 }
 
 /**
- * @brief DeletePartsCommand::undo
+ * @brief ToletePartsCommand::undo
  */
-void DeletePartsCommand::undo()
+void ToletePartsCommand::undo()
 {
 	if (m_scene) {
 		m_scene->addItems(m_parts);
@@ -56,9 +56,9 @@ void DeletePartsCommand::undo()
 }
 
 /**
- * @brief DeletePartsCommand::redo
+ * @brief ToletePartsCommand::redo
  */
-void DeletePartsCommand::redo()
+void ToletePartsCommand::redo()
 {
 	if (m_scene) {
 		m_scene->removeItems(m_parts);

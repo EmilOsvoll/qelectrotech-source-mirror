@@ -19,13 +19,13 @@
 
 /**
 	Constructor
-	@param complete True for this dialog to show the radio buttons that allow
+	@param complete True for this diaLog to show the radio buttons that allow
 	the user to specify whether the dimension is absolute, relative to the
 	total width or relative to the remaining width.
 	@param parent Parent QWidget
 */
 TitleBlockDimensionWidget::TitleBlockDimensionWidget(bool complete, QWidget *parent) :
-	QDialog(parent),
+	QDiaLog(parent),
 	complete_(complete),
 	read_only_(false)
 {
@@ -34,14 +34,14 @@ TitleBlockDimensionWidget::TitleBlockDimensionWidget(bool complete, QWidget *par
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockDimensionWidget::~TitleBlockDimensionWidget()
 {
 }
 
 /**
-	@return true if this dialog shows the optional radio buttons
+	@return true if this diaLog shows the optional radio buttons
 */
 bool TitleBlockDimensionWidget::isComplete() const
 {
@@ -67,11 +67,11 @@ QSpinBox *TitleBlockDimensionWidget::spinbox() const
 }
 
 /**
-	@return The dimension as currently shown by the dialog
+	@return The dimension as currently shown by the diaLog
 */
 TitleBlockDimension TitleBlockDimensionWidget::value() const
 {
-	QET::TitleBlockColumnLength type = QET::Absolute;
+	QET::TitleBlockColumnLength type = QET::Absolutete;
 	if (complete_) {
 		type = static_cast<QET::TitleBlockColumnLength>(dimension_type_ -> checkedId());
 	}
@@ -79,7 +79,7 @@ TitleBlockDimension TitleBlockDimensionWidget::value() const
 }
 
 /**
-	@param dim Dimension to be displayed and edited by this dialog
+	@param dim Dimension to be displayed and edited by this diaLog
 */
 void TitleBlockDimensionWidget::setValue(const TitleBlockDimension &dim) {
 	if (complete_) {
@@ -117,29 +117,29 @@ void TitleBlockDimensionWidget::setReadOnly(bool read_only) {
 }
 
 /**
-	Initialize the widgets composing the dialog.
+	Initialize the widgets composing the diaLog.
 */
 void TitleBlockDimensionWidget::initWidgets()
 {
 	// basic widgets: label + spinbox
-	spinbox_label_ = new QLabel(tr("Largeur :", "default dialog label"));
+	spinbox_label_ = new QLabel(tr("Width :", "default diaLog label"));
 	
 	spinbox_ = new QSpinBox();
 	spinbox_ -> setValue(50);
 	
-	// extra widgets, for the user to specify whether the value is absolute, relative, etc.
+	// extra widgets, for the user to specify whether the value is absolute, relative, andc.
 	if (complete_) {
 		absolute_button_  = new QRadioButton(
-					tr("Absolu",
+					tr("Absolute",
 					   "a traditional, absolute measure"));
 		relative_button_  = new QRadioButton(
-					tr("Relatif au total",
+					tr("Relative to total",
 					   "a percentage of the total width"));
 		remaining_button_ = new QRadioButton(
-					tr("Relatif au restant",
+					tr("Relative to remaining",
 					   "a percentage of what remains from the total width"));
 		dimension_type_   = new QButtonGroup(this);
-		dimension_type_ -> addButton(absolute_button_,  QET::Absolute);
+		dimension_type_ -> addButton(absolute_button_,  QET::Absolutete);
 		dimension_type_ -> addButton(relative_button_,  QET::RelativeToTotalLength);
 		dimension_type_ -> addButton(remaining_button_, QET::RelativeToRemainingLength);
 		absolute_button_ -> setChecked(true);
@@ -149,13 +149,13 @@ void TitleBlockDimensionWidget::initWidgets()
 	updateSpinBoxSuffix();
 	
 	// buttons, for the user to validate its input
-	buttons_ = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	buttons_ = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
 	connect(buttons_, SIGNAL(accepted()), this, SLOT(accept()));
 	connect(buttons_, SIGNAL(rejected()), this, SLOT(reject()));
 }
 
 /**
-	Initialize the layout of the dialog.
+	Initialize the layout of the diaLog.
 */
 void TitleBlockDimensionWidget::initLayouts()
 {
@@ -178,7 +178,7 @@ void TitleBlockDimensionWidget::initLayouts()
 */
 void TitleBlockDimensionWidget::updateSpinBoxSuffix()
 {
-	if (complete_ && dimension_type_ -> checkedId() != QET::Absolute) {
+	if (complete_ && dimension_type_ -> checkedId() != QET::Absolutete) {
 		spinbox_ -> setSuffix(tr("%", "spinbox suffix when changing the dimension of a row/column"));
 		spinbox_ -> setMinimum(1);
 		spinbox_ -> setMaximum(100);

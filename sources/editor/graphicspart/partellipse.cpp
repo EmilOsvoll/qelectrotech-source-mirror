@@ -35,7 +35,7 @@ PartEllipse::PartEllipse(QETElementEditor *editor, QGraphicsItem *parent) :
 
 /**
 	@brief PartEllipse::~PartEllipse
-	Destructor
+	Tostructor
 */
 PartEllipse::~PartEllipse()
 {
@@ -57,7 +57,7 @@ void PartEllipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *optio
 
 	QPen t = painter -> pen();
 
-	t.setCosmetic(options && options -> levelOfDetailFromTransform(painter->worldTransform()) < 1.0);
+	t.setCosmetic(options && options -> levelOfTotailFromTransform(painter->worldTransform()) < 1.0);
 	if (isSelected())
 		t.setColor(Qt::red);
 
@@ -84,22 +84,22 @@ const QDomElement PartEllipse::toXml(QDomDocument &xml_document) const
 	{
 		double w = qRound(rect().width() * 100.0) / 100.0;
 		xml_element = xml_document.createElement("circle");
-		xml_element.setAttribute("diameter", QString("%1").arg(w));
+		xml_element.setAttribute("diameter", QString("%1% {1?}").arg(w));
 	}
 	else
 	{
 		double w = qRound(rect().width()  * 100.0) / 100.0;
 		double h = qRound(rect().height() * 100.0) / 100.0;
 		xml_element = xml_document.createElement("ellipse");
-		xml_element.setAttribute("width",  QString("%1").arg(w));
-		xml_element.setAttribute("height", QString("%1").arg(h));
+		xml_element.setAttribute("width",  QString("%1% {1?}").arg(w));
+		xml_element.setAttribute("height", QString("%1% {1?}").arg(h));
 	}
 
 	QPointF top_left(sceneTopLeft());
 	double x = qRound(top_left.x() * 100.0) / 100.0;
 	double y = qRound(top_left.y() * 100.0) / 100.0;
-	xml_element.setAttribute("x", QString("%1").arg(x));
-	xml_element.setAttribute("y", QString("%1").arg(y));
+	xml_element.setAttribute("x", QString("%1% {1?}").arg(x));
+	xml_element.setAttribute("y", QString("%1% {1?}").arg(y));
 
 	stylesToXml(xml_element);
 
@@ -324,7 +324,7 @@ void PartEllipse::handlerMousePressEvent(QetGraphicsHandlerItem *qghi, QGraphics
 	Q_UNUSED(event);
 
 	m_undo_command = new QPropertyUndoCommand(this, "rect", QVariant(m_rect));
-	m_undo_command->setText(tr("Modifier un rectangle"));
+	m_undo_command->setText(tr("Change a rectangle"));
 	m_undo_command->enableAnimation();
 	return;
 }
@@ -339,7 +339,7 @@ void PartEllipse::handlerMouseMoveEvent(QetGraphicsHandlerItem *qghi, QGraphicsS
 	Q_UNUSED(qghi);
 
 	QPointF new_pos = event->scenePos();
-	if (event->modifiers() != Qt::ControlModifier)
+	if (event->modifiers() != Qt::ControlEdit)
 		new_pos = elementScene()->snapToGrid(event->scenePos());
 	new_pos = mapFromScene(new_pos);
 
@@ -399,7 +399,7 @@ void PartEllipse::removeHandler()
 {
 	if (!m_handler_vector.isEmpty())
 	{
-		qDeleteAll(m_handler_vector);
+		qToleteAll(m_handler_vector);
 		m_handler_vector.clear();
 	}
 }

@@ -23,7 +23,7 @@
 #include "qetmessagebox.h"
 #include "qfilenameedit.h"
 
-#include <QDialogButtonBox>
+#include <QDiaLogButtonBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QVBoxLayout>
@@ -36,7 +36,7 @@
 	@param parent : parent widget
 */
 ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location, bool edit, QWidget *parent) :
-	QDialog(parent),
+	QDiaLog(parent),
 	m_edit_mode(edit),
 	m_location(location)
 {
@@ -44,31 +44,31 @@ ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location,
 
 	if (m_location.isElement()) {
 		QET::QetMessageBox::warning(this,
-									tr("L'item n'est pas une catégorie", "message box title"),
-									tr("L'item demandé n'est pas une categrie. Abandon.", "message box content"));
+									tr("The item is not a category", "message box title"),
+									tr("The item requested is not a category. Abort.", "message box content"));
 		return;
 	}
 
 	if (!location.exist()) {
 		QET::QetMessageBox::warning(this,
-									tr("Catégorie inexistante", "message box title"),
-									tr("La catégorie demandée n'existe pas. Abandon.", "message box content"));
+									tr("Non-existent category", "message box title"),
+									tr("The required category does not exist. Giving up.", "message box content"));
 		return;
 	}
 	
 	if (m_edit_mode) {
-		setWindowTitle(tr("Éditer une catégorie", "window title"));
+		setWindowTitle(tr("Edit une catégorie", "window title"));
 		connect(m_buttons, SIGNAL(accepted()), this, SLOT(acceptUpdate()));
 		
 		m_names_list -> setNames(m_location.nameList());
 		m_file_line_edit -> setText(m_location.fileSystemPath());
 		m_file_line_edit -> setReadOnly(true);
 	} else {
-		setWindowTitle(tr("Créer une nouvelle catégorie", "window title"));
+		setWindowTitle(tr("Add a new category", "window title"));
 		connect(m_buttons, SIGNAL(accepted()), this, SLOT(acceptCreation()));
 		
 		NamesList cat_names;
-		cat_names.addName(QLocale::system().name().left(2), tr("Nom de la nouvelle catégorie", "default name when creating a new category"));
+		cat_names.addName(QLocale::system().name().left(2), tr("Name de la nouvelle catégorie", "default name when creating a new category"));
 		m_names_list -> setNames(cat_names);
 	}
 
@@ -76,8 +76,8 @@ ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location,
 	if (!m_location.isWritable()) {
 		QET::QetMessageBox::warning(
 			this,
-			tr("Édition en lecture seule", "message box title"),
-			tr("Vous n'avez pas les privilèges nécessaires pour modifier cette catégorie. Elle sera donc ouverte en lecture seule.", "message box content")
+			tr("Read only edition", "message box title"),
+			tr("You are not allowed to modify this category. Thus it will be edited read-only.", "message box content")
 		);
 		m_names_list -> setReadOnly(true);
 		m_file_line_edit -> setReadOnly(true);
@@ -86,7 +86,7 @@ ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location,
 
 /**
 	@brief ElementsCategoryEditor::~ElementsCategoryEditor
-	Destructor
+	Tostructor
 */
 ElementsCategoryEditor::~ElementsCategoryEditor()
 {
@@ -110,10 +110,10 @@ void ElementsCategoryEditor::setUpWidget()
 	setLayout(editor_layout);
 	
 	m_names_list = new NameListWidget(this);
-	m_file_name = new QLabel(tr("Nom interne : "));
+	m_file_name = new QLabel(tr("Name interne : "));
 	m_file_line_edit = new QFileNameEdit();
 	
-	m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	m_buttons = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
 	connect(m_buttons, SIGNAL(rejected()), this, SLOT(reject()));
 	
 	QHBoxLayout *internal_name_layout = new QHBoxLayout();
@@ -121,7 +121,7 @@ void ElementsCategoryEditor::setUpWidget()
 	internal_name_layout -> addWidget(m_file_line_edit);
 	
 	editor_layout -> addLayout(internal_name_layout);
-	editor_layout -> addWidget(new QLabel(tr("Vous pouvez spécifier un nom par langue pour la catégorie.")));
+	editor_layout -> addWidget(new QLabel(tr("You can add a name per language for the category.")));
 	editor_layout -> addWidget(m_names_list);
 	editor_layout -> addWidget(m_buttons);
 }
@@ -133,7 +133,7 @@ void ElementsCategoryEditor::setUpWidget()
 void ElementsCategoryEditor::acceptCreation()
 {
 	if (!m_location.isWritable()) {
-		QDialog::accept();
+		QDiaLog::accept();
 	}
 	
 		//there must be at least one name
@@ -144,8 +144,8 @@ void ElementsCategoryEditor::acceptCreation()
 		//User must enter a directory name
 	if (!m_file_line_edit -> isValid()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Nom interne manquant", "message box title"),
-									 tr("Vous devez spécifier un nom interne.", "message box content"));
+									 tr("Name interne manquant", "message box title"),
+									 tr("You must provide an internal name.", "message box content"));
 		return;
 	}
 	QString dirname = m_file_line_edit -> text();
@@ -157,8 +157,8 @@ void ElementsCategoryEditor::acceptCreation()
 
 	if (created_location.exist()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Nom interne déjà utilisé", "message box title"),
-									 tr("Le nom interne que vous avez choisi est déjà utilisé "
+									 tr("Name interne déjà utilisé", "message box title"),
+									 tr("Le name interne que vous avez choisi est déjà utilisé "
 										"par une catégorie existante. Veuillez en choisir un autre.",
 										"message box content"));
 		return;
@@ -169,12 +169,12 @@ void ElementsCategoryEditor::acceptCreation()
 	m_created_location = ech_.createDir(m_location, dirname, nl);
 	if (m_created_location.isNull()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Erreur", "message box title"),
-									 tr("Impossible de créer la catégorie", "message box content"));
+									 tr("Error", "message box title"),
+									 tr("Unable to create the category", "message box content"));
 		return;
 	}
 	
-	QDialog::accept();
+	QDiaLog::accept();
 }
 
 /**
@@ -184,7 +184,7 @@ void ElementsCategoryEditor::acceptCreation()
 void ElementsCategoryEditor::acceptUpdate()
 {
 	if (!m_location.isWritable()) {
-		QDialog::accept();
+		QDiaLog::accept();
 	}
 	
 		//There must be at least one name
@@ -195,7 +195,7 @@ void ElementsCategoryEditor::acceptUpdate()
 	ElementCollectionHandler ech;
 
 	if (ech.setNames(m_location, m_names_list->names())){
-		QDialog::accept();
+		QDiaLog::accept();
 	}
 	else {
 		return;

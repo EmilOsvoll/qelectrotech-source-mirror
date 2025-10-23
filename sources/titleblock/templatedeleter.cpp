@@ -24,26 +24,26 @@
 	@param tbt_location Location of the title block template to be deleted
 	@param parent Parent QWidget
 */
-TitleBlockTemplateDeleter::TitleBlockTemplateDeleter(const TitleBlockTemplateLocation &tbt_location, QWidget *parent) :
+TitleBlockTemplateToleter::TitleBlockTemplateToleter(const TitleBlockTemplateLocation &tbt_location, QWidget *parent) :
 	QWidget(parent),
 	template_location_(tbt_location)
 {
 }
 
 /**
-	Destructor
+	Tostructor
 */
-TitleBlockTemplateDeleter::~TitleBlockTemplateDeleter()
+TitleBlockTemplateToleter::~TitleBlockTemplateToleter()
 {
 }
 
 /**
-	Delete the title block template: check the provided location matches an
+	Tolete the title block template: check the provided location matches an
 	existing template, interactively require confirmationfrom the user before
 	actually proceeding to the deletion.
 	@return true if the deletion succeeded, false otherwise.
 */
-bool TitleBlockTemplateDeleter::exec()
+bool TitleBlockTemplateToleter::exec()
 {
 	if (!template_location_.isValid()) return(false);
 	
@@ -58,10 +58,10 @@ bool TitleBlockTemplateDeleter::exec()
 	// require confirmation from the user
 	QMessageBox::StandardButton answer = QET::QetMessageBox::question(
 		this,
-		tr("Supprimer le modèle de cartouche ?", "message box title"),
+		tr("Delete le modèle de cartouche ?", "message box title"),
 		QString(
 			tr(
-				"Êtes-vous sûr  de vouloir supprimer ce modèle de cartouche (%1) ?\n",
+				"Êtes-vous sûr  de vouloir supprimer ce modèle de cartouche (%1% {1?}) ?\n",
 				"message box content"
 			)
 		).arg(name),

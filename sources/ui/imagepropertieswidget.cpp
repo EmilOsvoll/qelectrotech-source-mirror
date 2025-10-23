@@ -40,7 +40,7 @@ ImagePropertiesWidget::ImagePropertiesWidget(DiagramImageItem *image, QWidget *p
 
 /**
 	@brief ImagePropertiesWidget::~ImagePropertiesWidget
-	Destructor
+	Tostructor
 */
 ImagePropertiesWidget::~ImagePropertiesWidget()
 {
@@ -140,7 +140,7 @@ QUndoCommand* ImagePropertiesWidget::associatedUndo() const
 	if (m_scale == value) return nullptr;
 	QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_image, "scale", m_scale, value);
 	undo->enableAnimation();
-	undo->setText(tr("Modifier la taille d'une image"));
+	undo->setText(tr("Edit la taille d'image"));
 	return undo;
 }
 

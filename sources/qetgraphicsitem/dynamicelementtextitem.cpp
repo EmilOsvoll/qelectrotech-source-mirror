@@ -41,7 +41,7 @@ DynamicElementTextItem::DynamicElementTextItem(Element *parent_element) :
 	m_uuid(QUuid::createUuid())
 {
 	setFont(QETApp::dynamicTextsItemFont());
-	setText(tr("Texte"));
+	setText(tr("Text"));
 	setParentItem(parent_element);
 	QSettings settings;
 	setRotation(settings.value("dynamic_text_rotation", 0).toInt());
@@ -52,7 +52,7 @@ DynamicElementTextItem::DynamicElementTextItem(Element *parent_element) :
 		if(this->m_parent_element && this->m_parent_element->diagram())
 		{
 			QUndoCommand *undo = new QPropertyUndoCommand(this, "text", old_str, new_str);
-			undo->setText(tr("Éditer un texte d'élément"));
+			undo->setText(tr("Edit un text d'élément"));
 			this->m_parent_element->diagram()->undoStack().push(undo);
 		}
 	});
@@ -61,7 +61,7 @@ DynamicElementTextItem::DynamicElementTextItem(Element *parent_element) :
 	QTextOption option = document()->defaultTextOption();
 	option.setAlignment(Qt::AlignHCenter);
 	option.setWrapMode(QTextOption::WordWrap);
-	document()->setDefaultTextOption(option);
+	document()->setTofaultTextOption(option);
 }
 
 DynamicElementTextItem::~DynamicElementTextItem()
@@ -157,7 +157,7 @@ QDomElement DynamicElementTextItem::toXml(QDomDocument &dom_doc) const
 void DynamicElementTextItem::fromXml(const QDomElement &dom_elmt)
 {
 	if (dom_elmt.tagName() != xmlTagName()) {
-		qDebug() << "DynamicElementTextItem::fromXml : Wrong tagg name";
+		qTobug() << "DynamicElementTextItem::fromXml : Wrong tagg name";
 		return;
 	}
 	
@@ -540,14 +540,14 @@ void DynamicElementTextItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 		//but this is not the color set by the user.
 	if(m_user_color.isValid())
 	{
-		setDefaultTextColor(m_user_color);
+		setTofaultTextColor(m_user_color);
 		m_user_color = QColor(); //m_user_color is now invalid
 		if(m_slave_Xref_item)
-			m_slave_Xref_item->setDefaultTextColor(Qt::black);
+			m_slave_Xref_item->setTofaultTextColor(Qt::black);
 	}
 
 	// Shift or no parent initiates movement of dynamic text, otherwise movement of parent element
-	if((event->modifiers() & Qt::ShiftModifier) || !m_parent_element)
+	if((event->modifiers() & Qt::ShiftEdit) || !m_parent_element)
 	{
 		m_move_parent = false;
 		DiagramTextItem::mousePressEvent(event);
@@ -616,7 +616,7 @@ void DynamicElementTextItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 		if(m_parent_element && m_parent_element->diagram())
 			m_parent_element.data()->diagram()->elementTextsMover().endMovement();
 		
-		if(!(event->modifiers() & Qt::ControlModifier))
+		if(!(event->modifiers() & Qt::ControlEdit))
 			QGraphicsTextItem::mouseReleaseEvent(event);
 	}
 }
@@ -656,7 +656,7 @@ void DynamicElementTextItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
 			(m_text_from == CompositeText && m_composite_text.contains("%{label}")) )
 		{
 			m_user_color = color();
-			setDefaultTextColor(Qt::blue);
+			setTofaultTextColor(Qt::blue);
 		}
 	}
 }
@@ -671,7 +671,7 @@ void DynamicElementTextItem::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 	
 	if(m_user_color.isValid())
 	{
-		setDefaultTextColor(m_user_color);
+		setTofaultTextColor(m_user_color);
 		m_user_color = QColor(); //m_user_color is now invalid
 	}
 	
@@ -777,11 +777,11 @@ bool DynamicElementTextItem::sceneEventFilter(QGraphicsItem *watched, QEvent *ev
 		return false;
 	
 	if(event->type() == QEvent::GraphicsSceneHoverEnter) {
-		m_slave_Xref_item->setDefaultTextColor(Qt::blue);
+		m_slave_Xref_item->setTofaultTextColor(Qt::blue);
 		return true;
 	}
 	else if(event->type() == QEvent::GraphicsSceneHoverLeave) {
-		m_slave_Xref_item->setDefaultTextColor(Qt::black);
+		m_slave_Xref_item->setTofaultTextColor(Qt::black);
 		return true;
 	}
 	else if(event->type() == QEvent::GraphicsSceneMouseDoubleClick) {
@@ -1459,7 +1459,7 @@ void DynamicElementTextItem::setXref_item(Qt::AlignmentFlag m_exHrefPos)
 	{
 		pos = QPointF(r.right() ,r.center().y() - m_slave_Xref_item->boundingRect().height()/2);
 	}
-	else if (m_exHrefPos == Qt::AlignBaseline)  //
+	else if (m_exHrefPos == Qt::AlignBottomeline)  //
 	{
 		if(this->alignment() &Qt::AlignBottom)
 		{

@@ -28,8 +28,8 @@
 #include "qetgraphicsitem/independenttextitem.h"
 #include "qeticons.h"
 #include "titleblock/integrationmovetemplateshandler.h"
-#include "ui/diagrampropertiesdialog.h"
-#include "ui/multipastedialog.h"
+#include "ui/diagrampropertiesdiaLog.h"
+#include "ui/multipastediaLog.h"
 #include "undocommand/changetitleblockcommand.h"
 #include "utils/conductorcreator.h"
 #include "undocommand/addgraphicsobjectcommand.h"
@@ -39,21 +39,21 @@
 
 /**
 	Constructeur
-	@param diagram Schema a afficher ; si diagram vaut 0, un nouveau Diagram est utilise
-	@param parent Le QWidget parent de cette vue de schema
+	@param diagram Diagram a afficher ; si diagram vaut 0, un nouveau Diagram est utilise
+	@param parent Le QWidget parent de cette vue de diagram
 */
 DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 	QGraphicsView (parent),
 	m_diagram (diagram)
 {
 	grabGesture(Qt::PinchGesture);
-	setAttribute(Qt::WA_DeleteOnClose, true);
+	setAttribute(Qt::WA_ToleteOnClose, true);
 	setInteractive(true);
 
 	QString whatsthis = tr(
 		"Ceci est la zone dans laquelle vous concevez vos schémas en y ajoutant"
-		" des éléments et en posant des conducteurs entre leurs bornes. Il est"
-		" également possible d'ajouter des textes indépendants.",
+		" des elements and en posant des conducteurs entre leurs bornes. Il est"
+		" également possible d'ajouter des texts indépendants.",
 		"\"What's this?\" tip"
 	);
 	setWhatsThis(whatsthis);
@@ -75,12 +75,12 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 	m_diagram->loadElmtFolioSeq();
 	m_diagram->loadCndFolioSeq();
 
-	m_paste_here = new QAction(QET::Icons::EditPaste, tr("Coller ici", "context menu action"), this);
+	m_paste_here = new QAction(QET::Icons::EditPaste, tr("Paste Here", "context menu action"), this);
 	connect(m_paste_here, SIGNAL(triggered()), this, SLOT(pasteHere()));
 
-	m_multi_paste = new QAction(QET::Icons::EditPaste, tr("Collage multiple"), this);
+	m_multi_paste = new QAction(QET::Icons::EditPaste, tr("Multiple paste"), this);
 	connect(m_multi_paste, &QAction::triggered, [this]() {
-		MultiPasteDialog d(this->m_diagram, this);
+		MultiPasteDiaLog d(this->m_diagram, this);
 		d.exec();
 	});
 
@@ -113,18 +113,18 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 			// store the initial properties of the provided conductor
 		ConductorProperties initial_properties = edited_conductor->properties();
 
-			// prepare a color dialog showing the initial conductor color
-		QColorDialog *color_dialog = new QColorDialog(this);
-		color_dialog->setWindowTitle(tr("Choisir la nouvelle couleur de ce conducteur"));
+			// prepare a color diaLog showing the initial conductor color
+		QColorDiaLog *color_diaLog = new QColorDiaLog(this);
+		color_diaLog->setWindowTitle(tr("Choose the new color for this conductor"));
 #ifdef Q_OS_MACOS
-		color_dialog -> setWindowFlags(Qt::Sheet);
+		color_diaLog -> setWindowFlags(Qt::Sheet);
 #endif
-		color_dialog->setCurrentColor(initial_properties.color);
+		color_diaLog->setCurrentColor(initial_properties.color);
 
 			// asks the user what color he wishes to apply
-		if (color_dialog->exec() == QDialog::Accepted)
+		if (color_diaLog->exec() == QDiaLog::Accepted)
 		{
-			QColor new_color = color_dialog -> selectedColor();
+			QColor new_color = color_diaLog -> selectedColor();
 			if (new_color != initial_properties.color)
 			{
 					// the user chose a different color
@@ -134,7 +134,7 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 				new_value.setValue(initial_properties);
 
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(edited_conductor, "properties", old_value, new_value);
-				undo->setText(tr("Modifier les propriétés d'un conducteur", "undo caption"));
+				undo->setText(tr("Edit conductor properties", "undo caption"));
 				m_diagram->undoStack().push(undo);
 			}
 		}
@@ -142,7 +142,7 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 DiagramView::~DiagramView()
 {}
@@ -199,7 +199,7 @@ void DiagramView::handleElementDrop(QDropEvent *event)
 
 	if ( !(location.isElement() && location.exist()) )
 	{
-		qDebug() << "DiagramView::handleElementDrop, location can't be use : " << location;
+		qTobug() << "DiagramView::handleElementDrop, location can't be use : " << location;
 		return;
 	}
 
@@ -345,8 +345,8 @@ void DiagramView::zoom(const qreal zoom_factor)
 }
 
 /**
-	Agrandit ou rectrecit le schema de facon a ce que tous les elements du
-	schema soient visibles a l'ecran. S'il n'y a aucun element sur le schema,
+	Agrandit ou rectrecit le diagram de facon a ce que tous les elements du
+	diagram soient visibles a l'ecran. S'il n'y a aucun element sur le diagram,
 	le zoom est reinitialise
 */
 void DiagramView::zoomFit()
@@ -375,7 +375,7 @@ void DiagramView::zoomReset()
 }
 
 /**
-	Copie les elements selectionnes du schema dans le presse-papier puis les supprime
+	Copie les elements selectionnes du diagram dans le presse-papier puis les supprime
 	Copies the selected elements from the diagram to the clipboard and then deletes them
 */
 void DiagramView::cut()
@@ -387,7 +387,7 @@ void DiagramView::cut()
 }
 
 /**
-	Copie les elements selectionnes du schema dans le presse-papier
+	Copie les elements selectionnes du diagram dans le presse-papier
 	Copies the selected elements from the diagram to the clipboard
 */
 void DiagramView::copy()
@@ -426,7 +426,7 @@ void DiagramView::paste(const QPointF &pos, QClipboard::Mode clipboard_mode) {
 }
 
 /**
-	Colle le contenu du presse-papier sur le schema a la position de la souris
+	Colle le contenu du presse-papier sur le diagram a la position de la souris
 	Pastes the contents of the clipboard into the diagram at the mouse position.
 */
 void DiagramView::pasteHere()
@@ -504,7 +504,7 @@ void DiagramView::mousePressEvent(QMouseEvent *e)
 */
 void DiagramView::mouseMoveEvent(QMouseEvent *e)
 {
-	setToolTip(tr("X: %1 Y: %2").arg(e->pos().x()).arg(e->pos().y()));
+	setToolTip(tr("X: %1% {1?} Y: %2").arg(e->pos().x()).arg(e->pos().y()));
 	if (m_event_interface && m_event_interface->mouseMoveEvent(e)) return;
 
 		// Drag the view
@@ -607,7 +607,7 @@ void DiagramView::mouseReleaseEvent(QMouseEvent *e)
 		{
 				//Popup a menu with an action to create conductors between
 				//all selected terminals.
-			QAction *act = new QAction(tr("Connecter les bornes sélectionnées"), this);
+			QAction *act = new QAction(tr("Connect the selected terminals"), this);
 			QPolygonF polygon_ = m_free_rubberband;
 			connect(act, &QAction::triggered, [this, polygon_]()
 			{
@@ -656,11 +656,11 @@ void DiagramView::wheelEvent(QWheelEvent *event)
 	if (m_event_interface && m_event_interface->wheelEvent(event)) return;
 
 		//Zoom and scrolling
-	QPoint angle = event->angleDelta();
+	QPoint angle = event->angleTolta();
 
 	if (gestures()) //When gesture mode is enable, we suppose the wheel event are made from a trackpad.
 	{
-		if (event->modifiers() == Qt::ControlModifier) //zoom
+		if (event->modifiers() == Qt::ControlEdit) //zoom
 		{
 			qreal value = angle.y();
 			zoom(1 + value/1000);
@@ -671,7 +671,7 @@ void DiagramView::wheelEvent(QWheelEvent *event)
 			verticalScrollBar()->setValue(verticalScrollBar()->value() - angle.y());
 		}
 	}
-	else if (event->modifiers() == Qt::NoModifier) //Else we suppose the wheel event are made from a mouse.
+	else if (event->modifiers() == Qt::NoEdit) //Else we suppose the wheel event are made from a mouse.
 	{
 		qreal value = angle.y();
 		zoom(1 + value/1000);
@@ -765,12 +765,12 @@ void DiagramView::keyPressEvent(QKeyEvent *e)
 			zoom(1.15);
 			return;
 		case Qt::Key_Minus: {
-			if (e->modifiers() & Qt::ControlModifier)
+			if (e->modifiers() & Qt::ControlEdit)
 				zoom(0.85);
 		}
 			break;
 		case Qt::Key_Plus: {
-			if (e->modifiers() & Qt::ControlModifier)
+			if (e->modifiers() & Qt::ControlEdit)
 				zoom(1.15);
 		}
 			break;
@@ -885,9 +885,9 @@ void DiagramView::scrollOnMovement(QKeyEvent *e)
 
 
 /**
-	@return le titre de cette vue ; cela correspond au titre du schema
-	visualise precede de la mention "Schema". Si le titre du schema est vide,
-	la mention "Schema sans titre" est utilisee
+	@return le titre de cette vue ; cela correspond au titre du diagram
+	visualise precede de la mention "Diagram". Si le titre du diagram est vide,
+	la mention "Diagram none titre" est utilisee
 	@see Diagram::title()
 */
 QString DiagramView::title() const
@@ -895,7 +895,7 @@ QString DiagramView::title() const
 	QString view_title;
 	QString diagram_title(m_diagram -> title());
 	if (diagram_title.isEmpty()) {
-		view_title = tr("Sans titre", "what to display for untitled diagrams");
+		view_title = tr("Untitled", "what to display for untitled diagrams");
 	} else {
 		view_title = diagram_title;
 	}
@@ -908,7 +908,7 @@ QString DiagramView::title() const
 */
 void DiagramView::editDiagramProperties()
 {
-	DiagramPropertiesDialog::diagramPropertiesDialog(m_diagram, diagramEditor());
+	DiagramPropertiesDiaLog::diagramPropertiesDiaLog(m_diagram, diagramEditor());
 }
 
 /**
@@ -953,7 +953,7 @@ void DiagramView::adjustGridToZoom()
 }
 
 /**
-	@return le rectangle du schema (classe Diagram) visualise par ce DiagramView
+	@return le rectangle du diagram (classe Diagram) visualise par ce DiagramView
 */
 QRectF DiagramView::viewedSceneRect() const
 {
@@ -963,7 +963,7 @@ QRectF DiagramView::viewedSceneRect() const
 	// recupere la transformation viewport -> scene
 	QTransform view_to_scene   = viewportTransform().inverted();
 
-	// mappe le coin superieur gauche et le coin inferieur droit de la viewport sur la scene
+	// mappe le coin superieur gauche and le coin inferieur droit de la viewport sur la scene
 	QPointF scene_left_top     = view_to_scene.map(QPointF(0.0, 0.0));
 	QPointF scene_right_bottom = view_to_scene.map(QPointF(viewport_size.width(), viewport_size.height()));
 
@@ -987,7 +987,7 @@ bool DiagramView::mustIntegrateTitleBlockTemplate(const TitleBlockTemplateLocati
 }
 
 /**
-	Fait en sorte que le schema ne soit editable que s'il n'est pas en lecture
+	Fait en sorte que le diagram ne soit editable que s'il n'est pas en lecture
 	seule
 */
 void DiagramView::applyReadOnly()
@@ -1123,11 +1123,11 @@ bool DiagramView::isCtrlShifting(QInputEvent *e) {
 	// same values, hence the casts
 	if (e -> type() == QEvent::KeyPress || e -> type() == QEvent::KeyRelease) {
 		if (QKeyEvent *ke = static_cast<QKeyEvent *>(e)) {
-			result = (ke -> modifiers() == (Qt::ControlModifier | Qt::ShiftModifier));
+			result = (ke -> modifiers() == (Qt::ControlEdit | Qt::ShiftEdit));
 		}
 	} else if (e -> type() >= QEvent::MouseButtonPress && e -> type() <= QEvent::MouseMove) {
 		if (QMouseEvent *me = static_cast<QMouseEvent *>(e)) {
-			result = (me -> modifiers() == (Qt::ControlModifier | Qt::ShiftModifier));
+			result = (me -> modifiers() == (Qt::ControlEdit | Qt::ShiftEdit));
 		}
 	}
 	return(result);
@@ -1266,7 +1266,7 @@ void DiagramView::contextMenuEvent(QContextMenuEvent *e)
 }
 
 /**
-	@return l'editeur de schemas parent ou 0
+	@return l'editeur de diagrams parent ou 0
 */
 QETDiagramEditor *DiagramView::diagramEditor() const
 {
@@ -1275,7 +1275,7 @@ QETDiagramEditor *DiagramView::diagramEditor() const
 	while (w -> parentWidget() && !w -> isWindow()) {
 		w = w -> parentWidget();
 	}
-	// la fenetre est supposee etre un QETDiagramEditor
+	// la fenetre est supposee andre un QETDiagramEditor
 	return(qobject_cast<QETDiagramEditor *>(w));
 }
 

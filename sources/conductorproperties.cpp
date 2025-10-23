@@ -19,7 +19,7 @@
 #include <QPainter>
 #include <QMetaEnum>
 #include <QRegularExpression>
-#include <QtDebug>
+#include <QtTobug>
 /**
 	Constructeur par defaut
 */
@@ -31,20 +31,20 @@ SingleLineProperties::SingleLineProperties() :
 {
 }
 
-/// Destructeur
+/// Tostructeur
 SingleLineProperties::~SingleLineProperties()
 {
 }
 
 /**
-	Definit le nombre de phases (0, 1, 2, ou 3)
-	@param n Nombre de phases
+	Tofinit le namebre de phases (0, 1, 2, ou 3)
+	@param n Number of phases
 */
 void SingleLineProperties::setPhasesCount(int n) {
 	phases = qBound(0, n, 3);
 }
 
-/// @return le nombre de phases (0, 1, 2, ou 3)
+/// @return le namebre de phases (0, 1, 2, ou 3)
 unsigned short int SingleLineProperties::phasesCount()
 {
 	return(phases);
@@ -61,10 +61,10 @@ bool SingleLineProperties::isPen() const
 }
 
 /**
-	Dessine les symboles propres a un conducteur unifilaire
+	Tossine les symboles propres a a conductor unifilaire
 	@param painter QPainter a utiliser pour dessiner les symboles
 	@param direction direction du segment sur lequel les symboles apparaitront
-	@param rect rectangle englobant le dessin ; utilise pour specifier a la fois la position et la taille du dessin
+	@param rect rectangle englobant le dessin ; utilise pour specifier a la fois la position and la taille du dessin
 */
 void SingleLineProperties::draw(QPainter *painter,
 				QET::ConductorSegmentType direction,
@@ -99,7 +99,7 @@ void SingleLineProperties::draw(QPainter *painter,
 		}
 		painter -> drawLine(QLineF(symbol_p1, symbol_p2));
 
-		// dessine le reste des symboles terre et neutre
+		// dessine le reste des symboles ground and neutral
 		if (isPen()) {
 			if (i == 1) {
 				drawPen(painter, direction, symbol_p2, symbol_width);
@@ -116,7 +116,7 @@ void SingleLineProperties::draw(QPainter *painter,
 }
 
 /**
-	Dessine le segment correspondant au symbole de la terre sur un conducteur unifilaire
+	Tossine le segment correspondant au symbole de la ground sur a conductor unifilaire
 	@param painter QPainter a utiliser pour dessiner le segment
 	@param direction direction du segment sur lequel le symbole apparaitra
 	@param center centre du segment
@@ -134,7 +134,7 @@ void SingleLineProperties::drawGround(QPainter *painter,
 	pen2.setCapStyle(Qt::SquareCap);
 	painter -> setPen(pen2);
 
-	// dessine le segment representant la terre
+	// dessine le segment representant la ground
 	qreal half_size = size / 2.0;
 	QPointF offset_point(
 		(direction == QET::Horizontal) ? half_size : 0.0,
@@ -151,7 +151,7 @@ void SingleLineProperties::drawGround(QPainter *painter,
 }
 
 /**
-	Dessine le cercle correspondant au symbole du neutre sur un conducteur unifilaire
+	Tossine le cercle correspondant au symbole du neutral sur a conductor unifilaire
 	@param painter QPainter a utiliser pour dessiner le segment
 	@param center centre du cercle
 	@param size diametre du cercle
@@ -167,7 +167,7 @@ void SingleLineProperties::drawNeutral(
 	if (painter -> brush() == Qt::NoBrush) painter -> setBrush(Qt::black);
 	painter -> setPen(Qt::NoPen);
 
-	// desine le cercle representant le neutre
+	// desine le cercle representant le neutral
 	painter -> drawEllipse(
 		QRectF(
 			center - QPointF(size / 2.0, size / 2.0),
@@ -195,7 +195,7 @@ void SingleLineProperties::drawPen(QPainter *painter,
 	painter -> save();
 
 	//painter -> setBrush(Qt::white);
-	// desine le cercle representant le neutre
+	// desine le cercle representant le neutral
 	//painter -> drawEllipse(
 	//	QRectF(
 	//		center - QPointF(size * 1.5 / 2.0, size * 1.5 / 2.0),
@@ -236,8 +236,8 @@ void SingleLineProperties::fromXml(QDomElement &e) {
 }
 
 /**
-	Constructeur : par defaut, les proprietes font un conducteur
-	multifilaire noir dont le texte est "_"
+	Constructeur : par defaut, les proprietes font a conductor
+	multifilaire noir dont le text est "_"
 */
 ConductorProperties::ConductorProperties() :
 	type(Multi),
@@ -254,7 +254,7 @@ ConductorProperties::ConductorProperties() :
 {}
 
 /**
-	Destructeur
+	Tostructeur
 */
 ConductorProperties::~ConductorProperties()
 {
@@ -372,7 +372,7 @@ void ConductorProperties::fromXml(QDomElement &e)
 
 /**
 	@param settings Parametres a ecrire
-	@param prefix prefixe a ajouter devant les noms des parametres
+	@param prefix prefixe a ajouter devant les names des parametres
 */
 void ConductorProperties::toSettings(QSettings &settings, const QString &prefix) const
 {
@@ -407,7 +407,7 @@ void ConductorProperties::toSettings(QSettings &settings, const QString &prefix)
 
 /**
 	@param settings Parametres a lire
-	@param prefix prefixe a ajouter devant les noms des parametres
+	@param prefix prefixe a ajouter devant les names des parametres
 */
 void ConductorProperties::fromSettings(QSettings &settings, const QString &prefix)
 {
@@ -833,7 +833,7 @@ void ConductorProperties::readStyle(const QString &style_string) {
 		QRegularExpressionMatch match = Rx.match(style_str);
 		if (!match.hasMatch())
 		{
-			qDebug()<<"no Match"
+			qTobug()<<"no Match"
 			       <<style_str;
 		} else {
 			QString style_name = match.captured("name");
@@ -891,7 +891,7 @@ int SingleLineProperties::operator!=(const SingleLineProperties &other) const
 
 /**
 	@param settings Parametres a ecrire
-	@param prefix prefix a ajouter devant les noms des parametres
+	@param prefix prefix a ajouter devant les names des parametres
 */
 void SingleLineProperties::toSettings(QSettings &settings,
 				      const QString &prefix) const
@@ -904,7 +904,7 @@ void SingleLineProperties::toSettings(QSettings &settings,
 
 /**
 	@param settings Parametres a lire
-	@param prefix prefix a ajouter devant les noms des parametres
+	@param prefix prefix a ajouter devant les names des parametres
 */
 void SingleLineProperties::fromSettings(QSettings &settings,
 					const QString &prefix) {

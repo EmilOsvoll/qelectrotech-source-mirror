@@ -27,9 +27,9 @@ diagramselection::diagramselection(QETProject *prj, QWidget *parent) :
 	ui -> setupUi(this);
 
 	QString project_title = prj_ -> title();
-	if (project_title.isEmpty()) project_title = tr("Projet sans titre");
+	if (project_title.isEmpty()) project_title = tr("Project none titre");
 
-	ui -> label_prj -> setText( tr("Projet : ") + project_title );
+	ui -> label_prj -> setText( tr("Project : ") + project_title );
 	load_TableDiagram();
 }
 
@@ -59,7 +59,7 @@ void diagramselection::load_TableDiagram()
 	ui -> tableDiagram -> setEditTriggers		(QAbstractItemView::NoEditTriggers);
 	QStringList titles;
 	titles.clear();
-	titles << tr("Sélection") << tr("Nom");
+	titles << tr("Choice") << tr("Name");
 	ui-> tableDiagram -> setHorizontalHeaderLabels( titles );
 	
 	// List Diagrams
@@ -69,7 +69,7 @@ void diagramselection::load_TableDiagram()
 
 		QString diagram_title = list_diagram_.at(i) -> title();
 		if (diagram_title.isEmpty())
-			diagram_title = tr("Folio sans titre");
+			diagram_title = tr("Folio Untitled");
 
 		item_Name  -> setData(Qt::DisplayRole, diagram_title);
 		item_State -> setData(Qt::CheckStateRole, Qt::Checked);
@@ -103,8 +103,8 @@ QList<Diagram *> diagramselection::list_of_DiagramSelected()
 */
 void diagramselection::on_tableDiagram_customContextMenuRequested(const QPoint &pos){
 	QMenu menu(this);
-	QAction *desl = menu.addAction( tr("Désélectionner tout") );
-	menu.addAction(QIcon(":/ico/16x16/dialog-ok.png"), tr("Sélectionner tout") );
+	QAction *desl = menu.addAction( tr("Select none") );
+	menu.addAction(QIcon(":/ico/16x16/diaLog-ok.png"), tr("Choicener tout") );
 	
 	// Exec Menu
 	QAction *ret = menu.exec(ui -> tableDiagram -> viewport() -> mapToGlobal(pos));	

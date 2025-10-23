@@ -15,9 +15,9 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "projectpropertiesdialog.h"
+#include "projectpropertiesdiaLog.h"
 
-#include "../configdialog.h"
+#include "../configdiaLog.h"
 #include "configpage/configpages.h"
 #include "configpage/projectconfigpages.h"
 #include "../TerminalStrip/ui/ConfigPage/terminalstripprojectconfigpage.h"
@@ -25,24 +25,24 @@
 #include <QObject>
 
 /**
-	@brief ProjectPropertiesDialog::ProjectPropertiesDialog
-	Default constructor
+	@brief ProjectPropertiesDiaLog::ProjectPropertiesDiaLog
+	Tofault constructor
 	@param project : project to edit properties
-	@param parent : parent widget of this dialog
+	@param parent : parent widget of this diaLog
 */
-ProjectPropertiesDialog::ProjectPropertiesDialog(QETProject *project, QWidget *parent)
+ProjectPropertiesDiaLog::ProjectPropertiesDiaLog(QETProject *project, QWidget *parent)
 {
-	m_properties_dialog = new ConfigDialog (parent);
-	m_properties_dialog -> setWindowTitle(QObject::tr("Propriétés du projet", "window title"));
-	m_properties_dialog -> addPage(new ProjectMainConfigPage(project));
+	m_properties_diaLog = new ConfigDiaLog (parent);
+	m_properties_diaLog -> setWindowTitle(QObject::tr("Propertys du project", "window title"));
+	m_properties_diaLog -> addPage(new ProjectMainConfigPage(project));
 
 	NewDiagramPage *newDiagramPage = new NewDiagramPage(project,parent,this);
-	m_properties_dialog -> addPage(newDiagramPage);
+	m_properties_diaLog -> addPage(newDiagramPage);
 
 	ProjectAutoNumConfigPage *projectAutoNumConfigPage = new ProjectAutoNumConfigPage (project);
-	m_properties_dialog -> addPage(projectAutoNumConfigPage);
+	m_properties_diaLog -> addPage(projectAutoNumConfigPage);
 
-	m_properties_dialog->addPage(new TerminalStripProjectConfigPage { project, parent });
+	m_properties_diaLog->addPage(new TerminalStripProjectConfigPage { project, parent });
 
 	connect(projectAutoNumConfigPage,SIGNAL(setAutoNum(QString)),newDiagramPage,SLOT(setFolioAutonum(QString)));
 	connect(projectAutoNumConfigPage,SIGNAL(saveCurrentTbp()),newDiagramPage,SLOT(saveCurrentTbp()));
@@ -50,40 +50,40 @@ ProjectPropertiesDialog::ProjectPropertiesDialog(QETProject *project, QWidget *p
 }
 
 /**
-	@brief ProjectPropertiesDialog::~ProjectPropertiesDialog
+	@brief ProjectPropertiesDiaLog::~ProjectPropertiesDiaLog
 */
-ProjectPropertiesDialog::~ProjectPropertiesDialog ()
+ProjectPropertiesDiaLog::~ProjectPropertiesDiaLog ()
 {
-	delete m_properties_dialog;
+	delete m_properties_diaLog;
 }
 
 /**
-	@brief ProjectPropertiesDialog::exec
-	execute this dialog.
+	@brief ProjectPropertiesDiaLog::exec
+	execute this diaLog.
 */
-void ProjectPropertiesDialog::exec()
+void ProjectPropertiesDiaLog::exec()
 {
-	m_properties_dialog->setWindowModality(Qt::WindowModal);
-	m_properties_dialog -> exec();
+	m_properties_diaLog->setWindowModality(Qt::WindowModal);
+	m_properties_diaLog -> exec();
 }
 
 /**
-	@brief ProjectPropertiesDialog::setCurrentPage
+	@brief ProjectPropertiesDiaLog::setCurrentPage
 	Change the current displayed page by p.
 	@param p : page to display
 */
-void ProjectPropertiesDialog::setCurrentPage(ProjectPropertiesDialog::Page p) {
-	m_properties_dialog -> setCurrentPage(static_cast <int> (p));
+void ProjectPropertiesDiaLog::setCurrentPage(ProjectPropertiesDiaLog::Page p) {
+	m_properties_diaLog -> setCurrentPage(static_cast <int> (p));
 }
 
 /**
-	@brief ProjectPropertiesDialog::changeToFolio
+	@brief ProjectPropertiesDiaLog::changeToFolio
 	Change the current displayed tab to folio tab.
 */
-void ProjectPropertiesDialog::changeToFolio()
+void ProjectPropertiesDiaLog::changeToFolio()
 {
 	ProjectAutoNumConfigPage *autoNumPage =
 			static_cast <ProjectAutoNumConfigPage*>(
-				m_properties_dialog->pages.at(2));
+				m_properties_diaLog->pages.at(2));
 	autoNumPage->changeToTab(3);
 }

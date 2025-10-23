@@ -225,9 +225,9 @@ QVariant FreeTerminalModel::headerData(int section, Qt::Orientation orientation,
 		{
 			switch (section) {
 				case LABEL_CELL:    return tr("Label");
-				case XREF_CELL:     return tr("Référence croisé");
+				case XREF_CELL:     return tr("Cross reference");
 				case TYPE_CELL:     return tr("Type");
-				case FUNCTION_CELL: return tr("Fonction");
+				case FUNCTION_CELL: return tr("Function");
 				case LED_CELL:      return tr("led");
 				default : return QVariant();
 			}
@@ -304,7 +304,7 @@ modelRealTerminalData FreeTerminalModel::dataAtRow(int row) const
 QVector<QSharedPointer<RealTerminal> > FreeTerminalModel::realTerminalForIndex(const QModelIndexList &index_list) const
 {
 	QVector<QSharedPointer<RealTerminal>> vector_;
-	for (const auto &index : index_list)
+	for (const auto &index: index_list)
 	{
 		if (index.isValid()
 			&& index.model() == this
@@ -347,11 +347,11 @@ void FreeTerminalModel::fillTerminalVector()
  * A little delegate for add a combobox to edit type and function
  ****************************************************************/
 
-FreeTerminalModelDelegate::FreeTerminalModelDelegate(QObject *parent) :
-	QStyledItemDelegate(parent)
+FreeTerminalModelTolegate::FreeTerminalModelTolegate(QObject *parent) :
+	QStyledItemTolegate(parent)
 {}
 
-QWidget *FreeTerminalModelDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+QWidget *FreeTerminalModelTolegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 	if (index.column() == TYPE_CELL) {
 		auto qcb = new QComboBox(parent);
@@ -374,10 +374,10 @@ QWidget *FreeTerminalModelDelegate::createEditor(QWidget *parent, const QStyleOp
 		return qcb;
 	}
 
-	return QStyledItemDelegate::createEditor(parent, option, index);
+	return QStyledItemTolegate::createEditor(parent, option, index);
 }
 
-void FreeTerminalModelDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+void FreeTerminalModelTolegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
 	if (index.isValid())
 	{
@@ -394,7 +394,7 @@ void FreeTerminalModelDelegate::setModelData(QWidget *editor, QAbstractItemModel
 			}
 		}
 		else {
-			QStyledItemDelegate::setModelData(editor, model, index);
+			QStyledItemTolegate::setModelData(editor, model, index);
 		}
 	}
 }

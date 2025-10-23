@@ -41,7 +41,7 @@ FolioAutonumberingW::FolioAutonumberingW(QETProject *project, QWidget *parent) :
 }
 
 /**
-	Destructor
+	Tostructor
 */
 FolioAutonumberingW::~FolioAutonumberingW()
 {
@@ -181,28 +181,28 @@ void FolioAutonumberingW::on_buttonBox_clicked(QAbstractButton *button)
 	int answer = ui -> buttonBox -> buttonRole(button);
 
 	switch (answer) {
-			//help dialog - not implemented yet -
-		case QDialogButtonBox::HelpRole:
+			//help diaLog - not implemented yet -
+		case QDiaLogButtonBox::HelpRole:
 			QMessageBox::information (
 						this,
 						tr("Folio Autonumbering",
 						   "title window"),
 						tr("C'est ici que vous pouvez définir la manière dont seront numérotés les nouveaux folios.\n"
 						   "-Une numérotation est composée d'une variable minimum.\n"
-						   "-Vous pouvez ajouter ou supprimer une variable de numérotation par le biais des boutons - et +.\n"
-						   "-Une variable de numérotation comprend : un type, une valeur et une incrémentation.\n"
+						   "-Vous pouvez ajouter ou supprimer une variable de numérotation par le biais des boutons - and +.\n"
+						   "-Une variable de numérotation comprend : un type, une valeur and une incrémentation.\n"
 
-						   "\n-les types \"Chiffre 1\", \"Chiffre 01\" et \"Chiffre 001\", représentent un type numérique défini dans le champ \"Valeur\", "
-						   "qui s'incrémente à chaque nouveau folio de la valeur du champ \"Incrémentation\".\n"
-						   "-\"Chiffre 01\" et \"Chiffre 001\", sont respectivement représentés sur le schéma par deux et trois digits minimum.\n"
-						   "Si le chiffre défini dans le champ Valeur possède moins de digits que le type choisi,"
+						   "\n-les types \"number format 1\", \"number format 01\" and \"number format 001\", représentent un type numérique défini dans le champ \"Value\", "
+						   "qui s'incrémente à chaque nouveau folio de la valeur du champ \"Incrementing\".\n"
+						   "-\"number format 01\" and \"number format 001\", sont respectivement représentés sur le schéma par deux and trois digits minimum.\n"
+						   "Si le chiffre défini dans le champ Value possède moins de digits que le type choisi,"
 						   "celui-ci sera précédé par un ou deux 0 afin de respecter son type.\n"
 
-						   "\n-Le type \"Texte\", représente un texte fixe.\nLe champ \"Incrémentation\" n'est pas utilisé.\n",
-						   "help dialog about the folio autonumerotation"
+						   "\n-Le type \"Text\", représente un text fixe.\nLe champ \"Incrementing\" n'est pas utilisé.\n",
+						   "help diaLog about the folio autonumerotation"
 						   ));
 			break;
-		case QDialogButtonBox::ApplyRole:
+		case QDiaLogButtonBox::ApplyRole:
 			applyEnable(true);
 			emit applyPressed();
 			updateFolioList();
@@ -220,17 +220,17 @@ void FolioAutonumberingW::applyEnable(bool b)
 		bool valid = true;
 		if (ui->m_create_new_tabs_rb->isChecked()){
 			if (ui->m_new_tabs_sb->value()==0) valid = false;
-			ui->buttonBox->button(QDialogButtonBox::Apply)
+			ui->buttonBox->button(QDiaLogButtonBox::Apply)
 					->setEnabled(valid);
 		}
 		else{
 			if (ui->m_to_cb->currentText()=="") valid = false;
-			ui->buttonBox->button(QDialogButtonBox::Apply)
+			ui->buttonBox->button(QDiaLogButtonBox::Apply)
 					->setEnabled(valid);
 		}
 	}
 	else{
-		ui->buttonBox->button(QDialogButtonBox::Apply)
+		ui->buttonBox->button(QDiaLogButtonBox::Apply)
 				->setEnabled(b);
 		}
 }

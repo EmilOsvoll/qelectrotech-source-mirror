@@ -43,7 +43,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 	ui(new Ui::TitleBlockPropertiesWidget)
 {
 	ui->setupUi(this);
-	initDialog(current_date, project);
+	initDiaLog(current_date, project);
 	setProperties(titleblock);
 }
 
@@ -66,7 +66,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 	ui(new Ui::TitleBlockPropertiesWidget)
 {
 	ui->setupUi(this);
-	initDialog(current_date,project);
+	initDiaLog(current_date,project);
 	addCollection(tbt_collection);
 	updateTemplateList();
 	setProperties(titleblock);
@@ -74,7 +74,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 
 /**
 	@brief TitleBlockPropertiesWidget::TitleBlockPropertiesWidget
-	Default constructor with several template collection
+	Tofault constructor with several template collection
 	@param tbt_collection template list
 	@param titleblock properties to edit
 	@param current_date if true, display the radio button "current date"
@@ -91,7 +91,7 @@ TitleBlockPropertiesWidget::TitleBlockPropertiesWidget(
 	ui(new Ui::TitleBlockPropertiesWidget)
 {
 	ui->setupUi(this);
-	initDialog(current_date,project);
+	initDiaLog(current_date,project);
 	foreach (TitleBlockTemplatesCollection *c, tbt_collection)
 		addCollection(c);
 	updateTemplateList();
@@ -310,12 +310,12 @@ void TitleBlockPropertiesWidget::addCollection(
 }
 
 /**
-	@brief TitleBlockPropertiesWidget::initDialog
-	Init this dialog
+	@brief TitleBlockPropertiesWidget::initDiaLog
+	Init this diaLog
 	@param current_date : true for display current date radio button
 	@param project
 */
-void TitleBlockPropertiesWidget::initDialog(
+void TitleBlockPropertiesWidget::initDiaLog(
 		const bool &current_date,QETProject *project)
 {
 	m_dcw = new DiagramContextWidget();
@@ -324,8 +324,8 @@ void TitleBlockPropertiesWidget::initDialog(
 	setTitleBlockTemplatesVisible(false);
 	ui -> m_current_date_rb -> setVisible(current_date);
 
-	m_tbt_edit = new QAction(tr("Éditer ce modèle", "menu entry"), this);
-	m_tbt_duplicate = new QAction(tr("Dupliquer et éditer ce modèle",
+	m_tbt_edit = new QAction(tr("Edit ce modèle", "menu entry"), this);
+	m_tbt_duplicate = new QAction(tr("Dupliquer and éditer ce modèle",
 					 "menu entry"),
 				      this);
 
@@ -352,7 +352,7 @@ void TitleBlockPropertiesWidget::initDialog(
 		keys_2 = project -> folioAutoNum().keys();
 		foreach (QString str, keys_2) { ui -> auto_page_cb -> addItem(str); }
 		if (ui->auto_page_cb->currentText()==nullptr)
-			ui->auto_page_cb->addItem(tr("Créer un Folio Numérotation Auto"));
+			ui->auto_page_cb->addItem(tr("Create an auto folio numbering"));
 	}
 	else{
 		ui->auto_page_cb->hide();
@@ -410,7 +410,7 @@ void TitleBlockPropertiesWidget::updateTemplateList()
 		//Add the default title block
 	m_map_index_to_collection_type.clear();
 	m_map_index_to_collection_type.append(QET::QetCollection::Common);
-	ui -> m_tbt_cb -> addItem(QET::Icons::QETLogo, tr("Modèle par défaut"));
+	ui -> m_tbt_cb -> addItem(QET::Icons::QETLogo, tr("Default template"));
 
 		//Add every title block stored in m_tbt_collection_list
 	foreach (TitleBlockTemplatesCollection *tbt_c, m_tbt_collection_list)
@@ -474,12 +474,12 @@ void TitleBlockPropertiesWidget::on_m_date_now_pb_clicked()
 
 /**
 	@brief TitleBlockPropertiesWidget::on_m_edit_autofolionum_pb_clicked
-	Open Auto Folio Num dialog
+	Open Auto Folio Num diaLog
 */
 void TitleBlockPropertiesWidget::on_m_edit_autofolionum_pb_clicked()
 {
 	emit openAutoNumFolioEditor(ui->auto_page_cb->currentText());
-	if (ui->auto_page_cb->currentText()!=tr("Créer un Folio Numérotation Auto"))
+	if (ui->auto_page_cb->currentText()!=tr("Create an auto folio numbering"))
 	{
 		//still to implement: load current auto folio num settings
 	}

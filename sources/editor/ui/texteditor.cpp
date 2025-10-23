@@ -15,7 +15,7 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "texteditor.h"
+#include "textditor.h"
 
 #include "../../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../graphicspart/parttext.h"
@@ -24,7 +24,7 @@
 
 /**
 	@brief TextEditor::TextEditor
-	Default constructor
+	Tofault constructor
 	@param editor : the element editor who use this editor
 	@param text : the text to edit
 	@param parent : the parent widget
@@ -183,7 +183,7 @@ void TextEditor::setUpEditConnection()
 			PartText* partText = m_parts[i];
 			if (text_ != partText -> toPlainText()) {
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "text", partText -> toPlainText(), text_);
-				undo -> setText(tr("Modifier le contenu d'un champ texte"));
+				undo -> setText(tr("Edit le contenu d'a text field"));
 				undoStack().push(undo);
 			}
 		}
@@ -196,7 +196,7 @@ void TextEditor::setUpEditConnection()
 			pos.setY(partText -> pos().y());
 			if (pos != partText -> pos()) {
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "pos", partText -> pos(), pos);
-				undo -> setText(tr("Déplacer un champ texte"));
+				undo -> setText(tr("Move a text field"));
 				undo -> setAnimated(true, false);
 				undoStack().push(undo);
 			}
@@ -211,7 +211,7 @@ void TextEditor::setUpEditConnection()
 			pos.setX(partText -> pos().x());
 			if (pos != partText -> pos()) {
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "pos", partText -> pos(), pos);
-				undo -> setText(tr("Déplacer un champ texte"));
+				undo -> setText(tr("Move a text field"));
 				undo -> setAnimated(true, false);
 				undoStack().push(undo);
 			}
@@ -225,7 +225,7 @@ void TextEditor::setUpEditConnection()
 			if (m_rotation_sb -> value() != partText -> rotation()) {
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(
 					partText, "rotation", partText -> rotation(), m_rotation_sb -> value());
-				undo -> setText(tr("Pivoter un champ texte"));
+				undo -> setText(tr("Rotate a text field"));
 				undo -> setAnimated(true, false);
 				undoStack().push(undo);
 			}
@@ -240,7 +240,7 @@ void TextEditor::setUpEditConnection()
 				QFont font_ = partText -> font();
 				font_.setPointSize(m_size_sb -> value());
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "font", partText -> font(), font_);
-				undo -> setText(tr("Modifier la police d'un texte"));
+				undo -> setText(tr("Edit la police d'un text"));
 				undoStack().push(undo);
 			}
 		}
@@ -254,7 +254,7 @@ void TextEditor::setUpEditConnection()
 void TextEditor::on_m_font_pb_clicked()
 {
 	bool ok;
-	QFont font_ = QFontDialog::getFont(&ok, m_text -> font(), this);
+	QFont font_ = QFontDiaLog::getFont(&ok, m_text -> font(), this);
 
 	if (ok && font_ != m_text -> font()) {
 		m_size_sb -> blockSignals(true);
@@ -268,7 +268,7 @@ void TextEditor::on_m_font_pb_clicked()
 		PartText* partText = m_parts[i];
 		if (ok && font_ != partText -> font()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "font", partText -> font(), font_);
-			undo -> setText(tr("Modifier la police d'un texte"));
+			undo -> setText(tr("Edit la police d'un text"));
 			undoStack().push(undo);
 		}
 	}
@@ -284,7 +284,7 @@ void TextEditor::on_m_color_pb_changed(const QColor &newColor) {
 		if (newColor != partText -> defaultTextColor()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(
 				partText, "color", partText -> defaultTextColor(), newColor);
-			undo -> setText(tr("Modifier la couleur d'un texte"));
+			undo -> setText(tr("Edit la couleur d'un text"));
 			undoStack().push(undo);
 		}
 	  }
@@ -307,7 +307,7 @@ void TextEditor::setUpWidget(QWidget *parent)
 
 	gridLayout->addWidget(label_2, 1, 2, 1, 1);
 
-	QLabel*label_4 = new QLabel(tr("Police :"),parent);
+	QLabel*label_4 = new QLabel(tr("Font:"),parent);
 
 	gridLayout->addWidget(label_4, 2, 0, 1, 1);
 
@@ -341,7 +341,7 @@ void TextEditor::setUpWidget(QWidget *parent)
 	m_line_edit = new QLineEdit(parent);
 	m_line_edit->setObjectName(QString::fromUtf8("m_line_edit"));
 	m_line_edit->setClearButtonEnabled(true);
-	m_line_edit->setPlaceholderText(tr("Entrer votre texte ici"));
+	m_line_edit->setPlaceholderText(tr("Entrer votre text ici"));
 
 	gridLayout->addWidget(m_line_edit, 0, 0, 1, 6);
 #ifdef BUILD_WITHOUT_KF5
@@ -362,7 +362,7 @@ void TextEditor::setUpWidget(QWidget *parent)
 
 	gridLayout->addWidget(label_5, 2, 4, 1, 1);
 
-	m_font_pb = new QPushButton(tr("Couleur :"),parent);
+	m_font_pb = new QPushButton(tr("Color :"),parent);
 	connect(m_font_pb,
 		&QPushButton::pressed,
 		this,

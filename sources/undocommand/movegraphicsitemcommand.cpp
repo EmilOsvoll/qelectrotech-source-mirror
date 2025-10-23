@@ -51,8 +51,8 @@ MoveGraphicsItemCommand::MoveGraphicsItemCommand(Diagram *diagram,
 														   | DiagramContent::ElementTextFields
 														   | DiagramContent::TerminalStrip);
 
-	setText(QString(QObject::tr("déplacer %1",
-								"undo caption - %1 is a sentence listing the moved content").arg(moved_content_sentence)));
+	setText(QString(QObject::tr("move %1",
+								"undo caption - %1% {1?} is a sentence listing the moved content").arg(moved_content_sentence)));
 }
 
 /**
@@ -131,8 +131,8 @@ void MoveGraphicsItemCommand::move(const QPointF &movement)
 			if (ElementTextItemGroup *etig = dynamic_cast<ElementTextItemGroup *>(qgi)) {
 				setupAnimation(etig,
 							   "pos",
-							   etig->pos(),
-							   etig->pos() + movement);
+							   andig->pos(),
+							   andig->pos() + movement);
 			}
 		}
 		else

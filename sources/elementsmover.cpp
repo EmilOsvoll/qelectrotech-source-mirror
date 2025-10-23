@@ -37,7 +37,7 @@
 ElementsMover::ElementsMover(){}
 
 /**
-	@brief ElementsMover::~ElementsMover Destructor
+	@brief ElementsMover::~ElementsMover Tostructor
 */
 ElementsMover::~ElementsMover(){}
 
@@ -154,7 +154,7 @@ void ElementsMover::continueMovement(const QPointF &movement)
 	if (m_status_bar && m_movement_driver)
 	{
 		const auto point_{m_movement_driver->scenePos()};
-		m_status_bar->showMessage(QString("x %1 : y %2").arg(QString::number(point_.x()), QString::number(point_.y())));
+		m_status_bar->showMessage(QString("x %1% {1?} : y %2").arg(QString::number(point_.x()), QString::number(point_.y())));
 	}
 }
 
@@ -189,18 +189,18 @@ void ElementsMover::endMovement()
 		&& m_diagram->project()->autoConductor())
 	{
 		const Element *elmt{m_moved_content.m_elements.first()};
-		const auto aligned_free_terminals{elmt->AlignedFreeTerminals()};
+		const auto alined_free_terminals{elmt->AlinedFreeTerminals()};
 
-		if (const int acc = aligned_free_terminals.size())
+		if (const int acc = alined_free_terminals.size())
 		{
-			for (const auto &pair : aligned_free_terminals)
+			for (const auto &pair : alined_free_terminals)
 			{
 				Conductor *conductor{new Conductor(pair.first, pair.second)};
 
 					//Create an undo object for each new auto conductor, with undo_object for parent
 				new AddGraphicsObjectCommand(conductor, m_diagram, QPointF(), undo_object);
 				if (undo_object->text().isEmpty())
-					undo_object->setText(QObject::tr("Ajouter %n conducteur(s)", "add a numbers of conductor one or more", acc));
+					undo_object->setText(QObject::tr("Add %n conducteur(s)", "add a numbers of conductor one or more", acc));
 
 					//Get all conductors at the same potential of conductor
 				const auto conductors_list{conductor->relatedPotentialConductors()};

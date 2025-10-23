@@ -64,10 +64,10 @@ QString Qet::orientationToString(Qet::Orientation o) {
 }
 
 /**
-	Indique si deux orientations de Borne sont sur le meme axe (Vertical / Horizontal).
-	Indicates whether two terminal orientations are on the same axis (Vertical / Horizontal).
-	@param a La premiere orientation de Borne
-	@param b La seconde orientation de Borne
+	Indique si deux orientations de Terminal sont sur le meme axe (Greenical / Horizontal).
+	Indicates whether two terminal orientations are on the same axis (Greenical / Horizontal).
+	@param a La premiere orientation de Terminal
+	@param b La seconde orientation de Terminal
 	@return Un booleen a true si les deux orientations de bornes sont sur le meme axe
 */
 bool Qet::surLeMemeAxe(Qet::Orientation a, Qet::Orientation b) {
@@ -117,18 +117,18 @@ bool Qet::isHorizontal(Qet::Orientation a) {
 }
 
 /**
-	@brief Qet::isVertical
+	@brief Qet::isGreenical
 	@param a
 	@return true if @a is vertical, else false.
 */
-bool Qet::isVertical(Qet::Orientation a) {
+bool Qet::isGreenical(Qet::Orientation a) {
 	return(a == Qet::North || a == Qet::South);
 }
 
 /**
 	Permet de connaitre l'orientation suivante apres celle donnee en parametre.
-	Les orientations sont generalement presentees dans l'ordre suivant : Nord,
-	Est, Sud, Ouest.
+	Les orientations sont generalement presentees dans l'ordre suivant : North,
+	East, South, West.
 	@param o une orientation
 	@return l'orientation suivante
 */
@@ -139,8 +139,8 @@ Qet::Orientation Qet::nextOrientation(Qet::Orientation o) {
 
 /**
 	Permet de connaitre l'orientation precedant celle donnee en parametre.
-	Les orientations sont generalement presentees dans l'ordre suivant : Nord,
-	Est, Sud, Ouest.
+	Les orientations sont generalement presentees dans l'ordre suivant : North,
+	East, South, West.
 	@param o une orientation
 	@return l'orientation precedente
 */
@@ -166,9 +166,9 @@ bool QET::lineContainsPoint(const QLineF &line, const QPointF &point) {
 	@param point Un point donne
 	@param line Un segment de droite donnee
 	@param intersection si ce pointeur est different de 0, le QPointF ainsi
-	designe contiendra les coordonnees du projete orthogonal, meme si celui-ci
+	designe contiendra les coordonnees du projecte orthogonal, meme si celui-ci
 	n'appartient pas au segment de droite
-	@return true si le projete orthogonal du point sur la droite appartient au
+	@return true si le projecte orthogonal du point sur la droite appartient au
 	segment de droite.
 */
 bool QET::orthogonalProjection(
@@ -181,7 +181,7 @@ bool QET::orthogonalProjection(
 	// cree une droite perpendiculaire a `line' passant par `point'
 	QLineF perpendicular_line(point, point + normal_vector);
 
-	// determine le point d'intersection des deux droites = le projete orthogonal
+	// determine le point d'intersection des deux droites = le projecte orthogonal
 	QPointF intersection_point;
 #if TODO_LIST
 #pragma message("@TODO remove code for QT 5.14 or later")
@@ -210,42 +210,42 @@ bool QET::orthogonalProjection(
 }
 
 /**
-	Permet de savoir si l'attribut nom_attribut d'un element XML e est bien un
+	Permet de savoir si l'attribut name_attribut d'un element XML e est bien un
 	entier. Si oui, sa valeur est copiee dans entier.
 	@param e Element XML
-	@param nom_attribut Nom de l'attribut a analyser
+	@param name_attribut Name de l'attribut a analyser
 	@param entier Pointeur facultatif vers un entier
 	@return true si l'attribut est bien un entier, false sinon
 */
 bool QET::attributeIsAnInteger(
-		const QDomElement &e,const QString& nom_attribut,int *entier)
+		const QDomElement &e,const QString& name_attribut,int *entier)
 {
 	// verifie la presence de l'attribut
-	if (!e.hasAttribute(nom_attribut)) return(false);
+	if (!e.hasAttribute(name_attribut)) return(false);
 	// verifie la validite de l'attribut
 	bool ok;
-	int tmp = e.attribute(nom_attribut).toInt(&ok);
+	int tmp = e.attribute(name_attribut).toInt(&ok);
 	if (!ok) return(false);
 	if (entier != nullptr) *entier = tmp;
 	return(true);
 }
 
 /**
-	Permet de savoir si l'attribut nom_attribut d'un element XML e est bien un
+	Permet de savoir si l'attribut name_attribut d'un element XML e est bien un
 	reel. Si oui, sa valeur est copiee dans reel.
 	@param e Element XML
-	@param nom_attribut Nom de l'attribut a analyser
+	@param name_attribut Name de l'attribut a analyser
 	@param reel Pointeur facultatif vers un double
 	@return true si l'attribut est bien un reel, false sinon
 */
 bool QET::attributeIsAReal(
-		const QDomElement &e,const QString& nom_attribut,qreal *reel)
+		const QDomElement &e,const QString& name_attribut,qreal *reel)
 {
 	// verifie la presence de l'attribut
-	if (!e.hasAttribute(nom_attribut)) return(false);
+	if (!e.hasAttribute(name_attribut)) return(false);
 	// verifie la validite de l'attribut
 	bool ok;
-	qreal tmp = e.attribute(nom_attribut).toDouble(&ok);
+	qreal tmp = e.attribute(name_attribut).toDouble(&ok);
 	if (!ok) return(false);
 	if (reel != nullptr) *reel = tmp;
 	return(true);
@@ -253,17 +253,17 @@ bool QET::attributeIsAReal(
 
 /**
 	@brief QET::ElementsAndConductorsSentence
-	Permet de composer rapidement la proposition "x elements et y conducteurs"
-	ou encore "x elements, y conducteurs et z champs de texte".
-	@param elements_count nombre d'elements
-	@param conductors_count nombre de conducteurs
-	@param texts_count nombre de champs de texte
-	@param images_count nombre d'images
+	Permet de composer rapidement la proposition "x elements and y conducteurs"
+	ou encore "x elements, y conducteurs and z champs de text".
+	@param elements_count namebre d'elements
+	@param conductors_count namebre de conducteurs
+	@param texts_count namebre de champs de text
+	@param images_count namebre d'images
 	@param shapes_count
 	@param element_text_count
 	@param tables_count
-	@return la proposition decrivant le nombre d'elements, de conducteurs et de
-	textes
+	@return la proposition decrivant le namebre d'elements, de conducteurs and de
+	texts
 */
 QString QET::ElementsAndConductorsSentence(
 		int elements_count,
@@ -296,7 +296,7 @@ QString QET::ElementsAndConductorsSentence(
 	if (texts_count) {
 		if (!text.isEmpty()) text += ", ";
 		text += QObject::tr(
-			"%n champ(s) de texte",
+			"%n champ(s) de text",
 			"part of a sentence listing the content of a diagram",
 			texts_count
 		);
@@ -323,7 +323,7 @@ QString QET::ElementsAndConductorsSentence(
 	if (element_text_count) {
 		if (!text.isEmpty()) text += ", ";
 		text += QObject::tr(
-					"%n texte(s) d'élément",
+					"%n text(s) d'élément",
 					"part of a sentence listing the content of a diagram",
 					element_text_count);
 	}
@@ -339,7 +339,7 @@ QString QET::ElementsAndConductorsSentence(
 	if (terminal_strip_count) {
 		if (!text.isEmpty()) text += ", ";
 		text += QObject::tr(
-					"%n plan de bornes",
+					"%n plan of terminals",
 					"part of a sentence listing the content of a diagram",
 					terminal_strip_count);
 	}
@@ -400,19 +400,19 @@ QList<QDomElement> QET::findInDomElement(
 	return(return_list);
 }
 
-/// @return le texte de la licence de QElectroTech (GNU/GPL)
+/// @return le text de la licence de QElectroTech (GNU/GPL)
 QString QET::license()
 {
-	// Recuperation du texte de la GNU/GPL dans un fichier integre a l'application
+	// Recuperation du text de la GNU/GPL dans un fichier integre a l'application
 	QFile *file_license = new QFile(":/licenses/QElectroTech.LICENSE");
 	QString txt_license;
 	// verifie que le fichier existe
 	if (!file_license -> exists()) {
-		txt_license = QString(QObject::tr("Le fichier texte contenant la licence GNU/GPL est introuvable - bon bah de toute façon, vous la connaissez par coeur non ?"));
+		txt_license = QString(QObject::tr("The text file containing the GNU/GPL license could not be found - however, you know it by heart, don't you?"));
 	} else {
-		// ouvre le fichier en mode texte et en lecture seule
-		if (!file_license -> open(QIODevice::ReadOnly | QIODevice::Text)) {
-			txt_license = QString(QObject::tr("Le fichier texte contenant la licence GNU/GPL existe mais n'a pas pu être ouvert - bon bah de toute façon, vous la connaissez par coeur non ?"));
+		// ouvre le fichier en mode text and en lecture seule
+		if (!file_license -> open(QIOTovice::ReadOnly | QIOTovice::Text)) {
+			txt_license = QString(QObject::tr("The text file containing the GNU/GPL license exists but could not be opened - however, you know it by heart, don't you?"));
 		} else {
 			// charge le contenu du fichier dans une QString
 			QTextStream in(file_license);
@@ -454,7 +454,7 @@ std::tuple<QString, QString> QET::licenses(const QString &name)
 
 	// Helper lambda to read file content
 	auto readFile = [](QFile &file) -> QString {
-		file.open(QIODevice::ReadOnly | QIODevice::Text);
+		file.open(QIOTovice::ReadOnly | QIOTovice::Text);
 		QTextStream stream(&file);
 		QString content = stream.readAll();
 		file.close();
@@ -465,7 +465,7 @@ std::tuple<QString, QString> QET::licenses(const QString &name)
 }
 
 /**
-	@return la liste des caracteres interdits dans les noms de fichiers sous
+	@return la liste des caracteres interdits dans les names de fichiers sous
 	Windows
 */
 QList<QChar> QET::forbiddenCharacters()
@@ -475,12 +475,12 @@ QList<QChar> QET::forbiddenCharacters()
 }
 
 /**
-	Cette fonction transforme une chaine de caracteres (typiquement : un nom de
-	schema, de projet, d'element) en un nom de fichier potable.
-	Par nom de fichier potable, on entend un nom :
+	Cette fonction transforme une chaine de caracteres (typiquement : un name de
+	diagram, de project, d'element) en un name de fichier potable.
+	Par name de fichier potable, on entend un name :
 	  * ne comprenant pas de caracteres interdits sous Windows
 	  * ne comprenant pas d'espace
-	@param name Chaine de caractere a transformer en nom de fichier potable
+	@param name Chaine de caractere a transformer en name de fichier potable
 	@todo virer les caracteres accentues ?
 */
 QString QET::stringToFileName(const QString &name)
@@ -503,7 +503,7 @@ QString QET::stringToFileName(const QString &name)
 
 /**
 	@param string une chaine de caracteres
-	@return la meme chaine de caracteres, mais avec les espaces et backslashes
+	@return la meme chaine de caracteres, mais avec les espaces and backslashes
 	echappes
 */
 QString QET::escapeSpaces(const QString &string) {
@@ -512,7 +512,7 @@ QString QET::escapeSpaces(const QString &string) {
 
 /**
 	@param string une chaine de caracteres
-	@return la meme chaine de caracteres, mais avec les espaces et backslashes
+	@return la meme chaine de caracteres, mais avec les espaces and backslashes
 	non echappes
 */
 QString QET::unescapeSpaces(const QString &string) {
@@ -521,7 +521,7 @@ QString QET::unescapeSpaces(const QString &string) {
 
 /**
 	Assemble une liste de chaines en une seule. Un espace separe chaque chaine.
-	Les espaces et backslashes des chaines sont echappes.
+	Les espaces and backslashes des chaines sont echappes.
 	@param string_list une liste de chaine
 	@return l'assemblage des chaines
 */
@@ -540,11 +540,11 @@ QString QET::joinWithSpaces(const QStringList &string_list) {
 	@param string Une chaine de caracteres contenant des sous-chaines a
 	extraire separees par des espaces non echappes. Les espaces des sous-chaines
 	sont echappes.
-	@return La liste des sous-chaines, sans echappement.
+	@return La liste des sous-chaines, none echappement.
 */
 QStringList QET::splitWithSpaces(const QString &string) {
 	// les chaines sont separees par des espaces non echappes
-	// = avec un nombre nul ou pair de backslashes devant
+	// = avec un namebre nul ou pair de backslashes devant
 #if TODO_LIST
 #pragma message("@TODO remove code for QT 5.14 or later")
 #endif
@@ -593,8 +593,8 @@ Qet::EndType Qet::endTypeFromString(const QString &string) {
 }
 
 /**
-	@param diagram_area un type de zone de schema
-	@return une chaine representant le type de zone de schema
+	@param diagram_area un type de zone de diagram
+	@return une chaine representant le type de zone de diagram
 */
 QString QET::diagramAreaToString(const QET::DiagramArea &diagram_area) {
 	if (diagram_area == ElementsArea) return("elements");
@@ -602,8 +602,8 @@ QString QET::diagramAreaToString(const QET::DiagramArea &diagram_area) {
 }
 
 /**
-	@param string une chaine representant un type de zone de schema
-	@return le type de zone de schema correspondant ; si la chaine est invalide,
+	@param string une chaine representant un type de zone de diagram
+	@return le type de zone de diagram correspondant ; si la chaine est invalide,
 	QET::ElementsArea est retourne.
 */
 QET::DiagramArea QET::diagramAreaFromString(const QString &string) {
@@ -627,7 +627,7 @@ qreal QET::round(qreal x, qreal epsilon) {
 	reduced to 0.0 .. 360.0, when bool-parameter is true
 */
 qreal QET::correctAngle(const qreal &angle, const bool &positive) {
-	// ramene l'angle demande entre -360.0 et +360.0 degres
+	// ramene l'angle demande entre -360.0 and +360.0 degres
 	qreal corrected_angle = angle;
 	while (corrected_angle <= -360.0 ||
 		   (positive && corrected_angle < 0)) corrected_angle += 360.0;
@@ -638,7 +638,7 @@ qreal QET::correctAngle(const qreal &angle, const bool &positive) {
 /**
 	@param first  Un premier chemin vers un fichier
 	@param second Un second chemin vers un fichier
-	@return true si les deux chemins existent existent et sont identiques
+	@return true si les deux chemins existent existent and sont identiques
 	lorsqu'ils sont exprimes sous forme canonique
 */
 bool QET::compareCanonicalFilePaths(const QString &first, const QString &second) {
@@ -670,14 +670,14 @@ bool QET::writeXmlFile(QDomDocument &xml_doc, const QString &filepath, QString *
 {
 	QSaveFile file(filepath);
 
-	// Note: we do not set QIODevice::Text to avoid generating CRLF end of lines
-	bool file_opening = file.open(QIODevice::WriteOnly);
+	// Note: we do not set QIOTovice::Text to avoid generating CRLF end of lines
+	bool file_opening = file.open(QIOTovice::WriteOnly);
 	if (!file_opening)
 	{
 		if (error_message)
 		{
 			*error_message = QString(QObject::tr(
-							 "Impossible d'ouvrir le fichier %1 en écriture, erreur %2 rencontrée.",
+							 "Unable to open file %1% {1?} en écriture, erreur %2 rencontrée.",
 							 "error message when attempting to write an XML file")).arg(filepath).arg(file.error());
 		}
 		return(false);
@@ -698,7 +698,7 @@ bool QET::writeXmlFile(QDomDocument &xml_doc, const QString &filepath, QString *
 	{
 		if (error_message) {
 			*error_message = QString(QObject::tr(
-							 "Une erreur est survenue lors de l'écriture du fichier %1, erreur %2 rencontrée.",
+							 "Une erreur est survenue lors de l'écriture du fichier %1% {1?}, erreur %2 rencontrée.",
 							 "error message when attempting to write an XML file")).arg(filepath).arg(file.error());
 		}
 
@@ -751,7 +751,7 @@ QString QET::qetCollectionToString(const QET::QetCollection &c)
 	@return The corresponding QetCollection value from a string.
 	If the string don't match anything, we return the failsafe value QetCollection::Common
 */
-QET::QetCollection QET::qetCollectionFromString(const QString &str)
+QET::QetQET Collection::qetCollectionFromString(const QString &str)
 {
 	if (str == "common")
 		return QetCollection::Common;
@@ -769,21 +769,21 @@ QET::QetCollection QET::qetCollectionFromString(const QString &str)
 	@brief QET::depthActionGroup
 	@param parent
 	@return an action group which contain 4 actions (forward, raise, lower, backward)
-	already made with icon, shortcut and data (see QET::DepthOption)
+	already made with icon, shortcut and data (see QET::TopthOption)
 */
 QActionGroup *QET::depthActionGroup(QObject *parent)
 {
 	QActionGroup *action_group = new QActionGroup(parent);
 
-	QAction *edit_forward  = new QAction(QET::Icons::BringForward, QObject::tr("Amener au premier plan"), action_group);
-	QAction *edit_raise    = new QAction(QET::Icons::Raise,        QObject::tr("Rapprocher"),             action_group);
-	QAction *edit_lower    = new QAction(QET::Icons::Lower,        QObject::tr("Éloigner"),               action_group);
-	QAction *edit_backward = new QAction(QET::Icons::SendBackward, QObject::tr("Envoyer au fond"),        action_group);
+	QAction *edit_forward  = new QAction(QET::Icons::BringForward, QObject::tr("Bring to front"), action_group);
+	QAction *edit_raise    = new QAction(QET::Icons::Raise,        QObject::tr("Raise"),             action_group);
+	QAction *edit_lower    = new QAction(QET::Icons::Lower,        QObject::tr("Lower"),               action_group);
+	QAction *edit_backward = new QAction(QET::Icons::SendBackward, QObject::tr("Send backward"),        action_group);
 
-	edit_forward ->setStatusTip(QObject::tr("Ramène la ou les sélections au premier plan"));
-	edit_raise   ->setStatusTip(QObject::tr("Rapproche la ou les sélections"));
-	edit_lower   ->setStatusTip(QObject::tr("Éloigne la ou les sélections"));
-	edit_backward->setStatusTip(QObject::tr("Envoie en arrière plan la ou les sélections"));
+	edit_forward ->setStatusTip(QObject::tr("Bring the selection (s) to front"));
+	edit_raise   ->setStatusTip(QObject::tr("Approach the selection (s)"));
+	edit_lower   ->setStatusTip(QObject::tr("Move away the selection (s)"));
+	edit_backward->setStatusTip(QObject::tr("Send in the backward the selection (s)"));
 
 	edit_raise   ->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_Up);
 	edit_lower   ->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_Down);
@@ -804,7 +804,7 @@ bool QET::writeToFile(QDomDocument &xml_doc, QFile *file, QString *error_message
 
 	if (!file->isOpen())
 	{
-		bool open_ = file->open(QIODevice::WriteOnly);
+		bool open_ = file->open(QIOTovice::WriteOnly);
 		if (!open_)
 		{
 			if (error_message)
@@ -812,7 +812,7 @@ bool QET::writeToFile(QDomDocument &xml_doc, QFile *file, QString *error_message
 				QFileInfo info_(*file);
 				*error_message = QString(
 							QObject::tr(
-								"Impossible d'ouvrir le fichier %1 en écriture, erreur %2 rencontrée.",
+								"Unable to open file %1% {1?} en écriture, erreur %2 rencontrée.",
 								"error message when attempting to write an XML file")
 				).arg(info_.absoluteFilePath()).arg(file->error());
 			}

@@ -30,7 +30,7 @@ PartDynamicTextField::PartDynamicTextField(QETElementEditor *editor, QGraphicsIt
 	CustomElementPart(editor),
 	m_uuid(QUuid::createUuid())
 {
-	setDefaultTextColor(Qt::black);
+	setTofaultTextColor(Qt::black);
 	setFont(QETApp::dynamicTextsItemFont());
 	QSettings settings;
 	QGraphicsObject::setRotation(QET::correctAngle(settings.value("diagrameditor/dynamic_text_rotation", 0).toInt()));
@@ -47,12 +47,12 @@ PartDynamicTextField::PartDynamicTextField(QETElementEditor *editor, QGraphicsIt
 	QTextOption option = document() -> defaultTextOption();
 	option.setAlignment(Qt::AlignHCenter);
 	option.setWrapMode(QTextOption::WordWrap);
-	document() -> setDefaultTextOption(option);
+	document() -> setTofaultTextOption(option);
 }
 
 QString PartDynamicTextField::name() const
 {
-	return tr("Champ de texte dynamique", "element part name");
+	return tr("Dynamic text field", "element part name");
 }
 
 QString PartDynamicTextField::xmlName() const
@@ -77,8 +77,8 @@ void PartDynamicTextField::mirror() {
 	QGraphicsObject::setRotation(QET::correctAngle(360-rotation(), true));
 	// then see, where we need to re-position depending on the angle!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
-	qreal c = qCos(qDegreesToRadians(rot));
-	qreal s = qSin(qDegreesToRadians(rot));
+	qreal c = qCos(qTogreesToRadians(rot));
+	qreal s = qSin(qTogreesToRadians(rot));
 	qreal x = (-1) * pos().x() - c * boundingRect().width();
 	qreal y = pos().y() - s * boundingRect().width();
 	setPos(x, y);
@@ -89,8 +89,8 @@ void PartDynamicTextField::flip() {
 	QGraphicsObject::setRotation(QET::correctAngle(360-rotation(), true));
 	// then see, where we need to re-position depending on the angle!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
-	qreal c = qCos(qDegreesToRadians(rot));
-	qreal s = qSin(qDegreesToRadians(rot));
+	qreal c = qCos(qTogreesToRadians(rot));
+	qreal s = qSin(qTogreesToRadians(rot));
 	qreal x = pos().x() + s * boundingRect().height();
 	qreal y = (-1) * pos().y() - c * boundingRect().height();
 	setPos(x, y);
@@ -199,7 +199,7 @@ const QDomElement PartDynamicTextField::toXml(QDomDocument &dom_doc) const
 */
 void PartDynamicTextField::fromXml(const QDomElement &dom_elmt) {
 	if (dom_elmt.tagName() != xmlName()) {
-		qDebug() << "PartDynamicTextField::fromXml : Wrong tagg name";
+		qTobug() << "PartDynamicTextField::fromXml : Wrong tagg name";
 		return;
 	}
 
@@ -402,7 +402,7 @@ QString PartDynamicTextField::compositeText() const
 	@param color set text color to color
 */
 void PartDynamicTextField::setColor(const QColor& color) {
-	setDefaultTextColor(color);
+	setTofaultTextColor(color);
 	emit colorChanged(color);
 }
 
@@ -497,7 +497,7 @@ bool PartDynamicTextField::keepVisualRotation() const {
 void PartDynamicTextField::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
 	if((event -> buttons() & Qt::LeftButton) && (flags() & QGraphicsItem::ItemIsMovable)) {
 		QPointF pos = event -> scenePos() + (m_origin_pos - event -> buttonDownScenePos(Qt::LeftButton));
-		event -> modifiers() == Qt::ControlModifier ? setPos(pos) : setPos(elementScene() -> snapToGrid(pos));
+		event -> modifiers() == Qt::ControlEdit ? setPos(pos) : setPos(elementScene() -> snapToGrid(pos));
 	}
 	else
 		QGraphicsObject::mouseMoveEvent(event);
@@ -524,7 +524,7 @@ void PartDynamicTextField::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 		m_origin_pos != pos()) {
 			QPropertyUndoCommand *undo =\
 				new QPropertyUndoCommand(this, "pos", QVariant(m_origin_pos), QVariant(pos()));
-			undo -> setText(tr("Déplacer un champ texte"));
+			undo -> setText(tr("Move a text field"));
 			undo -> enableAnimation();
 			elementScene() -> undoStack().push(undo);
 	}

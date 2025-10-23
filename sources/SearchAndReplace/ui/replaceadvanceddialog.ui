@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>replaceAdvancedDialog</class>
- <widget class="QDialog" name="replaceAdvancedDialog">
+ <class>replaceAdvancedDiaLog</class>
+ <widget class="QDiaLog" name="replaceAdvancedDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Rechercher/Remplacer avancé</string>
+   <string>Search/Replace advanced</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,0">
    <item row="1" column="3">
@@ -24,38 +24,38 @@
    <item row="1" column="2">
     <widget class="QLabel" name="label_4">
      <property name="text">
-      <string>par :</string>
+      <string>by:</string>
      </property>
     </widget>
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Remplacer :</string>
+      <string>Replace:</string>
      </property>
     </widget>
    </item>
    <item row="3" column="0" colspan="4">
-    <widget class="QDialogButtonBox" name="m_button_box">
+    <widget class="QDiaLogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok|QDiaLogButtonBox::Reset</set>
      </property>
     </widget>
    </item>
    <item row="0" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Qui :</string>
+      <string>Where:</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
     <widget class="QLineEdit" name="m_search_le">
      <property name="placeholderText">
-      <string>Texte ou expression régulière</string>
+      <string>Text ou expression régulière</string>
      </property>
     </widget>
    </item>
@@ -71,17 +71,17 @@
      </item>
      <item>
       <property name="text">
-       <string>Élément</string>
+       <string>Element</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Conducteur</string>
+       <string>Conductor</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Texte indépendant</string>
+       <string>Text indépendant</string>
       </property>
      </item>
     </widget>
@@ -89,14 +89,14 @@
    <item row="0" column="2">
     <widget class="QLabel" name="label_3">
      <property name="text">
-      <string>Quoi :</string>
+      <string>What:</string>
      </property>
     </widget>
    </item>
    <item row="2" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

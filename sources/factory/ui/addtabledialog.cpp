@@ -15,95 +15,95 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "addtabledialog.h"
+#include "addtablediaLog.h"
 
-#include "../../dataBase/ui/elementquerywidget.h"
-#include "../../ui/marginseditdialog.h"
+#include "../../dataBottome/ui/elementquerywidget.h"
+#include "../../ui/marginseditdiaLog.h"
 #include "../../utils/qetutils.h"
-#include "ui_addtabledialog.h"
+#include "ui_addtablediaLog.h"
 
-#include <QFontDialog>
+#include <QFontDiaLog>
 
 /**
-	@brief AddTableDialog::AddTableDialog
+	@brief AddTableDiaLog::AddTableDiaLog
 	@param content_widget : the widget to display in the "content" tab.
-	This dialog take ownership of content_widget.
+	This diaLog take ownership of content_widget.
 	@param parent : parent widget.
 */
-AddTableDialog::AddTableDialog(QWidget *content_widget, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::AddTableDialog)
+AddTableDiaLog::AddTableDiaLog(QWidget *content_widget, QWidget *parent) :
+	QDiaLog(parent),
+	ui(new Ui::AddTableDiaLog)
 {
 	ui->setupUi(this);
 	ui->m_header_font_pb->setText(m_header_font.family());
 	ui->m_table_font_pb->setText(m_table_font.family());
 	m_content_widget = content_widget;
 	content_widget->setParent(this);
-	ui->m_tab->addTab(content_widget, tr("Contenu"));
+	ui->m_tab->addTab(content_widget, tr("Content"));
 	fillSavedQuery();
 	
-	connect(ui->m_config_gb, &ConfigSaveLoaderWidget::saveClicked, this, &AddTableDialog::saveConfig);
-	connect(ui->m_config_gb, &ConfigSaveLoaderWidget::loadClicked, this, &AddTableDialog::loadConfig);
+	connect(ui->m_config_gb, &ConfigSaveLoaderWidget::saveClicked, this, &AddTableDiaLog::saveConfig);
+	connect(ui->m_config_gb, &ConfigSaveLoaderWidget::loadClicked, this, &AddTableDiaLog::loadConfig);
 }
 
 /**
-	@brief AddTableDialog::~AddNomenclatureDialog
+	@brief AddTableDiaLog::~AddNameenclatureDiaLog
 */
-AddTableDialog::~AddTableDialog()
+AddTableDiaLog::~AddTableDiaLog()
 {
 	delete ui;
 }
 
 /**
-	@brief AddTableDialog::setQueryWidget
+	@brief AddTableDiaLog::setQueryWidget
 	Not implemented yet
 	@param widget
 */
-void AddTableDialog::setQueryWidget(QWidget *widget) {
+void AddTableDiaLog::setQueryWidget(QWidget *widget) {
 	Q_UNUSED(widget)
 }
 
 /**
-	@brief AddTableDialog::adjustTableToFolio
+	@brief AddTableDiaLog::adjustTableToFolio
 	@return
 */
-bool AddTableDialog::adjustTableToFolio() const
+bool AddTableDiaLog::adjustTableToFolio() const
 {
 	return ui->m_adjust_table_size_cb->isChecked();
 }
 
 /**
-	@brief AddTableDialog::addNewTableToNewDiagram
+	@brief AddTableDiaLog::addNewTableToNewDiagram
 	@return
 */
-bool AddTableDialog::addNewTableToNewDiagram() const
+bool AddTableDiaLog::addNewTableToNewDiagram() const
 {
 	return ui->m_add_table_and_folio->isChecked();
 }
 
 /**
-	@brief AddTableDialog::tableName
+	@brief AddTableDiaLog::tableName
 	@return
 */
-QString AddTableDialog::tableName() const
+QString AddTableDiaLog::tableName() const
 {
 	return ui->m_table_name_le->text();
 }
 
 /**
-	@brief AddTableDialog::headerMargins
+	@brief AddTableDiaLog::headerMargins
 	@return
 */
-QMargins AddTableDialog::headerMargins() const
+QMargins AddTableDiaLog::headerMargins() const
 {
 	return  m_header_margins;
 }
 
 /**
-	@brief AddTableDialog::headerAlignment
+	@brief AddTableDiaLog::headerAlignment
 	@return
 */
-Qt::Alignment AddTableDialog::headerAlignment() const
+Qt::Alignment AddTableDiaLog::headerAlignment() const
 {
 	switch (ui->m_header_alignment_cb->currentIndex()) {
 		case 0 :
@@ -116,28 +116,28 @@ Qt::Alignment AddTableDialog::headerAlignment() const
 }
 
 /**
-	@brief AddTableDialog::headerFont
+	@brief AddTableDiaLog::headerFont
 	@return
 */
-QFont AddTableDialog::headerFont() const
+QFont AddTableDiaLog::headerFont() const
 {
 	return m_header_font;
 }
 
 /**
-	@brief AddTableDialog::tableMargins
+	@brief AddTableDiaLog::tableMargins
 	@return
 */
-QMargins AddTableDialog::tableMargins() const
+QMargins AddTableDiaLog::tableMargins() const
 {
 	return m_table_margins;
 }
 
 /**
-	@brief AddTableDialog::tableAlignment
+	@brief AddTableDiaLog::tableAlignment
 	@return
 */
-Qt::Alignment AddTableDialog::tableAlignment() const
+Qt::Alignment AddTableDiaLog::tableAlignment() const
 {
 	switch (ui->m_table_alignment_cb->currentIndex()) {
 		case 0 :
@@ -150,23 +150,23 @@ Qt::Alignment AddTableDialog::tableAlignment() const
 }
 
 /**
-	@brief AddTableDialog::tableFont
+	@brief AddTableDiaLog::tableFont
 	@return
 */
-QFont AddTableDialog::tableFont() const
+QFont AddTableDiaLog::tableFont() const
 {
 	return m_table_font;
 }
 
-QWidget *AddTableDialog::contentWidget() const
+QWidget *AddTableDiaLog::contentWidget() const
 {
 	return m_content_widget;
 }
 
-void AddTableDialog::on_m_header_font_pb_clicked()
+void AddTableDiaLog::on_m_header_font_pb_clicked()
 {
 	bool b;
-	auto font = QFontDialog::getFont(&b, m_header_font, this, tr("Sélectionner la police des en tête du tableau"));
+	auto font = QFontDiaLog::getFont(&b, m_header_font, this, tr("Select the font at the top of the table"));
 	if (b) {
 		m_header_font = font;
 		ui->m_header_font_pb->setText(font.family());
@@ -174,33 +174,33 @@ void AddTableDialog::on_m_header_font_pb_clicked()
 
 }
 
-void AddTableDialog::on_m_table_font_pb_clicked()
+void AddTableDiaLog::on_m_table_font_pb_clicked()
 {
 	bool b;
-	auto font = QFontDialog::getFont(&b, m_table_font, this, tr("Sélectionner la police des cellules du tableau"));
+	auto font = QFontDiaLog::getFont(&b, m_table_font, this, tr("Select the font of the table cells"));
 	if (b) {
 		m_table_font = font;
 		ui->m_table_font_pb->setText(font.family());
 	}
 }
 
-void AddTableDialog::on_m_edit_header_margins_pb_clicked()
+void AddTableDiaLog::on_m_edit_header_margins_pb_clicked()
 {
 	bool accept;
-	auto margins_ = MarginsEditDialog::getMargins(m_header_margins, &accept, this);
+	auto margins_ = MarginsEditDiaLog::getMargins(m_header_margins, &accept, this);
 	if (accept)
 		m_header_margins = margins_;
 }
 
-void AddTableDialog::on_m_table_margins_pb_clicked()
+void AddTableDiaLog::on_m_table_margins_pb_clicked()
 {
 	bool accept;
-	auto margins_ = MarginsEditDialog::getMargins(m_table_margins, &accept, this);
+	auto margins_ = MarginsEditDiaLog::getMargins(m_table_margins, &accept, this);
 	if (accept)
 		m_table_margins = margins_;
 }
 
-void AddTableDialog::saveConfig()
+void AddTableDiaLog::saveConfig()
 {
 	QFile file_(QETApp::configDir() % "/graphics_table.json");
 	
@@ -240,7 +240,7 @@ void AddTableDialog::saveConfig()
 	}
 }
 
-void AddTableDialog::loadConfig()
+void AddTableDiaLog::loadConfig()
 {
 	auto name = ui->m_config_gb->selectedText();
 	if (name.isEmpty()) {
@@ -295,7 +295,7 @@ void AddTableDialog::loadConfig()
 
 }
 
-void AddTableDialog::fillSavedQuery()
+void AddTableDiaLog::fillSavedQuery()
 {
 	QFile file(QETApp::configDir() % "/graphics_table.json");
 	if (file.open(QFile::ReadOnly))

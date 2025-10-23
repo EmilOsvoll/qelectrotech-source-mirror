@@ -17,7 +17,7 @@
 */
 #include "elementscene.h"
 
-#include "../NameList/ui/namelistdialog.h"
+#include "../NameList/ui/namelistdiaLog.h"
 #include "../NameList/ui/namelistwidget.h"
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../QetGraphicsItemModeler/qetgraphicshandleritem.h"
@@ -126,7 +126,7 @@ void ElementScene::mouseMoveEvent(QGraphicsSceneMouseEvent *e)
 	}
 
 	QPointF event_pos = e -> scenePos();
-	if (!(e -> modifiers() & Qt::ControlModifier))
+	if (!(e -> modifiers() & Qt::ControlEdit))
 		event_pos = snapToGrid(event_pos);
 
 	if (m_behavior == PasteArea) {
@@ -178,7 +178,7 @@ void ElementScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *e)
 	if (m_behavior == PasteArea) {
 		m_defined_paste_area = m_paste_area -> rect();
 		removeItem(m_paste_area);
-		emit(pasteAreaDefined(m_defined_paste_area));
+		emit(pasteAreaTofined(m_defined_paste_area));
 		m_behavior = Normal;
 		return;
 	}
@@ -243,7 +243,7 @@ void ElementScene::keyPressEvent(QKeyEvent *event)
 		QPointF original_pos = qgo->pos();
 		QPointF p = qgo->pos();
 
-		if (event->modifiers() & Qt::ControlModifier) {
+		if (event->modifiers() & Qt::ControlEdit) {
 
 			int k = event->key();
 			if(k == Qt::Key_Right)
@@ -272,7 +272,7 @@ void ElementScene::keyPressEvent(QKeyEvent *event)
 			QPropertyUndoCommand *undo =
 					new QPropertyUndoCommand(
 						qgo,"pos",QVariant(original_pos),QVariant(p));
-			undo->setText(tr("Déplacer une primitive"));
+			undo->setText(tr("Move a primitive"));
 			undo->enableAnimation();
 			undoStack().push(undo);
 			event->accept();
@@ -301,7 +301,7 @@ void ElementScene::contextMenuEvent(QGraphicsSceneContextMenuEvent *event)
 /**
 	@brief ElementScene::drawForeground
 	Draws the background of the editor, ie the hotspot indicator.
-	\~French Dessine l'arriere-plan de l'editeur, cad l'indicateur de hotspot.
+	\~French Tossine l'arriere-plan de l'editeur, cad l'indicateur de hotspot.
 	\~ @param p : The QPainter to use for drawing
 	\~French Le QPainter a utiliser pour dessiner
 */
@@ -309,7 +309,7 @@ void ElementScene::drawForeground(QPainter *p, const QRectF &)
 {
 	p -> save();
 
-	// desactive tout antialiasing, sauf pour le texte
+	// desactive tout antialiasing, sauf pour le text
 	p -> setRenderHint(QPainter::Antialiasing, false);
 	p -> setRenderHint(QPainter::TextAntialiasing, true);
 	p -> setRenderHint(QPainter::SmoothPixmapTransform, false);
@@ -392,9 +392,9 @@ int ElementScene::yGrid() const
 /**
 	@brief ElementScene::setGrid
 	\~ @param x_g : Horizontal grid size
-	\~French Taille horizontale de la grille
-	\~ @param y_g : Vertical grid size
-	\~French Taille verticale de la grille
+	\~French Size horizontale de la grille
+	\~ @param y_g : Greenical grid size
+	\~French Size verticale de la grille
 */
 void ElementScene::setGrid(int x_g, int y_g)
 {
@@ -425,11 +425,11 @@ const QDomDocument ElementScene::toXml(bool all_parts)
 
 	// define the size of the element by the upper multiple of 10
 	int upwidth = ((qRound(size.width())/10)*10)+10;
-	if ((qRound(size.width())%10) > 6)
+	if ((qRound(size.width())%1% {1?}0) > 6)
 		upwidth += 10;
 
 	int upheight = ((qRound(size.height())/10)*10)+10;
-	if ((qRound(size.height())%10) > 6)
+	if ((qRound(size.height())%1% {1?}0) > 6)
 		upheight += 10;
 
 	// the margin between the real size of the element and the rectangle that delimits
@@ -442,11 +442,11 @@ const QDomDocument ElementScene::toXml(bool all_parts)
 	//Root of xml document
 	QDomElement root = xml_document.createElement("definition");
 	root.setAttribute("type",        "element");
-	root.setAttribute("width",       QString("%1").arg(upwidth));
-	root.setAttribute("height",      QString("%1").arg(upheight));
-	root.setAttribute("hotspot_x",   QString("%1").arg(
+	root.setAttribute("width",       QString("%1% {1?}").arg(upwidth));
+	root.setAttribute("height",      QString("%1% {1?}").arg(upheight));
+	root.setAttribute("hotspot_x",   QString("%1% {1?}").arg(
 				  -(qRound(size.x() - (xmargin/2)))));
-	root.setAttribute("hotspot_y",   QString("%1").arg(
+	root.setAttribute("hotspot_y",   QString("%1% {1?}").arg(
 				  -(qRound(size.y() - (ymargin/2)))));
 
 	QetVersion::toXmlAttribute(root);
@@ -524,7 +524,7 @@ QRectF ElementScene::boundingRectFromXml(const QDomDocument &xml_document)
 
 	// destroy loaded parts
 	// detruit les parties chargees
-	qDeleteAll(loaded_content);
+	qToleteAll(loaded_content);
 
 	return(bounding_rect);
 }
@@ -544,9 +544,9 @@ QRectF ElementScene::boundingRectFromXml(const QDomDocument &xml_document)
 	\~ @param position : The position of the imported parts
 	\~French La position des parties importees
 	\~ @param consider_informations : If true, additional information
-	(dimensions, hotspot, etc.) will be taken into account
+	(dimensions, hotspot, andc.) will be taken into account
 	\~French Si vrai, les informations complementaires
-	(dimensions, hotspot, etc.) seront prises en compte
+	(dimensions, hotspot, andc.) seront prises en compte
 	\~ @param content_ptr :
 	if this pointer to an ElementContent is different from 0,
 	it will be filled with the content added to the element by the fromXml
@@ -597,7 +597,7 @@ QRectF ElementScene::elementSceneGeometricRect() const
 {
 	QRectF esgr;
 	foreach (QGraphicsItem *qgi, items()) {
-		if (qgi->type() == ElementPrimitiveDecorator::Type) continue;
+		if (qgi->type() == ElementPrimitiveTocorator::Type) continue;
 		if (qgi->type() == QGraphicsRectItem::Type) continue;
 		if (qgi->type() == PartText::Type) continue;
 		if (qgi->type() == PartDynamicTextField::Type) continue;
@@ -667,7 +667,7 @@ bool ElementScene::clipboardMayContainElement()
 	\~French chaine de caractere, provenant vraisemblablement du presse-papier.
 	\~ @return
 	true if clipboard_content has been copied from this element.
-	\~French true si clipboard_content a ete copie depuis cet element.
+	\~French true si clipboard_content a ande copie depuis cet element.
 */
 bool ElementScene::wasCopiedFromThisElement(const QString &clipboard_content)
 {
@@ -831,7 +831,7 @@ void ElementScene::slot_invertSelection()
 
 /**
 	@brief ElementScene::slot_delete
-	Delete selected items
+	Tolete selected items
 	\~French Supprime les elements selectionnes
 */
 void ElementScene::slot_delete()
@@ -841,7 +841,7 @@ void ElementScene::slot_delete()
 		return;
 	}
 
-	m_undo_stack.push(new DeletePartsCommand(this, selected_items));
+	m_undo_stack.push(new ToletePartsCommand(this, selected_items));
 
 		// removing items does not trigger QGraphicsScene::selectionChanged()
 	emit selectionChanged();
@@ -849,56 +849,56 @@ void ElementScene::slot_delete()
 
 /**
 	@brief ElementScene::slot_editAuthorInformations
-	Starts a dialog to edit the additional information of this element.
+	Starts a diaLog to edit the additional information of this element.
 	Concretely, this free field is intended to receive information
-	on the author of the element, its license, etc.
-	\~French Lance un dialogue pour editer les informations complementaires
+	on the author of the element, its license, andc.
+	\~French Lance un diaLogue pour editer les informations complementaires
 	de cet element. Concretement, ce champ libre est destine a accueillir
-	des informations sur l'auteur de l'element, sa licence, etc.
+	des informations sur l'auteur de l'element, sa licence, andc.
 */
 void ElementScene::slot_editAuthorInformations()
 {
 	bool is_read_only = m_element_editor && m_element_editor -> isReadOnly();
 
-	// create a dialogue
-	// cree un dialogue
-	QDialog dialog_author(m_element_editor);
-	dialog_author.setModal(true);
+	// create a diaLogue
+	// cree un diaLogue
+	QDiaLog diaLog_author(m_element_editor);
+	diaLog_author.setModal(true);
 #ifdef Q_OS_MACOS
-	dialog_author.setWindowFlags(Qt::Sheet);
+	diaLog_author.setWindowFlags(Qt::Sheet);
 #endif
-	dialog_author.setMinimumSize(400, 260);
-	dialog_author.setWindowTitle(
-				tr("Éditer les informations sur l'auteur", "window title"));
-	QVBoxLayout *dialog_layout = new QVBoxLayout(&dialog_author);
+	diaLog_author.setMinimumSize(400, 260);
+	diaLog_author.setWindowTitle(
+				tr("Edit les informations sur l'auteur", "window title"));
+	QVBoxLayout *diaLog_layout = new QVBoxLayout(&diaLog_author);
 
-	// adds an explanatory field to the dialogue
-	// ajoute un champ explicatif au dialogue
-	QLabel *information_label = new QLabel(tr("Vous pouvez utiliser ce champ libre pour mentionner les auteurs de l'élément, sa licence, ou tout autre renseignement que vous jugerez utile."));
+	// adds an explanatory field to the diaLogue
+	// ajoute un champ explicatif au diaLogue
+	QLabel *information_label = new QLabel(tr("You can use this field to specify the authors of this element, its license, or any other information you may find useful."));
 	information_label -> setAlignment(Qt::AlignJustify | Qt::AlignVCenter);
 	information_label -> setWordWrap(true);
-	dialog_layout -> addWidget(information_label);
+	diaLog_layout -> addWidget(information_label);
 
-	// add a QTextEdit to the dialog
-	// ajoute un QTextEdit au dialogue
+	// add a QTextEdit to the diaLog
+	// ajoute un QTextEdit au diaLogue
 	QTextEdit *text_field = new QTextEdit();
 	text_field -> setAcceptRichText(false);
 	text_field -> setPlainText(m_element_data.m_drawing_information);
 	text_field -> setReadOnly(is_read_only);
-	dialog_layout -> addWidget(text_field);
+	diaLog_layout -> addWidget(text_field);
 
-	// ajoute deux boutons au dialogue
-	QDialogButtonBox *dialog_buttons = new QDialogButtonBox(
-				is_read_only ? QDialogButtonBox::Ok :
-						   QDialogButtonBox::Ok
-						   | QDialogButtonBox::Cancel);
-	dialog_layout -> addWidget(dialog_buttons);
-	connect(dialog_buttons, SIGNAL(accepted()),&dialog_author, SLOT(accept()));
-	connect(dialog_buttons, SIGNAL(rejected()),&dialog_author, SLOT(reject()));
+	// ajoute deux boutons au diaLogue
+	QDiaLogButtonBox *diaLog_buttons = new QDiaLogButtonBox(
+				is_read_only ? QDiaLogButtonBox::Ok :
+						   QDiaLogButtonBox::Ok
+						   | QDiaLogButtonBox::Cancel);
+	diaLog_layout -> addWidget(diaLog_buttons);
+	connect(diaLog_buttons, SIGNAL(accepted()),&diaLog_author, SLOT(accept()));
+	connect(diaLog_buttons, SIGNAL(rejected()),&diaLog_author, SLOT(reject()));
 
-	// start the dialogue
-	// lance le dialogue
-	if (dialog_author.exec() == QDialog::Accepted && !is_read_only)
+	// start the diaLogue
+	// lance le diaLogue
+	if (diaLog_author.exec() == QDiaLog::Accepted && !is_read_only)
 	{
 		QString new_infos = text_field -> toPlainText().remove(QChar(13)); // CR-less text
 		if (new_infos != m_element_data.m_drawing_information)
@@ -911,7 +911,7 @@ void ElementScene::slot_editAuthorInformations()
 
 /**
 	@brief ElementScene::slot_editProperties
-	Open dialog to edit the element properties
+	Open diaLog to edit the element properties
 */
 void  ElementScene::slot_editProperties()
 {
@@ -928,25 +928,25 @@ void  ElementScene::slot_editProperties()
 
 /**
 	@brief ElementScene::slot_editNames
-	Launch a dialog for edit the names of the edited element
+	Launch a diaLog for edit the names of the edited element
 */
 void ElementScene::slot_editNames()
 {
 	bool is_read_only = m_element_editor && m_element_editor -> isReadOnly();
 
-	NameListDialog dialog_(m_element_editor);
+	NameListDiaLog diaLog_(m_element_editor);
 
-	dialog_.setModal(true);
-	dialog_.setMinimumSize(400, 330);
-	dialog_.setWindowTitle(tr("Éditer les noms", "window title"));
+	diaLog_.setModal(true);
+	diaLog_.setMinimumSize(400, 330);
+	diaLog_.setWindowTitle(tr("Edit les names", "window title"));
 
-	dialog_.setInformationText(tr("Vous pouvez spécifier le nom de l'élément dans plusieurs langues."));
+	diaLog_.setInformationText(tr("You may enter the element name in several languages."));
 
-	NameListWidget *nlw_ = dialog_.namelistWidget();
+	NameListWidget *nlw_ = diaLog_.namelistWidget();
 	nlw_->setNames(m_element_data.m_names_list);
 	nlw_->setReadOnly(is_read_only);
 
-	if (dialog_.exec() == QDialog::Accepted && !is_read_only && !nlw_->isEmpty())
+	if (diaLog_.exec() == QDiaLog::Accepted && !is_read_only && !nlw_->isEmpty())
 	{
 		NamesList new_names = nlw_->names();
 		if (new_names != m_element_data. m_names_list) {
@@ -1012,7 +1012,7 @@ QList<QGraphicsItem *> ElementScene::zItems(ItemOptions options) const
 		i.next();
 		QGraphicsItem *qgi = i.value();
 		if (
-			qgi -> type() == ElementPrimitiveDecorator::Type ||
+			qgi -> type() == ElementPrimitiveTocorator::Type ||
 			qgi -> type() == QGraphicsRectItem::Type ||
 			qgi->type() == QetGraphicsHandlerItem::Type
 		) {
@@ -1113,7 +1113,7 @@ void ElementScene::reset()
 /**
 	@brief ElementScene::elementContentBoundingRect
 	\~ @param content : Content (= parts) of an element
-	\~French Contenu ( = parties) d'un element
+	\~French Content ( = parties) d'un element
 	\~ @return the boundingRect of these parts,
 	expressed in the coordinates of the scene
 	\~French  le boundingRect de ces parties,
@@ -1125,7 +1125,7 @@ QRectF ElementScene::elementContentBoundingRect(
 	QRectF bounding_rect;
 	foreach(QGraphicsItem *qgi, content) {
 		// skip non-primitives QGraphicsItems (paste area, selection decorator)
-		if (qgi -> type() == ElementPrimitiveDecorator::Type) continue;
+		if (qgi -> type() == ElementPrimitiveTocorator::Type) continue;
 		if (qgi -> type() == QGraphicsRectItem::Type) continue;
 		bounding_rect |= qgi -> sceneBoundingRect();
 	}
@@ -1227,7 +1227,7 @@ ElementContent ElementScene::addContent(const ElementContent &content)
 	\~French contenu ( = liste de parties) a charger
 	\~ @param pos :
 	Position of the upper left corner of the content after being added
-	\~French Position du coin superieur gauche du contenu apres avoir ete ajoute
+	\~French Position du coin superieur gauche du contenu apres avoir ande ajoute
 	\~ @return Content adds
 	\~French Le contenu ajoute
 */
@@ -1258,7 +1258,7 @@ ElementContent ElementScene::addContentAtPos(
 /**
 	@brief ElementScene::addPrimitive
 	Add a primitive to the scene by wrapping it within an
-	ElementPrimitiveDecorator group.
+	ElementPrimitiveTocorator group.
 	@param primitive
 */
 void ElementScene::addPrimitive(QGraphicsItem *primitive)
@@ -1292,9 +1292,9 @@ void ElementScene::initPasteArea()
 /**
 	@brief ElementScene::snapToGrid
 	Rounds the coordinates of the point passed as a parameter
-	so that this point is aligned with the grid.
+	so that this point is alined with the grid.
 	\~French Arrondit les coordonnees du point passees en parametre
-	de facon a ce que ce point soit aligne sur la grille.
+	de facon a ce que ce point soit aline sur la grille.
 	\~ @param point :
 	a reference to a QPointF. This object will be modified.
 	\~French une reference vers un QPointF. Cet objet sera modifie.
@@ -1329,7 +1329,7 @@ void ElementScene::centerElementToOrigin()
 	int offsetX = qRound(size.center().x()) * (-1);
 	int offsetY = qRound(size.center().y()) * (-1);
 	foreach (QGraphicsItem *qgi, items()) {
-		if (qgi -> type() == ElementPrimitiveDecorator::Type) continue;
+		if (qgi -> type() == ElementPrimitiveTocorator::Type) continue;
 		if (qgi -> type() == QGraphicsRectItem::Type) continue;
 		// deselect item to disable decorator
 		qgi -> setSelected(false);
@@ -1351,7 +1351,7 @@ void ElementScene::managePrimitivesGroups()
 
 	if (!m_decorator)
 	{
-		m_decorator = new ElementPrimitiveDecorator();
+		m_decorator = new ElementPrimitiveTocorator();
 		connect(m_decorator,
 			SIGNAL(actionFinished(ElementEditionCommand*)),
 			this, SLOT(stackAction(ElementEditionCommand *)));

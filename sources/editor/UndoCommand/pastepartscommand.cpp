@@ -43,7 +43,7 @@ PastePartsCommand::PastePartsCommand(
 		}
 		m_pasted_content.append(qgi);
 	}
-	setText(QObject::tr("Coller"));
+	setText(QObject::tr("Paste"));
 	m_scene->qgiManager().manage(m_pasted_content);
 }
 
@@ -102,7 +102,7 @@ void PastePartsCommand::redo()
 
 /**
 	@brief PastePartsCommand::setOffset
-	Describe the offset to use with this undo command
+	Toscribe the offset to use with this undo command
 	@param old_offset_paste_count
 	@param old_start_top_left_corner
 	@param new_offset_paste_count

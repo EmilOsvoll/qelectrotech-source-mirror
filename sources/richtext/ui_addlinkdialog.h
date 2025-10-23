@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'addlinkdialog.ui'
+** Form generated from reading UI file 'addlinkdiaLog.ui'
 **
 ** Created: Thu 4. Apr 17:13:59 2013
 **      by: Qt User Interface Compiler version 4.8.4
@@ -14,8 +14,8 @@
 #include <QAction>
 #include <QApplication>
 #include <QButtonGroup>
-#include <QDialog>
-#include <QDialogButtonBox>
+#include <QDiaLog>
+#include <QDiaLogButtonBox>
 #include <QFormLayout>
 #include <QFrame>
 #include <QHeaderView>
@@ -26,7 +26,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_AddLinkDialog
+class Ui_AddLinkDiaLog
 {
 public:
 	QVBoxLayout *verticalLayout;
@@ -37,35 +37,35 @@ public:
 	QLineEdit *urlInput;
 	QSpacerItem *verticalSpacer;
 	QFrame *line;
-	QDialogButtonBox *buttonBox;
+	QDiaLogButtonBox *buttonBox;
 	
-	void setupUi(QDialog *AddLinkDialog)
+	void setupUi(QDiaLog *AddLinkDiaLog)
 	{
-		if (AddLinkDialog->objectName().isEmpty())
-			AddLinkDialog->setObjectName(QString::fromUtf8("AddLinkDialog"));
-		AddLinkDialog->setSizeGripEnabled(false);
-		AddLinkDialog->setModal(true);
-		verticalLayout = new QVBoxLayout(AddLinkDialog);
+		if (AddLinkDiaLog->objectName().isEmpty())
+			AddLinkDiaLog->setObjectName(QString::fromUtf8("AddLinkDiaLog"));
+		AddLinkDiaLog->setSizeGripEnabled(false);
+		AddLinkDiaLog->setModal(true);
+		verticalLayout = new QVBoxLayout(AddLinkDiaLog);
 		verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
 		formLayout = new QFormLayout();
 		formLayout->setObjectName(QString::fromUtf8("formLayout"));
-		label = new QLabel(AddLinkDialog);
+		label = new QLabel(AddLinkDiaLog);
 		label->setObjectName(QString::fromUtf8("label"));
 		
 		formLayout->setWidget(0, QFormLayout::LabelRole, label);
 		
-		titleInput = new QLineEdit(AddLinkDialog);
+		titleInput = new QLineEdit(AddLinkDiaLog);
 		titleInput->setObjectName(QString::fromUtf8("titleInput"));
 		titleInput->setMinimumSize(QSize(337, 0));
 		
 		formLayout->setWidget(0, QFormLayout::FieldRole, titleInput);
 		
-		label_2 = new QLabel(AddLinkDialog);
+		label_2 = new QLabel(AddLinkDiaLog);
 		label_2->setObjectName(QString::fromUtf8("label_2"));
 		
 		formLayout->setWidget(1, QFormLayout::LabelRole, label_2);
 		
-		urlInput = new QLineEdit(AddLinkDialog);
+		urlInput = new QLineEdit(AddLinkDiaLog);
 		urlInput->setObjectName(QString::fromUtf8("urlInput"));
 		
 		formLayout->setWidget(1, QFormLayout::FieldRole, urlInput);
@@ -77,39 +77,39 @@ public:
 		
 		verticalLayout->addItem(verticalSpacer);
 		
-		line = new QFrame(AddLinkDialog);
+		line = new QFrame(AddLinkDiaLog);
 		line->setObjectName(QString::fromUtf8("line"));
 		line->setFrameShape(QFrame::HLine);
 		line->setFrameShadow(QFrame::Sunken);
 		
 		verticalLayout->addWidget(line);
 		
-		buttonBox = new QDialogButtonBox(AddLinkDialog);
+		buttonBox = new QDiaLogButtonBox(AddLinkDiaLog);
 		buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
 		buttonBox->setOrientation(Qt::Horizontal);
-		buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
+		buttonBox->setStandardButtons(QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok);
 		
 		verticalLayout->addWidget(buttonBox);
 		
 		
-		retranslateUi(AddLinkDialog);
-		QObject::connect(buttonBox, SIGNAL(accepted()), AddLinkDialog, SLOT(accept()));
-		QObject::connect(buttonBox, SIGNAL(rejected()), AddLinkDialog, SLOT(reject()));
+		retranslateUi(AddLinkDiaLog);
+		QObject::connect(buttonBox, SIGNAL(accepted()), AddLinkDiaLog, SLOT(accept()));
+		QObject::connect(buttonBox, SIGNAL(rejected()), AddLinkDiaLog, SLOT(reject()));
 		
-		QMetaObject::connectSlotsByName(AddLinkDialog);
+		QMetaObject::connectSlotsByName(AddLinkDiaLog);
 	} // setupUi
 	
-	void retranslateUi(QDialog *AddLinkDialog)
+	void retranslateUi(QDiaLog *AddLinkDiaLog)
 	{
-		AddLinkDialog->setWindowTitle(QApplication::translate("AddLinkDialog", "Insert Link", nullptr));
-		label->setText(QApplication::translate("AddLinkDialog", "Title:", nullptr));
-		label_2->setText(QApplication::translate("AddLinkDialog", "URL:", nullptr));
+		AddLinkDiaLog->setWindowTitle(QApplication::translate("AddLinkDiaLog", "Insert Link", nullptr));
+		label->setText(QApplication::translate("AddLinkDiaLog", "Title:", nullptr));
+		label_2->setText(QApplication::translate("AddLinkDiaLog", "URL:", nullptr));
 	} // retranslateUi
 	
 };
 
 namespace Ui {
-	class AddLinkDialog: public Ui_AddLinkDialog {};
+	class AddLinkDiaLog: public Ui_AddLinkDiaLog {};
 } // namespace Ui
 
 QT_END_NAMESPACE

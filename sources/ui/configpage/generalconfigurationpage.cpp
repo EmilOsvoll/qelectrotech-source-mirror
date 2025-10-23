@@ -22,8 +22,8 @@
 #include "ui_generalconfigurationpage.h"
 #include "../../utils/qetsettings.h"
 
-#include <QFileDialog>
-#include <QFontDialog>
+#include <QFileDiaLog>
+#include <QFontDiaLog>
 #include <QSettings>
 
 /**
@@ -42,11 +42,11 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0) // ###Qt 6:remove
 	ui->m_hdpi_round_policy_widget->setDisabled(true);
 #else
-	ui->m_hdpi_round_policy_cb->addItem(tr("Arrondi supérieur pour 0.5 et plus"), QLatin1String("Round"));
-	ui->m_hdpi_round_policy_cb->addItem(tr("Toujours arrondi supérieur"), QLatin1String("Ceil"));
-	ui->m_hdpi_round_policy_cb->addItem(tr("Toujours arrondi inférieur"), QLatin1String("Floor"));
-	ui->m_hdpi_round_policy_cb->addItem(tr("Arrondi supérieur pour 0.75 et plus"), QLatin1String("RoundPreferFloor"));
-	ui->m_hdpi_round_policy_cb->addItem(tr("Pas d'arrondi"), QLatin1String("PassThrough"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 and more"), QLatin1String("Round"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Always top rounding"), QLatin1String("Ceil"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Always rounded down"), QLatin1String("Floor"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.75 and more"), QLatin1String("RoundPreferFloor"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("No rounding"), QLatin1String("PassThrough"));
 	switch (QetSettings::hdpiScaleFactorRoundingPolicy()) {
 		case Qt::HighDpiScaleFactorRoundingPolicy::Round:
 			ui->m_hdpi_round_policy_cb->setCurrentIndex(0);
@@ -69,8 +69,8 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui->DiagramEditor_yGrid_sb->setValue(settings.value("diagrameditor/Ygrid", 10).toInt());
 	ui->DiagramEditor_xKeyGrid_sb->setValue(settings.value("diagrameditor/key_Xgrid", 10).toInt());
 	ui->DiagramEditor_yKeyGrid_sb->setValue(settings.value("diagrameditor/key_Ygrid", 10).toInt());
-	ui->DiagramEditor_xKeyGridFine_sb->setValue(settings.value("diagrameditor/key_fine_Xgrid", 1).toInt());
-	ui->DiagramEditor_yKeyGridFine_sb->setValue(settings.value("diagrameditor/key_fine_Ygrid", 1).toInt());
+	ui->DiagramEditor_xKeyGridThin_sb->setValue(settings.value("diagrameditor/key_fine_Xgrid", 1).toInt());
+	ui->DiagramEditor_yKeyGridThin_sb->setValue(settings.value("diagrameditor/key_fine_Ygrid", 1).toInt());
 	ui->DiagramEditor_Grid_PointSize_min_sb->setValue(settings.value("diagrameditor/grid_pointsize_min", 1).toInt());
 	ui->DiagramEditor_Grid_PointSize_max_sb->setValue(settings.value("diagrameditor/grid_pointsize_max", 1).toInt());
 	ui->m_use_system_color_cb->setChecked(settings.value("usesystemcolors", "true").toBool());
@@ -86,7 +86,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui->m_border_0->setChecked(settings.value("border-columns_0", false).toBool());
 	ui->m_autosave_sb->setValue(settings.value("diagrameditor/autosave-interval", 0).toInt());
 	
-	QString fontInfos = settings.value("diagramitemfont", "Liberation Sans").toString() + " " +
+	QString fontInfos = settings.value("diagramitemfont", "Liberation Without").toString() + " " +
 			settings.value("diagramitemsize", "9").toString() + " (" +
 			settings.value("diagramitemstyle", "Regular").toString() + ")";
 	ui->m_font_pb->setText(fontInfos);
@@ -104,7 +104,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 				QString::number(font.pointSize()) + " (" +
 				font.styleName() + ")";
 		ui->m_dyn_text_font_pb->setText(fontInfos);
-	} else { ui->m_dyn_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+	} else { ui->m_dyn_text_font_pb->setText("Liberation Without 9 (Regular)"); }
 
 		//Independent text item
 	ui->m_indi_text_rotation_sb->setValue(settings.value("diagrameditor/independent_text_rotation",0).toInt());
@@ -117,14 +117,14 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 							QString::number(font.pointSize()) + " (" +
 							font.styleName() + ")";
 		ui->m_indi_text_font_pb->setText(fontInfos);
-	} else { ui->m_indi_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+	} else { ui->m_indi_text_font_pb->setText("Liberation Without 9 (Regular)"); }
 	
 	ui->m_highlight_integrated_elements->setChecked(settings.value("diagrameditor/highlight-integrated-elements", true).toBool());
 	ui->m_default_elements_info->setPlainText(settings.value("elementeditor/default-informations", "").toString());
 	/*
-	  Nombre maximum de primitives affichees par la "liste des parties"
-	  Au-dela, un petit message est affiche, indiquant que ce nombre a ete depasse
-	  et que la liste ne sera donc pas mise a jour.
+	  Namebre maximum de primitives affichees par la "liste des parties"
+	  Au-dela, un petit message est affiche, indiquant que ce namebre a ande depasse
+	  and que la liste ne sera donc pas mise a jour.
 	*/
 	ui->MaxPartsElementEditorList_sb->setValue(settings.value("elementeditor/max-parts-element-editor-list", 200).toInt());
 	ui->ElementEditor_Grid_PointSize_min_sb->setValue(settings.value("elementeditor/grid_pointsize_min", 1).toInt());
@@ -235,8 +235,8 @@ void GeneralConfigurationPage::applyConf()
 	settings.setValue("diagrameditor/Ygrid", ui->DiagramEditor_yGrid_sb->value());
 	settings.setValue("diagrameditor/key_Xgrid", ui->DiagramEditor_xKeyGrid_sb->value());
 	settings.setValue("diagrameditor/key_Ygrid", ui->DiagramEditor_yKeyGrid_sb->value());
-	settings.setValue("diagrameditor/key_fine_Xgrid", ui->DiagramEditor_xKeyGridFine_sb->value());
-	settings.setValue("diagrameditor/key_fine_Ygrid", ui->DiagramEditor_yKeyGridFine_sb->value());
+	settings.setValue("diagrameditor/key_fine_Xgrid", ui->DiagramEditor_xKeyGridThin_sb->value());
+	settings.setValue("diagrameditor/key_fine_Ygrid", ui->DiagramEditor_yKeyGridThin_sb->value());
 	settings.setValue("diagrameditor/grid_pointsize_min", ui->DiagramEditor_Grid_PointSize_min_sb->value());
 	settings.setValue("diagrameditor/grid_pointsize_max", ui->DiagramEditor_Grid_PointSize_max_sb->value());
 		//Dynamic text item
@@ -328,7 +328,7 @@ void GeneralConfigurationPage::applyConf()
 */
 QString GeneralConfigurationPage::title() const
 {
-	return(tr("Général", "configuration page title"));
+	return(tr("General", "configuration page title"));
 }
 
 /**
@@ -346,37 +346,37 @@ QIcon GeneralConfigurationPage::icon() const
 */
 void GeneralConfigurationPage::fillLang()
 {
-	ui->m_lang_cb->addItem(QET::Icons::translation,	tr("Système"), "system");
+	ui->m_lang_cb->addItem(QET::Icons::translation,	tr("System"), "system");
 	ui->m_lang_cb->insertSeparator(1);
 
 		// all lang available on lang directory
-	ui->m_lang_cb->addItem(QET::Icons::sa,		tr("Arabe"), "ar");
-	ui->m_lang_cb->addItem(QET::Icons::br,		tr("Brézilien"), "pt_BR");
+	ui->m_lang_cb->addItem(QET::Icons::sa,		tr("Arabic"), "ar");
+	ui->m_lang_cb->addItem(QET::Icons::br,		tr("Brazilian"), "pt_BR");
 	ui->m_lang_cb->addItem(QET::Icons::catalonia,	tr("Catalan"), "ca");
-	ui->m_lang_cb->addItem(QET::Icons::cs,		tr("Tchèque"), "cs");
-	ui->m_lang_cb->addItem(QET::Icons::de,		tr("Allemand"), "de");
-	ui->m_lang_cb->addItem(QET::Icons::da,		tr("Danois"), "da");
-	ui->m_lang_cb->addItem(QET::Icons::gr,		tr("Grec"), "el");
-	ui->m_lang_cb->addItem(QET::Icons::en,		tr("Anglais"), "en");
-	ui->m_lang_cb->addItem(QET::Icons::es,		tr("Espagnol"), "es");
-	ui->m_lang_cb->addItem(QET::Icons::fr,		tr("Français"), "fr");
-	ui->m_lang_cb->addItem(QET::Icons::hr,		tr("Croate"), "hr");
-	ui->m_lang_cb->addItem(QET::Icons::it,		tr("Italien"), "it");
-	ui->m_lang_cb->addItem(QET::Icons::jp,		tr("Japonais"), "ja");
-	ui->m_lang_cb->addItem(QET::Icons::pl,		tr("Polonais"), "pl");
-	ui->m_lang_cb->addItem(QET::Icons::pt,		tr("Portugais"), "pt");
-	ui->m_lang_cb->addItem(QET::Icons::ro,		tr("Roumains"), "ro");
-	ui->m_lang_cb->addItem(QET::Icons::ru,		tr("Russe"), "ru");
-	ui->m_lang_cb->addItem(QET::Icons::sl,		tr("Slovène"), "sl");
-	ui->m_lang_cb->addItem(QET::Icons::nl,		tr("Pays-Bas"), "nl");
-	ui->m_lang_cb->addItem(QET::Icons::no,		tr("Norvege"), "nb");
-	ui->m_lang_cb->addItem(QET::Icons::nl_BE,	tr("Belgique-Flemish"), "nl_BE");
-	ui->m_lang_cb->addItem(QET::Icons::tr,		tr("Turc"), "tr");
-	ui->m_lang_cb->addItem(QET::Icons::hu,		tr("Hongrois"), "hu");
-	ui->m_lang_cb->addItem(QET::Icons::mn,		tr("Mongol"), "mn");
-	ui->m_lang_cb->addItem(QET::Icons::uk,      tr("Ukrainien"), "uk");
-	ui->m_lang_cb->addItem(QET::Icons::zh,      tr("Chinois"), "zh");
-	ui->m_lang_cb->addItem(QET::Icons::se,      tr("Suédois"), "sv");
+	ui->m_lang_cb->addItem(QET::Icons::cs,		tr("Czech"), "cs");
+	ui->m_lang_cb->addItem(QET::Icons::de,		tr("German"), "de");
+	ui->m_lang_cb->addItem(QET::Icons::da,		tr("Danish"), "da");
+	ui->m_lang_cb->addItem(QET::Icons::gr,		tr("Greek"), "el");
+	ui->m_lang_cb->addItem(QET::Icons::en,		tr("English"), "en");
+	ui->m_lang_cb->addItem(QET::Icons::es,		tr("Spanish"), "es");
+	ui->m_lang_cb->addItem(QET::Icons::fr,		tr("French"), "fr");
+	ui->m_lang_cb->addItem(QET::Icons::hr,		tr("Croatian"), "hr");
+	ui->m_lang_cb->addItem(QET::Icons::it,		tr("Italian"), "it");
+	ui->m_lang_cb->addItem(QET::Icons::jp,		tr("Japanese"), "ja");
+	ui->m_lang_cb->addItem(QET::Icons::pl,		tr("Polish"), "pl");
+	ui->m_lang_cb->addItem(QET::Icons::pt,		tr("Portuguese"), "pt");
+	ui->m_lang_cb->addItem(QET::Icons::ro,		tr("Romanian"), "ro");
+	ui->m_lang_cb->addItem(QET::Icons::ru,		tr("Russian"), "ru");
+	ui->m_lang_cb->addItem(QET::Icons::sl,		tr("Slovenian"), "sl");
+	ui->m_lang_cb->addItem(QET::Icons::nl,		tr("Dutch"), "nl");
+	ui->m_lang_cb->addItem(QET::Icons::no,		tr("Norwegian"), "nb");
+	ui->m_lang_cb->addItem(QET::Icons::nl_BE,	tr("Belgium-Flemish"), "nl_BE");
+	ui->m_lang_cb->addItem(QET::Icons::tr,		tr("Turkish"), "tr");
+	ui->m_lang_cb->addItem(QET::Icons::hu,		tr("Hungarian"), "hu");
+	ui->m_lang_cb->addItem(QET::Icons::mn,		tr("Mongolian"), "mn");
+	ui->m_lang_cb->addItem(QET::Icons::uk,      tr("Ukrainian"), "uk");
+	ui->m_lang_cb->addItem(QET::Icons::zh,      tr("Chinese"), "zh");
+	ui->m_lang_cb->addItem(QET::Icons::se,      tr("Swedish"), "sv");
 		//set current index to the lang found in setting file
 		//if lang doesn't exist set to system
 	QSettings settings;
@@ -399,10 +399,10 @@ void GeneralConfigurationPage::on_m_font_pb_clicked()
 {
 	bool ok;
 	QSettings settings;
-	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Sans").toString());
+	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Without").toString());
 	curFont.setPointSizeF(settings.value("diagramitemsize", "9").toInt());
 	curFont.setStyleName (settings.value("diagramitemstyle", "Regular").toString());
-	QFont font = QFontDialog::getFont(&ok, curFont, this);
+	QFont font = QFontDiaLog::getFont(&ok, curFont, this);
 	if (ok)
 	{
 		settings.setValue("diagramitemfont", font.family());
@@ -425,8 +425,8 @@ void GeneralConfigurationPage::on_m_dyn_text_font_pb_clicked()
 	bool ok;
 	QSettings settings;
 	QFont curFont;
-	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
-	QFont font = QFontDialog::getFont(&ok, curFont, this);
+	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Liberation Without,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	QFont font = QFontDiaLog::getFont(&ok, curFont, this);
 	if (ok)
 	{
 		settings.setValue("diagrameditor/dynamic_text_font", font.toString());
@@ -444,7 +444,7 @@ void GeneralConfigurationPage::on_m_common_elmt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("Chemin de la collection commune"), QETApp::documentDir());
+		QString path = QFileDiaLog::getExistingDirectory(this, tr("Path of the Common Collection"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_common_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -458,7 +458,7 @@ void GeneralConfigurationPage::on_m_company_elmt_path_cb_currentIndexChanged(int
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("Chemin de la collection company"), QETApp::documentDir());
+		QString path = QFileDiaLog::getExistingDirectory(this, tr("Company collection path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_company_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -472,7 +472,7 @@ void GeneralConfigurationPage::on_m_custom_elmt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("Chemin de la collection utilisateur"), QETApp::documentDir());
+		QString path = QFileDiaLog::getExistingDirectory(this, tr("User Collection Path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_custom_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -486,7 +486,7 @@ void GeneralConfigurationPage::on_m_company_tbt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("Chemin des cartouches company"), QETApp::documentDir());
+		QString path = QFileDiaLog::getExistingDirectory(this, tr("Company title-blocks"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_company_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -500,7 +500,7 @@ void GeneralConfigurationPage::on_m_custom_tbt_path_cb_currentIndexChanged(int i
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("Chemin des cartouches utilisateur"), QETApp::documentDir());
+		QString path = QFileDiaLog::getExistingDirectory(this, tr("User Title blocks Path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_custom_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -516,8 +516,8 @@ void GeneralConfigurationPage::on_m_indi_text_font_pb_clicked()
 	bool ok;
 	QSettings settings;
 	QFont curFont;
-	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
-	QFont font = QFontDialog::getFont(&ok, curFont, this);
+	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Liberation Without,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	QFont font = QFontDiaLog::getFont(&ok, curFont, this);
 	if (ok)
 	{
 		settings.setValue("diagrameditor/independent_text_font", font.toString());
@@ -531,7 +531,7 @@ void GeneralConfigurationPage::on_m_indi_text_font_pb_clicked()
 void GeneralConfigurationPage::on_MaxPartsElementEditorList_sb_valueChanged(int value)
 {
 	if (value > 500) {
-		ui->MaxPartsElementEditorList_sb->setToolTip(tr("To high values might lead to crashes of the application."));
+		ui->MaxPartsElementEditorList_sb->setToolTip(tr("Values that are too high might cause the application to crash"));
 		ui->MaxPartsElementEditorList_sb->setStyleSheet("background-color: orange");
 	} else {
 		ui->MaxPartsElementEditorList_sb->setToolTip("");

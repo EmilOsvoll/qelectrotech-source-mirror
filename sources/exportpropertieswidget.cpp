@@ -43,7 +43,7 @@ ExportPropertiesWidget::ExportPropertiesWidget(const ExportProperties &export_pr
 
 /**
 	@brief ExportPropertiesWidget::~ExportPropertiesWidget
-	Destructeur
+	Tostructeur
 */
 ExportPropertiesWidget::~ExportPropertiesWidget()
 {
@@ -100,7 +100,7 @@ void ExportPropertiesWidget::setExportProperties(const ExportProperties &export_
 	Puts the widget in Print or Export mode. Print mode
 	does not display as many options as Export mode.
 	/
-	Passe le widget en mode Impression ou en mode Export. Le mode Impression
+	Passe le widget en mode Printing ou en mode Export. Le mode Printing
 	n'affiche pas autant d'options que le mode Export.
 	@param mode
 	true to use the widget in print mode,
@@ -127,9 +127,9 @@ void ExportPropertiesWidget::setPrintingMode(bool mode) {
 */
 void ExportPropertiesWidget::slot_chooseADirectory()
 {
-	QString user_dir = QFileDialog::getExistingDirectory(
+	QString user_dir = QFileDiaLog::getExistingDirectory(
 		this,
-		tr("Exporter dans le dossier", "dialog title"),
+		tr("Export dans le dossier", "diaLog title"),
 		dirpath -> text()
 	);
 	if (!user_dir.isEmpty()) {
@@ -144,18 +144,18 @@ void ExportPropertiesWidget::slot_chooseADirectory()
 */
 void ExportPropertiesWidget::build()
 {
-	// le dialogue est un empilement vertical d'elements
+	// le diaLogue est un empilement vertical d'elements
 	QVBoxLayout *vboxLayout = new QVBoxLayout();
 	vboxLayout -> setContentsMargins(0, 0, 0, 0);
 	
-	/* le dialogue comprend une ligne permettant d'indiquer un chemin de dossier (hboxLayout) */
+	/* le diaLogue comprend une line permettant d'indiquer un chemin de dossier (hboxLayout) */
 	QHBoxLayout *hboxLayout = new QHBoxLayout();
-	dirpath_label = new QLabel(tr("Dossier cible :"), this);
+	dirpath_label = new QLabel(tr("Target directory:"), this);
 	dirpath = new QLineEdit(this);
 	QCompleter *completer = new QCompleter(this);
 	completer -> setModel(new QFileSystemModel(completer));
 	dirpath -> setCompleter(completer);
-	button_browse = new QPushButton(tr("Parcourir"), this);
+	button_browse = new QPushButton(tr("Browse"), this);
 	hboxLayout -> addWidget(dirpath_label);
 	hboxLayout -> addWidget(dirpath);
 	hboxLayout -> addWidget(button_browse);
@@ -163,9 +163,9 @@ void ExportPropertiesWidget::build()
 	
 	vboxLayout -> addLayout(hboxLayout);
 	
-	/* une ligne permettant de choisir le format (hboxLayout1) */
+	/* une line permettant de choisir le format (hboxLayout1) */
 	QHBoxLayout *hboxLayout1 = new QHBoxLayout();
-	format_label = new QLabel(tr("Format :"), this);
+	format_label = new QLabel(tr("Format:"), this);
 	hboxLayout1 -> addWidget(format_label);
 	hboxLayout1 -> addWidget(format = new QComboBox(this));
 	format -> addItem(tr("PNG (*.png)"),    "PNG");
@@ -178,40 +178,40 @@ void ExportPropertiesWidget::build()
 	vboxLayout -> addLayout(hboxLayout1);
 	
 	/* un cadre permettant de specifier les options de l'image finale */
-	QGroupBox *groupbox_options = new QGroupBox(tr("Options de rendu", "groupbox title"));
+	QGroupBox *groupbox_options = new QGroupBox(tr("Rendering options", "groupbox title"));
 	QGridLayout *optionshlayout = new QGridLayout(groupbox_options);
 	
-	// Choix de la zone du schema a exporter
+	// Choix de la zone du diagram a exporter
 	exported_content_choices = new QButtonGroup(groupbox_options);
-	export_border = new QRadioButton(tr("Exporter entièrement le folio"), groupbox_options);
+	export_border = new QRadioButton(tr("Export entièrement le folio"), groupbox_options);
 	optionshlayout -> addWidget(export_border, 0, 0);
 	exported_content_choices -> addButton(export_border);
-	export_elements = new QRadioButton(tr("Exporter seulement les éléments"), groupbox_options);
+	export_elements = new QRadioButton(tr("Export seulement les elements"), groupbox_options);
 	optionshlayout -> addWidget(export_elements, 0, 1);
 	exported_content_choices -> addButton(export_elements);
 	
 	// dessiner la grille
-	draw_grid = new QCheckBox(tr("Dessiner la grille"), groupbox_options);
+	draw_grid = new QCheckBox(tr("Draw the grid"), groupbox_options);
 	optionshlayout -> addWidget(draw_grid, 1, 1);
 	
 	// dessiner le cadre
-	draw_border = new QCheckBox(tr("Dessiner le cadre"), groupbox_options);
+	draw_border = new QCheckBox(tr("Draw the border"), groupbox_options);
 	optionshlayout -> addWidget(draw_border, 1, 0);
 	
 	// dessiner le cartouche
-	draw_titleblock = new QCheckBox(tr("Dessiner le cartouche"), groupbox_options);
+	draw_titleblock = new QCheckBox(tr("Draw the title block"), groupbox_options);
 	optionshlayout -> addWidget(draw_titleblock, 2, 0);
 	
 	// dessiner les bornes
-	draw_terminals = new QCheckBox(tr("Dessiner les bornes"), groupbox_options);
+	draw_terminals = new QCheckBox(tr("Draw terminals"), groupbox_options);
 	optionshlayout -> addWidget(draw_terminals, 2, 1);
 	
 	// conserver les couleurs des conducteurs
-	draw_colored_conductors = new QCheckBox(tr("Conserver les couleurs des conducteurs"), groupbox_options);
+	draw_colored_conductors = new QCheckBox(tr("Keep conductors colors"), groupbox_options);
 	optionshlayout -> addWidget(draw_colored_conductors, 3, 0);
 	
 	// use transparent background for SVG-Export
-	draw_bg_transparent = new QCheckBox(tr("SVG: fond transparent"), groupbox_options);
+	draw_bg_transparent = new QCheckBox(tr("SVG-background transparent"), groupbox_options);
 	optionshlayout -> addWidget(draw_bg_transparent, 3, 1);
 	
 	vboxLayout -> addWidget(groupbox_options);
@@ -232,7 +232,7 @@ void ExportPropertiesWidget::build()
 	// connexion du bouton permettant le choix du repertoire
 	connect(button_browse, SIGNAL(released()), this, SLOT(slot_chooseADirectory()));
 	
-	// emission de signaux lors du changement de format et lors du changement de zone exportee
+	// emission de signaux lors du changement de format and lors du changement de zone exportee
 	connect(format,                   SIGNAL(currentIndexChanged(int)),         this, SIGNAL(formatChanged()));
 	connect(exported_content_choices, SIGNAL(buttonClicked(QAbstractButton *)), this, SIGNAL(exportedAreaChanged()));
 	connect(draw_grid,                SIGNAL(stateChanged(int)),                   this, SIGNAL(optionChanged()));

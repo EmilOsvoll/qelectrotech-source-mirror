@@ -36,7 +36,7 @@ FreeTerminalEditor::FreeTerminalEditor(QETProject *project, QWidget *parent) :
     m_project(project)
 {
 	ui->setupUi(this);
-	ui->m_table_view->setItemDelegate(new FreeTerminalModelDelegate(ui->m_table_view));
+	ui->m_table_view->setItemTolegate(new FreeTerminalModelTolegate(ui->m_table_view));
 
     m_model = new FreeTerminalModel(m_project, this);
 	ui->m_table_view->setModel(m_model);
@@ -115,7 +115,7 @@ void FreeTerminalEditor::apply()
 	const auto modified_data = m_model->modifiedModelRealTerminalData();
 	if (modified_data.size())
 	{
-		m_project->undoStack()->beginMacro(tr("Modifier des propriétés de borniers"));
+		m_project->undoStack()->beginMacro(tr("Modify terminal strip properties"));
 
 		for (const auto &data_ : modified_data)
 		{
@@ -170,7 +170,7 @@ void FreeTerminalEditor::on_m_type_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto type_index = m_model->index(model_index.row(), FreeTerminalModel::Type, model_index.parent());
 			if (type_index.isValid())
@@ -203,7 +203,7 @@ void FreeTerminalEditor::on_m_function_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto function_index = m_model->index(model_index.row(), FreeTerminalModel::Function, model_index.parent());
 			if (function_index.isValid())
@@ -232,7 +232,7 @@ void FreeTerminalEditor::on_m_led_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto led_index = m_model->index(model_index.row(), FreeTerminalModel::Led, model_index.parent());
 

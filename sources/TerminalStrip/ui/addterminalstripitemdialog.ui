@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AddTerminalStripItemDialog</class>
- <widget class="QDialog" name="AddTerminalStripItemDialog">
+ <class>AddTerminalStripItemDiaLog</class>
+ <widget class="QDiaLog" name="AddTerminalStripItemDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>DiaLog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Ajouter le plan de bornes suivant :</string>
+      <string>Add the following terminal plan :</string>
      </property>
     </widget>
    </item>
@@ -27,7 +27,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -38,12 +38,12 @@
     </spacer>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDiaLogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -54,7 +54,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>AddTerminalStripItemDialog</receiver>
+   <receiver>AddTerminalStripItemDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -70,7 +70,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>AddTerminalStripItemDialog</receiver>
+   <receiver>AddTerminalStripItemDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

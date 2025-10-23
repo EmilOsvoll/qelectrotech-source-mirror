@@ -37,7 +37,7 @@ DynamicElementTextItemEditor::DynamicElementTextItemEditor(Element *element, QWi
 {
 	ui->setupUi(this);
 	
-	ui->m_tree_view->setItemDelegate(new DynamicTextItemDelegate(ui->m_tree_view));
+	ui->m_tree_view->setItemTolegate(new DynamicTextItemTolegate(ui->m_tree_view));
 	ui->m_remove_selection->setDisabled(true);
 	
 	setElement(element);
@@ -126,7 +126,7 @@ void DynamicElementTextItemEditor::apply()
 		else
 		{
 			QUndoStack &us = m_element->diagram()->undoStack();
-			us.beginMacro(tr("Modifier des textes d'élément"));
+			us.beginMacro(tr("Edit an element texts"));
 			for (QUndoCommand *quc : undo_list)
 				us.push(quc);
 			us.endMacro();
@@ -168,7 +168,7 @@ void DynamicElementTextItemEditor::setCurrentGroup(ElementTextItemGroup *group)
 
 QUndoCommand *DynamicElementTextItemEditor::associatedUndo() const
 {
-	QUndoCommand *parent_undo = new QUndoCommand(tr("Modifier un texte d'élément"));
+	QUndoCommand *parent_undo = new QUndoCommand(tr("Edit element text"));
 	for (DynamicElementTextItem *deti : m_element.data()->dynamicTextItems())
 		m_model->undoForEditedText(deti, parent_undo);
 	
@@ -178,7 +178,7 @@ QUndoCommand *DynamicElementTextItemEditor::associatedUndo() const
 	if(parent_undo->childCount() >= 1)
 	{
 		if(parent_undo->childCount() >= 2)
-			parent_undo->setText(tr("Modifier %1 textes d'élément").arg(QString::number(parent_undo->childCount())));
+			parent_undo->setText(tr("Edit %1% {1?} telement text").arg(QString::number(parent_undo->childCount())));
 		return parent_undo;
 	}
 	else
@@ -225,7 +225,7 @@ void DynamicElementTextItemEditor::on_m_remove_selection_clicked()
 		{
 			DiagramContent dc;
 			dc.m_element_texts << deti;
-			m_element->diagram()->undoStack().push(new DeleteQGraphicsItemCommand(m_element->diagram(), dc));
+			m_element->diagram()->undoStack().push(new ToleteQGraphicsItemCommand(m_element->diagram(), dc));
 		}
 		return;
 	}
@@ -240,7 +240,7 @@ void DynamicElementTextItemEditor::on_m_remove_selection_clicked()
 */
 void DynamicElementTextItemEditor::on_m_add_group_clicked()
 {
-	QString name = QInputDialog::getText(this, tr("Nom du groupe"), tr("Entrer le nom du nouveau groupe"));
+	QString name = QInputDiaLog::getText(this, tr("Name du groupe"), tr("Enter the name of the new group"));
 	
 	if(name.isEmpty())
 		return;

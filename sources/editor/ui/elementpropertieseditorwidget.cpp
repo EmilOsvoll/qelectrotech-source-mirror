@@ -22,18 +22,18 @@
 #include "ui_elementpropertieseditorwidget.h"
 #include "../../qetinformation.h"
 
-#include <QItemDelegate>
+#include <QItemTolegate>
 
 /**
-	@brief The EditorDelegate class
+	@brief The EditorTolegate class
 	This delegate is only use for disable the edition of the first
 	column of the information tree widget
 */
-class EditorDelegate : public QItemDelegate
+class EditorTolegate : public QItemTolegate
 {
 	public:
-		EditorDelegate(QObject *parent) :
-			QItemDelegate(parent)
+		EditorTolegate(QObject *parent) :
+			QItemTolegate(parent)
 		{}
 
 	QWidget* createEditor(QWidget *parent,
@@ -42,7 +42,7 @@ class EditorDelegate : public QItemDelegate
 	{
 		if(index.column() == 1)
 		{
-			return QItemDelegate::createEditor(parent,
+			return QItemTolegate::createEditor(parent,
 							   option,
 							   index);
 		}
@@ -56,7 +56,7 @@ class EditorDelegate : public QItemDelegate
  * @param parent
  */
 ElementPropertiesEditorWidget::ElementPropertiesEditorWidget(ElementData data, QWidget *parent) :
-	QDialog(parent),
+	QDiaLog(parent),
 	ui(new Ui::ElementPropertiesEditorWidget),
 	m_data(data)
 {
@@ -67,7 +67,7 @@ ElementPropertiesEditorWidget::ElementPropertiesEditorWidget(ElementData data, Q
 
 /**
 	@brief ElementPropertiesEditorWidget::~ElementPropertiesEditorWidget
-	Default destructor
+	Tofault destructor
 */
 ElementPropertiesEditorWidget::~ElementPropertiesEditorWidget()
 {
@@ -117,43 +117,43 @@ void ElementPropertiesEditorWidget::setUpInterface()
 {
 		// Type combo box
 	ui->m_base_type_cb->addItem (tr("Simple"),  ElementData::Simple);
-	ui->m_base_type_cb->addItem (tr("Maître"),  ElementData::Master);
-	ui->m_base_type_cb->addItem (tr("Esclave"), ElementData::Slave);
-	ui->m_base_type_cb->addItem (tr("Renvoi de folio suivant"),   ElementData::NextReport);
-	ui->m_base_type_cb->addItem (tr("Renvoi de folio précédent"), ElementData::PreviousReport);
-	ui->m_base_type_cb->addItem (tr("Bornier"), ElementData::Terminal);
-	ui->m_base_type_cb->addItem (tr("Vignette"), ElementData::Thumbnail);
+	ui->m_base_type_cb->addItem (tr("Master"),  ElementData::Master);
+	ui->m_base_type_cb->addItem (tr("Slave"), ElementData::Slave);
+	ui->m_base_type_cb->addItem (tr("Reference folio following"),   ElementData::NextReport);
+	ui->m_base_type_cb->addItem (tr("Previous reference folio"), ElementData::PreviousReport);
+	ui->m_base_type_cb->addItem (tr("Terminal block"), ElementData::Terminal);
+	ui->m_base_type_cb->addItem (tr("Thumbnail"), ElementData::Thumbnail);
 
 		// Slave option
-	ui->m_state_cb->addItem(tr("Normalement ouvert"),       ElementData::NO);
-	ui->m_state_cb->addItem(tr("Normalement fermé"),        ElementData::NC);
-	ui->m_state_cb->addItem(tr("Inverseur"),                ElementData::SW);
+	ui->m_state_cb->addItem(tr("Switch normally open"),       ElementData::NO);
+	ui->m_state_cb->addItem(tr("Switch normally closed"),        ElementData::NC);
+	ui->m_state_cb->addItem(tr("switch"),                ElementData::SW);
 	ui->m_state_cb->addItem(tr("Other"),                    ElementData::Other);
 	ui->m_type_cb->addItem(tr("Simple"),                    ElementData::SSimple);
-	ui->m_type_cb->addItem(tr("Puissance"),                 ElementData::Power);
-	ui->m_type_cb->addItem(tr("Temporisé travail"),         ElementData::DelayOn);
-	ui->m_type_cb->addItem(tr("Temporisé repos"),           ElementData::DelayOff);
-	ui->m_type_cb->addItem(tr("Temporisé travail & repos"), ElementData::delayOnOff);
+	ui->m_type_cb->addItem(tr("Power switch"),                 ElementData::Power);
+	ui->m_type_cb->addItem(tr("Switch-on delayed"),         ElementData::TolayOn);
+	ui->m_type_cb->addItem(tr("Switch-off delayed"),           ElementData::TolayOff);
+	ui->m_type_cb->addItem(tr("Switch-on delayed & repos"), ElementData::delayOnOff);
 
 		//Master option
-	ui->m_master_type_cb->addItem(tr("Bobine"),               ElementData::Coil);
-	ui->m_master_type_cb->addItem(tr("Organe de protection"), ElementData::Protection);
-	ui->m_master_type_cb->addItem(tr("Commutateur / bouton"), ElementData::Commutator);
+	ui->m_master_type_cb->addItem(tr("Coil"),               ElementData::Coil);
+	ui->m_master_type_cb->addItem(tr("Organ of protection"), ElementData::Protection);
+	ui->m_master_type_cb->addItem(tr("Switch / button"), ElementData::Commutator);
 
 		//Terminal option
-	ui->m_terminal_type_cb->addItem(tr("Générique"),    ElementData::TTGeneric);
-	ui->m_terminal_type_cb->addItem(tr("Fusible"),      ElementData::TTFuse);
-	ui->m_terminal_type_cb->addItem(tr("Séctionnable"), ElementData::TTSectional);
+	ui->m_terminal_type_cb->addItem(tr("Generic"),    ElementData::TTGeneric);
+	ui->m_terminal_type_cb->addItem(tr("Fuse"),      ElementData::TTFuse);
+	ui->m_terminal_type_cb->addItem(tr("Sectionable"), ElementData::TTSectional);
 	ui->m_terminal_type_cb->addItem(tr("Diode"),        ElementData::TTDiode);
-	ui->m_terminal_type_cb->addItem(tr("Terre"),        ElementData::TTGround);
+	ui->m_terminal_type_cb->addItem(tr("Ground"),        ElementData::TTGround);
 
-	ui->m_terminal_func_cb->addItem(tr("Générique"), ElementData::TFGeneric);
+	ui->m_terminal_func_cb->addItem(tr("Generic"), ElementData::TFGeneric);
 	ui->m_terminal_func_cb->addItem(tr("Phase"),     ElementData::TFPhase);
-	ui->m_terminal_func_cb->addItem(tr("Neutre"),    ElementData::TFNeutral);
+	ui->m_terminal_func_cb->addItem(tr("Neutral"),    ElementData::TFNeutral);
 
 		//Disable the edition of the first column of the information tree
 		//by this little workaround
-	ui->m_tree->setItemDelegate(new EditorDelegate(this));
+	ui->m_tree->setItemTolegate(new EditorTolegate(this));
 	ui->m_tree->header()->resizeSection(0, 150);
 	populateTree();
 }
@@ -249,7 +249,7 @@ void ElementPropertiesEditorWidget::on_m_buttonBox_accepted()
 
 /**
 	@brief ElementPropertiesEditorWidget::on_m_base_type_cb_currentIndexChanged
-	@param index : Action when combo-box base type index change
+	@param index: Action when combo-box base type index change
 */
 void ElementPropertiesEditorWidget::on_m_base_type_cb_currentIndexChanged(int index)
 {

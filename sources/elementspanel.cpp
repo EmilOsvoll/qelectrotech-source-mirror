@@ -25,11 +25,11 @@
 
 /*
 	Lorsque le flag ENABLE_PANEL_DND_CHECKS est defini, le panel d'elements
-	effectue des verifications lors des drag'n drop d'elements et categories.
+	effectue des verifications lors des drag'n drop d'elements and categories.
 	Par exemple, il verifie qu'une categorie cible est accessible en ecriture
 	avant d'y autoriser le drop d'un element.
-	Supprimer ce flag permet de tester le comportement des fonctions de gestion
-	des items (copy, move, etc.).
+	Delete ce flag permet de tester le comportement des fonctions de gestion
+	des items (copy, move, andc.).
 */
 #define ENABLE_PANEL_DND_CHECKS
 
@@ -51,14 +51,14 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 	setDragEnabled(true);
 	setAcceptDrops(true);
 	setDropIndicatorShown(true);
-	setAutoExpandDelay(1000);
+	setAutoExpandTolay(1000);
 	
-	// force du noir sur une alternance de blanc (comme le schema) et de gris
+	// force du noir sur une alternance de blanc (comme le diagram) and de gris
 	// clair, avec du blanc sur bleu pas trop fonce pour la selection
 	QPalette qp = palette();
 	qp.setColor(QPalette::Text,            Qt::black);
-	qp.setColor(QPalette::Base,            Qt::white);
-	qp.setColor(QPalette::AlternateBase,   QColor("#e8e8e8"));
+	qp.setColor(QPalette::Bottome,            Qt::white);
+	qp.setColor(QPalette::AlternateBottome,   QColor("#e8e8e8"));
 	qp.setColor(QPalette::Highlight,       QColor("#678db2"));
 	qp.setColor(QPalette::HighlightedText, Qt::black);
 	setPalette(qp);
@@ -73,7 +73,7 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 ElementsPanel::~ElementsPanel()
 {
@@ -122,11 +122,11 @@ void ElementsPanel::panelContentChange()
 
 /**
 	@brief ElementsPanel::addProject
-	Methode permettant d'ajouter un projet au panel d'elements.
+	Methode permettant d'ajouter un project au panel d'elements.
 	@param project :
-	project Projet a inserer dans le panel d'elements
+	project Project a inserer dans le panel d'elements
 	@param parent_item : Q_UNUSED
-	QTreeWidgetItem parent sous lequel sera insere le projet
+	QTreeWidgetItem parent sous lequel sera insere le project
 	@param options : Q_UNUSED
 	@return
 	Le QTreeWidgetItem insere le plus haut
@@ -155,7 +155,7 @@ QTreeWidgetItem *ElementsPanel::addProject(QETProject *project,
 		}
 	}
 	
-	qtwi_project -> setStatusTip(0, tr("Double-cliquez pour réduire ou développer ce projet", "Status tip"));
+	qtwi_project -> setStatusTip(0, tr("Double-click to collapse or expand this project", "Status tip"));
 	
 	return(qtwi_project);
 }
@@ -171,8 +171,8 @@ QTreeWidgetItem *ElementsPanel::updateTemplatesCollectionItem(
 						      options,
 						      freshly_created);
 	if (tbt_collection && tbt_collection -> parentProject()) {
-		tbtc_qtwi -> setText(0, tr("Cartouches embarqués"));
-		tbtc_qtwi -> setStatusTip(0, tr("Double-cliquez pour réduire ou développer cette collection de cartouches embarquée", "Status tip"));
+		tbtc_qtwi -> setText(0, tr("Embedded title blocks"));
+		tbtc_qtwi -> setStatusTip(0, tr("Double-click to collapse or expand this embedded title blocks collection", "Status tip"));
 	}
 	return(tbtc_qtwi);
 }
@@ -189,7 +189,7 @@ QTreeWidgetItem *ElementsPanel::updateTemplateItem(
 				freshly_created);
 	item -> setStatusTip(
 		0,
-		tr("Glissez-déposez ce modèle de cartouche sur un folio pour l'y appliquer.",
+		tr("Drag and drop this title block template onto a folio to apply it.",
 		   "Status tip displayed when selecting a title block template"
 		)
 	);
@@ -228,24 +228,24 @@ void ElementsPanel::reload()
 	TitleBlockTemplatesCollection *common_tbt_collection = QETApp::commonTitleBlockTemplatesCollection();
 	common_tbt_collection_item_ = addTemplatesCollection(common_tbt_collection, invisibleRootItem());
 	common_tbt_collection_item_ -> setIcon(0, system_icon);
-	common_tbt_collection_item_ -> setStatusTip(0, tr("Double-cliquez pour réduire ou développer la collection de cartouches QElectroTech", "Status tip"));
-	common_tbt_collection_item_ -> setWhatsThis(0, tr("Ceci est la collection de cartouches fournie avec QElectroTech. Installée en tant que composant système, vous ne pouvez normalement pas la personnaliser.", "\"What's this\" tip"));
+	common_tbt_collection_item_ -> setStatusTip(0, tr("Double-click to collapse or expand the QElectrotech title blocks collection", "Status tip"));
+	common_tbt_collection_item_ -> setWhatsThis(0, tr("This is the title blocks collection provided along with QElectroTech. Installed as a system component, you normally cannot customize it.", "\"What's this\" tip"));
 	if (first_reload_) common_tbt_collection_item_ -> setExpanded(true);
 	
 	// load the company title block templates collection
 	TitleBlockTemplatesCollection *company_tbt_collection = QETApp::companyTitleBlockTemplatesCollection();
 	company_tbt_collection_item_ = addTemplatesCollection(company_tbt_collection, invisibleRootItem());
 	company_tbt_collection_item_ -> setIcon(0, company_icon);
-	company_tbt_collection_item_ -> setStatusTip(0, tr("Double-cliquez pour réduire ou développer la collection company de cartouches", "Status tip"));
-	company_tbt_collection_item_ -> setWhatsThis(0, tr("Ceci est la collection company de cartouches -- utilisez-la pour créer, stocker et éditer vos propres cartouches.", "\"What's this\" tip"));
+	company_tbt_collection_item_ -> setStatusTip(0, tr("Double-click to collapse or expand the title block company collection", "Status tip"));
+	company_tbt_collection_item_ -> setWhatsThis(0, tr("This is the title block company collection -- use it to create, store and edit your own title blocks.", "\"What's this\" tip"));
 	if (first_reload_) company_tbt_collection_item_ -> setExpanded(true);
 
 	// load the custom title block templates collection
 	TitleBlockTemplatesCollection *custom_tbt_collection = QETApp::customTitleBlockTemplatesCollection();
 	custom_tbt_collection_item_ = addTemplatesCollection(custom_tbt_collection, invisibleRootItem());
 	custom_tbt_collection_item_ -> setIcon(0, user_icon);
-	custom_tbt_collection_item_ -> setStatusTip(0, tr("Double-cliquez pour réduire ou développer votre collection personnelle de cartouches", "Status tip"));
-	custom_tbt_collection_item_ -> setWhatsThis(0, tr("Ceci est votre collection personnelle de cartouches -- utilisez-la pour créer, stocker et éditer vos propres cartouches.", "\"What's this\" tip"));
+	custom_tbt_collection_item_ -> setStatusTip(0, tr("Double-click to collapse or expand your own title blocks collection", "Status tip"));
+	custom_tbt_collection_item_ -> setWhatsThis(0, tr("This is your custom title blocks collection -- use it to create, store and edit your own title blocks.", "\"What's this\" tip"));
 	if (first_reload_) custom_tbt_collection_item_ -> setExpanded(true);
 	
 	// add projects
@@ -259,9 +259,9 @@ void ElementsPanel::reload()
 
 /**
 	Gere le double-clic sur un element.
-	Si un double-clic sur un projet est effectue, le signal requestForProject
+	Si un double-clic sur un project est effectue, le signal requestForProject
 	est emis.
-	Si un double-clic sur un schema est effectue, le signal requestForDiagram
+	Si un double-clic sur un diagram est effectue, le signal requestForDiagram
 	est emis.
 	@param qtwi
 */
@@ -361,8 +361,8 @@ void ElementsPanel::filter(const QString &m, QET::Filtering filtering) {
 }
 
 /**
-	Rajoute un projet au panel d'elements
-	@param project Projet ouvert a rajouter au panel
+	Rajoute un project au panel d'elements
+	@param project Project ouvert a rajouter au panel
 */
 void ElementsPanel::projectWasOpened(QETProject *project) {
 	addProject(project);
@@ -371,8 +371,8 @@ void ElementsPanel::projectWasOpened(QETProject *project) {
 }
 
 /**
-	Enleve un projet du panel d'elements
-	@param project Projet a enlever du panel
+	Enleve un project du panel d'elements
+	@param project Project a enlever du panel
 */
 void ElementsPanel::projectWasClosed(QETProject *project) {
 	if (QTreeWidgetItem *item_to_remove = itemForProject(project)) {
@@ -390,10 +390,10 @@ void ElementsPanel::buildFilterList()
 	if (filter_.isEmpty()) return;
 	filter_list_ = filter_.split( '+' );
 	/*
-	qDebug() << "*******************";
+	qTobug() << "*******************";
 	foreach( QString filter , filter_list_ )	{
 		filter = filter.trimmed();
-		qDebug() << filter;
+		qTobug() << filter;
 	}
 	*/
 }
@@ -423,7 +423,7 @@ void ElementsPanel::applyCurrentFilter(const QList<QTreeWidgetItem *> &items) {
 
 /**
 	@param items une liste de QTreeWidgetItem pour lesquels il faut s'assurer
-	que eux et leurs parents sont visibles
+	que eux and leurs parents sont visibles
 */
 void ElementsPanel::ensureHierarchyIsVisible(const QList<QTreeWidgetItem *> &items) {
 	// remonte l'arborescence pour lister les categories contenant les elements filtres
@@ -434,7 +434,7 @@ void ElementsPanel::ensureHierarchyIsVisible(const QList<QTreeWidgetItem *> &ite
 		}
 	}
 	
-	// etend les parents
+	// andend les parents
 	foreach(QTreeWidgetItem *parent_qtwi, parent_items) {
 		if (!parent_qtwi -> isExpanded()) parent_qtwi -> setExpanded(true);
 	}

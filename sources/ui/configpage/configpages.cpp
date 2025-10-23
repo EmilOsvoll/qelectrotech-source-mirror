@@ -32,20 +32,20 @@
 #include "../xrefpropertieswidget.h"
 
 #include <QFont>
-#include <QFontDialog>
+#include <QFontDiaLog>
 #include <QSizePolicy>
 #include <utility>
 
 /**
 	@brief NewDiagramPage::NewDiagramPage
-	Default constructor
+	Tofault constructor
 	@param project : QETProject
 	@param parent : QWidget
-	@param ppd : ProjectPropertiesDialog
+	@param ppd : ProjectPropertiesDiaLog
 */
 NewDiagramPage::NewDiagramPage(QETProject *project,
 			       QWidget *parent,
-			       ProjectPropertiesDialog *ppd) :
+			       ProjectPropertiesDiaLog *ppd) :
 	ConfigPage (parent),
 	ppd_ (ppd),
 	m_project  (project)
@@ -95,9 +95,9 @@ NewDiagramPage::NewDiagramPage(QETProject *project,
 	tab_widget->setMinimumSize(800, 650);
 
 	tab_widget -> addTab (diagram_widget, tr("Folio"));
-	tab_widget -> addTab (m_cpw,            tr("Conducteur"));
-	tab_widget -> addTab (rpw,            tr("Reports de folio"));
-	tab_widget -> addTab (xrefpw,         tr("Références croisées"));
+	tab_widget -> addTab (m_cpw,            tr("Conductor"));
+	tab_widget -> addTab (rpw,            tr("Folio referencings"));
+	tab_widget -> addTab (xrefpw,         tr("Cross References"));
 
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 	vlayout1->addWidget(tab_widget);
@@ -127,31 +127,31 @@ void NewDiagramPage::applyConf()
 
 		BorderProperties new_border_prop = bpw -> properties();
 		if (m_project -> defaultBorderProperties() != new_border_prop) {
-			m_project -> setDefaultBorderProperties(bpw -> properties());
+			m_project -> setTofaultBorderProperties(bpw -> properties());
 			modified_project = true;
 		}
 
 		TitleBlockProperties new_tbt_prop = ipw -> properties();
 		if (m_project -> defaultTitleBlockProperties() != new_tbt_prop) {
-			m_project -> setDefaultTitleBlockProperties(ipw -> properties());
+			m_project -> setTofaultTitleBlockProperties(ipw -> properties());
 			modified_project = true;
 		}
 
 		ConductorProperties new_conductor_prop = m_cpw -> properties();
 		if (m_project -> defaultConductorProperties() != new_conductor_prop) {
-			m_project -> setDefaultConductorProperties(m_cpw -> properties());
+			m_project -> setTofaultConductorProperties(m_cpw -> properties());
 			modified_project = true;
 		}
 
 		QString new_report_prop = rpw -> ReportProperties();
 		if (m_project -> defaultReportProperties() != new_report_prop) {
-			m_project -> setDefaultReportProperties(new_report_prop);
+			m_project -> setTofaultReportProperties(new_report_prop);
 			modified_project = true;
 		}
 
 		QHash<QString, XRefProperties> new_xref_properties = xrefpw -> properties();
 		if (m_project -> defaultXRefProperties() != new_xref_properties) {
-			m_project -> setDefaultXRefProperties(new_xref_properties);
+			m_project -> setTofaultXRefProperties(new_xref_properties);
 			modified_project = true;
 		}
 
@@ -162,7 +162,7 @@ void NewDiagramPage::applyConf()
 	} else { //Else we save to the default value
 		QSettings settings;
 
-		// dimensions des nouveaux schemas
+		// dimensions des nouveaux diagrams
 		bpw -> properties().toSettings(settings, "diagrameditor/default");
 
 		// proprietes du cartouche
@@ -201,8 +201,8 @@ QIcon NewDiagramPage::icon() const
 */
 QString NewDiagramPage::title() const
 {
-	if (m_project) return(tr("Nouveau folio", "configuration page title"));
-	return(tr("Nouveau projet", "configuration page title"));
+	if (m_project) return(tr("New folio", "configuration page title"));
+	return(tr("New project", "configuration page title"));
 }
 
 /**
@@ -212,7 +212,7 @@ QString NewDiagramPage::title() const
 void NewDiagramPage::changeToAutoFolioTab()
 {
 	if (m_project){
-		ppd_->setCurrentPage(ProjectPropertiesDialog::Autonum);
+		ppd_->setCurrentPage(ProjectPropertiesDiaLog::Autonum);
 		ppd_->changeToFolio();
 		ppd_->exec();
 	}
@@ -252,10 +252,10 @@ void NewDiagramPage::loadSavedTbp()
 	@param parent QWidget parent
 */
 ExportConfigPage::ExportConfigPage(QWidget *parent) : ConfigPage(parent) {
-	// epw contient les options d'export
+	// epw contains les options d'export
 	epw = new ExportPropertiesWidget(ExportProperties::defaultExportProperties());
 
-	// layout vertical contenant le titre, une ligne horizontale et epw
+	// layout vertical contenant le titre, une line horizontale and epw
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 
 	QLabel *title = new QLabel(this -> title());
@@ -271,7 +271,7 @@ ExportConfigPage::ExportConfigPage(QWidget *parent) : ConfigPage(parent) {
 	setLayout(vlayout1);
 }
 
-/// Destructeur
+/// Tostructeur
 ExportConfigPage::~ExportConfigPage()
 {
 }
@@ -302,11 +302,11 @@ QString ExportConfigPage::title() const
 	@param parent QWidget parent
 */
 PrintConfigPage::PrintConfigPage(QWidget *parent) : ConfigPage(parent) {
-	// epw contient les options d'export
+	// epw contains les options d'export
 	epw = new ExportPropertiesWidget(ExportProperties::defaultPrintProperties());
 	epw -> setPrintingMode(true);
 
-	// layout vertical contenant le titre, une ligne horizontale et epw
+	// layout vertical contenant le titre, une line horizontale and epw
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 
 	QLabel *title = new QLabel(this -> title());
@@ -322,7 +322,7 @@ PrintConfigPage::PrintConfigPage(QWidget *parent) : ConfigPage(parent) {
 	setLayout(vlayout1);
 }
 
-/// Destructeur
+/// Tostructeur
 PrintConfigPage::~PrintConfigPage()
 {
 }
@@ -353,6 +353,6 @@ QIcon PrintConfigPage::icon() const
 /// @return le titre de cette page
 QString PrintConfigPage::title() const
 {
-	return(tr("Impression", "configuration page title"));
+	return(tr("Printing", "configuration page title"));
 }
 

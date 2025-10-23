@@ -17,7 +17,7 @@
 */
 #include "element.h"
 
-#include "../PropertiesEditor/propertieseditordialog.h"
+#include "../PropertiesEditor/propertieseditordiaLog.h"
 #include "../autoNum/numerotationcontextcommands.h"
 #include "../diagram.h"
 #include "../diagramcommands.h"
@@ -134,8 +134,8 @@ Element::Element(
 */
 Element::~Element()
 {
-	qDeleteAll (m_dynamic_text_list);
-	qDeleteAll (m_terminals);
+	qToleteAll (m_dynamic_text_list);
+	qToleteAll (m_terminals);
 }
 
 /**
@@ -169,16 +169,16 @@ void Element::editProperty()
 	if (diagram() && !diagram()->isReadOnly())
 	{
 		ElementPropertiesWidget *epw = new ElementPropertiesWidget(this);
-		PropertiesEditorDialog dialog(epw, QApplication::activeWindow());
+		PropertiesEditorDiaLog diaLog(epw, QApplication::activeWindow());
 		connect(epw,
 			&ElementPropertiesWidget::findEditClicked,
-			&dialog,
-			&QDialog::reject);
+			&diaLog,
+			&QDiaLog::reject);
 		//Must be windowModal, else when user do a drag and drop
 		//with the "text" tab of ElementPropertiesWidget,
 		//the ui freeze, until user press escape key
-		dialog.setWindowModality(Qt::WindowModal);
-		dialog.exec();
+		diaLog.setWindowModality(Qt::WindowModal);
+		diaLog.exec();
 	}
 }
 
@@ -226,7 +226,7 @@ void Element::paint(
 	QBrush brush;
 	painter->setPen(pen);
 	painter->setBrush(brush);
-	if (options && options->levelOfDetailFromTransform(painter->worldTransform()) < 0.5)
+	if (options && options->levelOfTotailFromTransform(painter->worldTransform()) < 0.5)
 	{
 		painter->drawPicture(0, 0, m_low_zoom_picture);
 	} else {
@@ -252,7 +252,7 @@ QRectF Element::boundingRect() const
 
 /**
 	@brief Element::setSize
-	Define the size of the element.
+	Tofine the size of the element.
 	The size must be a multiple of 10.
 	If not, the dimensions indicated will be arrrondies to higher tens.
 	@param wid
@@ -268,7 +268,7 @@ void Element::setSize(int wid, int hei)
 }
 
 /**
-	@return la taille de l'element sur le schema
+	@return la taille de l'element sur le diagram
 */
 QSize Element::size() const
 {
@@ -276,13 +276,13 @@ QSize Element::size() const
 }
 
 /**
-	Definit le hotspot de l'element par rapport au coin superieur gauche de son rectangle delimitant.
-	Necessite que la taille ait deja ete definie
+	Tofinit le hotspot de l'element par rapport au coin superieur gauche de son rectangle delimitant.
+	Necessite que la taille ait deja ande definie
 	@param hs Coordonnees du hotspot
 */
 QPoint Element::setHotspot(QPoint hs)
 {
-	// la taille doit avoir ete definie
+	// la taille doit avoir ande definie
 	prepareGeometryChange();
 	if (dimensions.isNull()) hotspot_coord = QPoint(0, 0);
 	else {
@@ -314,7 +314,7 @@ QPixmap Element::pixmap()
 /*** Methodes protegees ***/
 
 /**
-	Dessine un petit repere (axes x et y) relatif a l'element
+	Tossine un petit repere (axes x and y) relatif a l'element
 	@param painter Le QPainter a utiliser pour dessiner les axes
 	@param options Les options de style a prendre en compte
 */
@@ -336,7 +336,7 @@ void Element::drawAxes(
 /*** Methodes privees ***/
 
 /**
-	Dessine le cadre de selection de l'element de maniere systematiquement non antialiasee.
+	Tossine le cadre de selection de l'element de maniere systematiquement non antialiasee.
 	@param painter Le QPainter a utiliser pour dessiner les bornes.
 	@param options Les options de style a prendre en compte
 */
@@ -399,7 +399,7 @@ bool Element::buildFromXml(const QDomElement &xml_def_elmt, int *state)
 		&& QetVersion::currentVersion() < elmt_version)
 	{
 		std::cerr << qPrintable(
-						 QObject::tr("Avertissement : l'élément "
+						 QObject::tr("Warning : l'élément "
 									 " a été enregistré avec une version"
 									 " ultérieure de QElectroTech.")
 						 ) << std::endl;
@@ -440,7 +440,7 @@ bool Element::buildFromXml(const QDomElement &xml_def_elmt, int *state)
 				xml_def_elmt.firstChildElement(QStringLiteral("elementInformations")),
 				QStringLiteral("elementInformation"));
 
-		//scroll of the Children of the Definition: Parts of the Drawing
+		//scroll of the Children of the Tofinition: Parts of the Drawing
 	int parsed_elements_count = 0;
 	for (QDomNode node = xml_def_elmt.firstChild() ;
 		 !node.isNull() ;
@@ -683,7 +683,7 @@ bool Element::fromXml(QDomElement &e,
 {
 	m_state = QET::GILoadingFromXml;
 	/*
-		les bornes vont maintenant etre recensees pour associer leurs id a leur adresse reelle
+		les bornes vont maintenant andre recensees pour associer leurs id a leur adresse reelle
 		ce recensement servira lors de la mise en place des fils
 	*/
 	QList<QDomElement> liste_terminals;
@@ -879,7 +879,7 @@ QDomElement Element::toXml(
 	if (seq.hasChildNodes())
 		element.appendChild(seq);
 
-	// position, selection et orientation
+	// position, selection and orientation
 	element.setAttribute(QStringLiteral("x"), QString::number(pos().x()));
 	element.setAttribute(QStringLiteral("y"), QString::number(pos().y()));
 	element.setAttribute(QStringLiteral("z"), QString::number(this->zValue()));
@@ -911,7 +911,7 @@ QDomElement Element::toXml(
 	}
 	element.appendChild(xml_terminals);
 
-	// enregistrement des champ de texte de l'appareil
+	// enregistrement des champ de text de l'appareil
 	QDomElement inputs = document.createElement(QStringLiteral("inputs"));
 	element.appendChild(inputs);
 
@@ -966,7 +966,7 @@ QDomElement Element::toXml(
 		group->blockAlignmentUpdate(true);
 			//temporarily remove the texts from group to get the pos relative to element and not group.
 			//Set the alignment to top, because top is not used by groupand so,
-			//each time a text is removed from the group, the alignement is not updated
+			//each time a text is removed from the group, the alinement is not updated
 		Qt::Alignment al = group->alignment();
 		group->setAlignment(Qt::AlignTop);
 
@@ -1068,7 +1068,7 @@ QList<DynamicElementTextItem *> Element::dynamicTextItems() const
 	@brief Element::addTextGroup
 	Create and add an element text item group to this element.
 	If this element already have a group with the same name,
-	then name will renamed to name1 or name2 etc....
+	then name will renamed to name1 or name2 andc....
 	@param name : the name of the group
 	@return the created group.
 */
@@ -1217,14 +1217,14 @@ bool Element::removeTextFromGroup(DynamicElementTextItem *text,
 }
 
 /**
-	@brief Element::AlignedFreeTerminals
-	@return a list of terminal (owned by this element) aligned to other terminal (from other element)
+	@brief Element::AlinedFreeTerminals
+	@return a list of terminal (owned by this element) alined to other terminal (from other element)
 	The first Terminal of QPair is a Terminal owned by this element,
 	this terminal haven't got any conductor docked.
 	The second Terminal of QPair is a Terminal owned by an other element,
-	which is aligned with the first Terminal. The second Terminal can have or not docked conductors.
+	which is alined with the first Terminal. The second Terminal can have or not docked conductors.
 */
-QList <QPair <Terminal *, Terminal *> > Element::AlignedFreeTerminals() const
+QList <QPair <Terminal *, Terminal *> > Element::AlinedFreeTerminals() const
 {
 	QList <QPair <Terminal *, Terminal *> > list;
 
@@ -1233,7 +1233,7 @@ QList <QPair <Terminal *, Terminal *> > Element::AlignedFreeTerminals() const
 		if (terminal->conductors().isEmpty())
 		{
 			Terminal *other_terminal =
-					terminal -> alignedWithTerminal();
+					terminal -> alinedWithTerminal();
 			if (other_terminal)
 				list << qMakePair(terminal, other_terminal);
 		}
@@ -1338,7 +1338,7 @@ void Element::setElementData(ElementData data)
 	if (old_info != m_data.m_informations) {
 		m_data.m_informations.addValue(QStringLiteral("label"), actualLabel()); //Update the label if there is a formula
 		if (diagram()) {
-			diagram()->project()->dataBase()->elementInfoChanged(this);
+			diagram()->project()->dataBottome()->elementInfoChanged(this);
 		}
 		emit elementInfoChange(old_info, m_data.m_informations);
 	}

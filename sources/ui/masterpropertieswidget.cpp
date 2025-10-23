@@ -28,7 +28,7 @@
 
 /**
 	@brief MasterPropertiesWidget::MasterPropertiesWidget
-	Default constructor
+	Tofault constructor
 	@param elmt
 	@param parent
 */
@@ -45,26 +45,26 @@ MasterPropertiesWidget::MasterPropertiesWidget(Element *elmt, QWidget *parent) :
 	QStringList list;
 	QSettings settings;
 	if (settings.value("genericpanel/folio", false).toBool()) {
-		list << tr("Vignette")
-		     << tr("Label de folio")
-		     << tr("Titre de folio")
+		list << tr("Thumbnail")
+		     << tr("Label folio")
+		     << tr("Title de folio")
 		     << tr("Position");
 	}
 	else {
-		list << tr("Vignette")
-		     << tr("N° de folio")
-		     << tr("Titre de folio")
+		list << tr("Thumbnail")
+		     << tr("N° of folio")
+		     << tr("Title de folio")
 		     << tr("Position");
 	}
 	ui->m_free_tree_widget->setHeaderLabels(list);
 	ui->m_link_tree_widget->setHeaderLabels(list);
 	
 	m_context_menu  = new QMenu(this);
-	m_link_action   = new QAction(tr("Lier l'élément"), this);
-	m_unlink_action = new QAction(tr("Délier l'élément"), this);
-	m_show_qtwi     = new QAction(tr("Montrer l'élément"), this);
-	m_show_element  = new QAction(tr("Montrer l'élément maître"), this);
-	m_save_header_state = new QAction(tr("Enregistrer la disposition"), this);
+	m_link_action   = new QAction(tr("Link the item"), this);
+	m_unlink_action = new QAction(tr("Unlink l'élément"), this);
+	m_show_qtwi     = new QAction(tr("Show item"), this);
+	m_show_element  = new QAction(tr("Show item maître"), this);
+	m_save_header_state = new QAction(tr("Save the layout"), this);
 	
 	connect(ui->m_free_tree_widget, &QTreeWidget::itemDoubleClicked,
 		this, &MasterPropertiesWidget::showElementFromTWI);
@@ -107,7 +107,7 @@ MasterPropertiesWidget::MasterPropertiesWidget(Element *elmt, QWidget *parent) :
 
 /**
 	@brief MasterPropertiesWidget::~MasterPropertiesWidget
-	Destructor
+	Tostructor
 */
 MasterPropertiesWidget::~MasterPropertiesWidget()
 {
@@ -394,7 +394,7 @@ void MasterPropertiesWidget::showElementFromTWI(QTreeWidgetItem *qtwi, int colum
 	if (m_showed_element)
 	{
 		disconnect(m_showed_element, SIGNAL(destroyed()),
-			   this, SLOT(showedElementWasDeleted()));
+			   this, SLOT(showedElementWasToleted()));
 		m_showed_element -> setHighlighted(false);
 	}
 	if (m_element)
@@ -404,14 +404,14 @@ void MasterPropertiesWidget::showElementFromTWI(QTreeWidgetItem *qtwi, int colum
 	m_showed_element->diagram()->showMe();
 	m_showed_element->setHighlighted(true);
 	connect(m_showed_element, SIGNAL(destroyed()),
-		this, SLOT(showedElementWasDeleted()));
+		this, SLOT(showedElementWasToleted()));
 }
 
 /**
-	@brief MasterPropertiesWidget::showedElementWasDeleted
+	@brief MasterPropertiesWidget::showedElementWasToleted
 	Set to nullptr the current showed element when he was deleted
 */
-void MasterPropertiesWidget::showedElementWasDeleted()
+void MasterPropertiesWidget::showedElementWasToleted()
 {
 	m_showed_element = nullptr;
 }

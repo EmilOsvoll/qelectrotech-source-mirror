@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QPushButton" name="m_edit_query_pb">
      <property name="text">
-      <string>Requête</string>
+      <string>Request</string>
      </property>
      <property name="icon">
       <iconset resource="../../../../qelectrotech.qrc">
@@ -28,7 +28,7 @@
    <item>
     <widget class="QPushButton" name="m_refresh_pb">
      <property name="text">
-      <string>Recharger</string>
+      <string>Reload</string>
      </property>
      <property name="icon">
       <iconset resource="../../../../qelectrotech.qrc">
@@ -39,7 +39,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

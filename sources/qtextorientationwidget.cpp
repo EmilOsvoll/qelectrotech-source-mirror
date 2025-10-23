@@ -21,9 +21,9 @@
 
 /**
 	Constructeur
-	Par defaut, ce widget met en valeur les angles multiples de 45 degres
-	et presente un texte oriente a 0 degre, avec la police par defaut de
-	l'application. Le texte affiche est
+	By default, ce widget met en valeur les angles multiples de 45 degres
+	et presente un text oriente a 0 degre, avec la police par defaut de
+	l'application. Le text affiche est
 	@param parent Widget parent
 */
 QTextOrientationWidget::QTextOrientationWidget(QWidget *parent) :
@@ -35,23 +35,23 @@ QTextOrientationWidget::QTextOrientationWidget(QWidget *parent) :
 	read_only_(false)
 {
 	// chaines par defaut
-	text_size_hash_.insert(tr("Ex.",     "Short example string"),  -1);
+	text_size_hash_.insert(tr("e.g.",     "Short example string"),  -1);
 	text_size_hash_.insert(tr("Example", "Longer example string"), -1);
 
 	// definit la politique de gestion de la taille de ce widget :
 	// on prefere la sizeHint()
 	QSizePolicy size_policy(QSizePolicy::Minimum, QSizePolicy::Minimum);
-	// on souhaite conserver le rapport entre sa hauteur et sa largeur
+	// on souhaite conserver le rapport entre sa hauteur and sa largeur
 	size_policy.setHeightForWidth(true);
 	setSizePolicy(size_policy);
 
 	// suivi de la souris : permet de recevoir les evenements relatifs aux
-	// mouvement de la souris sans que l'utilisateur n'ait a cliquer
+	// mouvement de la souris none que l'utilisateur n'ait a cliquer
 	setMouseTracking(true);
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 QTextOrientationWidget::~QTextOrientationWidget()
 {
@@ -59,8 +59,8 @@ QTextOrientationWidget::~QTextOrientationWidget()
 
 /**
 	@param angle la nouvelle orientation / le nouvel angle selectionne(e)
-	0 degre correspond a un texte horizontal, de gauche a droite
-	90 degres correspondent a un texte vertical de haut en bas
+	0 degre correspond a un text horizontal, de gauche a droite
+	90 degres correspondent a un text vertical de haut en bas
 */
 void QTextOrientationWidget::setOrientation(const double &angle) {
 	current_orientation_ = angle;
@@ -69,8 +69,8 @@ void QTextOrientationWidget::setOrientation(const double &angle) {
 
 /**
 	@return l'orientation / l'angle actuellement selectionne(e)
-	0 degre correspond a un texte horizontal, de gauche a droite
-	90 degres correspondent a un texte vertical de haut en bas
+	0 degre correspond a un text horizontal, de gauche a droite
+	90 degres correspondent a un text vertical de haut en bas
 */
 double QTextOrientationWidget::orientation() const
 {
@@ -78,20 +78,20 @@ double QTextOrientationWidget::orientation() const
 }
 
 /**
-	Definit la police de caracteres a utiliser pour le texte affiche
+	Tofinit la police de caracteres a utiliser pour le text affiche
 	@param font Une police de caracteres
 */
 void QTextOrientationWidget::setFont(const QFont &font) {
 	text_font_ = font;
 
-	// invalide le cache contenant les longueurs des textes a disposition
+	// invalide le cache contenant les longueurs des texts a disposition
 	foreach(QString text, text_size_hash_.keys()) {
 		text_size_hash_[text] = -1;
 	}
 }
 
 /**
-	@return la police utilisee pour le texte affiche
+	@return la police utilisee pour le text affiche
 */
 QFont QTextOrientationWidget::font() const
 {
@@ -99,14 +99,14 @@ QFont QTextOrientationWidget::font() const
 }
 
 /**
-	@param display_text true pour afficher un texte, false sinon
+	@param display_text true pour afficher un text, false sinon
 */
 void QTextOrientationWidget::setDisplayText(bool display_text) {
 	display_text_ = display_text;
 }
 
 /**
-	@return la police utilisee pour le texte affiche
+	@return la police utilisee pour le text affiche
 */
 bool QTextOrientationWidget::textDisplayed() const
 {
@@ -115,10 +115,10 @@ bool QTextOrientationWidget::textDisplayed() const
 
 /**
 	@param texts_list Une liste de chaines de caracteres utilisables par le
-	widget afin d'afficher un texte en guise d'exemple. Le widget choisit la
+	widget afin d'afficher un text en guise d'exemple. Le widget choisit la
 	chaine la plus appropriee en fonction de sa taille.
-	Note : la liste fournie ne doit pas etre vide. Utilisez setDisplayText si
-	vous ne voulez plus afficher de texte.
+	Note : la liste fournie ne doit pas andre vide. Utilisez setDisplayText si
+	vous ne voulez plus afficher de text.
 */
 void QTextOrientationWidget::setUsableTexts(const QStringList &texts_list) {
 	if (texts_list.isEmpty()) return;
@@ -131,7 +131,7 @@ void QTextOrientationWidget::setUsableTexts(const QStringList &texts_list) {
 		}
 	}
 
-	// on ajoute les nouvelles, sans les calculer (on met -1 en guise de longueur)
+	// on ajoute les nouvelles, none les calculer (on met -1 en guise de longueur)
 	foreach(QString text, texts_list) {
 		if (!text_size_hash_.contains(text)) {
 			text_size_hash_[text] = -1;
@@ -140,7 +140,7 @@ void QTextOrientationWidget::setUsableTexts(const QStringList &texts_list) {
 }
 
 /**
-	@return la liste des chaines dont le widget dispose pour afficher un texte
+	@return la liste des chaines dont le widget dispose pour afficher un text
 */
 QStringList QTextOrientationWidget::usableTexts() const
 {
@@ -187,7 +187,7 @@ int QTextOrientationWidget::heightForWidth(int w) const
 void QTextOrientationWidget::paintEvent(QPaintEvent *event) {
 	Q_UNUSED(event);
 
-	// rectangle de travail avec son centre et son rayon
+	// rectangle de travail avec son centre and son rayon
 	QRect drawing_rectangle(QPoint(0, 0), size());
 	drawing_rectangle.adjust(5, 5, -5, -5);
 
@@ -205,15 +205,15 @@ void QTextOrientationWidget::paintEvent(QPaintEvent *event) {
 	p.setBrush(QBrush(QColor("#ffffaa")));
 	p.drawEllipse(drawing_rectangle);
 
-	// ligne rouge indiquant l'angle actuel
+	// line rouge indiquant l'angle actuel
 	p.setPen(QPen(QBrush(Qt::red), 1.0));
 	p.translate(drawing_rectangle_center);
 	p.rotate(current_orientation_);
 	p.drawLine(QLineF(QPointF(), QPointF(drawing_rectangle_radius, 0.0)));
 
-	// texte optionnel
+	// text optionnel
 	if (display_text_) {
-		// determine le texte a afficher
+		// determine le text a afficher
 		QString chosen_text = getMostUsableStringForRadius(drawing_rectangle_radius);
 		if (!chosen_text.isEmpty()) {
 			p.resetTransform();
@@ -295,11 +295,11 @@ void QTextOrientationWidget::mouseReleaseEvent(QMouseEvent *event) {
 }
 
 /**
-	@param radius Rayon du cercle qui limitera le rendu du texte
+	@param radius Rayon du cercle qui limitera le rendu du text
 	@return la chaine la plus appropriee en fonction de la taille du widget.
 */
 QString QTextOrientationWidget::getMostUsableStringForRadius(const qreal &radius) {
-	// s'assure que l'on connait la longueur de chaque texte a disposition
+	// s'assure que l'on connait la longueur de chaque text a disposition
 	generateTextSizeHash();
 
 	// recupere les longueurs a disposition
@@ -324,7 +324,7 @@ QString QTextOrientationWidget::getMostUsableStringForRadius(const qreal &radius
 }
 
 /**
-	S'assure que le hash associant les textes utilisables a leur taille soit
+	S'assure que le hash associant les texts utilisables a leur taille soit
 	correctement rempli.
 */
 void QTextOrientationWidget::generateTextSizeHash()
@@ -338,14 +338,14 @@ void QTextOrientationWidget::generateTextSizeHash()
 }
 
 /**
-	Determine si une position donnee correspond a un des carres representant un
+	Totermine si une position donnee correspond a un des carres representant un
 	angle pertinent.
 	@param pos Position donnee
 	@param angle_value_ptr Si different de 0, le double pointe par ce parametre
 	vaudra l'angle pertinent concerne
 */
 bool QTextOrientationWidget::positionIsASquare(const QPointF &pos, double *angle_value_ptr) {
-	// rectangle de travail avec son centre et son rayon
+	// rectangle de travail avec son centre and son rayon
 	QRect drawing_rectangle(QPoint(0, 0), size());
 	drawing_rectangle.adjust(5, 5, -5, -5);
 

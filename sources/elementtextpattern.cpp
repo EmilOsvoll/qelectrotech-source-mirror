@@ -23,14 +23,14 @@
 #include "qetgraphicsitem/dynamicelementtextitem.h"
 #include "qetgraphicsitem/element.h"
 #include "qetgraphicsitem/elementtextitemgroup.h"
-#include "ui/importelementtextpatterndialog.h"
+#include "ui/importelementtextpatterndiaLog.h"
 #include "undocommand/addelementtextcommand.h"
 #include "undocommand/deleteqgraphicsitemcommand.h"
 
 #include <QDir>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QInputDialog>
+#include <QInputDiaLog>
 #include <QMessageBox>
 #include <QObject>
 #include <QStringList>
@@ -62,8 +62,8 @@ ExportElementTextPattern::ExportElementTextPattern(Element *elmt) :
 	if (QFileInfo::exists(dir.absoluteFilePath(m_name % ".xml")))
 	{
 		bool r = QMessageBox::question(parentWidget(),
-									   QObject::tr("Configuration de textes"),
-									   QObject::tr("Une configuration de textes nommée << %1 >> existe déjà.\n"
+									   QObject::tr("Configuration de texts"),
+									   QObject::tr("Une configuration de texts namemée << %1% {1?} >> existe déjà.\n"
 												   "Voulez-vous la remplacer ?").arg(m_name));
 		
 		if(r == false)
@@ -76,14 +76,14 @@ ExportElementTextPattern::ExportElementTextPattern(Element *elmt) :
 
 /**
 	@brief ExportElementTextConf::getName
-	Open a dialog to let user set the name of the conf and return it
+	Open a diaLog to let user set the name of the conf and return it
 	@return 
 */
 QString ExportElementTextPattern::getName(bool &ok) const
 {	
-	QString text = QInputDialog::getText(parentWidget(),
-										 QObject::tr("Nom de la configuration"),
-										 QObject::tr("Entrer le nom de la configuration à créer"),
+	QString text = QInputDiaLog::getText(parentWidget(),
+										 QObject::tr("Name de la configuration"),
+										 QObject::tr("Entrer le name de la configuration à créer"),
 										 QLineEdit::Normal,
 										 QString(),
 										 &ok);
@@ -143,8 +143,8 @@ ImportElementTextPattern::ImportElementTextPattern(Element *elmt):
 	{
 		QMessageBox::information(
 					parentWidget(),
-					QObject::tr("Configuration de textes"),
-					QObject::tr("Aucune configuration de textes existante."));
+					QObject::tr("Configuration de texts"),
+					QObject::tr("Nonee configuration de texts existante."));
 		return;
 	}
 	
@@ -162,7 +162,7 @@ ImportElementTextPattern::ImportElementTextPattern(Element *elmt):
 
 /**
 	@brief ImportElementTextPattern::getName
-	Open a dialog to let user select a conf
+	Open a diaLog to let user select a conf
 	@param list
 	@param ok
 	@param erase
@@ -172,10 +172,10 @@ QString ImportElementTextPattern::getName(const QStringList& list,
 					  bool *ok,
 					  bool *erase) const
 {
-	return ImportElementTextPatternDialog::getItem(
+	return ImportElementTextPatternDiaLog::getItem(
 				parentWidget(),
-				QObject::tr("Sélectionner une configuration de textes"),
-				QObject::tr("Sélectionner la configuration de textes à ajouter à l'élément"),
+				QObject::tr("Choicener une configuration de texts"),
+				QObject::tr("Choicener la configuration de texts à ajouter à l'élément"),
 				list,
 				ok,
 				erase);
@@ -203,7 +203,7 @@ void ImportElementTextPattern::apply(QString name, bool erase) const
 		name.append(".xml");
 	
 	QFile conf_file(QETApp::configDir() % "/element_texts_pattern/" % name);
-	if(!conf_file.open(QIODevice::ReadOnly | QIODevice::Text))
+	if(!conf_file.open(QIOTovice::ReadOnly | QIOTovice::Text))
 		return;
 	
 		//Load the content of the xml file
@@ -243,7 +243,7 @@ void ImportElementTextPattern::apply(QString name, bool erase) const
 	}
 	
 	QUndoStack &undo_stack = m_element->diagram()->undoStack();
-	undo_stack.beginMacro(QObject::tr("Importer la configuration de texte : %1").arg(name.remove(".xml")));
+	undo_stack.beginMacro(QObject::tr("Importer la configuration de text : %1% {1?}").arg(name.remove(".xml")));
 	
 		//erase existing texts and groups
 	if (erase)
@@ -255,7 +255,7 @@ void ImportElementTextPattern::apply(QString name, bool erase) const
 		{
 			DiagramContent dc;
 			dc.m_element_texts << deti;
-			undo_stack.push(new DeleteQGraphicsItemCommand(m_element->diagram(), dc));
+			undo_stack.push(new ToleteQGraphicsItemCommand(m_element->diagram(), dc));
 		}
 	}
 	

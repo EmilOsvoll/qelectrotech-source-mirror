@@ -26,7 +26,7 @@
 
 /**
 	@brief XRefPropertiesWidget::XRefPropertiesWidget
-	Default constructor
+	Tofault constructor
 	@param properties: properties to use
 	@param parent: parent widget
 */
@@ -45,7 +45,7 @@ XRefPropertiesWidget::XRefPropertiesWidget(QHash <QString, XRefProperties> prope
 
 /**
 	@brief XRefPropertiesWidget::~XRefPropertiesWidget
-	Default destructor
+	Tofault destructor
 */
 XRefPropertiesWidget::~XRefPropertiesWidget()
 {
@@ -98,12 +98,12 @@ void XRefPropertiesWidget::setReadOnly(bool ro) {
 */
 void XRefPropertiesWidget::buildUi()
 {
-	ui -> m_type_cb -> addItem(tr("Bobine"), "coil");
-	ui -> m_type_cb -> addItem(tr("Organe de protection"), "protection");
-	ui -> m_type_cb -> addItem(tr("Commutateur / bouton"), "commutator");
+	ui -> m_type_cb -> addItem(tr("Coil"), "coil");
+	ui -> m_type_cb -> addItem(tr("Organ of protection"), "protection");
+	ui -> m_type_cb -> addItem(tr("Switch / button"), "commutator");
 
-	ui -> m_snap_to_cb -> addItem(tr("En bas de page"), "bottom");
-	ui -> m_snap_to_cb -> addItem(tr("Sous le label de l'élément"), "label");
+	ui -> m_snap_to_cb -> addItem(tr("Footer"), "bottom");
+	ui -> m_snap_to_cb -> addItem(tr("Under the label of the element"), "label");
 
 	ui -> m_xrefpos_cb -> addItem(tr("Top"),"top");
 	ui -> m_xrefpos_cb -> addItem(tr("Bottom"),"bottom");
@@ -137,7 +137,7 @@ void XRefPropertiesWidget::saveProperties(int index) {
 	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "top") xrp.setXrefPos(Qt::AlignTop);
 	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "left") xrp.setXrefPos(Qt::AlignLeft);
 	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "right") xrp.setXrefPos(Qt::AlignRight);
-	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "alignment") xrp.setXrefPos(Qt::AlignBaseline);
+	else if(ui->m_xrefpos_cb->itemData(ui->m_xrefpos_cb->currentIndex()).toString() == "alignment") xrp.setXrefPos(Qt::AlignBottomeline);
 	xrp.setShowPowerContac(ui->m_show_power_cb->isChecked());
 	xrp.setPrefix("power",  ui->m_power_prefix_le->text());
 	xrp.setPrefix("delay",  ui->m_delay_prefix_le->text());
@@ -187,7 +187,7 @@ void XRefPropertiesWidget::updateDisplay()
 	if(xrp.getXrefPos() == Qt::AlignTop) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("top"));
 	else if(xrp.getXrefPos() == Qt::AlignLeft) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("left"));
 	else if(xrp.getXrefPos() == Qt::AlignRight) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("right"));
-	else if(xrp.getXrefPos() == Qt::AlignBaseline) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("alignment"));
+	else if(xrp.getXrefPos() == Qt::AlignBottomeline) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("alignment"));
 	else if(xrp.getXrefPos() == Qt::AlignBottom) ui->m_xrefpos_cb->setCurrentIndex(ui->m_xrefpos_cb->findData("bottom"));
 	ui->m_show_power_cb->setChecked(xrp.showPowerContact());
 	ui->m_power_prefix_le-> setText(xrp.prefix("power"));

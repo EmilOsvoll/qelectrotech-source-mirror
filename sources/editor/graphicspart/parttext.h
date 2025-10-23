@@ -23,7 +23,7 @@
 #include <QtWidgets>
 
 class TextEditor;
-class ElementPrimitiveDecorator;
+class ElementPrimitiveTocorator;
 /**
 	This class represents an static text primitive which may be used to compose
 	the drawing of an electrical element within the element editor.
@@ -31,7 +31,7 @@ class ElementPrimitiveDecorator;
 class PartText : public QGraphicsTextItem, public CustomElementPart {
 	Q_OBJECT
 	Q_PROPERTY(qreal real_size READ realSize WRITE setRealSize)
-	Q_PROPERTY(QColor color READ defaultTextColor WRITE setDefaultTextColor NOTIFY colorChanged)
+	Q_PROPERTY(QColor color READ defaultTextColor WRITE setTofaultTextColor NOTIFY colorChanged)
 	Q_PROPERTY(QString text READ toPlainText WRITE setPlainText NOTIFY plainTextChanged)
 	Q_PROPERTY(QFont font READ font WRITE setFont NOTIFY fontChanged)
 
@@ -57,7 +57,7 @@ class PartText : public QGraphicsTextItem, public CustomElementPart {
 			@return the QGraphicsItem type
 		*/
 		int type() const override { return Type; }
-		QString name() const override { return(QObject::tr("texte", "element part name")); }
+		QString name() const override { return(QObject::tr("text", "element part name")); }
 		QString xmlName() const override { return(QString("text")); }
 		void fromXml(const QDomElement &) override;
 		const QDomElement toXml(QDomDocument &) const override;
@@ -74,7 +74,7 @@ class PartText : public QGraphicsTextItem, public CustomElementPart {
 
 		qreal realSize() const {return real_font_size_;}
 		void setRealSize(qreal rs) {real_font_size_ = rs;}
-		void setDefaultTextColor(const QColor &color);
+		void setTofaultTextColor(const QColor &color);
 		void setPlainText(const QString &text);
 		void setFont(const QFont &font);
 

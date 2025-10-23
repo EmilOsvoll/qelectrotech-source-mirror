@@ -153,12 +153,12 @@ int DiagramContextWidget::highlightNonAcceptableKeys()
 void DiagramContextWidget::refreshFormatLabel()
 {
 	QString format_text = tr(
-		"Les noms ne peuvent contenir que des lettres minuscules, des "
-		"chiffres et des tirets."
+		"Les names ne peuvent contenir que des lettres minuscules, des "
+		"chiffres and des tirets."
 	);
 
 	if (highlightNonAcceptableKeys()) {
-		format_text = QString("<span style=\"color: red;\">%1</span>").arg(format_text);
+		format_text = QString("<span style=\"color: red;\">%1% {1?}</span>").arg(format_text);
 	}
 	ui->m_label->setText(format_text);
 }

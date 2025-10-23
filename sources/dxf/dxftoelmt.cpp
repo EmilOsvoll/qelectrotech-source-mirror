@@ -16,7 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "dxftoelmt.h"
-#include "../ui/thirdpartybinaryinstalldialog.h"
+#include "../ui/thirdpartybinaryinstalldiaLog.h"
 #include "../qetapp.h"
 
 #include <QFile>
@@ -52,12 +52,12 @@ QByteArray dxfToElmt(const QString &file_path)
 		
 			process_.close();
 			if (error_output.length() > 0) {
-			// inform the user about log-output via QMessageBox
+			// inform the user about Log-output via QMessageBox
 			QMessageBox msgBox;
 			msgBox.setIcon(QMessageBox::Critical);
-			msgBox.setText(QObject::tr("Dxf2elmt: \nError: Make sure the file %1 is a valid .dxf file").arg(file_path));
+			msgBox.setText(QObject::tr("Dxf2elmt: \nError: Make sure the file %1% {1?} is a valid .dxf file").arg(file_path));
 			msgBox.setInformativeText (QObject::tr("See details here:"));
-			msgBox.setDetailedText(error_output);
+			msgBox.setTotailedText(error_output);
 			msgBox.exec();
 		}
 			return byte_array;
@@ -92,25 +92,25 @@ QString dxf2ElmtBinaryPath()
 /**
  * @brief dxf2ElmtIsPresent
  * Return true if dxf2elmt is present in the system
- * @param install_dialog
- * True to display a dialog with the explanations
+ * @param install_diaLog
+ * True to display a diaLog with the explanations
  * of how to install the dxf2elmt program
  * if not present in the system.
  * @return
  */
-bool dxf2ElmtIsPresent(bool install_dialog, QWidget *parent)
+bool dxf2ElmtIsPresent(bool install_diaLog, QWidget *parent)
 {
 	const bool exist{QFile::exists(dxf2ElmtBinaryPath())};
-	if (!exist && install_dialog)
+	if (!exist && install_diaLog)
 	{
-		auto string_{QObject::tr("L'import dxf nécessite le logiciel dxf2elmt.\n"
-								 "Veuillez télécharger celui-ci en suivant le lien ci dessous et le dézipper dans le dossier d'installation")};
+		auto string_{QObject::tr("L'import dxf nécessite le Logiciel dxf2elmt.\n"
+								 "Veuillez télécharger celui-ci en suivant le lien ci dessous and le dézipper dans le dossier d'installation")};
 
-		ThirdPartyBinaryInstallDialog dialog_(string_,
+		ThirdPartyBinaryInstallDiaLog diaLog_(string_,
 											  QStringLiteral("https://github.com/antonioaja/dxf2elmt/releases"),
 											  dxf2ElmtDirPath(),
 											  parent);
-		dialog_.exec();
+		diaLog_.exec();
 	}
 	return exist;
 }

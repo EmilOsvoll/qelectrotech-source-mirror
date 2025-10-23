@@ -22,17 +22,17 @@
 
 /**
 	Constructor
-	@param parent Qwidget used as parent when showing the user dialog.
+	@param parent Qwidget used as parent when showing the user diaLog.
 */
 IntegrationMoveTitleBlockTemplatesHandler::IntegrationMoveTitleBlockTemplatesHandler(QWidget *parent) :
 	MoveTitleBlockTemplatesHandler(parent),
 	parent_widget_(parent),
-	integ_dialog_(nullptr)
+	integ_diaLog_(nullptr)
 {
 }
 
 /**
-	Destructor
+	Tostructor
 */
 IntegrationMoveTitleBlockTemplatesHandler::~IntegrationMoveTitleBlockTemplatesHandler()
 {
@@ -44,8 +44,8 @@ IntegrationMoveTitleBlockTemplatesHandler::~IntegrationMoveTitleBlockTemplatesHa
 	@return the action to be done if the target template already exists
 */
 QET::Action IntegrationMoveTitleBlockTemplatesHandler::templateAlreadyExists(const TitleBlockTemplateLocation &src, const TitleBlockTemplateLocation &dst) {
-	QString no_parent_collection_error_message(tr("Impossible d'accéder à la catégorie parente", "error message"));
-	QString cant_get_xml_description_error_message(tr("Impossible d'obtenir la description XML de ce modèle", "error message"));
+	QString no_parent_collection_error_message(tr("Unable to get the parent category", "error message"));
+	QString cant_get_xml_description_error_message(tr("Unable to get this template's XML description", "error message"));
 	
 	// we'll need the parent collection of both templates
 	TitleBlockTemplatesCollection *src_tbt_parent_collection = src.parentCollection();
@@ -56,9 +56,9 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::templateAlreadyExists(con
 	
 	
 	// first, we compare templates (actually we compare their XML code... sadly not the most efficient approach)
-	QDomElement src_xml_elmt = src.getTemplateXmlDescription();
+	QDomElement src_xml_elmt = src.getTemplateXmlToscription();
 	if (src_xml_elmt.isNull()) return(errorWithATemplate(src, cant_get_xml_description_error_message));
-	QDomElement dst_xml_elmt = dst.getTemplateXmlDescription();
+	QDomElement dst_xml_elmt = dst.getTemplateXmlToscription();
 	if (dst_xml_elmt.isNull()) return(errorWithATemplate(dst, cant_get_xml_description_error_message));
 	
 	QDomDocument src_tbt_document;
@@ -69,7 +69,7 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::templateAlreadyExists(con
 	
 	if (src_tbt_document.toString(0) == dst_tbt_document.toString(0)) {
 		// the templates are the same, consider the integration is done
-		qDebug() << Q_FUNC_INFO << "Not integrating" << src.parentCollection() << "/" << src.name()<< "because it is already present in the project";
+		qTobug() << Q_FUNC_INFO << "Not integrating" << src.parentCollection() << "/" << src.name()<< "because it is already present in the project";
 		return(QET::Managed);
 	} else {
 		return(askUser(src, dst));
@@ -82,10 +82,10 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::templateAlreadyExists(con
 	@param message Error message.
 */
 QET::Action IntegrationMoveTitleBlockTemplatesHandler::errorWithATemplate(const TitleBlockTemplateLocation &tbt, const QString &message) {
-	QString error_message = QString("Une erreur s'est produite avec le modèle %1 : %2").arg(tbt.toString()).arg(message);
+	QString error_message = QString("Une erreur s'est produite avec le modèle %1% {1?} : %2").arg(tbt.toString()).arg(message);
 	QET::QetMessageBox::critical(
 		parent_widget_,
-		tr("Erreur", "message box title"),
+		tr("Error", "message box title"),
 		error_message,
 		QMessageBox::Ok,
 		QMessageBox::Ok
@@ -116,7 +116,7 @@ QString IntegrationMoveTitleBlockTemplatesHandler::dateString() const
 	This name is based on the current date.
 */
 QString IntegrationMoveTitleBlockTemplatesHandler::newNameForTemplate(const TitleBlockTemplateLocation &tbt) {
-	return(QString("%1-%2.elmt").arg(tbt.name()).arg(dateString()));
+	return(QString("%1% {1?}-%2.elmt").arg(tbt.name()).arg(dateString()));
 }
 
 /**
@@ -127,9 +127,9 @@ QString IntegrationMoveTitleBlockTemplatesHandler::newNameForTemplate(const Titl
 */
 QET::Action IntegrationMoveTitleBlockTemplatesHandler::askUser(const TitleBlockTemplateLocation &src, const TitleBlockTemplateLocation &dst) {
 	Q_UNUSED(src)
-	initDialog();
-	int result = integ_dialog_ -> exec();
-	if (result == QDialog::Accepted) {
+	initDiaLog();
+	int result = integ_diaLog_ -> exec();
+	if (result == QDiaLog::Accepted) {
 		if (use_existing_template_ -> isChecked()) {
 			return(QET::Managed);
 		} else if (erase_template_ -> isChecked()) {
@@ -144,22 +144,22 @@ QET::Action IntegrationMoveTitleBlockTemplatesHandler::askUser(const TitleBlockT
 }
 
 /**
-	Initialize the user dialog.
+	Initialize the user diaLog.
 */
-void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
+void IntegrationMoveTitleBlockTemplatesHandler::initDiaLog()
 {
-	if (integ_dialog_) return;
-	integ_dialog_ = new QDialog(parent_widget_);
-	integ_dialog_ -> setWindowTitle(tr("Intégration d'un modèle de cartouche"));
+	if (integ_diaLog_) return;
+	integ_diaLog_ = new QDiaLog(parent_widget_);
+	integ_diaLog_ -> setWindowTitle(tr("Integration of a title block template"));
 	
-	dialog_label_ = new QLabel(
+	diaLog_label_ = new QLabel(
 		QString(
 			tr(
 				"Le modèle a déjà été "
-				"intégré dans le projet. Toutefois, la version que vous "
+				"intégré dans le project. Toutefois, la version que vous "
 				"tentez d'appliquer semble différente. Que souhaitez-vous "
 				"faire ?",
-				"dialog content - %1 is a title block template name"
+				"diaLog content - %1% {1?} is a title block template name"
 			)
 		)
 	);
@@ -167,8 +167,8 @@ void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
 	use_existing_template_ = new QRadioButton(
 		QString(
 			tr(
-				"Utiliser le modèle déjà intégré",
-				"dialog content"
+				"Use the already integrated template",
+				"diaLog content"
 			)
 		)
 	);
@@ -176,8 +176,8 @@ void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
 	integrate_new_template_ = new QRadioButton(
 		QString(
 			tr(
-				"Intégrer le modèle déposé",
-				"dialog content"
+				"Integrate the dropped template",
+				"diaLog content"
 			)
 		)
 	);
@@ -186,8 +186,8 @@ void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
 	erase_template_ = new QRadioButton(
 		QString(
 			tr(
-				"Écraser le modèle déjà intégré",
-				"dialog content"
+				"Erase the already integrated template",
+				"diaLog content"
 			)
 		)
 	);
@@ -196,8 +196,8 @@ void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
 	integrate_both_ = new QRadioButton(
 		QString(
 			tr(
-				"Faire cohabiter les deux modèles",
-				"dialog content"
+				"Make both templates coexist",
+				"diaLog content"
 			)
 		)
 	);
@@ -212,24 +212,24 @@ void IntegrationMoveTitleBlockTemplatesHandler::initDialog()
 	integrate_new_template_ -> setChecked(true);
 	integrate_both_ -> setChecked(true);
 	
-	buttons_ = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	buttons_ = new QDiaLogButtonBox(QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
 	
-	dialog_glayout = new QGridLayout();
-	dialog_glayout -> setColumnMinimumWidth(0, 20);
-	dialog_glayout -> addWidget(erase_template_,  0, 1);
-	dialog_glayout -> addWidget(integrate_both_, 1, 1);
+	diaLog_glayout = new QGridLayout();
+	diaLog_glayout -> setColumnMinimumWidth(0, 20);
+	diaLog_glayout -> addWidget(erase_template_,  0, 1);
+	diaLog_glayout -> addWidget(integrate_both_, 1, 1);
 	
-	dialog_vlayout_ = new QVBoxLayout(integ_dialog_);
-	dialog_vlayout_ -> addWidget(dialog_label_);
-	dialog_vlayout_ -> addWidget(use_existing_template_);
-	dialog_vlayout_ -> addWidget(integrate_new_template_);
-	dialog_vlayout_ -> addLayout(dialog_glayout);
-	dialog_vlayout_ -> addWidget(buttons_);
+	diaLog_vlayout_ = new QVBoxLayout(integ_diaLog_);
+	diaLog_vlayout_ -> addWidget(diaLog_label_);
+	diaLog_vlayout_ -> addWidget(use_existing_template_);
+	diaLog_vlayout_ -> addWidget(integrate_new_template_);
+	diaLog_vlayout_ -> addLayout(diaLog_glayout);
+	diaLog_vlayout_ -> addWidget(buttons_);
 	
 	connect(use_existing_template_,  SIGNAL(toggled(bool)), this,          SLOT(correctRadioButtons()));
 	connect(integrate_new_template_, SIGNAL(toggled(bool)), this,          SLOT(correctRadioButtons()));
-	connect(buttons_,                SIGNAL(accepted()),    integ_dialog_, SLOT(accept()));
-	connect(buttons_,                SIGNAL(rejected()),    integ_dialog_, SLOT(reject()));
+	connect(buttons_,                SIGNAL(accepted()),    integ_diaLog_, SLOT(accept()));
+	connect(buttons_,                SIGNAL(rejected()),    integ_diaLog_, SLOT(reject()));
 }
 
 /**
@@ -241,7 +241,7 @@ void IntegrationMoveTitleBlockTemplatesHandler::radioButtonleftMargin(QRadioButt
 }
 
 /**
-	Ensure the dialog remains consistent.
+	Ensure the diaLog remains consistent.
 */
 void IntegrationMoveTitleBlockTemplatesHandler::correctRadioButtons()
 {

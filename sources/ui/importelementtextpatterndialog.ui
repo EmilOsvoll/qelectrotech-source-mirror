@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ImportElementTextPatternDialog</class>
- <widget class="QDialog" name="ImportElementTextPatternDialog">
+ <class>ImportElementTextPatternDiaLog</class>
+ <widget class="QDiaLog" name="ImportElementTextPatternDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>DiaLog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -27,17 +27,17 @@
    <item>
     <widget class="QCheckBox" name="m_erase_existing_text">
      <property name="text">
-      <string>Écraser les textes existants</string>
+      <string>Erase existing texts</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDiaLogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -48,7 +48,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ImportElementTextPatternDialog</receiver>
+   <receiver>ImportElementTextPatternDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -64,7 +64,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ImportElementTextPatternDialog</receiver>
+   <receiver>ImportElementTextPatternDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

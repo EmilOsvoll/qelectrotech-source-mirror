@@ -15,16 +15,16 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "namelistdialog.h"
-#include "ui_namelistdialog.h"
+#include "namelistdiaLog.h"
+#include "ui_namelistdiaLog.h"
 #include "namelistwidget.h"
 
 #include <QPushButton>
 #include <QMessageBox>
 
-NameListDialog::NameListDialog(QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::NameListDialog)
+NameListDiaLog::NameListDiaLog(QWidget *parent) :
+	QDiaLog(parent),
+	ui(new Ui::NameListDiaLog)
 {
 	ui->setupUi(this);
 
@@ -35,36 +35,36 @@ NameListDialog::NameListDialog(QWidget *parent) :
 #endif
 }
 
-NameListDialog::~NameListDialog()
+NameListDiaLog::~NameListDiaLog()
 {
 	delete ui;
 }
 
-void NameListDialog::setInformationText(const QString &text) {
+void NameListDiaLog::setInformationText(const QString &text) {
 	ui->m_top_label->setText(text);
 }
 
 /**
-	@brief NameListDialog::namelistWidget
-	@return the name list widget used by this dialog.
-	The ownership of the namelistwidget stay to this dialog
+	@brief NameListDiaLog::namelistWidget
+	@return the name list widget used by this diaLog.
+	The ownership of the namelistwidget stay to this diaLog
 */
-NameListWidget *NameListDialog::namelistWidget() const
+NameListWidget *NameListDiaLog::namelistWidget() const
 {
 	return m_namelist_widget;
 }
 
-void NameListDialog::setHelpText(const QString &text)
+void NameListDiaLog::setHelpText(const QString &text)
 {
 	m_help_text = text;
 	if (!m_help_text.isEmpty())
 	{
-		QPushButton *button = ui->m_button_box->addButton(QDialogButtonBox::Help);
-		connect(button, &QPushButton::clicked, this, &NameListDialog::showHelpDialog);
+		QPushButton *button = ui->m_button_box->addButton(QDiaLogButtonBox::Help);
+		connect(button, &QPushButton::clicked, this, &NameListDiaLog::showHelpDiaLog);
 	}
 }
 
-void NameListDialog::showHelpDialog()
+void NameListDiaLog::showHelpDiaLog()
 {
-	QMessageBox::information(this, tr("Variables de cartouche"), m_help_text);
+	QMessageBox::information(this, tr("Title block variables"), m_help_text);
 }

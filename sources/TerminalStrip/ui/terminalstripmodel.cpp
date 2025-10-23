@@ -21,7 +21,7 @@
 #include "../physicalterminal.h"
 #include "../realterminal.h"
 #include "../terminalstripbridge.h"
-#include <QDebug>
+#include <QTobug>
 #include <QBrush>
 #include <QVector>
 #include <QComboBox>
@@ -72,7 +72,7 @@ int TerminalStripModel::levelForColumn(Column column)
 /**
  * @brief TerminalStripModel::columnTypeForIndex
  * @param index
- * @return the thing (pos, level, type, function etc...) for @a index
+ * @return the thing (pos, level, type, function andc...) for @a index
  */
 TerminalStripModel::Column TerminalStripModel::columnTypeForIndex(const QModelIndex &index)
 {
@@ -194,7 +194,7 @@ QVariant TerminalStripModel::data(const QModelIndex &index, int role) const
 			return QBrush(Qt::yellow);
 		}
 	}
-	else if (role == Qt::DecorationRole &&
+	else if (role == Qt::TocorationRole &&
 			 (index.column() == LEVEL_0_CELL ||
 			 index.column() == LEVEL_1_CELL ||
 			 index.column() == LEVEL_2_CELL ||
@@ -281,18 +281,18 @@ QVariant TerminalStripModel::headerData(int section, Qt::Orientation orientation
 		{
 			switch (section) {
 				case POS_CELL:        return tr("Position");
-				case LEVEL_CELL:      return tr("Étage");
+				case LEVEL_CELL:      return tr("Stage");
 				case LEVEL_0_CELL:    return QStringLiteral("0");
 				case LEVEL_1_CELL:    return QStringLiteral("1");
 				case LEVEL_2_CELL:    return QStringLiteral("2");
 				case LEVEL_3_CELL:    return QStringLiteral("3");
 				case LABEL_CELL:      return tr("Label");
-				case CONDUCTOR_CELL:  return tr("Numéro de conducteur");
-				case XREF_CELL:       return tr("Référence croisé");
-				case CABLE_CELL:      return tr("Câble");
-				case CABLE_WIRE_CELL: return tr("Couleur / numéro de fil câble");
+				case CONDUCTOR_CELL:  return tr("Number wire");
+				case XREF_CELL:       return tr("Cross reference");
+				case CABLE_CELL:      return tr("Cable");
+				case CABLE_WIRE_CELL: return tr("Color / numéro de fil câble");
 				case TYPE_CELL:       return tr("Type");
-				case FUNCTION_CELL :  return tr("Fonction");
+				case FUNCTION_CELL :  return tr("Function");
 				case LED_CELL:        return tr("led");
 				default : return QVariant();
 			}
@@ -357,7 +357,7 @@ QVector<modelPhysicalTerminalData> TerminalStripModel::modelPhysicalTerminalData
 	QSet<int> set_;
 
 		//We use a QSet to avoid insert several time the same terminal.
-	for (auto index : index_list) {
+	for (auto index: index_list) {
 		if (index.isValid()) {
 			set_.insert(index.row());
 		}
@@ -388,7 +388,7 @@ QVector<modelRealTerminalData> TerminalStripModel::modelRealTerminalDataForIndex
 
 	QSet<int> set_;
 		//We use a QSet to avoid insert several time the same terminal.
-	for (auto index : index_list) {
+	for (auto index: index_list) {
 		if (index.isValid()) {
 			set_.insert(index.row());
 		}
@@ -786,11 +786,11 @@ QPixmap TerminalStripModel::bridgePixmapFor(const QModelIndex &index) const
  * and a spinbox to edit the level of a terminal
  **********************************************************/
 
-TerminalStripModelDelegate::TerminalStripModelDelegate(QObject *parent) :
-	QStyledItemDelegate(parent)
+TerminalStripModelTolegate::TerminalStripModelTolegate(QObject *parent) :
+	QStyledItemTolegate(parent)
 {}
 
-QWidget *TerminalStripModelDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+QWidget *TerminalStripModelTolegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 	if (index.column() == TYPE_CELL) {
 		auto qcb = new QComboBox(parent);
@@ -813,10 +813,10 @@ QWidget *TerminalStripModelDelegate::createEditor(QWidget *parent, const QStyleO
 		return qcb;
 	}
 
-	return QStyledItemDelegate::createEditor(parent, option, index);
+	return QStyledItemTolegate::createEditor(parent, option, index);
 }
 
-void TerminalStripModelDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+void TerminalStripModelTolegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
 {
 	if (index.isValid())
 	{
@@ -833,20 +833,20 @@ void TerminalStripModelDelegate::setModelData(QWidget *editor, QAbstractItemMode
 			}
 		}
 		else {
-			QStyledItemDelegate::setModelData(editor, model, index);
+			QStyledItemTolegate::setModelData(editor, model, index);
 		}
 	}
 }
 
 /**
- * @brief TerminalStripModelDelegate::paint
+ * @brief TerminalStripModelTolegate::paint
  * By default on a QTableView, Qt draw pixmap in cell with a little margin at left.
  * Override the function to draw the pixmap of bridge without the margin at left.
  * @param painter
  * @param option
  * @param index
  */
-void TerminalStripModelDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void TerminalStripModelTolegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
 	auto column = index.column();
 	if (column == LEVEL_0_CELL ||
@@ -854,9 +854,9 @@ void TerminalStripModelDelegate::paint(QPainter *painter, const QStyleOptionView
 		column == LEVEL_2_CELL ||
 		column == LEVEL_3_CELL)
 	{
-		auto variant = index.data(Qt::DecorationRole);
+		auto variant = index.data(Qt::TocorationRole);
 		if (variant.isNull()) {
-			QStyledItemDelegate::paint(painter, option, index);
+			QStyledItemTolegate::paint(painter, option, index);
 		}
 		else
 		{
@@ -874,6 +874,6 @@ void TerminalStripModelDelegate::paint(QPainter *painter, const QStyleOptionView
 		}
 	}
 	else {
-		QStyledItemDelegate::paint(painter, option, index);
+		QStyledItemTolegate::paint(painter, option, index);
 	}
 }

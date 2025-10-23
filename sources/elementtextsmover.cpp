@@ -100,7 +100,7 @@ void ElementTextsMover::continueMovement(QGraphicsSceneMouseEvent *event)
 		button_down_parent_pos = qgi->mapToParent(qgi->mapFromScene(event->buttonDownScenePos(Qt::LeftButton)));
 		
 		QPointF new_pos = m_items_hash.value(qgi) + current_parent_pos - button_down_parent_pos;
-		event->modifiers() == Qt::ControlModifier ? qgi->setPos(new_pos) : qgi->setPos(Diagram::snapToGrid(new_pos));
+		event->modifiers() == Qt::ControlEdit ? qgi->setPos(new_pos) : qgi->setPos(Diagram::snapToGrid(new_pos));
 	}
 }
 
@@ -140,21 +140,21 @@ QString ElementTextsMover::undoText() const
 	QString undo_text;
 	
 	if(m_text_count == 1)
-		undo_text.append(QObject::tr("Déplacer un texte d'élément"));
+		undo_text.append(QObject::tr("Move an item text"));
 	else if(m_text_count > 1)
-		undo_text.append(QObject::tr("Déplacer %1 textes d'élément").arg(m_items_hash.size()));
+		undo_text.append(QObject::tr("Move %1% {1?} texts d'élément").arg(m_items_hash.size()));
 	
 	if(m_group_count >= 1)
 	{
 		if(undo_text.isEmpty())
-			undo_text.append(QObject::tr("Déplacer"));
+			undo_text.append(QObject::tr("Move"));
 		else
-			undo_text.append(QObject::tr(" et"));
+			undo_text.append(QObject::tr(" and"));
 		
 		if(m_group_count == 1)
-			undo_text.append(QObject::tr(" un groupe de texte"));
+			undo_text.append(QObject::tr(" un groupe de text"));
 		else
-			undo_text.append(QObject::tr((" %1 groupes de textes")).arg(m_group_count));
+			undo_text.append(QObject::tr((" %1 groups of texts")).arg(m_group_count));
 	}
 	
 	return undo_text;

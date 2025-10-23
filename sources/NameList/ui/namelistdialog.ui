@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NameListDialog</class>
- <widget class="QDialog" name="NameListDialog">
+ <class>NameListDiaLog</class>
+ <widget class="QDiaLog" name="NameListDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>DiaLog</string>
   </property>
   <layout class="QVBoxLayout" name="m_main_layout">
    <item>
@@ -28,12 +28,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="m_button_box">
+    <widget class="QDiaLogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -44,7 +44,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>accepted()</signal>
-   <receiver>NameListDialog</receiver>
+   <receiver>NameListDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -60,7 +60,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>rejected()</signal>
-   <receiver>NameListDialog</receiver>
+   <receiver>NameListDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

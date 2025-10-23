@@ -37,7 +37,7 @@ TerminalStripItem::TerminalStripItem(QPointer<TerminalStrip> strip,
 {
 	setFlags(QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsSelectable);
 	setAcceptHoverEvents(true);
-	setDefaultLayout();
+	setTofaultLayout();
 }
 
 TerminalStripItem::TerminalStripItem(QGraphicsItem *parent) :
@@ -55,7 +55,7 @@ void TerminalStripItem::setTerminalStrip(TerminalStrip *strip)
 	m_pending_strip_uuid = QUuid();
 
 	if (!m_drawer.haveLayout()) {
-		setDefaultLayout();
+		setTofaultLayout();
 	}
 }
 
@@ -93,7 +93,7 @@ QRectF TerminalStripItem::boundingRect() const
  * @return usual name of this item
  */
 QString TerminalStripItem::name() const {
-	return tr("plan de bornes");
+	return tr("plan of terminals");
 }
 
 void TerminalStripItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
@@ -166,7 +166,7 @@ void TerminalStripItem::setLayout(QSharedPointer<TerminalStripLayoutPattern> lay
 	m_drawer.setLayout(layout);
 }
 
-void TerminalStripItem::setDefaultLayout()
+void TerminalStripItem::setTofaultLayout()
 {
 	if (m_strip && m_strip->project()) {
 		m_drawer.setLayout(m_strip->project()->projectPropertiesHandler().terminalStripLayoutHandler().defaultLayout());

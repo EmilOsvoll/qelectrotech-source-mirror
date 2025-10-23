@@ -20,7 +20,7 @@
 #include "../diagram.h"
 #include "../diagramcommands.h"
 #include "../qetapp.h"
-#include "../richtext/richtexteditor_p.h"
+#include "../richtext/richtextditor_p.h"
 
 /**
 	@brief DiagramTextItem::DiagramTextItem
@@ -50,11 +50,11 @@ void DiagramTextItem::build()
 		//set Zvalue at 10 to be upper than the DiagramImageItem
 	setZValue(10);
 	setAcceptHoverEvents(true);
-	setDefaultTextColor(Qt::black);
+	setTofaultTextColor(Qt::black);
 	setFont(QETApp::diagramTextsItemFont());
 	setFlags(QGraphicsItem::ItemIsSelectable|QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemSendsGeometryChanges);
 	setNoEditable(false);
-	setToolTip(tr("Maintenir ctrl pour un déplacement libre"));
+	setToolTip(tr("Hold ctrl to free movement"));
 }
 
 /**
@@ -173,7 +173,7 @@ void DiagramTextItem::setFont(const QFont &font)
 
 void DiagramTextItem::setColor(const QColor& color)
 {
-	setDefaultTextColor(color);
+	setTofaultTextColor(color);
 	emit colorChanged(color);
 }
 
@@ -306,15 +306,15 @@ void DiagramTextItem::focusOutEvent(QFocusEvent *event)
 }
 
 /**
-	Gere les double-clics sur ce champ de texte.
+	Gere les double-clics sur ce champ de text.
 	@param event un QGraphicsSceneMouseEvent decrivant le double-clic
 */
 void DiagramTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
 	if (!(textInteractionFlags() & Qt::TextEditable) && !m_no_editable) {
-		// rend le champ de texte editable
+		// rend le champ de text editable
 		setTextInteractionFlags(Qt::TextEditorInteraction);
 		
-		// edite le champ de texte
+		// edite le champ de text
 		setFocus(Qt::MouseFocusReason);
 	} else {
 		QGraphicsTextItem::mouseDoubleClickEvent(event);
@@ -354,7 +354,7 @@ void DiagramTextItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
 
 		//Set the actual pos
 		QPointF new_pos = event->scenePos() + m_mouse_to_origin_movement;
-		event->modifiers() == Qt::ControlModifier ? setPos(new_pos) : setPos(Diagram::snapToGrid(new_pos));
+		event->modifiers() == Qt::ControlEdit ? setPos(new_pos) : setPos(Diagram::snapToGrid(new_pos));
 
 
 		//Update the actual movement for other selected item
@@ -382,7 +382,7 @@ void DiagramTextItem::mouseReleaseEvent (QGraphicsSceneMouseEvent *event)
 			return;
 		}
 	}
-	if (event->modifiers() & Qt::ControlModifier && (event->button() == Qt::LeftButton))
+	if (event->modifiers() & Qt::ControlEdit && (event->button() == Qt::LeftButton))
 	{
 		setSelected(!isSelected());
 		event->accept();
@@ -393,9 +393,9 @@ void DiagramTextItem::mouseReleaseEvent (QGraphicsSceneMouseEvent *event)
 }
 
 /**
-	Effectue la rotation du texte en elle-meme
+	Effectue la rotation du text en elle-meme
 	Pour les DiagramTextItem, la rotation s'effectue autour du point (0, 0).
-	Cette methode peut toutefois etre redefinie dans des classes filles
+	Cette methode peut toutefois andre redefinie dans des classes filles
 	@param angle Angle de la rotation a effectuer
 */
 void DiagramTextItem::applyRotation(const qreal &angle) {
@@ -465,8 +465,8 @@ void DiagramTextItem::edit()
 	if (scene() && scene()->views().size())
 		parent = scene()->views().first();
 
-	qdesigner_internal::RichTextEditorDialog editor(parent);
-	connect(&editor, &qdesigner_internal::RichTextEditorDialog::applyEditText, [this](QString text) {this->setHtml(text);});
+	qdesigner_internal::RichTextEditorDiaLog editor(parent);
+	connect(&editor, &qdesigner_internal::RichTextEditorDiaLog::applyEditText, [this](QString text) {this->setHtml(text);});
 	editor.setText(toHtml());
 	editor.exec();
 }

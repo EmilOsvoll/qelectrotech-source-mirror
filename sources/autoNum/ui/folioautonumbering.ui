@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -37,7 +37,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Numérotation automatique de Folio :</string>
+        <string>Folio Auto Numbering :</string>
        </property>
       </widget>
      </item>
@@ -63,7 +63,7 @@
         </sizepolicy>
        </property>
        <property name="title">
-        <string>Sélection:</string>
+        <string>Select:</string>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
@@ -88,7 +88,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Numérotation automatique des folios sélectionnés</string>
+           <string>Automatic numbering of selected folios</string>
           </property>
          </widget>
         </item>
@@ -104,7 +104,7 @@
         </sizepolicy>
        </property>
        <property name="title">
-        <string> Options de numérotation</string>
+        <string> Options of numbering</string>
        </property>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="2" column="1">
@@ -129,7 +129,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>Nouveaux folios</string>
+           <string>New folios</string>
           </property>
          </widget>
         </item>
@@ -157,7 +157,7 @@
           <property name="maximum">
            <number>999</number>
           </property>
-          <property name="displayIntegerBase">
+          <property name="displayIntegerBottome">
            <number>10</number>
           </property>
          </widget>
@@ -171,7 +171,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>À</string>
+           <string>From</string>
           </property>
          </widget>
         </item>
@@ -184,7 +184,7 @@
            </sizepolicy>
           </property>
           <property name="text">
-           <string>De</string>
+           <string>To</string>
           </property>
          </widget>
         </item>
@@ -196,7 +196,7 @@
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -207,7 +207,7 @@
     </spacer>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDiaLogButtonBox" name="buttonBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -215,7 +215,7 @@
       </sizepolicy>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Apply</set>
+      <set>QDiaLogButtonBox::Apply</set>
      </property>
     </widget>
    </item>

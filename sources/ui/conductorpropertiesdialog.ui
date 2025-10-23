@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ConductorPropertiesDialog</class>
- <widget class="QDialog" name="ConductorPropertiesDialog">
+ <class>ConductorPropertiesDiaLog</class>
+ <widget class="QDiaLog" name="ConductorPropertiesDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Éditer les propriétés d'un conducteur</string>
+   <string>Edit les propriétés d'a conductor</string>
   </property>
   <layout class="QVBoxLayout" name="main_layout">
    <item>
     <widget class="QCheckBox" name="m_apply_all_cb">
      <property name="text">
-      <string>Appliquer les propriétés à l'ensemble des conducteurs de ce potentiel</string>
+      <string>Apply properties to all conductors of this potential</string>
      </property>
      <property name="checked">
       <bool>true</bool>
@@ -25,12 +25,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDiaLogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Cancel|QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -41,7 +41,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>ConductorPropertiesDialog</receiver>
+   <receiver>ConductorPropertiesDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -57,7 +57,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>ConductorPropertiesDialog</receiver>
+   <receiver>ConductorPropertiesDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

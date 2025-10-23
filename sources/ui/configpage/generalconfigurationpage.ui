@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_6">
    <item>
@@ -21,13 +21,13 @@
      </property>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Apparence</string>
+       <string>Appearance</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QCheckBox" name="m_use_system_color_cb">
          <property name="text">
-          <string>Utiliser les couleurs du système</string>
+          <string>Use system colors</string>
          </property>
         </widget>
        </item>
@@ -41,14 +41,14 @@
        <item>
         <widget class="QCheckBox" name="m_use_gesture_trackpad">
          <property name="text">
-          <string>Utiliser les gestes du pavé tactile</string>
+          <string>Use gestures touchpad</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="m_zoom_out_beyond_folio">
          <property name="text">
-          <string>Autoriser le dézoom au delà du folio</string>
+          <string>Allow unzoom beyond the folio</string>
          </property>
         </widget>
        </item>
@@ -98,7 +98,7 @@
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>Méthode de mise à l'echelle des écrans à haute densité de pixels (hdpi) (appliqué au prochain lancement de QElectroTech) :</string>
+             <string>High pixel density (hdpi) displays scaling method (applied to the next launch of QElectroTech) :</string>
             </property>
            </widget>
           </item>
@@ -111,7 +111,7 @@
        <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -125,20 +125,20 @@
      </widget>
      <widget class="QWidget" name="tab_4">
       <attribute name="title">
-       <string>Projets</string>
+       <string>Projects</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="1" column="0">
         <widget class="QCheckBox" name="m_use_folio_label">
          <property name="text">
-          <string>Utiliser les numéros de folio à la place de leur position dans le projet</string>
+          <string>Use folio numbers instead of their position in the project</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Sauvegarde automatique des projets (appliqué au prochain lancement de QElectroTech)</string>
+          <string>Automatic backup of projects (applied at the next launch of QElectroTech)</string>
          </property>
         </widget>
        </item>
@@ -148,7 +148,7 @@
           <bool>true</bool>
          </property>
          <property name="specialValueText">
-          <string>Désactivé</string>
+          <string>Disabled</string>
          </property>
          <property name="accelerated">
           <bool>true</bool>
@@ -167,14 +167,14 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="m_save_label_paste">
          <property name="text">
-          <string>Ne pas conserver les labels des éléments lors des copier coller</string>
+          <string>Ne pas conserver les labels des elements lors des copier coller</string>
          </property>
         </widget>
        </item>
        <item row="4" column="0">
         <spacer name="verticalSpacer_2">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -200,7 +200,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="m_border_0">
          <property name="text">
-          <string extracomment="Choix de l'increment de depart 1 ou 0">Numéroter les colonnes de cartouche à partir de 0 (1 sinon)</string>
+          <string extracomment="Choix de l'increment de depart 1 ou 0">Number the title block columns from 0 (1 otherwise)</string>
          </property>
         </widget>
        </item>
@@ -214,7 +214,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_5">
          <property name="title">
-          <string>Accès aux collections</string>
+          <string>Access the collections</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -226,7 +226,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Répertoire de la collection commune</string>
+             <string>Common collection directory</string>
             </property>
            </widget>
           </item>
@@ -234,12 +234,12 @@
            <widget class="QComboBox" name="m_common_elmt_path_cb">
             <item>
              <property name="text">
-              <string>Par defaut</string>
+              <string>By default</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Parcourir...</string>
+              <string>Browse...</string>
              </property>
             </item>
            </widget>
@@ -247,7 +247,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_16">
             <property name="text">
-             <string>Répertoire de la collection company</string>
+             <string>Company collection directory</string>
             </property>
            </widget>
           </item>
@@ -255,12 +255,12 @@
            <widget class="QComboBox" name="m_company_elmt_path_cb">
             <item>
              <property name="text">
-              <string>Par defaut</string>
+              <string>By default</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Parcourir...</string>
+              <string>Browse...</string>
              </property>
             </item>
            </widget>
@@ -268,7 +268,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_17">
             <property name="text">
-             <string>Répertoire des cartouches company</string>
+             <string>Company title-block directory</string>
             </property>
            </widget>
           </item>
@@ -276,12 +276,12 @@
            <widget class="QComboBox" name="m_company_tbt_path_cb">
             <item>
              <property name="text">
-              <string>Par defaut</string>
+              <string>By default</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Parcourir...</string>
+              <string>Browse...</string>
              </property>
             </item>
            </widget>
@@ -289,7 +289,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_8">
             <property name="text">
-             <string>Répertoire de la collection utilisateur</string>
+             <string>User collection directory</string>
             </property>
            </widget>
           </item>
@@ -297,12 +297,12 @@
            <widget class="QComboBox" name="m_custom_elmt_path_cb">
             <item>
              <property name="text">
-              <string>Par defaut</string>
+              <string>By default</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Parcourir...</string>
+              <string>Browse...</string>
              </property>
             </item>
            </widget>
@@ -310,7 +310,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="label_10">
             <property name="text">
-             <string>Répertoire des cartouches utilisateur</string>
+             <string>User title blocks directory</string>
             </property>
            </widget>
           </item>
@@ -318,12 +318,12 @@
            <widget class="QComboBox" name="m_custom_tbt_path_cb">
             <item>
              <property name="text">
-              <string>Par defaut</string>
+              <string>By default</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Parcourir...</string>
+              <string>Browse...</string>
              </property>
             </item>
            </widget>
@@ -331,7 +331,7 @@
           <item row="6" column="1">
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>(Recharger les collections d'éléments pour appliquer les changements)</string>
+             <string>(Reload collections d'elements pour appliquer les changements)</string>
             </property>
            </widget>
           </item>
@@ -341,7 +341,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>Gestion des éléments</string>
+          <string>Gestion des elements</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -350,7 +350,7 @@
           <item>
            <widget class="QCheckBox" name="m_highlight_integrated_elements">
             <property name="text">
-             <string>Mettre en valeur dans le panel les éléments fraîchement intégrés</string>
+             <string>Mettre en valeur dans le panel les elements fraîchement intégrés</string>
             </property>
            </widget>
           </item>
@@ -358,7 +358,7 @@
            <widget class="QLabel" name="label_4">
             <property name="text">
              <string>Chaque élément embarque des informations sur ses auteurs, sa licence, ou tout autre renseignement que vous jugerez utile dans un champ libre.
-Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments que vous créerez :</string>
+Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements que vous créerez :</string>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -385,7 +385,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
      </widget>
      <widget class="QWidget" name="tab_6">
       <attribute name="title">
-       <string>Langues</string>
+       <string>Languages</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
@@ -394,14 +394,14 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item row="0" column="1">
         <widget class="QLabel" name="label_6">
          <property name="text">
-          <string>Appliqué au prochain lancement de QElectroTech</string>
+          <string>Applied to the next launch of QElectroTech</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -428,13 +428,13 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
      </widget>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Textes</string>
+       <string>Texts</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QLabel" name="label_15">
          <property name="text">
-          <string>Vous pouvez définir ici l'apparence par defaut des differents textes de QElectroTech</string>
+          <string>Here you can define the default appearance of the different texts of QElectroTech</string>
          </property>
         </widget>
        </item>
@@ -448,7 +448,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <widget class="QGroupBox" name="groupBox_6">
          <property name="title">
-          <string>Textes d'éléments</string>
+          <string>Texts d'elements</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="2" column="2">
@@ -461,7 +461,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="0" column="0">
            <widget class="QLabel" name="label_12">
             <property name="text">
-             <string>Police :</string>
+             <string>Font:</string>
             </property>
            </widget>
           </item>
@@ -481,7 +481,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="2" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Longueur :</string>
+             <string>Length:</string>
             </property>
            </widget>
           </item>
@@ -514,7 +514,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <widget class="QGroupBox" name="groupBox_7">
          <property name="title">
-          <string>Textes indépendants</string>
+          <string>Texts indépendants</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="1" column="0">
@@ -527,7 +527,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="0" column="0">
            <widget class="QLabel" name="label_13">
             <property name="text">
-             <string>Police :</string>
+             <string>Font:</string>
             </property>
            </widget>
           </item>
@@ -567,13 +567,13 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <widget class="QGroupBox" name="groupBox_9">
          <property name="title">
-          <string>Autres textes</string>
+          <string>Other texts</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Police :</string>
+             <string>Font:</string>
             </property>
            </widget>
           </item>
@@ -603,7 +603,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <spacer name="verticalSpacer_4">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -617,13 +617,13 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
      </widget>
      <widget class="QWidget" name="GrilleClavier">
       <attribute name="title">
-       <string>Grille + Clavier</string>
+       <string>Grid + Keyboard</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Grille : 1 - 30</string>
+          <string>Grid: 1 - 30</string>
          </property>
          <property name="flat">
           <bool>false</bool>
@@ -664,7 +664,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="2" column="0">
            <widget class="QLabel" name="Label_Grid_Tip">
             <property name="text">
-             <string>La Grille doite etre active pour pouvoir voir les modifications.</string>
+             <string>The Grid must be active to see the changes.</string>
             </property>
            </widget>
           </item>
@@ -713,7 +713,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
-          <string>Déplacement au clavier : 1 - 30</string>
+          <string>Keyboard movement: 1 - 30</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_10">
           <item row="0" column="2">
@@ -763,14 +763,14 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="0" column="0">
            <widget class="QLabel" name="Label_Diagram_Key_xGrid">
             <property name="text">
-             <string>DiagramEditor (touche :   gauche / droite)  xGrid</string>
+             <string>DiagramEditor (key: left / right) xGrid</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="Label_Diagram_Key_yGrid">
             <property name="text">
-             <string>DiagramEditor (touche :   haut / bas)  yGrid</string>
+             <string>DiagramEditor (key: up / down) yGrid</string>
             </property>
            </widget>
           </item>
@@ -793,18 +793,18 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <widget class="QGroupBox" name="groupBox_4">
          <property name="title">
-          <string>Déplacement au clavier avec la touche ALT : 1 - 9</string>
+          <string>Keyboard movement with the ALT key: 1 - 9</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="0" column="1">
            <widget class="QLabel" name="Label_Diagram_Key_xGrid_ALT">
             <property name="text">
-             <string>DiagramEditor (touche :   gauche / droite ) xGrid</string>
+             <string>DiagramEditor (key: left / right) xGrid</string>
             </property>
            </widget>
           </item>
           <item row="1" column="3">
-           <widget class="QSpinBox" name="DiagramEditor_yKeyGridFine_sb">
+           <widget class="QSpinBox" name="DiagramEditor_yKeyGridThin_sb">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -828,12 +828,12 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="1" column="1">
            <widget class="QLabel" name="Label_Diagram_Key_yGrid_ALT">
             <property name="text">
-             <string>DiagramEditor (touche :  haut / bas)  yGrid</string>
+             <string>DiagramEditor (key: up / down) yGrid</string>
             </property>
            </widget>
           </item>
           <item row="0" column="3">
-           <widget class="QSpinBox" name="DiagramEditor_xKeyGridFine_sb">
+           <widget class="QSpinBox" name="DiagramEditor_xKeyGridThin_sb">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -873,7 +873,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <widget class="QGroupBox" name="groupBox_8">
          <property name="title">
-          <string>Affichage Grille</string>
+          <string>Display Grille</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="0" column="1">
@@ -899,7 +899,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="0" column="0">
            <widget class="QLabel" name="Label_Diagram_Grid_PointSize">
             <property name="text">
-             <string>Taille des points de la grille de Diagram-Editor : 1 - 5</string>
+             <string>Size des points de la grille de Diagram-Editor : 1 - 5</string>
             </property>
            </widget>
           </item>
@@ -945,7 +945,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
           <item row="1" column="0">
            <widget class="QLabel" name="label_20">
             <property name="text">
-             <string>Taille des points de la grille de l'éditeur d'éléments : 1 - 5</string>
+             <string>Size des points de la grille de l'éditeur d'elements : 1 - 5</string>
             </property>
            </widget>
           </item>
@@ -1001,7 +1001,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <spacer name="verticalSpacer_5">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1058,7 +1058,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
        <item>
         <spacer name="verticalSpacer_6">
          <property name="orientation">
-          <enum>Qt::Vertical</enum>
+          <enum>Qt::Greenical</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -1101,8 +1101,8 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les éléments
   <tabstop>DiagramEditor_yGrid_sb</tabstop>
   <tabstop>DiagramEditor_xKeyGrid_sb</tabstop>
   <tabstop>DiagramEditor_yKeyGrid_sb</tabstop>
-  <tabstop>DiagramEditor_xKeyGridFine_sb</tabstop>
-  <tabstop>DiagramEditor_yKeyGridFine_sb</tabstop>
+  <tabstop>DiagramEditor_xKeyGridThin_sb</tabstop>
+  <tabstop>DiagramEditor_yKeyGridThin_sb</tabstop>
  </tabstops>
  <resources/>
  <connections/>

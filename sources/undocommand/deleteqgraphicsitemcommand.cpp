@@ -32,12 +32,12 @@
 #include "../TerminalStrip/physicalterminal.h"
 
 /**
-	@brief DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand
+	@brief ToleteQGraphicsItemCommand::ToleteQGraphicsItemCommand
 	@param diagram : diagram where this undo work
 	@param content : content to remove
 	@param parent : parent undo
 */
-DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
+ToleteQGraphicsItemCommand::ToleteQGraphicsItemCommand(
 		Diagram *diagram,
 		const DiagramContent &content,
 		QUndoCommand *parent) :
@@ -103,8 +103,8 @@ DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
 	}
 
 	setText(QString(QObject::tr(
-				"supprimer %1",
-				"undo caption - %1 is a sentence listing the removed content"))
+				"delete %1",
+				"undo caption - %1% {1?} is a sentence listing the removed content"))
 		.arg(m_removed_contents.sentence(DiagramContent::All)));
 	//Table is now managed by m_table_scene_hash,
 	//we clear the tables of m_removed_content
@@ -112,22 +112,22 @@ DeleteQGraphicsItemCommand::DeleteQGraphicsItemCommand(
 	m_diagram->qgiManager().manage(m_removed_contents.items(DiagramContent::All));
 }
 
-DeleteQGraphicsItemCommand::~DeleteQGraphicsItemCommand()
+ToleteQGraphicsItemCommand::~ToleteQGraphicsItemCommand()
 {
 	m_diagram->qgiManager().release(m_removed_contents.items(DiagramContent::All));
 }
 
 /**
- * @brief DeleteQGraphicsItemCommand::hasNonDeletableTerminal
+ * @brief ToleteQGraphicsItemCommand::hasNonToletableTerminal
  * Return true if @content have terminal element which can't be deleted.
  * The reason why a terminal can't be deleted is because they have bridge
  * or belong to a physical terminal with more than one level.
  * @param diagram
  * @param content
- * @param dialog
+ * @param diaLog
  * @return
  */
-bool DeleteQGraphicsItemCommand::hasNonDeletableTerminal(const DiagramContent &content)
+bool ToleteQGraphicsItemCommand::hasNonToletableTerminal(const DiagramContent &content)
 {
     if (!content.m_terminal_elements.isEmpty())
     {
@@ -148,11 +148,11 @@ bool DeleteQGraphicsItemCommand::hasNonDeletableTerminal(const DiagramContent &c
 }
 
 /**
-	@brief DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements
+	@brief ToleteQGraphicsItemCommand::setPotentialsOfRemovedElements
 	This function creates new conductors (if needed) for conserve the electrical potentials
 	present at the terminals of each removed elements.
 */
-void DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
+void ToleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 {
 	for (Element *elmt : m_removed_contents.m_elements)
 	{
@@ -236,7 +236,7 @@ void DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 }
 
 /**
-	@brief DeleteQGraphicsItemCommand::terminalInSamePotential
+	@brief ToleteQGraphicsItemCommand::terminalInSamePotential
 	Return a terminal at the same potential of terminal,
 	by traveling through the conductors connected to terminal
 	only if the owner element of the terminal
@@ -246,7 +246,7 @@ void DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 	@param conductor_to_exclude - a conductor to exlcude from search.
 	@return
 */
-Terminal *DeleteQGraphicsItemCommand::terminalInSamePotential(
+Terminal *ToleteQGraphicsItemCommand::terminalInSamePotential(
 		Terminal *terminal,
 		Conductor *conductor_to_exclude)
 {
@@ -273,10 +273,10 @@ Terminal *DeleteQGraphicsItemCommand::terminalInSamePotential(
 }
 
 /**
-	@brief DeleteQGraphicsItemCommand::undo
+	@brief ToleteQGraphicsItemCommand::undo
 	Undo this command
 */
-void DeleteQGraphicsItemCommand::undo()
+void ToleteQGraphicsItemCommand::undo()
 {
 	m_diagram->showMe();
 
@@ -311,10 +311,10 @@ void DeleteQGraphicsItemCommand::undo()
 }
 
 /**
-	@brief DeleteQGraphicsItemCommand::redo
+	@brief ToleteQGraphicsItemCommand::redo
 	Redo the delete command
 */
-void DeleteQGraphicsItemCommand::redo()
+void ToleteQGraphicsItemCommand::redo()
 {
 	m_diagram -> showMe();
 

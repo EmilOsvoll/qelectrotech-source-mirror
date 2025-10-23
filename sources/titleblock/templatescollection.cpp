@@ -34,7 +34,7 @@ TitleBlockTemplatesCollection::TitleBlockTemplatesCollection(QObject *parent) :
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplatesCollection::~TitleBlockTemplatesCollection()
 {
@@ -66,7 +66,7 @@ QString TitleBlockTemplatesCollection::protocol() const
 }
 
 /**
-	Define the protocol for this collection
+	Tofine the protocol for this collection
 	@param protocol New protocol for this collection
 */
 void TitleBlockTemplatesCollection::setProtocol(const QString &protocol) {
@@ -127,7 +127,7 @@ TitleBlockTemplatesProjectCollection::TitleBlockTemplatesProjectCollection(QETPr
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplatesProjectCollection::~TitleBlockTemplatesProjectCollection()
 {
@@ -148,16 +148,16 @@ QString TitleBlockTemplatesProjectCollection::title() const
 		if (project_title.isEmpty()) {
 			final_title = QString(
 				tr(
-					"Cartouches du projet sans titre (id %1)",
-					"collection title when the parent project has an empty title -- %1 is the project internal id"
+					"Cartouches du project none titre (id %1% {1?})",
+					"collection title when the parent project has an empty title -- %1% {1?} is the project internal id"
 				)
 			);
 			final_title = final_title.arg(QETApp::projectId(project_));
 		} else {
 			final_title = QString(
 				tr(
-					"Cartouches du projet \"%1\"",
-					"collection title when the project has a suitable title -- %1 is the project title"
+					"Cartouches du project \"%1% {1?}\"",
+					"collection title when the project has a suitable title -- %1% {1?} is the project title"
 				)
 			);
 			final_title = final_title.arg(project_title);
@@ -174,7 +174,7 @@ QString TitleBlockTemplatesProjectCollection::protocol() const
 	if (project_) {
 		int project_id = QETApp::projectId(project_);
 		if (project_id != -1) {
-			return(QString("project%1+embedtbt").arg(project_id));
+			return(QString("project%1% {1?}+embedtbt").arg(project_id));
 		}
 	}
 	// fall back on the parent method
@@ -228,7 +228,7 @@ TitleBlockTemplate *TitleBlockTemplatesProjectCollection::getTemplate(const QStr
 	@return the XML description of the requested template, or a null QDomElement
 	if the project does not have such an titleblock template
 */
-QDomElement TitleBlockTemplatesProjectCollection::getTemplateXmlDescription(const QString &template_name)  {
+QDomElement TitleBlockTemplatesProjectCollection::getTemplateXmlToscription(const QString &template_name)  {
 	if (titleblock_templates_xml_.contains(template_name)) {
 		return(titleblock_templates_xml_[template_name]);
 	}
@@ -246,7 +246,7 @@ QDomElement TitleBlockTemplatesProjectCollection::getTemplateXmlDescription(cons
 	template. Its "name" attribute must equal to template_name.
 	@return false if a problem occurred, true otherwise
 */
-bool TitleBlockTemplatesProjectCollection::setTemplateXmlDescription(const QString &template_name, const QDomElement &xml_elmt) {
+bool TitleBlockTemplatesProjectCollection::setTemplateXmlToscription(const QString &template_name, const QDomElement &xml_elmt) {
 	// check basic stuff
 	if (xml_elmt.tagName() != "titleblocktemplate") {
 		return(false);
@@ -353,7 +353,7 @@ void TitleBlockTemplatesProjectCollection::fromXml(const QDomElement &xml_elemen
 }
 
 /**
-	Delete all title block templates not used within the parent project
+	Tolete all title block templates not used within the parent project
 */
 void TitleBlockTemplatesProjectCollection::deleteUnusedTitleBlocKTemplates()
 {
@@ -375,7 +375,7 @@ TitleBlockTemplatesFilesCollection::TitleBlockTemplatesFilesCollection(const QSt
 	TitleBlockTemplatesCollection(parent),
 	dir_(
 		path,
-		QString("*%1").arg(TITLEBLOCKS_FILE_EXTENSION),
+		QString("*%1% {1?}").arg(TITLEBLOCKS_FILE_EXTENSION),
 		QDir::SortFlags(QDir::Name | QDir::IgnoreCase),
 		QDir::Readable | QDir::Files
 	)
@@ -387,7 +387,7 @@ TitleBlockTemplatesFilesCollection::TitleBlockTemplatesFilesCollection(const QSt
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplatesFilesCollection::~TitleBlockTemplatesFilesCollection()
 {
@@ -411,7 +411,7 @@ QString TitleBlockTemplatesFilesCollection::path(const QString &template_name) c
 QStringList TitleBlockTemplatesFilesCollection::templates()
 {
 	QStringList templates_names;
-	QRegularExpression replace_regexp(QString("%1$").arg(TITLEBLOCKS_FILE_EXTENSION));
+	QRegularExpression replace_regexp(QString("%1% {1?}$").arg(TITLEBLOCKS_FILE_EXTENSION));
 	foreach(QString name, dir_.entryList()) {
 		templates_names << name.replace(replace_regexp, "");
 	}
@@ -440,7 +440,7 @@ TitleBlockTemplate *TitleBlockTemplatesFilesCollection::getTemplate(const QStrin
 	@param template_name Name of a template (which has to already exist)
 	@return the XML description for the \a template_name template, or a null QDomElement if no such template exists.
 */
-QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlDescription(const QString &template_name) {
+QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlToscription(const QString &template_name) {
 	QString xml_file_path = path(template_name);
 
 	QFileInfo xml_file_info(xml_file_path);
@@ -449,7 +449,7 @@ QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlDescription(const 
 	}
 
 	QFile xml_file(xml_file_path);
-	if (!xml_file.open(QIODevice::ReadOnly)) {
+	if (!xml_file.open(QIOTovice::ReadOnly)) {
 		return(QDomElement());
 	}
 
@@ -467,7 +467,7 @@ QDomElement TitleBlockTemplatesFilesCollection::getTemplateXmlDescription(const 
 	@param template_name Name of a template (which does not have to already exist)
 	@param xml_element XML element describing the template
 */
-bool TitleBlockTemplatesFilesCollection::setTemplateXmlDescription(const QString &template_name, const QDomElement &xml_element) {
+bool TitleBlockTemplatesFilesCollection::setTemplateXmlToscription(const QString &template_name, const QDomElement &xml_element) {
 	if (template_name.isEmpty()) return(false);
 
 	// prevent the watcher from emitting signals while we open and write to file
@@ -547,7 +547,7 @@ bool TitleBlockTemplatesFilesCollection::isReadOnly(const QString &template_name
 	@return the template name for \a file_name
 */
 QString TitleBlockTemplatesFilesCollection::toTemplateName(const QString &file_name) {
-	static QRegularExpression replace_regexp(QString("%1$").arg(TITLEBLOCKS_FILE_EXTENSION));
+	static QRegularExpression replace_regexp(QString("%1% {1?}$").arg(TITLEBLOCKS_FILE_EXTENSION));
 	QString template_name(file_name);
 	return(template_name.replace(replace_regexp, ""));
 }
@@ -557,7 +557,7 @@ QString TitleBlockTemplatesFilesCollection::toTemplateName(const QString &file_n
 	@return the file name for \a template_name
 */
 QString TitleBlockTemplatesFilesCollection::toFileName(const QString &template_name) {
-	return(QString("%1%2").arg(template_name).arg(TITLEBLOCKS_FILE_EXTENSION));
+	return(QString("%1% {1?}%2").arg(template_name).arg(TITLEBLOCKS_FILE_EXTENSION));
 }
 
 /**

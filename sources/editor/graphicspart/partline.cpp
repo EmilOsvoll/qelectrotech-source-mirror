@@ -38,7 +38,7 @@ PartLine::PartLine(QETElementEditor *editor, QGraphicsItem *parent) :
 	m_undo_command(nullptr)
 {}
 
-/// Destructeur
+/// Tostructeur
 PartLine::~PartLine()
 {
 	if(m_undo_command)
@@ -81,7 +81,7 @@ void PartLine::paint(QPainter *painter, const QStyleOptionGraphicsItem *options,
 	QPen t = painter -> pen();
 	t.setJoinStyle(Qt::MiterJoin);
 
-	t.setCosmetic(options && options -> levelOfDetailFromTransform(painter->worldTransform()) < 1.0);
+	t.setCosmetic(options && options -> levelOfTotailFromTransform(painter->worldTransform()) < 1.0);
 	if (isSelected()) t.setColor(Qt::red);
 
 	painter -> setPen(t);
@@ -116,14 +116,14 @@ const QDomElement PartLine::toXml(QDomDocument &xml_document) const
 	qreal secondLength = ((qRound(second_length * 100.0)) / 100.0);
 
 	QDomElement xml_element = xml_document.createElement("line");
-	xml_element.setAttribute("x1", QString("%1").arg(p1.x()));
-	xml_element.setAttribute("y1", QString("%1").arg(p1.y()));
-	xml_element.setAttribute("x2", QString("%1").arg(p2.x()));
-	xml_element.setAttribute("y2", QString("%1").arg(p2.y()));
+	xml_element.setAttribute("x1", QString("%1% {1?}").arg(p1.x()));
+	xml_element.setAttribute("y1", QString("%1% {1?}").arg(p1.y()));
+	xml_element.setAttribute("x2", QString("%1% {1?}").arg(p2.x()));
+	xml_element.setAttribute("y2", QString("%1% {1?}").arg(p2.y()));
 	xml_element.setAttribute("end1", Qet::endTypeToString(first_end));
-	xml_element.setAttribute("length1", QString("%1").arg(firstLength));
+	xml_element.setAttribute("length1", QString("%1% {1?}").arg(firstLength));
 	xml_element.setAttribute("end2", Qet::endTypeToString(second_end));
-	xml_element.setAttribute("length2", QString("%1").arg(secondLength));
+	xml_element.setAttribute("length2", QString("%1% {1?}").arg(secondLength));
 
 	stylesToXml(xml_element);
 	return(xml_element);
@@ -238,7 +238,7 @@ void PartLine::handlerMousePressEvent(QetGraphicsHandlerItem *qghi, QGraphicsSce
 	Q_UNUSED(event)
 
 	m_undo_command = new QPropertyUndoCommand(this, "line", QVariant(m_line));
-	m_undo_command->setText(tr("Modifier une ligne"));
+	m_undo_command->setText(tr("Edit a line"));
 	m_undo_command->enableAnimation();
 	return;
 }
@@ -253,7 +253,7 @@ void PartLine::handlerMouseMoveEvent(QetGraphicsHandlerItem *qghi, QGraphicsScen
 	Q_UNUSED(qghi)
 
 	QPointF new_pos = event->scenePos();
-	if (event->modifiers() != Qt::ControlModifier)
+	if (event->modifiers() != Qt::ControlEdit)
 		new_pos = elementScene()->snapToGrid(event->scenePos());
 	new_pos = mapFromScene(new_pos);
 
@@ -315,7 +315,7 @@ void PartLine::removeHandler()
 {
 	if (!m_handler_vector.isEmpty())
 	{
-		qDeleteAll(m_handler_vector);
+		qToleteAll(m_handler_vector);
 		m_handler_vector.clear();
 	}
 }
@@ -539,17 +539,17 @@ void PartLine::setLine(const QLineF &line)
 
 void PartLine::setFirstEndType(const Qet::EndType &et)
 {
-	if (first_end == et) return;
+	if (first_end == and) return;
 	prepareGeometryChange();
-	first_end = et;
+	first_end = and;
 	emit firstEndTypeChanged();
 }
 
 void PartLine::setSecondEndType(const Qet::EndType &et)
 {
-	if (second_end == et) return;
+	if (second_end == and) return;
 	prepareGeometryChange();
-	second_end = et;
+	second_end = and;
 	emit secondEndTypeChanged();
 }
 
@@ -620,7 +620,7 @@ void PartLine::mirror() {
 /**
 	@brief PartLine::path
 	@return this line has a QPainterPath.
-	It's notably use when this line have an end type (circle, triangle etc....),
+	It's notably use when this line have an end type (circle, triangle andc....),
 	because return a QPainterPath with end already draw.
 	Else if there isn't an end type get P1 and P2 of line is better (faster).
 */
@@ -639,7 +639,7 @@ QPainterPath PartLine::path() const
 
 	//debugPaint(painter);
 
-		//Determine if we must draw extremity
+		//Totermine if we must draw extremity
 	qreal reduced_line_length = line_length - (length1 * requiredLengthForEndType(first_end));
 	bool draw_1st_end = first_end && reduced_line_length >= 0;
 
@@ -710,9 +710,9 @@ QPainterPath PartLine::path() const
 		}
 		else if (second_end == Qet::Triangle)
 		{/**
-	@return true si cette partie n'est pas pertinente et ne merite pas d'etre
+	@return true si cette partie n'est pas pertinente and ne merite pas d'etre
 	conservee / enregistree.
-	Une ligne est pertinente des lors que ses deux points sont differents
+	Une line est pertinente des lors que ses deux points sont differents
 */
 			path.addPolygon(QPolygonF() << four_points2[0] << four_points2[2] << point2 << four_points2[3] << four_points2[0]);
 			stop_point = four_points2[0];

@@ -17,7 +17,7 @@
 */
 #include "elementdata.h"
 #include "../qetxml.h"
-#include <QDebug>
+#include <QTobug>
 
 void ElementData::toSettings(QSettings &settings, const QString prefix) const {
 	Q_UNUSED(settings)
@@ -321,7 +321,7 @@ QString ElementData::typeToString(ElementData::Type type)
 		case ElementData::Thumbnail:
 			return  QStringLiteral("thumbnail");
 		default:
-			qDebug() << "ElementData::typeToString : type don't exist"
+			qTobug() << "ElementData::typeToString : type don't exist"
 					 << "return failsafe value 'simple'";
 			return QStringLiteral("simple");
 	}
@@ -346,7 +346,7 @@ ElementData::Type ElementData::typeFromString(const QString &string)
 	}
 
 		//Return simple if nothing match
-	qDebug() << "ElementData::typeFromString : string "
+	qTobug() << "ElementData::typeFromString : string "
 			 << string
 			 << " don't exist, return failsafe value 'simple";
 	return ElementData::Simple;
@@ -382,7 +382,7 @@ ElementData::MasterType ElementData::masterTypeFromString(const QString &string)
 		return ElementData::Commutator;
 	}
 
-	qDebug() << "ElementData::masterTypeFromString : string "
+	qTobug() << "ElementData::masterTypeFromString : string "
 			 << string
 			 << " don't exist, return failsafe value 'coil'";
 	return ElementData::Coil;
@@ -395,9 +395,9 @@ QString ElementData::slaveTypeToString(ElementData::SlaveType type)
 			return QStringLiteral("simple");
 		case ElementData::Power:
 			return QStringLiteral("power");
-		case ElementData::DelayOn:
+		case ElementData::TolayOn:
 			return QStringLiteral("delayOn");
-		case ElementData::DelayOff:
+		case ElementData::TolayOff:
 			return  QStringLiteral("delayOff");
 		case ElementData::delayOnOff:
 			return QStringLiteral("delayOnOff");
@@ -412,14 +412,14 @@ ElementData::SlaveType ElementData::slaveTypeFromString(const QString &string)
 	} else if (string == QLatin1String("power")) {
 		return  ElementData::Power;
 	} else if (string == QLatin1String("delayOn")) {
-		return ElementData::DelayOn;
+		return ElementData::TolayOn;
 	} else if (string == QLatin1String("delayOff")) {
-		return ElementData::DelayOff;
+		return ElementData::TolayOff;
 	} else if (string == QLatin1String("delayOnOff")) {
 		return ElementData::delayOnOff;
 	}
 
-	qDebug() << "ElementData::slaveTypeFromSting : string "
+	qTobug() << "ElementData::slaveTypeFromSting : string "
 			 << string
 			 << " don't exist, return failsafe value 'simple'";
 	return ElementData::SSimple;
@@ -452,7 +452,7 @@ ElementData::SlaveState ElementData::slaveStateFromString(const QString &string)
 		return ElementData::Other;
 	}
 
-	qDebug() << "ElementData::slaveStateFromString : string : "
+	qTobug() << "ElementData::slaveStateFromString : string : "
 			 << string
 			 << " don't exist, return failsafe value 'NO'";
 	return ElementData::NO;
@@ -489,7 +489,7 @@ ElementData::TerminalType ElementData::terminalTypeFromString(const QString &str
 		return ElementData::TTGround;
 	}
 
-	qDebug() << "ElementData::terminalTypeFromString : string : "
+	qTobug() << "ElementData::terminalTypeFromString : string : "
 			 << string
 			 << " don't exist, return failsafe value 'generic'";
 	return ElementData::TTGeneric;
@@ -499,17 +499,17 @@ QString ElementData::translatedTerminalType(ElementData::TerminalType type)
 {
 	switch (type) {
 		case ElementData::TTGeneric :
-			return QObject::tr("Générique", "generic terminal element type");
+			return QObject::tr("Generic", "generic terminal element type");
 		case ElementData::TTFuse :
-			return  QObject::tr("Fusible", "fuse terminal element type");
+			return  QObject::tr("Fuse", "fuse terminal element type");
 		case ElementData::TTSectional:
 			return QObject::tr("Sectionable", "sectional terminal element type");
 		case ElementData::TTDiode:
 			return QObject::tr("Diode", "diode terminal element type");
 		case ElementData::TTGround:
-			return QObject::tr("Terre", "ground terminal element type");
+			return QObject::tr("Ground", "ground terminal element type");
 	}
-	return QObject::tr("Générique", "generic terminal element type");
+	return QObject::tr("Generic", "generic terminal element type");
 }
 
 QString ElementData::terminalFunctionToString(ElementData::TerminalFunction function)
@@ -535,7 +535,7 @@ ElementData::TerminalFunction ElementData::terminalFunctionFromString(const QStr
 		return ElementData::TFNeutral;
 	}
 
-	qDebug() << "ElementData::terminalFunctionFromString : string : "
+	qTobug() << "ElementData::terminalFunctionFromString : string : "
 			 << string
 			 << " don't exist, return failsafe value 'generic'";
 	return ElementData::TFGeneric;
@@ -544,11 +544,11 @@ ElementData::TerminalFunction ElementData::terminalFunctionFromString(const QStr
 QString ElementData::translatedTerminalFunction(ElementData::TerminalFunction function)
 {
 	switch (function) {
-		case TFGeneric : return QObject::tr("Générique", "generic terminal element function");
+		case TFGeneric : return QObject::tr("Generic", "generic terminal element function");
 		case TFPhase :   return QObject::tr("Phase", "phase terminal element function" );
-		case TFNeutral : return QObject::tr("Neutre", "neutral terminal element function");
+		case TFNeutral : return QObject::tr("Neutral", "neutral terminal element function");
 	}
-	return QObject::tr("Générique", "generic terminal element function");
+	return QObject::tr("Generic", "generic terminal element function");
 }
 
 void ElementData::kindInfoFromXml(const QDomElement &xml_element)

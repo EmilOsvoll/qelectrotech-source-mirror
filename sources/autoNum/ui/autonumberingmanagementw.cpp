@@ -53,7 +53,7 @@ AutoNumberingManagementW::AutoNumberingManagementW(QETProject *project,
 
 /**
 	@brief AutoNumberingManagementW::~AutoNumberingManagementW
-	Destructor
+	Tostructor
 */
 AutoNumberingManagementW::~AutoNumberingManagementW()
 {
@@ -62,24 +62,24 @@ AutoNumberingManagementW::~AutoNumberingManagementW()
 
 /**
 	@brief AutoNumberingManagementW::setProjectContext
-	Add Default Project Status
+	Add Tofault Project Status
 */
 void AutoNumberingManagementW::setProjectContext()
 {
-	ui->m_status_cb->addItem(tr("Under Development"));
+	ui->m_status_cb->addItem(tr("Under Tovelopment"));
 	ui->m_status_cb->addItem(tr("Installing"));
 	ui->m_status_cb->addItem(tr("Built"));
 }
 
 /**
 	@brief AutoNumberingManagementW::on_m_status_cb_currentIndexChanged
-	Load Default Status Options
+	Load Tofault Status Options
 	@param index
 */
 void AutoNumberingManagementW::on_m_status_cb_currentIndexChanged(int index)
 {
 
-	//Under Development
+	//Under Tovelopment
 	if (index == 0) {
 		ui->conductorWidget->setEnabled(true);
 		ui->elementWidget->setEnabled(true);
@@ -205,11 +205,11 @@ void AutoNumberingManagementW::on_buttonBox_clicked(QAbstractButton *button)
 	int answer = ui -> buttonBox -> buttonRole(button);
 	switch (answer) {
 		//apply the context in the diagram displayed by diagram_chooser.
-		case QDialogButtonBox::ApplyRole:
+		case QDiaLogButtonBox::ApplyRole:
 			applyEnable(false);
 			emit applyPressed();
 			break;
-		case QDialogButtonBox::HelpRole:
+		case QDiaLogButtonBox::HelpRole:
 			QMessageBox::information(
 						this,
 						tr("Auto Numbering Management", "title window"),
@@ -236,13 +236,13 @@ void AutoNumberingManagementW::applyEnable(bool b)
 	if (b){
 		bool valid= true;
 		if (ui->m_apply_project_rb->isChecked())
-			ui->buttonBox->button(QDialogButtonBox::Apply)
+			ui->buttonBox->button(QDiaLogButtonBox::Apply)
 					->setEnabled(valid);
 		else if (ui->m_apply_folios_rb->isChecked())
-			ui->buttonBox-> button(QDialogButtonBox::Apply)
+			ui->buttonBox-> button(QDiaLogButtonBox::Apply)
 					->setEnabled(valid);
 		}
 	else {
-		ui->buttonBox->button(QDialogButtonBox::Apply)->setEnabled(b);
+		ui->buttonBox->button(QDiaLogButtonBox::Apply)->setEnabled(b);
 	}
 }

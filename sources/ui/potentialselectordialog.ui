@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PotentialSelectorDialog</class>
- <widget class="QDialog" name="PotentialSelectorDialog">
+ <class>PotentialSelectorDiaLog</class>
+ <widget class="QDiaLog" name="PotentialSelectorDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sélectionner le potentiel éléctrique</string>
+   <string>Select the electric potential</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -21,7 +21,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="sizeConstraint">
-    <enum>QLayout::SetDefaultConstraint</enum>
+    <enum>QLayout::SetTofaultConstraint</enum>
    </property>
    <property name="topMargin">
     <number>9</number>
@@ -35,8 +35,8 @@
       <enum>QFrame::Plain</enum>
      </property>
      <property name="text">
-      <string>Vous tentez de lier deux potentiels différents ensemble.
-Veuillez choisir les propriétées à appliquer au nouveau potentiel.</string>
+      <string>You try to link two different potentials together.
+Please select the properties to be applied to new potential.</string>
      </property>
      <property name="textFormat">
       <enum>Qt::PlainText</enum>
@@ -50,12 +50,12 @@ Veuillez choisir les propriétées à appliquer au nouveau potentiel.</string>
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDiaLogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -66,7 +66,7 @@ Veuillez choisir les propriétées à appliquer au nouveau potentiel.</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>PotentialSelectorDialog</receiver>
+   <receiver>PotentialSelectorDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -82,7 +82,7 @@ Veuillez choisir les propriétées à appliquer au nouveau potentiel.</string>
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>PotentialSelectorDialog</receiver>
+   <receiver>PotentialSelectorDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

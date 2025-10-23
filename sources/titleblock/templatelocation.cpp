@@ -39,7 +39,7 @@ TitleBlockTemplateLocation::TitleBlockTemplateLocation(
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplateLocation::~TitleBlockTemplateLocation()
 {
@@ -114,7 +114,7 @@ void TitleBlockTemplateLocation::fromString(const QString &loc_str)
 	QRegularExpressionMatch match = name_from_url.match(loc_str);
 	if (!match.hasMatch())
 	{
-		qDebug()<<"no Match => return"
+		qTobug()<<"no Match => return"
 			<<loc_str;
 		name_ = QString();
 		return;
@@ -157,12 +157,12 @@ QString TitleBlockTemplateLocation::protocol() const
 
 /**
 	This is a convenience method equivalent to
-	parentCollection() -> getTemplateXmlDescription
+	parentCollection() -> getTemplateXmlToscription
 */
-QDomElement TitleBlockTemplateLocation::getTemplateXmlDescription() const
+QDomElement TitleBlockTemplateLocation::getTemplateXmlToscription() const
 {
 	if (!collection_ || name_.isEmpty()) return(QDomElement());
-	return(collection_ -> getTemplateXmlDescription(name_));
+	return(collection_ -> getTemplateXmlToscription(name_));
 }
 
 /**

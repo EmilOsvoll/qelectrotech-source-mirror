@@ -15,37 +15,37 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "replaceelementdialog.h"
+#include "replaceelementdiaLog.h"
 
 #include "../../qetapp.h"
 #include "../../qetinformation.h"
 #include "../../ui/elementinfopartwidget.h"
 #include "../searchandreplaceworker.h"
-#include "replaceelementdialog.h"
-#include "ui_replaceelementdialog.h"
+#include "replaceelementdiaLog.h"
+#include "ui_replaceelementdiaLog.h"
 
 #include <QAbstractButton>
 
-ReplaceElementDialog::ReplaceElementDialog(DiagramContext context, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::ReplaceElementDialog)
+ReplaceElementDiaLog::ReplaceElementDiaLog(DiagramContext context, QWidget *parent) :
+	QDiaLog(parent),
+	ui(new Ui::ReplaceElementDiaLog)
 {
 	ui->setupUi(this);
 	buildWidget();
 	setContext(context);
 }
 
-ReplaceElementDialog::~ReplaceElementDialog()
+ReplaceElementDiaLog::~ReplaceElementDiaLog()
 {
 	delete ui;
 }
 
 /**
-	@brief ReplaceElementDialog::setContext
+	@brief ReplaceElementDiaLog::setContext
 	Set the current diagram context to be edited
 	@param context
 */
-void ReplaceElementDialog::setContext(DiagramContext context)
+void ReplaceElementDiaLog::setContext(DiagramContext context)
 {
 	m_context = context;
 	
@@ -55,10 +55,10 @@ void ReplaceElementDialog::setContext(DiagramContext context)
 }
 
 /**
-	@brief ReplaceElementDialog::context
+	@brief ReplaceElementDiaLog::context
 	@return The edited diagram context
 */
-DiagramContext ReplaceElementDialog::context() const
+DiagramContext ReplaceElementDiaLog::context() const
 {
 	DiagramContext context;
 	for (ElementInfoPartWidget *eipw : m_eipw_list) {
@@ -68,9 +68,9 @@ DiagramContext ReplaceElementDialog::context() const
 	return context;
 }
 
-void ReplaceElementDialog::buildWidget()
+void ReplaceElementDiaLog::buildWidget()
 {
-	connect(ui->m_button_box, &QDialogButtonBox::clicked, [this](QAbstractButton *button_) {
+	connect(ui->m_button_box, &QDiaLogButtonBox::clicked, [this](QAbstractButton *button_) {
 		this->done(ui->m_button_box->buttonRole(button_));
 	});
 	
@@ -78,7 +78,7 @@ void ReplaceElementDialog::buildWidget()
 	{
 		ElementInfoPartWidget *eipw = new ElementInfoPartWidget(str, QETInformation::translatedInfoKey(str), this);
 		eipw->setEraseTextVisible(true);
-		eipw->setPlaceHolderText(tr("Ne pas modifier"));
+		eipw->setPlaceHolderText(tr("Do not change"));
 		ui->m_scroll_layout->addWidget(eipw);
 		m_eipw_list << eipw;
 	}

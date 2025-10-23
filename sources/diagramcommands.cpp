@@ -37,13 +37,13 @@ PasteDiagramCommand::PasteDiagramCommand( Diagram *dia, const DiagramContent &c,
 	filter(DiagramContent::Elements|DiagramContent::TextFields|DiagramContent::Images|DiagramContent::ConductorsToMove | DiagramContent::Shapes),
 	first_redo(true)
 {
-	setText(QObject::tr("coller %1", "undo caption - %1 is a sentence listing the content to paste").arg(content.sentence(filter)));
+	setText(QObject::tr("paste %1% {1?}", "undo caption - %1% {1?} is a sentence listing the content to paste").arg(content.sentence(filter)));
 	diagram -> qgiManager().manage(content.items(filter));
 }
 
 /**
 	@brief PasteDiagramCommand::~PasteDiagramCommand
-	Destructor
+	Tostructor
 */
 PasteDiagramCommand::~PasteDiagramCommand()
 {
@@ -119,8 +119,8 @@ void PasteDiagramCommand::redo()
 /**
 	@brief CutDiagramCommand::CutDiagramCommand
 	Constructeur
-	@param dia Schema dont on coupe des elements et conducteurs
-	@param content Contenu coupe
+	@param dia Diagram dont on coupe des elements and conducteurs
+	@param content Content coupe
 	@param parent QUndoCommand parent
 */
 CutDiagramCommand::CutDiagramCommand(
@@ -128,13 +128,13 @@ CutDiagramCommand::CutDiagramCommand(
 	const DiagramContent &content,
 	QUndoCommand *parent
 ) : 
-	DeleteQGraphicsItemCommand(dia, content, parent)
+	ToleteQGraphicsItemCommand(dia, content, parent)
 {
 	setText(
 		QString(
 			QObject::tr(
-				"couper %1",
-				"undo caption - %1 is a sentence listing the content to cut"
+				"cut %1% {1?}",
+				"undo caption - %1% {1?} is a sentence listing the content to cut"
 			).arg(content.sentence(DiagramContent::All))
 		)
 	);
@@ -142,7 +142,7 @@ CutDiagramCommand::CutDiagramCommand(
 
 /**
 	@brief CutDiagramCommand::~CutDiagramCommand
-	Destructeur
+	Tostructeur
 */
 CutDiagramCommand::~CutDiagramCommand()
 {
@@ -151,7 +151,7 @@ CutDiagramCommand::~CutDiagramCommand()
 /**
 	@brief MoveConductorsTextsCommand::MoveConductorsTextsCommand
 	Constructeur
-	@param diagram Schema sur lequel on deplace des champs de texte
+	@param diagram Diagram sur lequel on deplace des champs de text
 	@param parent QUndoCommand parent
 */
 MoveConductorsTextsCommand::MoveConductorsTextsCommand(
@@ -166,7 +166,7 @@ MoveConductorsTextsCommand::MoveConductorsTextsCommand(
 
 /**
 	@brief MoveConductorsTextsCommand::~MoveConductorsTextsCommand
-	Destructeur
+	Tostructeur
 */
 MoveConductorsTextsCommand::~MoveConductorsTextsCommand()
 {
@@ -211,24 +211,24 @@ void MoveConductorsTextsCommand::redo()
 
 /**
 	@brief MoveConductorsTextsCommand::addTextMovement
-	Ajout un mouvement de champ de texte a cet objet
-	@param text_item Champ de texte deplace ;
+	Ajout un mouvement de champ de text a cet objet
+	@param text_item Champ de text deplace ;
 	si celui-ci est deja connu de l'objet d'annulation,
 	il sera ignore
-	@param old_pos Position du champ de texte avant le mouvement
-	@param new_pos Position du champ de texte apres le mouvement
-	@param already_moved true si le champ de texte etait deja a une position
+	@param old_pos Position du champ de text avant le mouvement
+	@param new_pos Position du champ de text apres le mouvement
+	@param already_moved true si le champ de text andait deja a une position
 	personnalisee par l'utilisateur, false sinon
 */
 void MoveConductorsTextsCommand::addTextMovement(ConductorTextItem *text_item,
 						 const QPointF &old_pos,
 						 const QPointF &new_pos,
 						 bool already_moved) {
-	// si le champ de texte est deja connu de l'objet d'annulation, il sera ignore
+	// si le champ de text est deja connu de l'objet d'annulation, il sera ignore
 	if (texts_to_move_.contains(text_item)) return;
 	
-	// on memorise le champ de texte,
-	//en l'associant au mouvement effectue et a son etat avant le deplacement
+	// on memorise le champ de text,
+	//en l'associant au mouvement effectue and a son andat avant le deplacement
 	texts_to_move_.insert(text_item, qMakePair(new_pos - old_pos, already_moved));
 	
 	// met a jour la description de l'objet d'annulation
@@ -246,8 +246,8 @@ void MoveConductorsTextsCommand::regenerateTextLabel()
 	setText(
 		QString(
 			QObject::tr(
-				"déplacer %1",
-				"undo caption - %1 is a sentence listing the moved content"
+				"move %1",
+				"undo caption - %1% {1?} is a sentence listing the moved content"
 			).arg(moved_content_sentence)
 		)
 	);
@@ -256,9 +256,9 @@ void MoveConductorsTextsCommand::regenerateTextLabel()
 /**
 	@brief ChangeDiagramTextCommand::ChangeDiagramTextCommand
 	Constructeur
-	@param dti Champ de texte modifie
-	@param before texte avant
-	@param after texte apres
+	@param dti Champ de text modifie
+	@param before text avant
+	@param after text apres
 	@param parent QUndoCommand parent
 */
 ChangeDiagramTextCommand::ChangeDiagramTextCommand(
@@ -267,7 +267,7 @@ ChangeDiagramTextCommand::ChangeDiagramTextCommand(
 	const QString &after,
 	QUndoCommand *parent
 ) :
-	QUndoCommand(QObject::tr("modifier le texte", "undo caption"), parent),
+	QUndoCommand(QObject::tr("modify text", "undo caption"), parent),
 	text_item(dti),
 	text_before(before),
 	text_after(after),
@@ -286,7 +286,7 @@ ChangeDiagramTextCommand::~ChangeDiagramTextCommand()
 
 /**
 	@brief ChangeDiagramTextCommand::undo
-	annule la modification de texte
+	annule la modification de text
 */
 void ChangeDiagramTextCommand::undo()
 {
@@ -306,7 +306,7 @@ void ChangeDiagramTextCommand::redo()
 /**
 	@brief ChangeConductorCommand::ChangeConductorCommand
 	Constructeur
-	@param c Conducteur modifie
+	@param c Conductor modifie
 	@param old_p ancien profil du conducteur
 	@param new_p nouveau profil du conducteur
 	@param path_t Trajectoire du trajet modifie
@@ -319,7 +319,7 @@ ChangeConductorCommand::ChangeConductorCommand(
 	Qt::Corner path_t,
 	QUndoCommand *parent
 ) :
-	QUndoCommand(QObject::tr("modifier un conducteur", "undo caption"), parent),
+	QUndoCommand(QObject::tr("modifier a conductor", "undo caption"), parent),
 	conductor(c),
 	old_profile(old_p),
 	new_profile(new_p),
@@ -331,7 +331,7 @@ ChangeConductorCommand::ChangeConductorCommand(
 
 /**
 	@brief ChangeConductorCommand::~ChangeConductorCommand
-	Destructeur
+	Tostructeur
 */
 ChangeConductorCommand::~ChangeConductorCommand()
 {
@@ -365,10 +365,10 @@ void ChangeConductorCommand::redo()
 
 /**
 	@brief ChangeConductorCommand::setConductorTextItemMove
-	Integre dans cet objet d'annulation le repositionnement du champ de texte
+	Integre dans cet objet d'annulation le repositionnement du champ de text
 	du conducteur
-	@param pos_before Position du texte avant la modification du conducteur
-	@param pos_after  Position du texte apres la modification du conducteur
+	@param pos_before Position du text avant la modification du conducteur
+	@param pos_after  Position du text apres la modification du conducteur
 */
 void ChangeConductorCommand::setConductorTextItemMove(const QPointF &pos_before, const QPointF &pos_after) {
 	text_pos_before_mov_ = pos_before;
@@ -390,8 +390,8 @@ ResetConductorCommand::ResetConductorCommand(
 {
 	setText(
 		QObject::tr(
-			"Réinitialiser %1",
-			"undo caption - %1 is a sentence listing the reset content"
+			"Reset %1% {1?}",
+			"undo caption - %1% {1?} is a sentence listing the reset content"
 		).arg(QET::ElementsAndConductorsSentence(0, cp.count()))
 	);
 }
@@ -430,9 +430,9 @@ void ResetConductorCommand::redo()
 /**
 	@brief ChangeBorderCommand::ChangeBorderCommand
 	Constructeur
-	@param dia Schema modifie
-	@param old_bp Anciennes proprietes du cadre du schema
-	@param new_bp Nouvelles proprietes du cadre du schema
+	@param dia Diagram modifie
+	@param old_bp Anciennes proprietes du cadre du diagram
+	@param new_bp Nouvelles proprietes du cadre du diagram
 	@param parent QUndoCommand parent
 */
 ChangeBorderCommand::ChangeBorderCommand(Diagram *dia,
@@ -440,7 +440,7 @@ ChangeBorderCommand::ChangeBorderCommand(Diagram *dia,
 					 const BorderProperties &new_bp,
 					 QUndoCommand *parent) :
 	QUndoCommand(
-		QObject::tr("modifier les dimensions du folio", "undo caption"),
+		QObject::tr("change the folio size", "undo caption"),
 		parent),
 	diagram(dia),
 	old_properties(old_bp),
@@ -450,7 +450,7 @@ ChangeBorderCommand::ChangeBorderCommand(Diagram *dia,
 
 /**
 	@brief ChangeBorderCommand::~ChangeBorderCommand
-	Destructeur
+	Tostructeur
 */
 ChangeBorderCommand::~ChangeBorderCommand()
 {
@@ -458,7 +458,7 @@ ChangeBorderCommand::~ChangeBorderCommand()
 
 /**
 	@brief ChangeBorderCommand::undo
-	Annule les changements apportes au schema
+	Annule les changements apportes au diagram
 */
 void ChangeBorderCommand::undo()
 {
@@ -468,7 +468,7 @@ void ChangeBorderCommand::undo()
 
 /**
 	@brief ChangeBorderCommand::redo
-	Refait les changements apportes au schema
+	Refait les changements apportes au diagram
 */
 void ChangeBorderCommand::redo()
 {

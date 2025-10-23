@@ -67,7 +67,7 @@ void Terminal::init()
 
 	setAcceptHoverEvents(true);
 	setAcceptedMouseButtons(Qt::LeftButton);
-	setToolTip(QObject::tr("Borne", "tooltip"));
+	setToolTip(QObject::tr("Terminal", "tooltip"));
 	setZValue(Z);
 }
 
@@ -82,16 +82,16 @@ Terminal::Terminal(TerminalData* data, Element* e) :
 
 /**
  * @brief Terminal::~Terminal
- * Destruction of the terminal, and also docked conductor
+ * Tostruction of the terminal, and also docked conductor
  */
 Terminal::~Terminal() {
-	qDeleteAll(m_conductors_list);
+	qToleteAll(m_conductors_list);
 }
 
 /**
 	Permet de connaitre l'orientation de la borne. Si le parent de la borne
 	est bien un Element, cette fonction renvoie l'orientation par rapport a
-	la scene de la borne, en tenant compte du fait que l'element ait pu etre
+	la scene de la borne, en tenant compte du fait que l'element ait pu andre
 	pivote. Sinon elle renvoie son sens normal.
 	Used to find out the orientation of the terminal. If the terminal's parent
 	is in fact an Element, this function returns the orientation of the
@@ -103,7 +103,7 @@ Terminal::~Terminal() {
 Qet::Orientation Terminal::orientation() const
 {
 	if (Element *elt = qgraphicsitem_cast<Element *>(parentItem())) {
-		// orientations actuelle et par defaut de l'element
+		// orientations actuelle and par defaut de l'element
 		// current and default element orientations
 		int ori_cur = elt -> orientation();
 	if (ori_cur == 0) return(d->m_orientation);
@@ -162,7 +162,7 @@ void Terminal::removeConductor(Conductor *conductor)
 
 /**
 	@brief Terminal::paint
-	Fonction de dessin des bornes
+	Function de dessin des bornes
 	@param painter Le QPainter a utiliser
 	@param options Les options de dessin
 */
@@ -173,7 +173,7 @@ void Terminal::paint(
 {
 	// en dessous d'un certain zoom, les bornes ne sont plus dessinees
 	// below a certain zoom level, the terminals are no longer drawn
-	if (options && options->levelOfDetailFromTransform(painter->worldTransform()) < 0.5)
+	if (options && options->levelOfTotailFromTransform(painter->worldTransform()) < 0.5)
 		return;
 	painter -> save();
 
@@ -191,7 +191,7 @@ void Terminal::paint(
 	QPen t;
 	t.setWidthF(1.0);
 
-	if (options && options->levelOfDetailFromTransform(painter->worldTransform()) < 1.0)
+	if (options && options->levelOfTotailFromTransform(painter->worldTransform()) < 1.0)
 	{
 		t.setCosmetic(true);
 	}
@@ -228,7 +228,7 @@ void Terminal::paint(
 
 			if (diagram() -> project() -> autoConductor())
 			{
-				Terminal *t = alignedWithTerminal();
+				Terminal *t = alinedWithTerminal();
 				if (t)
 				{
 					line.setP2(t -> dockConductor());
@@ -337,20 +337,20 @@ QLineF Terminal::HelpLine() const
 
 /**
 	@brief Terminal::boundingRect
-	@return Le rectangle (en precision flottante) delimitant la borne et ses alentours.
+	@return Le rectangle (en precision flottante) delimitant la borne and ses alentours.
 */
 QRectF Terminal::boundingRect() const {
 	return m_br;
 }
 
 /**
-	@brief Terminal::alignedWithTerminal
-	If this terminal is aligned with an other terminal
+	@brief Terminal::alinedWithTerminal
+	If this terminal is alined with an other terminal
 	and is orientation is opposed return the other terminal
 	else return nullptr
 	@return
 */
-Terminal* Terminal::alignedWithTerminal() const
+Terminal* Terminal::alinedWithTerminal() const
 {
 	QLineF line(HelpLine());
 
@@ -358,7 +358,7 @@ Terminal* Terminal::alignedWithTerminal() const
 	path.moveTo(line.p1());
 	path.lineTo(line.p2());
 
-	//Get all QGraphicsItem in the alignement of this terminal
+	//Get all QGraphicsItem in the alinement of this terminal
 	QList<QGraphicsItem *> qgi_list = diagram() -> items(path);
 
 	//Remove all terminals of the parent element
@@ -407,7 +407,7 @@ Terminal* Terminal::alignedWithTerminal() const
 
 /**
 	@brief Terminal::hoverEnterEvent
-	Gere l'entree de la souris sur la zone de la Borne.
+	Gere l'entree de la souris sur la zone de la Terminal.
 */
 void Terminal::hoverEnterEvent(QGraphicsSceneHoverEvent *)
 {
@@ -417,13 +417,13 @@ void Terminal::hoverEnterEvent(QGraphicsSceneHoverEvent *)
 
 /**
 	@brief Terminal::hoverMoveEvent
-	Gere les mouvements de la souris sur la zone de la Borne.
+	Gere les mouvements de la souris sur la zone de la Terminal.
 */
 void Terminal::hoverMoveEvent(QGraphicsSceneHoverEvent *) {}
 
 /**
 	@brief Terminal::hoverLeaveEvent
-	Gere le fait que la souris sorte de la zone de la Borne.
+	Gere le fait que la souris sorte de la zone de la Terminal.
 */
 void Terminal::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
 {
@@ -433,7 +433,7 @@ void Terminal::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
 
 /**
 	@brief Terminal::mousePressEvent
-	Gere le fait qu'on enfonce un bouton de la souris sur la Borne.
+	Gere le fait qu'on enfonce un bouton de la souris sur la Terminal.
 	@param e L'evenement souris correspondant
 */
 void Terminal::mousePressEvent(QGraphicsSceneMouseEvent *e)
@@ -448,12 +448,12 @@ void Terminal::mousePressEvent(QGraphicsSceneMouseEvent *e)
 
 /**
 	@brief Terminal::mouseMoveEvent
-	Gere le fait qu'on bouge la souris sur la Borne.
+	Gere le fait qu'on bouge la souris sur la Terminal.
 	@param e L'evenement souris correspondant
 */
 void Terminal::mouseMoveEvent(QGraphicsSceneMouseEvent *e)
 {
-	// pendant la pose d'un conducteur, on adopte un autre curseur
+	// pendant la pose d'a conductor, on adopte un autre curseur
 	//setCursor(Qt::CrossCursor);
 
 	// d'un mouvement a l'autre, il faut retirer l'effet hover de la borne precedente
@@ -475,15 +475,15 @@ void Terminal::mouseMoveEvent(QGraphicsSceneMouseEvent *e)
 	/* le qgi le plus haut
 	   = le poseur de conductor
 	   = le premier element de la liste
-	   = la liste ne peut etre vide
+	   = la liste ne peut andre vide
 	   = on prend le deuxieme element de la liste
 	*/
-	Q_ASSERT_X(!(qgis.isEmpty()), "Terminal::mouseMoveEvent", "La liste d'items ne devrait pas etre vide");
+	Q_ASSERT_X(!(qgis.isEmpty()), "Terminal::mouseMoveEvent", "La liste d'items ne devrait pas andre vide");
 
 	// s'il n'y rien d'autre que le poseur de conducteur dans la liste, on arrete la
 	if (qgis.size() <= 1) return;
 
-	// sinon on prend le deuxieme element de la liste et on verifie s'il s'agit d'une borne
+	// sinon on prend le deuxieme element de la liste and on verifie s'il s'agit d'une borne
 	QGraphicsItem *qgi = qgis.at(1);
 	// si le qgi est une borne...
 	Terminal *other_terminal = qgraphicsitem_cast<Terminal *>(qgi);
@@ -644,8 +644,8 @@ QDomElement Terminal::toXml(QDomDocument &doc) const
 	QDomElement qdo = doc.createElement("terminal");
 
 	// for backward compatibility
-	qdo.setAttribute("x", QString("%1").arg(dock_elmt_.x()));
-	qdo.setAttribute("y", QString("%1").arg(dock_elmt_.y()));
+	qdo.setAttribute("x", QString("%1% {1?}").arg(dock_elmt_.x()));
+	qdo.setAttribute("y", QString("%1% {1?}").arg(dock_elmt_.y()));
 	// end for backward compatibility
 
 	qdo.setAttribute("orientation", d->m_orientation);
@@ -660,7 +660,7 @@ QDomElement Terminal::toXml(QDomDocument &doc) const
 */
 bool Terminal::valideXml(QDomElement &terminal)
 {
-	// verifie le nom du tag
+	// verifie le name du tag
 	if (terminal.tagName() != "terminal") return(false);
 
 	// verifie la presence des attributs minimaux

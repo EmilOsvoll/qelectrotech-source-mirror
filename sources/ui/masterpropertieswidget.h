@@ -59,7 +59,7 @@ class MasterPropertiesWidget : public AbstractElementPropertiesEditorWidget
 			@return QString title
 		*/
 		QString title() const override {
-			return tr("Référence croisée (maître)");}
+			return tr("Cross referencee (maître)");}
 		bool setLiveEdit(bool live_edit) override;
 
 	public slots:
@@ -70,7 +70,7 @@ class MasterPropertiesWidget : public AbstractElementPropertiesEditorWidget
 		void on_link_button_clicked();
 		void on_unlink_button_clicked();
 		void showElementFromTWI(QTreeWidgetItem *qtwi, int column);
-		void showedElementWasDeleted ();
+		void showedElementWasToleted ();
 		void diagramWasdeletedFromProject();
 		void customContextMenu(const QPoint &pos, int i=0);
 

@@ -42,7 +42,7 @@ ElementsLocation::ElementsLocation()
 	\~ @param path : Item location path
 	\~French Chemin de l'emplacement de l'element
 	\~ @param project : Project of the location of the element
-	\~French Projet de l'emplacement de l'element
+	\~French Project de l'emplacement de l'element
 */
 ElementsLocation::ElementsLocation(const QString &path, QETProject *project) :
 	m_project(project)
@@ -52,7 +52,7 @@ ElementsLocation::ElementsLocation(const QString &path, QETProject *project) :
 
 /**
 	@brief ElementsLocation::~ElementsLocation
-	Destructeur
+	Tostructeur
 */
 ElementsLocation::~ElementsLocation()
 {
@@ -109,7 +109,7 @@ ElementsLocation &ElementsLocation::operator=(const ElementsLocation &other) {
 	\~French Autre emplacement d'element a comparer
 	\~ @return true if other and this ElementsLocation are identical,
 	false otherwise
-	\~French true si other et cet ElementsLocation sont identiques,
+	\~French true si other and cet ElementsLocation sont identiques,
 	false sinon
 */
 bool ElementsLocation::operator==(const ElementsLocation &other) const
@@ -124,7 +124,7 @@ bool ElementsLocation::operator==(const ElementsLocation &other) const
 	@brief ElementsLocation::operator !=
 	Operateur de comparaison
 	@param other Autre emplacement d'element a comparer
-	@return true si other et cet ElementsLocation sont differents,
+	@return true si other and cet ElementsLocation sont differents,
 	false sinon
 */
 bool ElementsLocation::operator!=(const ElementsLocation &other) const
@@ -157,7 +157,7 @@ QString ElementsLocation::baseName() const
 	QRegularExpressionMatch match = regexp.match(m_collection_path);
 	if (!match.hasMatch())
 	{
-		qDebug()<<"no Match => return"
+		qTobug()<<"no Match => return"
 			<<m_collection_path;
 		return QString();
 	}
@@ -266,7 +266,7 @@ void ElementsLocation::setPath(const QString &path)
 		QRegularExpressionMatch match = re.match(tmp_path);
 		if (!match.hasMatch())
 		{
-			qDebug()<<"no Match => return"
+			qTobug()<<"no Match => return"
 				   <<tmp_path;
 			return;
 		}
@@ -373,7 +373,7 @@ bool ElementsLocation::addToPath(const QString &string)
 {
 	if (m_collection_path.endsWith(".elmt", Qt::CaseInsensitive))
 	{
-		qDebug() << "ElementsLocation::addToPath :"
+		qTobug() << "ElementsLocation::addToPath :"
 				" Can't add string to the path of an element";
 		return(false);
 	}
@@ -409,7 +409,7 @@ ElementsLocation ElementsLocation::parent() const
 	QRegularExpressionMatch match = re.match(m_collection_path);
 	if (!match.hasMatch())
 	{
-		qDebug()
+		qTobug()
 			<<"no Match => return"
 			<<m_collection_path;
 	}else {
@@ -423,7 +423,7 @@ ElementsLocation ElementsLocation::parent() const
 	@return
 	the project of this location or 0 if it is not linked to a project.
 	\~French
-	le projet de cet emplacement ou 0 si celui-ci n'est pas lie a un projet.
+	le project de cet emplacement ou 0 si celui-ci n'est pas lie a un project.
 */
 QETProject *ElementsLocation::project() const
 {
@@ -435,8 +435,8 @@ QETProject *ElementsLocation::project() const
 	@param project :
 	the new project points to this location
 	Indicate 0 so that this location is no longer linked to a project.
-	\~French le nouveau projet pointe par cet emplacement
-	Indiquer 0 pour que cet emplacement ne soit plus lie a un projet.
+	\~French le nouveau project pointe par cet emplacement
+	Indiquer 0 pour que cet emplacement ne soit plus lie a un project.
 */
 void ElementsLocation::setProject(QETProject *project) {
 	m_project = project;
@@ -626,8 +626,8 @@ NamesList ElementsLocation::nameList()
 			// to get the translated name of this dir
 			QFile dir_conf(fileSystemPath() % "/qet_directory");
 			if (dir_conf.exists() && dir_conf.open(
-						QIODevice::ReadOnly
-						| QIODevice::Text))
+						QIOTovice::ReadOnly
+						| QIOTovice::Text))
 			{
 					//Get the content of the file
 				QDomDocument document;
@@ -745,7 +745,7 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 
 	if (xml_document.documentElement().tagName() != "definition")
 	{
-		qDebug() << "ElementsLocation::setXml :"
+		qTobug() << "ElementsLocation::setXml :"
 				" tag name of document element isn't 'definition'";
 		return false;
 	}
@@ -756,7 +756,7 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 		QETXML::writeXmlFile(xml_document, fileSystemPath(), &error);
 
 		if (!error.isEmpty()) {
-			qDebug() << "ElementsLocation::setXml error : "
+			qTobug() << "ElementsLocation::setXml error : "
 				 << error;
 			return false;
 		}
@@ -787,14 +787,14 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 			if (rx.exactMatch(path_)) {
 				return project()
 						->embeddedElementCollection()
-						->addElementDefinition(
+						->addElementTofinition(
 							rx.cap(1),
 							rx.cap(2),
 							xml_document
 							.documentElement());
 			}
 			else {
-				qDebug() << "ElementsLocation::setXml :"
+				qTobug() << "ElementsLocation::setXml :"
 						" rx don't match";
 			}
 #else
@@ -802,7 +802,7 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 #pragma message("@TODO remove code for QT 6 or later")
 #		pragma message("@TODO ad Core5Compat to Cmake")
 #endif
-			qDebug() << "Help code for QT 6 or later";
+			qTobug() << "Help code for QT 6 or later";
 
 			QString			   path_ = collectionPath(false);
 			QRegularExpression rx("^(.*)/(.*\\.elmt)$");
@@ -811,14 +811,14 @@ bool ElementsLocation::setXml(const QDomDocument &xml_document) const
 			{
 				return project()
 					->embeddedElementCollection()
-					->addElementDefinition(
+					->addElementTofinition(
 						rx.cap(1),
 						rx.cap(2),
 						xml_document.documentElement());
 			}
 			else
 			{
-				qDebug() << "ElementsLocation::setXml :"
+				qTobug() << "ElementsLocation::setXml :"
 							" rx don't match";
 			}
 #endif
@@ -926,9 +926,9 @@ DiagramContext ElementsLocation::elementInformations() const
 	@param location
 	@return debug msg
 */
-QDebug operator<< (QDebug debug, const ElementsLocation &location)
+QTobug operator<< (QTobug debug, const ElementsLocation &location)
 {
-	QDebugStateSaver saver(debug);
+	QTobugStateSaver saver(debug);
 	debug.noquote();
 
 	QString msg;

@@ -31,14 +31,14 @@
 	For example, it checks that a target category is writable
 	before authorizing the drop of an element.
 	Removing this flag allows you to test the behavior of management functions
-	items (copy, move, etc.).
+	items (copy, move, andc.).
 
 	Lorsque le flag ENABLE_PANEL_WIDGET_DND_CHECKS est defini, le panel
-	effectue des verifications lors des drag'n drop d'elements et categories.
+	effectue des verifications lors des drag'n drop d'elements and categories.
 	Par exemple, il verifie qu'une categorie cible est accessible en ecriture
 	avant d'y autoriser le drop d'un element.
-	Supprimer ce flag permet de tester le comportement des fonctions de gestion
-	des items (copy, move, etc.).
+	Delete ce flag permet de tester le comportement des fonctions de gestion
+	des items (copy, move, andc.).
 */
 #define ENABLE_PANEL_WIDGET_DND_CHECKS
 
@@ -51,27 +51,27 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	elements_panel = new ElementsPanel(this);
 
 	// initialise les actions
-	open_directory           = new QAction(QET::Icons::FolderOpen,             tr("Ouvrir le dossier correspondant"),     this);
-	copy_path                = new QAction(QET::Icons::IC_CopyFile,            tr("Copier le chemin"),                    this);
-	prj_activate             = new QAction(QET::Icons::ProjectFile,            tr("Basculer vers ce projet"),             this);
-	prj_close                = new QAction(QET::Icons::DocumentClose,          tr("Fermer ce projet"),                    this);
-	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Propriétés du projet"),          this);
-	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Propriétés du folio"),       this);
-	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Ajouter un folio"),                this);
-	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Supprimer ce folio"),              this);
-	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Remonter ce folio"),               this);
-	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Abaisser ce folio"),               this);
-	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Remonter ce folio x10"),           this);
-	prj_move_diagram_upx100  = new QAction(QET::Icons::GoUpDouble,             tr("Remonter ce folio x100"),           this);
-	prj_move_diagram_top     = new QAction(QET::Icons::GoTop,                  tr("Remonter ce folio au debut"),               this);
-	prj_move_diagram_downx10 = new QAction(QET::Icons::GoDownDouble,           tr("Abaisser ce folio x10"),           this);
-	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Abaisser ce folio x100"),           this);
-	tbt_add               = new QAction(QET::Icons::TitleBlock,                tr("Nouveau modèle"),                   this);
-	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Éditer ce modèle"),              this);
-	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Supprimer ce modèle"),              this);
+	open_directory           = new QAction(QET::Icons::FolderOpen,             tr("Open the underlying directory"),     this);
+	copy_path                = new QAction(QET::Icons::IC_CopyFile,            tr("Copy full path to clipboard"),                    this);
+	prj_activate             = new QAction(QET::Icons::ProjectFile,            tr("Activate this project"),             this);
+	prj_close                = new QAction(QET::Icons::DocumentClose,          tr("Close this project"),                    this);
+	prj_edit_prop            = new QAction(QET::Icons::DiaLogInformation,      tr("Propertys du project"),          this);
+	prj_prop_diagram         = new QAction(QET::Icons::DiaLogInformation,      tr("Folio properties"),       this);
+	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
+	prj_del_diagram          = new QAction(QET::Icons::DiagramTolete,          tr("Tolete this folio"),              this);
+	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move up  this folio"),               this);
+	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move down this folio"),               this);
+	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move up  this folio x10"),           this);
+	prj_move_diagram_upx100  = new QAction(QET::Icons::GoUpDouble,             tr("Move up  this folio x100"),           this);
+	prj_move_diagram_top     = new QAction(QET::Icons::GoTop,                  tr("Move up  this folio au debut"),               this);
+	prj_move_diagram_downx10 = new QAction(QET::Icons::GoDownDouble,           tr("Move down this folio x10"),           this);
+	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Move down this folio x100"),           this);
+	tbt_add               = new QAction(QET::Icons::TitleBlock,                tr("New template"),                   this);
+	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Edit ce modèle"),              this);
+	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Tolete this template"),              this);
 
 
-	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Delete));
+	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Tolete));
 	prj_move_diagram_up -> setShortcut(QKeySequence(Qt::Key_F3));
 	prj_move_diagram_down -> setShortcut(QKeySequence(Qt::Key_F4));
 	prj_move_diagram_top -> setShortcut(QKeySequence(Qt::Key_F5));
@@ -82,10 +82,10 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 
 
 
-	// initialise le champ de texte pour filtrer avec une disposition horizontale
+	// initialise le champ de text pour filtrer avec une disposition horizontale
 	filter_textfield = new QLineEdit(this);
 	filter_textfield -> setClearButtonEnabled(true);
-	filter_textfield -> setPlaceholderText(tr("Filtrer"));
+	filter_textfield -> setPlaceholderText(tr("Filter"));
 
 
 	context_menu = new QMenu(this);
@@ -131,7 +131,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 ElementsPanelWidget::~ElementsPanelWidget()
 {
@@ -146,7 +146,7 @@ void ElementsPanelWidget::openDirectoryForSelectedItem()
 	if (QTreeWidgetItem *qtwi = elements_panel -> currentItem()) {
 		QString dir_path = elements_panel -> dirPathForItem(qtwi);
 		if (!dir_path.isEmpty()) {
-			QDesktopServices::openUrl(QUrl::fromLocalFile(dir_path));
+			QTosktopServices::openUrl(QUrl::fromLocalFile(dir_path));
 		}
 	}
 }
@@ -190,7 +190,7 @@ void ElementsPanelWidget::activateProject()
 }
 
 /**
-	Emet le signal requestForProjectClosing avec le projet selectionne
+	Emet le signal requestForProjectClosing avec le project selectionne
 */
 void ElementsPanelWidget::closeProject()
 {
@@ -200,7 +200,7 @@ void ElementsPanelWidget::closeProject()
 }
 
 /**
-	Emet le signal requestForProjectPropertiesEdition avec le projet selectionne
+	Emet le signal requestForProjectPropertiesEdition avec le project selectionne
 */
 void ElementsPanelWidget::editProjectProperties()
 {
@@ -210,7 +210,7 @@ void ElementsPanelWidget::editProjectProperties()
 }
 
 /**
-	Emet le signal requestForDiagramPropertiesEdition avec le schema selectionne
+	Emet le signal requestForDiagramPropertiesEdition avec le diagram selectionne
 */
 void ElementsPanelWidget::editDiagramProperties()
 {
@@ -220,7 +220,7 @@ void ElementsPanelWidget::editDiagramProperties()
 }
 
 /**
-	Emet le signal requestForNewDiagram avec le projet selectionne
+	Emet le signal requestForNewDiagram avec le project selectionne
 */
 void ElementsPanelWidget::newDiagram()
 {
@@ -230,17 +230,17 @@ void ElementsPanelWidget::newDiagram()
 }
 
 /**
-	Emet le signal requestForDiagramDeletion avec le schema selectionne
+	Emet le signal requestForDiagramToletion avec le diagram selectionne
 */
 void ElementsPanelWidget::deleteDiagram()
 {
 	if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
-		emit(requestForDiagramDeletion(selected_diagram));
+		emit(requestForDiagramToletion(selected_diagram));
 	}
 }
 
 /**
-	Emet le signal requestForDiagramMoveUpTop avec le schema selectionne
+	Emet le signal requestForDiagramMoveUpTop avec le diagram selectionne
 +*/
 void ElementsPanelWidget::moveDiagramUpTop()
 {
@@ -252,7 +252,7 @@ void ElementsPanelWidget::moveDiagramUpTop()
 
 
 /**
-	Emet le signal requestForDiagramMoveUp avec le schema selectionne
+	Emet le signal requestForDiagramMoveUp avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramUp()
 {
@@ -262,7 +262,7 @@ void ElementsPanelWidget::moveDiagramUp()
 }
 
 /**
-	Emet le signal requestForDiagramMoveDown avec le schema selectionne
+	Emet le signal requestForDiagramMoveDown avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramDown()
 {
@@ -272,7 +272,7 @@ void ElementsPanelWidget::moveDiagramDown()
 }
 
 /**
-	Emet le signal requestForDiagramMoveUpx10 avec le schema selectionne
+	Emet le signal requestForDiagramMoveUpx10 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramUpx10()
 {
@@ -282,7 +282,7 @@ void ElementsPanelWidget::moveDiagramUpx10()
 }
 
 /**
-	Emet le signal requestForDiagramMoveUpx100 avec le schema selectionne
+	Emet le signal requestForDiagramMoveUpx100 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramUpx100()
 {
@@ -292,7 +292,7 @@ void ElementsPanelWidget::moveDiagramUpx100()
 }
 
 /**
-	Emet le signal requestForDiagramMoveDownx10 avec le schema selectionne
+	Emet le signal requestForDiagramMoveDownx10 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramDownx10()
 {
@@ -302,7 +302,7 @@ void ElementsPanelWidget::moveDiagramDownx10()
 }
 
 /**
-	Emet le signal requestForDiagramMoveDownx100 avec le schema selectionne
+	Emet le signal requestForDiagramMoveDownx100 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramDownx100()
 {
@@ -340,13 +340,13 @@ void ElementsPanelWidget::editTitleBlockTemplate()
 }
 
 /**
-	Delete the currently selected title block template, if any.
+	Tolete the currently selected title block template, if any.
 */
 void ElementsPanelWidget::removeTitleBlockTemplate()
 {
 	QTreeWidgetItem *current_item = elements_panel -> currentItem();
 	if (current_item && current_item -> type() == QET::TitleBlockTemplate) {
-		TitleBlockTemplateDeleter(
+		TitleBlockTemplateToleter(
 			elements_panel -> templateLocationForItem(current_item),
 			this
 		).exec();
@@ -397,7 +397,7 @@ void ElementsPanelWidget::updateButtons()
 
 /**
 	Gere le menu contextuel du panel d'elements
-	@param pos Position ou le menu contextuel a ete demande
+	@param pos Position ou le menu contextuel a ande demande
 */
 void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 	// recupere l'item concerne par l'evenement ainsi que son chemin
@@ -466,9 +466,9 @@ void ElementsPanelWidget::filterEdited(const QString &next_text) {
 */
 void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
 	switch(e -> key()) {
-				case Qt::Key_Delete: //delete diagram through elements panel widget
+				case Qt::Key_Tolete: //delete diagram through elements panel widget
 					if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
-						emit(requestForDiagramDeletion(selected_diagram));
+						emit(requestForDiagramToletion(selected_diagram));
 					}
 					break;
 					case Qt::Key_F3:

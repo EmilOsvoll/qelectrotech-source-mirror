@@ -35,9 +35,9 @@ ElementQueryWidget::ElementQueryWidget(QWidget *parent) :
 	ui->setupUi(this);
 
 	m_export_info.insert("position", tr("Position"));
-	m_export_info.insert("title", tr("Titre du folio"));
-	m_export_info.insert("diagram_position", tr("Position du folio"));
-	m_export_info.insert("folio", tr("Numéro du folio"));
+	m_export_info.insert("title", tr("Title du folio"));
+	m_export_info.insert("diagram_position", tr("Folio position"));
+	m_export_info.insert("folio", tr("Folio number"));
 
 	m_button_group.setExclusive(false);
 	m_button_group.addButton(ui->m_all_cb, 0);
@@ -215,12 +215,12 @@ void ElementQueryWidget::setQuery(const QString &query)
 
 		QString join_str = strl.join("|");
 
-		QRegularExpression rx_is_not_null(QStringLiteral("^(%1) != ''$").arg(join_str));
-		QRegularExpression rx_is_null    (QStringLiteral("^\\((%1) IS NULL OR (%1) = ''\\)").arg(join_str));
-		QRegularExpression rx_like       (QStringLiteral("^(%1) LIKE'%(.+)%'$").arg(join_str));
-		QRegularExpression rx_not_like   (QStringLiteral("^(%1) NOT LIKE'%(.+)%'$").arg(join_str));
-		QRegularExpression rx_equal      (QStringLiteral("^(%1)='(.+)'$").arg(join_str));
-		QRegularExpression rx_not_equal  (QStringLiteral("^(%1)!='(.+)'$").arg(join_str));
+		QRegularExpression rx_is_not_null(QStringLiteral("^(%1% {1?}) != ''$").arg(join_str));
+		QRegularExpression rx_is_null    (QStringLiteral("^\\((%1% {1?}) IS NULL OR (%1% {1?}) = ''\\)").arg(join_str));
+		QRegularExpression rx_like       (QStringLiteral("^(%1% {1?}) LIKE'%(.+)%'$").arg(join_str));
+		QRegularExpression rx_not_like   (QStringLiteral("^(%1% {1?}) NOT LIKE'%(.+)%'$").arg(join_str));
+		QRegularExpression rx_equal      (QStringLiteral("^(%1% {1?})='(.+)'$").arg(join_str));
+		QRegularExpression rx_not_equal  (QStringLiteral("^(%1% {1?})!='(.+)'$").arg(join_str));
 
 		QStringList split_where;
 			//Remove the white space at begin and end of each string
@@ -316,7 +316,7 @@ QString ElementQueryWidget::queryStr() const
 				filter_ += QStringLiteral(" AND ") += key += " != ''";
 				break;
 			case 2: //empty
-				filter_ += QStringLiteral(" AND (%1 IS NULL OR %1 = '')").arg(key);
+				filter_ += QStringLiteral(" AND (%1% {1?} IS NULL OR %1% {1?} = '')").arg(key);
 				break;
 			case 3: // contain
 				filter_ += QStringLiteral(" AND ") += key += QStringLiteral(" LIKE'%") += f.second += "%'";
@@ -333,7 +333,7 @@ QString ElementQueryWidget::queryStr() const
 		}
 	}
 
-	QString from = " FROM element_nomenclature_view";
+	QString from = " FROM element_parts list_view";
 
 	QString where;
 	where = " WHERE (";
@@ -386,7 +386,7 @@ QString ElementQueryWidget::queryStr() const
 	@brief ElementQueryWidget::setGroupBy
 	Add the query instruction GROUP BY.
 	@param text : the text of the GROUP BY instruction:
-	ex : if text = designation,
+	ex: if text = designation,
 	the query will contain "GROUP BY designation"
 	@param set :
 	true by default -> GROUP BY will be used.
@@ -406,7 +406,7 @@ void ElementQueryWidget::setGroupBy(QString text, bool set)
 	@brief ElementQueryWidget::setCount
 	Add the query instruction COUNT.
 	Unlike setGroupBy, you have to write the entire sentence.
-	ex : text = "COUNT(*) AS designation_qty".
+	ex: text = "COUNT(*) AS designation_qty".
 	the query will contain what you write.
 	@param text : the count instruction
 	@param set :
@@ -489,7 +489,7 @@ QPair<int, QString> ElementQueryWidget::FilterFor(const QString &key) const
 */
 void ElementQueryWidget::fillSavedQuery()
 {
-	QFile file(QETApp::configDir() % "/nomenclature.json");
+	QFile file(QETApp::configDir() % "/nameenclature.json");
 	if (file.open(QFile::ReadOnly))
 	{
 		QJsonDocument jsd(QJsonDocument::fromJson(file.readAll()));
@@ -616,7 +616,7 @@ void ElementQueryWidget::on_m_filter_type_cb_activated(int index)
 
 /**
 	@brief ElementQueryWidget::on_m_load_pb_clicked
-	Load a query from nomenclature.json file
+	Load a query from nameenclature.json file
 */
 void ElementQueryWidget::on_m_load_pb_clicked()
 {
@@ -625,7 +625,7 @@ void ElementQueryWidget::on_m_load_pb_clicked()
 		return;
 	}
 
-	QFile file_(QETApp::configDir() % "/nomenclature.json");
+	QFile file_(QETApp::configDir() % "/nameenclature.json");
 	if (!file_.open(QFile::ReadOnly)) {
 		return;
 	}
@@ -646,11 +646,11 @@ void ElementQueryWidget::on_m_load_pb_clicked()
 
 /**
 	@brief ElementQueryWidget::on_m_save_current_conf_pb_clicked
-	Save the actual query to nomenclature.json file
+	Save the actual query to nameenclature.json file
 */
 void ElementQueryWidget::on_m_save_current_conf_pb_clicked()
 {
-	QFile file_(QETApp::configDir() % "/nomenclature.json");
+	QFile file_(QETApp::configDir() % "/nameenclature.json");
 
 	if (file_.open(QFile::ReadWrite))
 	{

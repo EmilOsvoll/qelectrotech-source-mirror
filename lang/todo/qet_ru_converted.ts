@@ -1,0 +1,19104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TS version="2.1" language="ru">
+<context>
+    <name>AboutQETDialog</name>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="373" />
+        <source>About QElectroTech</source>
+        <translation>О программе QElectrotech</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="375" />
+        <source>About</source>
+        <translation>О программе</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="53" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="377" />
+        <source>Authors</source>
+        <translation>Авторы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="133" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="379" />
+        <source>Translators</source>
+        <translation>Переводчики</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="216" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="381" />
+        <source>Contributors</source>
+        <translation>Участники</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="296" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="383" />
+        <source>Version</source>
+        <translation>Версия</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="348" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="385" />
+        <source>Side project</source>
+        <translation>Побочный проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="428" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="387" />
+        <source>Libraries</source>
+        <translation>Библиотека</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="508" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="388" />
+        <source>Licenses</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.ui" line="532" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_aboutqetdialog.h" line="389" />
+        <source>Log</source>
+        <translation>Журнал</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="62" />
+        <source>QElectroTech, an application to design electric diagrams.</source>
+        <comment>about tab, description line</comment>
+        <translation>QElectroTech — приложение для разработки электрических схем.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="64" />
+        <source> The developers of QElectroTech</source>
+        <comment>about tab, developers line</comment>
+        <translation> Разработчики QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="75" />
+        <source>Contact : &lt;a href="mailto:qet@lists.tuxfamily.org"&gt;qet@lists.tuxfamily.org&lt;/a&gt;</source>
+        <comment>about tab, contact line</comment>
+        <translation>Пишите: &lt;a href="mailto:qet@lists.tuxfamily.org"&gt;qet@lists.tuxfamily.org&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="87" />
+        <source>Original concept</source>
+        <translation>Оригинальная идея</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="88" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="89" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="90" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="93" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="94" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="95" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="96" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="97" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="155" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="158" />
+        <source>Development</source>
+        <translation>Разработка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="91" />
+        <source>DXF converter</source>
+        <translation>Конвертер DXF</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="92" />
+        <source>Terminal Block plugin</source>
+        <translation>Плагин «Клеммный блок»</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="98" />
+        <source>Collection</source>
+        <translation>Коллекция</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="106" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="107" />
+        <source>Spanish translation</source>
+        <translation>Перевод на испанский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="108" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="109" />
+        <source>Russian translation</source>
+        <translation>Перевод на русский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="110" />
+        <source>Portuguese translation</source>
+        <translation>Перевод на португальский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="111" />
+        <source>Czech translation</source>
+        <translation>Перевод на чешский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="112" />
+        <source>Polish translation</source>
+        <translation>Перевод на польский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="113" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="114" />
+        <source>German translation</source>
+        <translation>Перевод на немецкий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="115" />
+        <source>Romanian translation</source>
+        <translation>Перевод на румынский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="116" />
+        <source>Italian translation</source>
+        <translation>Перевод на итальянский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="117" />
+        <source>Arabic translation</source>
+        <translation>Перевод на арабский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="118" />
+        <source>Croatian translation</source>
+        <translation>Перевод на хорватский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="119" />
+        <source>Catalan translation</source>
+        <translation>Перевод на каталонский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="120" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="121" />
+        <source>Greek translation</source>
+        <translation>Перевод на греческий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="122" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="123" />
+        <source>Dutch translation</source>
+        <translation>Перевод на голландский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="124" />
+        <source>Flemish translation</source>
+        <translation>Перевод на фламандский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="125" />
+        <source>Danish translation</source>
+        <translation>Перевод на датский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="126" />
+        <source>Brazilian translation</source>
+        <translation>Перевод на бразильский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="127" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="128" />
+        <source>Turkish translation</source>
+        <translation>Перевод на турецкий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="129" />
+        <source>Hungarian translation</source>
+        <translation>Перевод на венгерский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="130" />
+        <source>Serbian Translation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="131" />
+        <source>Ukrainian translation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="132" />
+        <source>Norwegian Translation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="133" />
+        <source>Japanese translation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="134" />
+        <source>Mongolian Translation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="135" />
+        <source>Slovenian translation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="143" />
+        <source>Fedora and Red Hat packages</source>
+        <translation>Пакеты для Fedora и Red Hat</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="144" />
+        <source>Mageia packages</source>
+        <translation>Пакеты для Mageia</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="145" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="146" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="147" />
+        <source>Debian packages</source>
+        <translation>Пакеты для Debian</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="148" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="149" />
+        <source>Gentoo packages</source>
+        <translation>Пакеты для Gentoo</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="150" />
+        <source>OS/2 packages</source>
+        <translation>Пакеты для OS/2</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="151" />
+        <source>FreeBSD packages</source>
+        <translation>Пакеты для FreeBSD</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="152" />
+        <source>MAC OS X packages</source>
+        <translation>Пакеты для MAC OS X</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="153" />
+        <source>Archlinux AUR packages</source>
+        <translation>Пакеты для Archlinux AUR</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="154" />
+        <source>Icons</source>
+        <translation>Значки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="156" />
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="157" />
+        <source>Documentation</source>
+        <translation>Документация</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="159" />
+        <source>Collection of elements</source>
+        <translation>Коллекция элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="160" />
+        <source>Snap package</source>
+        <translation>Пакет Snap</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="176" />
+        <source>Elements  resizer</source>
+        <comment>Element scaler</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="178" />
+        <source>Lambda element generator</source>
+        <comment>Lambda element generator</comment>
+        <translation>Генератор лямбда-элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="180" />
+        <source>DXF Element Converter</source>
+        <comment>Dxf2elmt</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/aboutqetdialog.cpp" line="182" />
+        <source>Elements translation tool</source>
+        <comment>Qet_translate</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>AddLinkDialog</name>
+    <message>
+        <location filename="../sources/richtext/addlinkdialog.ui" line="5" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addlinkdialog.h" line="100" />
+        <location filename="../sources/richtext/ui_addlinkdialog.h" line="104" />
+        <source>Insert Link</source>
+        <translatorcomment>dont know where used</translatorcomment>
+        <translation>Вставить ссылку</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/addlinkdialog.ui" line="19" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addlinkdialog.h" line="101" />
+        <location filename="../sources/richtext/ui_addlinkdialog.h" line="105" />
+        <source>Title:</source>
+        <translation>Название:</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/addlinkdialog.ui" line="36" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addlinkdialog.h" line="102" />
+        <location filename="../sources/richtext/ui_addlinkdialog.h" line="106" />
+        <source>URL:</source>
+        <translatorcomment>Ссылка:=Link:</translatorcomment>
+        <translation>URL:</translation>
+    </message>
+</context>
+<context>
+    <name>AddTableDialog</name>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="224" />
+        <source>Add a table</source>
+        <translation>Добавить таблицу</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="24" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="250" />
+        <source>Display</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="33" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="225" />
+        <source>Adjust the size of the table to the folio</source>
+        <translation>Подогнать размер таблицы к листу</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="46" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="226" />
+        <source>Add new folio and table if necessary.</source>
+        <translation>При необходимости добавить лист и таблицу.</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="66" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="228" />
+        <source>Table name</source>
+        <translation>Имя таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="73" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="229" />
+        <source>Header text</source>
+        <translation>Текст заголовка</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="80" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="164" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="230" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="243" />
+        <source>Left</source>
+        <translation>Влево</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="85" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="169" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="231" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="244" />
+        <source>Middle</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="90" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="174" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="232" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="245" />
+        <source>Right</source>
+        <translation>Вправо</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="98" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="182" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="234" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="247" />
+        <source>Font:</source>
+        <translation>Шрифт:</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="105" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="149" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="235" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="241" />
+        <source>Edit</source>
+        <translation>Редактировать</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="119" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="142" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="237" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="240" />
+        <source>Margins :</source>
+        <translation>Поля:</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="126" />
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="156" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="238" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="242" />
+        <source>Alignment:</source>
+        <translation>Выравнивание:</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="136" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="239" />
+        <source>Text of the table</source>
+        <translation>Текст таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.ui" line="202" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addtabledialog.h" line="249" />
+        <source>Configuration</source>
+        <translation>Конфигурация</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.cpp" line="42" />
+        <source>Content</source>
+        <translation>Содержание</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.cpp" line="169" />
+        <source>Select the font at the top of the table</source>
+        <translation>Выбрать шрифт заголовка таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/ui/addtabledialog.cpp" line="180" />
+        <source>Select the font of the table cells</source>
+        <translation>Выбрать шрифт ячеек таблицы</translation>
+    </message>
+</context>
+<context>
+    <name>AddTerminalStripItemDialog</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="70" />
+        <source>Dialog</source>
+        <translation type="unfinished">Диалог</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="71" />
+        <source>Add the following terminal plan :</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>AlignmentTextDialog</name>
+    <message>
+        <location filename="../sources/ui/alignmenttextdialog.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_alignmenttextdialog.h" line="135" />
+        <source>text alignment</source>
+        <translation>Выравнивание</translation>
+    </message>
+</context>
+<context>
+    <name>ArcEditor</name>
+    <message>
+        <location filename="../sources/editor/arceditor.cpp" line="54" />
+        <source>Center : </source>
+        <translation>Центр: </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/arceditor.cpp" line="59" />
+        <source>Diameters: </source>
+        <translation>Диаметры: </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/arceditor.cpp" line="60" />
+        <source>horizontal:</source>
+        <translation>горизонтально:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/arceditor.cpp" line="62" />
+        <source>vertical:</source>
+        <translation>вертикально:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/arceditor.cpp" line="64" />
+        <source>Start angle:</source>
+        <translation>Начальный угол:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/arceditor.cpp" line="66" />
+        <source>Angle:</source>
+        <translation>Угол:</translation>
+    </message>
+</context>
+<context>
+    <name>AutoNumberingDockWidget</name>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingdockwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingdockwidget.h" line="99" />
+        <source>Auto numbering selection</source>
+        <translation>Выбор автонумерации</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingdockwidget.ui" line="34" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingdockwidget.h" line="101" />
+        <source>Element</source>
+        <translation>Элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingdockwidget.ui" line="41" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingdockwidget.h" line="102" />
+        <source>Conductor</source>
+        <translation>Проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingdockwidget.ui" line="64" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingdockwidget.h" line="104" />
+        <source>Configure auto numbering rules</source>
+        <translation>Настройка автонумерации</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingdockwidget.ui" line="67" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingdockwidget.h" line="106" />
+        <source>Configure</source>
+        <translation>Настроить</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingdockwidget.ui" line="24" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingdockwidget.h" line="100" />
+        <source>Folio</source>
+        <translation>Лист</translation>
+    </message>
+</context>
+<context>
+    <name>AutoNumberingManagementW</name>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="352" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="149" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="360" />
+        <source>Project Status:</source>
+        <translation>Статус проекта:</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="32" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="353" />
+        <source>Range</source>
+        <translation>Диапазон</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="45" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="355" />
+        <source>Apply to Selected Locations</source>
+        <translation>Применить к выбранному</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="52" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="356" />
+        <source>Apply to Selected Folios</source>
+        <translation>Применить к выбранным листам</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="59" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="357" />
+        <source>Apply to Entire Project</source>
+        <translation>Применить ко всему проекту</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="78" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="358" />
+        <source>From</source>
+        <translation>от</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="101" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="359" />
+        <source>To</source>
+        <translation>до</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="156" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="361" />
+        <source>Update Policy</source>
+        <translation>Политика обновления</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="171" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="362" />
+        <source>Conductor</source>
+        <translation>Проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="188" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="275" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="353" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="364" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="369" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="373" />
+        <source>Only New</source>
+        <translation>Новые</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="178" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="259" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="373" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="363" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="368" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="375" />
+        <source>Both</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="208" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="307" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="383" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="366" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="371" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="376" />
+        <source>Disable</source>
+        <translation>Отключить</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="246" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="367" />
+        <source>Element</source>
+        <translation>Элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="198" />
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="291" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="365" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="370" />
+        <source>Only Existent</source>
+        <translation>Существующие</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="346" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="372" />
+        <source>Folio</source>
+        <translation>Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.ui" line="363" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_autonumberingmanagementw.h" line="374" />
+        <source>Existent</source>
+        <translation>Создаваемые</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.cpp" line="69" />
+        <source>Under Development</source>
+        <translation>В разработке</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.cpp" line="70" />
+        <source>Installing</source>
+        <translation>В выполнении</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.cpp" line="71" />
+        <source>Built</source>
+        <translation>Законченный</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.cpp" line="215" />
+        <source>Auto Numbering Management</source>
+        <comment>title window</comment>
+        <translation>Управление автонумерацией</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/autonumberingmanagementw.cpp" line="216" />
+        <source>In this menu you can set whether you want the auto numberings to be updated or not. For element auto numbering you have 4 options of update policy:
+-Both: both new and existent element labels will be updated. This is the default option.
+-Update only new: only new created elements will be updated. Existent element labels will be frozen.
+-Update only existent: only existent elements will be updated. New elements will be assigned their formula but will not update once created.
+-Disable: both new and existent element labels will not be updated. This is valid for new folios as well.
+Note: these options DO NOT allow or block auto numberings, only their update policy.</source>
+        <translation>В этом меню вы можете указать, хотите ли вы обновлять автонумерацию или нет. Для автоматической нумерации элементов у вас есть 4 варианта политики обновления:
+-Обновлять все: будут обновлены метки как новых, так и существующих элементов. Это опция по умолчанию.
+-Обновлять только новые: будут обновлены только новые созданные элементы. Метки существующих элементов будут заморожены.
+-Обновлять только существующие: будут обновлены только существующие элементы. Новым элементам будет назначена их формула, но они не будут обновляться после создания.
+-Отключить: метки новых и существующих элементов не будут обновлены. Это относится и к новым листам.
+Примечание. Эти параметры НЕ разрешают и не блокируют автонумерацию, только политику ее обновления.</translation>
+    </message>
+</context>
+<context>
+    <name>BOMExportDialog</name>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_bomexportdialog.h" line="81" />
+        <source>Dialog</source>
+        <translation>Диалог</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_bomexportdialog.h" line="82" />
+        <source>Page layout</source>
+        <translation>Макет страницы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_bomexportdialog.h" line="83" />
+        <source>include headers</source>
+        <translation>включить заголовки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.ui" line="36" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_bomexportdialog.h" line="84" />
+        <source>Format as a part list</source>
+        <translation>Форматировать как список материалов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="68" />
+        <source>parts list_</source>
+        <translation>номенклатура_</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="69" />
+        <source>Save As... </source>
+        <translation>Сохранить как... </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="69" />
+        <source>Files csv (*.csv)</source>
+        <translation>Файлы csv (*.csv)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="78" />
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="79" />
+        <source>Unable to replace the file!
+
+</source>
+        <translation>Невозможно заменить файл!
+
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="122" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="124" />
+        <source>Folio position</source>
+        <translation>Положение листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/bomexportdialog.cpp" line="126" />
+        <source>Designation quantity</source>
+        <comment>Special field with name : designation quantity</comment>
+        <translatorcomment>Специальное поле с названием: обозначение количество</translatorcomment>
+        <translation>Количество номеров позиций</translation>
+    </message>
+</context>
+<context>
+    <name>BorderPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="114" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="26" />
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="42" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="116" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="118" />
+        <source>px</source>
+        <comment>pixel</comment>
+        <extracomment>pixel</extracomment>
+        <translatorcomment>пиксель/пикс./пикселей doesn`t matter</translatorcomment>
+        <translation> пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="29" />
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="45" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="117" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="119" />
+        <source>x</source>
+        <translation>x</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="72" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="122" />
+        <source>Columns:</source>
+        <translation>Столбцы:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="62" />
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="79" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="121" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="123" />
+        <source>Display headers</source>
+        <translation>Отображать заголовки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="55" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="120" />
+        <source>Rows:</source>
+        <translation>Строки:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/borderpropertieswidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_borderpropertieswidget.h" line="115" />
+        <source>Dimensions of folio</source>
+        <translation>Размер листа</translation>
+    </message>
+</context>
+<context>
+    <name>ColumnResizerTestWidget</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="14" />
+        <source>ColumnResizer Test</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="20" />
+        <source>GridLayout</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="26" />
+        <source>A line edit:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="42" />
+        <source>Spin me:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="52" />
+        <source>A check box</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="62" />
+        <source>FormLayout</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="71" />
+        <source>One line:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="81" />
+        <source>A much bigger text area:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="94" />
+        <source>FormLayout2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="103" />
+        <source>Time:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="110" />
+        <source>Show seconds</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="117" />
+        <source>Details:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="124" />
+        <source>Option &amp;1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="134" />
+        <source>Option &amp;2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="144" />
+        <source>Crazy QGridLayout</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="150" />
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="157" />
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="164" />
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/kcolumnresizertestapp.ui" line="177" />
+        <source>PushButton</source>
+        <translation type="unfinished">Кнопка</translation>
+    </message>
+</context>
+<context>
+    <name>CompositeTextEditDialog</name>
+    <message>
+        <location filename="../sources/ui/compositetexteditdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_compositetexteditdialog.h" line="71" />
+        <source>Composite text</source>
+        <translation>Составленный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/compositetexteditdialog.ui" line="23" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_compositetexteditdialog.h" line="72" />
+        <source>Add a variable :</source>
+        <translation>Добавить переменную:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/compositetexteditdialog.cpp" line="20" />
+        <location filename="../sources/ui/compositetexteditdialog.cpp" line="36" />
+        <source>Enter your composite text here, using the available variables</source>
+        <translation>Введите здесь свой составленный текст, используя доступные переменные</translation>
+    </message>
+</context>
+<context>
+    <name>Conductor</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/conductor.cpp" line="1660" />
+        <source>Edit conductor properties</source>
+        <comment>undo caption</comment>
+        <translation>Редактировать свойства проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/conductor.cpp" line="1665" />
+        <source>Edit the properties of several conductors</source>
+        <comment>undo caption</comment>
+        <translation>Редактировать свойства нескольких проводников</translation>
+    </message>
+</context>
+<context>
+    <name>ConductorPropertiesDialog</name>
+    <message>
+        <location filename="../sources/ui/conductorpropertiesdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertiesdialog.h" line="58" />
+        <source>Edit conductor properties</source>
+        <translation>Правка свойств проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertiesdialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertiesdialog.h" line="59" />
+        <source>Apply properties to all conductors of this potential</source>
+        <translation>Применить свойства ко всем проводникам этого потенциала</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertiesdialog.cpp" line="76" />
+        <source>Edit conductor properties</source>
+        <comment>undo caption</comment>
+        <translation>Изменить свойства проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertiesdialog.cpp" line="80" />
+        <source>Edit the properties of several conductors</source>
+        <comment>undo caption</comment>
+        <translation>Изменить свойства нескольких проводников</translation>
+    </message>
+</context>
+<context>
+    <name>ConductorPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="223" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="557" />
+        <source>Text size :</source>
+        <translation>Размер текста:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="85" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="533" />
+        <source>Voltage / Protocol :</source>
+        <translation>Напряжение/протокол:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="213" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="556" />
+        <source>Text:</source>
+        <translation>Текст:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="161" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="548" />
+        <source>Function :</source>
+        <translation>Функция:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="75" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="531" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="301" />
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="313" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="566" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="591" />
+        <source>Single line</source>
+        <translation>Однолинейный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="102" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="536" />
+        <source>Text size</source>
+        <translation>Размер текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="24" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="592" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="138" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="541" />
+        <source>Visible text</source>
+        <translation>Видимый текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="58" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="528" />
+        <source>Text color :</source>
+        <translation>Цвет текста:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="151" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="545" />
+        <source>Activate the option text by potential</source>
+        <translation>Активировать опциональный текст потенциала</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="195" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="553" />
+        <source>Horizontal at the top</source>
+        <translation>Горизонтально вверху</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="200" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="554" />
+        <source>Horizontal down</source>
+        <translation>Горизонтально внизу</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="171" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="549" />
+        <source>Vertical left</source>
+        <translation>Вертикально слева</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="176" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="550" />
+        <source>Vertical right</source>
+        <translation>Вертикально справа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="184" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="552" />
+        <source>Position and rotation of the conductor text:</source>
+        <translation>Положение и поворот текста проводника:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="391" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="583" />
+        <source>phase</source>
+        <translation>фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.cpp" line="234" />
+        <source>Solid line</source>
+        <comment>conductor style: solid line</comment>
+        <translation>Сплошная линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.cpp" line="235" />
+        <source>Dashed line</source>
+        <comment>conductor style: dashed line</comment>
+        <translation>Пунктирная линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.cpp" line="236" />
+        <source>Dots and dashes</source>
+        <comment>conductor style: dashed and dotted line</comment>
+        <translation>Точки и тире</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="377" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="579" />
+        <source>ground</source>
+        <translation>заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="363" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="575" />
+        <source>neutral</source>
+        <translatorcomment>нейтраль?</translatorcomment>
+        <translation>нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="526" />
+        <source>Form</source>
+        <translatorcomment>context dependent</translatorcomment>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="254" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="562" />
+        <source>Text Formula :</source>
+        <translation>Формула текста:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="154" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="547" />
+        <source>Show one text per folio potential. </source>
+        <translation>Показывать для потенциала один текст на лист. </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="34" />
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="46" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="527" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="565" />
+        <source>&amp;Multiline</source>
+        <translation>&amp;Многолинейный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="92" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="534" />
+        <source>Auto Numbering</source>
+        <translation>Автонумерация</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="230" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="559" />
+        <source>Edit numbering</source>
+        <translation>редактировать нумерацию</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="131" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="539" />
+        <source>Conductor section</source>
+        <translation>Сечение проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="264" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="563" />
+        <source>cable</source>
+        <translation>кабель</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="274" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="564" />
+        <source>bus</source>
+        <translation>шина</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="340" />
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="408" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="569" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="585" />
+        <source>Number of phase</source>
+        <translation>Количество фаз</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="360" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="573" />
+        <source>Neutral</source>
+        <translation>Нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="388" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="581" />
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="424" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="588" />
+        <source>Protective Earth Neutral</source>
+        <translatorcomment>dont know what is this</translatorcomment>
+        <translation>Глухозаземлённая нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="427" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="590" />
+        <source>PEN</source>
+        <translatorcomment>?</translatorcomment>
+        <translation>PEN</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="374" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="577" />
+        <source>Ground</source>
+        <translation>Заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="330" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="567" />
+        <source>TextLabel</source>
+        <translatorcomment>context dependent</translatorcomment>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="466" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="593" />
+        <source>Size :</source>
+        <translation>Размер:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="486" />
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="557" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="595" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="603" />
+        <source>Conductor style</source>
+        <translation>Стиль проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="496" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="598" />
+        <source>Secondary color :</source>
+        <translation>Вторичный цвет:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="518" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="600" />
+        <source>px</source>
+        <translation> пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="511" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="599" />
+        <source>Line size :</source>
+        <translation>Размер дополнительной линии:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="65" />
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="564" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="529" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="606" />
+        <source>Conductor color</source>
+        <translation>Цвет проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="457" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="609" />
+        <source>Appearance</source>
+        <translation>Внешний вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="528" />
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="567" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="601" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="608" />
+        <source>Color :</source>
+        <translation>Цвет:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/conductorpropertieswidget.ui" line="489" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_conductorpropertieswidget.h" line="597" />
+        <source>Style:</source>
+        <translation>Стиль линии:</translation>
+    </message>
+</context>
+<context>
+    <name>ConfigSaveLoaderWidget</name>
+    <message>
+        <location filename="../sources/ui/configsaveloaderwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_configsaveloaderwidget.h" line="76" />
+        <source>GroupBox</source>
+        <translation>Группа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configsaveloaderwidget.ui" line="17" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_configsaveloaderwidget.h" line="77" />
+        <source>Configuration</source>
+        <translation>Конфигурация</translation>
+    </message>
+</context>
+<context>
+    <name>CustomElementGraphicPart</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/customelementgraphicpart.cpp" line="1362" />
+        <source>Move a primitive</source>
+        <translation>Переместить примитив</translation>
+    </message>
+</context>
+<context>
+    <name>Diagram</name>
+    <message>
+        <location filename="../sources/diagram.cpp" line="1862" />
+        <source>Change the depth</source>
+        <translation>Изменить глубину</translation>
+    </message>
+</context>
+<context>
+    <name>DiagramContextWidget</name>
+    <message>
+        <location filename="../sources/ui/diagramcontextwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagramcontextwidget.h" line="69" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramcontextwidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagramcontextwidget.h" line="70" />
+        <location filename="../sources/ui/diagramcontextwidget.cpp" line="155" />
+        <source>Names may only contain lowercase letters, digits and dashes.</source>
+        <translation>Имена могут содержать только строчные буквы, цифры и тире.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramcontextwidget.ui" line="50" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagramcontextwidget.h" line="72" />
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramcontextwidget.ui" line="55" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagramcontextwidget.h" line="74" />
+        <source>Value</source>
+        <translation>Значение</translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEditorHandlerSizeWidget</name>
+    <message>
+        <location filename="../sources/ui/diagrameditorhandlersizewidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagrameditorhandlersizewidget.h" line="56" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagrameditorhandlersizewidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagrameditorhandlersizewidget.h" line="57" />
+        <source>Handles :</source>
+        <translation>Маркеры:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagrameditorhandlersizewidget.ui" line="28" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagrameditorhandlersizewidget.h" line="58" />
+        <source>x 1</source>
+        <translation>x 1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagrameditorhandlersizewidget.ui" line="33" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagrameditorhandlersizewidget.h" line="59" />
+        <source>x 2</source>
+        <translation>x 2</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagrameditorhandlersizewidget.ui" line="38" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagrameditorhandlersizewidget.h" line="60" />
+        <source>x 3</source>
+        <translation>x 3</translation>
+    </message>
+</context>
+<context>
+    <name>DiagramEventAddElement</name>
+    <message>
+        <location filename="../sources/diagramevent/diagrameventaddelement.cpp" line="248" />
+        <source>insert %1</source>
+        <translation>Добавить %1</translation>
+    </message>
+</context>
+<context>
+    <name>DiagramImageItem</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/diagramimageitem.cpp" line="127" />
+        <source>image</source>
+        <translation>Изображение</translation>
+    </message>
+</context>
+<context>
+    <name>DiagramPropertiesDialog</name>
+    <message>
+        <location filename="../sources/ui/diagrampropertiesdialog.cpp" line="50" />
+        <source>Folio properties</source>
+        <comment>window title</comment>
+        <translation>Параметры листа</translation>
+    </message>
+</context>
+<context>
+    <name>DiagramTextItem</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="57" />
+        <source>Hold ctrl to free movement</source>
+        <translation>Для свободного перемещения удерживайте Ctrl</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/diagramtextitem.cpp" line="489" />
+        <source>
+&lt;Shift&gt; to move</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>DiagramView</name>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="78" />
+        <source>Paste Here</source>
+        <comment>context menu action</comment>
+        <translation>Вставить здесь</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="53" />
+        <source>In this area you conceive your diagrams by adding elements and conductors between their terminals. You may also add independent texts.</source>
+        <comment>"What's this?" tip</comment>
+        <translation>Это поле для построения схем, куда вы добавляете элементы и соединения между их выводами. Вы также можете добавить произвольные надписи.</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="81" />
+        <source>Multiple paste</source>
+        <translation>Множественная вставка</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="507" />
+        <source>X: %1 Y: %2</source>
+        <translation>X: %1 Y: %2</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="610" />
+        <source>Connect the selected terminals</source>
+        <translation>Подключить выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="898" />
+        <source>Untitled</source>
+        <comment>what to display for untitled diagrams</comment>
+        <translation>Без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="118" />
+        <source>Choose the new color for this conductor</source>
+        <translation>Выбрать новый цвет для проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramview.cpp" line="137" />
+        <source>Edit conductor properties</source>
+        <comment>undo caption</comment>
+        <translation>Изменить свойства проводника</translation>
+    </message>
+</context>
+<context>
+    <name>DialogWaiting</name>
+    <message>
+        <location filename="../sources/ui/dialogwaiting.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dialogwaiting.h" line="96" />
+        <source>Thank you for your patience</source>
+        <translation>Спасибо за ваше терпение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dialogwaiting.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dialogwaiting.h" line="97" />
+        <source>Title</source>
+        <translatorcomment>Заголовок/Имя/Название context dependent</translatorcomment>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dialogwaiting.ui" line="88" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dialogwaiting.h" line="99" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+</context>
+<context>
+    <name>DynamicElementTextItem</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/dynamicelementtextitem.cpp" line="44" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/dynamicelementtextitem.cpp" line="55" />
+        <source>Edit an element text</source>
+        <translation>Редактировать текст элемента</translation>
+    </message>
+</context>
+<context>
+    <name>DynamicElementTextItemEditor</name>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="118" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="22" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="120" />
+        <source>Export the current text configuration</source>
+        <translation>Экспорт текущей конфигурации текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="25" />
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="39" />
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="66" />
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="80" />
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="94" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="122" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="126" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="130" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="134" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="138" />
+        <source>...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="36" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="124" />
+        <source>Import a text configuration</source>
+        <translation>Импортировать конфигурацию текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="63" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="128" />
+        <source>Add text</source>
+        <translation>Добавить текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="77" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="132" />
+        <source>Add a group of texts</source>
+        <translation>Добавить группу текстов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.ui" line="91" />
+        <location filename="../build/qelectrotech_autogen/ui_dynamicelementtextitemeditor.h" line="136" />
+        <source>Delete selection</source>
+        <translation>Удалить выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.h" line="43" />
+        <source>texts</source>
+        <translation>Тексты</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.cpp" line="129" />
+        <source>Edit an element texts</source>
+        <translation>Редактировать тексты элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.cpp" line="171" />
+        <source>Edit element text</source>
+        <translation>Редактировать текст элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.cpp" line="181" />
+        <source>Edit %1 telement text</source>
+        <translation>Изменить тексты элементов (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.cpp" line="243" />
+        <source>Name of the group</source>
+        <translation>Имя группы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextitemeditor.cpp" line="243" />
+        <source>Enter the name of the new group</source>
+        <translation>Введите название новой группы</translation>
+    </message>
+</context>
+<context>
+    <name>DynamicElementTextModel</name>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="69" />
+        <source>Property</source>
+        <translation>Свойство</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="70" />
+        <source>Value</source>
+        <translation>Значение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="144" />
+        <source>Source of text</source>
+        <translation>Источник текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="149" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="531" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="538" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1315" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1457" />
+        <source>User text</source>
+        <translation>Пользовательский текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="151" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="533" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="544" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1320" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1458" />
+        <source>Element information</source>
+        <translation>Информация об элементе</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="152" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="197" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="535" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="550" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1459" />
+        <source>Composite text</source>
+        <translation>Составленный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="163" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="177" />
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="204" />
+        <source>My composite text</source>
+        <translation>Мой составленный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="221" />
+        <source>Size</source>
+        <translation>Размер</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="236" />
+        <source>Font</source>
+        <translation>Шрифт</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="282" />
+        <source>Width</source>
+        <translation>Ширина</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="345" />
+        <source>Maintain visual rotation</source>
+        <translation>Поддерживает визуальное вращение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="362" />
+        <source>Edit</source>
+        <translation>Редактировать</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="570" />
+        <source>Change the font of an element text</source>
+        <translation>Изменить шрифт текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="626" />
+        <source>Change the way item text stays rotated</source>
+        <translation>Изменить способ поворота текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="637" />
+        <source>Modify the alignment of an element text</source>
+        <translation>Изменить выравнивание текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="563" />
+        <source>Change the size of an element text</source>
+        <translation>Изменить размер текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="577" />
+        <source>Change the color of an element text</source>
+        <translation>Изменить цвет текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="584" />
+        <source>Modify the frame of an element text</source>
+        <translation>Изменить рамку текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="592" />
+        <source>Change the width of an element text</source>
+        <translation>Изменить ширину текста элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="604" />
+        <source>Move an item text</source>
+        <translation>Переместить текст элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="616" />
+        <source>Rotate element text</source>
+        <translation>Повернуть текст элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="661" />
+        <source>Edit a group of texts</source>
+        <translation>Редактировать группу текстов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="669" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="747" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1551" />
+        <source>Left</source>
+        <translation>Влево</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="671" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="748" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1552" />
+        <source>Right</source>
+        <translation>Вправо</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="673" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="749" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1553" />
+        <source>Middle</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="359" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="742" />
+        <source>Alignment</source>
+        <translation>Выравнивание</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="807" />
+        <source>Vertical adjustment</source>
+        <translation>Выравнивание по вертикали</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="837" />
+        <source>Keep at the bottom of the page</source>
+        <translation>Сохранить внизу страницы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1143" />
+        <source>Move a text to another group</source>
+        <translation>Переместить текст в другую группу</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="250" />
+        <source>Color</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="266" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="821" />
+        <source>Frame</source>
+        <translation>Рамка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="299" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="763" />
+        <source>Position X</source>
+        <translation>Позиция X</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="314" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="778" />
+        <source>Position Y</source>
+        <translation>Позиция Y</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="329" />
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="793" />
+        <source>Rotation</source>
+        <translation>Вращение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="523" />
+        <source>Edit an element text</source>
+        <translation>Редактировать текст элемента</translation>
+    </message>
+</context>
+<context>
+    <name>DynamicTextFieldEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="211" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="125" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="220" />
+        <source>Source of text</source>
+        <translation>Источник текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="212" />
+        <source>Color</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="72" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="218" />
+        <source>Maintain visual rotation</source>
+        <translation>Сохранять положение при вращении</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="54" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="214" />
+        <source>User text</source>
+        <translation>Пользовательский текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="59" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="215" />
+        <source>Element information</source>
+        <translation>Информация об элементе</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="115" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="219" />
+        <source>Y</source>
+        <translation type="unfinished">Y</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="162" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="224" />
+        <source>Frame the text</source>
+        <translation>Рамка текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="64" />
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="148" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="216" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="222" />
+        <source>Composite text</source>
+        <translation>Составленный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="199" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="226" />
+        <source>X</source>
+        <translation type="unfinished">X</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="209" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="227" />
+        <source>Font</source>
+        <translation>Шрифт</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="43" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="213" />
+        <source>Width</source>
+        <translation>Ширина</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="155" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="223" />
+        <source>Alignment</source>
+        <translation>Выравнивание</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.ui" line="138" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_dynamictextfieldeditor.h" line="221" />
+        <source>Rotation</source>
+        <translation>Вращение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="240" />
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="251" />
+        <source>Move a text field</source>
+        <translation>Переместить текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="262" />
+        <source>Rotate a text field</source>
+        <translation>Повернуть текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="273" />
+        <source>Edit the text of a text field</source>
+        <translation>Изменить текст текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="284" />
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="411" />
+        <source>Change the font of a text field</source>
+        <translation>Изменить шрифт текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="425" />
+        <source>Change the color of a text field</source>
+        <translation>Изменить цвет текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="438" />
+        <source>Modify the conservation of the angle</source>
+        <translation>Изменить сохранение угла</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="296" />
+        <source>Modify the frame of a text field</source>
+        <translation>Изменить рамку текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="309" />
+        <source>Change the width of a text</source>
+        <translation>Изменить ширину текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="322" />
+        <source>Edit text information</source>
+        <translation>Изменить текст информации</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="359" />
+        <source>Change text source, text</source>
+        <translation>Изменить источник текста или текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/dynamictextfieldeditor.cpp" line="395" />
+        <source>Modify the alignment of a text field</source>
+        <translation>Изменить выравнивание текстового поля</translation>
+    </message>
+</context>
+<context>
+    <name>DynamicTextItemDelegate</name>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1609" />
+        <source>User text</source>
+        <translation>Пользовательский текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1610" />
+        <source>Element information</source>
+        <translation>Информация об элементе</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1611" />
+        <source>Composite text</source>
+        <translation>Составленный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1726" />
+        <source>Left</source>
+        <translation>Влево</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1727" />
+        <source>Middle</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dynamicelementtextmodel.cpp" line="1728" />
+        <source>Right</source>
+        <translation>Вправо</translation>
+    </message>
+</context>
+<context>
+    <name>ElementDialog</name>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="62" />
+        <source>Open an element</source>
+        <comment>dialog title</comment>
+        <translation>Открыть элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="63" />
+        <source>Choose the element you wish to open.</source>
+        <comment>dialog content</comment>
+        <translation>Выберите элемент, который вы хотите открыть.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="66" />
+        <source>Save an element</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="67" />
+        <source>Choose the element you wish to save your definition into.</source>
+        <comment>dialog content</comment>
+        <translation>Выберите элемент, в котором вы хотите сохранить ваше определение.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="70" />
+        <source>Open a category</source>
+        <comment>dialog title</comment>
+        <translation>Открыть категорию</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="71" />
+        <location filename="../sources/elementdialog.cpp" line="75" />
+        <source>Choose a category.</source>
+        <comment>dialog content</comment>
+        <translation>Выберите категорию.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="74" />
+        <source>Save a category</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить категорию</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="78" />
+        <source>Title</source>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="79" />
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="113" />
+        <source>Name the new folder</source>
+        <translation>Имя новой папки</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="113" />
+        <source>New element name</source>
+        <translation>Имя нового элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="232" />
+        <source>You must select an element or category with a name for the element.</source>
+        <comment>message box content</comment>
+        <translation>Вы должны выбрать элемент или именованную категорию для элемента.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="200" />
+        <source>Non-existent selection</source>
+        <comment>message box title</comment>
+        <translation>Несуществующее выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="201" />
+        <source>The selection does not exist.</source>
+        <comment>message box content</comment>
+        <translation>Выделение не существует.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="207" />
+        <location filename="../sources/elementdialog.cpp" line="231" />
+        <source>Wrong selection</source>
+        <comment>message box title</comment>
+        <translation>Некорректное выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="208" />
+        <source>The selection is not an element.</source>
+        <comment>message box content</comment>
+        <translation>Выделение не является элементом.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="219" />
+        <source>Overwrite the element?</source>
+        <comment>message box title</comment>
+        <translation>Перезаписать элемент?</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementdialog.cpp" line="220" />
+        <source>The element already exists. Do you want to overwrite it?</source>
+        <comment>message box content</comment>
+        <translation>Элемент уже существует. Хотите перезаписать его?</translation>
+    </message>
+</context>
+<context>
+    <name>ElementInfoPartWidget</name>
+    <message>
+        <location filename="../sources/ui/elementinfopartwidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementinfopartwidget.h" line="66" />
+        <source>Form</source>
+        <translatorcomment>context dependent</translatorcomment>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementinfopartwidget.ui" line="54" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementinfopartwidget.h" line="67" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementinfopartwidget.ui" line="61" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementinfopartwidget.h" line="69" />
+        <source>Delete this text</source>
+        <translation>Удалить этот текст</translation>
+    </message>
+</context>
+<context>
+    <name>ElementInfoWidget</name>
+    <message>
+        <location filename="../sources/ui/elementinfowidget.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/ui_elementinfowidget.h" line="68" />
+        <source>Form</source>
+        <translatorcomment>context dependent</translatorcomment>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementinfowidget.h" line="51" />
+        <source>Informations</source>
+        <translation>Информация</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPropertiesEditorWidget</name>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="221" />
+        <source>Element Property</source>
+        <translation>Свойства элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="27" />
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="119" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="230" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="232" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="35" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="222" />
+        <source>Base type:</source>
+        <translation>Тип элемента:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="47" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="223" />
+        <source>Slave element</source>
+        <translation>Подчинённый элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="62" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="224" />
+        <source>Switch number represented</source>
+        <translation>Показывать контактов в ссылке</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="69" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="225" />
+        <source>Type of switch</source>
+        <translation>Тип контакта</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="76" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="226" />
+        <source>switch state</source>
+        <translation>Состояние контакта</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="94" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="227" />
+        <source>Master element</source>
+        <translation>Главный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="100" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="228" />
+        <source>concrete type</source>
+        <translation>Вид элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="113" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="229" />
+        <source>Terminal block element</source>
+        <translation>Элемент клеммной колодки</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="126" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="231" />
+        <source>Function</source>
+        <translation>Функция</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="156" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="236" />
+        <source>Informations</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="166" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="235" />
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.ui" line="171" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementpropertieseditorwidget.h" line="234" />
+        <source>Values</source>
+        <translation>Значения</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="119" />
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="132" />
+        <source>Simple</source>
+        <translation>Простой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="120" />
+        <source>Master</source>
+        <translation>Главный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="121" />
+        <source>Slave</source>
+        <translation>Подчинённый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="122" />
+        <source>Reference folio following</source>
+        <translation>Ссылка на следующий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="123" />
+        <source>Previous reference folio</source>
+        <translation>Ссылка на предыдущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="124" />
+        <source>Terminal block</source>
+        <translation>Клеммная колодка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="125" />
+        <source>Thumbnail</source>
+        <translation>Эскиз</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="128" />
+        <source>Switch normally open</source>
+        <translation>(NO) нормально открытый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="129" />
+        <source>Switch normally closed</source>
+        <translation>(NC) нормально закрытый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="130" />
+        <source>switch</source>
+        <translation>(CO) переключающийся</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="131" />
+        <source>Other</source>
+        <translation>Другой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="133" />
+        <source>Power switch</source>
+        <translation>Силовой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="134" />
+        <source>Switch-on delayed</source>
+        <translation>Включение с задержкой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="135" />
+        <source>Switch-off delayed</source>
+        <translation>Выключение с задержкой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="136" />
+        <source>Switch-on  and off delayed</source>
+        <translation>Включение и выключение по времени</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="139" />
+        <source>Coil</source>
+        <translation>Катушка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="140" />
+        <source>Organ of protection</source>
+        <translation>Устройство защиты</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="141" />
+        <source>Switch / button</source>
+        <translation>Переключатель/кнопка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="144" />
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="150" />
+        <source>Generic</source>
+        <translation>Общий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="145" />
+        <source>Fuse</source>
+        <translation>Предохранитель</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="146" />
+        <source>Sectionable</source>
+        <translation>Секционный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="147" />
+        <source>Diode</source>
+        <translation>Диод</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="151" />
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="152" />
+        <source>Neutral</source>
+        <translation>Нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/elementpropertieseditorwidget.cpp" line="148" />
+        <source>Ground</source>
+        <translation>Заземление</translation>
+    </message>
+</context>
+<context>
+    <name>ElementPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="351" />
+        <source>General</source>
+        <translation>Простой</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="361" />
+        <source>Element
+</source>
+        <translation>Элемент
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="364" />
+        <source>Name : %1
+</source>
+        <translation>Имя: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="367" />
+        <source>Folio : %1
+</source>
+        <translation>Лист: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="369" />
+        <source>Type: %1
+</source>
+        <translation>Тип: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="370" />
+        <source>Sub-type : %1
+</source>
+        <translation>Подтип: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="371" />
+        <source>Position : %1
+</source>
+        <translation>Позиция: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="372" />
+        <source>Rotation : %1°
+</source>
+        <translation>Вращение: %1°
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="373" />
+        <source>Dimensions : %1*%2
+</source>
+        <translation>Размеры: %1*%2
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="374" />
+        <source>Terminals : %1
+</source>
+        <translation>Выводы: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="375" />
+        <source>Location : %1
+</source>
+        <translation>Расположение: %1
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="394" />
+        <source>Find in the panel</source>
+        <translation>Найти в панели</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/elementpropertieswidget.cpp" line="396" />
+        <source>Edit element</source>
+        <translation>Редактировать элемент</translation>
+    </message>
+</context>
+<context>
+    <name>ElementQueryWidget</name>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="338" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="35" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="339" />
+        <source>Available information</source>
+        <translation>Доступная информация</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="45" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="340" />
+        <source>Information to export</source>
+        <translation>Информация для экспорта</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="85" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="342" />
+        <source>go up the selection</source>
+        <translation>Сдвинуть выделение вверх</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="102" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="346" />
+        <source>Add selection</source>
+        <translation>Добавить выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="116" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="350" />
+        <source>Delete selection</source>
+        <translation>Удалить выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="130" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="354" />
+        <source>go down the selection</source>
+        <translation>Сдвинуть выделение вниз</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="173" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="357" />
+        <source>No filter</source>
+        <translation>Нет фильтра</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="178" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="358" />
+        <source>Is not empty</source>
+        <translation>Не пусто</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="183" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="359" />
+        <source>Is empty</source>
+        <translation>Пусто</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="188" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="360" />
+        <source>Contain</source>
+        <translation>Содержит</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="193" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="361" />
+        <source>Does not contain</source>
+        <translation>Не содержит</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="198" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="362" />
+        <source>Is equal to</source>
+        <translation>Равно</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="203" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="363" />
+        <source>Is not equal to</source>
+        <translation>Не равно</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="214" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="365" />
+        <source>Filter :</source>
+        <translation>Фильтр:</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="239" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="366" />
+        <source>Type of elements</source>
+        <translation>Тип элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="248" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="367" />
+        <source>Simples</source>
+        <translation>Простой</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="268" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="369" />
+        <source>all</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="298" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="372" />
+        <source>Thumbnails</source>
+        <translation>Эскизы</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="308" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="373" />
+        <source>Contactors and relays</source>
+        <translation>Контакторы и реле</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="278" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="370" />
+        <source>Buttons and switches</source>
+        <translation>Кнопки и переключатели</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="288" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="371" />
+        <source>Terminal blocks</source>
+        <translation>Клеммные колодки</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="258" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="368" />
+        <source>Protection devices</source>
+        <translation>Устройства защиты</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="331" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="374" />
+        <source>Configuration</source>
+        <translation>Конфигурация</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="340" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="376" />
+        <source>Open the selected configuration</source>
+        <translation>Открыть сохранённую конфигурацию</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="367" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="380" />
+        <source>Save the current configuration</source>
+        <translation>Сохранить текущую конфигурацию</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="399" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="384" />
+        <source>Custom SQL Query</source>
+        <translation>Пользовательский SQL-запрос</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.ui" line="409" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_elementquerywidget.h" line="387" />
+        <source>SQL request  :</source>
+        <translation>SQL-запрос:</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.cpp" line="37" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.cpp" line="38" />
+        <source>Title of folio</source>
+        <translation>Название листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.cpp" line="39" />
+        <source>Folio position</source>
+        <translation>Положение листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/elementquerywidget.cpp" line="40" />
+        <source>Folio number</source>
+        <translation>Номер листа</translation>
+    </message>
+</context>
+<context>
+    <name>ElementScene</name>
+    <message>
+        <location filename="../sources/editor/elementscene.cpp" line="275" />
+        <source>Move a primitive</source>
+        <translation>Переместить примитив</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/elementscene.cpp" line="872" />
+        <source>Edit author information</source>
+        <comment>window title</comment>
+        <translation>Изменить информацию об авторе</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/elementscene.cpp" line="877" />
+        <source>You can use this field to specify the authors of this element, its license, or any other information you may find useful.</source>
+        <translation>Вы можете использовать это поле, чтобы указать авторов этого элемента, его лицензию или любую другую информацию, которую сочтете полезной.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/elementscene.cpp" line="941" />
+        <source>Edit names</source>
+        <comment>window title</comment>
+        <translation>Редактировать имена</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/elementscene.cpp" line="943" />
+        <source>You may enter the element name in several languages.</source>
+        <translation>Вы можете задать имя элемента на разных языках.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementsCategoryEditor</name>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="47" />
+        <source>The item is not a category</source>
+        <comment>message box title</comment>
+        <translation>Этот элемент — не категория</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="48" />
+        <source>The item requested is not a category. Abort.</source>
+        <comment>message box content</comment>
+        <translation>Запрашиваемый элемент не категория. Отмена.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="54" />
+        <source>Non-existent category</source>
+        <comment>message box title</comment>
+        <translation>Несуществующая категория</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="55" />
+        <source>The required category does not exist. Giving up.</source>
+        <comment>message box content</comment>
+        <translation>Требуемая категория не существует. Пропущено.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="60" />
+        <source>Edit category</source>
+        <comment>window title</comment>
+        <translation>Редактировать категорию</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="67" />
+        <source>Add a new category</source>
+        <comment>window title</comment>
+        <translation>Добавить новую категорию</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="71" />
+        <source>Name of the new category</source>
+        <comment>default name when creating a new category</comment>
+        <translation>Имя новой категории</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="79" />
+        <source>Read only edition</source>
+        <comment>message box title</comment>
+        <translation>Версия только для чтения</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="80" />
+        <source>You are not allowed to modify this category. Thus it will be edited read-only.</source>
+        <comment>message box content</comment>
+        <translation>У вас нет прав для редактирования этой категории. Она будет открыта в режиме "только для чтения".</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="113" />
+        <source>Internal name : </source>
+        <translation>Внутреннее имя: </translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="124" />
+        <source>You can add a name per language for the category.</source>
+        <translation>Вы можете добавить имя категории для каждого языка.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="147" />
+        <source>Missing internal name</source>
+        <comment>message box title</comment>
+        <translation>Внутреннее имя отсутствует</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="148" />
+        <source>You must provide an internal name.</source>
+        <comment>message box content</comment>
+        <translation>Вы должны задать внутреннее имя.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="160" />
+        <source>Internal name already used</source>
+        <comment>message box title</comment>
+        <translation>Внутреннее имя уже используется</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="161" />
+        <source>The internal name you chose is already used by another category. Please choose another one.</source>
+        <comment>message box content</comment>
+        <translation>Внутреннее имя, которое вы задали, уже используется другой категорией. Пожалуйста, выберите другое имя.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="172" />
+        <source>Error</source>
+        <comment>message box title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementscategoryeditor.cpp" line="173" />
+        <source>Unable to create the category</source>
+        <comment>message box content</comment>
+        <translation>Невозможно создать категорию</translation>
+    </message>
+</context>
+<context>
+    <name>ElementsCollectionWidget</name>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="149" />
+        <source>Open the underlying directory</source>
+        <translation>Открыть папку</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="151" />
+        <source>Edit element</source>
+        <translation>Редактировать элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="153" />
+        <source>Delete element</source>
+        <translation>Удалить элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="155" />
+        <source>Delete folder</source>
+        <translation>Удалить папку</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="157" />
+        <source>Reload collections</source>
+        <translation>Перезагрузить коллекции</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="159" />
+        <source>Edit folder</source>
+        <translation>Редактировать папку</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="161" />
+        <source>New folder</source>
+        <translation>Новая папка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="163" />
+        <source>New element</source>
+        <translation>Новый элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="165" />
+        <source>Show only this folder</source>
+        <translation>Показать только эту папку</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="168" />
+        <source>Show All Folders</source>
+        <translation>Показать все папки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="170" />
+        <source>Folder properties</source>
+        <translation>Свойства папки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="184" />
+        <source>Search</source>
+        <translation>Искать</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="395" />
+        <source>Delete element?</source>
+        <comment>message box title</comment>
+        <translation>Удалить элемент?</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="396" />
+        <source>Do you really wish to delete this element ?
+</source>
+        <comment>message box content</comment>
+        <translation>Вы действительно хотите удалить этот элемент?
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="411" />
+        <source>Deleting element</source>
+        <comment>message box title</comment>
+        <translation>Удаление элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="413" />
+        <source>Deleting element failed.</source>
+        <comment>message box content</comment>
+        <translation>Удаление элемента не удалось.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="439" />
+        <source>Deleting folder?</source>
+        <comment>message box title</comment>
+        <translation>Удалить папку?</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="440" />
+        <source>Are you sure you want to delete the folder?
+All the elements and contents file in this folder will be deleted.</source>
+        <comment>message box content</comment>
+        <translation>Вы уверены, что хотите удалить папку?
+Будут удалены все элементы и все содержимое этой папки.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="456" />
+        <source>Folder Delete</source>
+        <comment>message box title</comment>
+        <translation>Удаление папки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="458" />
+        <source>Folder deletion failed.</source>
+        <comment>message box content</comment>
+        <translation>Удаление папки не удалось.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="607" />
+        <source>the folder %1 contains</source>
+        <translation>Папка %1 содержит</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="608" />
+        <source>%n élément(s), répartie(s)</source>
+        <translation>
+            <numerusform>%n элемент, повтор</numerusform>
+            <numerusform>%n элемента, повтора</numerusform>
+            <numerusform>%n элементов, повторов</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="610" />
+        <source>dans %n dossier(s).</source>
+        <translation>
+            <numerusform>в %n папке.</numerusform>
+            <numerusform>в %n папках.</numerusform>
+            <numerusform>в %n папках.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="612" />
+        <source>Path of collection :  %1</source>
+        <translation>Путь в коллекции: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="601" />
+        <source>Path in the file system :  %1</source>
+        <translation>Путь в файловой системе: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="617" />
+        <source>Property of the folder %1</source>
+        <translation>Свойства папки %1</translation>
+    </message>
+</context>
+<context>
+    <name>ElementsPanel</name>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="174" />
+        <source>Embedded title blocks</source>
+        <translation>Внедренные штампы</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="175" />
+        <source>Double-click to collapse or expand this embedded title blocks collection</source>
+        <comment>Status tip</comment>
+        <translation>Сделайте двойной щелчок, чтобы свернуть или развернуть коллекцию внедренных штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="192" />
+        <source>Drag and drop this title block template onto a folio to apply it.</source>
+        <comment>Status tip displayed when selecting a title block template</comment>
+        <translation>Чтобы применить шаблон к листу, перетащите шаблон на лист.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="158" />
+        <source>Double-click to collapse or expand this project</source>
+        <comment>Status tip</comment>
+        <translation>Сделайте двойной щелчок, чтобы свернуть или развернуть проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="231" />
+        <source>Double-click to collapse or expand the QElectrotech title blocks collection</source>
+        <comment>Status tip</comment>
+        <translation>Сделайте двойной щелчок, чтобы свернуть или развернуть коллекцию штампов QElectrotech</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="232" />
+        <source>This is the title blocks collection provided along with QElectroTech. Installed as a system component, you normally cannot customize it.</source>
+        <comment>"What's this" tip</comment>
+        <translation>Эта коллекция штампов предоставлена вместе с QElectroTech. Она установлена как системный компонент, и вы не можете изменить её.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="239" />
+        <source>Double-click to collapse or expand the title block company collection</source>
+        <comment>Status tip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="240" />
+        <source>This is the title block company collection -- use it to create, store and edit your own title blocks.</source>
+        <comment>"What's this" tip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="247" />
+        <source>Double-click to collapse or expand your own title blocks collection</source>
+        <comment>Status tip</comment>
+        <translation>Сделайте двойной щелчок, чтобы свернуть или развернуть вашу коллекцию штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanel.cpp" line="248" />
+        <source>This is your custom title blocks collection -- use it to create, store and edit your own title blocks.</source>
+        <comment>"What's this" tip</comment>
+        <translation>Это ваша коллекция штампов. Используйте её для создания, хранения и редактирования ваших собственных штампов.</translation>
+    </message>
+</context>
+<context>
+    <name>ElementsPanelWidget</name>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="54" />
+        <source>Open the underlying directory</source>
+        <translatorcomment>какую?</translatorcomment>
+        <translation>Открыть папку</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="55" />
+        <source>Copy full path to clipboard</source>
+        <translation>Копировать полный путь в буфер обмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="56" />
+        <source>Activate this project</source>
+        <translation>Активировать этот проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="57" />
+        <source>Close this project</source>
+        <translation>Закрыть этот проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="58" />
+        <source>Project properties</source>
+        <translation>Свойства проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="59" />
+        <source>Folio properties</source>
+        <translation>Параметры листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="60" />
+        <source>Add a folio</source>
+        <translation>Добавить лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="61" />
+        <source>Delete this folio</source>
+        <translation>Удалить этот лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="62" />
+        <source>Move up  this folio</source>
+        <translation>Переместить лист вверх</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="63" />
+        <source>Move down this folio</source>
+        <translation>Переместить лист вниз</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="64" />
+        <source>Move up  this folio x10</source>
+        <translation>Переместить лист вверх на 10</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="65" />
+        <source>Move up  this folio x100</source>
+        <translation type="unfinished">Переместить лист вверх на 100</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="66" />
+        <source>Move up  this folio to the beginning</source>
+        <translation>Переместить лист в начало</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="67" />
+        <source>Move down this folio x10</source>
+        <translation>Переместить лист вниз на 10</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="68" />
+        <source>Move down this folio x100</source>
+        <translation type="unfinished">Переместить лист вниз на 100</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="88" />
+        <source>Filter</source>
+        <translation>Фильтр</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="69" />
+        <source>New template</source>
+        <translation>Новый шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="70" />
+        <source>Edit this template</source>
+        <translation>Редактировать этот шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="71" />
+        <source>Delete this template</source>
+        <translation>Удалить этот шаблон</translation>
+    </message>
+</context>
+<context>
+    <name>EllipseEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="129" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="23" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="130" />
+        <source>Center :</source>
+        <translation>Центр:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="131" />
+        <source>Y</source>
+        <translation>Y</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="60" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="132" />
+        <source>X</source>
+        <translation>X</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="70" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="133" />
+        <source>Vertical:</source>
+        <translation>Вертикально:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="90" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="134" />
+        <source>Horizontal:</source>
+        <translation>Горизонтально:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/ellipseeditor.ui" line="110" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_ellipseeditor.h" line="135" />
+        <source>Diameters:</source>
+        <translation>Диаметр:</translation>
+    </message>
+</context>
+<context>
+    <name>ExportConfigPage</name>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="297" />
+        <source>Export</source>
+        <comment>configuration page title</comment>
+        <translation>Экспорт</translation>
+    </message>
+</context>
+<context>
+    <name>ExportDialog</name>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="78" />
+        <source>Export</source>
+        <translation>Экспорт</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="86" />
+        <source>Check all</source>
+        <translation>Выбрать все</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="87" />
+        <source>Uncheck all</source>
+        <translation>Отменить выбор</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="68" />
+        <source>Export the project folios</source>
+        <comment>window title</comment>
+        <translation>Экспортировать листы проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="83" />
+        <source>Choose the folios you wish to export and specify their size :</source>
+        <translation>Выберите листы, которые вы хотите экспортировать, и задайте их размер:</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="152" />
+        <source>Title of folio</source>
+        <translation>Названия листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="153" />
+        <source>Filename</source>
+        <translation>Имя файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="154" />
+        <source>Dimensions</source>
+        <translation>Размеры</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="731" />
+        <source>Target files names</source>
+        <comment>message box title</comment>
+        <translation>Имена файлов назначения</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="732" />
+        <source>You must enter a non-empty, unique filename for each folio to export.</source>
+        <comment>message box content</comment>
+        <translation>Вы должны задать непустое уникальное имя для каждого экспортируемого листа.</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="747" />
+        <source>Directory missing</source>
+        <comment>message box title</comment>
+        <translation>Папка отсутствует</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="748" />
+        <source>You must specify the path of the directory in which the images files will be saved.</source>
+        <comment>message box content</comment>
+        <translation>Вы должны указать путь к папке, в которой будут сохранены изображения.</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="789" />
+        <source>Unable to write to this file</source>
+        <comment>message box title</comment>
+        <translation>Невозможно записать в этот файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="791" />
+        <source>It appears you do not have the required permissions to write the file %1.</source>
+        <comment>message box content</comment>
+        <translation>Возможно, что у вас нет необходимых прав для записи в файл %1.</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="923" />
+        <source>Preview</source>
+        <translation>Предпросмотр</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1027" />
+        <location filename="../sources/exportdialog.cpp" line="1032" />
+        <source>px</source>
+        <translation> пикс</translation>
+    </message>
+</context>
+<context>
+    <name>ExportPropertiesWidget</name>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="132" />
+        <source>Export in the directory</source>
+        <comment>dialog title</comment>
+        <translation>Экспорт в папку</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="153" />
+        <source>Target directory:</source>
+        <translation>Папка назначения:</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="158" />
+        <source>Browse</source>
+        <translation>Просмотр</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="168" />
+        <source>Format:</source>
+        <translation>Формат:</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="171" />
+        <source>PNG (*.png)</source>
+        <translation>PNG (*.png)</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="172" />
+        <source>JPEG (*.jpg)</source>
+        <translation>JPEG (*.jpg)</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="173" />
+        <source>Bitmap (*.bmp)</source>
+        <translation>Bitmap (*.bmp)</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="174" />
+        <source>SVG (*.svg)</source>
+        <translation>SVG (*.svg)</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="175" />
+        <source>DXF (*.dxf)</source>
+        <translation>DXF (*.dxf)</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="181" />
+        <source>Rendering options</source>
+        <comment>groupbox title</comment>
+        <translation>Параметры отрисовки</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="186" />
+        <source>Export fully folio</source>
+        <translation>Экспортировать лист полностью</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="189" />
+        <source>Export elements only</source>
+        <translation>Экспортировать только элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="210" />
+        <source>Keep conductors colors</source>
+        <translation>Сохранять цвет проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="214" />
+        <source>SVG-background transparent</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="194" />
+        <source>Draw the grid</source>
+        <translation>Рисовать сетку</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="198" />
+        <source>Draw the border</source>
+        <translation>Рисовать рамку</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="202" />
+        <source>Draw the title block</source>
+        <translation>Рисовать основную надпись</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportpropertieswidget.cpp" line="206" />
+        <source>Draw terminals</source>
+        <translation>Рисовать выводы</translation>
+    </message>
+</context>
+<context>
+    <name>FolioAutonumberingW</name>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="190" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="107" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="195" />
+        <source> Options of numbering</source>
+        <translation>Варианты нумерации</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="78" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="193" />
+        <source>C&amp;reate new folios</source>
+        <translation>&amp;Вновь создаваемые листы</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="91" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="194" />
+        <source>Automatic numbering of selected folios</source>
+        <translation>Выбранные листы</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="132" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="196" />
+        <source>New folios</source>
+        <translation>Новые листы</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="174" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="197" />
+        <source>From</source>
+        <translation>до</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="187" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="198" />
+        <source>To</source>
+        <translation>от</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="66" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="192" />
+        <source>Select:</source>
+        <translation>Выбор:</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.ui" line="40" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_folioautonumbering.h" line="191" />
+        <source>Folio Auto Numbering :</source>
+        <translation>Автоматическая нумерация листов:</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.cpp" line="188" />
+        <source>Folio Autonumbering</source>
+        <comment>title window</comment>
+        <translation>Автонумерация листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/folioautonumbering.cpp" line="190" />
+        <source>This is where you can define how the new folios will be numbered.
+-A numbering is composed of a minimum variable.
+-You can add or delete a dialing variable through the - and + buttons.
+A numbering variable includes: a type, a value and an increment.
+
+-the "Digit 1", "Digit 01" and "Digit 001" types represent a numeric type defined in the "Value" field, which increments each new folio by the value of the "Incrementation" field.
+- "Digit 01" and "Digit 001", are respectively represented on the diagram by two and three digits minimum.
+If the digit defined in the Value field has fewer digits than the chosen type, it will be preceded by one or two 0s in order to respect its type.
+
+-Type "Text", represents a fixed text.
+The "Incrementation" field is not used.
+</source>
+        <comment>help dialog about the folio autonumerotation</comment>
+        <translatorcomment>диалоговое окно справки об автонумерации листов</translatorcomment>
+        <translation>Здесь вы можете определить, как будут нумероваться новые листы.
+-Нумерация состоит из начальной переменной.
+-Вы можете добавить или удалить переменную нумерации с помощью кнопок - и +.
+-Переменная нумерации включает: тип, значение и приращение.
+
+-типы "Цифра 1", "Цифра 01" и "Цифра 001" представляют собой числовой тип, определенный в поле "Значение", которое увеличивается с каждой новым листом на значение поля "Приращение".
+-"Цифра 01" и "Цифра 001" соответственно представлены на схеме как минимум двумя и тремя цифрами.
+Если число, определенное в поле "Значение", содержит меньше цифр, чем выбранный тип, ему будет предшествовать один или два 0 в соответствии с его типом.
+
+-Тип "Текст" представляет собой фиксированный текст.
+Поле "Приращение" не используется.
+</translation>
+    </message>
+</context>
+<context>
+    <name>FontHelpers</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/fonthelpers.cpp" line="16" />
+        <source>Sans Serif</source>
+        <comment>@item Font name</comment>
+        <extracomment>Generic sans serif font presented in font choosers. When selected, the system will choose a real font, mandated by distro settings.</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/fonthelpers.cpp" line="19" />
+        <source>Serif</source>
+        <comment>@item Font name</comment>
+        <extracomment>Generic serif font presented in font choosers. When selected, the system will choose a real font, mandated by distro settings.</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/fonthelpers.cpp" line="22" />
+        <source>Monospace</source>
+        <comment>@item Font name</comment>
+        <extracomment>Generic monospace font presented in font choosers. When selected, the system will choose a real font, mandated by distro settings.</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/fonthelpers.cpp" line="65" />
+        <source>%1% {1?}</source>
+        <comment>@item Font name</comment>
+        <translation type="unfinished">%1% {1?}</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/fonthelpers.cpp" line="69" />
+        <source>%1 [%2]</source>
+        <comment>@item Font name [foundry]</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>FormulaAssistantDialog</name>
+    <message>
+        <location filename="../sources/ui/formulaassistantdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaassistantdialog.h" line="70" />
+        <source>Formula Wizard</source>
+        <translation>Помощник по формуле</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/formulaassistantdialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaassistantdialog.h" line="71" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/formulaassistantdialog.ui" line="27" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaassistantdialog.h" line="72" />
+        <source>Formula</source>
+        <translation>Формула</translation>
+    </message>
+</context>
+<context>
+    <name>FormulaAutonumberingW</name>
+    <message>
+        <location filename="../sources/autoNum/ui/formulaautonumberingw.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaautonumberingw.h" line="105" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/formulaautonumberingw.ui" line="41" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaautonumberingw.h" line="106" />
+        <source>Automatic name :</source>
+        <translation>Автоматическое именование:</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/formulaautonumberingw.ui" line="53" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaautonumberingw.h" line="107" />
+        <source>Formula</source>
+        <translation>Формула</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/formulaautonumberingw.ui" line="72" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaautonumberingw.h" line="108" />
+        <source>Insert Formula Here e.g.: %prefix%l%c</source>
+        <translation>Вставьте здесь формулу, например:  %prefix%l%c</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/formulaautonumberingw.ui" line="101" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_formulaautonumberingw.h" line="109" />
+        <source>You can use the following variables to your formula:
+ -%prefix: Default Element Prefix
+ -%l: Element Line
+ -%c: Element Column
+ -%F: Folio Name
+ -%f or %id: Folio ID
+ -%total: Total of folios
+You can also assign any other titleblock variable 
+that you create. Text and number inputs are
+ also available.</source>
+        <translation>В формуле можно использовать следующие переменные:
+ -%prefix: префикс элемента по умолчанию
+ -%l: строка элемента
+ -%c: столбец элемента
+ -% F: имя листа
+ -%f или %id: идентификатор листа
+ -% total: общее количество листов
+Вы также можете назначить любую другую создаваемую 
+вами переменную заголовка. Также доступны текстовый
+ и цифровой ввод.</translation>
+    </message>
+</context>
+<context>
+    <name>FreeTerminalEditor</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="140" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="141" />
+        <source>Move to :</source>
+        <translation>Переместить в:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="60" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="142" />
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="67" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="143" />
+        <source>Function :</source>
+        <translation>Функция:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="74" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="144" />
+        <source>LED :</source>
+        <translation>Индикатор:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="81" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="146" />
+        <source>Apply displacement</source>
+        <translation>Применить перемещение</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="103" />
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="132" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="149" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="155" />
+        <source>Generic</source>
+        <translation>Общий</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="108" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="150" />
+        <source>Fuse</source>
+        <translation>Предохранитель</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="113" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="151" />
+        <source>Sectionable</source>
+        <translation>Секционный</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="118" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="152" />
+        <source>Diode</source>
+        <translation>Диод</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="123" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="153" />
+        <source>Ground</source>
+        <translation>Заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="137" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="156" />
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="142" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="157" />
+        <source>Neutral</source>
+        <translation>Нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="151" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="159" />
+        <source>Without</source>
+        <translation>Без</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.ui" line="156" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_freeterminaleditor.h" line="160" />
+        <source>With</source>
+        <translation>С</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminaleditor.cpp" line="118" />
+        <source>Modify terminal strip properties</source>
+        <translation>Изменить свойства клеммных колодок</translation>
+    </message>
+</context>
+<context>
+    <name>FreeTerminalModel</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminalmodel.cpp" line="227" />
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminalmodel.cpp" line="228" />
+        <source>Cross reference</source>
+        <translation>Перекрестная ссылка</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminalmodel.cpp" line="229" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminalmodel.cpp" line="230" />
+        <source>Function</source>
+        <translation>Функция</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/freeterminalmodel.cpp" line="231" />
+        <source>led</source>
+        <translation>индикатор</translation>
+    </message>
+</context>
+<context>
+    <name>GeneralConfigurationPage</name>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="24" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="819" />
+        <source>Appearance</source>
+        <translation>Внешний вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="813" />
+        <source>Use system colors</source>
+        <translation>Использовать системные цвета</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="475" />
+        <source>User Collection Path</source>
+        <translation>Путь к коллекции пользователя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="503" />
+        <source>User Title blocks Path</source>
+        <translation>Путь к штампам пользователя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="447" />
+        <source>Path of the Common Collection</source>
+        <translation>Путь к общей коллекции</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="237" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="258" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="279" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="300" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="321" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="829" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="833" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="837" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="841" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="845" />
+        <source>By default</source>
+        <translation>По умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="242" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="263" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="284" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="305" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="326" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="830" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="834" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="838" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="842" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="846" />
+        <source>Browse...</source>
+        <translation>Выбрать...</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="334" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="848" />
+        <source>(Reload the elements collections to apply the changes)</source>
+        <translation>(Обновите коллекции элементов, чтобы применить изменения)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="128" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="826" />
+        <source>Projects</source>
+        <translation>Проекты</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="44" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="814" />
+        <source>Use gestures touchpad</source>
+        <translation>Использовать жесты сенсорной панели</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="134" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="820" />
+        <source>Use folio numbers instead of their position in the project</source>
+        <translation>Использовать номера листов вместо их положения в проекте</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="203" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="825" />
+        <source>Number the title block columns from 0 (1 otherwise)</source>
+        <extracomment>Choix de l'increment de depart 1 ou 0</extracomment>
+        <translatorcomment>Выбор начального шага 1 или 0</translatorcomment>
+        <translation>Нумеровать столбцы расположения элементов с 0 (в противном случае — 1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="151" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="822" />
+        <source>Disabled</source>
+        <translation>Отключено</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="157" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="823" />
+        <source> min</source>
+        <comment>minute</comment>
+        <translation> мин</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="353" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="850" />
+        <source>Highlight freshly integrated elements in the panel</source>
+        <translation>Выделять недавно добавленные элементы в панели</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="360" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="851" />
+        <source>Element may include information about its authors, license, or other useful information. Specify the default value of this textfield for new elements below:</source>
+        <translation>Каждый элемент содержит информацию о его авторах, его лицензии или любую другую информацию, которую вы сочтете полезной в свободном доступе.
+Здесь вы можете указать значение этого поля по умолчанию для создаваемых вами элементов:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="397" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="854" />
+        <source>Applied to the next launch of QElectroTech</source>
+        <translation>Применится при следующем запуске QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="812" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="141" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="821" />
+        <source>Automatic backup of projects (applied at the next launch of QElectroTech)</source>
+        <translation>Автоматическое сохранение проектов (применится при следующем запуске QElectroTech)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="211" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="853" />
+        <source>Collections</source>
+        <translation>Коллекции</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="217" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="827" />
+        <source>Access the collections</source>
+        <translation>Расположение коллекций</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="229" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="828" />
+        <source>Common collection directory</source>
+        <translation>Каталог общей коллекции</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="292" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="840" />
+        <source>User collection directory</source>
+        <translation>Каталог коллекции пользователя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="313" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="844" />
+        <source>User title blocks directory</source>
+        <translation>Каталог штампов пользователя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="344" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="849" />
+        <source>Elements management</source>
+        <translation>Управление элементами</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="437" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="856" />
+        <source>Here you can define the default appearance of the different texts of QElectroTech</source>
+        <translation>Определение установок по умолчанию для различных текстов QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="620" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="888" />
+        <source>Grid + Keyboard</source>
+        <translation>Сетка и клавиатура</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="626" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="871" />
+        <source>Grid: 1 - 30</source>
+        <translation>Сетка: 1-30</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="693" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="874" />
+        <source>DiagramEditor xGrid</source>
+        <translation>Линии по горизонтали (X-линии)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="660" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="872" />
+        <source>DiagramEditor yGrid</source>
+        <translation>Линии по вертикали (Y-линии)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="65" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="816" />
+        <source>Use &amp;Windows (applied at the next launch of QElectroTech)</source>
+        <translation>Использовать &amp;окна (применится при следующем запуске QElectroTech)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="72" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="817" />
+        <source>Use &amp;tabs (applied at the next launch of QElectroTech)</source>
+        <translation>Использовать &amp;вкладки (применится при следующем запуске QElectroTech)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="101" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="818" />
+        <source>High pixel density (hdpi) displays scaling method (applied to the next launch of QElectroTech) :</source>
+        <translation>Способ масштабирования экранов с высокой плотностью пикселей (hdpi) (применится при следующем запуске QElectroTech):</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="250" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="832" />
+        <source>Company collection directory</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="271" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="836" />
+        <source>Company title-block directory</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="388" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="855" />
+        <source>Languages</source>
+        <translation>Языки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="431" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="870" />
+        <source>texts</source>
+        <translation>Тексты</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="451" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="857" />
+        <source>Elements texts</source>
+        <translation>Текст элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="464" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="530" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="576" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="858" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="864" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="868" />
+        <source>Font:</source>
+        <translation>Шрифт:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="474" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="537" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="859" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="865" />
+        <source>°</source>
+        <translation>°</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="484" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="860" />
+        <source>Length:</source>
+        <translation>Длина:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="494" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="523" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="861" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="863" />
+        <source>Rotation :</source>
+        <translation>Вращение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="517" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="862" />
+        <source>Independent texts</source>
+        <translation>Независимый текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="570" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="867" />
+        <source>Other texts</source>
+        <translation>Другой текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="667" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="873" />
+        <source>The Grid must be active to see the changes.</source>
+        <translation>Чтобы видеть изменения, сетка должна быть активной.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="716" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="875" />
+        <source>Keyboard movement: 1 - 30</source>
+        <translation>Перемещение с клавиатуры: 1-30</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="766" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="876" />
+        <source>DiagramEditor (key: left / right) xGrid</source>
+        <translation>Клавиша влево/вправо — по горизонтали (по X-линии)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="773" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="877" />
+        <source>DiagramEditor (key: up / down) yGrid</source>
+        <translation>Клавиша вверх/вниз — по вертикали (по Y-линии)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="796" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="878" />
+        <source>Keyboard movement with the ALT key: 1 - 9</source>
+        <translation>Перемещение с клавиатуры с помощью клавиши ALT: 1-9</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="802" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="879" />
+        <source>DiagramEditor (key: left / right) xGrid</source>
+        <translation>Клавиша влево/вправо — по горизонтали (по X-линии)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="831" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="880" />
+        <source>DiagramEditor (key: up / down) yGrid</source>
+        <translation>Клавиша вверх/вниз — по вертикали (по Y-линии)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="876" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="881" />
+        <source>View grid</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="895" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="971" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="882" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="886" />
+        <source>max:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="902" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="883" />
+        <source>Point-size in diagram-editor: 1 - 5</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="925" />
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="994" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="884" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="887" />
+        <source>min:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="948" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="885" />
+        <source>Point-size in element-editor: 1 - 5</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="1018" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="890" />
+        <source>Editor</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="1026" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="889" />
+        <source>Max. parts in Element Editor List</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="170" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="824" />
+        <source>Do not store the labels of items in the copy paste</source>
+        <translation>Не сохранять метки элементов при копировании и вставке</translation>
+    </message>
+    <message>
+        <source>Export terminals in the parts list</source>
+        <translation type="vanished">Экспорт клеммников в номенклатуре</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.ui" line="51" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_generalconfigurationpage.h" line="815" />
+        <source>Allow unzoom beyond the folio</source>
+        <translation>Разрешить масштаб меньше размера листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="45" />
+        <source>Rounding up for 0.5 and more</source>
+        <translation>Округлять в большую сторону до 0,5 и выше</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="46" />
+        <source>Always top rounding</source>
+        <translation>Всегда округлять в большую сторону</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="47" />
+        <source>Always rounded down</source>
+        <translation>Всегда округлять в меньшую сторону</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="48" />
+        <source>Rounding up for 0.75 and more</source>
+        <translation>Округлять в большую сторону до 0,75 и выше</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="49" />
+        <source>No rounding</source>
+        <translation>Не округлять</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="331" />
+        <source>General</source>
+        <comment>configuration page title</comment>
+        <translation>Общее</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="349" />
+        <source>System</source>
+        <translatorcomment>Система?</translatorcomment>
+        <translation>Системный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="353" />
+        <source>Arabic</source>
+        <translation>Арабский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="354" />
+        <source>Brazilian</source>
+        <translation>Бразильский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="355" />
+        <source>Catalan</source>
+        <translation>Каталонский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="356" />
+        <source>Czech</source>
+        <translation>Чешский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="357" />
+        <source>German</source>
+        <translation>Немецкий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="358" />
+        <source>Danish</source>
+        <translation>Датский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="359" />
+        <source>Greek</source>
+        <translation>Греческий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="360" />
+        <source>English</source>
+        <translation>Английский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="361" />
+        <source>Spanish</source>
+        <translation>Испанский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="362" />
+        <source>French</source>
+        <translation>Французский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="363" />
+        <source>Croatian</source>
+        <translation>Хорватский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="364" />
+        <source>Italian</source>
+        <translation>Итальянский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="365" />
+        <source>Japanese</source>
+        <translation>Японский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="366" />
+        <source>Polish</source>
+        <translation>Польский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="367" />
+        <source>Portuguese</source>
+        <translation>Португальский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="368" />
+        <source>Romanian</source>
+        <translation>Румынский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="369" />
+        <source>Russian</source>
+        <translation>Русский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="370" />
+        <source>Slovenian</source>
+        <translation>Словенский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="371" />
+        <source>Dutch</source>
+        <translatorcomment>Немецкий/Нидерландский</translatorcomment>
+        <translation>Голландский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="372" />
+        <source>Norwegian</source>
+        <translation>Норвежский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="373" />
+        <source>Belgium-Flemish</source>
+        <translation>Бельгийский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="374" />
+        <source>Turkish</source>
+        <translation>Турецкий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="375" />
+        <source>Hungarian</source>
+        <translation>Венгерский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="376" />
+        <source>Mongolian</source>
+        <translation>Монгольский</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="377" />
+        <source>Ukrainian</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="378" />
+        <source>Chinese</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="379" />
+        <source>Swedish</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="461" />
+        <source>Company collection path</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="489" />
+        <source>Company title-blocks</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/generalconfigurationpage.cpp" line="534" />
+        <source>Values that are too high might cause the application to crash</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>GenericPanel</name>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="214" />
+        <source>No file</source>
+        <comment>tooltip for a file-less project in the element panel</comment>
+        <translation>Нет файлов</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="220" />
+        <source>This is a QElectroTech project, ie. a .qet file containing several folios. It also embeds elements and title block templates used in the folios.</source>
+        <comment>"What's this" tip</comment>
+        <translation>Это проект QElectroTech, т.е. файл .qet, содержащий несколько листов. В него также включены элементы и шаблоны, используемые на схемах/листах.</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="348" />
+        <source>Folio Untitled</source>
+        <comment>Fallback label when a diagram has no title</comment>
+        <translation>Лист без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="360" />
+        <location filename="../sources/genericpanel.cpp" line="377" />
+        <source>%1 - %2</source>
+        <comment>label displayed for a diagram in the panel ; %1 is the folio index, %2 is the diagram title</comment>
+        <translation>%1 — %2</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="498" />
+        <source>Title block templates</source>
+        <translation>Шаблоны штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="636" />
+        <source>"%1" template</source>
+        <comment>used to display a title block template</comment>
+        <translation>Шаблон "%1"</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="639" />
+        <source>This is a title block template, which can be applied to a folio.</source>
+        <comment>"What's this" tip</comment>
+        <translation>Это — шаблон, который может быть применен к листу.</translation>
+    </message>
+    <message>
+        <location filename="../sources/genericpanel.cpp" line="917" />
+        <source>%1 [unused in the project]</source>
+        <translation>%1 [не используется в проекте]</translation>
+    </message>
+</context>
+<context>
+    <name>GraphicsTablePropertiesEditor</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="438" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="24" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="482" />
+        <source>Display</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="33" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="440" />
+        <source>Table name</source>
+        <translation>Имя таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="80" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="447" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="327" />
+        <source>None</source>
+        <translation>Ничего</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="46" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="442" />
+        <source>All</source>
+        <translation>Все</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="224" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="464" />
+        <source>Lines to display :</source>
+        <translation>Строки для отображения:</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="128" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="453" />
+        <source>Y :</source>
+        <translation>Y:</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="59" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="444" />
+        <source>Next table</source>
+        <translation>Следующая таблица</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="138" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="454" />
+        <source>X :</source>
+        <translation>X:</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="176" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="456" />
+        <source>Previous table</source>
+        <translation>Предыдущая таблица</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="214" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="463" />
+        <source>Previous table :</source>
+        <translation>Предыдущая таблица:</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="40" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="441" />
+        <source>Geometry and lines</source>
+        <translation>Геометрия и строки</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="200" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="460" />
+        <source>Apply geometry to all tables linked to this one</source>
+        <translation>Применить геометрию ко всем таблицам, связанным с этой</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="101" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="450" />
+        <source>Fit table to folio</source>
+        <translation>Подогнать область по листу</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="234" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="465" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="250" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="466" />
+        <source>Header</source>
+        <translation>Заголовок</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="274" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="433" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="467" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="476" />
+        <source>Margin</source>
+        <translation>Поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="343" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="470" />
+        <source>Alignment :</source>
+        <translation>Выравнивание:</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="350" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="493" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="471" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="478" />
+        <source>Left</source>
+        <translation>Влево</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="357" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="500" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="472" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="479" />
+        <source>Center</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="364" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="507" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="473" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="480" />
+        <source>Right</source>
+        <translation>Вправо</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="387" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="530" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="474" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="481" />
+        <source>Font</source>
+        <translation>Шрифт</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="400" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="475" />
+        <source>Table</source>
+        <translation>Таблица</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="486" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="477" />
+        <source>Alignment:</source>
+        <translation>Выравнивание:</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.ui" line="557" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_graphicstablepropertieseditor.h" line="483" />
+        <source>Content</source>
+        <translation>Содержание</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="140" />
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="151" />
+        <source>Move a table</source>
+        <translation>Переместить область</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="161" />
+        <source>Change the number of rows displayed by a table</source>
+        <translation>Изменить количество строк, отображаемых в таблице</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="183" />
+        <source>Change the margins of a table header</source>
+        <translation>Изменить поля заголовка таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="202" />
+        <source>Change the margins of a table</source>
+        <translation>Изменить поля таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="218" />
+        <source>Change the alignment of a table header</source>
+        <translation>Изменить выравнивание заголовка таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="231" />
+        <source>Change the alignment of texts in a table</source>
+        <translation>Изменить выравнивание текста в таблице</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="273" />
+        <source>Change the font of a table header</source>
+        <translation>Изменить шрифт заголовка таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="298" />
+        <source>Change the font of a table</source>
+        <translation>Изменить шрифт таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="424" />
+        <source>&lt;center&gt;ATTENTION :&lt;/center&gt;
+ lines are missing %1 to display all the informations</source>
+        <translation>&lt;center&gt;ВНИМАНИЕ:&lt;/center&gt;
+ для отображения всей информации не хватает строк (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/graphicstablepropertieseditor.cpp" line="544" />
+        <source>Apply the geometry of a table to the table linked to it</source>
+        <translation>Применить геометрию таблицы к связанной с ней таблице</translation>
+    </message>
+</context>
+<context>
+    <name>ImagePropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/imagepropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_imagepropertieswidget.h" line="81" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/imagepropertieswidget.ui" line="23" />
+        <location filename="../build/qelectrotech_autogen/ui_imagepropertieswidget.h" line="82" />
+        <source>Lock Position</source>
+        <translation>Закрепить положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/imagepropertieswidget.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/ui_imagepropertieswidget.h" line="83" />
+        <source>Image size</source>
+        <translation>Размер изображения</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/imagepropertieswidget.ui" line="50" />
+        <location filename="../build/qelectrotech_autogen/ui_imagepropertieswidget.h" line="84" />
+        <source>%</source>
+        <translation>%</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/imagepropertieswidget.cpp" line="143" />
+        <source>Resizing an image</source>
+        <translation>Изменить размер изображения</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementDialog</name>
+    <message>
+        <location filename="../sources/ui/importelementdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="94" />
+        <source>Integration of an element</source>
+        <translation>Добавление элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementdialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="95" />
+        <source>The element has already been integrated in the project. However, the version you're trying to drop appears to be different. What do you wish to do ?</source>
+        <translation>Элемент уже содержится в проекте. Но версия, которую вы пытаетесь добавить, отличается. Что вы хотите сделать?</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementdialog.ui" line="27" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="96" />
+        <source>Using the already integrated element</source>
+        <translation>Использовать уже интегрированный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementdialog.ui" line="34" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="97" />
+        <source>Integrate the dropped element</source>
+        <translation>Добавить новый элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementdialog.ui" line="52" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="98" />
+        <source>Overwrite the already integrated element</source>
+        <translation>Перезаписать уже интегрированный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementdialog.ui" line="59" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="99" />
+        <source>Make the two elements coexist</source>
+        <translation>Использовать совместно два элемента</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementTextPatternDialog</name>
+    <message>
+        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="71" />
+        <source>Dialog</source>
+        <translation>Диалог</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="72" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="73" />
+        <source>Erase existing texts</source>
+        <translation>Перезаписать текст</translation>
+    </message>
+</context>
+<context>
+    <name>IndiTextPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="150" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="151" />
+        <source>X :</source>
+        <translation>X:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="152" />
+        <source>Advanced Editor</source>
+        <translation>Расширенный редактор</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="37" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="153" />
+        <source>Size :</source>
+        <translation>Размер:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="47" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="154" />
+        <source>Angle:</source>
+        <translation>Угол:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="57" />
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="93" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="155" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="156" />
+        <source>px</source>
+        <translation> пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="109" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="157" />
+        <source>°</source>
+        <translation>°</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="122" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="158" />
+        <source>Y :</source>
+        <translation>Y:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="132" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="159" />
+        <source>The contents, the size and the font of the text can not be modified because formatted in html.
+Please use the advanced editor for this.</source>
+        <translation>Содержание, размер и шрифт текста нельзя изменить, поскольку он в формате html. Пожалуйста, используйте для этого расширенный редактор.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="153" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="162" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="160" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="163" />
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="380" />
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="412" />
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="460" />
+        <source>Font</source>
+        <translation>Шрифт</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.ui" line="146" />
+        <location filename="../build/qelectrotech_autogen/ui_inditextpropertieswidget.h" line="161" />
+        <source>Click here to cancel html formatting</source>
+        <translation>Отменить форматирование HTML</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="184" />
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="189" />
+        <source>Move a text field</source>
+        <translation>Переместить текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="194" />
+        <source>Rotate a text field</source>
+        <translation>Повернуть текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="198" />
+        <source>Edit the text field</source>
+        <translation>Изменить текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="204" />
+        <source>Change the size of a text field</source>
+        <translation>Изменить размер текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="209" />
+        <source>Change the font of a text field</source>
+        <translation>Изменить шрифт текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="244" />
+        <source>Rotate multiple text fields</source>
+        <translation>Повернуть несколько текстовых полей</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="259" />
+        <source>Change the size of multiple text fields</source>
+        <translation>Изменить размер нескольких текстовых полей</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="275" />
+        <source>Change the font of several text fields</source>
+        <translation>Изменить шрифт нескольких текстовых полей</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/inditextpropertieswidget.cpp" line="287" />
+        <source>Modify the properties of a text</source>
+        <translation>Изменить свойства текста</translation>
+    </message>
+</context>
+<context>
+    <name>IntegrationMoveTitleBlockTemplatesHandler</name>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="47" />
+        <source>Unable to get the parent category</source>
+        <comment>error message</comment>
+        <translation>Невозможно получить родительскую категорию</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="48" />
+        <source>Unable to get this template's XML description</source>
+        <comment>error message</comment>
+        <translation>Невозможно получить XML-описание этого шаблона</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="88" />
+        <source>Error</source>
+        <comment>message box title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="153" />
+        <source>Integration of a title block template</source>
+        <translation>Добавление шаблона основной надписи</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="157" />
+        <source>The template has already been integrated in the project. However, the version you are trying to apply appears to be different. What do you wish to do?</source>
+        <comment>dialog content - %1 is a title block template name</comment>
+        <translation>Шаблон уже содержится в проекте. Но версия, которую вы пытаетесь применить, отличается. Что вы хотите сделать?</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="169" />
+        <source>Use the already integrated template</source>
+        <comment>dialog content</comment>
+        <translation>Использовать уже добавленный шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="178" />
+        <source>Integrate the dropped template</source>
+        <comment>dialog content</comment>
+        <translation>Добавить перетаскиваемый шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="188" />
+        <source>Erase the already integrated template</source>
+        <comment>dialog content</comment>
+        <translation>Удалить уже добавленный шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/integrationmovetemplateshandler.cpp" line="198" />
+        <source>Make both templates coexist</source>
+        <comment>dialog content</comment>
+        <translation>Использовать совместно два шаблона</translation>
+    </message>
+</context>
+<context>
+    <name>KAboutData</name>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="936" />
+        <source>&lt;p&gt;KDE is translated into many languages thanks to the work of the translation teams all over the world.&lt;/p&gt;&lt;p&gt;For more information on KDE internationalization visit &lt;a href="https://l10n.kde.org"&gt;https://l10n.kde.org&lt;/a&gt;&lt;/p&gt;</source>
+        <comment>replace this with information about your translation team</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KAboutData CLI</name>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1181" />
+        <source>Show author information.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1182" />
+        <source>Show license information.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1184" />
+        <source>The base file name of the desktop entry for this application.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1185" />
+        <source>file name</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1194" />
+        <source>This application was written by somebody who wants to remain anonymous.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1196" />
+        <source>%1 was written by:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1207" />
+        <source>Please use https://bugs.kde.org to report bugs.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="1209" />
+        <source>Please report bugs to %1.</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KAboutLicense</name>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="283" />
+        <source>No licensing terms for this program have been specified.
+Please check the documentation or the source for any
+licensing terms.
+</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="293" />
+        <source>This program is distributed under the terms of the %1.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="339" />
+        <source>GPL v2</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="340" />
+        <source>GNU General Public License Version 2</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="343" />
+        <source>LGPL v2</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="344" />
+        <source>GNU Lesser General Public License Version 2</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="347" />
+        <source>BSD License</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="348" />
+        <source>BSD License</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="351" />
+        <source>Artistic License</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="352" />
+        <source>Artistic License</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="355" />
+        <source>QPL v1.0</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="356" />
+        <source>Q Public License</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="359" />
+        <source>GPL v3</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="360" />
+        <source>GNU General Public License Version 3</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="363" />
+        <source>LGPL v3</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="364" />
+        <source>GNU Lesser General Public License Version 3</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="367" />
+        <source>LGPL v2.1</source>
+        <comment>@item license (short name)</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="368" />
+        <source>GNU Lesser General Public License Version 2.1</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="372" />
+        <source>Custom</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/kaboutdata.cpp" line="375" />
+        <source>Not specified</source>
+        <comment>@item license</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KActionSelector</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kactionselector.cpp" line="95" />
+        <source>&amp;Available:</source>
+        <comment>@label:listbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kactionselector.cpp" line="112" />
+        <source>&amp;Selected:</source>
+        <comment>@label:listbox</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KAssistantDialog</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kassistantdialog.cpp" line="94" />
+        <source>&amp;Back</source>
+        <comment>@action:button go back</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kassistantdialog.cpp" line="96" />
+        <source>Go back one step</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kassistantdialog.cpp" line="101" />
+        <source>Next</source>
+        <comment>@action:button Opposite to Back</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kassistantdialog.cpp" line="108" />
+        <source>Finish</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KCharSelect</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="387" />
+        <source>Enter a search term or character...</source>
+        <comment>@info:placeholder</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="389" />
+        <source>Enter a search term or character here</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="394" />
+        <source>&amp;Find...</source>
+        <comment>@action</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="414" />
+        <source>Previous in History</source>
+        <comment>@action:button Goes to previous character</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="416" />
+        <source>Go to previous character in history</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="421" />
+        <source>Next in History</source>
+        <comment>@action:button Goes to next character</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="423" />
+        <source>Go to next character in history</source>
+        <comment>info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="428" />
+        <source>&amp;Back</source>
+        <comment>@action go back</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="435" />
+        <source>&amp;Forward</source>
+        <comment>@action go forward</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="450" />
+        <source>Select a category</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="454" />
+        <source>Select a block to be displayed</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="467" />
+        <source>Set font</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="474" />
+        <source>Set font size</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="766" />
+        <source>Character:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="772" />
+        <source>Name: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="781" />
+        <source>Annotations and Cross References</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="785" />
+        <source>Alias names:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="793" />
+        <source>Notes:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="801" />
+        <source>See also:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="816" />
+        <source>Equivalents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="824" />
+        <source>Approximate equivalents:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="832" />
+        <source>Decomposition:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="844" />
+        <source>CJK Ideograph Information</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="847" />
+        <source>Definition in English: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="854" />
+        <source>Mandarin Pronunciation: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="861" />
+        <source>Cantonese Pronunciation: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="868" />
+        <source>Japanese On Pronunciation: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="875" />
+        <source>Japanese Kun Pronunciation: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="882" />
+        <source>Tang Pronunciation: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="889" />
+        <source>Korean Pronunciation: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="895" />
+        <source>General Character Properties</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="896" />
+        <source>Block: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="897" />
+        <source>Unicode category: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="901" />
+        <source>Various Useful Representations</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="902" />
+        <source>UTF-8:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="906" />
+        <source>UTF-16: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="913" />
+        <source>C octal escaped UTF-8: </source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="917" />
+        <source>XML decimal entity:</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KCharSelectData</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="11" />
+        <source>European Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="12" />
+        <source>African Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="13" />
+        <source>Middle Eastern Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="14" />
+        <source>Central Asian Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="15" />
+        <source>South Asian Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="16" />
+        <source>Southeast Asian Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="17" />
+        <source>Indonesia and Oceania Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="18" />
+        <source>East Asian Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="19" />
+        <source>American Scripts</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="20" />
+        <source>Symbols</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="21" />
+        <source>Mathematical Symbols</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="22" />
+        <source>Phonetic Symbols</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="23" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="737" />
+        <source>Combining Diacritics</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="24" />
+        <source>Other</source>
+        <comment>KCharSelect section name</comment>
+        <translation type="unfinished">Другой</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="25" />
+        <source>Basic Latin</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="26" />
+        <source>Latin-1 Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="27" />
+        <source>Latin Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="28" />
+        <source>Latin Extended-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="29" />
+        <source>IPA Extensions</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="30" />
+        <source>Spacing Modifier Letters</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="31" />
+        <source>Combining Diacritical Marks</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="32" />
+        <source>Greek and Coptic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="33" />
+        <source>Cyrillic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="34" />
+        <source>Cyrillic Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="35" />
+        <source>Armenian</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="36" />
+        <source>Hebrew</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="37" />
+        <source>Arabic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="38" />
+        <source>Syriac</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="39" />
+        <source>Arabic Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="40" />
+        <source>Thaana</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="41" />
+        <source>NKo</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="42" />
+        <source>Samaritan</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="43" />
+        <source>Mandaic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="44" />
+        <source>Syriac Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="45" />
+        <source>Arabic Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="46" />
+        <source>Devanagari</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="47" />
+        <source>Bengali</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="48" />
+        <source>Gurmukhi</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="49" />
+        <source>Gujarati</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="50" />
+        <source>Oriya</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="51" />
+        <source>Tamil</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="52" />
+        <source>Telugu</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="53" />
+        <source>Kannada</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="54" />
+        <source>Malayalam</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="55" />
+        <source>Sinhala</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="56" />
+        <source>Thai</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="57" />
+        <source>Lao</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="58" />
+        <source>Tibetan</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="59" />
+        <source>Myanmar</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="60" />
+        <source>Georgian</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="61" />
+        <source>Hangul Jamo</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="62" />
+        <source>Ethiopic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="63" />
+        <source>Ethiopic Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="64" />
+        <source>Cherokee</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="65" />
+        <source>Unified Canadian Aboriginal Syllabics</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="66" />
+        <source>Ogham</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="67" />
+        <source>Runic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="68" />
+        <source>Tagalog</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="69" />
+        <source>Hanunoo</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="70" />
+        <source>Buhid</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="71" />
+        <source>Tagbanwa</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="72" />
+        <source>Khmer</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="73" />
+        <source>Mongolian</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="74" />
+        <source>Unified Canadian Aboriginal Syllabics Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="75" />
+        <source>Limbu</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="76" />
+        <source>Tai Le</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="77" />
+        <source>New Tai Lue</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="78" />
+        <source>Khmer Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="79" />
+        <source>Buginese</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="80" />
+        <source>Tai Tham</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="81" />
+        <source>Combining Diacritical Marks Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="82" />
+        <source>Balinese</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="83" />
+        <source>Sundanese</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="84" />
+        <source>Batak</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="85" />
+        <source>Lepcha</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="86" />
+        <source>Ol Chiki</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="87" />
+        <source>Cyrillic Extended-C</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="88" />
+        <source>Georgian Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="89" />
+        <source>Sundanese Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="90" />
+        <source>Vedic Extensions</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="91" />
+        <source>Phonetic Extensions</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="92" />
+        <source>Phonetic Extensions Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="93" />
+        <source>Combining Diacritical Marks Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="94" />
+        <source>Latin Extended Additional</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="95" />
+        <source>Greek Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="96" />
+        <source>General Punctuation</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="97" />
+        <source>Superscripts and Subscripts</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="98" />
+        <source>Currency Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="99" />
+        <source>Combining Diacritical Marks for Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="100" />
+        <source>Letterlike Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="101" />
+        <source>Number Forms</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="102" />
+        <source>Arrows</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="103" />
+        <source>Mathematical Operators</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="104" />
+        <source>Miscellaneous Technical</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="105" />
+        <source>Control Pictures</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="106" />
+        <source>Optical Character Recognition</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="107" />
+        <source>Enclosed Alphanumerics</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="108" />
+        <source>Box Drawing</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="109" />
+        <source>Block Elements</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="110" />
+        <source>Geometric Shapes</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="111" />
+        <source>Miscellaneous Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="112" />
+        <source>Dingbats</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="113" />
+        <source>Miscellaneous Mathematical Symbols-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="114" />
+        <source>Supplemental Arrows-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="115" />
+        <source>Braille Patterns</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="116" />
+        <source>Supplemental Arrows-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="117" />
+        <source>Miscellaneous Mathematical Symbols-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="118" />
+        <source>Supplemental Mathematical Operators</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="119" />
+        <source>Miscellaneous Symbols and Arrows</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="120" />
+        <source>Glagolitic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="121" />
+        <source>Latin Extended-C</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="122" />
+        <source>Coptic</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="123" />
+        <source>Georgian Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="124" />
+        <source>Tifinagh</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="125" />
+        <source>Ethiopic Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="126" />
+        <source>Cyrillic Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="127" />
+        <source>Supplemental Punctuation</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="128" />
+        <source>CJK Radicals Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="129" />
+        <source>Kangxi Radicals</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="130" />
+        <source>Ideographic Description Characters</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="131" />
+        <source>CJK Symbols and Punctuation</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="132" />
+        <source>Hiragana</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="133" />
+        <source>Katakana</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="134" />
+        <source>Bopomofo</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="135" />
+        <source>Hangul Compatibility Jamo</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="136" />
+        <source>Kanbun</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="137" />
+        <source>Bopomofo Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="138" />
+        <source>CJK Strokes</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="139" />
+        <source>Katakana Phonetic Extensions</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="140" />
+        <source>Enclosed CJK Letters and Months</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="141" />
+        <source>CJK Compatibility</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="142" />
+        <source>CJK Unified Ideographs Extension A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="143" />
+        <source>Yijing Hexagram Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="144" />
+        <source>CJK Unified Ideographs</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="145" />
+        <source>Yi Syllables</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="146" />
+        <source>Yi Radicals</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="147" />
+        <source>Lisu</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="148" />
+        <source>Vai</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="149" />
+        <source>Cyrillic Extended-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="150" />
+        <source>Bamum</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="151" />
+        <source>Modifier Tone Letters</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="152" />
+        <source>Latin Extended-D</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="153" />
+        <source>Syloti Nagri</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="154" />
+        <source>Common Indic Number Forms</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="155" />
+        <source>Phags-pa</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="156" />
+        <source>Saurashtra</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="157" />
+        <source>Devanagari Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="158" />
+        <source>Kayah Li</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="159" />
+        <source>Rejang</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="160" />
+        <source>Hangul Jamo Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="161" />
+        <source>Javanese</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="162" />
+        <source>Myanmar Extended-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="163" />
+        <source>Cham</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="164" />
+        <source>Myanmar Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="165" />
+        <source>Tai Viet</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="166" />
+        <source>Meetei Mayek Extensions</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="167" />
+        <source>Ethiopic Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="168" />
+        <source>Latin Extended-E</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="169" />
+        <source>Cherokee Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="170" />
+        <source>Meetei Mayek</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="171" />
+        <source>Hangul Syllables</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="172" />
+        <source>Hangul Jamo Extended-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="173" />
+        <source>High Surrogates</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="174" />
+        <source>High Private Use Surrogates</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="175" />
+        <source>Low Surrogates</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="176" />
+        <source>Private Use Area</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="177" />
+        <source>CJK Compatibility Ideographs</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="178" />
+        <source>Alphabetic Presentation Forms</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="179" />
+        <source>Arabic Presentation Forms-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="180" />
+        <source>Variation Selectors</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="181" />
+        <source>Vertical Forms</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="182" />
+        <source>Combining Half Marks</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="183" />
+        <source>CJK Compatibility Forms</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="184" />
+        <source>Small Form Variants</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="185" />
+        <source>Arabic Presentation Forms-B</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="186" />
+        <source>Halfwidth and Fullwidth Forms</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="187" />
+        <source>Specials</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="189" />
+        <source>Mahjong Tiles</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="190" />
+        <source>Domino Tiles</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="191" />
+        <source>Playing Cards</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="192" />
+        <source>Enclosed Alphanumeric Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="193" />
+        <source>Enclosed Ideographic Supplement</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="194" />
+        <source>Miscellaneous Symbols and Pictographs</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="195" />
+        <source>Emoticons</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="196" />
+        <source>Ornamental Dingbats</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="197" />
+        <source>Transport and Map Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="198" />
+        <source>Alchemical Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="199" />
+        <source>Geometric Shapes Extended</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="200" />
+        <source>Supplemental Arrows-C</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="201" />
+        <source>Supplemental Symbols and Pictographs</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="202" />
+        <source>Chess Symbols</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="203" />
+        <source>Symbols and Pictographs Extended-A</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect-translation.cpp" line="204" />
+        <source>Symbols for Legacy Computing</source>
+        <comment>KCharselect unicode block name</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="305" />
+        <source>&lt;noncharacter&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="326" />
+        <source>&lt;Non Private Use High Surrogate&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="328" />
+        <source>&lt;Private Use High Surrogate&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="330" />
+        <source>&lt;Low Surrogate&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="332" />
+        <source>&lt;Private Use&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="364" />
+        <source>&lt;not assigned&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="746" />
+        <source>Non-printable</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="779" />
+        <source>Other, Control</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="780" />
+        <source>Other, Format</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="781" />
+        <source>Other, Not Assigned</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="782" />
+        <source>Other, Private Use</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="783" />
+        <source>Other, Surrogate</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="784" />
+        <source>Letter, Lowercase</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="785" />
+        <source>Letter, Modifier</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="786" />
+        <source>Letter, Other</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="787" />
+        <source>Letter, Titlecase</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="788" />
+        <source>Letter, Uppercase</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="789" />
+        <source>Mark, Spacing Combining</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="790" />
+        <source>Mark, Enclosing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="791" />
+        <source>Mark, Non-Spacing</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="792" />
+        <source>Number, Decimal Digit</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="793" />
+        <source>Number, Letter</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="794" />
+        <source>Number, Other</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="795" />
+        <source>Punctuation, Connector</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="796" />
+        <source>Punctuation, Dash</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="797" />
+        <source>Punctuation, Close</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="798" />
+        <source>Punctuation, Final Quote</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="799" />
+        <source>Punctuation, Initial Quote</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="800" />
+        <source>Punctuation, Other</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="801" />
+        <source>Punctuation, Open</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="802" />
+        <source>Symbol, Currency</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="803" />
+        <source>Symbol, Modifier</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="804" />
+        <source>Symbol, Math</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="805" />
+        <source>Symbol, Other</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="806" />
+        <source>Separator, Line</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="807" />
+        <source>Separator, Paragraph</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="808" />
+        <source>Separator, Space</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselectdata.cpp" line="809" />
+        <source>Unknown</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KCharSelectItemModel</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="1062" />
+        <source>Unicode code point:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcharselect.cpp" line="1063" />
+        <source>In decimal</source>
+        <comment>Character</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KColorCombo</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kcolorcombo.cpp" line="329" />
+        <source>Custom...</source>
+        <comment>@item:inlistbox Custom color</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KColumnResizerTestForms</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-forms.ui" line="14" />
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-forms.ui" line="20" />
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-forms.ui" line="39" />
+        <source>GroupBox</source>
+        <translation type="unfinished">Группа</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-forms.ui" line="26" />
+        <source>Short:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-forms.ui" line="45" />
+        <source>Some long label:</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KColumnResizerTestGridAndForms</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="14" />
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="20" />
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="53" />
+        <source>GroupBox</source>
+        <translation type="unfinished">Группа</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="29" />
+        <source>Short:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="36" />
+        <source>CheckBox</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="43" />
+        <source>PushButton</source>
+        <translation type="unfinished">Кнопка</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grid-and-form.ui" line="59" />
+        <source>Some long label:</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KColumnResizerTestGrids</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grids.ui" line="14" />
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grids.ui" line="20" />
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grids.ui" line="39" />
+        <source>GroupBox</source>
+        <translation type="unfinished">Группа</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grids.ui" line="26" />
+        <source>Short:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kcolumnresizertest-grids.ui" line="45" />
+        <source>Some long label:</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KDateComboBox</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/autotests/kdatetimeedittest.cpp" line="242" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="159" />
+        <source>Next Month</source>
+        <comment>@option next month</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="158" />
+        <source>Next Year</source>
+        <comment>@option next year</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="160" />
+        <source>Next Week</source>
+        <comment>@option next week</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="161" />
+        <source>Tomorrow</source>
+        <comment>@option tomorrow</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="162" />
+        <source>Today</source>
+        <comment>@option today</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="163" />
+        <source>Yesterday</source>
+        <comment>@option yesterday</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="164" />
+        <source>Last Week</source>
+        <comment>@option last week</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="165" />
+        <source>Last Month</source>
+        <comment>@option last month</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="166" />
+        <source>Last Year</source>
+        <comment>@option last year</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="168" />
+        <source>No Date</source>
+        <comment>@option do not specify a date</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="299" />
+        <source>The date you entered is invalid</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="302" />
+        <source>Date cannot be earlier than %1</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatecombobox.cpp" line="309" />
+        <source>Date cannot be later than %1</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KDatePicker</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="180" />
+        <source>Week %1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="285" />
+        <source>Next year</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="286" />
+        <source>Previous year</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="287" />
+        <source>Next month</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="288" />
+        <source>Previous month</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="289" />
+        <source>Select a week</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="290" />
+        <source>Select a month</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="291" />
+        <source>Select a year</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="292" />
+        <source>Select the current day</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatepicker.cpp" line="632" />
+        <source>Close</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KDateTimeEdit</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatetimeedit.cpp" line="173" />
+        <source>UTC</source>
+        <comment>@item:inlistbox UTC time zone</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatetimeedit.cpp" line="174" />
+        <source>Floating</source>
+        <comment>@item:inlistbox No specific time zone</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatetimeedit.cpp" line="214" />
+        <source>The entered date and time is before the minimum allowed date and time.</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kdatetimeedit.cpp" line="224" />
+        <source>The entered date and time is after the maximum allowed date and time.</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KEditListWidget</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/keditlistwidget.cpp" line="292" />
+        <source>&amp;Add</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/keditlistwidget.cpp" line="304" />
+        <source>&amp;Remove</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/keditlistwidget.cpp" line="316" />
+        <source>Move &amp;Up</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/keditlistwidget.cpp" line="321" />
+        <source>Move &amp;Down</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KFontChooser</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="177" />
+        <source>Requested Font</source>
+        <comment>@title:group</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="191" />
+        <source>Font</source>
+        <comment>@option:check</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="196" />
+        <source>Font:</source>
+        <comment>@label</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="229" />
+        <source>Font style</source>
+        <comment>@option:check</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="234" />
+        <source>Font style:</source>
+        <comment>@label</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="247" />
+        <source>Normal</source>
+        <comment>@item font</comment>
+        <translation type="unfinished">Обычный</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="248" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="576" />
+        <source>Italic</source>
+        <comment>@item font</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="249" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="577" />
+        <source>Oblique</source>
+        <comment>@item font</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="250" />
+        <source>Bold</source>
+        <comment>@item font</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="251" />
+        <source>Bold Italic</source>
+        <comment>@item font</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="268" />
+        <source>Size</source>
+        <comment>@option:check</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="273" />
+        <source>Size:</source>
+        <comment>@label:listbox Font size</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="291" />
+        <source>Relative</source>
+        <comment>@item font size</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="293" />
+        <source>Font size&lt;br /&gt;&lt;i&gt;fixed&lt;/i&gt; or &lt;i&gt;relative&lt;/i&gt;&lt;br /&gt;to environment</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="295" />
+        <source>Here you can switch between fixed font size and font size to be calculated dynamically and adjusted to changing environment (e.g. widget dimensions, paper size).</source>
+        <comment>@info:whatsthis</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="349" />
+        <source>The Quick Brown Fox Jumps Over The Lazy Dog</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="352" />
+        <source>This sample text illustrates the current settings. You may edit it to test special characters.</source>
+        <comment>@info:whatsthis</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="365" />
+        <source>Show only monospaced fonts</source>
+        <comment>@option:check</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooser.cpp" line="561" />
+        <source>%1% {1?}</source>
+        <comment>@item Font style</comment>
+        <translation type="unfinished">%1% {1?}</translation>
+    </message>
+</context>
+<context>
+    <name>KFontChooserDialog</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontchooserdialog.cpp" line="38" />
+        <source>Select Font</source>
+        <comment>@title:window</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KFontRequester</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontrequester.cpp" line="150" />
+        <source>Choose font...</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontrequester.cpp" line="156" />
+        <source>Preview of the selected font</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontrequester.cpp" line="157" />
+        <source>This is a preview of the selected font. You can change it by clicking the "Choose Font..." button.</source>
+        <comment>@info:whatsthis</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontrequester.cpp" line="160" />
+        <source>Preview of the "%1" font</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kfontrequester.cpp" line="161" />
+        <source>This is a preview of the "%1" font. You can change it by clicking the "Choose Font..." button.</source>
+        <comment>@info:whatsthis</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KFormat</name>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="104" />
+        <source>y</source>
+        <comment>SI prefix for 10^⁻24</comment>
+        <translation type="unfinished">y</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="105" />
+        <source>z</source>
+        <comment>SI prefix for 10^⁻21</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="106" />
+        <source>a</source>
+        <comment>SI prefix for 10^⁻18</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="107" />
+        <source>f</source>
+        <comment>SI prefix for 10^⁻15</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="108" />
+        <source>p</source>
+        <comment>SI prefix for 10^⁻12</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="109" />
+        <source>n</source>
+        <comment>SI prefix for 10^⁻9</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="110" />
+        <source>µ</source>
+        <comment>SI prefix for 10^⁻6</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="111" />
+        <source>m</source>
+        <comment>SI prefix for 10^⁻3</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="113" />
+        <source>k</source>
+        <comment>SI prefix for 10^3</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="113" />
+        <source>Ki</source>
+        <comment>IEC binary prefix for 2^10</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="114" />
+        <source>M</source>
+        <comment>SI prefix for 10^6</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="114" />
+        <source>Mi</source>
+        <comment>IEC binary prefix for 2^20</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="115" />
+        <source>G</source>
+        <comment>SI prefix for 10^9</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="115" />
+        <source>Gi</source>
+        <comment>IEC binary prefix for 2^30</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="116" />
+        <source>T</source>
+        <comment>SI prefix for 10^12</comment>
+        <translation type="unfinished">T</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="116" />
+        <source>Ti</source>
+        <comment>IEC binary prefix for 2^40</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="117" />
+        <source>P</source>
+        <comment>SI prefix for 10^15</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="117" />
+        <source>Pi</source>
+        <comment>IEC binary prefix for 2^50</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="118" />
+        <source>E</source>
+        <comment>SI prefix for 10^18</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="118" />
+        <source>Ei</source>
+        <comment>IEC binary prefix for 2^60</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="119" />
+        <source>Z</source>
+        <comment>SI prefix for 10^21</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="119" />
+        <source>Zi</source>
+        <comment>IEC binary prefix for 2^70</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="120" />
+        <source>Y</source>
+        <comment>SI prefix for 10^24</comment>
+        <translation type="unfinished">Y</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="120" />
+        <source>Yi</source>
+        <comment>IEC binary prefix for 2^80</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="128" />
+        <source>bit</source>
+        <comment>Symbol of binary digit</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="131" />
+        <source>B</source>
+        <comment>Symbol of byte</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="134" />
+        <source>m</source>
+        <comment>Symbol of meter</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="137" />
+        <source>Hz</source>
+        <comment>Symbol of hertz</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="146" />
+        <source>%1 %2</source>
+        <comment>no Prefix</comment>
+        <extracomment>value without prefix, format "&lt;val&gt; &lt;unit&gt;"</extracomment>
+        <translation type="unfinished">%1 %2</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="165" />
+        <source>%1% {1 %2%3?}</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>value with prefix, format "&lt;val&gt; &lt;prefix&gt;&lt;unit&gt;"</extracomment>
+        <translation type="unfinished">%1% {1 %2%3?}</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="216" />
+        <source>%1 B</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="219" />
+        <source>%1 kB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 1000 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="222" />
+        <source>%1 MB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^6 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="225" />
+        <source>%1 GB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^9 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="228" />
+        <source>%1 TB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^12 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="231" />
+        <source>%1 PB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^15 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="234" />
+        <source>%1 EB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^18 byte</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="237" />
+        <source>%1 ZB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^21 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="240" />
+        <source>%1 YB</source>
+        <comment>MetricBinaryDialect</comment>
+        <extracomment>MetricBinaryDialect size in 10^24 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="246" />
+        <source>%1 B</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="249" />
+        <source>%1 KB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 1024 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="252" />
+        <source>%1 MB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^20 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="255" />
+        <source>%1 GB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^30 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="258" />
+        <source>%1 TB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^40 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="261" />
+        <source>%1 PB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^50 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="264" />
+        <source>%1 EB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^60 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="267" />
+        <source>%1 ZB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^70 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="270" />
+        <source>%1 YB</source>
+        <comment>JEDECBinaryDialect</comment>
+        <extracomment>JEDECBinaryDialect memory size in 10^80 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="276" />
+        <source>%1 B</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="279" />
+        <source>%1 KiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 1024 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="282" />
+        <source>%1 MiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^20 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="285" />
+        <source>%1 GiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^30 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="288" />
+        <source>%1 TiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^40 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="291" />
+        <source>%1 PiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^50 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="294" />
+        <source>%1 EiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^60 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="297" />
+        <source>%1 ZiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^70 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="300" />
+        <source>%1 YiB</source>
+        <comment>IECBinaryDialect</comment>
+        <extracomment>IECBinaryDialect size in 10^80 bytes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="339" />
+        <source>%1m%2.%3s</source>
+        <extracomment>@item:intext Duration format minutes, seconds and milliseconds</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="344" />
+        <source>%1m%2s</source>
+        <extracomment>@item:intext Duration format minutes and seconds</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="348" />
+        <source>%1h%2m</source>
+        <extracomment>@item:intext Duration format hours and minutes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="352" />
+        <source>%1h%2m%3.%4s</source>
+        <extracomment>@item:intext Duration format hours, minutes, seconds, milliseconds</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="358" />
+        <source>%1h%2m%3s</source>
+        <extracomment>@item:intext Duration format hours, minutes, seconds</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="368" />
+        <source>%1% {1:%2.%3?}</source>
+        <extracomment>@item:intext Duration format minutes, seconds and milliseconds</extracomment>
+        <translation type="unfinished">%1% {1:%2.%3?}</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="373" />
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="377" />
+        <source>%1% {1:%2?}</source>
+        <extracomment>@item:intext Duration format minutes and seconds
+----------
+@item:intext Duration format hours and minutes</extracomment>
+        <translation type="unfinished">%1% {1:%2?}</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="381" />
+        <source>%1% {1:%2:%3.%4?}</source>
+        <extracomment>@item:intext Duration format hours, minutes, seconds, milliseconds</extracomment>
+        <translation type="unfinished">%1% {1:%2:%3.%4?}</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="387" />
+        <source>%1% {1:%2:%3?}</source>
+        <extracomment>@item:intext Duration format hours, minutes, seconds</extracomment>
+        <translation type="unfinished">%1% {1:%2:%3?}</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="402" />
+        <source>%1 days</source>
+        <extracomment>@item:intext %1 is a real number, e.g. 1.23 days</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="405" />
+        <source>%1 hours</source>
+        <extracomment>@item:intext %1 is a real number, e.g. 1.23 hours</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="408" />
+        <source>%1 minutes</source>
+        <extracomment>@item:intext %1 is a real number, e.g. 1.23 minutes</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="411" />
+        <source>%1 seconds</source>
+        <extracomment>@item:intext %1 is a real number, e.g. 1.23 seconds</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message numerus="yes">
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="416" />
+        <source>%n millisecond(s)</source>
+        <extracomment>@item:intext %1 is a whole number</extracomment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+        <extra-plural>%n milliseconds</extra-plural>
+        <extra-singular>%n millisecond</extra-singular>
+    </message>
+    <message numerus="yes">
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="434" />
+        <source>%n day(s)</source>
+        <extracomment>@item:intext %n is a whole number</extracomment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+        <extra-plural>%n days</extra-plural>
+        <extra-singular>%n day</extra-singular>
+    </message>
+    <message numerus="yes">
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="439" />
+        <source>%n hour(s)</source>
+        <extracomment>@item:intext %n is a whole number</extracomment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+        <extra-plural>%n hours</extra-plural>
+        <extra-singular>%n hour</extra-singular>
+    </message>
+    <message numerus="yes">
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="444" />
+        <source>%n minute(s)</source>
+        <extracomment>@item:intext %n is a whole number</extracomment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+        <extra-plural>%n minutes</extra-plural>
+        <extra-singular>%n minute</extra-singular>
+    </message>
+    <message numerus="yes">
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="449" />
+        <source>%n second(s)</source>
+        <extracomment>@item:intext %n is a whole number</extracomment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+        <extra-plural>%n seconds</extra-plural>
+        <extra-singular>%n second</extra-singular>
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="474" />
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="480" />
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="486" />
+        <source>%1 and %2</source>
+        <extracomment>@item:intext days and hours. This uses the previous item:intext messages. If this does not fit the grammar of your language please contact the i18n team to solve the problem
+----------
+@item:intext hours and minutes. This uses the previous item:intext messages. If this does not fit the grammar of your language please contact the i18n team to solve the problem
+----------
+@item:intext minutes and seconds. This uses the previous item:intext messages. If this does not fit the grammar of your language please contact the i18n team to solve the problem</extracomment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="497" />
+        <source>Invalid date</source>
+        <comment>used when a relative date string can't be generated because the date is invalid</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="507" />
+        <source>In two days</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="509" />
+        <source>Tomorrow</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="511" />
+        <source>Today</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="513" />
+        <source>Yesterday</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="515" />
+        <source>Two days ago</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="532" />
+        <source>Just now</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="534" />
+        <source>%1 minutes ago</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/kformatprivate.cpp" line="540" />
+        <source>%1, %2</source>
+        <extracomment>relative datetime with %1 result of formatReleativeDate() and %2 the formatted time If this does not fit the grammar of your language please contact the i18n team to solve the problem</extracomment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KLed</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kled.cpp" line="176" />
+        <source>LED on</source>
+        <comment>Accessible name of a Led whose state is on</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kled.cpp" line="177" />
+        <source>LED off</source>
+        <comment>Accessible name of a Led whose state is off</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KMessageBox</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="63" />
+        <source>.</source>
+        <comment>@action:button post-filter</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="302" />
+        <source>Details</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="460" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="514" />
+        <source>Question</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="472" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="528" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="599" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="663" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="746" />
+        <source>Do not ask again</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="587" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="651" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="733" />
+        <source>Warning</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="785" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="806" />
+        <source>Error</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="833" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="866" />
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="1133" />
+        <source>Sorry</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="909" />
+        <source>Information</source>
+        <translation type="unfinished">Информация</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagebox.cpp" line="920" />
+        <source>Do not show this message again</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KMessageDialog</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagedialog.cpp" line="133" />
+        <source>Details</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagedialog.cpp" line="198" />
+        <source>Question</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagedialog.cpp" line="203" />
+        <source>Warning</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagedialog.cpp" line="206" />
+        <source>Information</source>
+        <translation type="unfinished">Информация</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagedialog.cpp" line="209" />
+        <source>Sorry</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagedialog.cpp" line="212" />
+        <source>Error</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KMessageWidget</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagewidget.cpp" line="76" />
+        <source>&amp;Close</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmessagewidget.cpp" line="77" />
+        <source>Close message</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KMimeTypeChooser</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="88" />
+        <source>Search for file type or filename pattern...</source>
+        <comment>@info:placeholder</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="89" />
+        <source>&amp;Filter:</source>
+        <comment>@label:textbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="103" />
+        <source>MIME Type</source>
+        <comment>@title:column</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="106" />
+        <source>Comment</source>
+        <comment>@title:column</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="110" />
+        <source>Patterns</source>
+        <comment>@title:column</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="126" />
+        <source>&amp;Edit...</source>
+        <comment>@action:button</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kmimetypechooser.cpp" line="136" />
+        <source>Launch the MIME type editor</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KNewPasswordDialog</name>
+    <message numerus="yes">
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpassworddialog.cpp" line="58" />
+        <source>Password must be at least %n character(s) long.</source>
+        <comment>@info</comment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+        <extra-plural>Password must be at least %n characters long</extra-plural>
+        <extra-singular>Password must be at least %n character long</extra-singular>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpassworddialog.cpp" line="62" />
+        <source>Password is empty.</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpassworddialog.cpp" line="66" />
+        <source>Passwords do not match.</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpassworddialog.cpp" line="71" />
+        <source>Passwords match.</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpassworddialog.cpp" line="147" />
+        <source>Low Password Strength</source>
+        <comment>@title:window</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpassworddialog.cpp" line="148" />
+        <source>The password you have entered has a low strength. To improve the strength of the password, try:
+ - using a longer password;
+ - using a mixture of upper- and lower-case letters;
+ - using numbers or symbols as well as letters.
+
+Would you like to use this password anyway?</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KNewPasswordWidget</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpasswordwidget.ui" line="19" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_knewpasswordwidget.h" line="107" />
+        <source>Password:</source>
+        <comment>@label:textbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpasswordwidget.ui" line="29" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_knewpasswordwidget.h" line="108" />
+        <source>&amp;Verify:</source>
+        <comment>@label:textbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpasswordwidget.ui" line="54" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_knewpasswordwidget.h" line="109" />
+        <source>Password strength &amp;meter:</source>
+        <comment>@label</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/knewpasswordwidget.cpp" line="48" />
+        <source>The password strength meter gives an indication of the security of the password you have entered. To improve the strength of the password, try:&lt;ul&gt;&lt;li&gt;using a longer password;&lt;/li&gt;&lt;li&gt;using a mixture of upper- and lower-case letters;&lt;/li&gt;&lt;li&gt;using numbers or symbols, such as #, as well as letters.&lt;/li&gt;&lt;/ul&gt;</source>
+        <comment>@info:whatsthis</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KPasswordDialog</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="33" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="190" />
+        <source>Supply a username and password below.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="70" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="191" />
+        <source>No password, use anonymous (or &amp;guest) login</source>
+        <comment>@option:radio</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="77" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="192" />
+        <source>Use this password:</source>
+        <comment>@option:radio</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="102" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="193" />
+        <source>Username:</source>
+        <comment>@label:textbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="127" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="195" />
+        <source>Domain:</source>
+        <comment>@label:textbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="141" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="196" />
+        <source>Password:</source>
+        <comment>@label:textbox</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.ui" line="155" />
+        <location filename="../build/_deps/kwidgetsaddons-build/src/ui_kpassworddialog.h" line="197" />
+        <source>Remember password</source>
+        <comment>@option:check</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.cpp" line="51" />
+        <source>Password</source>
+        <comment>@title:window</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.cpp" line="82" />
+        <source>Show Contextual Help</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpassworddialog.cpp" line="103" />
+        <source>Supply a password below.</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KPixmapRegionSelectorDialog</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpixmapregionselectordialog.cpp" line="60" />
+        <source>Select Region of Image</source>
+        <comment>@title:window</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpixmapregionselectordialog.cpp" line="64" />
+        <source>Please click and drag on the image to select the region of interest:</source>
+        <comment>@label:chooser</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KPixmapRegionSelectorWidget</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpixmapregionselectorwidget.cpp" line="174" />
+        <source>Image Operations</source>
+        <comment>@title:menu</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpixmapregionselectorwidget.cpp" line="176" />
+        <source>&amp;Rotate Clockwise</source>
+        <comment>@action:inmenu</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpixmapregionselectorwidget.cpp" line="178" />
+        <source>Rotate &amp;Counterclockwise</source>
+        <comment>@action:inmenu</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KPluginLoader</name>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/plugin/kpluginloader.cpp" line="109" />
+        <source>The library %1 does not offer a KPluginFactory.</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KRecentFilesMenu</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/krecentfilesmenu.cpp" line="103" />
+        <source>No Entries</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/krecentfilesmenu.cpp" line="106" />
+        <source>Clear List</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/krecentfilesmenu.cpp" line="113" />
+        <source>Recent Files</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KSqueezedTextLabel</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ksqueezedtextlabel.cpp" line="206" />
+        <source>&amp;Copy Full Text</source>
+        <comment>@action:inmenu</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KStandardGuiItem</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="96" />
+        <source>&amp;OK</source>
+        <translation type="unfinished">&amp;OK</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="101" />
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Отмена</translation>
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="106" />
+        <source>&amp;Yes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="106" />
+        <source>Yes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="111" />
+        <source>&amp;No</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="111" />
+        <source>No</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="116" />
+        <source>&amp;Discard</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="116" />
+        <source>Discard changes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="117" />
+        <source>Pressing this button will discard all recent changes made in this dialog.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="123" />
+        <source>&amp;Save</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="123" />
+        <source>Save data</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="128" />
+        <source>&amp;Do Not Save</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="129" />
+        <source>Do not save data</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="134" />
+        <source>Save &amp;As...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="135" />
+        <source>Save file with another name</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="140" />
+        <source>&amp;Apply</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="140" />
+        <source>Apply changes</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="141" />
+        <source>When you click &lt;b&gt;Apply&lt;/b&gt;, the settings will be handed over to the program, but the dialog will not be closed.
+Use this to try different settings.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="149" />
+        <source>Administrator &amp;Mode...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="149" />
+        <source>Enter Administrator Mode</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="150" />
+        <source>When you click &lt;b&gt;Administrator Mode&lt;/b&gt; you will be prompted for the administrator (root) password in order to make changes which require root privileges.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="157" />
+        <source>C&amp;lear</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="158" />
+        <source>Clear input</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="159" />
+        <source>Clear the input in the edit field</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="164" />
+        <source>&amp;Help</source>
+        <comment>show help</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="165" />
+        <source>Show help</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="170" />
+        <source>&amp;Close</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="171" />
+        <source>Close the current window or document</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="176" />
+        <source>&amp;Close Window</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="177" />
+        <source>Close the current window.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="182" />
+        <source>&amp;Close Document</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="183" />
+        <source>Close the current document.</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="188" />
+        <source>&amp;Defaults</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="189" />
+        <source>Reset all items to their default values</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="196" />
+        <source>&amp;Back</source>
+        <comment>go back</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="197" />
+        <source>Go back one step</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="204" />
+        <source>&amp;Forward</source>
+        <comment>go forward</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="205" />
+        <source>Go forward one step</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="215" />
+        <source>&amp;Print...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="216" />
+        <source>Opens the print dialog to print the current document</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="222" />
+        <source>C&amp;ontinue</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="223" />
+        <source>Continue operation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="228" />
+        <source>&amp;Delete</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="229" />
+        <source>Delete item(s)</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="234" />
+        <source>&amp;Open...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="235" />
+        <source>Open file</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="240" />
+        <source>&amp;Quit</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="241" />
+        <source>Quit application</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="246" />
+        <source>&amp;Reset</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="247" />
+        <source>Reset configuration</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="252" />
+        <source>&amp;Insert</source>
+        <comment>Verb</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="257" />
+        <source>Confi&amp;gure...</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="262" />
+        <source>&amp;Find</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="267" />
+        <source>Stop</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="272" />
+        <source>Add</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="277" />
+        <source>Remove</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="282" />
+        <source>Test</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="287" />
+        <source>Properties</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kstandardguiitem.cpp" line="292" />
+        <source>&amp;Overwrite</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KTimeComboBox</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktimecombobox.cpp" line="256" />
+        <source>The time you entered is invalid</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktimecombobox.cpp" line="259" />
+        <source>Time cannot be earlier than %1</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktimecombobox.cpp" line="266" />
+        <source>Time cannot be later than %1</source>
+        <comment>@info</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>KToggleFullScreenAction</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktogglefullscreenaction.cpp" line="32" />
+        <source>Exit F&amp;ull Screen Mode</source>
+        <comment>@action:inmenu</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktogglefullscreenaction.cpp" line="33" />
+        <source>Exit Full Screen</source>
+        <comment>@action:intoolbar</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktogglefullscreenaction.cpp" line="34" />
+        <source>Exit full screen mode</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktogglefullscreenaction.cpp" line="37" />
+        <source>F&amp;ull Screen Mode</source>
+        <comment>@action:inmenu</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktogglefullscreenaction.cpp" line="38" />
+        <source>Full Screen</source>
+        <comment>@action:intoolbar</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/ktogglefullscreenaction.cpp" line="39" />
+        <source>Display the window in full screen</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>LineEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="42" />
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="68" />
+        <source>Normal</source>
+        <comment>type of the 1st end of a line</comment>
+        <translation>Нормальный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="47" />
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="73" />
+        <source>Simple arrow</source>
+        <comment>type of the 1st end of a line</comment>
+        <translation>Простая стрелка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="52" />
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="78" />
+        <source>Triangle arrow</source>
+        <comment>type of the 1st end of a line</comment>
+        <translation>Треугольная стрелка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="57" />
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="83" />
+        <source>Circle</source>
+        <comment>type of the 1st end of a line</comment>
+        <translation>Окружность</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="62" />
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="88" />
+        <source>Diamond</source>
+        <comment>type of the 1st end of a line</comment>
+        <translation>Ромб</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="308" />
+        <location filename="../sources/editor/ui/lineeditor.cpp" line="356" />
+        <source>Edit a line</source>
+        <translation>Изменить линию</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="163" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="52" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="164" />
+        <source>X1:</source>
+        <translation>X1:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="59" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="165" />
+        <source>Y1:</source>
+        <translation>Y1:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="66" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="166" />
+        <source>X2:</source>
+        <translation>X2:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="83" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="167" />
+        <source>End 1:</source>
+        <translation>Конец 1:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="90" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="168" />
+        <source>Y2:</source>
+        <translation>Y2:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="97" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="169" />
+        <source>End 2:</source>
+        <translation>Конец 2:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/lineeditor.ui" line="110" />
+        <location filename="../sources/editor/ui/lineeditor.ui" line="117" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="170" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_lineeditor.h" line="171" />
+        <source>Length:</source>
+        <translation>Длина:</translation>
+    </message>
+</context>
+<context>
+    <name>LinkSingleElementWidget</name>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_linksingleelementwidget.h" line="85" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.ui" line="56" />
+        <location filename="../build/qelectrotech_autogen/ui_linksingleelementwidget.h" line="89" />
+        <source>This element is already linked</source>
+        <translation>Этот элемент уже связан</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.ui" line="63" />
+        <location filename="../build/qelectrotech_autogen/ui_linksingleelementwidget.h" line="90" />
+        <source>Search</source>
+        <translation>Доступное</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="444" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="452" />
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="445" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="453" />
+        <source>Annotation</source>
+        <translation>Аннотация</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="454" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="480" />
+        <source>N° of folio</source>
+        <translation>№ листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="446" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="469" />
+        <source>Label folio</source>
+        <translation>Метка листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="448" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="456" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="471" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="482" />
+        <source>Title of folio</source>
+        <translation>Название листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="447" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="455" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="470" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="481" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="464" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="475" />
+        <source>N° wire</source>
+        <translation>№ провода</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="465" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="476" />
+        <source>Function</source>
+        <translation>Функция</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="466" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="477" />
+        <source>Voltage / Protocol</source>
+        <translation>Напряжение/протокол</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="467" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="478" />
+        <source>Conductor color</source>
+        <translation>Цвет проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="468" />
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="479" />
+        <source>Conductor section</source>
+        <translation>Сечение проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/ui_linksingleelementwidget.h" line="86" />
+        <source>View this item</source>
+        <translation>Просмотреть этот элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.ui" line="49" />
+        <location filename="../build/qelectrotech_autogen/ui_linksingleelementwidget.h" line="88" />
+        <source>See the linked item</source>
+        <translation>Просмотреть связанный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="49" />
+        <source>Link the item</source>
+        <translation>Связать элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="50" />
+        <source>Show item</source>
+        <translation>Показать элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="51" />
+        <source>Show slave element</source>
+        <translation>Показать подчиненный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="52" />
+        <source>Save the layout</source>
+        <translation>Сохранить макет</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="209" />
+        <source>Folio referencing</source>
+        <translation>Отчет о листе</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.cpp" line="211" />
+        <source>Cross Reference (slave)</source>
+        <translation>Ссылка (подчиненный)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/linksingleelementwidget.ui" line="42" />
+        <location filename="../build/qelectrotech_autogen/ui_linksingleelementwidget.h" line="87" />
+        <source>Unlink</source>
+        <translation>Разорвать связь</translation>
+    </message>
+</context>
+<context>
+    <name>MarginsEditDialog</name>
+    <message>
+        <location filename="../sources/ui/marginseditdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_marginseditdialog.h" line="109" />
+        <source>Edit margins</source>
+        <translation>Изменить поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/marginseditdialog.ui" line="71" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_marginseditdialog.h" line="114" />
+        <source>Top :</source>
+        <translation>Сверху:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/marginseditdialog.ui" line="78" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_marginseditdialog.h" line="115" />
+        <source>Left :</source>
+        <translation>Слева:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/marginseditdialog.ui" line="85" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_marginseditdialog.h" line="116" />
+        <source>Right :</source>
+        <translation>Справа:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/marginseditdialog.ui" line="92" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_marginseditdialog.h" line="117" />
+        <source>Bottom :</source>
+        <translation>Снизу:</translation>
+    </message>
+</context>
+<context>
+    <name>MasterPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_masterpropertieswidget.h" line="116" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.ui" line="133" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_masterpropertieswidget.h" line="120" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Unlink the selected item&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Отменить связь выбранного элемента&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.ui" line="147" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_masterpropertieswidget.h" line="124" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Link the selected item&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Связать выбранный элемент&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="48" />
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="54" />
+        <source>Thumbnail</source>
+        <translation>Эскиз</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="55" />
+        <source>N° of folio</source>
+        <translation>№ листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="49" />
+        <source>Label folio</source>
+        <translation>Метка листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="50" />
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="56" />
+        <source>Title of folio</source>
+        <translation>Название листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="51" />
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="57" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.ui" line="123" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_masterpropertieswidget.h" line="118" />
+        <source>Available elements</source>
+        <translation>Доступные элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.ui" line="32" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_masterpropertieswidget.h" line="117" />
+        <source>Elements related</source>
+        <translation>Связанные элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="63" />
+        <source>Link the item</source>
+        <translation>Связать элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="64" />
+        <source>Unlink the item</source>
+        <translation>Отменить связь с элементом</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="65" />
+        <source>Show item</source>
+        <translation>Показать элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="66" />
+        <source>Show master element</source>
+        <translation>Показать главный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.cpp" line="67" />
+        <source>Save the layout</source>
+        <translation>Сохранить макет</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/masterpropertieswidget.h" line="62" />
+        <source>Cross-reference (master)</source>
+        <translation>Перекрестная ссылка (мастер)</translation>
+    </message>
+</context>
+<context>
+    <name>MultiPasteDialog</name>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="129" />
+        <source>Multiple paste</source>
+        <translation>Множественное копирование</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="22" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="130" />
+        <source>offset</source>
+        <translation>Смещение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="29" />
+        <location filename="../sources/ui/multipastedialog.ui" line="51" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="131" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="133" />
+        <source>px</source>
+        <translation> пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="32" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="132" />
+        <source>x:  </source>
+        <translation>x:  </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="54" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="134" />
+        <source>y:  </source>
+        <translation>y:  </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="77" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="135" />
+        <source>Number of copies</source>
+        <translation>Количество копий</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="93" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="136" />
+        <source>Auto-connection</source>
+        <translation>Автоподключение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="100" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="137" />
+        <source>Self-numbering of elements</source>
+        <translation>Автонумерация элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.ui" line="107" />
+        <location filename="../build/qelectrotech_autogen/ui_multipastedialog.h" line="138" />
+        <source>Self-numbering of conductors</source>
+        <translation>Автонумерация проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/multipastedialog.cpp" line="104" />
+        <source>Multi-paste</source>
+        <translation>Мультикопирование</translation>
+    </message>
+</context>
+<context>
+    <name>NameListDialog</name>
+    <message>
+        <location filename="../sources/NameList/ui/namelistdialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_namelistdialog.h" line="59" />
+        <source>Dialog</source>
+        <translation>Диалог</translation>
+    </message>
+    <message>
+        <location filename="../sources/NameList/ui/namelistdialog.cpp" line="69" />
+        <source>Title block variables</source>
+        <translation>Переменные шаблона</translation>
+    </message>
+</context>
+<context>
+    <name>NameListWidget</name>
+    <message>
+        <location filename="../sources/NameList/ui/namelistwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_namelistwidget.h" line="75" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/NameList/ui/namelistwidget.ui" line="21" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_namelistwidget.h" line="78" />
+        <source>Language</source>
+        <translation>Язык</translation>
+    </message>
+    <message>
+        <location filename="../sources/NameList/ui/namelistwidget.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_namelistwidget.h" line="77" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/NameList/ui/namelistwidget.ui" line="36" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_namelistwidget.h" line="79" />
+        <source>Add a line</source>
+        <translation>Добавить строку</translation>
+    </message>
+    <message>
+        <location filename="../sources/NameList/ui/namelistwidget.ui" line="48" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_namelistwidget.h" line="80" />
+        <source>Copy to clipboard</source>
+        <translation>Скопировать в буфер обмена</translation>
+    </message>
+</context>
+<context>
+    <name>NewDiagramPage</name>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="97" />
+        <source>Folio</source>
+        <translation>Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="98" />
+        <source>Conductor</source>
+        <translation>Проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="99" />
+        <source>Folio referencings</source>
+        <translation>Отчеты о листах</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="100" />
+        <source>Cross References</source>
+        <translation>Перекрестные ссылки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="204" />
+        <source>New folio</source>
+        <comment>configuration page title</comment>
+        <translation>Новый лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="205" />
+        <source>New project</source>
+        <comment>configuration page title</comment>
+        <translation>Новый проект</translation>
+    </message>
+</context>
+<context>
+    <name>NewElementWizard</name>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="48" />
+        <source>Create a new element: wizard</source>
+        <comment>window title</comment>
+        <translation>Создать новый элемент: Мастер</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="49" />
+        <source>&amp;Next &gt;</source>
+        <translation>&amp;Далее &gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="84" />
+        <source>Step 1 of 3: Parent category</source>
+        <comment>wizard page title</comment>
+        <translation>Шаг 1 из 3: Родительская категория</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="85" />
+        <source>Select a category which to save the new element in.</source>
+        <comment>wizard page subtitle</comment>
+        <translation>Выберите категорию, в которую хотите сохранить новый элемент.</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="112" />
+        <source>Step 2 of 3: Filename</source>
+        <comment>wizard page title</comment>
+        <translation>Шаг 2 из 3: Имя файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="113" />
+        <source>Enter the name of the file for the new element.</source>
+        <comment>wizard page subtitle</comment>
+        <translation>Введите имя файла для нового элемента.</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="116" />
+        <source>new_element</source>
+        <translation>новый_элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="118" />
+        <source>You don't have to specify the *.elmt extension. It will be added automatically.</source>
+        <translation>Вам не обязательно указывать расширение *.elmt. Оно будет добавлено автоматически.</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="137" />
+        <source>Step 3 of 3: Element names</source>
+        <comment>wizard page title</comment>
+        <translation>Шаг 3 из 3: Имя элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="138" />
+        <source>Enter one or more names for the element.</source>
+        <comment>wizard page subtitle</comment>
+        <translation>Введите одно или несколько имён для элемента.</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="143" />
+        <source>New element name</source>
+        <comment>default name when creating a new element</comment>
+        <translation>Имя нового элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="201" />
+        <location filename="../sources/newelementwizard.cpp" line="219" />
+        <location filename="../sources/newelementwizard.cpp" line="232" />
+        <source>Error</source>
+        <comment>message box title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="202" />
+        <source>You must select a category.</source>
+        <comment>message box content</comment>
+        <translation>Вы должны выбрать категорию.</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="220" />
+        <source>You must enter a filename</source>
+        <comment>message box content</comment>
+        <translation>Вы должны ввести имя файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/newelementwizard.cpp" line="233" />
+        <source>An element with the same name already exists</source>
+        <translation>Элемент с таким именем уже существует</translation>
+    </message>
+</context>
+<context>
+    <name>NumPartEditorW</name>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_numparteditorw.h" line="79" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="110" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="117" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="130" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="235" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="376" />
+        <source>number format 1</source>
+        <translation>Формат числа: 1</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="111" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="119" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="132" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="239" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="380" />
+        <source>number format 01</source>
+        <translation>Формат числа: 01</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="112" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="121" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="134" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="243" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="384" />
+        <source>number format 001</source>
+        <translation>Формат числа: 001</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="113" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="123" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="136" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="247" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="388" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="124" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="137" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="249" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="390" />
+        <source>N° scheme</source>
+        <translatorcomment>№ схемы?</translatorcomment>
+        <translation>№ листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="125" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="138" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="251" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="392" />
+        <source>Folio</source>
+        <translation>Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="118" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="131" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="237" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="378" />
+        <source>number format 1 - Folio</source>
+        <translation>Формат числа: 1 — Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="120" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="133" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="241" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="382" />
+        <source>number format 01 - Folio</source>
+        <translation>Формат числа: 01 — Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="122" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="135" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="245" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="386" />
+        <source>number format 001 - Folio</source>
+        <translation>Формат числа: 001 — Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="127" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="140" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="255" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="396" />
+        <source>Location</source>
+        <translation>Расположение</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="126" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="139" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="253" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="394" />
+        <source>Plant</source>
+        <translation>Установка</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="141" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="257" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="398" />
+        <source>Element Line</source>
+        <translation>Строка элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="142" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="259" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="400" />
+        <source>Element Column</source>
+        <translation>Столбец элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="143" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="261" />
+        <location filename="../sources/autoNum/ui/numparteditorw.cpp" line="402" />
+        <source>Element Prefix</source>
+        <translation>Префикс элемента</translation>
+    </message>
+</context>
+<context>
+    <name>PartArc</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/partarc.cpp" line="391" />
+        <location filename="../sources/editor/graphicspart/partarc.cpp" line="395" />
+        <location filename="../sources/editor/graphicspart/partarc.cpp" line="401" />
+        <location filename="../sources/editor/graphicspart/partarc.cpp" line="408" />
+        <source>Edit an arc</source>
+        <translation>Редактировать дугу</translation>
+    </message>
+</context>
+<context>
+    <name>PartDynamicTextField</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/partdynamictextfield.cpp" line="55" />
+        <source>Dynamic text field</source>
+        <comment>element part name</comment>
+        <translatorcomment>название части элемента</translatorcomment>
+        <translation>Динамическое текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partdynamictextfield.cpp" line="527" />
+        <source>Move a text field</source>
+        <translation>Переместить текстовое поле</translation>
+    </message>
+</context>
+<context>
+    <name>PartEllipse</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/partellipse.cpp" line="327" />
+        <source>Change a rectangle</source>
+        <translation>Редактировать прямоугольник</translation>
+    </message>
+</context>
+<context>
+    <name>PartLine</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/partline.cpp" line="241" />
+        <source>Edit a line</source>
+        <translation>Редактировать линию</translation>
+    </message>
+</context>
+<context>
+    <name>PartPolygon</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/partpolygon.cpp" line="38" />
+        <source>Add a point</source>
+        <translation>Добавить точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partpolygon.cpp" line="41" />
+        <source>Delete this point</source>
+        <translation>Удалить эту точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partpolygon.cpp" line="452" />
+        <source>Change a polygon</source>
+        <translation>Редактировать многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partpolygon.cpp" line="535" />
+        <source>Add a point to a polygon</source>
+        <translation>Добавить точку к многоугольнику</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partpolygon.cpp" line="568" />
+        <source>Delete a point from a polygon</source>
+        <translation>Удалить точку из многоугольника</translation>
+    </message>
+</context>
+<context>
+    <name>PartText</name>
+    <message>
+        <location filename="../sources/editor/graphicspart/parttext.cpp" line="343" />
+        <source>Move a text</source>
+        <translation>Переместить текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/parttext.cpp" line="403" />
+        <source>Edit the text field</source>
+        <translation>Редактировать текстовое поле</translation>
+    </message>
+</context>
+<context>
+    <name>PolygonEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="75" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="31" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="81" />
+        <source>X</source>
+        <translation type="unfinished">X</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="36" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="80" />
+        <source>Y</source>
+        <translation type="unfinished">Y</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="44" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="82" />
+        <source>Closed polygon</source>
+        <translation>Замкнутый многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="55" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="76" />
+        <source>Add a point</source>
+        <translation>Добавить точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="64" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="77" />
+        <source>Delete this point</source>
+        <translation>Удалить эту точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_polygoneditor.h" line="78" />
+        <source>Polygon points:</source>
+        <translation>Точки многоугольника:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.cpp" line="237" />
+        <source>Error</source>
+        <comment>message box title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.cpp" line="239" />
+        <source>The polygon must contain at least two points.</source>
+        <comment>message box content</comment>
+        <translation>Многоугольник долен содержать минимум две точки.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.cpp" line="312" />
+        <source>Add a point to a polygon</source>
+        <translation>Добавить точку к многоугольнику</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.cpp" line="331" />
+        <source>Delete a point from a polygon</source>
+        <translation>Удалить точку из многоугольника</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/polygoneditor.cpp" line="214" />
+        <location filename="../sources/editor/ui/polygoneditor.cpp" line="251" />
+        <source>Change a polygon</source>
+        <translation>Изменить многоугольник</translation>
+    </message>
+</context>
+<context>
+    <name>PotentialSelectorDialog</name>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_potentialselectordialog.h" line="66" />
+        <source>Select the electric potential</source>
+        <translation>Выберите электрический потенциал</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.ui" line="38" />
+        <location filename="../build/qelectrotech_autogen/ui_potentialselectordialog.h" line="67" />
+        <source>You try to link two different potentials together.
+Please select the properties to be applied to new potential.</source>
+        <translation>Вы собираетесь связать вместе два разных потенциала.
+Пожалуйста, выберите свойства, которые будут применены к новому потенциалу.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="213" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="305" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="326" />
+        <source>
+Function : %1</source>
+        <translation>
+Функция: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="215" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="307" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="328" />
+        <source>
+Voltage / Protocol : %1</source>
+        <translation>
+Напряжение/протокол: %1</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="294" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="316" />
+        <source>%n conducteurs composent le potentiel suivant :</source>
+        <translation>
+            <numerusform>%n проводник составляет следующий потенциал:</numerusform>
+            <numerusform>%n проводника составляют следующий потенциал:</numerusform>
+            <numerusform>%n проводников составляют следующий потенциал:</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="211" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="303" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="324" />
+        <source>
+Numéro : %1</source>
+        <translation>
+Номер: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="202" />
+        <source>Please select an electrical potential from the list 
+to use for the new potential</source>
+        <translation>Выберите электрический потенциал из списка, 
+чтобы использовать его для нового потенциала</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="217" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="310" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="331" />
+        <source>
+Conductor color : %1</source>
+        <translation>
+Цвет проводника:%1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="219" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="313" />
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="334" />
+        <source>
+Conductor section : %1</source>
+        <translation>
+Сечение проводника: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="341" />
+        <source>Add to cable: %1</source>
+        <translation>Добавить в кабель: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="344" />
+        <source>Add to bus: %1</source>
+        <translation>Добавить в шину: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="416" />
+        <source>Edit the properties of several conductors</source>
+        <comment>undo caption</comment>
+        <translation>Редактировать свойства нескольких проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/potentialselectordialog.cpp" line="469" />
+        <source>The new potential formula contains variables incompatible with the folio reports.
+Please enter a compatible formula for this potential.
+The following variables are incompatible:
+%sequf_  %seqtf_  %seqhf_  %id  %F  %M  %LM</source>
+        <translation>Формула для нового потенциала содержит переменные, несовместимые с отчетами о листах.
+Введите совместимую формулу для этого потенциала.
+Следующие переменные несовместимы:
+%sequf_  %seqtf_  %seqhf_  %id  %F  %M  %LM</translation>
+    </message>
+</context>
+<context>
+    <name>PrintConfigPage</name>
+    <message>
+        <location filename="../sources/ui/configpage/configpages.cpp" line="356" />
+        <source>Printing</source>
+        <comment>configuration page title</comment>
+        <translation>Печать</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectAutoNumConfigPage</name>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="258" />
+        <source>Auto Numbering</source>
+        <translation>Автонумерация</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="287" />
+        <source>Management</source>
+        <translation>Управление</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="291" />
+        <source>Conductors</source>
+        <translation>Проводники</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="295" />
+        <source>Elements</source>
+        <translation>Элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="299" />
+        <source>Folios</source>
+        <translation>Листы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="303" />
+        <source>Folio Auto Numbering</source>
+        <translation>Автонумерация листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="415" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="419" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="459" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="460" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="461" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="488" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="489" />
+        <source>No name</source>
+        <translation>Без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="374" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="384" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="395" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="413" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="443" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="457" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="487" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="631" />
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="644" />
+        <source>Name of the new numbering</source>
+        <translation>Имя нумерации</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectDBModel</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/projectdbmodel.cpp" line="349" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/projectdbmodel.cpp" line="351" />
+        <source>Folio position</source>
+        <translation>Положение листа</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectDBModelPropertiesWidget</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/projectdbmodelpropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectdbmodelpropertieswidget.h" line="65" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/projectdbmodelpropertieswidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectdbmodelpropertieswidget.h" line="66" />
+        <source>Request</source>
+        <translation>Запрос</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/ui/projectdbmodelpropertieswidget.ui" line="31" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectdbmodelpropertieswidget.h" line="67" />
+        <source>Reload</source>
+        <translation>Перезагрузка</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectMainConfigPage</name>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="135" />
+        <source>General</source>
+        <comment>configuration page title</comment>
+        <translation>Общее</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="182" />
+        <source>Project title :</source>
+        <comment>label when configuring</comment>
+        <translation>Название проекта:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="184" />
+        <source>This title is made available to all child folios as %projecttitle.</source>
+        <comment>informative label</comment>
+        <translation>Это название доступно всем дочерним листам как %projecttitle.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/configpage/projectconfigpages.cpp" line="186" />
+        <source>You may define below custom properties that will be made available to all folios of the project (typically to use within title blocks).</source>
+        <comment>informative label</comment>
+        <translatorcomment>информационная метка</translatorcomment>
+        <translation>Ниже вы можете задать пользовательские свойства, которые будут доступны всем дочерним листам (обычно для использования в шаблонах).</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectPrintWindow</name>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="346" />
+        <source>MainWindow</source>
+        <translation>ГлавноеОкно</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="31" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="361" />
+        <source>Folios to print :</source>
+        <translation>Листы для печати:</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="70" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="362" />
+        <source>Check all</source>
+        <translation>Выбрать все</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="77" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="363" />
+        <source>Uncheck all</source>
+        <translation>Отменить выбор</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="103" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="364" />
+        <source>All dates</source>
+        <translation>Все даты</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="108" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="365" />
+        <source>From the date of:</source>
+        <translation>С даты:</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="113" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="366" />
+        <source>In date of  :</source>
+        <translation>На дату:</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="155" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="369" />
+        <source>Rendering option</source>
+        <translation>Опции оформления</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="161" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="370" />
+        <source>Draw the border</source>
+        <translation>Рисовать рамку</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="168" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="371" />
+        <source>Draw the title block</source>
+        <translation>Рисовать основную надпись</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="175" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="372" />
+        <source>Keep conductors colors</source>
+        <translation>Сохранять цвет проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="182" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="373" />
+        <source>Draw terminals</source>
+        <translation>Рисовать выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="192" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="374" />
+        <source>Printing option</source>
+        <translation>Опции печати</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="198" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="375" />
+        <source>Fit folio to page</source>
+        <translation>Вписать лист в страницу</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="208" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="376" />
+        <source>Use the whole page</source>
+        <translation>Использовать всю страницу</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="215" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="377" />
+        <source>If this option is checked, the folio will be enlarged or shrunk to fill the entire printable surface of one and only one page. "</source>
+        <translation>Если этот параметр отмечен, лист будет увеличиваться или уменьшаться, чтобы заполнить всю область страницы.</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="225" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="378" />
+        <source>If this option is checked, the margins of the sheet will be ignored and its entire surface will be used for printing. This may not be supported by your printer.</source>
+        <translation>Если этот флажок установлен, поля страницы игнорируются и вся её поверхность будет использоваться для печати. Это может не поддерживаться вашим принтером.</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="259" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="379" />
+        <source>toolBar</source>
+        <translation>панель_инструментов</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="292" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="347" />
+        <source>Fit to width</source>
+        <translation>Подогнать по ширине</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="301" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="348" />
+        <source>Fit to page</source>
+        <translation>Вписать в страницу</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="310" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="349" />
+        <source>Zoom out</source>
+        <translation>Уменьшить</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="319" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="350" />
+        <source>Zoom In</source>
+        <translation>Увеличить</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="328" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="351" />
+        <source>Landscape</source>
+        <translation>Альбомная</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="337" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="352" />
+        <source>Portrait</source>
+        <translation>Книжная</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="346" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="353" />
+        <source>First page</source>
+        <translation>Первая страница</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="355" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="354" />
+        <source>Previous page</source>
+        <translation>Предыдущая страница</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="364" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="355" />
+        <source>Next page</source>
+        <translation>Следующая страница</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="373" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="356" />
+        <source>Last page</source>
+        <translation>Последняя страница</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="382" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="357" />
+        <source>Show single page</source>
+        <translation>Показать одну страницу</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="391" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="358" />
+        <source>Display facing pages</source>
+        <translation>Показать две страницы</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="400" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="359" />
+        <source>Display all pages</source>
+        <translation>Показать все страницы</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.ui" line="409" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_projectprintwindow.h" line="360" />
+        <source>Page layout</source>
+        <translation>Макет</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="68" />
+        <source>Print options</source>
+        <comment>window title</comment>
+        <translation>Настройка печати</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="109" />
+        <source>project</source>
+        <comment>string used to generate a filename</comment>
+        <translatorcomment>строка, используемая для создания имени файла</translatorcomment>
+        <translation>проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="140" />
+        <source>Print</source>
+        <translation>Печать</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="146" />
+        <source>Export in pdf</source>
+        <translation>Экспорт в PDF</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="169" />
+        <source>Layout (not available on Windows for PDF export)</source>
+        <translation>Макет (недоступно в Windows для экспорта в PDF)</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="434" />
+        <source>Folio Untitled</source>
+        <translation>Лист без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="673" />
+        <source>Export as : </source>
+        <translation>Экспорт в: </translation>
+    </message>
+    <message>
+        <location filename="../sources/print/projectprintwindow.cpp" line="673" />
+        <source>File (*.pdf)</source>
+        <translation>Файл (*.pdf)</translation>
+    </message>
+</context>
+<context>
+    <name>ProjectView</name>
+    <message>
+        <location filename="../sources/projectview.cpp" line="314" />
+        <source>The project was modified.
+Do you want to save changes?</source>
+        <translation>Этот проект был изменён.
+Хотите сохранить изменения?</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="335" />
+        <source>untitled</source>
+        <translation>без_имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="336" />
+        <source>Project QElectroTech (*.qet)</source>
+        <comment>filetypes allowed when saving a project file</comment>
+        <translation>Проект QElectroTech (*.qet)</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="384" />
+        <source>Delete this folio ?</source>
+        <comment>message box title</comment>
+        <translation>Удалить этот лист?</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="385" />
+        <source>Do you really want to delete this folio from the project? This change is irreversible.</source>
+        <comment>message box content</comment>
+        <translation>Вы действительно хотите удалить этот лист из проекта? Изменение будет необратимо.</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="661" />
+        <source>Read-only project</source>
+        <comment>message box title</comment>
+        <translation>Проект только для чтения</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="662" />
+        <source>This project is read-only. Thus it can not be cleaned.</source>
+        <comment>message box content</comment>
+        <translation>Этот проект доступен только для чтения. Поэтому он не может быть очищен.</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="668" />
+        <source>delete unused templates in the project</source>
+        <translation>Удалить неиспользуемые в проекте шаблоны</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="669" />
+        <source>Delete unused elements in  the project</source>
+        <translation>Удалить неиспользуемые в проекте элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="670" />
+        <source>Delete empty categories</source>
+        <translation>Удалить пустые категории</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="682" />
+        <source>Clean project</source>
+        <comment>window title</comment>
+        <translation>Очистить проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="716" />
+        <source>Add a folio</source>
+        <translation>Добавить лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="719" />
+        <source>Go back to the start of the project</source>
+        <translation>Перейти в начало проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="722" />
+        <source>Go to the end of the project</source>
+        <translation>Перейти в конец проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="737" />
+        <source>This project does not contain any folio</source>
+        <comment>label displayed when a project contains no diagram</comment>
+        <translation>Этот проект не содержит листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="334" />
+        <source>Save as</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="362" />
+        <source>no active project</source>
+        <comment>error message</comment>
+        <translation>нет активных проектов</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="819" />
+        <source>&lt;p align="center"&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Creating folio tabs :&lt;/p&gt;</source>
+        <translation>&lt;p align = "center"&gt;&lt;b&gt; Открытие текущего проекта...&lt;/b&gt;&lt;br/&gt; Создание вкладок листов:&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/projectview.cpp" line="862" />
+        <source>Project</source>
+        <comment>window title for a project-less ProjectView</comment>
+        <translation>Проект</translation>
+    </message>
+</context>
+<context>
+    <name>PropertiesEditorDockWidget</name>
+    <message>
+        <location filename="../sources/PropertiesEditor/propertieseditordockwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_propertieseditordockwidget.h" line="52" />
+        <source>Selection properties</source>
+        <translation>Свойства выбора</translation>
+    </message>
+</context>
+<context>
+    <name>QETApp</name>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="127" />
+        <source>Loading... Initializing the elements collection cache</source>
+        <comment>splash screen caption</comment>
+        <translation>Загрузка... Инициализация кэша коллекций элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="138" />
+        <source>Loading... Folios editor</source>
+        <comment>splash screen caption</comment>
+        <translation>Загрузка... Редактор схем</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="143" />
+        <source>Loading... Opening files</source>
+        <comment>splash screen caption</comment>
+        <translation>Загрузка... Открытие файлов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="244" />
+        <source>LTR</source>
+        <comment>Translate this string to RTL if you are translating 		 to a Right-to-Left language, else translate to LTR</comment>
+        <translatorcomment>Переведите эту строку в RTL, если вы переводите на язык с письмом справа налево, иначе переводите в LTR</translatorcomment>
+        <translation>LTR</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="442" />
+        <source>QET title blocks</source>
+        <comment>title of the title block templates 					collection provided by QElectroTech</comment>
+        <translation>Штампы QET</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="463" />
+        <source>Company title-blocks</source>
+        <comment>title of the company's 					title block templates collection</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="483" />
+        <source>User title blocks</source>
+        <comment>title of the user's 					title block templates collection</comment>
+        <translation>Штампы пользователя</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="1441" />
+        <source>Q</source>
+        <comment>Single-letter example text - translate length, not meaning</comment>
+        <translation>Q</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="1443" />
+        <source>QET</source>
+        <comment>Small example text - translate length, not meaning</comment>
+        <translation>QET</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="1445" />
+        <source>Diagram</source>
+        <comment>Normal example text - translate length, not meaning</comment>
+        <translation>Схема</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="1447" />
+        <source>Electric</source>
+        <comment>Normal example text - translate length, not meaning</comment>
+        <translation>Электрическая</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="1449" />
+        <source>QElectroTech</source>
+        <comment>Long example text - translate length, not meaning</comment>
+        <translation>QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="1926" />
+        <source>Configure QElectroTech</source>
+        <comment>window title</comment>
+        <translation>Настройка QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2077" />
+        <source>Loading...</source>
+        <comment>splash screen caption</comment>
+        <translation>Загрузка...</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2233" />
+        <source>Loading... Systray icon</source>
+        <comment>splash screen caption</comment>
+        <translation>Загрузка... Значок в трее</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2237" />
+        <source>QElectroTech</source>
+        <comment>systray menu title</comment>
+        <translation>QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2240" />
+        <source>&amp;Quit</source>
+        <translation>&amp;Выход</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2242" />
+        <source>&amp;Hide</source>
+        <translation>&amp;Скрыть</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2244" />
+        <source>&amp;Show</source>
+        <translation>&amp;Показать</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2246" />
+        <source>&amp;Hide diagram editor</source>
+        <translation>&amp;Скрыть редактор схем</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2249" />
+        <source>&amp;Show diagram editors</source>
+        <translation>&amp;Показать редактор схем</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2252" />
+        <source>&amp;Hide element editor</source>
+        <translation>&amp;Скрыть редактор элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2255" />
+        <source>&amp;Show element editor</source>
+        <translation>&amp;Показать редактор элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2258" />
+        <source>&amp;Hide title block template editor</source>
+        <comment>systray submenu entry</comment>
+        <translation>&amp;Скрыть редактор штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2261" />
+        <source>&amp;Show title block template editors</source>
+        <comment>systray submenu entry</comment>
+        <translation>&amp;Показать редактор штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2264" />
+        <source>&amp;New diagram editor</source>
+        <translation>&amp;Новый редактор схем</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2266" />
+        <source>&amp;New element editor</source>
+        <translation>&amp;Новый редактор элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2268" />
+        <source>Closes QElectroTech</source>
+        <translation>Закрыть QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2269" />
+        <source>Reduces QElectroTech into the systray</source>
+        <translation>Свернуть QElectroTech в трей</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2270" />
+        <source>Restore QElectroTech</source>
+        <translation>Восстановить QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2287" />
+        <source>QElectroTech</source>
+        <comment>systray icon tooltip</comment>
+        <translation>QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2382" />
+        <source>Diagram editors</source>
+        <translation>Редакторы схем</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2392" />
+        <source>Element editors</source>
+        <translation>Редакторы элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2403" />
+        <source>Title block template editors</source>
+        <comment>systray menu entry</comment>
+        <translation>Редакторы штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2455" />
+        <source>&lt;b&gt;The following restore file has been found,&lt;br&gt;Do you want to open it ?&lt;/b&gt;&lt;br&gt;</source>
+        <translation>&lt;b&gt;Обнаружен файл восстановления.&lt;br&gt;Открыть его?&lt;/b&gt;&lt;br&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2458" />
+        <source>&lt;b&gt;The following restore files have been found,&lt;br&gt;Do you want to open them ?&lt;/b&gt; &lt;br&gt;</source>
+        <translation>&lt;b&gt;Обнаружены файлы восстановления.&lt;br&gt;Открыть их?&lt;/b&gt;&lt;br&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2473" />
+        <source>Restore file</source>
+        <translation>Файл восстановления</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2575" />
+        <source>Usage: </source>
+        <translation>Использование: </translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2577" />
+        <source> [options] [file]...
+
+</source>
+        <translation> [опции] [файл]...
+
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2578" />
+        <source>QElectroTech, an application to design electric diagrams.
+
+Available options: 
+  --help                        Display this help
+  -v, --version                 Display the version
+  --license                     Display the license
+</source>
+        <translation>QElectroTech, программа для разработки электрических схем.
+
+Доступные опции: 
+  --help                        Показать эту справку
+  -v, --version                 Показать версию
+  --license                     Показать лицензию
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2584" />
+        <source>  --common-elements-dir=DIR     Define the elements collection directory
+</source>
+        <translation>  --common-elements-dir=DIR     Задаёт каталог с коллекцией элементов
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2587" />
+        <source>  --common-tbt-dir=DIR          Define the title block templates collection directory
+</source>
+        <translation>  --common-tbt-dir=DIR          Задаёт каталог с коллекцией штампов
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2590" />
+        <source>  --config-dir=DIR              Define configuration directory
+</source>
+        <translation>  --config-dir=DIR              Задаёт каталог конфигурации
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2593" />
+        <source>  --data-dir=DIR                Define data directory
+</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetapp.cpp" line="2595" />
+        <source>  --lang-dir=DIR                Define the language files directory
+</source>
+        <translation>  --lang-dir=DIR                Задаёт каталог с языковыми файлами
+</translation>
+    </message>
+</context>
+<context>
+    <name>QETDiagramEditor</name>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="100" />
+        <source>QElectroTech</source>
+        <comment>window title</comment>
+        <translation>QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="102" />
+        <source>QElectroTech</source>
+        <comment>status bar message</comment>
+        <translation>QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="219" />
+        <source>Undo</source>
+        <comment>dock title</comment>
+        <translation>История</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="215" />
+        <source>No modification</source>
+        <translation>Нет изменений</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="216" />
+        <source>Click an action to get back in the changes you made to your diagram</source>
+        <comment>Status tip</comment>
+        <translation>Выберите действие, чтобы откатить изменения, сделанные в схеме</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="541" />
+        <source>&amp;New</source>
+        <translation>&amp;Новый</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="542" />
+        <source>&amp;Open</source>
+        <translation>&amp;Открыть</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="545" />
+        <source>&amp;Close</source>
+        <translation>&amp;Закрыть</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="543" />
+        <source>&amp;Save</source>
+        <translation>&amp;Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="544" />
+        <source>Save as</source>
+        <translation>Сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="266" />
+        <source>&amp;Export</source>
+        <translation>&amp;Экспорт</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="217" />
+        <source>This panel lists the various changes applied to the current folio. Clicking a change gets the folio back to its state right after it was applied.</source>
+        <comment>"What's this" tip</comment>
+        <translation>В этой панели показаны различные изменения на текущем листе. При выборе изменения лист будет возвращён в то состояние, в котором он находился сразу после его применения.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="277" />
+        <source>Print</source>
+        <translation>Печать</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="288" />
+        <source>Export in pdf</source>
+        <translation>Экспорт в PDF</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="289" />
+        <source>Export one or more folios of the current project</source>
+        <comment>status bar tip</comment>
+        <translatorcomment>подсказка в строке состояния</translatorcomment>
+        <translation>Экспорт одного или нескольких листов текущего проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="298" />
+        <source>&amp;Quit</source>
+        <translation>&amp;Выход</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="304" />
+        <source>Undo</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="309" />
+        <source>Redo</source>
+        <translation>Повторить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="315" />
+        <source>Cu&amp;t</source>
+        <translation>&amp;Вырезать</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="316" />
+        <source>&amp;Copy</source>
+        <translation>&amp;Копировать</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="317" />
+        <source>&amp;Paste</source>
+        <translation>Вст&amp;авить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="359" />
+        <source>Background color white / gray</source>
+        <comment>Tool tip of white/grey background button</comment>
+        <translation>Цвет фона белый или серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="360" />
+        <source>Displays the background color of the folio in white or gray</source>
+        <comment>Status tip of white/grey background button</comment>
+        <translation>Показывать фон листа белым или серым</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="369" />
+        <source>Display the grid</source>
+        <translation>Показать сетку</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="370" />
+        <source>Display or hide the grid of folio</source>
+        <translation>Показать или скрыть сетку листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="382" />
+        <source>Folio properties</source>
+        <translation>Свойства листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="400" />
+        <source>Add a folio</source>
+        <translation>Добавить лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="409" />
+        <source>Delete this folio</source>
+        <translation>Удалить этот лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="423" />
+        <source>Export to CSV</source>
+        <translation>Экспорт в формат CSV</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="445" />
+        <source>Terminal block manager (DEV)</source>
+        <translation>Управление клеммными колодками (DEV)</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="459" />
+        <source>Export the list of names of wires</source>
+        <translation>Экспорт списка имен проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="470" />
+        <source>Export the internal project database</source>
+        <translation>Экспорт внутренней базы данных проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="553" />
+        <source>Creates a new project</source>
+        <comment>status bar tip</comment>
+        <translation>Создать новый проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="554" />
+        <source>Opens an existing project</source>
+        <comment>status bar tip</comment>
+        <translation>Открыть существующий проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="555" />
+        <source>Closes the current project</source>
+        <comment>status bar tip</comment>
+        <translation>Закрыть текущий проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="556" />
+        <source>Saves the current project and all its folios</source>
+        <comment>status bar tip</comment>
+        <translation>Сохранить текущий проект и все его листы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="557" />
+        <source>Saves the current project with a different file name</source>
+        <comment>status bar tip</comment>
+        <translation>Сохранить текущий проект с другим именем</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="572" />
+        <source>Add a line</source>
+        <comment>Add row</comment>
+        <translatorcomment>Добавить ряд</translatorcomment>
+        <translation>Добавить строку</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="573" />
+        <source>Remove a row</source>
+        <comment>Remove row</comment>
+        <translation>Удалить строку</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="575" />
+        <source>Add a column to the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Добавить столбец</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="576" />
+        <source>Remove a column from the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Удалить столбец</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="577" />
+        <source>Expands the folio height</source>
+        <comment>status bar tip</comment>
+        <translation>Увеличивает высоту листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="578" />
+        <source>Shrinks the folio height</source>
+        <comment>status bar tip</comment>
+        <translation>Уменьшает высоту листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="600" />
+        <source>Removes selected elements from the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Удалить выбранные элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="615" />
+        <source>Select All</source>
+        <translation>Выделить всё</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="616" />
+        <source>Select none</source>
+        <translation>Снять выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="617" />
+        <source>Invert selection</source>
+        <translation>Инвертировать выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="668" />
+        <source>Add a terminal plan</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="670" />
+        <source>Adds a text field to the current folio</source>
+        <translation>Добавить текстовое поле в текущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="671" />
+        <source>Add an image to the current folio</source>
+        <translation>Добавить изображение в текущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="672" />
+        <source>Add a line to the current folio</source>
+        <translation>Добавить линию в текущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="673" />
+        <source>Adds a rectangle on the current folio</source>
+        <translation>Добавить прямоугольник в текущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="674" />
+        <source>Add an ellipse to the current folio</source>
+        <translation>Добавить эллипс в текущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="675" />
+        <source>Adds a polyline to the current folio</source>
+        <translation>Добавить ломаную линию в текущий лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="676" />
+        <source>Add a terminal plan on the current sheet</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="761" />
+        <source>Depth</source>
+        <comment>toolbar title</comment>
+        <translation>Глубина</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1422" />
+        <source>Double-click to finish the shape, Right click to cancel the last point</source>
+        <translation>Дважды щелкните, чтобы завершить форму, щелкните правой кнопкой мыши, чтобы отменить последнюю точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1476" />
+        <source>Suppression de borne impossible</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1477" />
+        <source>La suppression ne peut être effectué car la selection possède une ou plusieurs bornes ponté et/ou appartenant à une borne à niveau multiple.
+Déponter et/ou supprimer les niveaux des bornes concerné afin de pouvoir les supprimer</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1505" />
+        <source>Group</source>
+        <translation>Группа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1925" />
+        <source>An error occurred while opening file %1.</source>
+        <comment>message box content</comment>
+        <translatorcomment>содержимое окна сообщения</translatorcomment>
+        <translation>Ошибка при открытии файла %1.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="588" />
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="589" />
+        <source>Rotate</source>
+        <translation>Повернуть</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="590" />
+        <source>Choose texts orientation</source>
+        <translation>Выбрать направление текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="591" />
+        <source>Find in the panel</source>
+        <translation>Найти в панели</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="341" />
+        <source>Reset conductors</source>
+        <translation>Восстановить проводники</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="662" />
+        <source>Add a textfield</source>
+        <translation>Добавить текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="570" />
+        <source>Add a column</source>
+        <translation>Добавить столбец</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="663" />
+        <source>Add a picture</source>
+        <translation>Добавить изображение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="571" />
+        <source>Remove a column</source>
+        <translation>Удалить столбец</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="394" />
+        <source>Project properties</source>
+        <translation>Свойства проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="413" />
+        <source>Clean project</source>
+        <translation>Очистить проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="438" />
+        <source>Add a summary</source>
+        <translation>Добавить заключение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="634" />
+        <source>Zoom In</source>
+        <translation>Увеличить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="635" />
+        <source>Zoom out</source>
+        <translation>Уменьшить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="636" />
+        <source>Zoom content</source>
+        <translation>Масштабировать выбранное</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="637" />
+        <source>Fit in view</source>
+        <translation>Подогнать размер</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="638" />
+        <source>Reset zoom</source>
+        <translation>Восстановить масштаб</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="477" />
+        <source>using tabs</source>
+        <translation>Использовать вкладки</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="482" />
+        <source>using windows</source>
+        <translation>Использовать окна</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="501" />
+        <source>Select</source>
+        <translation>Режим выделения</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="513" />
+        <source>Move</source>
+        <translation>Режим просмотра</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="492" />
+        <source>&amp;Tile</source>
+        <translation>&amp;Мозаика</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="496" />
+        <source>&amp;Cascade</source>
+        <translation>&amp;Каскад</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="530" />
+        <source>Next project</source>
+        <translation>Следующий проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="535" />
+        <source>Previous project</source>
+        <translation>Предыдущий проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="623" />
+        <source>Selects all elements on the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Выделяет все элементы на листе</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="624" />
+        <source>Deselect all elements on the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Снимает выделение со всех элементов листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="647" />
+        <source>Expand the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Увеличивает лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="648" />
+        <source>Shrinks the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Уменьшает лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="649" />
+        <source>Adjusts the zoom to display all the contents of folio regardless of context</source>
+        <translation>Изменяет масштаб для отображения всего содержимого листа независимо от контекста</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="650" />
+        <source>Adjusts the zoom on exactly the part of the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Изменяет масштаб для отображения только части листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="665" />
+        <source>Add a rectangle</source>
+        <translation>Добавить прямоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="666" />
+        <source>Add an ellipse</source>
+        <translation>Добавить эллипс</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="667" />
+        <source>Add a polygon</source>
+        <translation>Добавить ломаную линию</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="603" />
+        <source>Find the selected item in the panel</source>
+        <comment>status bar tip</comment>
+        <translation>Ищет выбранный элемент в панели</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="932" />
+        <location filename="../sources/qetdiagrameditor.cpp" line="955" />
+        <source>Project %1 registered in the directory: %2.</source>
+        <translation>Проект %1 сохранён в каталоге: %2.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1005" />
+        <source>QElectroTech project(*.qet);;XML Files (*.xml);;All files (*)</source>
+        <translation>Проекты QElectroTech (*.qet);;Файлы XML (*.xml);;Все файлы (*)</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1088" />
+        <location filename="../sources/qetdiagrameditor.cpp" line="1104" />
+        <source>Unable to open file</source>
+        <comment>message box title</comment>
+        <translation>Невозможно открыть файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1090" />
+        <source>It appears the %1 file which you are trying to open does not exist or does not exist anymore.</source>
+        <translation>Файл %1, который вы пытаетесь открыть, не существует.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1119" />
+        <source>Opening the file read-only</source>
+        <comment>message box title</comment>
+        <translation>Открытие файла в режиме "только чтение"</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1973" />
+        <source>Activates the project « %1 »</source>
+        <translation>Активирует проект «%1»</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="2325" />
+        <source>Error</source>
+        <comment>message box title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="300" />
+        <source>Closes QElectroTech</source>
+        <comment>status bar tip</comment>
+        <translation>Закрывает QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="307" />
+        <source>Undoes the previous action</source>
+        <comment>status bar tip</comment>
+        <translation>Отменяет последнее действие</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="312" />
+        <source>Restores the undone action</source>
+        <comment>status bar tip</comment>
+        <translation>Выполняет отменённое действие</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="323" />
+        <source>Puts selected elements into the clipboard</source>
+        <comment>status bar tip</comment>
+        <translation>Копирует выделенные элементы в буфер обмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="324" />
+        <source>Copies selected elements</source>
+        <comment>status bar tip</comment>
+        <translation>Копирует выделенные элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="625" />
+        <source>Inverts selection of elements</source>
+        <comment>status bar tip</comment>
+        <translation>Инвертирует выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="343" />
+        <source>Reset the conductors path ignoring the user changes</source>
+        <comment>status bar tip</comment>
+        <translation>Пересчитывает трассы проводников, игнорируя сделанные пользователем изменения</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="592" />
+        <source>Edit the selected item</source>
+        <translation>Редактировать выбранный элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="601" />
+        <source>Rotate selected elements and texts</source>
+        <comment>status bar tip</comment>
+        <translation>Поворот выбранных элементов и текстов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="602" />
+        <source>Rotate selected texts to a specific angle</source>
+        <comment>status bar tip</comment>
+        <translation>Повернуть выбранный текст на определённый угол</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="350" />
+        <source>Automatic creation conductor (s)</source>
+        <comment>Tool tip of auto conductor</comment>
+        <translation>Автоматическое создание проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="159" />
+        <source>Projects</source>
+        <comment>dock title</comment>
+        <translation>Проекты</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="191" />
+        <source>Collections</source>
+        <translation>Коллекции</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="351" />
+        <source>Using the automatic creation of conductor (s) when possible</source>
+        <comment>Status tip of auto conductor</comment>
+        <translation>Использовать автоматическое создание проводников, когда это возможно</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="651" />
+        <source>Restores default zoom level</source>
+        <comment>status bar tip</comment>
+        <translation>Сбрасывает масштаб</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="664" />
+        <source>Add a line</source>
+        <comment>Draw line</comment>
+        <translation>Добавить линию</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="483" />
+        <source>Shows the various opened projects in windows</source>
+        <comment>status bar tip</comment>
+        <translation>Показывает разные открытые проекты в окнах</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="478" />
+        <source>Shows the various opened projects in tabs</source>
+        <comment>status bar tip</comment>
+        <translation>Показывает разные открытые проекты во вкладках</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="502" />
+        <source>Allows to select elements</source>
+        <comment>status bar tip</comment>
+        <translation>Позволяет выбирать элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="493" />
+        <source>Arranges windows in a tile pattern</source>
+        <comment>status bar tip</comment>
+        <translation>Разместить окна мозаикой</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="497" />
+        <source>Arranges windows in a cascade pattern</source>
+        <comment>status bar tip</comment>
+        <translation>Разместить окна каскадом</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="532" />
+        <source>Activates the next project</source>
+        <comment>status bar tip</comment>
+        <translation>Активирует следующий проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="537" />
+        <source>Activates the previous project</source>
+        <comment>status bar tip</comment>
+        <translation>Активирует предыдущий проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="778" />
+        <source>&amp;File</source>
+        <translation>&amp;Файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="779" />
+        <source>&amp;Edit</source>
+        <translation>&amp;Правка</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="780" />
+        <source>&amp;Project</source>
+        <translation>П&amp;роект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="781" />
+        <source>Displ&amp;ay</source>
+        <translation>&amp;Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="783" />
+        <source>Wi&amp;ndows</source>
+        <translation>&amp;Окно</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="792" />
+        <source>&amp;Latest files</source>
+        <translation>&amp;Недавно открытые</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="843" />
+        <source>Display or hide the main toolbar</source>
+        <translation>Отобразить или скрыть главную панель инструментов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="844" />
+        <source>Display or hide the Display toolbar</source>
+        <translation>Отобразить или скрыть панель инструментов «Вид»</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="845" />
+        <source>Display or hide the Diagram toolbar</source>
+        <translation>Отобразить или скрыть панель инструментов «Схема»</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="846" />
+        <source>Show or hide the elements panel</source>
+        <translation>Отобразить или скрыть панель элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="847" />
+        <source>Display or hide the undo list</source>
+        <translation>Отобразить или скрыть список изменений</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="851" />
+        <source>Display projects</source>
+        <translation>Показывать проекты</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="719" />
+        <source>Tools</source>
+        <translation>Инструменты</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="268" />
+        <source>Exports the current folio to another format</source>
+        <comment>status bar tip</comment>
+        <translation>Экспортировать текущий лист в другой формат</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="279" />
+        <source>Prints one or more folio of the current project</source>
+        <comment>status bar tip</comment>
+        <translation>Печатать один или более листов текущего проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="325" />
+        <source>Pastes elements from the clipboard into the folio</source>
+        <comment>status bar tip</comment>
+        <translation>Вставляет на лист элементы из буфера обмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="384" />
+        <source>Edits the properties of the folio (size, title block informations, conductor properties...)</source>
+        <comment>status bar tip</comment>
+        <translation>Редактирует свойства листа (размеры, информацию шаблонов, свойства проводников...)</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="430" />
+        <source>Add a nomenclature</source>
+        <translation>Добавить номенклатуру</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="455" />
+        <source>Launch the terminal block creation plugin</source>
+        <translation>Запустить плагин создания клеммной колодки</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="514" />
+        <source>Allows to view the folio without modifying it</source>
+        <comment>status bar tip</comment>
+        <translation>Позволяет просматривать листы, не изменяя их</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="593" />
+        <source>Group selected texts</source>
+        <translation>Сгруппировать выбранные тексты</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="702" />
+        <source>Search / Replace</source>
+        <translation>Найти/заменить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="722" />
+        <source>Display</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="725" />
+        <source>Diagram</source>
+        <translation>Схема</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="757" />
+        <source>Add</source>
+        <translation>Добавить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1003" />
+        <source>Open a file</source>
+        <translation>Открыть файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1105" />
+        <source>The file you try to open does not seem readable and can not be opened. Please check the file permissions.</source>
+        <translation>Файл, который вы пытаетесь открыть, недоступен для чтения и не может быть открыт. Проверьте права доступа.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1120" />
+        <source>The project you try to open does not seem writable. It will be opened read-only.</source>
+        <translation>Проект, который вы пытаетесь открыть, недоступен для записи. Он будет открыт в режиме "только для чтения".</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1137" />
+        <location filename="../sources/qetdiagrameditor.cpp" line="1924" />
+        <source>Unable to open project</source>
+        <comment>message box title</comment>
+        <translation>Невозможно открыть проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1139" />
+        <source>The file %1 does not appear to be a QElectroTech project file. Thus it cannot be opened.</source>
+        <comment>message box content</comment>
+        <translation>Файл %1 не является проектом QElectroTech. Он не может быть открыт.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1705" />
+        <source>Edit the element</source>
+        <comment>edit element</comment>
+        <translation>Редактировать элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1712" />
+        <source>Edit the text field</source>
+        <comment>edit text field</comment>
+        <translation>Редактировать текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1719" />
+        <source>Edit the image</source>
+        <comment>edit image</comment>
+        <translation>Редактировать изображение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1726" />
+        <source>Edit conductor</source>
+        <comment>edit conductor</comment>
+        <translation>Редактировать проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="1734" />
+        <source>Edit the selected object</source>
+        <comment>edit selected item</comment>
+        <translation>Редактировать выбранный объект</translation>
+    </message>
+</context>
+<context>
+    <name>QETElementEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="217" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="386" />
+        <source>&amp;New</source>
+        <translation>&amp;Новый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="226" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="387" />
+        <source>&amp;Open</source>
+        <translation>&amp;Открыть</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="235" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="388" />
+        <source>Open from &amp;file</source>
+        <translation>&amp;Открыть из файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="244" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="389" />
+        <source>&amp;Save</source>
+        <translation>&amp;Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="253" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="390" />
+        <source>Save as</source>
+        <translation>Сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="262" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="391" />
+        <source>Save to a file</source>
+        <translation>Сохранить в файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="271" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="392" />
+        <source>Reload</source>
+        <translation>Перезагрузка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="208" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="385" />
+        <source>Select All</source>
+        <translation>Выделить всё</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="384" />
+        <source>QElectroTech - Element Editor</source>
+        <translation>QElectroTech — Редактор элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="96" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="443" />
+        <source>&amp;Help</source>
+        <translation>Сп&amp;равка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="115" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="444" />
+        <source>Undo</source>
+        <translation>История</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="127" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="445" />
+        <source>Parts</source>
+        <translation>Части</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="139" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="446" />
+        <source>Informations</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="148" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="447" />
+        <source>Tools</source>
+        <translation>Инструменты</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="165" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="448" />
+        <source>Display</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="180" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="449" />
+        <source>Element</source>
+        <translation>Элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="193" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="450" />
+        <source>Cancellation</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="280" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="393" />
+        <source>&amp;Close this editor</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="283" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="395" />
+        <source>Close this editor</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="292" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="397" />
+        <source>Select none</source>
+        <translation>Снять выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="301" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="398" />
+        <source>Cu&amp;t</source>
+        <translation>&amp;Вырезать</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="310" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="399" />
+        <source>&amp;Copy</source>
+        <translation>&amp;Копировать</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="319" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="400" />
+        <source>&amp;Paste</source>
+        <translation>Вст&amp;авить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="328" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="401" />
+        <source>&amp;Paste in the area</source>
+        <translation>Вст&amp;авить в область</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="337" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="402" />
+        <source>A file</source>
+        <translation>Файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="346" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="403" />
+        <source>An element</source>
+        <translation>Элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="436" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="413" />
+        <source>A&amp;bout QElectroTech</source>
+        <translation>&amp;О QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="439" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="415" />
+        <source>Displays information about QElectroTech</source>
+        <translation>Показывает информацию о QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="448" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="417" />
+        <source>Online manual</source>
+        <translation>Онлайн-руководство</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="451" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="419" />
+        <source>Launches the default browser to the online manual QElectroTech</source>
+        <translation>Открывает в браузере по умолчанию онлайн-руководство QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="460" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="421" />
+        <source>Youtube channel</source>
+        <translation>YouTube-канал</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="463" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="423" />
+        <source>Launches the default browser on the Youtube channel of QElectroTech</source>
+        <translation>Открывает в браузере по умолчанию YouTube-канал QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="472" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="425" />
+        <source>Support the project with a donation</source>
+        <translation>Поддержать проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="475" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="427" />
+        <source>Support the QElectroTech project with a donation</source>
+        <translation>Поддержите проект QElectroTech пожертвованием</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="484" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="429" />
+        <source>About &amp;Qt</source>
+        <translation>О &amp;библиотеке Qt</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="487" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="431" />
+        <source>Displays information about Qt library</source>
+        <translation>Показывает информацию о библиотеке Qt</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="496" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="433" />
+        <source>Rotation</source>
+        <translation>Вращение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="505" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="434" />
+        <source>Fine-Rotation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="514" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="435" />
+        <source>Mirror</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="523" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="436" />
+        <source>Flip</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="532" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="437" />
+        <source>Import a dxf</source>
+        <translation>Импортировать файл в формате DXF</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="541" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="438" />
+        <source>Import an element to resize</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="355" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="404" />
+        <source>Invert selection</source>
+        <translation>Инвертировать выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="364" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="405" />
+        <source>&amp;Delete</source>
+        <translation>&amp;Удалить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="400" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="409" />
+        <source>Zoom In</source>
+        <translation>Увеличить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="409" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="410" />
+        <source>Zoom out</source>
+        <translation>Уменьшить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="418" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="411" />
+        <source>Fit in view</source>
+        <translation>Подогнать размер</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="427" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="412" />
+        <source>Reset zoom</source>
+        <translation>Восстановить масштаб</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="382" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="407" />
+        <source>Edit author information</source>
+        <translation>Редактировать информацию об авторе</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1027" />
+        <source>Add a line</source>
+        <translation>Добавить линию</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1028" />
+        <source>Add a rectangle</source>
+        <translation>Добавить прямоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1029" />
+        <source>Add an ellipse</source>
+        <translation>Добавить эллипс</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1030" />
+        <source>Add a polygon</source>
+        <translation>Добавить многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1031" />
+        <source>Add text</source>
+        <translation>Добавить текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1032" />
+        <source>Add an arc</source>
+        <translation>Добавить дугу</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1033" />
+        <source>Add a terminal</source>
+        <translation>Добавить вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="957" />
+        <source>Undo</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="71" />
+        <source>Display</source>
+        <comment>menu entry</comment>
+        <translation>Показывать</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="499" />
+        <source>Too many primitives, list not generated: %1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="958" />
+        <source>Redo</source>
+        <translation>Повторить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1483" />
+        <source>Warning</source>
+        <translation>Предупреждение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1483" />
+        <source>Importing a large dxf can take time 
+please wait while importing...</source>
+        <translation>Импорт большого файла в формате DXF может занять определённое время,
+пожалуйста, дождитесь его окончания...</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1053" />
+        <source>Parts</source>
+        <comment>toolbar title</comment>
+        <translation>Части</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="996" />
+        <source>Depth</source>
+        <comment>toolbar title</comment>
+        <translation>Глубина</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="373" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="406" />
+        <source>Edit name and information of the element</source>
+        <translation>Редактировать имя и информацию элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="391" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="408" />
+        <source>Edit element properties</source>
+        <translation>Редактировать свойства элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1034" />
+        <source>Add a dynamic text field</source>
+        <translation>Добавить динамическое текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1049" />
+        <source>Double-click to finish the shape, Right click to cancel the last point</source>
+        <translation>Сделайте двойной щелчок, чтобы завершить форму, щелкните правой кнопкой мыши, чтобы отменить последнюю точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="54" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="441" />
+        <source>Paste from...</source>
+        <translation>Вставить из...</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="448" />
+        <source>[Changed]</source>
+        <comment>window title tag</comment>
+        <translatorcomment>тег заголовка окна</translatorcomment>
+        <translation>[Изменено]</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="452" />
+        <source> [Read only]</source>
+        <comment>window title tag</comment>
+        <translatorcomment>тег заголовка окна</translatorcomment>
+        <translation> [Только чтение]</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1159" />
+        <source>No modification</source>
+        <translation>Нет изменений</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1171" />
+        <source>Elements Editor</source>
+        <comment>status bar message</comment>
+        <translation>Редактор элементов</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="537" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="674" />
+        <source>%n partie(s) sélectionnée(s).</source>
+        <translation>
+            <numerusform>%n выделенная часть.</numerusform>
+            <numerusform>%n выделенные части.</numerusform>
+            <numerusform>%n выделенных частей.</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="744" />
+        <source>Missing terminal</source>
+        <comment>warning title</comment>
+        <translation>Отсутствует вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="766" />
+        <source>Missing terminal</source>
+        <translation>Отсутствует вывод</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="789" />
+        <source> %n avertissement(s)</source>
+        <comment>warnings</comment>
+        <translatorcomment>предупреждения</translatorcomment>
+        <translation>
+            <numerusform> %n предупреждение</numerusform>
+            <numerusform> %n предупреждения</numerusform>
+            <numerusform> %n предупреждений</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="215" />
+        <source>The file %1 does not exist.</source>
+        <comment>message box content</comment>
+        <translation>Файл %1 не существует.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="221" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1391" />
+        <source>Unable to open the file %1.</source>
+        <comment>message box content</comment>
+        <translation>Невозможно открыть файл %1.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="228" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1396" />
+        <source>This file is not a valid XML document</source>
+        <comment>message box content</comment>
+        <translation>Этот файл не является правильным XML-документом</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="234" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1402" />
+        <source>Error</source>
+        <comment>toolbar title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="245" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="315" />
+        <source>Read only edition</source>
+        <comment>message box title</comment>
+        <translation>Версия только для чтения</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="246" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="316" />
+        <source>You are not allowed to modify this element. Thus it will be edited read-only.</source>
+        <comment>message box content</comment>
+        <translation>У вас нет прав для редактирования этого элемента. Он будет открыт в режиме "только для чтения".</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="277" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="341" />
+        <source>Error</source>
+        <comment>message box title</comment>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="278" />
+        <source>Unable to write to this file</source>
+        <comment>message box content</comment>
+        <translation>Невозможно записать в этот файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="342" />
+        <source>Unable to save the element</source>
+        <comment>message box content</comment>
+        <translation>Невозможно сохранить элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="849" />
+        <source>Unable to open file</source>
+        <comment>message box title</comment>
+        <translation>Невозможно открыть файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="851" />
+        <source>It appears the %1 file which you are trying to open does not exist or does not exist anymore.</source>
+        <translation>Похоже, что файл %1, который вы пытаетесь открыть, не существует.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1244" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1273" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1339" />
+        <source>Registration failed</source>
+        <translation>Регистрация не удалась</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1244" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1273" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1339" />
+        <source>The recording failed,
+the conditions are not valid</source>
+        <translation>Запись не удалась,
+условия не верны</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1502" />
+        <source>Import an element to resize</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1504" />
+        <source>QElectroTech elements (*.elmt)</source>
+        <translation type="unfinished">Элементы QElectroTech (*.elmt)</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="426" />
+        <source>Open a file</source>
+        <comment>dialog title</comment>
+        <translation>Открыть файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="428" />
+        <source>QElectroTech elements (*.elmt);;XML files (*.xml);;All files (*)</source>
+        <comment>filetypes allowed when opening an element file</comment>
+        <translation>Элементы QElectroTech (*.elmt);;XML-файлы (*.xml);;Все файлы (*)</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1348" />
+        <source>Reload element</source>
+        <comment>dialog title</comment>
+        <translation>Перезагрузить элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1050" />
+        <source>Add non-editable element text in diagrams</source>
+        <translation>Добавить нередактируемый текст элемента в схемы</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1051" />
+        <source>Add element text that can be edited in diagrams</source>
+        <translation>Добавить редактируемый текст элемента в схемы</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="33" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="439" />
+        <source>&amp;File</source>
+        <translation>&amp;Файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="50" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="440" />
+        <source>&amp;Edit</source>
+        <translation>&amp;Правка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.ui" line="86" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_qetelementeditor.h" line="442" />
+        <source>Displ&amp;ay</source>
+        <translation>&amp;Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="745" />
+        <source>&lt;br&gt;Without terminal, the element can not be connected to other elements via conductors.</source>
+        <comment>warning description</comment>
+        <translation>&lt;br&gt; При отсутствии выводов элемент не может быть соединен с другими элементами проводником.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="767" />
+        <source>&lt;br&gt; &lt;b&gt; Error &lt;/ b&gt;: &lt;br&gt; folio referencings must have a single terminal &lt;br&gt; &lt;b&gt; Solution &lt;/ b&gt; :&lt;br&gt; Check that the element has only one terminal</source>
+        <translation>&lt;br&gt;&lt;b&gt;Ошибка&lt;/b&gt;:&lt;br&gt; Отчеты о листах должны иметь один вывод.&lt;br&gt;&lt;b&gt;Решение&lt;/b&gt;:&lt;br&gt;Проверьте, чтобы у элемента был только один вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="779" />
+        <source>The verification of this element generated</source>
+        <comment>message box content</comment>
+        <translation>Проверка создаваемого элемента</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="782" />
+        <source> %n erreur(s)</source>
+        <comment>errors</comment>
+        <translation>
+            <numerusform> %n ошибка</numerusform>
+            <numerusform> %n ошибки</numerusform>
+            <numerusform> %n ошибок</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="787" />
+        <source> and</source>
+        <translation> и</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="799" />
+        <source>&lt;b&gt;%1&lt;/b&gt; : %2</source>
+        <comment>warning title: warning description</comment>
+        <translation>&lt;b&gt;%1&lt;/b&gt;: %2</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="806" />
+        <source>Errors</source>
+        <translation>Ошибки</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="809" />
+        <source>Warnings</source>
+        <translation>Предупреждения</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1349" />
+        <source>This element has been modified since last save. If you reload it, these changes will be lost. Do you really want to reload this element?</source>
+        <comment>dialog content</comment>
+        <translation>Этот элемент был изменён со времени последнего сохранения. Если вы перезагрузите его, все изменения будут потеряны. Вы действительно хотите перезагрузить элемент?</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1312" />
+        <source>Save as</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1314" />
+        <source>QElectroTech elements (*.elmt)</source>
+        <comment>filetypes allowed when saving an element file</comment>
+        <translation>Элементы QElectroTech (*.elmt)</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="888" />
+        <source>Save current element?</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить текущий элемент?</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="890" />
+        <source>Do you wish to save the element %1?</source>
+        <comment>dialog content - %1 is an element name</comment>
+        <translation>Вы хотите сохранить элемент %1?</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="292" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="298" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1417" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1423" />
+        <source>Non-existent element.</source>
+        <comment>message box title</comment>
+        <translation>Несуществующий элемент.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="299" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1424" />
+        <source>The element does not exist.</source>
+        <comment>message box content</comment>
+        <translation>Элемент не существует.</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="293" />
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1418" />
+        <source>The chosen virtual path does not match an element.</source>
+        <comment>message box content</comment>
+        <translation>Выбранный виртуальный путь не соответствует элементу.</translation>
+    </message>
+</context>
+<context>
+    <name>QETMainWindow</name>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="59" />
+        <source>&amp;Configure QElectroTech</source>
+        <translation>&amp;Настройка QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="60" />
+        <source>Allows to specify various parameters for QElectroTech</source>
+        <comment>status bar tip</comment>
+        <translation>Позволяет изменять различные параметры QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="89" />
+        <source>A&amp;bout QElectroTech</source>
+        <translation>&amp;О QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="90" />
+        <source>Displays information about QElectroTech</source>
+        <comment>status bar tip</comment>
+        <translation>Показывает информацию о QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="93" />
+        <source>Online manual</source>
+        <translation>Онлайн-руководство</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="103" />
+        <source>Youtube channel</source>
+        <translation>YouTube-канал</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="111" />
+        <location filename="../sources/qetmainwindow.cpp" line="114" />
+        <source>Download a new version (dev)</source>
+        <translation>Скачать новую версию (dev)</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="94" />
+        <source>Launches the default browser to the online manual QElectroTech</source>
+        <comment>status bar tip</comment>
+        <translatorcomment>подсказка в строке состояния</translatorcomment>
+        <translation>Открыть онлайн-руководство QElectroTech в браузере по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="104" />
+        <source>Launches the default browser on the Youtube channel of QElectroTech</source>
+        <comment>status bar tip</comment>
+        <translatorcomment>подсказка в строке состояния</translatorcomment>
+        <translation>Открыть YouTube-канал QElectroTech в браузере по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="112" />
+        <location filename="../sources/qetmainwindow.cpp" line="115" />
+        <source>Launches the default browser to the online repository Nightly QElectroTech</source>
+        <comment>status bar tip</comment>
+        <translatorcomment>подсказка в строке состояния</translatorcomment>
+        <translation>Открыть онлайн-репозиторий Nightly QElectroTech в браузере по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="127" />
+        <source>Support the project with a donation</source>
+        <translation>Поддержать проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="128" />
+        <source>Support the QElectroTech project with a donation</source>
+        <comment>status bar tip</comment>
+        <translatorcomment>подсказка в строке состояния</translatorcomment>
+        <translation>Поддержите проект QElectroTech пожертвованием</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="135" />
+        <source>About &amp;Qt</source>
+        <translation>О &amp;библиотеке Qt</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="136" />
+        <source>Displays information about Qt library</source>
+        <comment>status bar tip</comment>
+        <translation>Показывает информацию о библиотеке Qt</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="145" />
+        <source>&amp;Settings</source>
+        <comment>window menu</comment>
+        <translation>&amp;Настройки</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="150" />
+        <source>&amp;Help</source>
+        <comment>window menu</comment>
+        <translation>&amp;Справка</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="215" />
+        <source>Leave F&amp;ullScreen Mode</source>
+        <translation>Выйти из полно&amp;экранного режима</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="217" />
+        <source>Displays QElectroTech in windowed mode</source>
+        <comment>status bar tip</comment>
+        <translation>Покажет QElectroTech в оконном (обычном) режиме</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="219" />
+        <source>F&amp;ullScreen Mode</source>
+        <translation>Полно&amp;экранный режим</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="221" />
+        <source>Displays QElectroTech in full screen mode</source>
+        <comment>status bar tip</comment>
+        <translation>Покажет QElectroTech в полноэкранном режиме</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetmainwindow.cpp" line="236" />
+        <source>Display</source>
+        <comment>menu entry</comment>
+        <translation>Показывать</translation>
+    </message>
+</context>
+<context>
+    <name>QETProject</name>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="395" />
+        <source>Project « %1 : %2»</source>
+        <comment>displayed title for a ProjectView - %1 is the project title, -%2 is the project path</comment>
+        <translatorcomment>отображаемый заголовок для ProjectView -% 1 - это заголовок проекта, -% 2 - это путь к проекту</translatorcomment>
+        <translation>Проект «%1: %2»</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="402" />
+        <source>Project %1</source>
+        <comment>displayed title for a title-less project - %1 is the file name</comment>
+        <translation>Проект %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="409" />
+        <source>Untitled project</source>
+        <comment>displayed title for a project-less, file-less project</comment>
+        <translation>Проект без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="418" />
+        <source>%1 [read-only]</source>
+        <comment>displayed title for a read-only project - %1 is a displayable title</comment>
+        <translation>%1 [только чтение]</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="426" />
+        <source>%1 [modified]</source>
+        <comment>displayed title for a modified project - %1 is a displayable title</comment>
+        <translation>%1 [изменён]</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1362" />
+        <source>This document appears to have been saved with version %1
+ which is later than your version ! 
+You are currently using QElectroTech in version %2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1367" />
+        <source>.
+ It is then possible that the opening of all or part of this document fails.
+What do you wish to do ?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1387" />
+        <source>Warning </source>
+        <comment>message box title</comment>
+        <translation>Предупреждение </translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1388" />
+        <source>The project you are trying to open is partially compatible with your version %1 of QElectroTech.
+</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1391" />
+        <source>In order to make it fully compatible please open this same project with version 0.8, or 0.80 of QElectroTech and save the project and open it again with this version.
+What do you wish to do ?</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1462" />
+        <source>&lt;p align="center"&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Creation of folios&lt;/p&gt;</source>
+        <translation>&lt;p align="center"&gt;&lt;b&gt;Открытие текущего проекта...&lt;/b&gt;&lt;br/&gt;Создание листов&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1504" />
+        <source>&lt;p align="center"&gt;&lt;b&gt;Opening the project ...&lt;/b&gt;&lt;br/&gt;Setting up cross references&lt;/p&gt;</source>
+        <translation>&lt;p align="center"&gt;&lt;b&gt;Открытие текущего проекта...&lt;/b&gt;&lt;br/&gt;Настройка перекрестных ссылок&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1207" />
+        <source>An error occurred during the template integration.</source>
+        <comment>error message</comment>
+        <translation>Во время интеграции шаблона произошла ошибка.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetproject.cpp" line="1360" />
+        <source>Warning</source>
+        <comment>message box title</comment>
+        <translation>Предупреждение</translation>
+    </message>
+</context>
+<context>
+    <name>QETTitleBlockTemplateEditor</name>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="117" />
+        <source>Save current template?</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить текущий шаблон?</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="119" />
+        <source>Do you wish to save the template %1?</source>
+        <comment>dialog content - %1 is a title block template name</comment>
+        <translation>Хотите сохранить шаблон %1?</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="172" />
+        <source>new_template</source>
+        <comment>template name suggestion when duplicating the default one</comment>
+        <translation>новый_шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="181" />
+        <source>Duplicate a title block template</source>
+        <comment>input dialog title</comment>
+        <translation>Дублировать шаблон штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="182" />
+        <source>In order to duplicate this template, please enter a name for its copy</source>
+        <comment>input dialog text</comment>
+        <translation>Чтобы дублировать этот шаблон, пожалуйста, введите имя для его копии</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="367" />
+        <source>&amp;New</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Новый</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="368" />
+        <source>&amp;Open</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Открыть</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="369" />
+        <source>Open from a file</source>
+        <comment>menu entry</comment>
+        <translation>Открыть из файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="370" />
+        <source>&amp;Save</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Сохранить</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="371" />
+        <source>Save as</source>
+        <comment>menu entry</comment>
+        <translation>Сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="372" />
+        <source>Save to a file</source>
+        <comment>menu entry</comment>
+        <translation>Сохранить в файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="373" />
+        <source>&amp;Quit</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Выход</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="379" />
+        <source>Manage logos</source>
+        <comment>menu entry</comment>
+        <translation>Управление логотипами</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="381" />
+        <source>Zoom In</source>
+        <comment>menu entry</comment>
+        <translation>Увеличить</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="382" />
+        <source>Zoom out</source>
+        <comment>menu entry</comment>
+        <translation>Уменьшить</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="383" />
+        <source>Fit in view</source>
+        <comment>menu entry</comment>
+        <translation>Подогнать размер</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="384" />
+        <source>Reset zoom</source>
+        <comment>menu entry</comment>
+        <translation>Восстановить масштаб</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="896" />
+        <source>Save as</source>
+        <comment>dialog title</comment>
+        <translation>Сохранить как</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="898" />
+        <source>QElectroTech title block templates (*%1)</source>
+        <comment>filetypes allowed when saving a title block template file - %1 is the .titleblock extension</comment>
+        <translation>Шаблоны штампов QElectroTech (*%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="387" />
+        <source>&amp;Merge cells</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Объединить ячейки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="376" />
+        <source>Cu&amp;t</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Вырезать</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="377" />
+        <source>&amp;Copy</source>
+        <comment>menu entry</comment>
+        <translation>&amp;Копировать</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="378" />
+        <source>&amp;Paste</source>
+        <comment>menu entry</comment>
+        <translation>Вст&amp;авить</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="380" />
+        <source>Edit extra information</source>
+        <comment>menu entry</comment>
+        <translation>Редактировать дополнительную информацию</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="385" />
+        <source>Add a &amp;row</source>
+        <comment>menu entry</comment>
+        <translation>Добавить ст&amp;року</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="386" />
+        <source>Add a &amp;column</source>
+        <comment>menu entry</comment>
+        <translation>Добавить с&amp;толбец</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="388" />
+        <source>&amp;Split cells</source>
+        <comment>menu entry</comment>
+        <translation>Раз&amp;делить ячейки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="440" />
+        <source>&amp;File</source>
+        <comment>menu title</comment>
+        <translation>&amp;Файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="441" />
+        <source>&amp;Edit</source>
+        <comment>menu title</comment>
+        <translation>&amp;Правка</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="442" />
+        <source>Displ&amp;ay</source>
+        <comment>menu title</comment>
+        <translation>&amp;Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="482" />
+        <source>Tools</source>
+        <comment>toolbar title</comment>
+        <translation>Инструменты</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="490" />
+        <source>Edit</source>
+        <comment>toolbar title</comment>
+        <translation>Правка</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="499" />
+        <source>Display</source>
+        <comment>toolbar title</comment>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="518" />
+        <source>No modification</source>
+        <comment>label displayed in the undo list when empty</comment>
+        <translation>Нет изменений</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="520" />
+        <source>Undo</source>
+        <comment>dock title</comment>
+        <translation>История</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="542" />
+        <source>Cell properties</source>
+        <comment>dock title</comment>
+        <translation>Свойства ячейки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="618" />
+        <source>[Changed]</source>
+        <comment>window title tag</comment>
+        <translation>[Изменено]</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="621" />
+        <source>[Read only]</source>
+        <comment>window title tag</comment>
+        <translation>[Только чтение]</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="624" />
+        <source>%1 %2</source>
+        <comment>part of the window title - %1 is the filepath or template name, %2 is the [Changed] or [Read only] tag</comment>
+        <translation>%1 %2</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="714" />
+        <source>QElectroTech - Title block template editor</source>
+        <comment>titleblock template editor: base window title</comment>
+        <translation>QElectroTech — Редактор штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="729" />
+        <source>%1 - %2</source>
+        <comment>window title: %1 is the base window title, %2 is a template name</comment>
+        <translation>%1 — %2</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="808" />
+        <source>Open a title block template</source>
+        <comment>File &gt; open dialog window title</comment>
+        <translation>Открыть шаблон штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="830" />
+        <source>Open a file</source>
+        <comment>dialog title</comment>
+        <translation>Открыть файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="832" />
+        <source>QElectroTech title block templates (*%1);;XML files (*.xml);; All files (*)</source>
+        <comment>filetypes allowed when opening a title block template file - %1 is the .titleblock extension</comment>
+        <translation>Шаблоны штампов QElectroTech (*%1);;Файлы XML (*.xml);; Все файлы (*)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="874" />
+        <source>Save template as</source>
+        <comment>dialog window title</comment>
+        <translation>Сохранить шаблон как</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="1006" />
+        <source>Edit extra information</source>
+        <comment>window title</comment>
+        <translation>Изменить дополнительную информацию</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="1010" />
+        <source>You can use this field to specify the authors of this template, its license, or any other information you may find useful.</source>
+        <translation>Вы можете использовать это поле, чтобы указать авторов этого шаблона, его лицензию или любую другую информацию, которую сочтете полезной.</translation>
+    </message>
+</context>
+<context>
+    <name>QFileNameEdit</name>
+    <message>
+        <location filename="../sources/qfilenameedit.cpp" line="77" />
+        <source>The allowed characters are:
+ - digits [0-9]
+ - lower-case letters [a-z]
+ - dash [-], underscore [_] and dot [.]
+</source>
+        <comment>tooltip content when editing a filename</comment>
+        <translatorcomment>содержание всплывающей подсказки при редактировании имени файла</translatorcomment>
+        <translation>Допустимые символы:
+ - цифры [0-9]
+ - буквы в нижнем регистре [a-z]
+ - тире [-], подчёркивание [_] и точка [.]
+</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../sources/factory/elementpicturefactory.cpp" line="162" />
+        <location filename="../sources/qetgraphicsitem/element.cpp" line="402" />
+        <source>Warning: the element has been saved with a more recent version of QElectroTech.</source>
+        <translation>Предупреждение: элементы были сохранены с помощью более новой версии QElectroTech.</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addgraphicsobjectcommand.cpp" line="88" />
+        <source>a text field</source>
+        <translation>текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addgraphicsobjectcommand.cpp" line="90" />
+        <source>a conductor</source>
+        <translation>проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addgraphicsobjectcommand.cpp" line="92" />
+        <source>a graphic element</source>
+        <translation>графический элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/deleteqgraphicsitemcommand.cpp" line="105" />
+        <source>delete %1</source>
+        <comment>undo caption - %1 is a sentence listing the removed content</comment>
+        <translation>удалить %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="40" />
+        <source>paste %1</source>
+        <comment>undo caption - %1 is a sentence listing the content to paste</comment>
+        <translation>вставить %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="135" />
+        <source>cut %1</source>
+        <comment>undo caption - %1 is a sentence listing the content to cut</comment>
+        <translation>вырезать %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="248" />
+        <location filename="../sources/undocommand/movegraphicsitemcommand.cpp" line="54" />
+        <source>move %1</source>
+        <comment>undo caption - %1 is a sentence listing the moved content</comment>
+        <translation>переместить %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="270" />
+        <source>modify text</source>
+        <comment>undo caption</comment>
+        <translation>изменить текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="322" />
+        <source>modify a conductor</source>
+        <comment>undo caption</comment>
+        <translation>изменить проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="392" />
+        <source>Reset %1</source>
+        <comment>undo caption - %1 is a sentence listing the reset content</comment>
+        <translation>Восстановить %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/changetitleblockcommand.cpp" line="36" />
+        <source>modify the title block</source>
+        <comment>undo caption</comment>
+        <translation>изменить основную надпись</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramcommands.cpp" line="443" />
+        <source>change the folio size</source>
+        <comment>undo caption</comment>
+        <translation>изменить размер листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/UndoCommand/deletepartscommand.cpp" line="34" />
+        <source>deletion</source>
+        <comment>undo caption</comment>
+        <translation>удаление</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="107" />
+        <source>cut parts</source>
+        <comment>undo caption</comment>
+        <translation>вырезать части</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="129" />
+        <source>move</source>
+        <comment>undo caption</comment>
+        <translation>перемещение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="171" />
+        <source>modify names</source>
+        <comment>undo caption</comment>
+        <translation>изменение имён</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="220" />
+        <source>bring forward</source>
+        <comment>undo caption</comment>
+        <translation>поместить вперед</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="223" />
+        <source>raise</source>
+        <comment>undo caption</comment>
+        <translation>поднять</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="226" />
+        <source>lower</source>
+        <comment>undo caption</comment>
+        <translation>опустить</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="229" />
+        <source>Send to back</source>
+        <comment>undo caption</comment>
+        <translation>поместить назад</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="346" />
+        <source>Modification complementary information</source>
+        <comment>undo caption</comment>
+        <translation>изменение дополнительной информации</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="478" />
+        <source>scale %1</source>
+        <comment>undo caption -- %1 is the resized primitive type name</comment>
+        <translation>масштабирование %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="480" />
+        <source>scale %1primitives</source>
+        <comment>undo caption -- %1 always &gt; 1</comment>
+        <translatorcomment>объектов?</translatorcomment>
+        <translation>масштабирование %1 примитивов</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="500" />
+        <source>Modify item properties</source>
+        <translation>Изменить свойства элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="514" />
+        <location filename="../sources/editor/editorcommands.cpp" line="619" />
+        <source>Rotate the selection</source>
+        <comment>undo caption</comment>
+        <translation>Повернуть выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="684" />
+        <source>Mirror selection</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="732" />
+        <source>Flip selection</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partarc.h" line="52" />
+        <source>arc</source>
+        <comment>element part name</comment>
+        <translation>дуга</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partellipse.h" line="56" />
+        <source>ellipse</source>
+        <comment>element part name</comment>
+        <translation>эллипс</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partline.h" line="71" />
+        <source>line</source>
+        <comment>element part name</comment>
+        <translatorcomment>название части элемента</translatorcomment>
+        <translation>линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partpolygon.h" line="62" />
+        <source>polygon</source>
+        <comment>element part name</comment>
+        <translation>многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/partrectangle.h" line="62" />
+        <source>rectangle</source>
+        <comment>element part name</comment>
+        <translation>прямоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/parttext.cpp" line="45" />
+        <source>T</source>
+        <comment>default text when adding a text in the element editor</comment>
+        <translation>T</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/graphicspart/parttext.h" line="60" />
+        <source>text</source>
+        <comment>element part name</comment>
+        <translation>текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1014" />
+        <source>Folio Untitled</source>
+        <translation>Лист без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1016" />
+        <source>diagram</source>
+        <translation>схема</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1041" />
+        <source>Keep aspect ratio</source>
+        <translation>Сохранять пропорции</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1045" />
+        <source>Reset size</source>
+        <translation>Восстановить размер</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1049" />
+        <source>Preview</source>
+        <translation>Предпросмотр</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="280" />
+        <source>%n élément(s)</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translation>
+            <numerusform>%n элемент</numerusform>
+            <numerusform>%n элемента</numerusform>
+            <numerusform>%n элементов</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="289" />
+        <source>%n conducteur(s)</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translation>
+            <numerusform>%n проводник</numerusform>
+            <numerusform>%n проводника</numerusform>
+            <numerusform>%n проводников</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="298" />
+        <source>%n champ(s) de texte</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translation>
+            <numerusform>%n текстовое поле</numerusform>
+            <numerusform>%n текстовых поля</numerusform>
+            <numerusform>%n текстовых полей</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="307" />
+        <source>%n image(s)</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translation>
+            <numerusform>%n изображение</numerusform>
+            <numerusform>%n изображения</numerusform>
+            <numerusform>%n изображений</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="316" />
+        <source>%n forme(s)</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translation>
+            <numerusform>%n фигура</numerusform>
+            <numerusform>%n фигуры</numerusform>
+            <numerusform>%n фигур</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="325" />
+        <source>%n texte(s) d'élément</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translatorcomment>часть предложения, перечисляющая содержание диаграммы</translatorcomment>
+        <translation>
+            <numerusform>%n текст элемента</numerusform>
+            <numerusform>%n текста элементов</numerusform>
+            <numerusform>%n текстов элементов</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="333" />
+        <source>%n tableau(s)</source>
+        <comment>part of a sentence listing the content of diagram</comment>
+        <translation>
+            <numerusform>%n таблица</numerusform>
+            <numerusform>%n таблицы</numerusform>
+            <numerusform>%n таблиц</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/qet.cpp" line="341" />
+        <source>%n plan de bornes</source>
+        <comment>part of a sentence listing the content of a diagram</comment>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="411" />
+        <source>The text file containing the GNU/GPL license could not be found - however, you know it by heart, don't you?</source>
+        <translation>Невозможно найти текстовый файл, содержащий лицензию GNU/GPL, — но вы знаете ее наизусть, не так ли?</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="415" />
+        <source>The text file containing the GNU/GPL license exists but could not be opened - however, you know it by heart, don't you?</source>
+        <translation>Текстовый файл, содержащий лицензию GNU/GPL, существует, но не может быть открыт — но вы знаете ее наизусть, не так ли?</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="679" />
+        <location filename="../sources/qet.cpp" line="814" />
+        <location filename="../sources/qetxml.cpp" line="270" />
+        <source>Unable to open file %1 with write access, encountered error %2.</source>
+        <comment>error message when attempting to write an XML file</comment>
+        <translation>Невозможно открыть файл %1 для записи, возникла ошибка %2.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="700" />
+        <source>An error occurred while writing file %1, error %2 encountered.</source>
+        <comment>error message when attempting to write an XML file</comment>
+        <translatorcomment>сообщение об ошибке при попытке записи XML-файла</translatorcomment>
+        <translation>Произошла ошибка при записи файла %1, произошла ошибка %2.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="778" />
+        <source>Bring to front</source>
+        <translation>Поместить на передний план</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="779" />
+        <source>Raise</source>
+        <translation>Поднять</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="780" />
+        <source>Lower</source>
+        <translation>Опустить</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="781" />
+        <source>Send backward</source>
+        <translation>Поместить на задний план</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="783" />
+        <source>Bring the selection (s) to front</source>
+        <translation>Поместить выбранное на передний план</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="784" />
+        <source>Approach the selection (s)</source>
+        <translation>Поднять выбранное</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="785" />
+        <source>Move away the selection (s)</source>
+        <translation>Опустить выбранное</translation>
+    </message>
+    <message>
+        <location filename="../sources/qet.cpp" line="786" />
+        <source>Send in the backward the selection (s)</source>
+        <translation>Поместить выбранное на задний план</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/terminal.cpp" line="70" />
+        <source>Terminal</source>
+        <comment>tooltip</comment>
+        <translation>Вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/exportdialog.cpp" line="1053" />
+        <source>Export to clipboard</source>
+        <translation>Экспортировать в буфер обмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimension.cpp" line="38" />
+        <source>%1px</source>
+        <comment>titleblock: absolute width</comment>
+        <translation>%1 пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimension.cpp" line="40" />
+        <source>%1%</source>
+        <comment>titleblock: width relative to total length</comment>
+        <translation>%1%</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimension.cpp" line="42" />
+        <source>remaining %1%</source>
+        <comment>titleblock: width relative to remaining length</comment>
+        <translation>осталось %1%</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="437" />
+        <source>Row insertion</source>
+        <comment>label used in the title block template editor undo list</comment>
+        <translation>Вставка строки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="439" />
+        <source>Row deletion</source>
+        <comment>label used in the title block template editor undo list</comment>
+        <translation>Удаление строки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="443" />
+        <source>Column insertion</source>
+        <comment>label used in the title block template editor undo list</comment>
+        <translation>Вставка столбца</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="445" />
+        <source>Column deletion</source>
+        <comment>label used in the title block template editor undo list</comment>
+        <translation>Удаление столбца</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="586" />
+        <source>Row edition</source>
+        <comment>label used in the title block template editor undo list</comment>
+        <translation>Редактирование строки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="588" />
+        <source>Column edition</source>
+        <comment>label used in the title block template editor undo list</comment>
+        <translation>Редактирование столбца</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="653" />
+        <source>Merge of %1 cells</source>
+        <comment>label used in the title block template editor undo list; %1 is the number of merged cells</comment>
+        <translation>Слияние %1 ячеек</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="797" />
+        <source>Split of a cell into%1 ones</source>
+        <comment>label used in the title block template editor undo list; %1 is the number of cells after the split</comment>
+        <translation>Разбитие ячейки на %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecommands.cpp" line="893" />
+        <source>modify extra information</source>
+        <comment>undo caption</comment>
+        <translation>изменить дополнительную информацию</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/titleblock/templatecommands.cpp" line="973" />
+        <source>Couper %n cellule(s)</source>
+        <comment>undo caption</comment>
+        <translation>
+            <numerusform>Вырезать %n ячейку</numerusform>
+            <numerusform>Вырезать %n ячейки</numerusform>
+            <numerusform>Вырезать %n ячеек</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/titleblock/templatecommands.cpp" line="999" />
+        <source>Coller %n cellule(s)</source>
+        <comment>undo caption</comment>
+        <translation>
+            <numerusform>Вставить %n ячейку</numerusform>
+            <numerusform>Вставить %n ячейки</numerusform>
+            <numerusform>Вставить %n ячеек</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="115" />
+        <source>type</source>
+        <comment>title block cell property human name</comment>
+        <translation>тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="117" />
+        <source>name</source>
+        <comment>title block cell property human name</comment>
+        <translation>имя</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="119" />
+        <source>logo</source>
+        <comment>title block cell property human name</comment>
+        <translation>логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="121" />
+        <source>label</source>
+        <comment>title block cell property human name</comment>
+        <translation>метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="123" />
+        <source>label display</source>
+        <comment>title block cell property human name</comment>
+        <translation>показ метки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="125" />
+        <source>displayed value</source>
+        <comment>title block cell property human name</comment>
+        <translation>видимое значение</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="127" />
+        <source>text alignment</source>
+        <comment>title block cell property human name</comment>
+        <translation>выравнивание текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="129" />
+        <source>font size</source>
+        <comment>title block cell property human name</comment>
+        <translation>размер шрифта</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="131" />
+        <source>horizontal adjustment</source>
+        <comment>title block cell property human name</comment>
+        <translation>выравнивание по горизонтали</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="230" />
+        <source>Author</source>
+        <translation>Автор</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="232" />
+        <source>Title</source>
+        <translation>Название</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="231" />
+        <source>Date</source>
+        <translation>Дата</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/projectpropertiesdialog.cpp" line="36" />
+        <source>Project properties</source>
+        <comment>window title</comment>
+        <translation>Свойства проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramevent/diagrameventaddimage.cpp" line="160" />
+        <source>Select an image ...</source>
+        <translation>Выберите изображение...</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramevent/diagrameventaddimage.cpp" line="160" />
+        <source>Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)</source>
+        <translation>Файлы изображений (*.png *.jpg  *.jpeg *.bmp *.svg)</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductornumexport.cpp" line="66" />
+        <location filename="../sources/diagramevent/diagrameventaddimage.cpp" line="167" />
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagramevent/diagrameventaddimage.cpp" line="167" />
+        <source>Unable to load the image.</source>
+        <translation>Невозможно загрузить изображение.</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addgraphicsobjectcommand.cpp" line="39" />
+        <source>Add </source>
+        <translation>Добавить </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddarc.cpp" line="72" />
+        <source>Arc</source>
+        <translation>Дуга</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddellipse.cpp" line="66" />
+        <source>Ellipse</source>
+        <translation>Эллипс</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddline.cpp" line="69" />
+        <source>line</source>
+        <translation>Линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddpolygon.cpp" line="120" />
+        <source>Polygon</source>
+        <translation>Многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddrect.cpp" line="69" />
+        <source>Rectangle</source>
+        <translation>Прямоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddterminal.cpp" line="65" />
+        <location filename="../sources/editor/graphicspart/partterminal.h" line="88" />
+        <source>Terminal</source>
+        <translation>Вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventaddtext.cpp" line="65" />
+        <location filename="../sources/qetinformation.cpp" line="270" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/changeelementinformationcommand.cpp" line="41" />
+        <source>Edit information of the element : %1</source>
+        <translation>Изменить информацию элемента: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/changeelementinformationcommand.cpp" line="50" />
+        <source>Edit information for multiple items</source>
+        <translation>Изменить информацию для нескольких элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/linkelementcommand.cpp" line="38" />
+        <source>Edit the cross reference</source>
+        <comment>edite the cross reference</comment>
+        <translation>Редактировать перекрестную ссылку</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductorautonumerotation.cpp" line="102" />
+        <source>Edit conductor properties</source>
+        <comment>undo caption</comment>
+        <translation>Изменить свойства проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductorautonumerotation.cpp" line="111" />
+        <source>Edit the properties of several conductors</source>
+        <comment>undo caption</comment>
+        <translation>Изменить свойства нескольких проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextsmover.cpp" line="143" />
+        <source>Move an item text</source>
+        <translation>Переместить текст элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextsmover.cpp" line="145" />
+        <source>Move %1 an item text</source>
+        <translation>Переместить тексты элементов (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextsmover.cpp" line="150" />
+        <source>Move</source>
+        <translation>Переместить</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextsmover.cpp" line="152" />
+        <location filename="../sources/undocommand/rotatetextscommand.cpp" line="66" />
+        <source> and</source>
+        <translation> и</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextsmover.cpp" line="155" />
+        <source> a group of text</source>
+        <translation> группа текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductornumexport.cpp" line="52" />
+        <source>number_of_wiring_</source>
+        <translation>количество_файлов_</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductornumexport.cpp" line="57" />
+        <source>Save As... </source>
+        <translation>Сохранить как... </translation>
+    </message>
+    <message>
+        <location filename="../sources/conductornumexport.cpp" line="57" />
+        <source>Files csv (*.csv)</source>
+        <translation>Файлы csv (*.csv)</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductornumexport.cpp" line="67" />
+        <source>Unable to replace the file!
+
+</source>
+        <translation>Невозможно заменить файл!
+
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="240" />
+        <source>Folio position</source>
+        <translation>Положение листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="239" />
+        <source>Folio number</source>
+        <translation>Номер листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/fileelementcollectionitem.cpp" line="124" />
+        <source>QET Collection</source>
+        <translation>Коллекция QET</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/fileelementcollectionitem.cpp" line="126" />
+        <source>Company collection</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/fileelementcollectionitem.cpp" line="128" />
+        <source>User Collection</source>
+        <translation>Коллекция пользователя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/fileelementcollectionitem.cpp" line="130" />
+        <source>Unknown collection</source>
+        <translation>Неизвестная коллекция</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/xmlprojectelementcollectionitem.cpp" line="62" />
+        <source>Untitled project</source>
+        <translation>Проект без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/xmlprojectelementcollectionitem.cpp" line="92" />
+        <source>Collection</source>
+        <translation>Коллекция</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../sources/elementsmover.cpp" line="203" />
+        <source>Ajouter %n conducteur(s)</source>
+        <comment>add a numbers of conductor one or more</comment>
+        <translatorcomment>добавить номера одного или нескольких проводников</translatorcomment>
+        <translation>
+            <numerusform>Добавить %n проводник</numerusform>
+            <numerusform>Добавить %n проводника</numerusform>
+            <numerusform>Добавить %n проводников</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/esevent/eseventadddynamictextfield.cpp" line="68" />
+        <source>Dynamic text field</source>
+        <translation>Динамическое текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="44" />
+        <source>Add element text</source>
+        <translation>Добавить текст элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="95" />
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="113" />
+        <source>Add a group of element texts</source>
+        <translation>Добавить группу текстов элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="143" />
+        <source>Grouping element texts</source>
+        <translation>Сгруппировать тексты элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="219" />
+        <source>Delete a group of element texts</source>
+        <translation>Удалить группу текстов элементов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="283" />
+        <source>Insert element text into a text group</source>
+        <translation>Вставить текст элемента в группу текстов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="343" />
+        <source>Remove an element text from a group of texts</source>
+        <translation>Удалить текст элемента из группы текстов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/addelementtextcommand.cpp" line="397" />
+        <source>Modify the alignment of a group of texts</source>
+        <translation>Изменить выравнивание группы текстов</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/rotateselectioncommand.cpp" line="37" />
+        <source>Rotate the selection</source>
+        <translation>Повернуть выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/rotatetextscommand.cpp" line="60" />
+        <source>Rotate %1 texts</source>
+        <translation>Повернуть тексты (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/rotatetextscommand.cpp" line="64" />
+        <source>Rotate</source>
+        <translation>Повернуть</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/rotatetextscommand.cpp" line="68" />
+        <source> %1 groups of texts</source>
+        <translation> группы текстов (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/rotatetextscommand.cpp" line="115" />
+        <source>Choose orientation for selected texts</source>
+        <comment>window title</comment>
+        <translation>Выбор направления выделенного текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="65" />
+        <location filename="../sources/elementtextpattern.cpp" line="146" />
+        <source>Text configuration</source>
+        <translation>Конфигурация текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="66" />
+        <source>A text configuration named &lt;&lt;%1 &gt;&gt; already exists.
+Do you want to replace it ?</source>
+        <translation>Конфигурация текста с именем &lt;&lt; %1 &gt;&gt; уже существует.
+Заменить?</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="85" />
+        <source>Configuration name</source>
+        <translation>Имя конфигурации</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="86" />
+        <source>Enter the name of the configuration to create</source>
+        <translation>Введите имя конфигурации для создания</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="147" />
+        <source>No existing text configuration.</source>
+        <translation>Нет существующей конфигурации текста.</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="177" />
+        <source>Select a text configuration</source>
+        <translation>Выберите конфигурацию текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="178" />
+        <source>Select the text configuration to add to the element</source>
+        <translation>Выбрать конфигурацию текста для добавления к элементу</translation>
+    </message>
+    <message>
+        <location filename="../sources/elementtextpattern.cpp" line="246" />
+        <source>Import the text configuration : %1</source>
+        <translation>Импортировать конфигурацию текста: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/dialogwaiting.cpp" line="70" />
+        <source>%p% done (%v on %m)</source>
+        <translation>%p% готово (%v из %m)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="202" />
+        <location filename="../sources/ElementsCollection/elementscollectionwidget.cpp" line="639" />
+        <source>load %p% (%v on %m)</source>
+        <translation>загрузка %p% (%v из %m)</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="56" />
+        <source>Find / replace folio properties</source>
+        <translation>Найти/заменить свойства листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="120" />
+        <source>Find / replace element properties.</source>
+        <translation>Найти/заменить свойства элемента.</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="213" />
+        <source>Search / replace conductors properties.</source>
+        <translation>Найти/заменить свойства проводника.</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="300" />
+        <source>Search / replace advanced</source>
+        <translation>Расширенный поиск и замена</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="173" />
+        <source>Search / replace independent texts</source>
+        <translation>Найти/заменить независимый текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="233" />
+        <source>File</source>
+        <translation>Файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="234" />
+        <source>Plant (=)</source>
+        <translation>Установка</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="235" />
+        <location filename="../sources/qetinformation.cpp" line="265" />
+        <source>Location (+)</source>
+        <translation>Расположение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="236" />
+        <source>Revision index</source>
+        <translation>Индекс редакции</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="237" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="238" />
+        <source>Version of QElectroTech</source>
+        <translation>Версия QElectroTech</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="241" />
+        <source>Number of folios</source>
+        <translation>Количество листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="242" />
+        <source>Number of the previous folio</source>
+        <translation>Номер предыдущего листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="243" />
+        <source>Number of the following folio</source>
+        <translation>Номер следующего листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="244" />
+        <source>Project title</source>
+        <translation>Название проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="245" />
+        <source>Project file path</source>
+        <translation>Путь к файлу проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="246" />
+        <source>File name</source>
+        <translation>Имя файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="247" />
+        <source>Date of saving of the file in local date format</source>
+        <translation>Дата сохранения файла в локальном формате</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="249" />
+        <source>Date of saving of the file in the format YYYY-MM-DD</source>
+        <translation>Дата сохранения файла в формате ГГГГ-ММ-ДД</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="253" />
+        <source>Label formula</source>
+        <translation>Формула метки</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="254" />
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="255" />
+        <source>Annotation</source>
+        <translation>Аннотация</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="256" />
+        <location filename="../sources/qetinformation.cpp" line="266" />
+        <source>Function</source>
+        <translation>Функция</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="272" />
+        <source>Auxiliary block 1</source>
+        <translation>Внешний блок 1</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="273" />
+        <source>Auxiliary 1 text description</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="274" />
+        <source>Auxiliary 1 article number</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="275" />
+        <source>Manufacturer of auxiliary 1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="276" />
+        <source>Order number auxiliary 1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="277" />
+        <source>Internal number of auxiliary 1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="278" />
+        <source>supplier of auxiliary 1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="279" />
+        <source>Quantity of auxiliary 1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="280" />
+        <source>Unity of auxiliary 1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="281" />
+        <source>Auxiliary block 2</source>
+        <translation>Внешний блок 2</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="282" />
+        <source>Auxiliary 2 text description</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="283" />
+        <source>Auxiliary 2 article number</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="284" />
+        <source>Manufacturer of auxiliary 2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="285" />
+        <source>Order number auxiliary 2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="286" />
+        <source>Internal number of auxiliary 2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="287" />
+        <source>supplier of auxiliary 2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="288" />
+        <source>Quantity of auxiliary 2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="289" />
+        <source>Unity of auxiliary 2</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="290" />
+        <source>Auxiliary block 3</source>
+        <translation type="unfinished">Внешний блок 3</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="291" />
+        <source>Auxiliary 3 text description</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="292" />
+        <source>Auxiliary 3 article number</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="293" />
+        <source>Manufacturer of auxiliary 3</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="294" />
+        <source>Order number auxiliary 3</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="295" />
+        <source>Internal number of auxiliary 3</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="296" />
+        <source>supplier of auxiliary 3</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="297" />
+        <source>Quantity of auxiliary 3</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="298" />
+        <source>Unity of auxiliary 3</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="299" />
+        <source>Auxiliary block 4</source>
+        <translation type="unfinished">Внешний блок 4</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="300" />
+        <source>Auxiliary 4 text description</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="301" />
+        <source>Auxiliary 4 article number</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="302" />
+        <source>Manufacturer of auxiliary 4</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="303" />
+        <source>Order number auxiliary 4</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="304" />
+        <source>Internal number of auxiliary 4</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="305" />
+        <source>supplier of auxiliary 4</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="306" />
+        <source>Quantity of auxiliary 4</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="307" />
+        <source>Unity of auxiliary 4</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="257" />
+        <source>Textual description</source>
+        <translation>Текстовое описание</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="258" />
+        <source>Article number</source>
+        <translation>Номер позиции</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="259" />
+        <source>Manufacturer</source>
+        <translation>Производитель</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="260" />
+        <source>Order number</source>
+        <translation>Номер заказа</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="261" />
+        <source>Internal number</source>
+        <translation>Внутренний номер</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="262" />
+        <source>Supplier</source>
+        <translation>Поставщик</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="263" />
+        <source>Quantity</source>
+        <translation>Количество</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="264" />
+        <source>Unity</source>
+        <translation>Единица измерения</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="267" />
+        <source>Voltage / Protocol</source>
+        <translation>Напряжение/протокол</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="268" />
+        <source>Wire color</source>
+        <translation>Цвет провода</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="269" />
+        <source>Wire section</source>
+        <translation>Сечение провода</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="271" />
+        <source>Text Formula</source>
+        <translation>Формула текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="248" />
+        <source>Date of saving of the file in the format DD-MM-YYYY</source>
+        <translation>Дата сохранения файла в формате ДД-ММ-ГГГГ</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="250" />
+        <source>File saving time</source>
+        <translation>Время сохранения файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="251" />
+        <source>Name of the saved file</source>
+        <translation>Имя сохраненного файла</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetinformation.cpp" line="252" />
+        <source>Saved file path</source>
+        <translation>Путь к сохраненному файлу</translation>
+    </message>
+    <message>
+        <location filename="../sources/utils/conductorcreator.cpp" line="49" />
+        <source>Creation of conductors</source>
+        <translation>Создание проводников</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="2415" />
+        <source>To install the plugin qet_tb_generator&lt;br&gt;Visit :&lt;br&gt;&lt;a href='https://pypi.python.org/pypi/qet-tb-generator'&gt;qet-tb-generator&lt;/a&gt;&lt;br&gt;Requires python 3.5 or above.&lt;br&gt;&lt;B&gt;&lt;U&gt; First install on Windows&lt;/B&gt;&lt;/U&gt;&lt;br&gt;1. Install, if required, python 3.5 or above&lt;br&gt; Visit :&lt;br&gt;&lt;a href='https://www.python.org/downloads/'&gt;python.org&lt;/a&gt;&lt;br&gt;2. pip install qet_tb_generator&lt;br&gt;&lt;B&gt;&lt;U&gt; Update on Windows&lt;/B&gt;&lt;/U&gt;&lt;br&gt;python -m pip install --upgrade qet_tb_generator&lt;br&gt;&gt;&gt;user could launch in a terminal this script in this directory&lt;br&gt; C:\users\XXXX\AppData\Local\Programs\Python\Python36-32\Scripts   &lt;br&gt;</source>
+        <translation>Чтобы установить плагин qet_tb_generator&lt;br&gt;Посетите:&lt;br&gt;&lt;a href='https://pypi.python.org/pypi/qet-tb-generator'&gt;qet-tb-generator&lt;/a&gt;&lt;br&gt;Требуется python 3.5 или выше.&lt;br&gt;&lt;B&gt;&lt;U&gt;Первая установка в Windows&lt;/B&gt;&lt;/U&gt;&lt;br&gt;1. При необходимости установите python 3.5 или более позднюю версию&lt;br&gt;Посетите:&lt;br&gt;&lt;a href='https://www.python.org/downloads/'&gt;python.org&lt;/a&gt;&lt;br&gt;2. pip install qet_tb_generator&lt;br&gt;&lt;B&gt;&lt;U&gt;Обновление в Windows&lt;/B&gt;&lt;/U&gt;&lt;br&gt;python -m pip install --upgrade qet_tb_generator&lt;br&gt;&gt;&gt;пользователь может запустить в терминале этот сценарий в этом каталоге&lt;br&gt;C:\users\XXXX\AppData\Local\Programs\Python\Python36-32\Scripts&lt;br&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="2435" />
+        <source>To install the plugin qet_tb_generator&lt;br&gt;Visit  :&lt;br&gt;&lt;a href='https://pypi.python.org/pypi/qet-tb-generator'&gt;qet-tb-generator&lt;/a&gt;&lt;br&gt;&lt;B&gt;&lt;U&gt; First install on macOSX&lt;/B&gt;&lt;/U&gt;&lt;br&gt;1. Install, if required, python 3.11 bundle only, &lt;a href='https://www.python.org/ftp/python/3.11.2/python-3.11.2-macos11.pkg'&gt;python-3.11.2-macos11.pkg&lt;/a&gt;&lt;br&gt;2 Run Profile.command script&lt;br&gt;because program use hardcoded PATH for localise qet-tb-generator plugin &lt;br&gt; Visit :&lt;br&gt;&lt;a href='https://qelectrotech.org/forum/viewtopic.php?pid=5674#p5674'&gt;howto&lt;/a&gt;&lt;br&gt;2. pip3 install qet_tb_generator&lt;br&gt;&lt;B&gt;&lt;U&gt; Update on macOSX&lt;/B&gt;&lt;/U&gt;&lt;br&gt; pip3 install --upgrade qet_tb_generator&lt;br&gt;</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="2454" />
+        <source>To install the plugin qet_tb_generator&lt;br&gt;Visit :&lt;br&gt;&lt;a href='https://pypi.python.org/pypi/qet-tb-generator'&gt;qet-tb-generator&lt;/a&gt;&lt;br&gt;&lt;br&gt;Requires python 3.5 or above.&lt;br&gt;&lt;br&gt;&lt;B&gt;&lt;U&gt; First install on Linux&lt;/B&gt;&lt;/U&gt;&lt;br&gt;1. check you have pip3 installed: pip3 --version&lt;br&gt;If not install with: sudo apt-get install python3-pip&lt;br&gt;2. Install the program: sudo pip3 install qet_tb_generator&lt;br&gt;3. Run the program: qet_tb_generator&lt;br&gt;&lt;br&gt;&lt;B&gt;&lt;U&gt; Update on Linux&lt;/B&gt;&lt;/U&gt;&lt;br&gt;sudo pip3 install --upgrade qet_tb_generator&lt;br&gt;</source>
+        <translation>Чтобы установить плагин qet_tb_generator&lt;br&gt;Посетите:&lt;br&gt;&lt;a href='https://pypi.python.org/pypi/qet-tb-generator'&gt;qet-tb-generator&lt;/a&gt;&lt;br&gt;&lt;br&gt;Требуется Python 3.5 или выше.&lt;br&gt;&lt;br&gt;&lt;B&gt;&lt;U&gt;Первая установка в Linux&lt;/B&gt;&lt;/U&gt;&lt;br&gt;1. Проверьте, что у вас установлен pip3: pip3 --version&lt;br&gt; Если не установлено, то: sudo apt-get install python3-pip&lt;br&gt;2. Установите программу: sudo pip3 install qet_tb_generator&lt;br&gt;3. Запустите программу: qet_tb_generator&lt;br&gt;&lt;br&gt;&lt;B&gt;&lt;U&gt;Обновление в Linux&lt;/B&gt;&lt;/U&gt;&lt;br&gt;sudo pip3 install --upgrade qet_tb_generator&lt;br&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="2474" />
+        <source>Error launching qet_tb_generator plugin</source>
+        <translation>Ошибка при запуске плагина qet_tb_generator</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/qetgraphicstablefactory.cpp" line="48" />
+        <source>Add a nomenclature</source>
+        <translation>Добавить номенклатуру</translation>
+    </message>
+    <message>
+        <location filename="../sources/factory/qetgraphicstablefactory.cpp" line="67" />
+        <source>Add a summary</source>
+        <translation>Добавить заключение</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/UndoCommand/pastepartscommand.cpp" line="46" />
+        <source>Paste</source>
+        <translation>Вставить</translation>
+    </message>
+    <message>
+        <location filename="../sources/conductorproperties.cpp" line="826" />
+        <location filename="../sources/ElementsCollection/elementslocation.cpp" line="261" />
+        <location filename="../sources/ElementsCollection/elementslocation.cpp" line="405" />
+        <location filename="../sources/factory/elementpicturefactory.cpp" line="582" />
+        <location filename="../sources/qetapp.cpp" line="2327" />
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="351" />
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="474" />
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="509" />
+        <location filename="../sources/SearchAndReplace/searchandreplaceworker.cpp" line="538" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="425" />
+        <location filename="../sources/titleblock/templatelocation.cpp" line="108" />
+        <source>this is an error in the code</source>
+        <translation>это ошибка в коде</translation>
+    </message>
+    <message>
+        <location filename="../sources/machine_info.cpp" line="132" />
+        <source>Compilation: </source>
+        <translation>Компиляция: </translation>
+    </message>
+    <message>
+        <location filename="../sources/machine_info.cpp" line="455" />
+        <source>Compilation :   </source>
+        <translation>Компиляция:   </translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminalstripcommand.cpp" line="38" />
+        <source>Add a group of terminals</source>
+        <translation>Добавить группу выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminalstripcommand.cpp" line="68" />
+        <source>Delete a group of terminals</source>
+        <translation>Удалить группу выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="38" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="55" />
+        <source>Add a terminal</source>
+        <translation>Добавить вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="39" />
+        <source>Add terminal %1</source>
+        <translation>Добавить вывод %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="41" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="57" />
+        <source>to a group of terminals</source>
+        <translation>в группу выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="42" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="58" />
+        <source>to terminal group %1</source>
+        <translation>в группу выводов %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="54" />
+        <source>Add %1 terminals</source>
+        <translation>Добавить выводы (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="141" />
+        <source>Remove %1 terminals</source>
+        <translation>Удалить выводы (%1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="173" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="196" />
+        <source>Move a terminal</source>
+        <translation>Переместить вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="174" />
+        <source>Move terminal %1</source>
+        <translation>Переместить вывод %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="176" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="198" />
+        <source> of a group of terminals</source>
+        <translation> из группы выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="177" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="199" />
+        <source> of terminal group %1</source>
+        <translation> из группы выводов %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="179" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="201" />
+        <source>to a group of terminals</source>
+        <translation>в группу выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="180" />
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="202" />
+        <source>to terminal group %1</source>
+        <translation>в группу выводов %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="195" />
+        <source>Move terminals</source>
+        <translation>Переместить выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="144" />
+        <source>a group of terminals</source>
+        <translation>из группы выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="145" />
+        <source>of terminal group %1</source>
+        <translation>из группы выводов %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/addterminaltostripcommand.cpp" line="142" />
+        <source>Remove a terminal</source>
+        <translation>Удалить вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/changeterminalstripdata.cpp" line="27" />
+        <source>Modify the properties of a terminal group</source>
+        <translation>Изменить свойства группы выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/sortterminalstripcommand.cpp" line="27" />
+        <source>Sort terminal block %1</source>
+        <translation>Выбор клеммной колодки %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="495" />
+        <location filename="../sources/properties/elementdata.cpp" line="505" />
+        <source>Generic</source>
+        <comment>generic terminal element type</comment>
+        <translation>Общий</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="497" />
+        <source>Fuse</source>
+        <comment>fuse terminal element type</comment>
+        <translation>Предохранитель</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="499" />
+        <source>Sectionable</source>
+        <comment>sectional terminal element type</comment>
+        <translation>Секционный</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="501" />
+        <source>Diode</source>
+        <comment>diode terminal element type</comment>
+        <translation>Диод</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="503" />
+        <source>Ground</source>
+        <comment>ground terminal element type</comment>
+        <translation>Заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="540" />
+        <location filename="../sources/properties/elementdata.cpp" line="544" />
+        <source>Generic</source>
+        <comment>generic terminal element function</comment>
+        <translation>Общий</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="541" />
+        <source>Phase</source>
+        <comment>phase terminal element function</comment>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/properties/elementdata.cpp" line="542" />
+        <source>Neutral</source>
+        <comment>neutral terminal element function</comment>
+        <translation>Нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/undocommand/changeelementdatacommand.cpp" line="27" />
+        <source>Modify the properties of an element</source>
+        <translation>Изменить свойства элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/bridgeterminalscommand.cpp" line="28" />
+        <source>Bridging terminals together</source>
+        <translation>Соединить выводы между собой</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/bridgeterminalscommand.cpp" line="57" />
+        <source>Delete terminal bridges</source>
+        <translation>Удалить оконечные мосты</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/UndoCommand/changeterminalstripcolor.cpp" line="37" />
+        <source>Change the color of a terminal bridge</source>
+        <translation>Изменить цвет оконечного моста</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/UndoCommand/openelmtcommand.cpp" line="31" />
+        <source>Open an item</source>
+        <translation>Открыть элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/qetelementeditor.cpp" line="1476" />
+        <source>Import a dxf file</source>
+        <translation>Импортировать файл в формате DXF</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/GraphicsItem/properties/terminalstriplayoutshandler.cpp" line="26" />
+        <source>Default layout</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="43" />
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="52" />
+        <source>Enter the scale factor</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="44" />
+        <source>X Factor:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="53" />
+        <source>Y Factor:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="61" />
+        <source>none</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="62" />
+        <source>horizontal</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="63" />
+        <source>vertical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="64" />
+        <source>horizontal + vertical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="66" />
+        <source>Mirror element :</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="67" />
+        <source>direction</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="100" />
+        <source>QET_ElementScaler: 
+additional information about %1 import / scaling</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="149" />
+        <source>The QET_ElementScaler software is required to scale elements.
+Please download it from the link below and unzip it into the installation folder</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/dxf/dxftoelmt.cpp" line="58" />
+        <source>Dxf2elmt: 
+Error: Make sure the file %1 is a valid .dxf file</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/dxf/dxftoelmt.cpp" line="59" />
+        <location filename="../sources/qet_elementscaler/qet_elementscaler.cpp" line="101" />
+        <source>See details here:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/dxf/dxftoelmt.cpp" line="106" />
+        <source>Importing dxf requires the dxf2elmt software.
+Please download it by following the link and unzip it in the installation folder</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/klistopenfilesjob_unix.cpp" line="37" />
+        <source>Path %1 doesn't exist</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/klistopenfilesjob_unix.cpp" line="50" />
+        <source>Failed to execute `lsof' error code %1</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kcoreaddons-src/src/lib/util/klistopenfilesjob_win.cpp" line="27" />
+        <source>KListOpenFilesJob is not supported on Windows</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/src/kpasswordlineedit.cpp" line="42" />
+        <source>Change the visibility of the password</source>
+        <comment>@info:tooltip</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>QTextOrientationWidget</name>
+    <message>
+        <location filename="../sources/qtextorientationwidget.cpp" line="38" />
+        <source>e.g.</source>
+        <comment>Short example string</comment>
+        <translation>Прим.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qtextorientationwidget.cpp" line="39" />
+        <source>Example</source>
+        <comment>Longer example string</comment>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>QetGraphicsTableItem</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/qetgraphicstableitem.cpp" line="116" />
+        <source>The information to be displayed is greater than the maximum quantity that can be displayed by the tables.
+Please add a new table or adjust the existing tables to show all information.</source>
+        <translation>Количество информации выходит за пределы допустимого для отображения в таблицах.
+Пожалуйста, добавьте новую или скорректируйте существующие таблицы, чтобы отобразить информацию полностью.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/qetgraphicstableitem.cpp" line="119" />
+        <source>The information to be displayed is greater than the maximum quantity that can be displayed by the table.
+Please add a new table or adjust the existing table to display all information.</source>
+        <translation>Количество информации выходит за пределы допустимого для отображения в таблице.
+Добавьте новую или скорректируйте существующую таблицу, чтобы отобразить информацию полностью.</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/qetgraphicstableitem.cpp" line="122" />
+        <source>Table limitation</source>
+        <translation>Ограничение таблицы</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/ViewItem/qetgraphicstableitem.cpp" line="967" />
+        <source>Modify the geometry of a table</source>
+        <translation>Изменить геометрию области таблицы</translation>
+    </message>
+</context>
+<context>
+    <name>QetShapeItem</name>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="995" />
+        <source>an shape</source>
+        <translation>фигура</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="991" />
+        <source>a line</source>
+        <translation>линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="58" />
+        <source>Add a point</source>
+        <translation>Добавить точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="61" />
+        <source>Delete this point</source>
+        <translation>Удалить эту точку</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="667" />
+        <source>Add a point to a polygon</source>
+        <translation>Добавить точку к многоугольнику</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="701" />
+        <source>Delete a point from a polygon</source>
+        <translation>Удалить точку из многоугольника</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="834" />
+        <source>Edit %1</source>
+        <translation>Изменить %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="992" />
+        <source>rectangle</source>
+        <translation>прямоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="993" />
+        <source>an ellipse</source>
+        <translation>эллипс</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetgraphicsitem/qetshapeitem.cpp" line="994" />
+        <source>polyline</source>
+        <translation>ломаная линия</translation>
+    </message>
+</context>
+<context>
+    <name>RectangleEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="42" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="156" />
+        <source>Dimensions :</source>
+        <translation>Размеры:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="49" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="157" />
+        <source>y</source>
+        <translation>y</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="86" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="158" />
+        <source>Upper left corner :</source>
+        <translation>Левый верхний угол:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="93" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="159" />
+        <source>Width:</source>
+        <translation>Ширина:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="103" />
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="133" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="160" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="162" />
+        <source>Round :</source>
+        <translation>Закругление:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="113" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="161" />
+        <source>x</source>
+        <translation>x</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.ui" line="32" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_rectangleeditor.h" line="155" />
+        <source>Height:</source>
+        <translation>Высота:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/rectangleeditor.cpp" line="173" />
+        <source>Change a rectangle</source>
+        <translation>Редактировать прямоугольник</translation>
+    </message>
+</context>
+<context>
+    <name>RenameDialog</name>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_renamedialog.h" line="79" />
+        <source>Dialog</source>
+        <translation>Диалог</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_renamedialog.h" line="80" />
+        <source>new name :</source>
+        <translation>Новое имя:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_renamedialog.h" line="81" />
+        <source>Erase</source>
+        <translation>Стереть</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.ui" line="37" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_renamedialog.h" line="82" />
+        <source>Rename</source>
+        <translation>Переименовать</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.ui" line="44" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_renamedialog.h" line="83" />
+        <source>Undo</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.ui" line="54" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_renamedialog.h" line="84" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ElementsCollection/ui/renamedialog.cpp" line="31" />
+        <source>The element « %1 » already exists. What do you wish to do?</source>
+        <translation>Элемент «%1» уже существует. Что вы хотите сделать?</translation>
+    </message>
+</context>
+<context>
+    <name>ReplaceConductorDialog</name>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="21" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="560" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="30" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="482" />
+        <source>&amp;Multiline</source>
+        <translation>&amp;Многолинейный</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="42" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="59" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="63" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="118" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="151" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="179" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="192" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="228" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="245" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="288" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="571" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="590" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="483" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="485" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="489" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="497" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="504" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="512" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="513" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="520" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="522" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="529" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="577" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="579" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="203" />
+        <source>Do not change</source>
+        <translation>Не изменять</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="156" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="505" />
+        <source>Up</source>
+        <translation>Вверху</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="161" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="506" />
+        <source>Below</source>
+        <translation>Внизу</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="298" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="530" />
+        <source>Text on horizontal conductor :</source>
+        <translation>Текст на горизонтальном проводнике:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="305" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="531" />
+        <source>Voltage / Protocol :</source>
+        <translation>Напряжение/протокол:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="105" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="140" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="169" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="218" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="494" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="501" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="509" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="517" />
+        <source>Delete this text</source>
+        <translation>Удалить этот текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="261" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="523" />
+        <source>Function :</source>
+        <translation>Функция:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="211" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="515" />
+        <source>Text Formula :</source>
+        <translation>Формула текста:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="278" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="526" />
+        <source>Visible text</source>
+        <translation>Видимый текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="81" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="268" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="490" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="524" />
+        <source>Angle:</source>
+        <translation>Угол:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="238" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="521" />
+        <source>Text on vertical conductor :</source>
+        <translation>Текст на вертикальном проводнике:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="52" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="484" />
+        <source>Text size :</source>
+        <translation>Размер текста:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="98" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="492" />
+        <source>Text:</source>
+        <translation>Текст:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="68" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="486" />
+        <source>To the left</source>
+        <translation>Слева</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="73" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="487" />
+        <source>To the right</source>
+        <translation>Справа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="91" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="491" />
+        <source>Conductor color</source>
+        <translation>Цвет проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="121" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="195" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="498" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="514" />
+        <source>°</source>
+        <translation>°</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="312" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="532" />
+        <source>Conductor section</source>
+        <translation>Сечение проводника</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="342" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="535" />
+        <source>Single line</source>
+        <translation>Однолинейный</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="357" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="537" />
+        <source>Protective Earth Neutral</source>
+        <translation>Глухозаземлённая нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="360" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="539" />
+        <source>PEN</source>
+        <translation>PEN</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="367" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="541" />
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="370" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="543" />
+        <source>phase</source>
+        <translation>фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="381" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="414" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="545" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="552" />
+        <source>Number of phase</source>
+        <translation>Количество фаз</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="394" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="548" />
+        <source>Neutral</source>
+        <translation>Нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="397" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="550" />
+        <source>neutral</source>
+        <translation>нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="430" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="555" />
+        <source>Ground</source>
+        <translation>Заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="433" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="557" />
+        <source>ground</source>
+        <translation>заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="444" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="558" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="454" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="559" />
+        <source>PushButton</source>
+        <translation>Кнопка</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="465" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="580" />
+        <source>Appearance</source>
+        <translation>Вид</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="471" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="561" />
+        <source>Size :</source>
+        <translation>Размер:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="478" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="554" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="562" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="572" />
+        <source>Color :</source>
+        <translation>Цвет:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="508" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="564" />
+        <source>Style:</source>
+        <translation>Стиль:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="515" />
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="561" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="566" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="574" />
+        <source>Edit</source>
+        <translation>Изменить</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="525" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="569" />
+        <source>Secondary color :</source>
+        <translation>Вторичный цвет:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="547" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="571" />
+        <source>Line size :</source>
+        <translation>Размер линии:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.ui" line="574" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceconductordialog.h" line="578" />
+        <source>px</source>
+        <translation> пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="204" />
+        <source>Solid line</source>
+        <comment>conductor style: solid line</comment>
+        <translatorcomment>стиль проводника: сплошная линия</translatorcomment>
+        <translation>Сплошная линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="207" />
+        <source>Dashed line</source>
+        <comment>conductor style: dashed line</comment>
+        <translation>Пунктирная линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceconductordialog.cpp" line="210" />
+        <source>Dots and dashes</source>
+        <comment>conductor style: dashed and dotted line</comment>
+        <translation>Точки и тире</translation>
+    </message>
+</context>
+<context>
+    <name>ReplaceElementDialog</name>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceelementdialog.cpp" line="81" />
+        <source>Do not change</source>
+        <translation>Не изменять</translation>
+    </message>
+</context>
+<context>
+    <name>ReplaceFolioWidget</name>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="288" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="45" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="367" />
+        <source>Main</source>
+        <translation>Основные</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="53" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="289" />
+        <source>Rev index</source>
+        <translation>Индекс версии</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="60" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="290" />
+        <source>Location</source>
+        <translation>Расположение</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="67" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="291" />
+        <source>File:</source>
+        <translation>Файл:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="74" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="293" />
+        <source>Available as variable %title for title blocks</source>
+        <translation>Доступно как %title в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="77" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="87" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="121" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="131" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="191" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="207" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="217" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="227" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="295" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="299" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="306" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="310" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="321" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="329" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="333" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="337" />
+        <source>Do not change</source>
+        <translation>Не изменять</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="84" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="297" />
+        <source>Available as variable %author for title blocks</source>
+        <translation>Доступно как %author в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="94" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="300" />
+        <source>Author:</source>
+        <translation>Автор:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="101" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="301" />
+        <source>Date:</source>
+        <translation>Дата:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="111" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="302" />
+        <source>Plant:</source>
+        <translation>Установка:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="118" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="304" />
+        <source>Available as variable %indexrev for title blocks</source>
+        <translation>Доступно как %indexrev в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="128" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="308" />
+        <source>Available as variable %filename for title blocks</source>
+        <translation>Доступно как %filename в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="141" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="311" />
+        <source>Folio:</source>
+        <translation>Лист:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="150" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="312" />
+        <source>No date</source>
+        <translation>Нет даты</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="157" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="314" />
+        <source>Available as variable %date for title blocks</source>
+        <translation>Доступно как %date в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="170" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="316" />
+        <source>Fixed date:</source>
+        <translation>Фиксированная дата:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="177" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="318" />
+        <source>Set to current date</source>
+        <translation>Установить текущую дату</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="224" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="335" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Available as% plant for title block templates&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Доступно как %plant в шаблоне для штампа&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="200" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="323" />
+        <source>Available as % folio for titleblock models
+The following variables can be used:
+-%id: current number of folios in the project
+-%total: total number of folios in the project
+-%autonum: folio auto numbering</source>
+        <translation>Доступно как %folio в шаблоне для штампа
+Можно использовать следующие переменные:
+-%id: номер текущего листа в проекте
+-%total: общее количество листов в проекте
+-%autonum: автоматическая нумерация листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="214" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="331" />
+        <source>Available as variable %locmach for title blocks</source>
+        <translation>Доступно как %locmach в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="234" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="338" />
+        <source>Title:</source>
+        <translation>Заголовок:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="241" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="251" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="261" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="271" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="281" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="291" />
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="301" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="340" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="344" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="348" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="352" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="356" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="360" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="364" />
+        <source>Delete this text</source>
+        <translation>Удалить этот текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="327" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="370" />
+        <source>Custom</source>
+        <translation>Пользовательские</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replacefoliowidget.ui" line="335" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replacefoliowidget.h" line="368" />
+        <source>You may define here your own name/value associations so the title block takes them into account. E.g. associating the name "volta" with the value "1745" will replace %{volta} by 1745 within the title block.</source>
+        <translation>Вы можете задать здесь свои собственные сочетания имени/значения для использования в штампе. Например: имя "volta" со значением "1745" будет заменять строку %{volta} числом 1745 внутри штампа.</translation>
+    </message>
+</context>
+<context>
+    <name>ReportPropertieWidget</name>
+    <message>
+        <location filename="../sources/ui/reportpropertiewidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_reportpropertiewidget.h" line="84" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/reportpropertiewidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_reportpropertiewidget.h" line="85" />
+        <source>Label of folio referencing</source>
+        <translation>Метка отчета о листе</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/reportpropertiewidget.ui" line="35" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_reportpropertiewidget.h" line="86" />
+        <source>You can define a custom label for folio reports.
+Create your own text by using the following variables:
+% f: the folio position in the project
+% F: the folio number
+% M: the installation
+% LM: the location
+% l: the line number
+% c: the column number</source>
+        <translation>Вы можете определить настраиваемую метку для отчетов о листах.
+Создайте свой собственный текст, используя следующие переменные:
+%f: положение листа в проекте
+%F: номер листа
+%M: установка
+%LM: местоположение
+%l: номер строки
+%c: номер столбца</translation>
+    </message>
+</context>
+<context>
+    <name>SearchAndReplaceWidget</name>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="250" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="103" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="260" />
+        <source>Go to the next match</source>
+        <translation>Перейти к следующему соответствию</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="154" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="272" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show advanced options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Показать дополнительные параметры&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="120" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="264" />
+        <source>Go to previous match</source>
+        <translation>Перейти к предыдущему соответствию</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="339" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="299" />
+        <source>Quit</source>
+        <translation>Выход</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="201" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="276" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Define properties to replace in elements&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Определите свойства для замены в элементах&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="264" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="293" />
+        <source>Folio text field</source>
+        <translation>Текстовое поле листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="211" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="280" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Define properties to replace in conductors&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Определите свойства для замены в проводниках&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="248" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="290" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Define properties to replace in folios&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Определите свойства для замены в листах&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="251" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="292" />
+        <source>Folio</source>
+        <translation>Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="80" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="252" />
+        <source>Plain text</source>
+        <translation>Обычный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="73" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="256" />
+        <source>Mode</source>
+        <translation>Режим</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="85" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="253" />
+        <source>Whole words</source>
+        <translation>Целые слова</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="93" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="258" />
+        <source>Case sensitive</source>
+        <translation>Учитывать регистр</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="277" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="295" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace the selected match&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Заменить выбранное совпадение&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="224" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="284" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace checked matches&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Заменить отмеченные совпадения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="234" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="287" />
+        <source>advanced</source>
+        <translation>Расширенный</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="204" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="278" />
+        <source>Element</source>
+        <translation>Элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="214" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="282" />
+        <source>Conductor</source>
+        <translation>Проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="241" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="288" />
+        <source>Replace:</source>
+        <translation>Заменить:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="280" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="297" />
+        <source>Replace</source>
+        <translation>Заменить</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="227" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="286" />
+        <source>Replace all</source>
+        <translation>Заменить все</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="38" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="251" />
+        <source>Find :</source>
+        <translation>Искать:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.ui" line="137" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_searchandreplacewidget.h" line="268" />
+        <source>Actualize</source>
+        <translation>Обновить</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="159" />
+        <source>Correspondence:</source>
+        <translation>Соответствие:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="165" />
+        <source>Folios</source>
+        <translation>Листы</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="171" />
+        <source>Text fields</source>
+        <translation>Текстовые поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="177" />
+        <source>Elements</source>
+        <translation>Элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="182" />
+        <source>Simple elements</source>
+        <translation>Простые элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="188" />
+        <source>Master elements</source>
+        <translation>Главные элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="194" />
+        <source>Slave elements</source>
+        <translation>Подчиненные элементы</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="200" />
+        <source>Folio referencings elements</source>
+        <translation>Элементы отчета о листе</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="206" />
+        <source>Terminal elements</source>
+        <translation>Элементы клеммной колодки</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="462" />
+        <source>Select the elements of this folio</source>
+        <translation>Выберите элементы этого листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="463" />
+        <source>Select the conductors of this folio</source>
+        <translation>Выберите проводники этого листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="464" />
+        <source>Select the texts of this folio</source>
+        <translation>Выберите текст этого листа</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1115" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1116" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1125" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1126" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1146" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1154" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1173" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1183" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1237" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1240" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1247" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1250" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1277" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1278" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1286" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1287" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1330" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1331" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1339" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1340" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1362" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1363" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1371" />
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="1372" />
+        <source> [edited]</source>
+        <translation> [отредактировано]</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="214" />
+        <source>Conductors</source>
+        <translation>Проводники</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/searchandreplacewidget.cpp" line="363" />
+        <source>Unknown</source>
+        <translation>Неизвестно</translation>
+    </message>
+</context>
+<context>
+    <name>SelectAutonumW</name>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="225" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="133" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="235" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete a variable numbering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Удалить переменную нумерации&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="150" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="239" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add a variable numbering&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Добавить переменную нумерации&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="100" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="233" />
+        <source>Definition</source>
+        <translation>Определение</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="28" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="226" />
+        <source>Availables numbering :</source>
+        <translation>Доступные нумерации:</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="52" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="227" />
+        <source>Name of the new numbering</source>
+        <translation>Имя новой нумерации</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="60" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="230" />
+        <source>Delete numbering</source>
+        <translation>Удалить нумерацию</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="167" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="243" />
+        <source>Previous</source>
+        <translation>Предыдущий</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="181" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="247" />
+        <source>Next</source>
+        <translation>Следующий</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="226" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="250" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="236" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="251" />
+        <source>Value</source>
+        <translation>Значение</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.ui" line="252" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_selectautonumw.h" line="252" />
+        <source>Incrementing</source>
+        <translation>Приращение</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.cpp" line="211" />
+        <source>Folio Auto Numbering</source>
+        <comment>title window</comment>
+        <translation>Автонумерация листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.cpp" line="213" />
+        <source>This is where you can define how the new folios will be numbered.
+-A numbering is composed of a minimum variable.
+-You can add or delete a dialing variable through the - and + buttons.
+A numbering variable includes: a type, a value and an increment.
+
+-the "Digit 1", "Digit 01" and "Digit 001" types represent a numeric type defined in the "Value" field, which increments each new folio by the value of the "Incrementation" field.
+- "Digit 01" and "Digit 001", are respectively represented on the diagram by two and three digits minimum.
+If the digit defined in the Value field has fewer digits than the chosen type, it will be preceded by one or two 0s in order to respect its type.
+
+-Type "Text", represents a fixed text.
+The "Incrementation" field is not used.
+</source>
+        <comment>help dialog about the folio autonumerotation</comment>
+        <translatorcomment>диалоговое окно справки об автонумерации страниц</translatorcomment>
+        <translation>Здесь вы можете определить, как будут нумероваться новые листы.
+-Нумерация состоит из начальной переменной.
+-Вы можете добавить или удалить переменную нумерации с помощью кнопок - и +.
+-Переменная нумерации включает: тип, значение и приращение.
+
+-типы "Число 1", "Число 01" и "Число 001" представляют собой числовой тип, определенный в поле "Значение", которое увеличивается с каждым новым листом на значение поля "Приращение".
+-"Число 01" и "Число 001", соответственно, представлены на схеме как минимум двумя и тремя цифрами.
+Если число, определенное в поле "Значение", содержит меньше цифр, чем выбранный тип, ему будет предшествовать один или два 0 в соответствии с его типом.
+
+-Тип "Текст" представляет собой фиксированный текст.
+Поле "Приращение" не используется.
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.cpp" line="235" />
+        <source>This is where you can define how new conductors will be numbered.
+-A numbering is composed of a minimum variable.
+-You can add or delete a dialing variable through the - and + buttons.
+A numbering variable includes: a type, a value and an increment.
+
+the "Digit 1", "Digit 01" and "Digit 001" types represent a numeric type defined in the "Value" field, which is incremented to each new conductor by the value of the "Incrementation" field.
+- "Digit 01" and "Digit 001", are respectively represented on the diagram by two and three digits minimum.
+If the digit defined in the Value field has fewer digits than the chosen type, it will be preceded by one or two 0s in order to respect its type.
+
+-Type "Text", represents a fixed text.
+The "Incrementation" field is not used.
+
+-The "folio" type represents the number of the current folio.
+The other fields are not used.
+
+-The "Folio" type represents the name of the current folio.
+The other fields are not used.</source>
+        <comment>help dialog about the conductor autonumerotation</comment>
+        <translation>Здесь вы можете определить, как будут нумероваться новые проводники.
+-Нумерация состоит из начальной переменной.
+-Вы можете добавить или удалить переменную нумерации с помощью кнопок - и +.
+-Переменная нумерации включает: тип, значение и приращение.
+
+-типы "Число 1", "Число 01" и "Число 001" представляют собой числовой тип, определенный в поле "Значение", которое увеличивается с каждым новым проводником на значение поля "Приращение".
+-"Число 01" и "Число 001", соответственно, представлены на схеме как минимум двумя и тремя цифрами.
+Если число, определенное в поле "Значение", содержит меньше цифр, чем выбранный тип, ему будет предшествовать один или два 0 в соответствии с его типом.
+
+-Тип "Текст" представляет собой фиксированный текст.
+Поле "Приращение" не используется.
+
+-Тип "Номер листа" представляет текущий номер листа.
+Остальные поля не используются.
+
+-Тип "Лист" представляет имя текущего листа.
+Остальные поля не используются.</translation>
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.cpp" line="259" />
+        <source>Element Auto Numbering</source>
+        <comment>title window</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.cpp" line="261" />
+        <source>This is where you can define how new elements will be numbered.
+-A numbering is composed of a minimum variable.
+-You can add or delete a dialing variable through the - and + buttons.
+A numbering variable includes: a type, a value and an increment.
+
+the "Digit 1", "Digit 01" and "Digit 001" types represent a numeric type defined in the "Value" field, which is incremented to each new conductor by the value of the "Incrementation" field.
+- "Digit 01" and "Digit 001", are respectively represented on the diagram by two and three digits minimum.
+If the digit defined in the Value field has fewer digits than the chosen type, it will be preceded by one or two 0s in order to respect its type.
+
+-Type "Text", represents a fixed text.
+The "Incrementation" field is not used.
+
+-The "folio" type represents the number of the current folio.
+The other fields are not used.
+
+-The "Folio" type represents the name of the current folio.
+The other fields are not used.</source>
+        <comment>help dialog about the element autonumerotation</comment>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/autoNum/ui/selectautonumw.cpp" line="233" />
+        <source>Numbering conductors</source>
+        <comment>title window</comment>
+        <translation>Автонумерация проводников</translation>
+    </message>
+</context>
+<context>
+    <name>ShapeGraphicsItemPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="178" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="179" />
+        <source>Line</source>
+        <translation>Линия</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="33" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="181" />
+        <source>Thickness</source>
+        <translation>Толщина</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="85" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="183" />
+        <source>Normal</source>
+        <translation>Обычный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="90" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="184" />
+        <source>Dashed</source>
+        <translation>Пунктир</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="95" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="185" />
+        <source>Dotted</source>
+        <translation>Точками</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="100" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="186" />
+        <source>Dots and dashes</source>
+        <translation>Точки и тире</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="105" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="187" />
+        <source>Dash dot dot</source>
+        <translation>Тире-точка-точка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="110" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="188" />
+        <source>Custom Dash Line</source>
+        <translation>Пользовательское тире</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="180" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="40" />
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="213" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="182" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="208" />
+        <source>Color</source>
+        <translation>Цвет</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="121" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="190" />
+        <source>Filling</source>
+        <translation>Заливка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="206" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="207" />
+        <source>Style</source>
+        <translation>Стиль</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="128" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="191" />
+        <source>None</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="133" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="192" />
+        <source>Solid line</source>
+        <translation>Сплошной</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="138" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="193" />
+        <source>Dense 1</source>
+        <translation>Плотность 1</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="143" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="194" />
+        <source>Dense 2</source>
+        <translation>Плотность 2</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="148" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="195" />
+        <source>Dense 3</source>
+        <translation>Плотность 3</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="153" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="196" />
+        <source>Dense 4</source>
+        <translation>Плотность 4</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="158" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="197" />
+        <source>Dense 5</source>
+        <translation>Плотность 5</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="163" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="198" />
+        <source>Dense 6</source>
+        <translation>Плотность 6</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="168" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="199" />
+        <source>Dense 7</source>
+        <translation>Плотность 7</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="173" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="200" />
+        <source>Horizontal</source>
+        <translation>Горизонтальный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="178" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="201" />
+        <source>Vertical</source>
+        <translation>Вертикальный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="183" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="202" />
+        <source>Cross</source>
+        <translation>Крест</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="188" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="203" />
+        <source>BDiag</source>
+        <translation>Диагональ обратная</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="193" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="204" />
+        <source>FDiag</source>
+        <translation>Диагональ прямая</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="198" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="205" />
+        <source>CrossDiag</source>
+        <translation>Крест диагональный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="226" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="209" />
+        <source>Lock Position</source>
+        <translation>Закрепить положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.ui" line="233" />
+        <location filename="../build/qelectrotech_autogen/ui_shapegraphicsitempropertieswidget.h" line="210" />
+        <source>Closed polygon</source>
+        <translation>Замкнутый многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.h" line="50" />
+        <source>Edit the properties of a primitive </source>
+        <translation>Редактировать свойства примитива </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="182" />
+        <source>Edit line of a form</source>
+        <translation>Изменить линию фигуры</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="197" />
+        <source>Edit filling a form</source>
+        <translation>Изменить заливку фигуры</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="208" />
+        <source>Close the polygon</source>
+        <translation>Замкнуть многоугольник</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="264" />
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="296" />
+        <source>Modify a simple form</source>
+        <translation>Изменить простую фигуру</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/shapegraphicsitempropertieswidget.cpp" line="308" />
+        <source>Modify the properties of a simple form</source>
+        <translation>Изменить свойства простой фигуры</translation>
+    </message>
+</context>
+<context>
+    <name>StyleEditor</name>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="41" />
+        <source>Black</source>
+        <comment>element part color</comment>
+        <translation>Чёрный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="42" />
+        <source>White</source>
+        <comment>element part color</comment>
+        <translation>Белый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="43" />
+        <source>Green</source>
+        <comment>element part color</comment>
+        <translation>Зелёный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="44" />
+        <source>Red</source>
+        <comment>element part color</comment>
+        <translation>Красный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="45" />
+        <source>Blue</source>
+        <comment>element part color</comment>
+        <translation>Синий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="46" />
+        <source>Gray</source>
+        <comment>element part color</comment>
+        <translation>Серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="47" />
+        <source>Brown</source>
+        <comment>element part color</comment>
+        <translation>Коричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="48" />
+        <source>Yellow</source>
+        <comment>element part color</comment>
+        <translation>Желтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="49" />
+        <source>Cyan</source>
+        <comment>element part color</comment>
+        <translation>Голубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="50" />
+        <source>Magenta</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="51" />
+        <source>Light gray</source>
+        <comment>element part color</comment>
+        <translation>Светло-серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="52" />
+        <source>Orange</source>
+        <comment>element part color</comment>
+        <translation>Оранжевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="53" />
+        <source>Purple</source>
+        <comment>element part color</comment>
+        <translation>Фиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="55" />
+        <source>Pink: Pink</source>
+        <comment>element part color</comment>
+        <translation>Розовый : Розовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="56" />
+        <source>Pink : LightPink</source>
+        <comment>element part color</comment>
+        <translation>Розовый : СветлоРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="57" />
+        <source>Pink : HotPink</source>
+        <comment>element part color</comment>
+        <translation>Розовый : ЯркоРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="58" />
+        <source>Pink : DeepPink</source>
+        <comment>element part color</comment>
+        <translation>Розовый : ТемноРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="59" />
+        <source>Pink : PaleVioletRed</source>
+        <comment>element part color</comment>
+        <translation>Розовый : БледноФиолетовоКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="60" />
+        <source>Pink : MediumVioletRed</source>
+        <comment>element part color</comment>
+        <translation>Розовый : СреднеФиолетовоКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="61" />
+        <source>Red : LightSalmon</source>
+        <comment>element part color</comment>
+        <translation>Красный : СветлыйЛосось</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="62" />
+        <source>Red : Salmon</source>
+        <comment>element part color</comment>
+        <translation>Красный : Лосось</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="63" />
+        <source>Red : DarkSalmon</source>
+        <comment>element part color</comment>
+        <translation>Красный : ТемныйЛосось</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="64" />
+        <source>Red : LightCoral</source>
+        <comment>element part color</comment>
+        <translation>Красный : СветлыйКоралл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="65" />
+        <source>Red : IndianRed</source>
+        <comment>element part color</comment>
+        <translation>Красный : ИндийскийКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="66" />
+        <source>Red : Crimson</source>
+        <comment>element part color</comment>
+        <translation>Красный : Малиновый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="67" />
+        <source>Red : Firebrick</source>
+        <comment>element part color</comment>
+        <translation>Красный : Кирпич</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="68" />
+        <source>Red : DarkRed</source>
+        <comment>element part color</comment>
+        <translation>Красный : ТемноКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="69" />
+        <source>Red : Red</source>
+        <comment>element part color</comment>
+        <translation>Красный : Красный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="70" />
+        <source>Orange : OrangeRed</source>
+        <comment>element part color</comment>
+        <translation>Оранжевый : ОранжевоКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="71" />
+        <source>Orange : Tomato</source>
+        <comment>element part color</comment>
+        <translation>Оранжевый : Помидор</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="72" />
+        <source>Orange : Coral</source>
+        <comment>element part color</comment>
+        <translation>Оранжевый : Коралл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="73" />
+        <source>Orange : DarkOrange</source>
+        <comment>element part color</comment>
+        <translation>Оранжевый : ТемноОранжевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="74" />
+        <source>Orange : Orange</source>
+        <comment>element part color</comment>
+        <translation>Оранжевый : Оранжевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="75" />
+        <source>Yellow : Yellow</source>
+        <comment>element part color</comment>
+        <translation>Желтый : Желтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="76" />
+        <source>Yellow : LightYellow</source>
+        <comment>element part color</comment>
+        <translation>Желтый : СветлоЖелтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="77" />
+        <source>Yellow : LemonChiffon</source>
+        <comment>element part color</comment>
+        <translation>Желтый : ЛимонШифон</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="78" />
+        <source>Yellow : LightGoldenrodYellow</source>
+        <comment>element part color</comment>
+        <translation>Желтый : СветлыйЗолотарникЖелтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="79" />
+        <source>Yellow : PapayaWhip</source>
+        <comment>element part color</comment>
+        <translation>Желтый : ПапайяСоСливками</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="80" />
+        <source>Yellow : Moccasin</source>
+        <comment>element part color</comment>
+        <translation>Желтый : Болотный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="81" />
+        <source>Yellow : PeachPuff</source>
+        <comment>element part color</comment>
+        <translation>Желтый : Персиковый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="82" />
+        <source>Yellow : PaleGoldenrod</source>
+        <comment>element part color</comment>
+        <translation>Желтый : БледныйЗолотарник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="83" />
+        <source>Yellow : Khaki</source>
+        <comment>element part color</comment>
+        <translation>Желтый : Хаки</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="84" />
+        <source>Yellow : DarkKhaki</source>
+        <comment>element part color</comment>
+        <translation>Желтый : ТемныйХаки</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="85" />
+        <source>Yellow : Gold</source>
+        <comment>element part color</comment>
+        <translation>Желтый : Золотой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="86" />
+        <source>Brown : Cornsilk</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : КукурузныйВолос</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="87" />
+        <source>Brown : BlanchedAlmond</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : БланшированныйМиндаль</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="88" />
+        <source>Brown : Bisque</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Бисквит</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="89" />
+        <source>Brown : NavajoWhite</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : БелыйНавахо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="90" />
+        <source>Brown : Wheat</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Пшеничный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="91" />
+        <source>Brown : Burlywood</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : ПесочноКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="92" />
+        <source>Brown : Tan</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : ЖелтоватоКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="93" />
+        <source>Brown : RosyBrown</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : РозовоКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="94" />
+        <source>Brown : SandyBrown</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : ПесочноКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="95" />
+        <source>Brown : Goldenrod</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Золотарник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="96" />
+        <source>Brown : DarkGoldenrod</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : ТёмныйЗолотарник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="97" />
+        <source>Brown : Peru</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Перуанский</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="98" />
+        <source>Brown : Chocolate</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Шоколад</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="99" />
+        <source>Brown : SaddleBrown</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : КоричневоеСедло</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="100" />
+        <source>Brown : Sienna</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Охра</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="101" />
+        <source>Brown : Brown</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Коричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="102" />
+        <source>Brown : Maroon</source>
+        <comment>element part color</comment>
+        <translation>Коричневый : Каштановый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="103" />
+        <source>Green : DarkOliveGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ТемноОливковый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="104" />
+        <source>Green : Olive</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : Оливковый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="105" />
+        <source>Green : OliveDrab</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ОливковоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="106" />
+        <source>Green : YellowGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ЖелтоЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="107" />
+        <source>Green : LimeGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ЛаймЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="108" />
+        <source>Green : Lime</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : Лайм</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="109" />
+        <source>Green : LawnGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ЗелёнаяЛужайка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="110" />
+        <source>Green : Chartreuse</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ГорчичноЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="111" />
+        <source>Green : GreenYellow</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ЗеленоЖелтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="112" />
+        <source>Green : SpringGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ВесеннеЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="113" />
+        <source>Green : MediumSpringGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : СреднийВесеннеЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="114" />
+        <source>Green : LightGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : СветлоЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="115" />
+        <source>Green : PaleGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : БледноЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="116" />
+        <source>Green : DarkSeaGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ТемноМорскойЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="117" />
+        <source>Green : MediumAquamarine</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : СреднийАквамарин</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="118" />
+        <source>Green : MediumSeaGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : СреднийМорскойЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="119" />
+        <source>Green : SeaGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : МорскаяВолна</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="120" />
+        <source>Green : ForestGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ЗеленыйЛес</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="121" />
+        <source>Green : Green</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : Зеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="122" />
+        <source>Green : DarkGreen</source>
+        <comment>element part color</comment>
+        <translation>Зеленый : ТемноЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="123" />
+        <source>Cyan : Aqua</source>
+        <comment>element part color</comment>
+        <translation>Голубой : МорскаяВолна</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="124" />
+        <source>Cyan : Cyan</source>
+        <comment>element part color</comment>
+        <translation>Голубой : Голубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="125" />
+        <source>Cyan : LightCyan</source>
+        <comment>element part color</comment>
+        <translation>Голубой : СветлоГолубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="126" />
+        <source>Cyan : PaleTurquoise</source>
+        <comment>element part color</comment>
+        <translation>Голубой : БледноБирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="127" />
+        <source>Cyan : Aquamarine</source>
+        <comment>element part color</comment>
+        <translation>Голубой : Аквамарин</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="128" />
+        <source>Cyan : Turquoise</source>
+        <comment>element part color</comment>
+        <translation>Голубой : Бирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="129" />
+        <source>Cyan : MediumTurquoise</source>
+        <comment>element part color</comment>
+        <translation>Голубой : СреднийБирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="130" />
+        <source>Cyan : DarkTurquoise</source>
+        <comment>element part color</comment>
+        <translation>Голубой : ТемноБирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="131" />
+        <source>Cyan : LightSeaGreen</source>
+        <comment>element part color</comment>
+        <translation>Голубой : СветлоМорскойЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="132" />
+        <source>Cyan : CadetBlue</source>
+        <comment>element part color</comment>
+        <translation>Голубой : КадетСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="133" />
+        <source>Cyan : DarkCyan</source>
+        <comment>element part color</comment>
+        <translation>Голубой : ТемноГолубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="134" />
+        <source>Cyan : Teal</source>
+        <comment>element part color</comment>
+        <translation>Голубой : ПавлинийСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="135" />
+        <source>Blue : LightSteelBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : СветоСинийСтальной</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="136" />
+        <source>Blue : PowderBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : ПудровоСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="137" />
+        <source>Blue : LightBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : СветлоСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="138" />
+        <source>Blue : SkyBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : СинееНебо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="139" />
+        <source>Blue : LightSkyBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : СветлоНебесноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="140" />
+        <source>Blue : DeepSkyBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : НасыщенныйНебесноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="141" />
+        <source>Blue : DodgerBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : ЗащитноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="142" />
+        <source>Blue : CornflowerBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : ВасилекСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="143" />
+        <source>Blue : SteelBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : СтальнойСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="144" />
+        <source>Blue : RoyalBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : КоролевскийСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="145" />
+        <source>Blue : Blue</source>
+        <comment>element part color</comment>
+        <translation>Синий : Синий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="146" />
+        <source>Blue : MediumBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : СреднийСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="147" />
+        <source>Blue : DarkBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : ТемноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="148" />
+        <source>Blue : Navy</source>
+        <comment>element part color</comment>
+        <translation>Синий : ТемноСинийФлотский</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="149" />
+        <source>Blue : MidnightBlue</source>
+        <comment>element part color</comment>
+        <translation>Синий : ТемноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="150" />
+        <source>Purple : Lavender</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Лаванда</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="151" />
+        <source>Purple : Thistle</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Чертополох</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="152" />
+        <source>Purple : Plum</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Слива</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="153" />
+        <source>Purple : Violet</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Фиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="154" />
+        <source>Purple : Orchid</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Орхидея</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="155" />
+        <source>Purple : Fuchsia</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Фуксия</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="156" />
+        <source>Purple : Magenta</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : ПурпурноКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="157" />
+        <source>Purple : MediumOrchid</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : СредняяОрхидея</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="158" />
+        <source>Purple : MediumPurple</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : СреднийФиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="159" />
+        <source>Purple : BlueViolet</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : СинеФиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="160" />
+        <source>Purple : DarkViolet</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : ТемноФиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="161" />
+        <source>Purple : DarkOrchid</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : ТемнаяОрхидея</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="162" />
+        <source>Purple : DarkMagenta</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : ТемноПурпурный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="163" />
+        <source>Purple : Purple</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Пурпурный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="164" />
+        <source>Purple : Indigo</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : Индиго</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="165" />
+        <source>Purple : DarkSlateBlue</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : ТемноАспидноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="166" />
+        <source>Purple : SlateBlue</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : ГрифельноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="167" />
+        <source>Purple : MediumSlateBlue</source>
+        <comment>element part color</comment>
+        <translation>Пурпурный : СреднеГрифельноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="168" />
+        <source>White : White</source>
+        <comment>element part color</comment>
+        <translation>Белый : Белый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="169" />
+        <source>White : Snow</source>
+        <comment>element part color</comment>
+        <translation>Белый : Снег</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="170" />
+        <source>White : Honeydew</source>
+        <comment>element part color</comment>
+        <translation>Белый : Медовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="171" />
+        <source>White : MintCream</source>
+        <comment>element part color</comment>
+        <translation>Белый : МятныйКрем</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="172" />
+        <source>White : Azure</source>
+        <comment>element part color</comment>
+        <translation>Белый : Лазурь</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="173" />
+        <source>White : AliceBlue</source>
+        <comment>element part color</comment>
+        <translation>Белый : СиняяЭлис</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="174" />
+        <source>White : GhostWhite</source>
+        <comment>element part color</comment>
+        <translation>Белый : ПризрачноБелый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="175" />
+        <source>White : WhiteSmoke</source>
+        <comment>element part color</comment>
+        <translation>Белый : БелыйДым</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="176" />
+        <source>White : Seashell</source>
+        <comment>element part color</comment>
+        <translation>Белый : МорскаяРаковина</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="177" />
+        <source>White : Beige</source>
+        <comment>element part color</comment>
+        <translation>Белый : Бежевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="178" />
+        <source>White : OldLace</source>
+        <comment>element part color</comment>
+        <translation>Белый : СтароеКружево</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="179" />
+        <source>White : FloralWhite</source>
+        <comment>element part color</comment>
+        <translation>Белый : ЦветочныйБелый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="180" />
+        <source>White : Ivory</source>
+        <comment>element part color</comment>
+        <translation>Белый : СлоноваяКость</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="181" />
+        <source>White : AntiqueWhite</source>
+        <comment>element part color</comment>
+        <translation>Белый : АнтичныйБелый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="182" />
+        <source>White : Linen</source>
+        <comment>element part color</comment>
+        <translation>Белый : Льняной</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="183" />
+        <source>White : LavenderBlush</source>
+        <comment>element part color</comment>
+        <translation>Белый : ЛавандаСКрасным</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="184" />
+        <source>White : MistyRose</source>
+        <comment>element part color</comment>
+        <translation>Белый : ТусклоРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="185" />
+        <source>Gray : Gainsboro</source>
+        <comment>element part color</comment>
+        <translation>Серый : Гейнсборо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="186" />
+        <source>Gray : LightGray</source>
+        <comment>element part color</comment>
+        <translation>Серый : СветлоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="187" />
+        <source>Gray : Silver</source>
+        <comment>element part color</comment>
+        <translation>Серый : Серебряный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="188" />
+        <source>Gray : DarkGray</source>
+        <comment>element part color</comment>
+        <translation>Серый : ТемноСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="189" />
+        <source>Gray : Gray</source>
+        <comment>element part color</comment>
+        <translation>Серый : Серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="190" />
+        <source>Gray : DimGray</source>
+        <comment>element part color</comment>
+        <translation>Серый : ТусклоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="191" />
+        <source>Gray : LightSlateGray</source>
+        <comment>element part color</comment>
+        <translation>Серый : ГрифельноСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="192" />
+        <source>Gray : SlateGray</source>
+        <comment>element part color</comment>
+        <translation>Серый : СиневатоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="193" />
+        <source>Gray : DarkSlateGray</source>
+        <comment>element part color</comment>
+        <translation>Серый : ТёмноАспидноСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="194" />
+        <source>Gray : Black</source>
+        <comment>element part color</comment>
+        <translation>Серый : Черный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="196" />
+        <source>None</source>
+        <comment>element part color</comment>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="200" />
+        <source>Normal</source>
+        <comment>element part line style</comment>
+        <translation>Обычный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="201" />
+        <source>Dashed</source>
+        <comment>element part line style</comment>
+        <translation>Пунктир</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="202" />
+        <source>Dotted</source>
+        <comment>element part line style</comment>
+        <translation>Точками</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="203" />
+        <source>Dots and dashes</source>
+        <comment>element part line style</comment>
+        <translation>Точки и тире</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="208" />
+        <source>None</source>
+        <comment>element part weight</comment>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="209" />
+        <source>Thin</source>
+        <comment>element part weight</comment>
+        <translation>Тонкий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="210" />
+        <source>Normal</source>
+        <comment>element part weight</comment>
+        <translation>Нормальный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="211" />
+        <source>Strong</source>
+        <comment>element part weight</comment>
+        <translation>Жирный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="212" />
+        <source>High</source>
+        <comment>element part weight</comment>
+        <translation>Очень жирный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="216" />
+        <source>None</source>
+        <comment>element part filling</comment>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="217" />
+        <source>Black</source>
+        <comment>element part filling</comment>
+        <translation>Чёрный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="218" />
+        <source>White</source>
+        <comment>element part filling</comment>
+        <translation>Белый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="219" />
+        <source>Green</source>
+        <comment>element part filling</comment>
+        <translation>Зелёный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="220" />
+        <source>Red</source>
+        <comment>element part filling</comment>
+        <translation>Красный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="221" />
+        <source>Blue</source>
+        <comment>element part filling</comment>
+        <translation>Синий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="222" />
+        <source>Gray</source>
+        <comment>element part filling</comment>
+        <translation>Серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="224" />
+        <source>Yellow</source>
+        <comment>element part filling</comment>
+        <translation>Желтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="225" />
+        <source>Cyan</source>
+        <comment>element part filling</comment>
+        <translation>Голубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="226" />
+        <source>Magenta</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="227" />
+        <source>Light gray</source>
+        <comment>element part filling</comment>
+        <translation>Светло-серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="228" />
+        <source>Orange</source>
+        <comment>element part filling</comment>
+        <translation>Оранжевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="229" />
+        <source>Purple</source>
+        <comment>element part filling</comment>
+        <translation>Фиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="231" />
+        <source>Pink: Pink</source>
+        <comment>element part filling</comment>
+        <translation>Розовый : Розовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="232" />
+        <source>Pink : LightPink</source>
+        <comment>element part filling</comment>
+        <translation>Розовый : СветлоРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="233" />
+        <source>Pink : HotPink</source>
+        <comment>element part filling</comment>
+        <translation>Розовый : ЯркоРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="234" />
+        <source>Pink : DeepPink</source>
+        <comment>element part filling</comment>
+        <translation>Розовый : ТемноРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="235" />
+        <source>Pink : PaleVioletRed</source>
+        <comment>element part filling</comment>
+        <translation>Розовый : БледноФиолетовоКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="236" />
+        <source>Pink : MediumVioletRed</source>
+        <comment>element part filling</comment>
+        <translation>Розовый : СреднеФиолетовоКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="237" />
+        <source>Red : LightSalmon</source>
+        <comment>element part filling</comment>
+        <translation>Красный : СветлыйЛосось</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="238" />
+        <source>Red : Salmon</source>
+        <comment>element part filling</comment>
+        <translation>Красный : Лосось</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="239" />
+        <source>Red : DarkSalmon</source>
+        <comment>element part filling</comment>
+        <translation>Красный : ТемныйЛосось</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="240" />
+        <source>Red : LightCoral</source>
+        <comment>element part filling</comment>
+        <translation>Красный : СветлыйКоралл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="241" />
+        <source>Red : IndianRed</source>
+        <comment>element part filling</comment>
+        <translation>Красный : ИндийскийКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="242" />
+        <source>Red : Crimson</source>
+        <comment>element part filling</comment>
+        <translation>Красный : Малиновый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="243" />
+        <source>Red : Firebrick</source>
+        <comment>element part filling</comment>
+        <translation>Красный : Кирпич</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="244" />
+        <source>Red : DarkRed</source>
+        <comment>element part filling</comment>
+        <translation>Красный : ТемноКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="245" />
+        <source>Red : Red</source>
+        <comment>element part filling</comment>
+        <translation>Красный : Красный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="246" />
+        <source>Orange : OrangeRed</source>
+        <comment>element part filling</comment>
+        <translation>Оранжевый : ОранжевоКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="247" />
+        <source>Orange : Tomato</source>
+        <comment>element part filling</comment>
+        <translation>Оранжевый : Помидор</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="248" />
+        <source>Orange : Coral</source>
+        <comment>element part filling</comment>
+        <translation>Оранжевый : Коралл</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="249" />
+        <source>Orange : DarkOrange</source>
+        <comment>element part filling</comment>
+        <translation>Оранжевый : ТемноОранжевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="250" />
+        <source>Orange : Orange</source>
+        <comment>element part filling</comment>
+        <translation>Оранжевый : Оранжевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="251" />
+        <source>Yellow : Yellow</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : Желтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="252" />
+        <source>Yellow : LightYellow</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : СветлоЖелтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="253" />
+        <source>Yellow : LemonChiffon</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : ЛимонШифон</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="254" />
+        <source>Yellow : LightGoldenrodYellow</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : СветлыйЗолотарникЖелтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="255" />
+        <source>Yellow : PapayaWhip</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : ПапайяСоСливками</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="256" />
+        <source>Yellow : Moccasin</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : Мокасины</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="257" />
+        <source>Yellow : PeachPuff</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : Персиковый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="258" />
+        <source>Yellow : PaleGoldenrod</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : БледныйЗолотарник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="259" />
+        <source>Yellow : Khaki</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : Хаки</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="260" />
+        <source>Yellow : DarkKhaki</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : ТемныйХаки</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="261" />
+        <source>Yellow : Gold</source>
+        <comment>element part filling</comment>
+        <translation>Желтый : Золотой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="262" />
+        <source>Brown : Cornsilk</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : КукурузныйВолос</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="263" />
+        <source>Brown : BlanchedAlmond</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : БланшированныйМиндаль</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="264" />
+        <source>Brown : Bisque</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Бисквит</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="265" />
+        <source>Brown : NavajoWhite</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : БелыйНавахо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="266" />
+        <source>Brown : Wheat</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Пшеничный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="267" />
+        <source>Brown : Burlywood</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : КрепкоеДерево</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="268" />
+        <source>Brown : Tan</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : ЖелтоватоКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="269" />
+        <source>Brown : RosyBrown</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : РозовоКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="270" />
+        <source>Brown : SandyBrown</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : ПесочноКоричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="271" />
+        <source>Brown : Goldenrod</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Золотарник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="272" />
+        <source>Brown : DarkGoldenrod</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : ТёмныйЗолотарник</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="273" />
+        <source>Brown : Peru</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Перуанский</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="274" />
+        <source>Brown : Chocolate</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Шоколад</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="275" />
+        <source>Brown : SaddleBrown</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : КоричневоеСедло</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="276" />
+        <source>Brown : Sienna</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Охра</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="277" />
+        <source>Brown : Brown</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Коричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="278" />
+        <source>Brown : Maroon</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый : Каштановый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="279" />
+        <source>Green : DarkOliveGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ТемноОливковый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="280" />
+        <source>Green : Olive</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : Оливковый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="281" />
+        <source>Green : OliveDrab</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ОливковоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="282" />
+        <source>Green : YellowGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ЖелтоЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="283" />
+        <source>Green : LimeGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ЛаймЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="284" />
+        <source>Green : Lime</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : Лайм</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="285" />
+        <source>Green : LawnGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ЗелёнаяЛужайка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="286" />
+        <source>Green : Chartreuse</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ГорчичноЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="287" />
+        <source>Green : GreenYellow</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ЗеленоЖелтый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="288" />
+        <source>Green : SpringGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ВесеннеЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="289" />
+        <source>Green : MediumSpringGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : СреднийВесеннеЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="290" />
+        <source>Green : LightGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : СветлоЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="291" />
+        <source>Green : PaleGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : БледноЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="292" />
+        <source>Green : DarkSeaGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ТемноМорскойЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="293" />
+        <source>Green : MediumAquamarine</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : СреднийАквамарин</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="294" />
+        <source>Green : MediumSeaGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : СреднийМорскойЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="295" />
+        <source>Green : SeaGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : МорскаяВолна</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="296" />
+        <source>Green : ForestGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ЗеленыйЛес</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="297" />
+        <source>Green : Green</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : Зеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="298" />
+        <source>Green : DarkGreen</source>
+        <comment>element part filling</comment>
+        <translation>Зеленый : ТемноЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="299" />
+        <source>Cyan : Aqua</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : МорскаяВолна</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="300" />
+        <source>Cyan : Cyan</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : Голубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="301" />
+        <source>Cyan : LightCyan</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : СветлоГолубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="302" />
+        <source>Cyan : PaleTurquoise</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : БледноБирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="303" />
+        <source>Cyan : Aquamarine</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : Аквамарин</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="304" />
+        <source>Cyan : Turquoise</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : Бирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="305" />
+        <source>Cyan : MediumTurquoise</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : СреднийБирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="306" />
+        <source>Cyan : DarkTurquoise</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : ТемноБирюзовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="307" />
+        <source>Cyan : LightSeaGreen</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : СветлоМорскойЗеленый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="308" />
+        <source>Cyan : CadetBlue</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : КадетСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="309" />
+        <source>Cyan : DarkCyan</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : ТемноГолубой</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="310" />
+        <source>Cyan : Teal</source>
+        <comment>element part filling</comment>
+        <translation>Голубой : ПавлинийСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="311" />
+        <source>Blue : LightSteelBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : СветоСинийСтальной</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="312" />
+        <source>Blue : PowderBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : ПудровоСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="313" />
+        <source>Blue : LightBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : СветлоСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="314" />
+        <source>Blue : SkyBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : СинееНебо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="315" />
+        <source>Blue : LightSkyBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : СветлоНебесноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="316" />
+        <source>Blue : DeepSkyBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : НасыщенныйНебесноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="317" />
+        <source>Blue : DodgerBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : ЗащитноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="318" />
+        <source>Blue : CornflowerBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : ВасилекСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="319" />
+        <source>Blue : SteelBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : СтальнойСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="320" />
+        <source>Blue : RoyalBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : КоролевскийСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="321" />
+        <source>Blue : Blue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : Синий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="322" />
+        <source>Blue : MediumBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : СреднийСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="323" />
+        <source>Blue : DarkBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : ТемноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="324" />
+        <source>Blue : Navy</source>
+        <comment>element part filling</comment>
+        <translation>Синий : ТёмноСинийФлотский</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="325" />
+        <source>Blue : MidnightBlue</source>
+        <comment>element part filling</comment>
+        <translation>Синий : ТемноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="326" />
+        <source>Purple : Lavender</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Лаванда</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="327" />
+        <source>Purple : Thistle</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Чертополох</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="328" />
+        <source>Purple : Plum</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Слива</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="329" />
+        <source>Purple : Violet</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Фиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="330" />
+        <source>Purple : Orchid</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Орхидея</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="331" />
+        <source>Purple : Fuchsia</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Фуксия</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="332" />
+        <source>Purple : Magenta</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : ПурпурноКрасный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="333" />
+        <source>Purple : MediumOrchid</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : СредняяОрхидея</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="334" />
+        <source>Purple : MediumPurple</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : СреднийФиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="335" />
+        <source>Purple : BlueViolet</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : СинеФиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="336" />
+        <source>Purple : DarkViolet</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : ТемноФиолетовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="337" />
+        <source>Purple : DarkOrchid</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : ТемнаяОрхидея</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="338" />
+        <source>Purple : DarkMagenta</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : ТемноПурпурный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="339" />
+        <source>Purple : Purple</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Пурпурный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="340" />
+        <source>Purple : Indigo</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : Индиго</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="341" />
+        <source>Purple : DarkSlateBlue</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : ТёмноАспидноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="342" />
+        <source>Purple : SlateBlue</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : ГрифельноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="343" />
+        <source>Purple : MediumSlateBlue</source>
+        <comment>element part filling</comment>
+        <translation>Пурпурный : СреднеГрифельноСиний</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="344" />
+        <source>White : White</source>
+        <comment>element part filling</comment>
+        <translation>Белый : Белый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="345" />
+        <source>White : Snow</source>
+        <comment>element part filling</comment>
+        <translation>Белый : Снег</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="346" />
+        <source>White : Honeydew</source>
+        <comment>element part filling</comment>
+        <translation>Белый : Медовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="347" />
+        <source>White : MintCream</source>
+        <comment>element part filling</comment>
+        <translation>Белый : МятныйКрем</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="348" />
+        <source>White : Azure</source>
+        <comment>element part filling</comment>
+        <translation>Белый : Лазурь</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="349" />
+        <source>White : AliceBlue</source>
+        <comment>element part filling</comment>
+        <translation>Белый : СиняяЭлис</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="350" />
+        <source>White : GhostWhite</source>
+        <comment>element part filling</comment>
+        <translation>Белый : ПризрачноБелый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="351" />
+        <source>White : WhiteSmoke</source>
+        <comment>element part filling</comment>
+        <translation>Белый : БелыйДым</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="352" />
+        <source>White : Seashell</source>
+        <comment>element part filling</comment>
+        <translation>Белый : МорскаяРаковина</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="353" />
+        <source>White : Beige</source>
+        <comment>element part filling</comment>
+        <translation>Белый : Бежевый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="354" />
+        <source>White : OldLace</source>
+        <comment>element part filling</comment>
+        <translation>Белый : СтароеКружево</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="355" />
+        <source>White : FloralWhite</source>
+        <comment>element part filling</comment>
+        <translation>Белый : ЦветочныйБелый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="356" />
+        <source>White : Ivory</source>
+        <comment>element part filling</comment>
+        <translation>Белый : СлоноваяКость</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="357" />
+        <source>White : AntiqueWhite</source>
+        <comment>element part filling</comment>
+        <translation>Белый : АнтичныйБелый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="358" />
+        <source>White : Linen</source>
+        <comment>element part filling</comment>
+        <translation>Белый : Льняной</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="359" />
+        <source>White : LavenderBlush</source>
+        <comment>element part filling</comment>
+        <translation>Белый : ЛавандаСКрасным</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="360" />
+        <source>White : MistyRose</source>
+        <comment>element part filling</comment>
+        <translation>Белый : ТусклоРозовый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="361" />
+        <source>Gray : Gainsboro</source>
+        <comment>element part filling</comment>
+        <translation>Серый : Гейнсборо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="362" />
+        <source>Gray : LightGray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : СветлоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="363" />
+        <source>Gray : Silver</source>
+        <comment>element part filling</comment>
+        <translation>Серый : Серебряный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="364" />
+        <source>Gray : DarkGray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : ТемноСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="365" />
+        <source>Gray : Gray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : Серый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="366" />
+        <source>Gray : DimGray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : ТусклоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="367" />
+        <source>Gray : LightSlateGray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : ГрифельноСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="368" />
+        <source>Gray : SlateGray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : СиневатоСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="369" />
+        <source>Gray : DarkSlateGray</source>
+        <comment>element part filling</comment>
+        <translation>Серый : ТёмноАспидноСерый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="370" />
+        <source>Gray : Black</source>
+        <comment>element part filling</comment>
+        <translation>Серый : Черный</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="372" />
+        <source>Horizontal lines</source>
+        <comment>element part filling</comment>
+        <translation>Горизонтальные линии</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="373" />
+        <source>Vertical Lines</source>
+        <comment>element part filling</comment>
+        <translation>Вертикальные линии</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="374" />
+        <source>Hatch left</source>
+        <comment>element part filling</comment>
+        <translation>Штриховка влево</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="375" />
+        <source>Hatch right</source>
+        <comment>element part filling</comment>
+        <translation>Штриховка вправо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="378" />
+        <source>Antialiasing</source>
+        <translation>Сглаживание</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="392" />
+        <source>Filling:</source>
+        <translation>Заливка:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="223" />
+        <source>Brown</source>
+        <comment>element part filling</comment>
+        <translation>Коричневый</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="385" />
+        <source>appearance:</source>
+        <translation>Внешний вид:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="390" />
+        <source>outline:</source>
+        <translation>Контур:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="394" />
+        <source>Style:</source>
+        <translation>Стиль:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="396" />
+        <source>Thickness :</source>
+        <translation>Толщина:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="403" />
+        <source>geometry:</source>
+        <translation>Геометрия:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="415" />
+        <source>antialiasing style</source>
+        <translation>стиль сглаживания</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="421" />
+        <source>color style</source>
+        <translation>стиль цвета</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="427" />
+        <source>line style</source>
+        <translation>стиль линии</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="433" />
+        <source>weight style</source>
+        <translation>стиль толщины</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/styleeditor.cpp" line="439" />
+        <source>filling style</source>
+        <translation>стиль заливки</translation>
+    </message>
+</context>
+<context>
+    <name>SummaryQueryWidget</name>
+    <message>
+        <location filename="../sources/dataBase/ui/summaryquerywidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_summaryquerywidget.h" line="179" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/summaryquerywidget.ui" line="38" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_summaryquerywidget.h" line="180" />
+        <source>Available information</source>
+        <translation>Доступная информация</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/summaryquerywidget.ui" line="51" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_summaryquerywidget.h" line="181" />
+        <source>Information to display</source>
+        <translation>Информация для отображения</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/summaryquerywidget.ui" line="145" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_summaryquerywidget.h" line="186" />
+        <source>Configuration</source>
+        <translation>Конфигурация</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/summaryquerywidget.ui" line="161" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_summaryquerywidget.h" line="187" />
+        <source>SQL request  :</source>
+        <translation>SQL-запрос:</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/ui/summaryquerywidget.cpp" line="135" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="117" />
+        <source>North</source>
+        <translation>Вверх</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="118" />
+        <source>East</source>
+        <translation>Направо</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="119" />
+        <source>South</source>
+        <translation>Вниз</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="120" />
+        <source>West</source>
+        <translation>Налево</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="122" />
+        <source>Generic</source>
+        <translation>Общий</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="123" />
+        <source>Indoor terminal block</source>
+        <translation>Внутренняя клеммная колодка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="124" />
+        <source>External terminal block</source>
+        <translation>Внешняя клеммная колодка</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="143" />
+        <source>Move a terminal</source>
+        <translation>Переместить вывод</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="165" />
+        <source>Change the orientation of a terminal</source>
+        <translation>Изменить ориентацию вывода</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="187" />
+        <source>Change the terminal name</source>
+        <translation>Изменить имя вывода</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.cpp" line="206" />
+        <source>Change the type of a terminal</source>
+        <translation>Изменить ориентацию вывода</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminaleditor.h" line="113" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminaleditor.h" line="114" />
+        <source>y :</source>
+        <translation>y:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.ui" line="47" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminaleditor.h" line="115" />
+        <source>Orientation :</source>
+        <translation>Ориентация:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.ui" line="60" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminaleditor.h" line="116" />
+        <source>x:</source>
+        <translation>x:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.ui" line="67" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminaleditor.h" line="117" />
+        <source>Name:</source>
+        <translation>Имя:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/terminaleditor.ui" line="74" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminaleditor.h" line="118" />
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripCreatorDialog</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="139" />
+        <source>Creation of terminal group</source>
+        <translation>Создание группы выводов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="20" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="140" />
+        <source>Location :</source>
+        <translation>Расположение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="27" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="141" />
+        <source>Name:</source>
+        <translation>Имя:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="34" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="142" />
+        <source>Plant:</source>
+        <translation>Установка:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="65" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="143" />
+        <source>Description :</source>
+        <translation>Описание:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="95" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="144" />
+        <source>Comment :</source>
+        <translation>Аннотация:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripEditor</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="24" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="339" />
+        <source>Disposition</source>
+        <translation>Макет</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="240" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="337" />
+        <source>Bridging the terminals</source>
+        <translation>Соединить выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="247" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="338" />
+        <source>Unbridge the terminals</source>
+        <translation>Разъединить выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="258" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="345" />
+        <source>Properties</source>
+        <translation>Свойства</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="264" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="340" />
+        <source>Name:</source>
+        <translation>Имя:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="271" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="341" />
+        <source>Comment :</source>
+        <translation>Аннотация:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="301" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="344" />
+        <source>Description</source>
+        <translation>Описание</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="278" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="342" />
+        <source>Plant:</source>
+        <translation>Установка:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="294" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="343" />
+        <source>Location :</source>
+        <translation>Расположение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="87" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="319" />
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="233" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="336" />
+        <source>Ungroup the terminals</source>
+        <translation>Разгруппировать выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="108" />
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="187" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="321" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="330" />
+        <source>Generic</source>
+        <translation>Общий</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="310" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="60" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="315" />
+        <source>Make the move</source>
+        <translation>Выполнить перемещение</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="97" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="320" />
+        <source>Bridge color :</source>
+        <translation>Цвет моста:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="113" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="322" />
+        <source>Fuse</source>
+        <translation>Предохранитель</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="118" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="323" />
+        <source>Sectionable</source>
+        <translation>Секционный</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="123" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="324" />
+        <source>Diode</source>
+        <translation>Диод</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="128" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="325" />
+        <source>Ground</source>
+        <translation>Заземление</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="176" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="329" />
+        <source>Move to :</source>
+        <translation>Переместить в:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="192" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="331" />
+        <source>Phase</source>
+        <translation>Фаза</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="197" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="332" />
+        <source>Neutral</source>
+        <translation>Нейтраль</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="219" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="334" />
+        <source>Automatic position</source>
+        <translation>Автоматическое положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="77" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="318" />
+        <source>Stage :</source>
+        <translation>Ярус:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="226" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="335" />
+        <source>Group the terminals</source>
+        <translation>Сгруппировать выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="166" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="328" />
+        <source>Function :</source>
+        <translation>Функция:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="40" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="311" />
+        <source>Without</source>
+        <translation>Нет</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="45" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="312" />
+        <source>With</source>
+        <translation>Есть</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.ui" line="136" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditor.h" line="327" />
+        <source>LED :</source>
+        <translation>Индикатор:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.cpp" line="109" />
+        <source>Independent terminals</source>
+        <translation>Независимые выводы</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditor.cpp" line="179" />
+        <source>Modify terminal strip properties</source>
+        <translation>Изменить свойства клеммных колодок</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripEditorWindow</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="98" />
+        <source>Terminal manager</source>
+        <translation>Управление клеммными колодками</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="43" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="111" />
+        <source>toolBar</source>
+        <translation>Панель инструментов</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="61" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="99" />
+        <source>Add a terminal block</source>
+        <translation>Добавить клеммную колодку</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="64" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="101" />
+        <source>Add a terminal strip to the project</source>
+        <translation>Добавить клеммную колодку в проект</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="73" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="103" />
+        <source>Remove terminal block</source>
+        <translation>Удалить клеммную колодку</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="76" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="105" />
+        <source>Delete terminal strip from project</source>
+        <translation>Удалить клеммную колодку из проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="85" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="107" />
+        <source>Reload</source>
+        <translation>Перезагрузка</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripeditorwindow.ui" line="88" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstripeditorwindow.h" line="109" />
+        <source>Reload the terminals</source>
+        <translation>Перезагрузить клеммные колодки</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripItem</name>
+    <message>
+        <location filename="../sources/TerminalStrip/GraphicsItem/terminalstripitem.cpp" line="96" />
+        <source>plan of terminals</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>TerminalStripLayoutEditor</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="516" />
+        <source>Form</source>
+        <translation type="unfinished">Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="65" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="518" />
+        <source>Level 0 terminal:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="482" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="555" />
+        <source>Headser :</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="531" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="557" />
+        <source>Bridge point</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="44" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="517" />
+        <source>Vertical offset</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="145" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="521" />
+        <source>Show help</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="155" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="522" />
+        <source>Width</source>
+        <translation type="unfinished">Ширина</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="252" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="532" />
+        <source>Orientation</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="259" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="533" />
+        <source>Alignment</source>
+        <translation type="unfinished">Выравнивание</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="281" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="534" />
+        <source>Font:</source>
+        <translation type="unfinished">Шрифт:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="291" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="535" />
+        <source>Size :</source>
+        <translation type="unfinished">Размер:</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="321" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="536" />
+        <source>Texte d'en tête</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="331" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="537" />
+        <source>Origine vertical</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="338" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="538" />
+        <source>Longueur maximal</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="395" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="546" />
+        <source>Texte borne</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="405" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="547" />
+        <source>Référence croisée</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="524" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="556" />
+        <source>Height</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="545" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="558" />
+        <source>Preview:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="234" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="363" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="430" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="528" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="539" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="551" />
+        <source>Left</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="239" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="368" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="435" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="529" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="540" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="552" />
+        <source>Middle</source>
+        <translation type="unfinished">По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="244" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="373" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="440" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="530" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="541" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="553" />
+        <source>Right</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="220" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="382" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="416" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="525" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="543" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="548" />
+        <source>Horizontal</source>
+        <translation type="unfinished">Горизонтальный</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="225" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="387" />
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="421" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="526" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="544" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="549" />
+        <source>Vertical</source>
+        <translation type="unfinished">Вертикальный</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="117" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="520" />
+        <source>Level 2 terminal:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="169" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="523" />
+        <source>Space :</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="110" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="519" />
+        <source>Level 3 terminal:</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriplayouteditor.ui" line="197" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriplayouteditor.h" line="524" />
+        <source>Level 1 terminal:</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>TerminalStripModel</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="283" />
+        <source>Position</source>
+        <translation>Положение</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="284" />
+        <source>Stage</source>
+        <translation>Ярус</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="289" />
+        <source>Label</source>
+        <translation>Метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="291" />
+        <source>Cross reference</source>
+        <translation>Перекрестная ссылка</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="292" />
+        <source>Cable</source>
+        <translation>Кабель</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="293" />
+        <source>Color / wire number of the cable</source>
+        <translation>Цвет/номер провода кабеля</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="294" />
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="295" />
+        <source>Function</source>
+        <translation>Функция</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="296" />
+        <source>led</source>
+        <translation>индикатор</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripmodel.cpp" line="290" />
+        <source>Number wire</source>
+        <translation>Номер проводника</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripProjectConfigPage</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/ConfigPage/terminalstripprojectconfigpage.cpp" line="33" />
+        <source>Terminal plan</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>TerminalStripTreeDockWidget</name>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriptreedockwidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_terminalstriptreedockwidget.h" line="57" />
+        <source>Terminal strip explorer</source>
+        <translation>Обзор клеммной колодки</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriptreedockwidget.cpp" line="239" />
+        <source>Untitled project</source>
+        <translation>Проект без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstriptreedockwidget.cpp" line="245" />
+        <source>Independent terminals</source>
+        <translation>Независимые выводы</translation>
+    </message>
+</context>
+<context>
+    <name>TextEditor</name>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="186" />
+        <source>Modify the contents of a text field</source>
+        <translation>Изменить содержимое текстового поля</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="228" />
+        <source>Rotate a text field</source>
+        <translation>Повернуть текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="243" />
+        <location filename="../sources/editor/ui/texteditor.cpp" line="271" />
+        <source>Change the font of a text</source>
+        <translation>Изменить шрифт текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="287" />
+        <source>Change the color of a text</source>
+        <translation>Изменить цвет текста</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="199" />
+        <location filename="../sources/editor/ui/texteditor.cpp" line="214" />
+        <source>Move a text field</source>
+        <translation>Переместить текстовое поле</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="295" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="306" />
+        <source>Y :</source>
+        <translation>Y:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="310" />
+        <source>Font:</source>
+        <translation>Шрифт:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="315" />
+        <source>°</source>
+        <translation>°</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="321" />
+        <source>Rotation :</source>
+        <translation>Вращение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="332" />
+        <source>X :</source>
+        <translation>X:</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="344" />
+        <source>Enter your text here</source>
+        <translation>Введите текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/ui/texteditor.cpp" line="365" />
+        <source>Color :</source>
+        <translation>Цвет:</translation>
+    </message>
+</context>
+<context>
+    <name>ThirdPartyBinaryInstallDialog</name>
+    <message>
+        <location filename="../sources/ui/thirdpartybinaryinstalldialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_thirdpartybinaryinstalldialog.h" line="80" />
+        <source>Third party software required</source>
+        <translation>Необходимое стороннее программное обеспечение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/thirdpartybinaryinstalldialog.ui" line="33" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_thirdpartybinaryinstalldialog.h" line="81" />
+        <source>Download</source>
+        <translation>Загрузка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/thirdpartybinaryinstalldialog.ui" line="44" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_thirdpartybinaryinstalldialog.h" line="82" />
+        <source>Installation folder</source>
+        <translation>Папка установки</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockDimensionWidget</name>
+    <message>
+        <location filename="../sources/titleblock/dimensionwidget.cpp" line="125" />
+        <source>Width:</source>
+        <comment>default dialog label</comment>
+        <translation>Ширина:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimensionwidget.cpp" line="133" />
+        <source>Absolute</source>
+        <comment>a traditional, absolute measure</comment>
+        <translation>Абсолютное значение</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimensionwidget.cpp" line="136" />
+        <source>Relative to total</source>
+        <comment>a percentage of the total width</comment>
+        <translation>Относительно всего</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimensionwidget.cpp" line="139" />
+        <source>Relative to remaining</source>
+        <comment>a percentage of what remains from the total width</comment>
+        <translation>Относительно оставшегося</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimensionwidget.cpp" line="182" />
+        <source>%</source>
+        <comment>spinbox suffix when changing the dimension of a row/column</comment>
+        <translation>%</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/dimensionwidget.cpp" line="186" />
+        <source>px</source>
+        <comment>spinbox suffix when changing the dimension of a row/column</comment>
+        <translation> пикс</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.cpp" line="413" />
+        <source>Default template</source>
+        <translation>Шаблон по умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.cpp" line="327" />
+        <source>Edit this template</source>
+        <comment>menu entry</comment>
+        <translation>Редактировать шаблон</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.cpp" line="328" />
+        <source>Duplicate and edit this template</source>
+        <comment>menu entry</comment>
+        <translation>Дублировать и отредактировать эту модель</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.cpp" line="341" />
+        <source>Title block templates actions</source>
+        <translation>Действия над шаблонами штампов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.cpp" line="355" />
+        <location filename="../sources/ui/titleblockpropertieswidget.cpp" line="482" />
+        <source>Create an auto folio numbering</source>
+        <translation>Создать автонумерацию листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="49" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="374" />
+        <source>Template:</source>
+        <translation>Шаблон:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="26" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="372" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="258" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="393" />
+        <source>Folio:</source>
+        <translation>Лист:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="223" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="382" />
+        <source>Author:</source>
+        <translation>Автор:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="230" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="383" />
+        <source>Rev index:</source>
+        <translation>Индекс версии:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="244" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="388" />
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Available as% plant for title block templates&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Доступно как %plant в шаблоне для штампа&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="279" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="399" />
+        <source>Available as variable %filename for title blocks</source>
+        <translation>Доступно как %filename в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="288" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="401" />
+        <source>No date</source>
+        <translation>Без даты</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="295" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="402" />
+        <source>Current date</source>
+        <translation>Текущая дата</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="302" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="404" />
+        <source>Set to current date</source>
+        <translation>Установить текущую дату</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="168" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="425" />
+        <source>Main</source>
+        <translation>Основные</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="32" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="373" />
+        <source>Title block informations</source>
+        <translation>Информация штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="237" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="385" />
+        <source>Available as variable %locmach for title blocks</source>
+        <translation>Доступно как %locmach в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="316" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="408" />
+        <source>Available as variable %date for title blocks</source>
+        <translation>Доступно как %date в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="329" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="410" />
+        <source>Fixed date:</source>
+        <translation>Точная дата:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="338" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="412" />
+        <source>Available as % folio for titleblock models
+The following variables can be used:
+-%id: current number of folios in the project
+-%total: total number of folios in the project
+-%autonum: folio auto numbering</source>
+        <translation>Доступно как %folio в шаблоне для штампа
+Можно использовать следующие переменные:
+-%id: номер текущего листа в проекте
+-%total: общее количество листов в проекте
+-%autonum: автоматическая нумерация листов</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="349" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="418" />
+        <source>Title:</source>
+        <translation>Название:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="265" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="394" />
+        <source>File:</source>
+        <translation>Файл:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="176" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="380" />
+        <source>Date:</source>
+        <translation>Дата:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="272" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="396" />
+        <source>Available as variable %author for title blocks</source>
+        <translation>Доступно как %author в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="251" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="391" />
+        <source>Available as variable %title for title blocks</source>
+        <translation>Доступно как %title в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="84" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="377" />
+        <source>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt;Sets the title block at the bottom (horizontal) or right (vertically) of the folio.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt; &lt;head/&gt;&lt;body&gt;&lt;p&gt; Показывать штамп в нижней (горизонтально) или правой (вертикально) части листа &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="362" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="419" />
+        <source>Page no.:</source>
+        <translation>№ листа:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="376" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="423" />
+        <source>Plant:</source>
+        <translation>Установка:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="369" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="421" />
+        <source>Available as variable %indexrev for title blocks</source>
+        <translation>Доступно как %indexrev в шаблоне для штампа</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="383" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="424" />
+        <source>Location :</source>
+        <translation>Расположение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="406" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="428" />
+        <source>Custom</source>
+        <translation>Пользовательские</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/titleblockpropertieswidget.ui" line="414" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_titleblockpropertieswidget.h" line="426" />
+        <source>You may define here your own name/value associations so the title block takes them into account. E.g. associating the name "volta" with the value "1745" will replace %{volta} by 1745 within the title block.</source>
+        <translation>Вы можете задать здесь свои собственные сочетания имени/значения для использования в штампе. Например: имя "volta" с значением "1745" будет заменять строку %{volta} числом 1745 внутри штампа.</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplate</name>
+    <message>
+        <location filename="../sources/titleblocktemplate.cpp" line="1720" />
+        <source> %1: %2</source>
+        <comment>titleblock content - please let the blank space at the beginning</comment>
+        <translation> %1: %2</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblocktemplate.cpp" line="1722" />
+        <source> %1</source>
+        <translation> %1</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplateCellWidget</name>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="58" />
+        <source>Cell type:</source>
+        <translation>Тип ячейки:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="60" />
+        <source>Empty</source>
+        <translation>Пусто</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="61" />
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="62" />
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="72" />
+        <source>Logo</source>
+        <translation>Логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="69" />
+        <source>Warning: the edges of empty cells do not appear in the final render the folio.</source>
+        <translation>Предупреждение: края пустых ячеек не появятся при окончательной отрисовке листа.</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="74" />
+        <source>No logo</source>
+        <translation>Нет логотипа</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="75" />
+        <source>Manage logos</source>
+        <translation>Управление логотипами</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="65" />
+        <source>Name:</source>
+        <translation>Имя:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="78" />
+        <source>Display a label:</source>
+        <translation>Показать метку:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="81" />
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="85" />
+        <source>Edit</source>
+        <translation>Редактировать</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="82" />
+        <source>Text:</source>
+        <translation>Текст:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="86" />
+        <source>Alignment:</source>
+        <translation>Выравнивание:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="87" />
+        <source>horizontal:</source>
+        <translation>По горизонтали:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="89" />
+        <source>Left</source>
+        <translation>Лево</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="90" />
+        <source>Center</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="91" />
+        <source>Right</source>
+        <translation>Право</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="95" />
+        <source>vertical:</source>
+        <translation>По вертикали:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="97" />
+        <source>Top</source>
+        <translation>Верх</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="98" />
+        <source>Middle</source>
+        <translation>Середина</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="99" />
+        <source>Bottom</source>
+        <translation>Низ</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="103" />
+        <source>Font:</source>
+        <translation>Шрифт:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="105" />
+        <source>Adjust font size if needed</source>
+        <translation>Подстраивать размер шрифта, если необходимо</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="261" />
+        <source>Label for this cell</source>
+        <translation>Метка для ячейки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="272" />
+        <source>Value for this cell</source>
+        <translation>Значение для ячейки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="445" />
+        <source>By default, the following variables are available: &lt;ul&gt;&lt;li&gt;%{author}: author of the folio&lt;/li&gt;&lt;li&gt;%{date}: folio date&lt;/li&gt;&lt;li&gt;%{title}: folio title&lt;/li&gt;&lt;li&gt;%{filename}: filename of file&lt;/li&gt; &lt;li&gt;%{plant}: name of the installation (=) in which the folio is located&lt;/li&gt;&lt;li&gt;%{locmach}: name of the location (+) where the folio is located&lt;/li&gt;&lt;li&gt;%{indexrev}: folio revision index&lt;/li&gt;&lt;li&gt;%{version}: version number&lt;/li&gt;&lt;li&gt;%{folio}: folio number&lt;/li&gt;&lt;li&gt;%{folio-id}: position of folio in the project&lt;/li&gt;&lt;li&gt;%{folio-total }: total number of folios in the project&lt;/li&gt;&lt;li&gt;%{previous-folio-num}: number of the previous folio&lt;/li&gt;&lt;li&gt;%{next-folio-num}: number of the next folio&lt; / li&gt;&lt;li&gt;%{projecttitle}: title of the project&lt;/li&gt;&lt;li&gt;%{projectpath}: path of the project&lt;/li&gt;&lt;li&gt;%{projectfilename}: filename of the projectfile&lt;/li&gt;&lt;li &gt;%{saveddate}: date of saving the file in local format&lt;/li&gt;&lt;li&gt;%{saveddate-eu}: date of saving the file in format DD-MM-YYYY&lt;/li&gt; &lt;li&gt;%{ saveddate-us}: date of saving the file in format YYYY-MM-DD&lt;/li&gt;&lt;li&gt;%{savedtime}: time of saving the file&lt;/li&gt;&lt;li&gt;%{savedfilename}: name of the file saved&lt;/li&gt;&lt;li&gt;%{savedfilepath}: path of the saved file&lt;/li&gt;&lt;/ul&gt;</source>
+        <translation>По умолчанию доступны следующие переменные:&lt;ul&gt;&lt;li&gt;%{author} : автор листа&lt;/li&gt;&lt;li&gt;%{date} : дата листа&lt;/li&gt;&lt;li&gt;%{title} : заголовок листа&lt;/li&gt;&lt;li&gt;%{filename} : имя файла проекта&lt;/li&gt;&lt;li&gt;%{plant} : имя установки, в которой находится лист&lt;/li&gt;&lt;li&gt;%{locmach} : имя места, в котором находится лист&lt;/li&gt;&lt;li&gt;%{indexrev} : индекс редакции листа&lt;/li&gt;&lt;li&gt;%{version} : версия программного обеспечения&lt;/li&gt;&lt;li&gt;%{folio} : номер листа&lt;/li&gt;&lt;li&gt;%{folio-id} : положение листа в проекте&lt;/li&gt;&lt;li&gt;%{folio-total} : общее количество листов в проекте&lt;/li&gt;&lt;li&gt;%{previous-folio-num} : номер предыдущего листа&lt;/li&gt;&lt;li&gt;%{next-folio-num} : номер следующего листа&lt;/li&gt;&lt;li&gt;%{projecttitle} : заголовок проекта&lt;/li&gt;&lt;li&gt;%{projectpath} : путь к проекту&lt;/li&gt;&lt;li&gt;%{projectfilename} : имя файла&lt;/li&gt;&lt;li&gt;%{saveddate} : дата сохранения файла в локальном формате&lt;/li&gt;&lt;li&gt;%{saveddate-eu} : дата сохранения файла в формате ДД-ММ-ГГГГ&lt;/li&gt;&lt;li&gt;%{saveddate-us} : дата сохранения файла в формате ГГГГ-MM-ДД&lt;/li&gt;&lt;li&gt;%{savedtime} : время сохранения файла&lt;/li&gt;&lt;li&gt;%{savedfilename} : имя сохраненного файла&lt;/li&gt;&lt;li&gt;%{savedfilepath} : путь к сохраненному файлу&lt;/li&gt;&lt;/ul&gt;</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="480" />
+        <source>Each cell of a title block displays a value, optionally preceded by a label. Both can be translated to several languages.&lt;br/&gt;Since what you are currently editing is a title block &lt;em&gt;template&lt;/em&gt;, avoid entering raw data directly: prefer inserting variables like %{variable-name}, which will be replaced afterwards with adequate values in the folio.</source>
+        <translation>Каждая ячейка шаблона отображает значение, опционально предваряемое меткой. И значения, и метки могут быть переведены на другие языки.&lt;br/&gt;Поскольку вы сейчас редактируете &lt;em&gt;шаблон штампа&lt;/em&gt;, избегайте ввода информации напрямую: используйте переменные вида %{variable-name}, которые могут быть впоследствии заменены соответствующими значениями на листе.</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="323" />
+        <source>No logo</source>
+        <comment>text displayed in the combo box when a template has no logo</comment>
+        <translation>Нет логотипа</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="433" />
+        <source>Cell edition: %1</source>
+        <comment>label of and undo command when editing a cell</comment>
+        <translation>Редактирование ячейки: %1</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplateDeleter</name>
+    <message>
+        <location filename="../sources/titleblock/templatedeleter.cpp" line="61" />
+        <source>Delete the title block template?</source>
+        <comment>message box title</comment>
+        <translation>Удалить шаблон штампа?</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatedeleter.cpp" line="63" />
+        <source>Do you really want to delete this title block template (%1) ?
+</source>
+        <comment>message box content</comment>
+        <translation>Вы действительно хотите удалить шаблон штампа (%1)?
+</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplateLocationChooser</name>
+    <message>
+        <location filename="../sources/titleblock/templatelocationchooser.cpp" line="106" />
+        <source>Parent collection</source>
+        <comment>used in save as form</comment>
+        <translation>Исходная коллекция</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelocationchooser.cpp" line="109" />
+        <source>Existing template</source>
+        <comment>used in save as form</comment>
+        <translation>Существующий шаблон</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplateLocationSaver</name>
+    <message>
+        <location filename="../sources/titleblock/templatelocationsaver.cpp" line="84" />
+        <source>or new name</source>
+        <comment>used in save as form</comment>
+        <translation>или новое имя</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelocationsaver.cpp" line="97" />
+        <source>New template (enter its name)</source>
+        <comment>combox box entry</comment>
+        <translation>Новый шаблон (задайте его имя)</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplateLogoManager</name>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="82" />
+        <source>Logo manager</source>
+        <translation>Управление логотипами</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="85" />
+        <source>Logos embedded within this template:</source>
+        <translation>Логотипы, включённые в этот шаблон:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="94" />
+        <source>Add a logo</source>
+        <translation>Добавить логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="95" />
+        <source>Export this logo</source>
+        <translation>Экспортировать этот логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="96" />
+        <source>Remove this logo</source>
+        <translation>Удалить этот логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="97" />
+        <source>Properties</source>
+        <translation>Свойства</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="98" />
+        <source>Name:</source>
+        <translation>Имя:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="100" />
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="204" />
+        <source>Rename</source>
+        <translation>Переименовать</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="101" />
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="266" />
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="197" />
+        <source>Logo already existing</source>
+        <translation>Логотип уже существует</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="203" />
+        <source>Replace</source>
+        <translation>Заменить</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="223" />
+        <source>A logo named "%1" already exists. Do you wish to replace it or do you prefer specifying another name for the new logo?</source>
+        <translation>Логотип "%1" уже существует. Хотите заменить его или ввести другое имя для нового логотипа?</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="262" />
+        <source>Type: %1</source>
+        <translation>Тип: %1</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="280" />
+        <source>Choose a picture /a logo</source>
+        <translation>Выберите изображение/логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="282" />
+        <source>Vector graphics (*.svg);;Bitmap graphics (*.png *.jpg *.jpeg *.gif *.xpm);;All files (*)</source>
+        <translation>Векторная графика (*.svg);;Растровая графика (*.png *.jpg *.jpeg *.gif *.bmp *.xpm);;Все файлы (*)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="289" />
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="322" />
+        <source>Error</source>
+        <translation>Ошибка</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="289" />
+        <source>Unable to open the specified file</source>
+        <translation>Невозможно открыть указанный файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="314" />
+        <source>Choose a file to export this logo</source>
+        <translation>Выберите файл для экспорта этого логотипа</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="316" />
+        <source>All files (*);;Vector graphics (*.svg);;Bitmap graphics (*.png *.jpg *.jpeg *.gif *.bmp *.xpm)</source>
+        <translation>Все файлы (*);;Векторная графика (*.svg);;Растровая графика (*.png *.jpg *.jpeg *.gif *.bmp *.xpm)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="322" />
+        <source>Unable to export to the specified file</source>
+        <translation>Невозможно экспортировать в указанный файл</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="351" />
+        <source>Rename a logo</source>
+        <translation>Переименовать логотип</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="356" />
+        <source>You have to enter a new name.</source>
+        <translation>Вы должны ввести новое имя.</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="365" />
+        <source>The new name cannot be empty.</source>
+        <translation>Имя не может быть пустым.</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="374" />
+        <source>The name you entered is already used by another logo.</source>
+        <translation>Введённое имя уже используется другим логотипом.</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplateView</name>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="353" />
+        <source>Change the column width</source>
+        <comment>window title when changing a column with</comment>
+        <translation>Изменить ширину столбца</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="354" />
+        <source>Width:</source>
+        <comment>text before the spinbox to change a column width</comment>
+        <translation>Ширина:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="379" />
+        <source>Change the row height</source>
+        <comment>window title when changing a row height</comment>
+        <translation>Изменить высоту строки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="380" />
+        <source>Height:</source>
+        <comment>text before the spinbox to change a row height</comment>
+        <translation>Высота:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="577" />
+        <source>Add a column (before)</source>
+        <comment>context menu</comment>
+        <translation>Добавить столбец (перед)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="578" />
+        <source>Add a row (before)</source>
+        <comment>context menu</comment>
+        <translation>Добавить строку (перед)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="579" />
+        <source>Add a column (after)</source>
+        <comment>context menu</comment>
+        <translation>Добавить столбец (после)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="580" />
+        <source>Add a row (after)</source>
+        <comment>context menu</comment>
+        <translation>Добавить строку (после)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="581" />
+        <source>Change this column dimension</source>
+        <comment>context menu</comment>
+        <translation>Изменить размер столбца</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="582" />
+        <source>Change this row dimension</source>
+        <comment>context menu</comment>
+        <translation>Изменить размер строки</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="583" />
+        <source>Delete this column</source>
+        <comment>context menu</comment>
+        <translation>Удалить этот столбец</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="584" />
+        <source>Delete this row</source>
+        <comment>context menu</comment>
+        <translation>Удалить эту строку</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="585" />
+        <source>Change this preview width</source>
+        <comment>context menu</comment>
+        <translation>Изменить ширину при просмотре</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="650" />
+        <source>[%1px]</source>
+        <comment>content of the extra cell added when the total width of cells is less than the preview width</comment>
+        <translation>[%1 пикс]</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="660" />
+        <source>[%1px]</source>
+        <comment>content of the extra helper cell added when the total width of cells is greater than the preview width</comment>
+        <translation type="unfinished">[%1 пикс]</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="714" />
+        <source>%1px</source>
+        <comment>format displayed in rows helper cells</comment>
+        <translation>%1 пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="782" />
+        <source>%1px</source>
+        <translation>%1 пикс</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="837" />
+        <source>Change the width</source>
+        <translation>Изменить ширину</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="838" />
+        <source>Width:</source>
+        <translation>Ширина:</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="1004" />
+        <source>Minimum length : %1px
+Maximum length : %2px
+</source>
+        <comment>tooltip showing the minimum and/or maximum width of the edited template</comment>
+        <translation>Минимальная длина: %1 пикс
+Максимальная длина: %2 пикс
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="1011" />
+        <source>Minimum length : %1px
+</source>
+        <comment>tooltip showing the minimum width of the edited template</comment>
+        <translation>Минимальная длина: %1 пикс
+</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templateview.cpp" line="1067" />
+        <source>Total width: %1px</source>
+        <comment>displayed at the top of the preview when editing a title block template</comment>
+        <translation>Общая ширина: %1 пикс</translation>
+    </message>
+</context>
+<context>
+    <name>TitleBlockTemplatesProjectCollection</name>
+    <message>
+        <location filename="../sources/titleblock/templatescollection.cpp" line="150" />
+        <source>Title blocks of untitled project (id %1)</source>
+        <comment>collection title when the parent project has an empty title -- %1 is the project internal id</comment>
+        <translation>Штампы безымянного проекта (id %1)</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatescollection.cpp" line="158" />
+        <source>Title blocks of project "%1"</source>
+        <comment>collection title when the project has a suitable title -- %1 is the project title</comment>
+        <translation>Штампы проекта "%1"</translation>
+    </message>
+</context>
+<context>
+    <name>XRefPropertiesWidget</name>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="294" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="22" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="295" />
+        <source>Type:</source>
+        <translation>Тип:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="34" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="296" />
+        <source>Representation:</source>
+        <translation>Представление:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="42" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="297" />
+        <source>Positioning :</source>
+        <translation>Расположение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="56" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="298" />
+        <source>XRef Vertical Offset:</source>
+        <translation>Вертикальное смещение:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="63" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="300" />
+        <source>10px corresponds to 1 tile displacement</source>
+        <translation>10 пикс соответствует 1 смещению плитки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="66" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="303" />
+        <source>Set Vertical Offset for the Cross References. 10px corresponds to 1 tile displacement.</source>
+        <translation>Установите вертикальное смещение для перекрестных ссылок. 10 пикс соответствует 1 смещению плитки.</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="69" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="305" />
+        <source>Default - Fit to XRef height</source>
+        <translation>По умолчанию — по высоте ссылки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="98" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="306" />
+        <source>XRef slave position</source>
+        <translation>Расположение ссылки подчинённого</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="114" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="307" />
+        <source>&amp;View contacts</source>
+        <translation>По&amp;казывать контакты</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="121" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="308" />
+        <source>View cross</source>
+        <translation>Показывать перекрестие</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="134" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="309" />
+        <source>Label cross reference</source>
+        <translation>Метка перекрестной ссылки</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="154" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="310" />
+        <source>Master</source>
+        <translation>Главный</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="164" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="312" />
+        <source>%f-%l%c</source>
+        <translation>%f-%l%c</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="187" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="313" />
+        <source>Slave</source>
+        <translation>Подчинённый</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="197" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="314" />
+        <source>(%f-%l%c)</source>
+        <translation>(%f-%l%c)</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="206" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="315" />
+        <source>Create your own text by helping you of the following variables :
+%f : the folio number 
+% F: folio label
+% l : the line number
+% c : column number
+% M: Plant 
+% LM: Location </source>
+        <translation>Создайте свой собственный текст, используя следующие переменные:
+% f: номер листа
+% F: метка листа
+% l: номер строки
+% c: номер столбца
+% M: установка
+% LM: расположение </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="227" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="322" />
+        <source>Option display cross</source>
+        <translation>Настройки отображения перекрестия</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="233" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="323" />
+        <source>Show the power contacts in the cross</source>
+        <translation>Показывать силовые контакты на перекрестии</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="242" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="324" />
+        <source>Prefix of power contacts :</source>
+        <translation>Префикс силовых контактов:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="249" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="325" />
+        <source>Prefix delayed contacts :</source>
+        <translation>Префикс контактов с задержкой:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.ui" line="262" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_xrefpropertieswidget.h" line="326" />
+        <source>Prefix changeover contacts :</source>
+        <translation>Префикс контактов переключения:</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="101" />
+        <source>Coil</source>
+        <translation>Катушка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="102" />
+        <source>Organ of protection</source>
+        <translation>Устройство защиты</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="103" />
+        <source>Switch / button</source>
+        <translation>Переключатель/кнопка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="105" />
+        <source>Footer</source>
+        <translation>Внизу страницы</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="106" />
+        <source>Under the label of the element</source>
+        <translation>Под меткой элемента</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="108" />
+        <source>Top</source>
+        <translation>Вверху</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="109" />
+        <source>Bottom</source>
+        <translation>Внизу</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="110" />
+        <source>Left</source>
+        <translation>Слева</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="111" />
+        <source>Right</source>
+        <translation type="unfinished" />
+    </message>
+    <message>
+        <location filename="../sources/ui/xrefpropertieswidget.cpp" line="112" />
+        <source>Text alignment</source>
+        <translation>Выравнивание</translation>
+    </message>
+</context>
+<context>
+    <name>diagramselection</name>
+    <message>
+        <location filename="../sources/ui/diagramselection.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagramselection.h" line="62" />
+        <source>Form</source>
+        <translation>Форма</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.ui" line="22" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_diagramselection.h" line="63" />
+        <source>TextLabel</source>
+        <translation>Текстовая метка</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="30" />
+        <source>Untitled project</source>
+        <translation>Проект без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="32" />
+        <source>project : </source>
+        <translation>Проект: </translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="62" />
+        <source>Choice</source>
+        <translatorcomment>context dependent</translatorcomment>
+        <translation>Выбор</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="62" />
+        <source>Name</source>
+        <translatorcomment>Название?</translatorcomment>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="72" />
+        <source>Folio Untitled</source>
+        <translation>Лист без имени</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="106" />
+        <source>Select none</source>
+        <translation>Снять выделение</translation>
+    </message>
+    <message>
+        <location filename="../sources/ui/diagramselection.cpp" line="107" />
+        <source>Select all</source>
+        <translation>Выбрать все</translation>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <location filename="../build/_deps/kwidgetsaddons-src/tests/knewpassworddialogtest.cpp" line="19" />
+        <source>Enter a password for the test</source>
+        <translation type="unfinished" />
+    </message>
+</context>
+<context>
+    <name>projectDataBase</name>
+    <message>
+        <location filename="../sources/dataBase/projectdatabase.cpp" line="674" />
+        <source>Export the internal project database</source>
+        <translation>Экспортировать внутреннюю базу данных проекта</translation>
+    </message>
+    <message>
+        <location filename="../sources/dataBase/projectdatabase.cpp" line="681" />
+        <source>untitled</source>
+        <translation>без имени</translation>
+    </message>
+</context>
+<context>
+    <name>qdesigner_internal::ColorAction</name>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="357" />
+        <source>Text Color</source>
+        <translation>Цвет текста</translation>
+    </message>
+</context>
+<context>
+    <name>qdesigner_internal::HtmlTextEdit</name>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="299" />
+        <source>Insert HTML entity</source>
+        <translation>Вставка объекта HTML</translation>
+    </message>
+</context>
+<context>
+    <name>qdesigner_internal::RichTextEditorDialog</name>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="775" />
+        <source>Edit text</source>
+        <translation>Редактировать текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="798" />
+        <source>Rich Text</source>
+        <translation>Форматированный текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="799" />
+        <source>Source</source>
+        <translation>Источник</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="805" />
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="807" />
+        <source>&amp;Cancel</source>
+        <translation>&amp;Отмена</translation>
+    </message>
+</context>
+<context>
+    <name>qdesigner_internal::RichTextEditorToolBar</name>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="463" />
+        <source>Bold</source>
+        <translation>Жирный</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="469" />
+        <source>Italic</source>
+        <translation>Курсив</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="475" />
+        <source>Underline</source>
+        <translation>Подчёркнутый</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="488" />
+        <source>Left Align</source>
+        <translation>По левому краю</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="493" />
+        <source>Center</source>
+        <translation>По центру</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="498" />
+        <source>Right Align</source>
+        <translation>По правому краю</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="503" />
+        <source>Justify</source>
+        <translation>По ширине</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="515" />
+        <source>Superscript</source>
+        <translation>Надстрочный</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="521" />
+        <source>Subscript</source>
+        <translation>Подстрочный</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="530" />
+        <source>Insert link</source>
+        <translation>Вставка ссылки</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="534" />
+        <source>Insert &amp;Image</source>
+        <translation>Вставка &amp;изображения</translation>
+    </message>
+    <message>
+        <location filename="../sources/richtext/richtexteditor.cpp" line="550" />
+        <source>Simplify Rich Text</source>
+        <translation>Упростить форматированный текст</translation>
+    </message>
+</context>
+<context>
+    <name>replaceAdvancedDialog</name>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="14" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="113" />
+        <source>Search / replace advanced</source>
+        <translation>Расширенный поиск и замена</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="27" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="114" />
+        <source>by:</source>
+        <translation>на:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="34" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="115" />
+        <source>Replace:</source>
+        <translation>Заменить:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="51" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="116" />
+        <source>Where:</source>
+        <translation>Искать в:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="58" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="117" />
+        <source>Text or regular expression</source>
+        <translation>Текст или регулярное выражение</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="69" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="118" />
+        <source>Folio</source>
+        <translation>Лист</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="74" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="119" />
+        <source>Element</source>
+        <translation>Элемент</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="79" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="120" />
+        <source>Conductor</source>
+        <translation>Проводник</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="84" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="121" />
+        <source>Independent text</source>
+        <translation>Независимый текст</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92" />
+        <location filename="../build/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="123" />
+        <source>What:</source>
+        <translation>Где:</translation>
+    </message>
+</context>
+<context>
+    <name>testcontext</name>
+    <message>
+        <location filename="../build/_deps/ecm-src/tests/ECMPoQmToolsTest/tr_test.cpp" line="18" />
+        <location filename="../build/_deps/ecm-src/tests/ECMPoQmToolsTest/tr_thread_test_module.cpp" line="16" />
+        <source>test string</source>
+        <translation type="unfinished" />
+    </message>
+    <message numerus="yes">
+        <location filename="../build/_deps/ecm-src/tests/ECMPoQmToolsTest/tr_test.cpp" line="19" />
+        <location filename="../build/_deps/ecm-src/tests/ECMPoQmToolsTest/tr_thread_test_module.cpp" line="17" />
+        <source>test plural %n</source>
+        <translation type="unfinished">
+            <numerusform />
+            <numerusform />
+            <numerusform />
+        </translation>
+    </message>
+</context>
+</TS>

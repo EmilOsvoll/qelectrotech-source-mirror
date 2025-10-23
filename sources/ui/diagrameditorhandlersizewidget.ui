@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Poignées :</string>
+      <string>Handles :</string>
      </property>
     </widget>
    </item>

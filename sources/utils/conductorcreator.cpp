@@ -23,7 +23,7 @@
 #include "../qetgraphicsitem/conductor.h"
 #include "../qetgraphicsitem/element.h"
 #include "../qetgraphicsitem/terminal.h"
-#include "../ui/potentialselectordialog.h"
+#include "../ui/potentialselectordiaLog.h"
 #include "qgraphicsitem.h"
 
 #include <QPolygonF>
@@ -46,7 +46,7 @@ ConductorCreator::ConductorCreator(Diagram *d, QList<Terminal *> terminals_list)
 	setUpPropertieToUse();
 	Terminal *hub_terminal = hubTerminal();
 	
-	d->undoStack().beginMacro(QObject::tr("Création de conducteurs"));
+	d->undoStack().beginMacro(QObject::tr("Creation of conductors"));
 	
 	QList<Conductor *> c_list;
 	for (Terminal *t : m_terminals_list)
@@ -112,7 +112,7 @@ void ConductorCreator::setUpPropertieToUse()
 				cp_list.append(c->properties());
 			}
 			
-			m_properties = PotentialSelectorDialog::chosenProperties(cp_list);
+			m_properties = PotentialSelectorDiaLog::chosenProperties(cp_list);
 			for (Conductor *c : potentials) {
 				if (c->properties() == m_properties) {
 					m_sequential_number = c->sequenceNum();

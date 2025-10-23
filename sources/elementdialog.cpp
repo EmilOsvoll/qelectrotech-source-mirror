@@ -15,7 +15,7 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "elementdialog.h"
+#include "elementdiaLog.h"
 
 #include "ElementsCollection/elementcollectionitem.h"
 #include "ElementsCollection/elementscollectionmodel.h"
@@ -23,19 +23,19 @@
 #include "qetmessagebox.h"
 #include "qfilenameedit.h"
 
-#include <QDialogButtonBox>
+#include <QDiaLogButtonBox>
 #include <QLabel>
 #include <QPushButton>
 #include <QTreeView>
 #include <QVBoxLayout>
 
 /**
-	@brief ElementDialog::ElementDialog
+	@brief ElementDiaLog::ElementDiaLog
 	@param mode
 	@param parent
 */
-ElementDialog::ElementDialog(uint mode, QWidget *parent) :
-	QDialog(parent),
+ElementDiaLog::ElementDiaLog(uint mode, QWidget *parent) :
+	QDiaLog(parent),
 	m_mode(mode)
 {
 	setUpWidget();
@@ -43,10 +43,10 @@ ElementDialog::ElementDialog(uint mode, QWidget *parent) :
 }
 
 /**
-	@brief ElementDialog::setUpWidget
-	Build and setup the widgets of this dialog
+	@brief ElementDiaLog::setUpWidget
+	Build and setup the widgets of this diaLog
 */
-void ElementDialog::setUpWidget()
+void ElementDiaLog::setUpWidget()
 {
 	setWindowModality(Qt::WindowModal);
 #ifdef Q_OS_MACOS
@@ -59,23 +59,23 @@ void ElementDialog::setUpWidget()
 	switch (m_mode)
 	{
 		case OpenElement:
-			title_ = tr("Ouvrir un élément", "dialog title");
-			label_ = tr("Choisissez l'élément que vous souhaitez ouvrir.", "dialog content");
+			title_ = tr("Open an element", "diaLog title");
+			label_ = tr("Choose the element you wish to open.", "diaLog content");
 			break;
 		case SaveElement:
-			title_ = tr("Enregistrer un élément", "dialog title");
-			label_ = tr("Choisissez l'élément dans lequel vous souhaitez enregistrer votre définition.", "dialog content");
+			title_ = tr("Save an element", "diaLog title");
+			label_ = tr("Choose the element you wish to save your definition into.", "diaLog content");
 			break;
 		case OpenCategory:
-			title_ = tr("Ouvrir une catégorie", "dialog title");
-			label_ = tr("Choisissez une catégorie.", "dialog content");
+			title_ = tr("Open a category", "diaLog title");
+			label_ = tr("Choose a category.", "diaLog content");
 			break;
 		case SaveCategory:
-			title_ = tr("Enregistrer une catégorie", "dialog title");
-			label_ = tr("Choisissez une catégorie.", "dialog content");
+			title_ = tr("Save a category", "diaLog title");
+			label_ = tr("Choose a category.", "diaLog content");
 			break;
 		default:
-			title_ = tr("Titre");
+			title_ = tr("Title");
 			label_ = tr("Label");
 			break;
 	}
@@ -101,46 +101,46 @@ void ElementDialog::setUpWidget()
 	m_tree_view->setHeaderHidden(true);
 	layout->addWidget(m_tree_view);
 
-	m_buttons_box = new QDialogButtonBox(this);
+	m_buttons_box = new QDiaLogButtonBox(this);
 
 	if (m_mode == SaveCategory || m_mode == SaveElement)
 	{
-		m_buttons_box->setStandardButtons(QDialogButtonBox::Save | QDialogButtonBox::Cancel);
-		m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(true);
+		m_buttons_box->setStandardButtons(QDiaLogButtonBox::Save | QDiaLogButtonBox::Cancel);
+		m_buttons_box->button(QDiaLogButtonBox::Save)->setDisabled(true);
 
 		m_text_field = new QFileNameEdit();
 		m_text_field->setDisabled(true);
-		m_text_field->setPlaceholderText(m_mode == SaveCategory? tr("Nom du nouveau dossier") : tr("Nom du nouvel élément"));
+		m_text_field->setPlaceholderText(m_mode == SaveCategory? tr("Name du nouveau dossier") : tr("Name du nouvel élément"));
 
 		layout->addWidget(m_text_field);
 	}
 	else
 	{
-		m_buttons_box->setStandardButtons(QDialogButtonBox::Open | QDialogButtonBox::Cancel);
-		m_buttons_box->button(QDialogButtonBox::Open)->setDisabled(true);
+		m_buttons_box->setStandardButtons(QDiaLogButtonBox::Open | QDiaLogButtonBox::Cancel);
+		m_buttons_box->button(QDiaLogButtonBox::Open)->setDisabled(true);
 	}
 
 	layout->addWidget(m_buttons_box);
 }
 
 /**
-	@brief ElementDialog::setUpConnection
-	Setup connection of this dialog
+	@brief ElementDiaLog::setUpConnection
+	Setup connection of this diaLog
 */
-void ElementDialog::setUpConnection()
+void ElementDiaLog::setUpConnection()
 {
-	connect(m_tree_view, &QTreeView::clicked, this, &ElementDialog::indexClicked);
-	connect(m_buttons_box, &QDialogButtonBox::accepted, this, &ElementDialog::checkAccept);
-	connect(m_buttons_box, &QDialogButtonBox::rejected, this, &QDialog::reject);
+	connect(m_tree_view, &QTreeView::clicked, this, &ElementDiaLog::indexClicked);
+	connect(m_buttons_box, &QDiaLogButtonBox::accepted, this, &ElementDiaLog::checkAccept);
+	connect(m_buttons_box, &QDiaLogButtonBox::rejected, this, &QDiaLog::reject);
 
-	if (m_text_field) { connect(m_text_field, &QFileNameEdit::textChanged, this, &ElementDialog::checkCurrentLocation); }
+	if (m_text_field) { connect(m_text_field, &QFileNameEdit::textChanged, this, &ElementDiaLog::checkCurrentLocation); }
 }
 
 /**
-	@brief ElementDialog::indexClicked
+	@brief ElementDiaLog::indexClicked
 	@param index
 */
-void ElementDialog::indexClicked(const QModelIndex &index)
+void ElementDiaLog::indexClicked(const QModelIndex &index)
 {
 	ElementCollectionItem *eci = static_cast<ElementCollectionItem*> (m_model->itemFromIndex(index));
 	m_location = ElementsLocation(eci->collectionPath());
@@ -148,17 +148,17 @@ void ElementDialog::indexClicked(const QModelIndex &index)
 }
 
 /**
-	@brief ElementDialog::checkCurrentLocation
-	Update this dialog according to the current selected location and the current mode
+	@brief ElementDiaLog::checkCurrentLocation
+	Update this diaLog according to the current selected location and the current mode
 */
-void ElementDialog::checkCurrentLocation()
+void ElementDiaLog::checkCurrentLocation()
 {
 	if (m_mode == OpenElement) {
-		m_buttons_box->button(QDialogButtonBox::Open)->setEnabled(m_location.isElement() && m_location.exist());
+		m_buttons_box->button(QDiaLogButtonBox::Open)->setEnabled(m_location.isElement() && m_location.exist());
 	}
 	else if (m_mode == SaveElement)
 	{
-		m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(true);
+		m_buttons_box->button(QDiaLogButtonBox::Save)->setDisabled(true);
 
 			//Location doesn't exist
 		if (!m_location.exist()) { return; }
@@ -166,7 +166,7 @@ void ElementDialog::checkCurrentLocation()
 		if (m_location.isElement())
 		{
 			m_text_field->setDisabled(true);
-			m_buttons_box->button(QDialogButtonBox::Save)->setEnabled(true);
+			m_buttons_box->button(QDiaLogButtonBox::Save)->setEnabled(true);
 		}
 		else if (m_location.isDirectory())
 		{
@@ -182,12 +182,12 @@ void ElementDialog::checkCurrentLocation()
 			ElementsLocation loc = m_location;
 			loc.addToPath(new_path);
 
-			m_buttons_box->button(QDialogButtonBox::Save)->setDisabled(loc.exist() ? true : false);
+			m_buttons_box->button(QDiaLogButtonBox::Save)->setDisabled(loc.exist() ? true : false);
 		}
 	}
 }
 
-void ElementDialog::checkAccept()
+void ElementDiaLog::checkAccept()
 {
 	ElementsLocation loc = location();
 
@@ -197,15 +197,15 @@ void ElementDialog::checkAccept()
 		if (!loc.exist())
 		{
 			QET::QetMessageBox::critical(this,
-										 tr("Sélection inexistante", "message box title"),
-										 tr("La sélection n'existe pas.", "message box content"));
+										 tr("Non-existent selection", "message box title"),
+										 tr("The selection does not exist.", "message box content"));
 			return;
 		}
 		else if (!loc.isElement())
 		{
 			QET::QetMessageBox::critical(this,
-										 tr("Sélection incorrecte", "message box title"),
-										 tr("La sélection n'est pas un élément.", "message box content"));
+										 tr("Wrong selection", "message box title"),
+										 tr("The selection is not an element.", "message box content"));
 			return;
 		}
 	}
@@ -216,8 +216,8 @@ void ElementDialog::checkAccept()
 			if (loc.exist())
 			{
 				QMessageBox::StandardButton answer = QET::QetMessageBox::question(this,
-																				  tr("Écraser l'élément ?", "message box title"),
-																				  tr("L'élément existe déjà. Voulez-vous l'écraser ?", "message box content"),
+																				  tr("Overwrite the element?", "message box title"),
+																				  tr("The element already exists. Do you want to overwrite it?", "message box content"),
 																				  QMessageBox::Yes | QMessageBox::No,
 																				  QMessageBox::No);
 				if (answer == QMessageBox::Yes) {accept();}
@@ -228,19 +228,19 @@ void ElementDialog::checkAccept()
 		else
 		{
 			QET::QetMessageBox::critical(this,
-										 tr("Sélection incorrecte", "message box title"),
-										 tr("Vous devez sélectionner un élément ou une catégorie avec un nom pour l'élément.", "message box content"));
+										 tr("Wrong selection", "message box title"),
+										 tr("You must select an element or category with a name for the element.", "message box content"));
 			return;
 		}
 	}
 }
 
 /**
-	@brief ElementDialog::location
+	@brief ElementDiaLog::location
 	@return The selected location or a null location if user has selected nothing
 	or selection isn't compatible with the current mode
 */
-ElementsLocation ElementDialog::location() const
+ElementsLocation ElementDiaLog::location() const
 {
 	if (m_mode == OpenElement)
 	{
@@ -272,37 +272,37 @@ ElementsLocation ElementDialog::location() const
 }
 
 /**
-	@brief ElementDialog::getOpenElementLocation
-	Display a dialog for open an element through her location
+	@brief ElementDiaLog::getOpenElementLocation
+	Display a diaLog for open an element through her location
 	@param parentWidget
 	@return The location of the selected element
 */
-ElementsLocation ElementDialog::getOpenElementLocation(QWidget *parentWidget) {
-	return(ElementDialog::execConfiguredDialog(ElementDialog::OpenElement, parentWidget));
+ElementsLocation ElementDiaLog::getOpenElementLocation(QWidget *parentWidget) {
+	return(ElementDiaLog::execConfiguredDiaLog(ElementDiaLog::OpenElement, parentWidget));
 }
 
 /**
-	@brief ElementDialog::getSaveElementLocation
-	Display a dialog that allow to user to select an element (existing or not) who he want to save
+	@brief ElementDiaLog::getSaveElementLocation
+	Display a diaLog that allow to user to select an element (existing or not) who he want to save
 	@param parentWidget
 	@return The location where the element must be save
 */
-ElementsLocation ElementDialog::getSaveElementLocation(QWidget *parentWidget) {
-	return(ElementDialog::execConfiguredDialog(ElementDialog::SaveElement, parentWidget));
+ElementsLocation ElementDiaLog::getSaveElementLocation(QWidget *parentWidget) {
+	return(ElementDiaLog::execConfiguredDiaLog(ElementDiaLog::SaveElement, parentWidget));
 }
 
 /**
-	@brief ElementDialog::execConfiguredDialog
-	launch a dialog with the chosen mode
-	@param mode : mode of the dialog
-	@param parentWidget : parent widget of the dialog
+	@brief ElementDiaLog::execConfiguredDiaLog
+	launch a diaLog with the chosen mode
+	@param mode : mode of the diaLog
+	@param parentWidget : parent widget of the diaLog
 	@return the chosen location
 */
-ElementsLocation ElementDialog::execConfiguredDialog(int mode, QWidget *parentWidget)
+ElementsLocation ElementDiaLog::execConfiguredDiaLog(int mode, QWidget *parentWidget)
 {
-	ElementDialog *element_dialog = new ElementDialog(mode, parentWidget);
-	element_dialog->exec();
-	ElementsLocation location = element_dialog->location();
-	delete element_dialog;
+	ElementDiaLog *element_diaLog = new ElementDiaLog(mode, parentWidget);
+	element_diaLog->exec();
+	ElementsLocation location = element_diaLog->location();
+	delete element_diaLog;
 	return(location);
 }

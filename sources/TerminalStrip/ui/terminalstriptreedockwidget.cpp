@@ -124,10 +124,10 @@ TerminalStrip *TerminalStripTreeDockWidget::currentStrip() const {
 }
 
 /**
- * @brief TerminalStripTreeDockWidget::currentInstallation
+ * @brief TerminalStripTreeDockWidget::currentPlant
  * @return the installation according to the current selection
  */
-QString TerminalStripTreeDockWidget::currentInstallation() const
+QString TerminalStripTreeDockWidget::currentPlant() const
 {
 	if (m_current_strip) {
 		return m_current_strip->installation();
@@ -138,7 +138,7 @@ QString TerminalStripTreeDockWidget::currentInstallation() const
 		if (item->type() == Location) {
 			item = item->parent();
 		}
-		if (item->type() == Installation) {
+		if (item->type() == Plant) {
 			return item->data(0, Qt::DisplayRole).toString();
 		}
 	}
@@ -236,13 +236,13 @@ void TerminalStripTreeDockWidget::buildTree()
 
 	auto title_ = m_project->title();
 	if (title_.isEmpty()) {
-		title_ = tr("Projet sans titre");
+		title_ = tr("Project none titre");
 	}
 
 	QStringList strl{title_};
 	new QTreeWidgetItem(ui->m_tree_view, strl, Root);
 
-	QStringList ftstrl(tr("Bornes indépendante"));
+	QStringList ftstrl(tr("Terminals indépendante"));
 	new QTreeWidgetItem(ui->m_tree_view, ftstrl, FreeTerminal);
 
 	auto ts_vector = m_project->terminalStrip();
@@ -277,7 +277,7 @@ QTreeWidgetItem* TerminalStripTreeDockWidget::addTerminalStrip(TerminalStrip *te
 	}
 	if (!inst_qtwi) {
 		QStringList inst_strl{installation_str};
-		inst_qtwi = new QTreeWidgetItem(root_item, inst_strl, Installation);
+		inst_qtwi = new QTreeWidgetItem(root_item, inst_strl, Plant);
 	}
 
 		//Check if location already exist

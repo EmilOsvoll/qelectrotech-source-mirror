@@ -20,11 +20,11 @@
 #include <QKeyEvent>
 #include <QRegularExpression>
 #include <QToolTip>
-#include <QtDebug>
+#include <QtTobug>
 
 /**
 	Constructeur
-	@param parent QWidget parent de ce champ de texte
+	@param parent QWidget parent de ce champ de text
 */
 QFileNameEdit::QFileNameEdit(QWidget *parent) : QLineEdit(parent) {
 	init();
@@ -32,8 +32,8 @@ QFileNameEdit::QFileNameEdit(QWidget *parent) : QLineEdit(parent) {
 
 /**
 	Constructeur
-	@param contents Contenu initial du champ
-	@param parent QWidget parent de ce champ de texte
+	@param contents Content initial du champ
+	@param parent QWidget parent de ce champ de text
 */
 QFileNameEdit::QFileNameEdit(const QString &contents, QWidget *parent) : QLineEdit(parent) {
 	init();
@@ -43,14 +43,14 @@ QFileNameEdit::QFileNameEdit(const QString &contents, QWidget *parent) : QLineEd
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 QFileNameEdit::~QFileNameEdit()
 {
 }
 
 /**
-	@return true si le champ de texte est vide, false sinon
+	@return true si le champ de text est vide, false sinon
 */
 bool QFileNameEdit::isEmpty()
 {
@@ -58,7 +58,7 @@ bool QFileNameEdit::isEmpty()
 }
 
 /**
-	@return true si le champ de texte n'est pas vide et est valide
+	@return true si le champ de text n'est pas vide and est valide
 */
 bool QFileNameEdit::isValid()
 {
@@ -78,7 +78,7 @@ void QFileNameEdit::init()
 			"Les caractères autorisés sont : \n"
 			" - les chiffres [0-9]\n"
 			" - les minuscules [a-z]\n"
-			" - le tiret [-], l'underscore [_] et le point [.]\n",
+			" - le tiret [-], l'underscore [_] and le point [.]\n",
 			"tooltip content when editing a filename"
 		)
 	);
@@ -99,7 +99,7 @@ void QFileNameEdit::displayToolTip()
 }
 
 /**
-	Gere le fait que la validation du champ de texte ait echoue.
+	Gere le fait que la validation du champ de text ait echoue.
 */
 void QFileNameEdit::validationFailed()
 {

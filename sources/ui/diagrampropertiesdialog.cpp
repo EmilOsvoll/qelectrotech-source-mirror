@@ -15,24 +15,24 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "diagrampropertiesdialog.h"
+#include "diagrampropertiesdiaLog.h"
 
 #include "../diagram.h"
 #include "../diagramcommands.h"
 #include "../undocommand/changetitleblockcommand.h"
 #include "borderpropertieswidget.h"
 #include "conductorpropertieswidget.h"
-#include "projectpropertiesdialog.h"
+#include "projectpropertiesdiaLog.h"
 #include "titleblockpropertieswidget.h"
 
 /**
-	@brief DiagramPropertiesDialog::DiagramPropertiesDialog
-	Default constructor
+	@brief DiagramPropertiesDiaLog::DiagramPropertiesDiaLog
+	Tofault constructor
 	@param diagram : diagram to edit properties
 	@param parent : parent widget
 */
-DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *parent) :
-	QDialog (parent),
+DiagramPropertiesDiaLog::DiagramPropertiesDiaLog(Diagram *diagram, QWidget *parent) :
+	QDiaLog (parent),
 	m_diagram (diagram)
 {
 	bool diagram_is_read_only = diagram -> isReadOnly();
@@ -47,7 +47,7 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	setWindowFlags(Qt::Sheet);
 #endif
 
-	setWindowTitle(tr("Propriétés du folio", "window title"));
+	setWindowTitle(tr("Folio properties", "window title"));
 
 	//Border widget
 	BorderPropertiesWidget *border_infos = new BorderPropertiesWidget(border, this);
@@ -73,10 +73,10 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	autonum_combobox->addItems(diagram->project()->conductorAutoNum().keys());
 	autonum_combobox->setCurrentIndex(autonum_combobox->findText(diagram->conductorsAutonumName()));
 
-	connect(m_cpw->editAutonumPushButton(), &QPushButton::clicked, this, &DiagramPropertiesDialog::editAutonum);
+	connect(m_cpw->editAutonumPushButton(), &QPushButton::clicked, this, &DiagramPropertiesDiaLog::editAutonum);
 
 		// Buttons
-	QDialogButtonBox boutons(diagram_is_read_only ? QDialogButtonBox::Ok : QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+	QDiaLogButtonBox boutons(diagram_is_read_only ? QDiaLogButtonBox::Ok : QDiaLogButtonBox::Ok | QDiaLogButtonBox::Cancel);
 	connect(&boutons, SIGNAL(accepted()), this, SLOT(accept()));
 	connect(&boutons, SIGNAL(rejected()), this, SLOT(reject()));
 
@@ -89,8 +89,8 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	vlayout.addLayout(glayout);
 	vlayout.addWidget(&boutons);
 
-	// if dialog is accepted
-	if (this -> exec() == QDialog::Accepted && !diagram_is_read_only)
+	// if diaLog is accepted
+	if (this -> exec() == QDiaLog::Accepted && !diagram_is_read_only)
 	{
 		TitleBlockProperties new_titleblock = titleblock_infos  -> properties();
 		BorderProperties     new_border     = border_infos -> properties();
@@ -106,7 +106,7 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 			diagram -> undoStack().push(new ChangeBorderCommand(diagram, border, new_border));
 		}
 
-		// Conducteur have change
+		// Conductor have change
 		if (new_conductors != conductors) {
 #if TODO_LIST
 #pragma message("@TODO implement an undo command to allow the user to undo/redo this action")
@@ -125,36 +125,36 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 }
 
 /**
-	@brief DiagramPropertiesDialog::diagramPropertiesDialog
-	Static method to get a DiagramPropertiesDialog.
+	@brief DiagramPropertiesDiaLog::diagramPropertiesDiaLog
+	Static method to get a DiagramPropertiesDiaLog.
 	@param diagram : diagram to edit properties
 	@param parent : parent widget
 */
-void DiagramPropertiesDialog::diagramPropertiesDialog(Diagram *diagram, QWidget *parent) {
-	DiagramPropertiesDialog dialog(diagram, parent);
+void DiagramPropertiesDiaLog::diagramPropertiesDiaLog(Diagram *diagram, QWidget *parent) {
+	DiagramPropertiesDiaLog diaLog(diagram, parent);
 }
 
 /**
-	@brief DiagramPropertiesDialog::editAutonum
+	@brief DiagramPropertiesDiaLog::editAutonum
 	Open conductor autonum editor
 */
-void DiagramPropertiesDialog::editAutonum()
+void DiagramPropertiesDiaLog::editAutonum()
 {
-	ProjectPropertiesDialog ppd (m_diagram->project(), this);
-	ppd.setCurrentPage(ProjectPropertiesDialog::Autonum);
+	ProjectPropertiesDiaLog ppd (m_diagram->project(), this);
+	ppd.setCurrentPage(ProjectPropertiesDiaLog::Autonum);
 	ppd.exec();
 	m_cpw->autonumComboBox()->clear();
 	m_cpw->autonumComboBox()->addItems(m_diagram->project()->conductorAutoNum().keys());
 }
 
 /**
-	@brief DiagramPropertiesDialog::editAutonum
+	@brief DiagramPropertiesDiaLog::editAutonum
 	Open folio autonum editor
 */
-void DiagramPropertiesDialog::editAutoFolioNum ()
+void DiagramPropertiesDiaLog::editAutoFolioNum ()
 {
-	ProjectPropertiesDialog ppd (m_diagram->project(), this);
-	ppd.setCurrentPage(ProjectPropertiesDialog::Autonum);
+	ProjectPropertiesDiaLog ppd (m_diagram->project(), this);
+	ppd.setCurrentPage(ProjectPropertiesDiaLog::Autonum);
 	ppd.changeToFolio();
 	ppd.exec();
 }

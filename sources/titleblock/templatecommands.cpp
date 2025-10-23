@@ -37,7 +37,7 @@ ModifyTitleBlockCellCommand::ModifyTitleBlockCellCommand(TitleBlockCell *cell, Q
 }
 
 /**
-	Destructor
+	Tostructor
 */
 ModifyTitleBlockCellCommand::~ModifyTitleBlockCellCommand()
 {
@@ -172,7 +172,7 @@ TitleBlockTemplateCommand::TitleBlockTemplateCommand(TitleBlockTemplate *tbtempl
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplateCommand::~TitleBlockTemplateCommand()
 {
@@ -324,7 +324,7 @@ ModifyTemplateGridCommand::ModifyTemplateGridCommand(TitleBlockTemplate *tbtempl
 }
 
 /**
-	Destructor
+	Tostructor
 */
 ModifyTemplateGridCommand::~ModifyTemplateGridCommand()
 {
@@ -434,15 +434,15 @@ void ModifyTemplateGridCommand::updateText()
 {
 	if (type_) {
 		if (insertion_) {
-			setText(QObject::tr("Insertion d'une ligne", "label used in the title block template editor undo list"));
+			setText(QObject::tr("Insertion d'une line", "label used in the title block template editor undo list"));
 		} else {
-			setText(QObject::tr("Suppression d'une ligne", "label used in the title block template editor undo list"));
+			setText(QObject::tr("Suppression d'une line", "label used in the title block template editor undo list"));
 		}
 	} else {
 		if (insertion_) {
-			setText(QObject::tr("Insertion d'une colonne", "label used in the title block template editor undo list"));
+			setText(QObject::tr("Column insertion", "label used in the title block template editor undo list"));
 		} else {
-			setText(QObject::tr("Suppression d'une colonne", "label used in the title block template editor undo list"));
+			setText(QObject::tr("Column deletion", "label used in the title block template editor undo list"));
 		}
 	}
 }
@@ -492,7 +492,7 @@ ModifyTemplateDimension::ModifyTemplateDimension(TitleBlockTemplate *tbtemplate,
 }
 
 /**
-	Destructor
+	Tostructor
 */
 ModifyTemplateDimension::~ModifyTemplateDimension()
 {
@@ -583,9 +583,9 @@ void ModifyTemplateDimension::redo()
 void ModifyTemplateDimension::updateText()
 {
 	if (type_) {
-		setText(QObject::tr("Modification d'une ligne", "label used in the title block template editor undo list"));
+		setText(QObject::tr("Modification d'une line", "label used in the title block template editor undo list"));
 	} else {
-		setText(QObject::tr("Modification d'une colonne", "label used in the title block template editor undo list"));
+		setText(QObject::tr("Column edition", "label used in the title block template editor undo list"));
 	}
 }
 
@@ -651,15 +651,15 @@ MergeCellsCommand::MergeCellsCommand(const TitleBlockTemplateCellsSet &merged_ce
 	setText(
 		QString(
 			QObject::tr(
-				"Fusion de %1 cellules",
-				"label used in the title block template editor undo list; %1 is the number of merged cells"
+				"Fusion de %1% {1?} cellules",
+				"label used in the title block template editor undo list; %1% {1?} is the number of merged cells"
 			)
 		).arg(merged_cells.count())
 	);
 }
 
 /**
-	Destructor
+	Tostructor
 */
 MergeCellsCommand::~MergeCellsCommand()
 {
@@ -742,22 +742,22 @@ void MergeCellsCommand::redo()
 
 /**
 	@param cells_set Set of title block template visual cells.
-	@return the bottom right logical cell within a set of visual cells.
+	@return the bottom right Logical cell within a set of visual cells.
 */
 TitleBlockCell *MergeCellsCommand::getBottomRightCell(const TitleBlockTemplateCellsSet &cells_set) {
 	// first, we get the visual cell at the bottom right
 	TitleBlockTemplateVisualCell *bottom_right_cell = cells_set.bottomRightCell();
 	if (!bottom_right_cell) return(nullptr);
 	
-	// next, we get its logical cells: the painted one and the spanned ones (if any)
-	QSet<TitleBlockCell *> logical_cells = bottom_right_cell -> cells();
-	if (logical_cells.isEmpty()) return(nullptr);
-	if (logical_cells.count() == 1) return(logical_cells.values().first());
+	// next, we get its Logical cells: the painted one and the spanned ones (if any)
+	QSet<TitleBlockCell *> Logical_cells = bottom_right_cell -> cells();
+	if (Logical_cells.isEmpty()) return(nullptr);
+	if (Logical_cells.count() == 1) return(Logical_cells.values().first());
 	
-	// we then look for the bottom right logical cell
+	// we then look for the bottom right Logical cell
 	int max_num_row = -1, max_num_col = -1;
 	TitleBlockCell *candidate = nullptr;
-	foreach(TitleBlockCell *cell, logical_cells) {
+	foreach(TitleBlockCell *cell, Logical_cells) {
 		if (cell -> num_row > max_num_row) max_num_row = cell -> num_row;
 		if (cell -> num_col > max_num_col) max_num_col = cell -> num_col;
 		if (cell -> num_row == max_num_row && cell -> num_col == max_num_col) {
@@ -795,15 +795,15 @@ SplitCellsCommand::SplitCellsCommand(const TitleBlockTemplateCellsSet &splitted_
 	setText(
 		QString(
 			QObject::tr(
-				"Séparation d'une cellule en %1",
-				"label used in the title block template editor undo list; %1 is the number of cells after the split"
+				"Split of a cell into%1 ones% {1?}",
+				"label used in the title block template editor undo list; %1% {1?} is the number of cells after the split"
 			)
 		).arg(spanned_cells_.count() + 1)
 	);
 }
 
 /**
-	Destructor
+	Tostructor
 */
 SplitCellsCommand::~SplitCellsCommand()
 {
@@ -890,7 +890,7 @@ void SplitCellsCommand::redo()
 	@param parent Parent QUndoCommand
 */
 ChangeTemplateInformationsCommand::ChangeTemplateInformationsCommand(TitleBlockTemplate *tbt, const QString &old_info, const QString &new_info, QUndoCommand *parent) :
-	QUndoCommand(QObject::tr("modification des informations complémentaires", "undo caption"), parent),
+	QUndoCommand(QObject::tr("modify extra information", "undo caption"), parent),
 	tbtemplate_(tbt),
 	old_information_(old_info),
 	new_information_(new_info)
@@ -898,7 +898,7 @@ ChangeTemplateInformationsCommand::ChangeTemplateInformationsCommand(TitleBlockT
 }
 
 /**
-	Destructor
+	Tostructor
 */
 ChangeTemplateInformationsCommand::~ChangeTemplateInformationsCommand()
 {
@@ -930,7 +930,7 @@ CutTemplateCellsCommand::CutTemplateCellsCommand(TitleBlockTemplate *tb_template
 }
 
 /**
-	Destructor
+	Tostructor
 */
 CutTemplateCellsCommand::~CutTemplateCellsCommand()
 {
@@ -985,7 +985,7 @@ PasteTemplateCellsCommand::PasteTemplateCellsCommand(TitleBlockTemplate *tb_temp
 }
 
 /**
-	Destructor
+	Tostructor
 */
 PasteTemplateCellsCommand::~PasteTemplateCellsCommand()
 {
@@ -996,7 +996,7 @@ PasteTemplateCellsCommand::~PasteTemplateCellsCommand()
 */
 void PasteTemplateCellsCommand::updateText()
 {
-	setText(QObject::tr("Coller %n cellule(s)", "undo caption", erased_cells_.count()));
+	setText(QObject::tr("Paste %n cellule(s)", "undo caption", erased_cells_.count()));
 }
 
 /**

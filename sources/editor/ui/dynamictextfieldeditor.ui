@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QGridLayout" name="m_main_grid_layout">
    <item row="6" column="0">
     <widget class="QLabel" name="label_3">
      <property name="text">
-      <string>Couleur</string>
+      <string>Color</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -27,7 +27,7 @@
    <item row="13" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -40,7 +40,7 @@
    <item row="3" column="0">
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>Largeur</string>
+      <string>Width</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -51,17 +51,17 @@
     <widget class="QComboBox" name="m_text_from_cb">
      <item>
       <property name="text">
-       <string>Texte utilisateur</string>
+       <string>Text utilisateur</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Information de l'élément</string>
+       <string>Element information</string>
       </property>
      </item>
      <item>
       <property name="text">
-       <string>Texte composé</string>
+       <string>Composite text</string>
       </property>
      </item>
     </widget>
@@ -69,7 +69,7 @@
    <item row="2" column="2">
     <widget class="QCheckBox" name="m_keep_visual_rotation_cb">
      <property name="text">
-      <string>Conserver la rotation visuel</string>
+      <string>Maintain visual rotation</string>
      </property>
     </widget>
    </item>
@@ -79,7 +79,7 @@
    <item row="4" column="1">
     <spacer name="verticalSpacer_2">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>
@@ -122,7 +122,7 @@
    <item row="9" column="0">
     <widget class="QLabel" name="label_4">
      <property name="text">
-      <string>Source du texte</string>
+      <string>Source of text</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -145,21 +145,21 @@
    <item row="12" column="1" colspan="2">
     <widget class="QPushButton" name="m_composite_text_pb">
      <property name="text">
-      <string>Texte composé</string>
+      <string>Composite text</string>
      </property>
     </widget>
    </item>
    <item row="3" column="2">
     <widget class="QPushButton" name="m_alignment_pb">
      <property name="text">
-      <string>Alignement</string>
+      <string>Alignment</string>
      </property>
     </widget>
    </item>
    <item row="7" column="1" colspan="2">
     <widget class="QCheckBox" name="m_frame_cb">
      <property name="text">
-      <string>Encadrer le texte</string>
+      <string>Frame the text</string>
      </property>
     </widget>
    </item>
@@ -206,7 +206,7 @@
    <item row="5" column="0">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Police</string>
+      <string>Font</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -216,7 +216,7 @@
    <item row="8" column="1">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeType">
       <enum>QSizePolicy::Fixed</enum>

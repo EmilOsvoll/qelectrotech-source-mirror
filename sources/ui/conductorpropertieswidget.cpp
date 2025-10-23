@@ -231,9 +231,9 @@ void ConductorPropertiesWidget::initWidget()
 	m_horiz_select = QETApp::createTextOrientationSpinBoxWidget();
 	ui -> m_text_angle_gl -> addWidget(m_horiz_select, 2, 1, Qt::AlignHCenter);
 
-	ui -> m_line_style_cb -> addItem(tr("Trait plein", "conductor style: solid line"), QPen(Qt::SolidLine));
-	ui -> m_line_style_cb -> addItem(tr("Trait en pointillés", "conductor style: dashed line"), QPen(Qt::DashLine));
-	ui -> m_line_style_cb -> addItem(tr("Traits et points", "conductor style: dashed and dotted line"), QPen(Qt::DashDotLine));
+	ui -> m_line_style_cb -> addItem(tr("Solid line", "conductor style: solid line"), QPen(Qt::SolidLine));
+	ui -> m_line_style_cb -> addItem(tr("Dashed line", "conductor style: dashed line"), QPen(Qt::DashLine));
+	ui -> m_line_style_cb -> addItem(tr("Dots and dashes", "conductor style: dashed and dotted line"), QPen(Qt::DashDotLine));
 
 	ui -> m_update_preview_pb -> setHidden(true);
 
@@ -317,7 +317,7 @@ void ConductorPropertiesWidget::on_m_neutral_cb_toggled(bool checked) {
 	@brief ConductorPropertiesWidget::on_m_update_preview_pb_clicked
 	Update the preview of single line.
 	m_update_preview_pb is a no used button and hidden, his role is only
-	to centralize signal from various widget to edit single ligne properties,
+	to centralize signal from various widget to edit single line properties,
 	for update the preview
 */
 void ConductorPropertiesWidget::on_m_update_preview_pb_clicked()

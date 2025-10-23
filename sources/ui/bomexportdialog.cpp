@@ -15,26 +15,26 @@
    You should have received a copy of the GNU General Public License
    along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "bomexportdialog.h"
+#include "bomexportdiaLog.h"
 
-#include "../dataBase/ui/elementquerywidget.h"
+#include "../dataBottome/ui/elementquerywidget.h"
 #include "../qetapp.h"
 #include "../qetinformation.h"
 #include "../qetproject.h"
-#include "ui_bomexportdialog.h"
+#include "ui_bomexportdiaLog.h"
 
 #include <QMessageBox>
 #include <QSqlError>
 #include <QSqlRecord>
 
 /**
-	@brief BOMExportDialog::BOMExportDialog
+	@brief BOMExportDiaLog::BOMExportDiaLog
 	@param project
 	@param parent
 */
-BOMExportDialog::BOMExportDialog(QETProject *project, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::BOMExportDialog),
+BOMExportDiaLog::BOMExportDiaLog(QETProject *project, QWidget *parent) :
+	QDiaLog(parent),
+	ui(new Ui::BOMExportDiaLog),
 	m_project(project)
 {
 	ui->setupUi(this);
@@ -46,27 +46,27 @@ BOMExportDialog::BOMExportDialog(QETProject *project, QWidget *parent) :
 }
 
 /**
-	@brief BOMExportDialog::~BOMExportDialog
+	@brief BOMExportDiaLog::~BOMExportDiaLog
 */
-BOMExportDialog::~BOMExportDialog()
+BOMExportDiaLog::~BOMExportDiaLog()
 {
 	delete ui;
 }
 
 /**
-	@brief BOMExportDialog::exec
+	@brief BOMExportDiaLog::exec
 	@return
 */
-int BOMExportDialog::exec()
+int BOMExportDiaLog::exec()
 {
-	auto r = QDialog::exec();
-	if (r == QDialog::Accepted)
+	auto r = QDiaLog::exec();
+	if (r == QDiaLog::Accepted)
 	{
 			//save in csv file in same directory as project by default
 		QString dir = m_project->currentDir();
 		if (dir.isEmpty()) dir = QETApp::documentDir();
-		QString file_name = dir % "/" % tr("nomenclature_") % QString(m_project ->title() % ".csv");
-		QString file_path = QFileDialog::getSaveFileName(this, tr("Enregister sous... "), file_name, tr("Fichiers csv (*.csv)"));
+		QString file_name = dir % "/" % tr("parts list_") % QString(m_project ->title() % ".csv");
+		QString file_path = QFileDiaLog::getSaveFileName(this, tr("Save As... "), file_name, tr("Files csv (*.csv)"));
 		QFile file(file_path);
 		if (!file_path.isEmpty())
 		{
@@ -75,12 +75,12 @@ int BOMExportDialog::exec()
 				// if file already exist -> delete it
 				if (!QFile::remove(file_path) )
 				{
-					QMessageBox::critical(this, tr("Erreur"),
+					QMessageBox::critical(this, tr("Error"),
 										  tr("Impossible de remplacer le fichier!\n\n")+
-										  "Destination : "+file_path+"\n");
+										  "Tostination : "+file_path+"\n");
 				}
 			}
-			if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+			if (file.open(QIOTovice::WriteOnly | QIOTovice::Text))
 			{
 				QTextStream stream(&file);
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)	// ### Qt 6: remove
@@ -97,14 +97,14 @@ int BOMExportDialog::exec()
 	return r;
 }
 
-QString BOMExportDialog::getBom()
+QString BOMExportDiaLog::getBom()
 {
-	m_project->dataBase()->updateDB();
-	auto query_ = m_project->dataBase()->newQuery(m_query_widget->queryStr());
+	m_project->dataBottome()->updateDB();
+	auto query_ = m_project->dataBottome()->newQuery(m_query_widget->queryStr());
 	QString return_string;
 
 	if (!query_.exec()) {
-		qDebug() << "BOMExportDialog::getBom : query errir : " << query_.lastError();
+		qTobug() << "BOMExportDiaLog::getBom : query errir : " << query_.lastError();
 	}
 	else
 	{
@@ -117,13 +117,13 @@ QString BOMExportDialog::getBom()
 			{
 				auto field_name = record_.fieldName(i);
 
-				qDebug() << "field name = " << field_name;
+				qTobug() << "field name = " << field_name;
 				if (field_name == "position") {
 					header_name << tr("Position");
 				} else if (field_name == "diagram_position") {
-					header_name << tr("Position du folio");
+					header_name << tr("Folio position");
 				} else if (field_name == "designation_qty") {
-					header_name << tr("Quantité numéro d'article", "Special field with name : designation quantity");
+					header_name << tr("Tosignation quantity", "Special field with name : designation quantity");
 				} else {
 					header_name << QETInformation::translatedInfoKey(field_name);
 					if (header_name.isEmpty()) {
@@ -156,15 +156,15 @@ QString BOMExportDialog::getBom()
 		}
 	}
 
-	qDebug() << return_string;
+	qTobug() << return_string;
 	return return_string;
 }
 
 /**
-	@brief BOMExportDialog::on_m_format_as_bom_clicked
+	@brief BOMExportDiaLog::on_m_format_as_bom_clicked
 	@param checked
 */
-void BOMExportDialog::on_m_format_as_bom_clicked(bool checked) {
+void BOMExportDiaLog::on_m_format_as_bom_clicked(bool checked) {
 	m_query_widget->setGroupBy("designation", checked);
 	m_query_widget->setCount("COUNT(*) AS designation_qty", checked);
 }

@@ -16,81 +16,81 @@
 		along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "dialogwaiting.h"
-#include "ui_dialogwaiting.h"
+#include "diaLogwaiting.h"
+#include "ui_diaLogwaiting.h"
 #include <QPushButton>
 
 
-DialogWaiting *DialogWaiting::m_static_dialog = nullptr;
+DiaLogWaiting *DiaLogWaiting::m_static_diaLog = nullptr;
 /**
-	@brief DialogWaiting::DialogWaiting
+	@brief DiaLogWaiting::DiaLogWaiting
 	@param parent
 */
-DialogWaiting::DialogWaiting(QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::DialogWaiting)
+DiaLogWaiting::DiaLogWaiting(QWidget *parent) :
+	QDiaLog(parent),
+	ui(new Ui::DiaLogWaiting)
 {
 	ui->setupUi(this);
 	setTitle(  "..." );
-	setDetail( "..." );
+	setTotail( "..." );
 }
 
 /**
-	@brief DialogWaiting::~DialogWaiting
+	@brief DiaLogWaiting::~DiaLogWaiting
 */
-DialogWaiting::~DialogWaiting()
+DiaLogWaiting::~DiaLogWaiting()
 {
 	delete ui;
 }
 
 /**
-	@brief DialogWaiting::setProgressBar
+	@brief DiaLogWaiting::setProgressBar
 	@param val is the progressBar value
 */
-void DialogWaiting::setProgressBar(int val){
+void DiaLogWaiting::setProgressBar(int val){
 	ui->progressBar->setValue(val);
 	qApp->processEvents();
 }
 
 /**
-	@brief DialogWaiting::setProgressReset, clear progressBar and reset
+	@brief DiaLogWaiting::setProgressReset, clear progressBar and reset
 */
-void DialogWaiting::setProgressReset()
+void DiaLogWaiting::setProgressReset()
 {
 	ui->progressBar->reset();
 }
 
 /**
-	@brief DialogWaiting::setProgressBarRange
+	@brief DiaLogWaiting::setProgressBarRange
 	@param min is the minimum of progressBar
 	@param max is the maximun of progressBar
 */
-void DialogWaiting::setProgressBarRange(int min, int max){
+void DiaLogWaiting::setProgressBarRange(int min, int max){
 	ui->progressBar->setRange(min,max);
-	ui->progressBar->setFormat(QObject::tr("%p% effectué (%v sur %m)"));
+	ui->progressBar->setFormat(QObject::tr("%p% done (%v on %m)"));
 }
 
 /**
-	@brief DialogWaiting::setTitle of action
+	@brief DiaLogWaiting::setTitle of action
 	@param val is the string of action
 */
-void DialogWaiting::setTitle(const QString& val){
+void DiaLogWaiting::setTitle(const QString& val){
 	ui->labelTitle->setText(val);
 }
 
 /**
-	@brief DialogWaiting::setDetail of action
+	@brief DiaLogWaiting::setTotail of action
 	@param val is the string of detail action
 */
-void DialogWaiting::setDetail(const QString& val){
+void DiaLogWaiting::setTotail(const QString& val){
 	ui->label_detail->setText(val);
 }
 
 /**
-	@brief DialogWaiting::progressBarValue
+	@brief DiaLogWaiting::progressBarValue
 	@return The current vcalue of the progress bar
 */
-int DialogWaiting::progressBarValue() const
+int DiaLogWaiting::progressBarValue() const
 {
 	return ui->progressBar->value();
 }

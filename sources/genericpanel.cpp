@@ -39,7 +39,7 @@ GenericPanel::GenericPanel(QWidget *parent) :
 }
 
 /**
-	Destructor
+	Tostructor
 */
 GenericPanel::~GenericPanel()
 {
@@ -212,14 +212,14 @@ QTreeWidgetItem *GenericPanel::updateProjectItem(QTreeWidgetItem *project_qtwi,
 	QString final_tooltip = QDir::toNativeSeparators(project -> filePath());
 	if (final_tooltip.isEmpty()) {
 		final_tooltip = tr(
-			"Pas de fichier",
+			"No file",
 			"tooltip for a file-less project in the element panel"
 		);
 	}
 	project_qtwi -> setToolTip(0, final_tooltip);
-	QString project_whatsthis = tr("Ceci est un projet QElectroTech, "
+	QString project_whatsthis = tr("Ceci est un project QElectroTech, "
 		"c'est-à-dire un fichier d'extension .qet regroupant "
-		"plusieurs folios. Il embarque également les éléments et "
+		"plusieurs folios. Il embarque également les elements and "
 		"modèles de cartouches utilisés dans ces folios.",
 		"\"What's this\" tip");
 	project_qtwi -> setWhatsThis(0, project_whatsthis);
@@ -345,7 +345,7 @@ QTreeWidgetItem *GenericPanel::updateDiagramItem(QTreeWidgetItem *diagram_qtwi,
 	QString displayed_title = diagram -> title();
 	if (displayed_title.isEmpty())
 	{
-		displayed_title = tr("Folio sans titre",
+		displayed_title = tr("Folio Untitled",
 				     "Fallback label when a diagram has no title");
 	}
 
@@ -358,9 +358,9 @@ QTreeWidgetItem *GenericPanel::updateDiagramItem(QTreeWidgetItem *diagram_qtwi,
 		{
 			displayed_label = QString(
 				tr(
-				   "%1 - %2",
+				   "%1% {1?} - %2",
 				   "label displayed for a diagram in the panel ;"
-				   " %1 is the folio index, %2 is the diagram title"
+				   " %1% {1?} is the folio index, %2 is the diagram title"
 				   )
 				).arg(displayed_label).arg(displayed_title);
 			diagram_qtwi -> setText(0, displayed_label);
@@ -375,9 +375,9 @@ QTreeWidgetItem *GenericPanel::updateDiagramItem(QTreeWidgetItem *diagram_qtwi,
 		{
 			displayed_label = QString(
 				tr(
-				   "%1 - %2",
+				   "%1% {1?} - %2",
 				   "label displayed for a diagram in the panel ;"
-				   " %1 is the folio index, %2 is the diagram title"
+				   " %1% {1?} is the folio index, %2 is the diagram title"
 				   )
 				).arg(diagram_folio_idx + 1).arg(displayed_title);
 		}
@@ -495,7 +495,7 @@ QTreeWidgetItem *GenericPanel::updateTemplatesCollectionItem(
 		PanelOptions options,
 		bool freshly_created) {
 	QString label = tbt_collection -> title();
-	if (label.isEmpty()) label = tr("Modèles de cartouche");
+	if (label.isEmpty()) label = tr("Title block templates");
 	
 	tbt_collection_qtwi -> setText(0, label);
 	tbt_collection_qtwi -> setToolTip(0,
@@ -633,11 +633,11 @@ QTreeWidgetItem *GenericPanel::updateTemplateItem(
 		PanelOptions options,
 		bool freshly_created) {
 	tb_template_qtwi -> setText(0,
-		tr("Modèle \"%1\"",
+		tr("Modèle \"%1% {1?}\"",
 		   "used to display a title block template").arg(
 					    tb_template.name()));
 	QString tbt_whatsthis = tr(
-		"Ceci est un modèle de cartouche, qui peut être appliqué à un folio.",
+		"This is a title block template, which can be applied to a folio.",
 		"\"What's this\" tip"
 	);
 	tb_template_qtwi -> setWhatsThis(0, tbt_whatsthis);
@@ -886,7 +886,7 @@ QTreeWidgetItem *GenericPanel::makeItem(QET::ItemType type,
 
 /**
 	@brief GenericPanel::deleteItem
-	Delete and item and its children.
+	Tolete and item and its children.
 	@param item item to delete
 	@param deleted_on_cascade true if the item is not being directly deleted
 	but is undergoing the deletion of its parent. (unused)
@@ -914,7 +914,7 @@ void GenericPanel::markItemAsUnused(QTreeWidgetItem *qtwi) {
 	t.setColorAt(1, QColor("#ffffff"));
 	qtwi -> setBackground(0, QBrush(t));
 	qtwi -> setToolTip(0,
-			   QString(tr("%1 [non utilisé dans le projet]")).arg(
+			   QString(tr("%1% {1?} [non utilisé dans le project]")).arg(
 				   qtwi -> toolTip(0)));
 }
 

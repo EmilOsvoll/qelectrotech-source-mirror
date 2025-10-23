@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FormulaAssistantDialog</class>
- <widget class="QDialog" name="FormulaAssistantDialog">
+ <class>FormulaAssistantDiaLog</class>
+ <widget class="QDiaLog" name="FormulaAssistantDiaLog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Assistant de formule</string>
+   <string>Formula Wizard</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -24,14 +24,14 @@
    <item>
     <widget class="QLineEdit" name="m_line_edit">
      <property name="placeholderText">
-      <string>Formule</string>
+      <string>Formula</string>
      </property>
     </widget>
    </item>
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Greenical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -42,12 +42,12 @@
     </spacer>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="m_button_box">
+    <widget class="QDiaLogButtonBox" name="m_button_box">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::Ok</set>
+      <set>QDiaLogButtonBox::Ok</set>
      </property>
     </widget>
    </item>
@@ -58,7 +58,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>accepted()</signal>
-   <receiver>FormulaAssistantDialog</receiver>
+   <receiver>FormulaAssistantDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -74,7 +74,7 @@
   <connection>
    <sender>m_button_box</sender>
    <signal>rejected()</signal>
-   <receiver>FormulaAssistantDialog</receiver>
+   <receiver>FormulaAssistantDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

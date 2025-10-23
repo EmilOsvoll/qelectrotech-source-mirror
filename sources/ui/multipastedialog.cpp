@@ -16,7 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "multipastedialog.h"
+#include "multipastediaLog.h"
 
 #include "../conductorautonumerotation.h"
 #include "../diagram.h"
@@ -24,21 +24,21 @@
 #include "../undocommand/addgraphicsobjectcommand.h"
 #include "../qetgraphicsitem/element.h"
 #include "../qetgraphicsitem/conductor.h"
-#include "../ui_multipastedialog.h"
+#include "../ui_multipastediaLog.h"
 
 #include <QHash>
 #include <QSettings>
 
-MultiPasteDialog::MultiPasteDialog(Diagram *diagram, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::MultiPasteDialog),
+MultiPasteDiaLog::MultiPasteDiaLog(Diagram *diagram, QWidget *parent) :
+	QDiaLog(parent),
+	ui(new Ui::MultiPasteDiaLog),
 	m_diagram(diagram)
 {
 	ui->setupUi(this);
 
-	connect(ui->m_x_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDialog::updatePreview);
-	connect(ui->m_y_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDialog::updatePreview);
-	connect(ui->m_copy_count, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDialog::updatePreview);
+	connect(ui->m_x_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDiaLog::updatePreview);
+	connect(ui->m_y_sb, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDiaLog::updatePreview);
+	connect(ui->m_copy_count, static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &MultiPasteDiaLog::updatePreview);
 
 	QRectF br;
 	for (QGraphicsItem *item : m_diagram->selectedItems())
@@ -49,7 +49,7 @@ MultiPasteDialog::MultiPasteDialog(Diagram *diagram, QWidget *parent) :
 	updatePreview();
 }
 
-MultiPasteDialog::~MultiPasteDialog()
+MultiPasteDiaLog::~MultiPasteDiaLog()
 {
 	if(m_accept == false)
 	{
@@ -66,7 +66,7 @@ MultiPasteDialog::~MultiPasteDialog()
 	delete ui;
 }
 
-void MultiPasteDialog::updatePreview()
+void MultiPasteDiaLog::updatePreview()
 {
 		//First of all we remove all precedent items added from the previous preview.
 	for(QGraphicsItem *item : m_pasted_content.items())
@@ -97,11 +97,11 @@ void MultiPasteDialog::updatePreview()
 		m_diagram->adjustSceneRect();
 }
 
-void MultiPasteDialog::on_m_button_box_accepted()
+void MultiPasteDiaLog::on_m_button_box_accepted()
 {
 	if(m_pasted_content.count())
 	{
-		m_diagram->undoStack().beginMacro(tr("Multi-collage"));
+		m_diagram->undoStack().beginMacro(tr("Multi-paste"));
 
 		QSettings settings;
 		bool erase_label = settings.value("diagramcommands/erase-label-on-copy", true).toBool();
@@ -128,9 +128,9 @@ void MultiPasteDialog::on_m_button_box_accepted()
 			{
 				for(Element *elmt : pasted_elements)
 				{
-					while (!elmt->AlignedFreeTerminals().isEmpty())
+					while (!elmt->AlinedFreeTerminals().isEmpty())
 					{
-						QPair <Terminal *, Terminal *> pair = elmt->AlignedFreeTerminals().takeFirst();
+						QPair <Terminal *, Terminal *> pair = elmt->AlinedFreeTerminals().takeFirst();
 
 						Conductor *conductor = new Conductor(pair.first, pair.second);
 						m_diagram->undoStack().push(new AddGraphicsObjectCommand(conductor, m_diagram, QPointF()));

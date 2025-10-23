@@ -23,7 +23,7 @@
 #include "diagram.h"
 #include "qet.h"
 #include "qetdiagrameditor.h"
-#include "ui/potentialselectordialog.h"
+#include "ui/potentialselectordiaLog.h"
 
 /**
 	@brief ConductorAutoNumerotation::ConductorAutoNumerotation
@@ -100,7 +100,7 @@ void ConductorAutoNumerotation::applyText(const QString& t)
 					undo);
 		undo->setText(
 			QObject::tr(
-				"Modifier les propriétés d'un conducteur",
+				"Edit conductor properties",
 				"undo caption"));
 	}
 
@@ -109,7 +109,7 @@ void ConductorAutoNumerotation::applyText(const QString& t)
 		if (!m_parent_undo)
 			undo->setText(
 				QObject::tr(
-					"Modifier les propriétés de plusieurs conducteurs",
+					"Edit the properties of several conductors",
 					"undo caption"));
 
 		foreach (Conductor *cond, conductor_list)
@@ -206,7 +206,7 @@ void ConductorAutoNumerotation::numeratePotential()
 		//the texts isn't identicals
 	else
 	{
-		PotentialSelectorDialog psd(
+		PotentialSelectorDiaLog psd(
 					m_conductor,
 					m_parent_undo,
 					m_conductor->diagramEditor());

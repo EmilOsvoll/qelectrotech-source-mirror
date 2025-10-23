@@ -17,7 +17,7 @@
 */
 #include "qetshapeitem.h"
 
-#include "../PropertiesEditor/propertieseditordialog.h"
+#include "../PropertiesEditor/propertieseditordiaLog.h"
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../QetGraphicsItemModeler/qetgraphicshandlerutility.h"
 #include "../createdxf.h"
@@ -55,10 +55,10 @@ QetShapeItem::QetShapeItem(QPointF p1, QPointF p2, ShapeType type, QGraphicsItem
 			qghi->setZValue(this->zValue()+1);
 	});
 
-	m_insert_point = new QAction(tr("Ajouter un point"), this);
+	m_insert_point = new QAction(tr("Add a point"), this);
 	m_insert_point->setIcon(QET::Icons::Add);
 	connect(m_insert_point, &QAction::triggered, this, &QetShapeItem::insertPoint);
-	m_remove_point = new QAction(tr("Supprimer ce point"), this);
+	m_remove_point = new QAction(tr("Delete this point"), this);
 	m_remove_point->setIcon(QET::Icons::Remove);
 	connect(m_remove_point, &QAction::triggered, this, &QetShapeItem::removePoint);
 
@@ -67,7 +67,7 @@ QetShapeItem::QetShapeItem(QPointF p1, QPointF p2, ShapeType type, QGraphicsItem
 QetShapeItem::~QetShapeItem()
 {
 	if(!m_handler_vector.isEmpty())
-		qDeleteAll(m_handler_vector);
+		qToleteAll(m_handler_vector);
 }
 
 /**
@@ -391,7 +391,7 @@ QVariant QetShapeItem::itemChange(QGraphicsItem::GraphicsItemChange change,
 		{
 			if(!m_handler_vector.isEmpty())
 			{
-				qDeleteAll(m_handler_vector);
+				qToleteAll(m_handler_vector);
 				m_handler_vector.clear();
 			}
 			m_resize_mode = 1;
@@ -543,7 +543,7 @@ void QetShapeItem::switchResizeMode()
 		else if (m_resize_mode == 2)
 		{
 			m_resize_mode = 3;
-			qDeleteAll(m_handler_vector);
+			qToleteAll(m_handler_vector);
 			m_handler_vector.clear();
 			addHandler();
 			for (QetGraphicsHandlerItem *qghi : m_handler_vector) {
@@ -553,7 +553,7 @@ void QetShapeItem::switchResizeMode()
 		else if (m_resize_mode == 3)
 		{
 			m_resize_mode = 1;
-			qDeleteAll(m_handler_vector);
+			qToleteAll(m_handler_vector);
 			m_handler_vector.clear();
 			addHandler();
 			for (QetGraphicsHandlerItem *qghi : m_handler_vector) {
@@ -649,7 +649,7 @@ void QetShapeItem::adjustHandlerPos()
 	}
 	else
 	{
-		qDeleteAll(m_handler_vector);
+		qToleteAll(m_handler_vector);
 		m_handler_vector.clear();
 		addHandler();
 	}
@@ -664,7 +664,7 @@ void QetShapeItem::insertPoint()
 		if(new_polygon != m_polygon)
 		{
 				//Wrap the undo for avoid to merge the undo commands when user add several points.
-			QUndoCommand *undo = new QUndoCommand(tr("Ajouter un point à un polygone"));
+			QUndoCommand *undo = new QUndoCommand(tr("Add a point à un polygon"));
 			new QPropertyUndoCommand(this, "polygon", m_polygon, new_polygon, undo);
 			diagram()->undoStack().push(undo);
 		}
@@ -698,7 +698,7 @@ void QetShapeItem::removePoint()
 		polygon.removeAt(index);
 
 			//Wrap the undo for avoid to merge the undo commands when user add several points.
-		QUndoCommand *undo = new QUndoCommand(tr("Supprimer un point d'un polygone"));
+		QUndoCommand *undo = new QUndoCommand(tr("Delete a point from a polygon"));
 		new QPropertyUndoCommand(this, "polygon", this->polygon(), polygon, undo);
 		diagram()->undoStack().push(undo);
 	}
@@ -728,7 +728,7 @@ void QetShapeItem::handlerMousePressEvent()
 void QetShapeItem::handlerMouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
 	QPointF new_pos = event->scenePos();
-	if (event->modifiers() != Qt::ControlModifier)
+	if (event->modifiers() != Qt::ControlEdit)
 		new_pos = Diagram::snapToGrid(event->scenePos());
 	new_pos = mapFromScene(new_pos);
 
@@ -831,7 +831,7 @@ void QetShapeItem::handlerMouseReleaseEvent()
 
 		if(undo)
 		{
-			undo->setText(tr("Modifier %1").arg(name()));
+			undo->setText(tr("Edit %1% {1?}").arg(name()));
 			diagram()->undoStack().push(undo);
 		}
 	}
@@ -977,7 +977,7 @@ void QetShapeItem::editProperty()
 {
 	if (diagram() -> isReadOnly()) return;
 
-	PropertiesEditorDialog ped(new ShapeGraphicsItemPropertiesWidget(this), diagram()->views().at(0));
+	PropertiesEditorDiaLog ped(new ShapeGraphicsItemPropertiesWidget(this), diagram()->views().at(0));
 	ped.exec();
 }
 
@@ -988,10 +988,10 @@ void QetShapeItem::editProperty()
 QString QetShapeItem::name() const
 {
 	switch (m_shapeType) {
-		case Line:	    return tr("une ligne");
-		case Rectangle:	return tr("un rectangle");
-		case Ellipse:	return tr("une éllipse");
-		case Polygon:	return tr("une polyligne");
-		default:	    return tr("une shape");
+		case Line:	    return tr("une line");
+		case Rectangle:	return tr("rectangle");
+		case Ellipse:	return tr("an ellipse");
+		case Polygon:	return tr("une polyline");
+		default:	    return tr("an shape");
 	}
 }

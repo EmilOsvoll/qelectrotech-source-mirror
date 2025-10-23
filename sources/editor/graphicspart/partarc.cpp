@@ -37,7 +37,7 @@ PartArc::PartArc(QETElementEditor *editor, QGraphicsItem *parent) :
 
 /**
 	@brief PartArc::~PartArc
-	Destructor
+	Tostructor
 */
 PartArc::~PartArc()
 {
@@ -61,7 +61,7 @@ void PartArc::paint(QPainter *painter, const QStyleOptionGraphicsItem *options, 
 		//Always remove the brush
 	painter -> setBrush(Qt::NoBrush);
 	QPen t = painter -> pen();
-	t.setCosmetic(options && options -> levelOfDetailFromTransform(painter->worldTransform()) < 1.0);
+	t.setCosmetic(options && options -> levelOfTotailFromTransform(painter->worldTransform()) < 1.0);
 	painter -> setPen(t);
 
 	if (isSelected())
@@ -107,13 +107,13 @@ const QDomElement PartArc::toXml(QDomDocument &xml_document) const
 	qreal s = qRound(m_start_angle   * 100.0) / 100.0;
 	qreal a = qRound(m_span_angle    * 100.0) / 100.0;
 
-	xml_element.setAttribute("x", QString("%1").arg(x));
-	xml_element.setAttribute("y", QString("%1").arg(y));
-	xml_element.setAttribute("width",  QString("%1").arg(w));
-	xml_element.setAttribute("height", QString("%1").arg(h));
+	xml_element.setAttribute("x", QString("%1% {1?}").arg(x));
+	xml_element.setAttribute("y", QString("%1% {1?}").arg(y));
+	xml_element.setAttribute("width",  QString("%1% {1?}").arg(w));
+	xml_element.setAttribute("height", QString("%1% {1?}").arg(h));
 		//to maintain compatibility with the previous version, we write the angle in degrees.
-	xml_element.setAttribute("start", QString("%1").arg(s / 16));
-	xml_element.setAttribute("angle", QString("%1").arg(a / 16));
+	xml_element.setAttribute("start", QString("%1% {1?}").arg(s / 16));
+	xml_element.setAttribute("angle", QString("%1% {1?}").arg(a / 16));
 	stylesToXml(xml_element);
 	return(xml_element);
 }
@@ -388,24 +388,24 @@ void PartArc::handlerMousePressEvent(QetGraphicsHandlerItem *qghi, QGraphicsScen
 			m_span_point = QetGraphicsHandlerUtility::pointsForArc(m_rect, m_start_angle/16, m_span_angle/16).at(1);
 
 			m_undo_command = new QPropertyUndoCommand(this, "startAngle", QVariant(m_start_angle));
-			m_undo_command->setText(tr("Modifier un arc"));
+			m_undo_command->setText(tr("Edit an arc"));
 			m_undo_command->enableAnimation();
 
 			m_undo_command2 = new QPropertyUndoCommand(this, "spanAngle", QVariant(m_span_angle), m_undo_command);
-			m_undo_command2->setText(tr("Modifier un arc"));
+			m_undo_command2->setText(tr("Edit an arc"));
 			m_undo_command2->enableAnimation();
 		}
 		else if (m_vector_index == 1)
 		{
 			m_undo_command = new QPropertyUndoCommand(this, "spanAngle", QVariant(m_span_angle));
-			m_undo_command->setText(tr("Modifier un arc"));
+			m_undo_command->setText(tr("Edit an arc"));
 			m_undo_command->enableAnimation();
 		}
 	}
 	else //resize rect
 	{
 		m_undo_command = new QPropertyUndoCommand(this, "rect", QVariant(m_rect));
-		m_undo_command->setText(tr("Modifier un arc"));
+		m_undo_command->setText(tr("Edit an arc"));
 		m_undo_command->enableAnimation();
 	}
 }
@@ -420,7 +420,7 @@ void PartArc::handlerMouseMoveEvent(QetGraphicsHandlerItem *qghi, QGraphicsScene
 	Q_UNUSED(qghi)
 
 	QPointF new_pos = event->scenePos();
-	if (event->modifiers() != Qt::ControlModifier)
+	if (event->modifiers() != Qt::ControlEdit)
 		new_pos = elementScene()->snapToGrid(event->scenePos());
 	new_pos = mapFromScene(new_pos);
 
@@ -524,7 +524,7 @@ void PartArc::removeHandler()
 {
 	if (!m_handler_vector.isEmpty())
 	{
-		qDeleteAll(m_handler_vector);
+		qToleteAll(m_handler_vector);
 		m_handler_vector.clear();
 	}
 }

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Gestionnaire de borniers</string>
+   <string>Terminal manager</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -19,9 +19,9 @@
      <widget class="QStackedWidget" name="m_stacked_widget"/>
     </item>
     <item>
-     <widget class="QDialogButtonBox" name="m_button_box">
+     <widget class="QDiaLogButtonBox" name="m_button_box">
       <property name="standardButtons">
-       <set>QDialogButtonBox::Apply|QDialogButtonBox::Reset</set>
+       <set>QDiaLogButtonBox::Apply|QDiaLogButtonBox::Reset</set>
       </property>
      </widget>
     </item>
@@ -58,10 +58,10 @@
      <normaloff>:/ico/16x16/list-add.png</normaloff>:/ico/16x16/list-add.png</iconset>
    </property>
    <property name="text">
-    <string>Ajouter un bornier</string>
+    <string>Add un bornier</string>
    </property>
    <property name="toolTip">
-    <string>Ajouter un bornier au projet</string>
+    <string>Add un bornier au project</string>
    </property>
   </action>
   <action name="m_remove_terminal">
@@ -70,10 +70,10 @@
      <normaloff>:/ico/16x16/list-remove.png</normaloff>:/ico/16x16/list-remove.png</iconset>
    </property>
    <property name="text">
-    <string>Supprimer le bornier</string>
+    <string>Delete le bornier</string>
    </property>
    <property name="toolTip">
-    <string>Supprimer le bornier du projet</string>
+    <string>Delete le bornier du project</string>
    </property>
   </action>
   <action name="m_reload">
@@ -82,10 +82,10 @@
      <normaloff>:/ico/16x16/view-refresh.png</normaloff>:/ico/16x16/view-refresh.png</iconset>
    </property>
    <property name="text">
-    <string>Recharger</string>
+    <string>Reload</string>
    </property>
    <property name="toolTip">
-    <string>Recharger les borniers</string>
+    <string>Reload les borniers</string>
    </property>
   </action>
  </widget>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QElectroTech - Éditeur d'élément</string>
+   <string>QElectroTech - Element Editor</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../../../qelectrotech.qrc">
@@ -30,7 +30,7 @@
    </property>
    <widget class="QMenu" name="m_file_menu">
     <property name="title">
-     <string>&amp;Fichier</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="m_new_action"/>
     <addaction name="m_open_action"/>
@@ -47,11 +47,11 @@
    </widget>
    <widget class="QMenu" name="m_edit_menu">
     <property name="title">
-     <string>&amp;Édition</string>
+     <string>&amp;Edit</string>
     </property>
     <widget class="QMenu" name="m_paste_from_menu">
      <property name="title">
-      <string>Coller depuis...</string>
+      <string>Paste from...</string>
      </property>
      <property name="icon">
       <iconset resource="../../../qelectrotech.qrc">
@@ -77,7 +77,7 @@
     <addaction name="m_edit_author_action"/>
     <addaction name="m_edit_element_properties_action"/>
     <addaction name="m_rotate_action"/>
-    <addaction name="m_rotateFine_action"/>
+    <addaction name="m_rotateThin_action"/>
     <addaction name="m_mirror_action"/>
     <addaction name="m_flip_action"/>
    </widget>
@@ -112,7 +112,7 @@
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
    </property>
    <property name="windowTitle">
-    <string>Annulations</string>
+    <string>Undo</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
@@ -124,7 +124,7 @@
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
    </property>
    <property name="windowTitle">
-    <string>Parties</string>
+    <string>Parts</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
@@ -145,7 +145,7 @@
   </widget>
   <widget class="QToolBar" name="m_main_toolbar">
    <property name="windowTitle">
-    <string>Outils</string>
+    <string>Tools</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -162,7 +162,7 @@
   </widget>
   <widget class="QToolBar" name="m_view_toolbar">
    <property name="windowTitle">
-    <string>Affichage</string>
+    <string>Display</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -177,7 +177,7 @@
   </widget>
   <widget class="QToolBar" name="m_element_toolbar">
    <property name="windowTitle">
-    <string>Élément</string>
+    <string>Element</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -190,7 +190,7 @@
   </widget>
   <widget class="QToolBar" name="m_undo_toolbar">
    <property name="windowTitle">
-    <string>Annulation</string>
+    <string>Cancellation</string>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -205,7 +205,7 @@
      <normaloff>:/ico/16x16/edit-select-all.png</normaloff>:/ico/16x16/edit-select-all.png</iconset>
    </property>
    <property name="text">
-    <string>Tout sélectionner</string>
+    <string>Select All</string>
    </property>
   </action>
   <action name="m_new_action">
@@ -232,7 +232,7 @@
      <normaloff>:/ico/22x22/folder-open.png</normaloff>:/ico/22x22/folder-open.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Ouvrir depuis un fichier</string>
+    <string>&amp;Open from a file</string>
    </property>
   </action>
   <action name="m_save_action">
@@ -250,7 +250,7 @@
      <normaloff>:/ico/22x22/document-save-as.png</normaloff>:/ico/22x22/document-save-as.png</iconset>
    </property>
    <property name="text">
-    <string>Enregistrer sous</string>
+    <string>Save as</string>
    </property>
   </action>
   <action name="m_save_as_file_action">
@@ -259,7 +259,7 @@
      <normaloff>:/ico/22x22/document-save.png</normaloff>:/ico/22x22/document-save.png</iconset>
    </property>
    <property name="text">
-    <string>Enregistrer dans un fichier</string>
+    <string>Save to a file</string>
    </property>
   </action>
   <action name="m_reload_action">
@@ -268,7 +268,7 @@
      <normaloff>:/ico/22x22/view-refresh.png</normaloff>:/ico/22x22/view-refresh.png</iconset>
    </property>
    <property name="text">
-    <string>Recharger</string>
+    <string>Reload</string>
    </property>
   </action>
   <action name="m_quit_action">
@@ -277,10 +277,10 @@
      <normaloff>:/ico/16x16/application-exit.png</normaloff>:/ico/16x16/application-exit.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Fermer cet éditeur</string>
+    <string>&amp;Close this editor</string>
    </property>
    <property name="toolTip">
-    <string>Fermer cet éditeur</string>
+    <string>Close this editor</string>
    </property>
   </action>
   <action name="m_deselect_all_action">
@@ -289,7 +289,7 @@
      <normaloff>:/ico/16x16/edit-select-none.png</normaloff>:/ico/16x16/edit-select-none.png</iconset>
    </property>
    <property name="text">
-    <string>Désélectionner tout</string>
+    <string>Select none</string>
    </property>
   </action>
   <action name="m_cut_action">
@@ -334,7 +334,7 @@
      <normaloff>:/ico/16x16/text-xml.png</normaloff>:/ico/16x16/text-xml.png</iconset>
    </property>
    <property name="text">
-    <string>Un fichier</string>
+    <string>A file</string>
    </property>
   </action>
   <action name="m_paste_from_element_action">
@@ -343,7 +343,7 @@
      <normaloff>:/ico/16x16/element.png</normaloff>:/ico/16x16/element.png</iconset>
    </property>
    <property name="text">
-    <string>Un élément</string>
+    <string>An element</string>
    </property>
   </action>
   <action name="m_revert_selection_action">
@@ -352,7 +352,7 @@
      <normaloff>:/ico/16x16/edit-select-invert.png</normaloff>:/ico/16x16/edit-select-invert.png</iconset>
    </property>
    <property name="text">
-    <string>Inverser la sélection</string>
+    <string>Invert selection</string>
    </property>
   </action>
   <action name="m_delete_action">
@@ -361,7 +361,7 @@
      <normaloff>:/ico/22x22/edit-delete.png</normaloff>:/ico/22x22/edit-delete.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Supprimer</string>
+    <string>&amp;Delete</string>
    </property>
   </action>
   <action name="m_edit_names_action">
@@ -370,7 +370,7 @@
      <normaloff>:/ico/22x22/names.png</normaloff>:/ico/22x22/names.png</iconset>
    </property>
    <property name="text">
-    <string>Éditer le nom et les traductions de l'élément</string>
+    <string>Edit le name and les traductions de l'élément</string>
    </property>
   </action>
   <action name="m_edit_author_action">
@@ -379,7 +379,7 @@
      <normaloff>:/ico/16x16/preferences-desktop-user.png</normaloff>:/ico/16x16/preferences-desktop-user.png</iconset>
    </property>
    <property name="text">
-    <string>Éditer les informations sur l'auteur</string>
+    <string>Edit les informations sur l'auteur</string>
    </property>
   </action>
   <action name="m_edit_element_properties_action">
@@ -388,7 +388,7 @@
      <normaloff>:/ico/22x22/element-edit.png</normaloff>:/ico/22x22/element-edit.png</iconset>
    </property>
    <property name="text">
-    <string>Éditer les propriétés de l'élément</string>
+    <string>Edit les propriétés de l'élément</string>
    </property>
   </action>
   <action name="m_zoom_in_action">
@@ -397,7 +397,7 @@
      <normaloff>:/ico/22x22/zoom-in.png</normaloff>:/ico/22x22/zoom-in.png</iconset>
    </property>
    <property name="text">
-    <string>Zoom avant</string>
+    <string>Zoom In</string>
    </property>
   </action>
   <action name="m_zoom_out_action">
@@ -406,7 +406,7 @@
      <normaloff>:/ico/22x22/zoom-out.png</normaloff>:/ico/22x22/zoom-out.png</iconset>
    </property>
    <property name="text">
-    <string>Zoom arrière</string>
+    <string>Zoom out</string>
    </property>
   </action>
   <action name="m_zoom_fit_best_action">
@@ -415,7 +415,7 @@
      <normaloff>:/ico/22x22/zoom-fit-best.png</normaloff>:/ico/22x22/zoom-fit-best.png</iconset>
    </property>
    <property name="text">
-    <string>Zoom adapté</string>
+    <string>Fit in view</string>
    </property>
   </action>
   <action name="m_zoom_original_action">
@@ -424,7 +424,7 @@
      <normaloff>:/ico/22x22/zoom-original.png</normaloff>:/ico/22x22/zoom-original.png</iconset>
    </property>
    <property name="text">
-    <string>Pas de zoom</string>
+    <string>Reset zoom</string>
    </property>
   </action>
   <action name="m_about_qet_action">
@@ -433,10 +433,10 @@
      <normaloff>:/ico/16x16/qet.png</normaloff>:/ico/16x16/qet.png</iconset>
    </property>
    <property name="text">
-    <string>À &amp;propos de QElectroTech</string>
+    <string>From &amp;propos de QElectroTech</string>
    </property>
    <property name="statusTip">
-    <string>Affiche des informations sur QElectroTech</string>
+    <string>Displays information about QElectroTech</string>
    </property>
   </action>
   <action name="m_online_manual">
@@ -445,10 +445,10 @@
      <normaloff>:/ico/16x16/help-contents.png</normaloff>:/ico/16x16/help-contents.png</iconset>
    </property>
    <property name="text">
-    <string>Manuel en ligne</string>
+    <string>Online manual</string>
    </property>
    <property name="statusTip">
-    <string>Lance le navigateur par défaut vers le manuel en ligne de QElectroTech</string>
+    <string>Launches the default browser to the online manual QElectroTech</string>
    </property>
   </action>
   <action name="m_youtube_action">
@@ -457,10 +457,10 @@
      <normaloff>:/ico/16x16/kdenlive-show-video.png</normaloff>:/ico/16x16/kdenlive-show-video.png</iconset>
    </property>
    <property name="text">
-    <string>Chaine Youtube</string>
+    <string>Youtube channel</string>
    </property>
    <property name="statusTip">
-    <string>Lance le navigateur par défaut vers la chaine Youtube de QElectroTech</string>
+    <string>Launches the default browser on the Youtube channel of QElectroTech</string>
    </property>
   </action>
   <action name="m_donate_action">
@@ -469,10 +469,10 @@
      <normaloff>:/ico/16x16/help-donate.png</normaloff>:/ico/16x16/help-donate.png</iconset>
    </property>
    <property name="text">
-    <string>Soutenir le projet par un don</string>
+    <string>Soutenir le project par un don</string>
    </property>
    <property name="statusTip">
-    <string>Soutenir le projet QElectroTech par un don</string>
+    <string>Soutenir le project QElectroTech par un don</string>
    </property>
   </action>
   <action name="m_about_qt_action">
@@ -481,10 +481,10 @@
      <normaloff>:/ico/16x16/qt.png</normaloff>:/ico/16x16/qt.png</iconset>
    </property>
    <property name="text">
-    <string>À propos de &amp;Qt</string>
+    <string>About de &amp;Qt</string>
    </property>
    <property name="statusTip">
-    <string>Affiche des informations sur la bibliothèque Qt</string>
+    <string>Displays information about Qt library</string>
    </property>
   </action>
   <action name="m_rotate_action">
@@ -496,13 +496,13 @@
     <string>Rotation</string>
    </property>
   </action>
-  <action name="m_rotateFine_action">
+  <action name="m_rotateThin_action">
    <property name="icon">
     <iconset resource="../../../qelectrotech.qrc">
      <normaloff>:/ico/16x16/orientations.png</normaloff>:/ico/16x16/orientations.png</iconset>
    </property>
    <property name="text">
-    <string>Fine-Rotation</string>
+    <string>Thin-Rotation</string>
    </property>
   </action>
   <action name="m_mirror_action">
@@ -529,7 +529,7 @@
      <normaloff>:/ico/16x16/run-dxf.png</normaloff>:/ico/16x16/run-dxf.png</iconset>
    </property>
    <property name="text">
-    <string>Importer un dxf</string>
+    <string>Import a dxf</string>
    </property>
   </action>
   <action name="m_import_scaled_element">
@@ -538,7 +538,7 @@
      <normaloff>:/ico/22x22/folder-open.png</normaloff>:/ico/22x22/folder-open.png</iconset>
    </property>
    <property name="text">
-    <string>importer un élément à redimensionner</string>
+    <string>Import an element to resize</string>
    </property>
   </action>
  </widget>

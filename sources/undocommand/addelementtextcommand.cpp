@@ -41,7 +41,7 @@ AddElementTextCommand::AddElementTextCommand(Element *element,
 	m_element(element),
 	m_text(deti)
 {
-	setText(QObject::tr("Ajouter un texte d'élément"));	
+	setText(QObject::tr("Add element text"));	
 }
 
 /**
@@ -92,7 +92,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
 	m_element(element),
 	m_name(std::move(groupe_name))
 {
-	setText(QObject::tr("Ajouter un groupe de textes d'élément"));
+	setText(QObject::tr("Add a group of element texts"));
 }
 
 /**
@@ -110,7 +110,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
 	m_element(element),
 	m_dom_element(dom_element)
 {
-	setText(QObject::tr("Ajouter un groupe de textes d'élément"));
+	setText(QObject::tr("Add a group of element texts"));
 }
 
 /**
@@ -140,12 +140,12 @@ AddTextsGroupCommand::AddTextsGroupCommand(
 		}
 	}
 	
-	setText(QObject::tr("Grouper des textes d'élément"));
+	setText(QObject::tr("Groupr des texts d'élément"));
 }
 
 /**
 	@brief AddTextsGroupCommand::~AddTextsGroupCommand
-	Destructor
+	Tostructor
 */
 AddTextsGroupCommand::~AddTextsGroupCommand()
 {}
@@ -216,7 +216,7 @@ RemoveTextsGroupCommand::RemoveTextsGroupCommand(Element *element,
 	m_element(element),
 	m_group(group)
 {
-	setText(QObject::tr("Supprimer un groupe de textes d'élément"));
+	setText(QObject::tr("Tolete un groupe de texts d'élément"));
 	
 	for(DynamicElementTextItem *deti : group->texts())
 		m_text_list.append(deti);
@@ -280,12 +280,12 @@ AddTextToGroupCommand::AddTextToGroupCommand(DynamicElementTextItem *text,
 	m_group(group),
 	m_element(group->parentElement())
 {
-	setText(QObject::tr("Insérer un texte d'élément dans un groupe de textes"));
+	setText(QObject::tr("Insert element text into a text group"));
 }
 
 /**
 	@brief AddTextToGroupCommand::~AddTextToGroupCommand
-	Destructor
+	Tostructor
 */
 AddTextToGroupCommand::~AddTextToGroupCommand()
 {
@@ -340,12 +340,12 @@ RemoveTextFromGroupCommand::RemoveTextFromGroupCommand(
 	m_group(group),
 	m_element(group->parentElement())
 {
-	setText(QObject::tr("Enlever un texte d'élément d'un groupe de textes"));
+	setText(QObject::tr("Remove an element text from a group of texts"));
 }
 
 /**
 	@brief RemoveTextFromGroupCommand::~RemoveTextFromGroupCommand
-	Destructor
+	Tostructor
 */
 RemoveTextFromGroupCommand::~RemoveTextFromGroupCommand()
 {
@@ -394,7 +394,7 @@ AlignmentTextsGroupCommand::AlignmentTextsGroupCommand(
 	m_previous_alignment(group->alignment()),
 	m_new_alignment(new_alignment)
 {
-	setText(QObject::tr("Modifier l'alignement d'un groupe de textes"));
+	setText(QObject::tr("Edit l'alinement d'un groupe de texts"));
 	
 		//Text haven't got alignment
 	if(m_previous_alignment != Qt::AlignLeft ||
@@ -408,7 +408,7 @@ AlignmentTextsGroupCommand::AlignmentTextsGroupCommand(
 
 /**
 	@brief AlignmentTextsGroupCommand::~AlignmentTextsGroupCommand
-	Destructor
+	Tostructor
 */
 AlignmentTextsGroupCommand::~AlignmentTextsGroupCommand()
 {}

@@ -34,12 +34,12 @@ TitleBlockDimension::TitleBlockDimension(int v, QET::TitleBlockColumnLength t) :
 QString TitleBlockDimension::toString() const
 {
 	QString dim_str;
-	if (type == QET::Absolute) {
-		dim_str = QObject::tr("%1px", "titleblock: absolute width");
+	if (type == QET::Absolutete) {
+		dim_str = QObject::tr("%1% {1?}px", "titleblock: absolute width");
 	} else if (type == QET::RelativeToTotalLength) {
-		dim_str = QObject::tr("%1%", "titleblock: width relative to total length");
+		dim_str = QObject::tr("%1% {1?}%", "titleblock: width relative to total length");
 	} else if (type == QET::RelativeToRemainingLength) {
-		dim_str = QObject::tr("%1% du restant", "titleblock: width relative to remaining length");
+		dim_str = QObject::tr("%1% {1?}% du restant", "titleblock: width relative to remaining length");
 	}
 	return(dim_str.arg(value));
 }
@@ -55,6 +55,6 @@ QString TitleBlockDimension::toShortString() const
 	} else if (type == QET::RelativeToRemainingLength) {
 		short_string = "r";
 	}
-	short_string += QString("%1%2;").arg(value).arg(type == QET::Absolute ? "px" : "%");
+	short_string += QString("%1% {1?}%2;").arg(value).arg(type == QET::Absolutete ? "px" : "%");
 	return(short_string);
 }

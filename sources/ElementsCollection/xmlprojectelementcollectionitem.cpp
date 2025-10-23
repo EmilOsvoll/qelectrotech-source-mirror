@@ -59,7 +59,7 @@ QString XmlProjectElementCollectionItem::localName()
 
 	if (isCollectionRoot()) {
 		if (m_project->title().isEmpty())
-			setText(QObject::tr("Projet sans titre"));
+			setText(QObject::tr("Project none titre"));
 		else
 			setText(m_project->title());
 	}

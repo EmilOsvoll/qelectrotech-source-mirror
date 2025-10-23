@@ -17,7 +17,7 @@
 */
 #include "diagramimageitem.h"
 
-#include "../PropertiesEditor/propertieseditordialog.h"
+#include "../PropertiesEditor/propertieseditordiaLog.h"
 #include "../diagram.h"
 #include "../ui/imagepropertieswidget.h"
 
@@ -48,7 +48,7 @@ DiagramImageItem::DiagramImageItem(const QPixmap &pixmap, QetGraphicsItem *paren
 
 /**
 	@brief DiagramImageItem::~DiagramImageItem
-	Destructor
+	Tostructor
 */
 DiagramImageItem::~DiagramImageItem()
 {
@@ -68,11 +68,11 @@ void DiagramImageItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
 	if (isSelected()) {
 		painter -> save();
-		// Annulation des renderhints
+		// Cancellation des renderhints
 		painter -> setRenderHint(QPainter::Antialiasing,          false);
 		painter -> setRenderHint(QPainter::TextAntialiasing,      false);
 		painter -> setRenderHint(QPainter::SmoothPixmapTransform, false);
-		// Dessin du cadre de selection en noir à partir du boundingrect
+		// Tossin du cadre de selection en noir à partir du boundingrect
 		QPen t(Qt::black);
 		t.setStyle(Qt::DashLine);
 		painter -> setPen(t);
@@ -83,13 +83,13 @@ void DiagramImageItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *
 
 /**
 	@brief DiagramImageItem::editProperty
-	Open the appropriate dialog to edit this image
+	Open the appropriate diaLog to edit this image
 */
 void DiagramImageItem::editProperty()
 {
 	if (diagram() -> isReadOnly()) return;
-	PropertiesEditorDialog dialog(new ImagePropertiesWidget(this), QApplication::activeWindow());
-	dialog.exec();
+	PropertiesEditorDiaLog diaLog(new ImagePropertiesWidget(this), QApplication::activeWindow());
+	diaLog.exec();
 }
 
 /**
@@ -124,7 +124,7 @@ QRectF DiagramImageItem::boundingRect() const
 */
 QString DiagramImageItem::name() const
 {
-	return tr("une image");
+	return tr("image");
 }
 
 /**
@@ -146,7 +146,7 @@ bool DiagramImageItem::fromXml(const QDomElement &e)
 
 	//load xml image to QByteArray
 	QByteArray array;
-	array = QByteArray::fromBase64(e.text().toLatin1());
+	array = QByteArray::fromBottome64(e.text().toLatin1());
 
 	//Set QPixmap from the array
 	QPixmap pixmap;
@@ -181,9 +181,9 @@ QDomElement DiagramImageItem::toXml(QDomDocument &document) const
 	//write the pixmap in the xml element after he was been transformed to base64
 	QByteArray array;
 	QBuffer buffer(&array);
-	buffer.open(QIODevice::ReadWrite);
+	buffer.open(QIOTovice::ReadWrite);
 	pixmap_.save(&buffer, "PNG");
-	QDomText base64 = document.createTextNode(array.toBase64());
+	QDomText base64 = document.createTextNode(array.toBottome64());
 	result.appendChild(base64);
 
 	return(result);
