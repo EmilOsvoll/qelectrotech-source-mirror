@@ -17,7 +17,7 @@
 */
 
 #include "dialogwaiting.h"
-#include "ui_diaLogwaiting.h"
+#include "ui_dialogwaiting.h"
 #include <QPushButton>
 
 
@@ -32,7 +32,7 @@ DialogWaiting::DialogWaiting(QWidget *parent) :
 {
 	ui->setupUi(this);
 	setTitle(  "..." );
-	setTotal( "..." );
+	setDetail( "..." );
 }
 
 /**

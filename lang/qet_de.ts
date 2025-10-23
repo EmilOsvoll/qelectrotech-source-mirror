@@ -799,27 +799,27 @@
 <context>
     <name>AddTerminalStripItemDiaLog</name>
     <message>
-        <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="14"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="70"/>
         <source>Dialog</source>
-        <translation type="unfinished">Dialog</translation>
+        <translation type="obsolete">Dialog</translation>
     </message>
     <message>
-        <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="20"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="71"/>
         <source>Add the following terminal plan :</source>
-        <translation type="unfinished">Folgenden Klemmenplan hinzufügen:</translation>
+        <translation type="obsolete">Folgenden Klemmenplan hinzufügen:</translation>
     </message>
 </context>
 <context>
     <name>AddTerminalStripItemDialog</name>
     <message>
+        <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="14"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="70"/>
         <source>Dialog</source>
-        <translation type="vanished">Dialog</translation>
+        <translation>Dialog</translation>
     </message>
     <message>
+        <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="20"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="71"/>
         <source>Add the following terminal plan :</source>
-        <translation type="vanished">Folgenden Klemmenplan hinzufügen:</translation>
+        <translation>Folgenden Klemmenplan hinzufügen:</translation>
     </message>
 </context>
 <context>
@@ -2269,7 +2269,7 @@ Bemerkung: diese Optionen verhindern NICHT das automatische Nummerieren.</transl
         <translation type="vanished">Ebene der Auswahl bearbeiten</translation>
     </message>
     <message>
-        <location filename="../sources/diagram.cpp" line="1862"/>
+        <location filename="../sources/diagram.cpp" line="1874"/>
         <source>Modifier la profondeur</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6169,63 +6169,63 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
 <context>
     <name>ImportElementDiaLog</name>
     <message>
+        <source>Integration of an element</source>
+        <translation type="obsolete">Bauteil einbetten</translation>
+    </message>
+    <message>
+        <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
+        <translation type="obsolete">Das Bauteil wurde bereits in das Projekt eingebettet. Es gibt aber vermutlich Versionsunterschiede. Wie möchten Sie vorgehen?</translation>
+    </message>
+    <message>
+        <source>Using the already integrated element</source>
+        <translation type="obsolete">Bereits eingebettetes Bauteil verwenden</translation>
+    </message>
+    <message>
+        <source>Integrate the dropped element</source>
+        <translation type="obsolete">Das neu angelegte Bauteil einbetten</translation>
+    </message>
+    <message>
+        <source>Overwrite the already integrated element</source>
+        <translation type="obsolete">Das bereits eingebettete Bauteil überschreiben</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementDialog</name>
+    <message>
         <location filename="../sources/ui/importelementdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="94"/>
         <source>Integration of an element</source>
-        <translation type="unfinished">Bauteil einbetten</translation>
+        <translation>Bauteil einbetten</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="20"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="95"/>
         <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
-        <translation type="unfinished">Das Bauteil wurde bereits in das Projekt eingebettet. Es gibt aber vermutlich Versionsunterschiede. Wie möchten Sie vorgehen?</translation>
+        <translation>Das Bauteil wurde bereits in das Projekt eingebettet. Es gibt aber vermutlich Versionsunterschiede. Wie möchten Sie vorgehen?</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="27"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="96"/>
         <source>Using the already integrated element</source>
-        <translation type="unfinished">Bereits eingebettetes Bauteil verwenden</translation>
+        <translation>Bereits eingebettetes Bauteil verwenden</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="34"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="97"/>
         <source>Integrate the dropped element</source>
-        <translation type="unfinished">Das neu angelegte Bauteil einbetten</translation>
+        <translation>Das neu angelegte Bauteil einbetten</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="52"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="98"/>
         <source>Overwrite the already integrated element</source>
-        <translation type="unfinished">Das bereits eingebettete Bauteil überschreiben</translation>
+        <translation>Das bereits eingebettete Bauteil überschreiben</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="59"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="99"/>
         <source>Faire cohabiter les deux elements</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImportElementDialog</name>
-    <message>
-        <source>Integration of an element</source>
-        <translation type="vanished">Bauteil einbetten</translation>
-    </message>
-    <message>
-        <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
-        <translation type="vanished">Das Bauteil wurde bereits in das Projekt eingebettet. Es gibt aber vermutlich Versionsunterschiede. Wie möchten Sie vorgehen?</translation>
-    </message>
-    <message>
-        <source>Using the already integrated element</source>
-        <translation type="vanished">Bereits eingebettetes Bauteil verwenden</translation>
-    </message>
-    <message>
-        <source>Integrate the dropped element</source>
-        <translation type="vanished">Das neu angelegte Bauteil einbetten</translation>
-    </message>
-    <message>
-        <source>Overwrite the already integrated element</source>
-        <translation type="vanished">Das bereits eingebettete Bauteil überschreiben</translation>
     </message>
     <message>
         <source>Make the two elements coexist</source>
@@ -6235,37 +6235,37 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
 <context>
     <name>ImportElementTextPatternDiaLog</name>
     <message>
-        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="14"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="71"/>
         <source>Dialog</source>
-        <translation type="unfinished">Dialog</translation>
+        <translation type="obsolete">Dialog</translation>
     </message>
     <message>
-        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="20"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="72"/>
         <source>TextLabel</source>
-        <translation type="unfinished">TextLabel</translation>
+        <translation type="obsolete">TextLabel</translation>
     </message>
     <message>
-        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="30"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="73"/>
         <source>Erase existing texts</source>
-        <translation type="unfinished">Bestehende Texte überschreiben</translation>
+        <translation type="obsolete">Bestehende Texte überschreiben</translation>
     </message>
 </context>
 <context>
     <name>ImportElementTextPatternDialog</name>
     <message>
+        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="14"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="71"/>
         <source>Dialog</source>
-        <translation type="vanished">Dialog</translation>
+        <translation>Dialog</translation>
     </message>
     <message>
+        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="20"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="72"/>
         <source>TextLabel</source>
-        <translation type="vanished">TextLabel</translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
+        <location filename="../sources/ui/importelementtextpatterndialog.ui" line="30"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="73"/>
         <source>Erase existing texts</source>
-        <translation type="vanished">Bestehende Texte überschreiben</translation>
+        <translation>Bestehende Texte überschreiben</translation>
     </message>
 </context>
 <context>
@@ -21073,28 +21073,37 @@ Andere Felder werden nicht verwendet.</translation>
 <context>
     <name>TerminalStripCreatorDiaLog</name>
     <message>
+        <source>Creation of terminal group</source>
+        <translation type="obsolete">Klemmleiste erstellen</translation>
+    </message>
+    <message>
+        <source>Location :</source>
+        <translation type="obsolete">Ort:</translation>
+    </message>
+    <message>
+        <source>Plant:</source>
+        <translation type="obsolete">Anlage:</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripCreatorDialog</name>
+    <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="139"/>
         <source>Creation of terminal group</source>
-        <translation type="unfinished">Klemmleiste erstellen</translation>
+        <translation>Klemmleiste erstellen</translation>
     </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="20"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="140"/>
         <source>Location :</source>
-        <translation type="unfinished">Ort:</translation>
+        <translation>Ort:</translation>
     </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="27"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="141"/>
         <source>Name :</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="34"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="142"/>
-        <source>Plant:</source>
-        <translation type="unfinished">Anlage:</translation>
     </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="65"/>
@@ -21108,24 +21117,15 @@ Andere Felder werden nicht verwendet.</translation>
         <source>Annotation :</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>TerminalStripCreatorDialog</name>
-    <message>
-        <source>Creation of terminal group</source>
-        <translation type="vanished">Klemmleiste erstellen</translation>
-    </message>
-    <message>
-        <source>Location :</source>
-        <translation type="vanished">Ort:</translation>
-    </message>
     <message>
         <source>Name:</source>
         <translation type="vanished">Name:</translation>
     </message>
     <message>
+        <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="34"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="142"/>
         <source>Plant:</source>
-        <translation type="vanished">Anlage:</translation>
+        <translation>Anlage:</translation>
     </message>
     <message>
         <source>Description :</source>
@@ -23319,64 +23319,20 @@ Maximale Länge: %2px
 <context>
     <name>replaceAdvancedDiaLog</name>
     <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="14"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="113"/>
-        <source>Search/Replace advanced</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="27"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="114"/>
         <source>by:</source>
-        <translation type="unfinished">durch:</translation>
+        <translation type="obsolete">durch:</translation>
     </message>
     <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="34"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="115"/>
         <source>Replace:</source>
-        <translation type="unfinished">Ersetzen:</translation>
+        <translation type="obsolete">Ersetzen:</translation>
     </message>
     <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="51"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="116"/>
         <source>Where:</source>
-        <translation type="unfinished">Wo:</translation>
+        <translation type="obsolete">Wo:</translation>
     </message>
     <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="58"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="117"/>
-        <source>Text ou expression régulière</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="69"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="118"/>
-        <source>Folio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="74"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="119"/>
-        <source>Element</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="79"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="120"/>
-        <source>Conductor</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="84"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="121"/>
-        <source>Text indépendant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92"/>
-        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="123"/>
         <source>What:</source>
-        <translation type="unfinished">Was:</translation>
+        <translation type="obsolete">Was:</translation>
     </message>
 </context>
 <context>
@@ -23386,40 +23342,72 @@ Maximale Länge: %2px
         <translation type="vanished">Fortgeschrittenes Suchen/Ersetzen</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="14"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="113"/>
+        <source>Search/Replace advanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="27"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="114"/>
         <source>by:</source>
-        <translation type="vanished">durch:</translation>
+        <translation>durch:</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="34"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="115"/>
         <source>Replace:</source>
-        <translation type="vanished">Ersetzen:</translation>
+        <translation>Ersetzen:</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="51"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="116"/>
         <source>Where:</source>
-        <translation type="vanished">Wo:</translation>
+        <translation>Wo:</translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="58"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="117"/>
+        <source>Text ou expression régulière</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="84"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="121"/>
+        <source>Text indépendant</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Text or regular expression</source>
         <translation type="vanished">Text oder regulärer Ausdruck</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="69"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="118"/>
         <source>Folio</source>
-        <translation type="vanished">Folie</translation>
+        <translation>Folie</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="74"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="119"/>
         <source>Element</source>
-        <translation type="vanished">Bauteil</translation>
+        <translation>Bauteil</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="79"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="120"/>
         <source>Conductor</source>
-        <translation type="vanished">Leiter</translation>
+        <translation>Leiter</translation>
     </message>
     <message>
         <source>Independent text</source>
         <translation type="vanished">Textfeld</translation>
     </message>
     <message>
+        <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="92"/>
+        <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="123"/>
         <source>What:</source>
-        <translation type="vanished">Was:</translation>
+        <translation>Was:</translation>
     </message>
 </context>
 <context>

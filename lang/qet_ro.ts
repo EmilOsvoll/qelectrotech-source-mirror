@@ -643,7 +643,7 @@
     </message>
 </context>
 <context>
-    <name>AddTerminalStripItemDiaLog</name>
+    <name>AddTerminalStripItemDialog</name>
     <message>
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="70"/>
@@ -2050,7 +2050,7 @@ Note: These options DO NOT allow or block Auto Numberings, only their Update Pol
 <context>
     <name>Diagram</name>
     <message>
-        <location filename="../sources/diagram.cpp" line="1862"/>
+        <location filename="../sources/diagram.cpp" line="1874"/>
         <source>Modifier la profondeur</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5585,6 +5585,21 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
 <context>
     <name>ImportElementDiaLog</name>
     <message>
+        <source>Integration of an element</source>
+        <translation type="obsolete">Integrarea unui element</translation>
+    </message>
+    <message>
+        <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
+        <translation type="obsolete">Elementul este deja integrat în proiect. Totuși, versiunea pe care încercați să o introduceți pare diferită. Ce doriți să faceți ?</translation>
+    </message>
+    <message>
+        <source>Integrate the dropped element</source>
+        <translation type="obsolete">Integrează elementul adăugat</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementDialog</name>
+    <message>
         <location filename="../sources/ui/importelementdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="94"/>
         <source>Integration of an element</source>
@@ -5620,21 +5635,6 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
         <source>Faire cohabiter les deux elements</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>ImportElementDialog</name>
-    <message>
-        <source>Integration of an element</source>
-        <translation type="obsolete">Integrarea unui element</translation>
-    </message>
-    <message>
-        <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
-        <translation type="obsolete">Elementul este deja integrat în proiect. Totuși, versiunea pe care încercați să o introduceți pare diferită. Ce doriți să faceți ?</translation>
-    </message>
-    <message>
-        <source>Integrate the dropped element</source>
-        <translation type="obsolete">Integrează elementul adăugat</translation>
-    </message>
     <message>
         <source>Make the two elements coexist</source>
         <translation type="obsolete">Utilizează în paralel cele două elemente</translation>
@@ -5642,6 +5642,13 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
 </context>
 <context>
     <name>ImportElementTextPatternDiaLog</name>
+    <message>
+        <source>TextLabel</source>
+        <translation type="obsolete">Text etichetă</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementTextPatternDialog</name>
     <message>
         <location filename="../sources/ui/importelementtextpatterndialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="71"/>
@@ -5659,13 +5666,6 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="73"/>
         <source>Erase existing texts</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImportElementTextPatternDialog</name>
-    <message>
-        <source>TextLabel</source>
-        <translation type="obsolete">Text etichetă</translation>
     </message>
 </context>
 <context>
@@ -19360,7 +19360,11 @@ Les autres champs ne sont pas utilisés.</source>
     </message>
 </context>
 <context>
-    <name>TerminalStripCreatorDiaLog</name>
+    <name>TerminalStripCreatorDialog</name>
+    <message>
+        <source>Name:</source>
+        <translation type="obsolete">Nume :</translation>
+    </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="139"/>
@@ -19396,13 +19400,6 @@ Les autres champs ne sont pas utilisés.</source>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="144"/>
         <source>Annotation :</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TerminalStripCreatorDialog</name>
-    <message>
-        <source>Name:</source>
-        <translation type="obsolete">Nume :</translation>
     </message>
 </context>
 <context>
@@ -21407,6 +21404,21 @@ Longueur maximale : %2px
 <context>
     <name>replaceAdvancedDiaLog</name>
     <message>
+        <source>Folio</source>
+        <translation type="obsolete">Folio</translation>
+    </message>
+    <message>
+        <source>Element</source>
+        <translation type="obsolete">Element</translation>
+    </message>
+    <message>
+        <source>Conductor</source>
+        <translation type="obsolete">Conductor</translation>
+    </message>
+</context>
+<context>
+    <name>replaceAdvancedDialog</name>
+    <message>
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="113"/>
         <source>Search/Replace advanced</source>
@@ -21465,21 +21477,6 @@ Longueur maximale : %2px
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="123"/>
         <source>What:</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>replaceAdvancedDialog</name>
-    <message>
-        <source>Folio</source>
-        <translation type="obsolete">Folio</translation>
-    </message>
-    <message>
-        <source>Element</source>
-        <translation type="obsolete">Element</translation>
-    </message>
-    <message>
-        <source>Conductor</source>
-        <translation type="obsolete">Conductor</translation>
     </message>
 </context>
 <context>

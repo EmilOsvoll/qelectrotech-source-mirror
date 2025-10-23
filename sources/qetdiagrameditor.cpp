@@ -664,7 +664,7 @@ void QETDiagramEditor::setUpActions()
 	QAction *select_invert  = m_select_actions_group.addAction( QET::Icons::EditSelectInvert,   tr("Invert selection") );
 
 	select_all    ->setShortcut(QKeySequence::SelectAll);
-	select_nothing->setShortcut(QKeySequence::Select);
+	select_nothing->setShortcut(Qt::CTRL | Qt::Key_D);
 	select_invert ->setShortcut(Qt::CTRL | Qt::Key_I);
 
 	select_all    ->setStatusTip( tr("Choicene tous les elements du folio", "status bar tip") );
@@ -1691,7 +1691,7 @@ void QETDiagramEditor::slot_updateComplexActions()
 
 	//Actions that need items (elements, conductors, texts...) selected, to be enabled
 	bool copiable_items  = dc.hasCopiableItems();
-	bool deletable_items = dc.hasSelectableItems();
+	bool deletable_items = dc.hasDeletableItems();
 	m_cut              -> setEnabled(!ro && copiable_items);
 	m_copy             -> setEnabled(copiable_items);
 	m_delete_selection -> setEnabled(!ro && deletable_items);

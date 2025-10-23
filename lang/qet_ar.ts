@@ -666,6 +666,13 @@
 <context>
     <name>AddTerminalStripItemDiaLog</name>
     <message>
+        <source>Dialog</source>
+        <translation type="obsolete">حوار</translation>
+    </message>
+</context>
+<context>
+    <name>AddTerminalStripItemDialog</name>
+    <message>
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="70"/>
         <source>Dialog</source>
@@ -676,13 +683,6 @@
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="71"/>
         <source>Add the following terminal plan :</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>AddTerminalStripItemDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">حوار</translation>
     </message>
 </context>
 <context>
@@ -2113,7 +2113,7 @@ Note: these options DO NOT allow or block auto numberings, only their update pol
         <translation type="vanished">تغيير العمق</translation>
     </message>
     <message>
-        <location filename="../sources/diagram.cpp" line="1862"/>
+        <location filename="../sources/diagram.cpp" line="1874"/>
         <source>Modifier la profondeur</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5894,63 +5894,63 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
 <context>
     <name>ImportElementDiaLog</name>
     <message>
+        <source>Integration of an element</source>
+        <translation type="obsolete">إدماج عنصر</translation>
+    </message>
+    <message>
+        <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
+        <translation type="obsolete">أُدمج العنصر في المشروع.غير أنّ النسخة التي تـُحاول وضعها تبدو مُختلفة. ماذا تُريد فعله ؟</translation>
+    </message>
+    <message>
+        <source>Using the already integrated element</source>
+        <translation type="obsolete">استخدم العنصر الذي أُدمج</translation>
+    </message>
+    <message>
+        <source>Integrate the dropped element</source>
+        <translation type="obsolete">دمج العنصر الذي تمّ إيداعه</translation>
+    </message>
+    <message>
+        <source>Overwrite the already integrated element</source>
+        <translation type="obsolete">سحق العنصر الذي تمّ إدماجه</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementDialog</name>
+    <message>
         <location filename="../sources/ui/importelementdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="94"/>
         <source>Integration of an element</source>
-        <translation type="unfinished">إدماج عنصر</translation>
+        <translation>إدماج عنصر</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="20"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="95"/>
         <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
-        <translation type="unfinished">أُدمج العنصر في المشروع.غير أنّ النسخة التي تـُحاول وضعها تبدو مُختلفة. ماذا تُريد فعله ؟</translation>
+        <translation>أُدمج العنصر في المشروع.غير أنّ النسخة التي تـُحاول وضعها تبدو مُختلفة. ماذا تُريد فعله ؟</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="27"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="96"/>
         <source>Using the already integrated element</source>
-        <translation type="unfinished">استخدم العنصر الذي أُدمج</translation>
+        <translation>استخدم العنصر الذي أُدمج</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="34"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="97"/>
         <source>Integrate the dropped element</source>
-        <translation type="unfinished">دمج العنصر الذي تمّ إيداعه</translation>
+        <translation>دمج العنصر الذي تمّ إيداعه</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="52"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="98"/>
         <source>Overwrite the already integrated element</source>
-        <translation type="unfinished">سحق العنصر الذي تمّ إدماجه</translation>
+        <translation>سحق العنصر الذي تمّ إدماجه</translation>
     </message>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="59"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="99"/>
         <source>Faire cohabiter les deux elements</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImportElementDialog</name>
-    <message>
-        <source>Integration of an element</source>
-        <translation type="vanished">إدماج عنصر</translation>
-    </message>
-    <message>
-        <source>The element has already been integrated in the project. However, the version you&apos;re trying to drop appears to be different. What do you wish to do ?</source>
-        <translation type="vanished">أُدمج العنصر في المشروع.غير أنّ النسخة التي تـُحاول وضعها تبدو مُختلفة. ماذا تُريد فعله ؟</translation>
-    </message>
-    <message>
-        <source>Using the already integrated element</source>
-        <translation type="vanished">استخدم العنصر الذي أُدمج</translation>
-    </message>
-    <message>
-        <source>Integrate the dropped element</source>
-        <translation type="vanished">دمج العنصر الذي تمّ إيداعه</translation>
-    </message>
-    <message>
-        <source>Overwrite the already integrated element</source>
-        <translation type="vanished">سحق العنصر الذي تمّ إدماجه</translation>
     </message>
     <message>
         <source>Make the two elements coexist</source>
@@ -5959,6 +5959,17 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
 </context>
 <context>
     <name>ImportElementTextPatternDiaLog</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="obsolete">حوار</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation type="obsolete">علامة نصيّة</translation>
+    </message>
+</context>
+<context>
+    <name>ImportElementTextPatternDialog</name>
     <message>
         <location filename="../sources/ui/importelementtextpatterndialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="71"/>
@@ -5976,17 +5987,6 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="73"/>
         <source>Erase existing texts</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>ImportElementTextPatternDialog</name>
-    <message>
-        <source>Dialog</source>
-        <translation type="obsolete">حوار</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="obsolete">علامة نصيّة</translation>
     </message>
 </context>
 <context>
@@ -20186,6 +20186,13 @@ Les autres champs ne sont pas utilisés.</source>
 <context>
     <name>TerminalStripCreatorDiaLog</name>
     <message>
+        <source>Plant:</source>
+        <translation type="obsolete">تركيب :</translation>
+    </message>
+</context>
+<context>
+    <name>TerminalStripCreatorDialog</name>
+    <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="139"/>
         <source>Creation of terminal group</source>
@@ -20220,13 +20227,6 @@ Les autres champs ne sont pas utilisés.</source>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="144"/>
         <source>Annotation :</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>TerminalStripCreatorDialog</name>
-    <message>
-        <source>Plant:</source>
-        <translation type="obsolete">تركيب :</translation>
     </message>
 </context>
 <context>
@@ -22261,6 +22261,17 @@ Maximum length : %2px
 <context>
     <name>replaceAdvancedDiaLog</name>
     <message>
+        <source>Folio</source>
+        <translation type="obsolete">صفحة</translation>
+    </message>
+    <message>
+        <source>Conductor</source>
+        <translation type="obsolete">موصل</translation>
+    </message>
+</context>
+<context>
+    <name>replaceAdvancedDialog</name>
+    <message>
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="113"/>
         <source>Search/Replace advanced</source>
@@ -22300,7 +22311,7 @@ Maximum length : %2px
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="74"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="119"/>
         <source>Element</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">العنصر</translation>
     </message>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="79"/>
@@ -22319,21 +22330,6 @@ Maximum length : %2px
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="123"/>
         <source>What:</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>replaceAdvancedDialog</name>
-    <message>
-        <source>Folio</source>
-        <translation type="obsolete">صفحة</translation>
-    </message>
-    <message>
-        <source>Element</source>
-        <translation type="obsolete">العنصر</translation>
-    </message>
-    <message>
-        <source>Conductor</source>
-        <translation type="obsolete">موصل</translation>
     </message>
 </context>
 <context>

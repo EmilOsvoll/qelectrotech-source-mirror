@@ -75,6 +75,7 @@ class DialogWaiting : public QDialog
 		void setProgressReset();
 		void setTitle(const QString& val);
 		void setDetail(const QString& val);
+		void setTotal(const QString& val);
 		int progressBarValue() const;
 	
 	private:

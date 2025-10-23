@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>replaceAdvancedDiaLog</class>
- <widget class="QDialog" name="replaceAdvancedDiaLog">
+ <class>replaceAdvancedDialog</class>
+ <widget class="QDialog" name="replaceAdvancedDialog">
   <property name="geometry">
    <rect>
     <x>0</x>

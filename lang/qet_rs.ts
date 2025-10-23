@@ -477,7 +477,7 @@
     </message>
 </context>
 <context>
-    <name>AddTerminalStripItemDiaLog</name>
+    <name>AddTerminalStripItemDialog</name>
     <message>
         <location filename="../sources/TerminalStrip/ui/addterminalstripitemdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_addterminalstripitemdialog.h" line="70"/>
@@ -1790,7 +1790,7 @@ Note: These options DO NOT allow or block Auto Numberings, only their Update Pol
 <context>
     <name>Diagram</name>
     <message>
-        <location filename="../sources/diagram.cpp" line="1862"/>
+        <location filename="../sources/diagram.cpp" line="1874"/>
         <source>Modifier la profondeur</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4941,7 +4941,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
     </message>
 </context>
 <context>
-    <name>ImportElementDiaLog</name>
+    <name>ImportElementDialog</name>
     <message>
         <location filename="../sources/ui/importelementdialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementdialog.h" line="94"/>
@@ -4980,7 +4980,7 @@ Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements q
     </message>
 </context>
 <context>
-    <name>ImportElementTextPatternDiaLog</name>
+    <name>ImportElementTextPatternDialog</name>
     <message>
         <location filename="../sources/ui/importelementtextpatterndialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_importelementtextpatterndialog.h" line="71"/>
@@ -17581,7 +17581,7 @@ Les autres champs ne sont pas utilisés.</source>
     </message>
 </context>
 <context>
-    <name>TerminalStripCreatorDiaLog</name>
+    <name>TerminalStripCreatorDialog</name>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstripcreatordialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_terminalstripcreatordialog.h" line="139"/>
@@ -19318,7 +19318,7 @@ Longueur maximale : %2px
     </message>
 </context>
 <context>
-    <name>replaceAdvancedDiaLog</name>
+    <name>replaceAdvancedDialog</name>
     <message>
         <location filename="../sources/SearchAndReplace/ui/replaceadvanceddialog.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_replaceadvanceddialog.h" line="113"/>
