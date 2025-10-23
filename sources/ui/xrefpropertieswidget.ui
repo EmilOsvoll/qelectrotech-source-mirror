@@ -203,13 +203,13 @@
            <item>
             <widget class="QLabel" name="label_8">
              <property name="text">
-              <string>Créer votre propre text en vous aidant des variables suivantes :
-%f : le numéro de folio 
-%F: le label de folio
-%l : le numéro de line
-%c : le numéro de colonne
-%M: Plant 
-%LM: Location </string>
+              <string>Create your own text by helping you of the following variables :
+%f : the folio number 
+% F: folio label
+% l : the line number
+% c : column number
+% M: Plant 
+% LM: Location </string>
              </property>
             </widget>
            </item>

@@ -140,7 +140,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(
 		}
 	}
 	
-	setText(QObject::tr("Groupr des texts d'élément"));
+	setText(QObject::tr("Grouping element texts"));
 }
 
 /**
@@ -216,7 +216,7 @@ RemoveTextsGroupCommand::RemoveTextsGroupCommand(Element *element,
 	m_element(element),
 	m_group(group)
 {
-	setText(QObject::tr("Tolete un groupe de texts d'élément"));
+	setText(QObject::tr("Delete a group of element texts"));
 	
 	for(DynamicElementTextItem *deti : group->texts())
 		m_text_list.append(deti);
@@ -394,7 +394,7 @@ AlignmentTextsGroupCommand::AlignmentTextsGroupCommand(
 	m_previous_alignment(group->alignment()),
 	m_new_alignment(new_alignment)
 {
-	setText(QObject::tr("Edit l'alinement d'un groupe de texts"));
+	setText(QObject::tr("Modify the alignment of a group of texts"));
 	
 		//Text haven't got alignment
 	if(m_previous_alignment != Qt::AlignLeft ||

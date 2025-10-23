@@ -324,8 +324,8 @@ void TitleBlockPropertiesWidget::initDiaLog(
 	setTitleBlockTemplatesVisible(false);
 	ui -> m_current_date_rb -> setVisible(current_date);
 
-	m_tbt_edit = new QAction(tr("Edit ce modèle", "menu entry"), this);
-	m_tbt_duplicate = new QAction(tr("Dupliquer and éditer ce modèle",
+	m_tbt_edit = new QAction(tr("Edit this template", "menu entry"), this);
+	m_tbt_duplicate = new QAction(tr("Duplicate and edit this template",
 					 "menu entry"),
 				      this);
 
