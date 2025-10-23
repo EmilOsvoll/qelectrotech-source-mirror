@@ -30,9 +30,9 @@
 #include "../../qeticons.h"
 #include "../../qetinformation.h"
 #include "../../qetproject.h"
-#include "replaceadvanceddiaLog.h"
-#include "replaceconductordiaLog.h"
-#include "replaceelementdiaLog.h"
+#include "replaceadvanceddialog.h"
+#include "replaceconductordialog.h"
+#include "replaceelementdialog.h"
 #include "replacefoliowidget.h"
 #include "ui_searchandreplacewidget.h"
 
@@ -442,7 +442,7 @@ void SearchAndReplaceWidget::search()
 		}
 
 		QPalette background = ui->m_search_le->palette();
-		background.setColor(QPalette::Bottome, match
+		background.setColor(QPalette::Base, match
 				    ? QColor("#E0FFF0")
 				    : QColor("#FFE0EF"));
 		ui->m_search_le->setPalette(background);
@@ -1105,10 +1105,10 @@ void SearchAndReplaceWidget::on_m_previous_pb_clicked()
 
 void SearchAndReplaceWidget::on_m_folio_pb_clicked()
 {
-	ReplaceFolioDiaLog *diaLog = new ReplaceFolioDiaLog(this);
-	diaLog->setTitleBlockProperties(m_worker.m_titleblock_properties);
+	ReplaceFolioDialog *dialog = new ReplaceFolioDialog(this);
+	dialog->setTitleBlockProperties(m_worker.m_titleblock_properties);
 
-	int result = diaLog->exec();
+	int result = dialog->exec();
 	if (result == QDialogButtonBox::AcceptRole)
 	{
 		QString text = ui->m_folio_pb->text();
@@ -1117,7 +1117,7 @@ void SearchAndReplaceWidget::on_m_folio_pb_clicked()
 		}
 		ui->m_folio_pb->setText(text);
 		m_worker.m_titleblock_properties =
-				diaLog->titleBlockProperties();
+				dialog->titleBlockProperties();
 	}
 	else if (result == QDialogButtonBox::ResetRole)
 	{
@@ -1266,11 +1266,11 @@ void SearchAndReplaceWidget::on_m_replace_all_pb_clicked()
 
 void SearchAndReplaceWidget::on_m_element_pb_clicked()
 {
-	ReplaceElementDialog *diaLog = new ReplaceElementDialog(
+	ReplaceElementDialog *dialog = new ReplaceElementDialog(
 				m_worker.m_element_context,
 				this);
 
-	int result = diaLog->exec();
+	int result = dialog->exec();
 	if (result == QDialogButtonBox::AcceptRole)
 	{
 		QString text = ui->m_element_pb->text();
@@ -1278,7 +1278,7 @@ void SearchAndReplaceWidget::on_m_element_pb_clicked()
 			text.append(tr(" [edited]"));
 		}
 		ui->m_element_pb->setText(text);
-		m_worker.m_element_context = diaLog->context();
+		m_worker.m_element_context = dialog->context();
 	}
 	else if (result == QDialogButtonBox::ResetRole)
 	{
@@ -1315,14 +1315,14 @@ void SearchAndReplaceWidget::on_m_case_sensitive_cb_stateChanged(int arg1)
 
 /**
 	@brief SearchAndReplaceWidget::on_m_conductor_pb_clicked
-	Open a diaLog to edit the condutor properties
+	Open a dialog to edit the condutor properties
 */
 void SearchAndReplaceWidget::on_m_conductor_pb_clicked()
 {
-	ReplaceConductorDialog *diaLog = new ReplaceConductorDialog(
+	ReplaceConductorDialog *dialog = new ReplaceConductorDialog(
 				m_worker.m_conductor_properties,
 				this);
-	int result = diaLog->exec();
+	int result = dialog->exec();
 
 	if (result == QDialogButtonBox::AcceptRole)
 	{
@@ -1331,7 +1331,7 @@ void SearchAndReplaceWidget::on_m_conductor_pb_clicked()
 			text.append(tr(" [edited]"));
 		}
 		ui->m_conductor_pb->setText(text);
-		m_worker.m_conductor_properties = diaLog->properties();
+		m_worker.m_conductor_properties = dialog->properties();
 	}
 	else if (result == QDialogButtonBox::ResetRole)
 	{
@@ -1351,10 +1351,10 @@ void SearchAndReplaceWidget::on_m_conductor_pb_clicked()
 */
 void SearchAndReplaceWidget::on_m_advanced_replace_pb_clicked()
 {
-	replaceAdvancedDiaLog *diaLog = new replaceAdvancedDiaLog(
+	replaceAdvancedDialog *dialog = new replaceAdvancedDialog(
 				m_worker.m_advanced_struct,
 				this);
-	int result = diaLog->exec();
+	int result = dialog->exec();
 
 	if (result == QDialogButtonBox::AcceptRole)
 	{
@@ -1363,7 +1363,7 @@ void SearchAndReplaceWidget::on_m_advanced_replace_pb_clicked()
 			text.append(tr(" [edited]"));
 		}
 		ui->m_advanced_replace_pb->setText(text);
-		m_worker.m_advanced_struct = diaLog->advancedStruct();
+		m_worker.m_advanced_struct = dialog->advancedStruct();
 	}
 	else if (result == QDialogButtonBox::ResetRole)
 	{

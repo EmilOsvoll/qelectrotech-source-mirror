@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it &&/or modify
+	QElectroTech is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -62,7 +62,7 @@ class TitleBlockCell {
 	int num_col;                       ///< x coordinate of the cell within its parent title block template grid
 	int row_span;                      ///< number of extra rows spanned by this cell
 	int col_span;                      ///< number of extra columns spanned by this cell
-	int span_state;                    ///< how should row_span && col_span be applied given other cells in the parent template
+	int span_state;                    ///< how should row_span and col_span be applied given other cells in the parent template
 	int applied_row_span;              ///< Actually applied row span
 	int applied_col_span;              ///< Actually applied column span
 	TitleBlockCell *spanner_cell;      ///< Cell spanning this cell, if any

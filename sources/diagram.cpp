@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it &&/or modify
+	QElectroTech is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -47,8 +47,8 @@ int Diagram::xGrid  = 10;
 int Diagram::yGrid  = 10;
 int Diagram::xKeyGrid = 10;
 int Diagram::yKeyGrid = 10;
-int Diagram::xKeyGridThin = 1;
-int Diagram::yKeyGridThin = 1;
+int Diagram::xKeyGridFine = 1;
+int Diagram::yKeyGridFine = 1;
 const qreal Diagram::margin = 5.0;
 
 /**
@@ -60,7 +60,7 @@ QColor		Diagram::background_color = Qt::white;
 /**
 	@brief Diagram::Diagram
 	Constructor
-	@param project : The project of this diagram && also parent QObject
+	@param project : The project of this diagram and also parent QObject
 */
 Diagram::Diagram(QETProject *project) :
 	QGraphicsScene           (project),
@@ -75,7 +75,7 @@ Diagram::Diagram(QETProject *project) :
 {
 	setItemIndexMethod(QGraphicsScene::NoIndex);
 	/* Set to no index,
-	 * because they can be the source of the crash with conductor && shape ghost.
+	 * because they can be the source of the crash with conductor and shape ghost.
 	 * https://forum.qt.io/topic/71316/qgraphicsscenefinditembsptreevisitor-visit-crashes-due-to-an-obsolete-paintevent-after-qgraphicsscene-removeitem
 	 * https://stackoverflow.com/questions/38458830/crash-after-qgraphicssceneremoveitem-with-custom-item-class
 	 * http://www.qtcentre.org/archive/index.php/t-33730.html
@@ -125,14 +125,14 @@ Diagram::Diagram(QETProject *project) :
 
 /**
 	@brief Diagram::~Diagram
-	Tostructor
+	Destructor
 */
 Diagram::~Diagram()
 {
 	//First clear every selection to close an hypothetical editor
 	clearSelection();
 	// clear undo stack to prevent errors,
-	// because contains pointers to this diagram && is elements.
+	// because contains pointers to this diagram and is elements.
 	undoStack().clear();
 	//delete of QGIManager, every elements he knows are removed
 	delete qgi_manager_;
@@ -162,7 +162,7 @@ Diagram::~Diagram()
 /**
 	@brief Diagram::drawBackground
 	Draw the background of the diagram, ie the grid.
-	\~French Tossine l'arriere-plan du diagram, cad la grille.
+	\~French Dessine l'arriere-plan du schema, cad la grille.
 	\~ @param p :
 	The QPainter to use for drawing
 	\~French Le QPainter a utiliser pour dessiner
@@ -174,7 +174,7 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 	p -> save();
 
 	// disable all antialiasing, except for text
-	// desactive tout antialiasing, sauf pour le text
+	// desactive tout antialiasing, sauf pour le texte
 	p -> setRenderHint(QPainter::Antialiasing, false);
 	p -> setRenderHint(QPainter::TextAntialiasing, true);
 	p -> setRenderHint(QPainter::SmoothPixmapTransform, false);
@@ -386,9 +386,9 @@ void Diagram::keyPressEvent(QKeyEvent *event)
 #endif
 	//Move item with the keyboard arrow
 	#ifdef Q_OS_MACOS
-	if(event->modifiers() == Qt::KeypadEdit)
+	if(event->modifiers() == Qt::KeypadModifier)
 	#else
-	if(event->modifiers() == Qt::NoEdit)
+	if(event->modifiers() == Qt::NoModifier)
 	#endif
 	{
 		QSettings settings;
@@ -432,13 +432,13 @@ void Diagram::keyPressEvent(QKeyEvent *event)
 			return;
 		}
 	}
-	else if(event->modifiers() == Qt::AltEdit)
+	else if(event->modifiers() == Qt::AltModifier)
 	{
 		QSettings settings;
-		int xKeyGridThin = settings.value(QStringLiteral("diagrameditor/key_fine_Xgrid"),
-										  Diagram::xKeyGridThin).toInt();
-		int yKeyGridThin = settings.value(QStringLiteral("diagrameditor/key_fine_Ygrid"),
-										  Diagram::yKeyGridThin).toInt();
+		int xKeyGridFine = settings.value(QStringLiteral("diagrameditor/key_fine_Xgrid"),
+										  Diagram::xKeyGridFine).toInt();
+		int yKeyGridFine = settings.value(QStringLiteral("diagrameditor/key_fine_Ygrid"),
+										  Diagram::yKeyGridFine).toInt();
 		switch(event->key())
 		{
 			case Qt::Key_Left:
@@ -448,10 +448,10 @@ void Diagram::keyPressEvent(QKeyEvent *event)
 					if(left_position <= 5)
 						return;
 				}
-				movement = QPointF(-xKeyGridThin, 0.0);
+				movement = QPointF(-xKeyGridFine, 0.0);
 				break;
 			case Qt::Key_Right:
-				movement = QPointF(+xKeyGridThin, 0.0);
+				movement = QPointF(+xKeyGridFine, 0.0);
 				break;
 			case Qt::Key_Up:
 				for(Element *item : dc.m_elements)
@@ -460,10 +460,10 @@ void Diagram::keyPressEvent(QKeyEvent *event)
 					if(top_position <= 5)
 						return;
 				}
-				movement = QPointF(0.0, -yKeyGridThin);
+				movement = QPointF(0.0, -yKeyGridFine);
 				break;
 			case Qt::Key_Down:
-				movement = QPointF(0.0, +yKeyGridThin);
+				movement = QPointF(0.0, +yKeyGridFine);
 				break;
 		}
 
@@ -487,21 +487,21 @@ void Diagram::keyPressEvent(QKeyEvent *event)
 					(selectedItems().first()))
 			{
 				if(event->key() == Qt::Key_Left
-				   &&  angle->alignment() != Qt::AlignLeft)
+				   &&  etig->alignment() != Qt::AlignLeft)
 					undoStack().push(
 						new AlignmentTextsGroupCommand(
 								etig,
 								Qt::AlignLeft));
 
 				else if (event->key() == Qt::Key_Up
-					 && angle->alignment() != Qt::AlignVCenter)
+					 && etig->alignment() != Qt::AlignVCenter)
 					undoStack().push(
 						new AlignmentTextsGroupCommand(
 								etig,
 								Qt::AlignVCenter));
 
 				else if (event->key() == Qt::Key_Right
-					 && angle->alignment() != Qt::AlignRight)
+					 && etig->alignment() != Qt::AlignRight)
 					undoStack().push(
 						new AlignmentTextsGroupCommand(
 								etig,
@@ -569,7 +569,7 @@ QUuid Diagram::uuid()
 	Set event_interface has current interface.
 	Diagram become the ownership of event_interface
 	If there is a previous interface, they will be delete before
-	&& call init() to the new interface.
+	and call init() to the new interface.
 	@param event_interface
 */
 void Diagram::setEventInterface(DiagramEventInterface *event_interface)
@@ -619,15 +619,15 @@ void Diagram::setConductorsAutonumName(const QString &name) {
 }
 
 /**
-	Exporte le diagram vers image
-	@return Une QImage representant le diagram
+	Exporte le schema vers une image
+	@return Une QImage representant le schema
 */
-bool Diagram::toPaintTovice(QPaintTovice &pix,
+bool Diagram::toPaintDevice(QPaintDevice &pix,
 				int width,
 				int height,
 				Qt::AspectRatioMode aspectRatioMode) {
-	// determine the source area = diagram content + margins
-	// determine la zone source =  contenu du diagram + marges
+	// determine the source area = schema content + margins
+	// determine la zone source =  contenu du schema + marges
 	QRectF source_area;
 	if (!use_border_) {
 		source_area = itemsBoundingRect();
@@ -695,7 +695,7 @@ bool Diagram::toPaintTovice(QPaintTovice &pix,
 */
 QSize Diagram::imageSize() const
 {
-	// determine la zone source =  contenu du diagram + marges
+	// determine la zone source =  contenu du schema + marges
 	qreal image_width, image_height;
 	if (!use_border_) {
 		QRectF items_rect = itemsBoundingRect();
@@ -718,10 +718,10 @@ QSize Diagram::imageSize() const
 
 /**
 	@brief Diagram::isEmpty
-	An empty diagram contains no element, conductor, or text field
-	@return true if the diagram is considered empty, false otherwise.
-	\~French true si le diagram est considere comme vide, false sinon.
-	Un diagram vide ne contains ni element, ni conducteur, ni champ de text
+	An empty schema contains no element, conductor, or text field
+	@return true if the schema is considered empty, false otherwise.
+	\~French true si le schema est considere comme vide, false sinon.
+	Un schema vide ne contient ni element, ni conducteur, ni champ de texte
 */
 bool Diagram::isEmpty() const
 {
@@ -732,7 +732,7 @@ bool Diagram::isEmpty() const
 	@brief Diagram::potential
 	@return all potential in the diagram
 	each potential are in the QList
-	&& each conductors of one potential are in the QSet
+	and each conductors of one potential are in the QSet
 */
 QList < QSet <Conductor *> > Diagram::potentials()
 {
@@ -756,13 +756,13 @@ QList < QSet <Conductor *> > Diagram::potentials()
 
 /**
 	@brief Diagram::toXml
-	Exports all or part of the diagram
-	\~French Exporte tout ou partie du diagram
+	Exports all or part of the schema
+	\~French Exporte tout ou partie du schema
 	\~ @param whole_content :
 	Boolean (to true by default) indicating if the generated XML must
-	represent the entire diagram or only the selected content
+	represent the entire schema or only the selected content
 	\~French Booleen (a vrai par defaut) indiquant si le XML genere doit
-	representer l'integralite du diagram ou seulement le contenu selectionne
+	representer l'integralite du schema ou seulement le contenu selectionne
 	\~ @param is_copy_command:
 	Boolean (false by default) indicating if function is called by an copy command
 	\~ @return An XML Document (QDomDocument)
@@ -776,8 +776,8 @@ QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
 	// racine de l'arbre XML
 	auto dom_root = document.createElement(QStringLiteral("diagram"));
 
-	// diagram properties
-	// proprietes du diagram
+	// schema properties
+	// proprietes du schema
 	if (whole_content) {
 		border_and_titleblock.titleBlockToXml(dom_root);
 		border_and_titleblock.borderToXml(dom_root);
@@ -891,7 +891,7 @@ QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
 	}
 	else {
 		//this method with whole_content to false,
-		//is often use to copy && paste the current selection
+		//is often use to copy and paste the current selection
 		//so we add the id of the project where copy occur.
 		dom_root.setAttribute(QStringLiteral("projectId"), QETApp::projectId(m_project));
 	}
@@ -972,8 +972,8 @@ QDomDocument Diagram::toXml(bool whole_content, bool is_copy_command) {
 		}
 	}
 
-	// correspondence table between the addresses of the terminals && their ids
-	// table de correspondance entre les adresses des bornes && leurs ids
+	// correspondence table between the addresses of the terminals and their ids
+	// table de correspondance entre les adresses des bornes et leurs ids
 	QHash<Terminal *, int> table_adr_id;
 
 	if (!list_elements.isEmpty()) {
@@ -1070,12 +1070,12 @@ void Diagram::folioSequentialsToXml(QHash<QString,
 
 /**
 	@brief Diagram::fromXml
-	Imports the described diagram into an XML document.
+	Imports the described schema into an XML document.
 	If a position is specified,
 	the imported elements are positioned so that the upper left corner
 	of the smallest rectangle that can surround them all
 	(the bounding rect) is at this position.
-	\~French Importe le diagram decrit dans un document XML.
+	\~French Importe le schema decrit dans un document XML.
 	Si une position estprecisee,
 	les elements importes sont positionnes de maniere a ce que le coin
 	superieur gauche du plus petit rectangle pouvant les entourant tous
@@ -1085,7 +1085,7 @@ void Diagram::folioSequentialsToXml(QHash<QString,
 	\~French Le document XML a analyser
 	\~ @param position :
 	The position of the diagram matters
-	\~French La position du diagram importe
+	\~French La position du schema importe
 	\~ @param consider_informations :
 	If true, additional information
 	(author, title, ...) will be taken into account
@@ -1093,9 +1093,9 @@ void Diagram::folioSequentialsToXml(QHash<QString,
 	(auteur, titre, ...) seront prises en compte
 	\~ @param content_ptr :
 	if this pointer to a DiagramContent is different from 0,
-	it will be filled with the content added to the diagram by the fromXml
+	it will be filled with the content added to the schema by the fromXml
 	\~French si ce pointeur vers un DiagramContent est different de 0,
-	il sera rempli avec le contenu ajoute au diagram par le fromXml
+	il sera rempli avec le contenu ajoute au schema par le fromXml
 	\~ @return true if the import was successful, false otherwise
 	\~French true si l'import a reussi, false sinon
 */
@@ -1109,21 +1109,21 @@ bool Diagram::fromXml(QDomDocument &document,
 
 /**
 	@brief Diagram::initFromXml
-	Imports the described diagram in an XML element.
+	Imports the described schema in an XML element.
 	This method delegates its work to Diagram :: fromXml
 	If the import is successful,
 	this method also initializes the XML document internal allowing to
 	manage the recording of this diagram in the project to which it belongs.
 	@see Diagram::fromXml
-	\~French Importe le diagram decrit dans un element XML.
+	\~French Importe le schema decrit dans un element XML.
 	Cette methode delegue son travail a Diagram::fromXml
 	Si l'import reussit, cette methode initialise egalement le document XML
-	interne permettant de bien gerer l'enregistrement de ce diagram dans le
-	project auquel il appartient.
+	interne permettant de bien gerer l'enregistrement de ce schema dans le
+	projet auquel il appartient.
 	\~ @param document : The XML document to analyze
 	\~French  Le document XML a analyser
 	\~ @param position : The position of the diagram matters
-	\~French La position du diagram importe
+	\~French La position du schema importe
 	\~ @param consider_informations :
 	If true, additional information
 	(author, title, ...) will be taken into account
@@ -1131,9 +1131,9 @@ bool Diagram::fromXml(QDomDocument &document,
 	(auteur, titre, ...) seront prises en compte
 	\~ @param content_ptr :
 	if this pointer to a DiagramContent is different from 0,
-	it will be filled with the content added to the diagram by the fromXml
+	it will be filled with the content added to the schema by the fromXml
 	\~French si ce pointeur vers un DiagramContent est different de 0,
-	il sera rempli avec le contenu ajoute au diagram par le fromXml
+	il sera rempli avec le contenu ajoute au schema par le fromXml
 	\~ @return true if the import was successful, false otherwise
 	\~French true si l'import a reussi, false sinon
 */
@@ -1141,9 +1141,9 @@ bool Diagram::initFromXml(QDomElement &document,
 			  QPointF position,
 			  bool consider_informations,
 			  DiagramContent *content_ptr) {
-	/* import the content && properties of the diagram
+	/* import the content and properties of the schema
 	 *  from the XML element provided as a parameter
-	 * import le contenu && les proprietes du diagram
+	 * import le contenu et les proprietes du schema
 	 *  depuis l'element XML fourni en parametre
 	 */
 	bool from_xml = fromXml(document,
@@ -1222,11 +1222,11 @@ Terminal* findTerminal(int conductor_index,
 
 /**
 	@brief Diagram::fromXml
-	Imports the described diagram in an XML element. If a position is
+	Imports the described schema in an XML element. If a position is
 	specified, the imported elements are positioned in such a way that the
 	upper left corner of the smallest rectangle that can surround them all
 	(the bounding rect) either at this position.
-	\~French Importe le diagram decrit dans un element XML.
+	\~French Importe le schema decrit dans un element XML.
 	Si une position est precisee,
 	les elements importes sont positionnes de maniere a ce que le
 	coin superieur gauche du plus petit rectangle pouvant les entourant tous
@@ -1236,7 +1236,7 @@ Terminal* findTerminal(int conductor_index,
 	\~French Le document XML a analyser
 	\~ @param position :
 	The position of the diagram matters
-	\~French La position du diagram importe
+	\~French La position du schema importe
 	\~ @param consider_informations :
 	If true, additional information
 	(author, title, ...) will be taken into account
@@ -1244,9 +1244,9 @@ Terminal* findTerminal(int conductor_index,
 	(auteur, titre, ...) seront prises en compte
 	\~ @param content_ptr :
 	if this pointer to a DiagramContent is different from 0,
-	it will be filled with the content added to the diagram by the fromXml
+	it will be filled with the content added to the schema by the fromXml
 	\~French si ce pointeur vers un DiagramContent est different de 0,
-	il sera rempli avec le contenu ajoute au diagram par le fromXml
+	il sera rempli avec le contenu ajoute au schema par le fromXml
 	\~ @return
 	true if the import was successful, false otherwise
 	\~French true si l'import a reussi, false sinon
@@ -1265,7 +1265,7 @@ bool Diagram::fromXml(QDomElement &document,
 		// Read attributes of this diagram
 	if (consider_informations)
 	{
-		// Load border && titleblock
+		// Load border and titleblock
 		border_and_titleblock.titleBlockFromXml(root);
 		border_and_titleblock.borderFromXml(root);
 
@@ -1386,7 +1386,7 @@ bool Diagram::fromXml(QDomElement &document,
 		{
 			QString debug_message =
 				QString("Diagram::fromXml() : Le chargement de "
-					"la description de l'element %1% {1?} a "
+					"la description de l'element %1 a "
 					"echoue avec le code d'erreur %2").arg(
 					element_location.path()).arg(state);
 			qDebug() << qPrintable(debug_message);
@@ -1697,7 +1697,7 @@ void Diagram::titleBlockTemplateChanged(const QString &template_name) {
 /**
 	@brief Diagram::titleBlockTemplateRemoved
 	This slot has to be be used to inform this class that the given title block
-	template is about to be removed && is no longer accessible. This class
+	template is about to be removed and is no longer accessible. This class
 	will either use the provided  optional TitleBlockTemplate or the default
 	title block provided by QETApp::defaultTitleBlockTemplate()
 	@param template_name Name of the title block template that has changed
@@ -1739,8 +1739,8 @@ void Diagram::setTitleBlockTemplate(const QString &template_name)
 
 /**
 	@brief Diagram::selectAll
-	Select all diagram objects
-	\~French Selectionne tous les objets du diagram
+	Select all schema objects
+	\~French Selectionne tous les objets du schema
 */
 void Diagram::selectAll()
 {
@@ -1754,8 +1754,8 @@ void Diagram::selectAll()
 
 /**
 	@brief Diagram::deselectAll
-	Toselects all selected objects
-	\~French Toslectionne tous les objets selectionnes
+	Deselects all selected objects
+	\~French Deslectionne tous les objets selectionnes
 */
 void Diagram::deselectAll()
 {
@@ -1766,8 +1766,8 @@ void Diagram::deselectAll()
 
 /**
 	@brief Diagram::invertSelection
-	Reverses the selection state of all diagram objects
-	Inverse l'etat de selection de tous les objets du diagram
+	Reverses the selection state of all schema objects
+	Inverse l'etat de selection de tous les objets du schema
 */
 void Diagram::invertSelection()
 {
@@ -1777,8 +1777,8 @@ void Diagram::invertSelection()
 
 		//Get only allowed graphics item
 		//because some item can be deleted between the
-		//call of items() && the use of the item in the second 'for' loop
-		//&& crash Qet with a segfault.
+		//call of items() and the use of the item in the second 'for' loop
+		//and crash Qet with a segfault.
 	QVector<QGraphicsItem *> item_list;
 	for (auto item : items())
 	{
@@ -1859,7 +1859,7 @@ void Diagram::loadFolioSeqHash(QHash<QString,
 void Diagram::changeZValue(QET::DepthOption option)
 {
 	DiagramContent dc(this);
-	QUndoCommand *undo = new QUndoCommand(tr("Change the depth"));
+	QUndoCommand *undo = new QUndoCommand(tr("Modifier la profondeur"));
 	QList<QGraphicsItem *> l = dc.items(DiagramContent::SelectedOnly | \
 					    DiagramContent::Elements | \
 					    DiagramContent::Shapes | \
@@ -2150,13 +2150,13 @@ ElementTextsMover &Diagram::elementTextsMover()
 
 /**
 	@brief Diagram::usesElement
-	Used to find out if an element is used on a diagram
-	\~French Permet de savoir si un element est utilise sur un diagram
+	Used to find out if an element is used on a schema
+	\~French Permet de savoir si un element est utilise sur un schema
 	\~ @param location : Location of an element
 	\~French Emplacement d'un element
-	\~ @return true if the location element is used on this diagram,
+	\~ @return true if the location element is used on this schema,
 	false otherwise
-	\~French true si l'element location est utilise sur ce diagram,
+	\~French true si l'element location est utilise sur ce schema,
 	false sinon
 */
 bool Diagram::usesElement(const ElementsLocation &location)
@@ -2246,7 +2246,7 @@ bool Diagram::freezeNewConductors()
 
 /**
 	@brief Diagram::adjustSceneRect
-	Recalcul && adjust the size of the scene
+	Recalcul and adjust the size of the scene
 */
 void Diagram::adjustSceneRect()
 {
@@ -2300,8 +2300,8 @@ ExportProperties Diagram::applyProperties(
 	@param pos :
 	Cartesian position (ex: 10.3, 45.2) to transform into position
 	in the grid (ex: B2)
-	\~French  Position cartesienne (ex: 10.3, 45.2) a transformer en position
-	dans la grille (ex: B2)
+	\~French  Position cartesienne (ex : 10.3, 45.2) a transformer en position
+	dans la grille (ex : B2)
 	\~ @return a position in the grid corresponding to pos
 	\~French la position dans la grille correspondant a pos
 */
@@ -2331,7 +2331,7 @@ QPointF Diagram::snapToGrid(const QPointF &p)
 							   Diagram::yGrid).toInt();
 
 	//Return a point rounded to the nearest pixel
-	if (QApplication::keyboardEdits().testFlag(Qt::ControlModifier))
+	if (QApplication::keyboardModifiers().testFlag(Qt::ControlModifier))
 	{
 		int p_x = qRound(p.x());
 		int p_y = qRound(p.y());
@@ -2348,8 +2348,8 @@ QPointF Diagram::snapToGrid(const QPointF &p)
 
 /**
 	@brief Diagram::setDrawTerminals
-	Tofines whether or not to display the terminals
-	\~French Tofinit s'il faut afficher ou non les bornes
+	Defines whether or not to display the terminals
+	\~French Definit s'il faut afficher ou non les bornes
 	\~ @param dt : true to display the bounds, false otherwise
 	\~French true pour afficher les bornes, false sinon
 */
@@ -2363,9 +2363,9 @@ void Diagram::setDrawTerminals(bool dt) {
 
 /**
 	@brief Diagram::setDrawColoredConductors
-	Tofines whether or not to respect the colors of the conductors.
+	Defines whether or not to respect the colors of the conductors.
 	If not, the conductors are all drawn in black.
-	\~French Tofinit s'il faut respecter ou non les couleurs des conducteurs.
+	\~French Definit s'il faut respecter ou non les couleurs des conducteurs.
 	Si non, les conducteurs sont tous dessines en noir.
 	\~ @param dcc true to respect the colors, false otherwise
 	\~French dcc true pour respecter les couleurs, false sinon
@@ -2377,7 +2377,7 @@ void Diagram::setDrawColoredConductors(bool dcc) {
 /**
 	@brief Diagram::selectedConductors
 	@return the list of conductors selected on the diagram
-	\~French la liste des conducteurs selectionnes sur le diagram
+	\~French la liste des conducteurs selectionnes sur le schema
 */
 QSet<Conductor *> Diagram::selectedConductors() const
 {
@@ -2392,8 +2392,8 @@ QSet<Conductor *> Diagram::selectedConductors() const
 
 /**
 	@brief Diagram::clipboardMayContainDiagram
-	@return true if the clipboard appears to contain a diagram
-	\~French true si le presse-papier semble contenir un diagram
+	@return true if the clipboard appears to contain a schema
+	\~French true si le presse-papier semble contenir un schema
 */
 bool Diagram::clipboardMayContainDiagram()
 {
@@ -2405,10 +2405,10 @@ bool Diagram::clipboardMayContainDiagram()
 
 /**
 	@brief Diagram::project
-	@return the project to which this diagram belongs
-	or 0 if it is an independent diagram.
-	\~French le project auquel ce diagram appartient
-	ou 0 s'il s'agit d'un diagram independant.
+	@return the project to which this schema belongs
+	or 0 if it is an independent schema.
+	\~French le projet auquel ce schema appartient
+	ou 0 s'il s'agit d'un schema independant.
 */
 QETProject *Diagram::project() const
 {
@@ -2440,7 +2440,7 @@ bool Diagram::isReadOnly() const
 	@brief Diagram::content
 	@return The content of the diagram.
 	The conductors are all seated in conductorsToMove.
-	\~French Le contenu du diagram. Les conducteurs sont tous places dans
+	\~French Le contenu du schema. Les conducteurs sont tous places dans
 	conductorsToMove.
 */
 DiagramContent Diagram::content() const
@@ -2483,10 +2483,10 @@ bool Diagram::canRotateSelection() const
 	return false;
 }
 /*
- * 	To copy elements with right-alined or centered elementtext, the text position
-	of dynamicElementTextItems in report- && slave elements must be reset
+ * 	To copy elements with right-aligned or centered elementtext, the text position
+	of dynamicElementTextItems in report- and slave elements must be reset
 	to the original insert position bevor writing to clipboard.
-	It is only necessary for right-alined && centered texts,
+	It is only necessary for right-aligned and centered texts,
 	but we do it for all, because it has no influence on other texts.
 */
 /**

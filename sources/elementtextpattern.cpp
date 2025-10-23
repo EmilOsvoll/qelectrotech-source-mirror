@@ -172,7 +172,7 @@ QString ImportElementTextPattern::getName(const QStringList& list,
 					  bool *ok,
 					  bool *erase) const
 {
-	return ImportElementTextPatternDiaLog::getItem(
+	return ImportElementTextPatternDialog::getItem(
 				parentWidget(),
 				QObject::tr("Choicener une configuration de texts"),
 				QObject::tr("Choicener la configuration de texts à ajouter à l'élément"),

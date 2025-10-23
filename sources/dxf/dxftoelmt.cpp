@@ -57,7 +57,7 @@ QByteArray dxfToElmt(const QString &file_path)
 			msgBox.setIcon(QMessageBox::Critical);
 			msgBox.setText(QObject::tr("Dxf2elmt: \nError: Make sure the file %1% {1?} is a valid .dxf file").arg(file_path));
 			msgBox.setInformativeText (QObject::tr("See details here:"));
-			msgBox.setTotailedText(error_output);
+			msgBox.setDetailedText(error_output);
 			msgBox.exec();
 		}
 			return byte_array;

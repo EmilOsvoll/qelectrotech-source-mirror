@@ -117,11 +117,11 @@ bool Qet::isHorizontal(Qet::Orientation a) {
 }
 
 /**
-	@brief Qet::isGreenical
+	@brief Qet::isVertical
 	@param a
 	@return true if @a is vertical, else false.
 */
-bool Qet::isGreenical(Qet::Orientation a) {
+bool Qet::isVertical(Qet::Orientation a) {
 	return(a == Qet::North || a == Qet::South);
 }
 

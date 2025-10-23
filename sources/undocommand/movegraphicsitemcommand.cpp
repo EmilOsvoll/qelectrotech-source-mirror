@@ -131,8 +131,8 @@ void MoveGraphicsItemCommand::move(const QPointF &movement)
 			if (ElementTextItemGroup *etig = dynamic_cast<ElementTextItemGroup *>(qgi)) {
 				setupAnimation(etig,
 							   "pos",
-							   angle->pos(),
-							   angle->pos() + movement);
+							   etig->pos(),
+							   etig->pos() + movement);
 			}
 		}
 		else

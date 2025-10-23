@@ -100,7 +100,7 @@ void QETMainWindow::initCommonActions()
 
 	manual_online_ -> setShortcut(Qt::Key_F1);
 
-	youtube_ = new QAction(QET::Icons::QETEmptyo, tr("Youtube channel"), this);
+	youtube_ = new QAction(QET::Icons::QETEmpty, tr("Youtube channel"), this);
 	youtube_ -> setStatusTip(tr("Launches the default browser on the Youtube channel of QElectroTech", "status bar tip"));
 
 	connect(youtube_, &QAction::triggered, [](bool) {

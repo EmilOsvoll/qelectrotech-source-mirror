@@ -49,7 +49,7 @@ m_diagram(diagram)
 		}
 	}
 	for(ElementTextItemGroup *etig : dc.selectedTextsGroup())
-		groups_list << angle;
+		groups_list << etig;
 	
 	if(texts_list.count() || groups_list.count())
 	{

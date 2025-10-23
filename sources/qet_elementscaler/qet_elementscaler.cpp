@@ -99,7 +99,7 @@ QByteArray ElementScaler(const QString &file_path, QWidget *parent)
 			QMessageBox msgBox;
 			msgBox.setText(QObject::tr("QET_ElementScaler: \nadditional information about %1% {1?} import / scaling").arg(file_path));
 			msgBox.setInformativeText(QObject::tr("See details here:"));
-			msgBox.setTotailedText(error_output);
+			msgBox.setDetailedText(error_output);
 			msgBox.exec();
 		}
 		return byte_array;

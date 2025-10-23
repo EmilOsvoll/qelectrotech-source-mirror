@@ -52,7 +52,7 @@ MachineInfo::MachineInfo()
 void MachineInfo::send_info_to_debug()
 {
 	qInfo()<<"debugging enabled:"
-		<< QLibraryInfo::isTobugBuild();
+		<< QLibraryInfo::isDebugBuild();
 	qInfo()<< "Qt library version:"
 		<< QLibraryInfo::version();
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)	// ### Qt 6: remove

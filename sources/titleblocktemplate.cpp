@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it &&/or modify
+	QElectroTech is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ TitleBlockTemplate::TitleBlockTemplate(QObject *parent) :
 
 /**
 	@brief TitleBlockTemplate::~TitleBlockTemplate
-	Tostructor
+	Destructor
 */
 TitleBlockTemplate::~TitleBlockTemplate()
 {
@@ -48,7 +48,7 @@ TitleBlockTemplate::~TitleBlockTemplate()
 
 /**
 	@brief TitleBlockTemplate::createCell
-	Create a new cell && associate it with this template,
+	Create a new cell and associate it with this template,
 	which means that it will be deleted when this template is destroyed.
 	@param existing_cell (optional) An existing cell that will be copied
 	@return A pointer to the newly created cell
@@ -66,7 +66,7 @@ TitleBlockCell *TitleBlockTemplate::createCell(
 	@brief TitleBlockTemplate::createCellsList
 	@param count :
 	Number of cells expected in the list
-	@return a list containing count newly created (&& registered) cells
+	@return a list containing count newly created (and registered) cells
 	@see createCell()
 */
 QList<TitleBlockCell *> TitleBlockTemplate::createCellsList(int count) {
@@ -108,7 +108,7 @@ bool TitleBlockTemplate::loadFromXmlFile(const QString &filepath) {
 		return(false);
 	}
 #ifdef TITLEBLOCK_TEMPLATE_DEBUG
-	qDebug() << Q_FUNC_INFO << filepath << "opened && parsed";
+	qDebug() << Q_FUNC_INFO << filepath << "opened and parsed";
 #endif
 	return(loadFromXmlElement(xml_doc.documentElement()));
 }
@@ -191,7 +191,7 @@ void TitleBlockTemplate::exportCellToXml(TitleBlockCell *cell,
 	@brief TitleBlockTemplate::clone
 	@return a deep copy of the current title block template
 	(i.e. title block cells are duplicated too
-	&& associated with their parent template).
+	and associated with their parent template).
 */
 TitleBlockTemplate *TitleBlockTemplate::clone() const
 {
@@ -201,28 +201,28 @@ TitleBlockTemplate *TitleBlockTemplate::clone() const
 
 	// this does not really duplicates pixmaps,
 	// only the objects that hold a key to the implicitly shared pixmaps
-	foreach (QString Logo_key, bitmap_Logos_.keys()) {
-		copy -> bitmap_Logos_[Logo_key] =
-				QPixmap(bitmap_Logos_[Logo_key]);
+	foreach (QString logo_key, bitmap_logos_.keys()) {
+		copy -> bitmap_logos_[logo_key] =
+				QPixmap(bitmap_logos_[logo_key]);
 #ifdef TITLEBLOCK_TEMPLATE_DEBUG
 		qDebug() << Q_FUNC_INFO
 			 << "copying "
-			 << bitmap_Logos_[Logo_key] -> cacheKey()
+			 << bitmap_logos_[logo_key] -> cacheKey()
 			 << "to"
-			 << copy -> bitmap_Logos_[Logo_key] -> cacheKey();
+			 << copy -> bitmap_logos_[logo_key] -> cacheKey();
 #endif
 	}
 
 	// we have to create new QSvgRenderer objects from the data
 	// (no copy constructor)
-	foreach (QString Logo_key, vector_Logos_.keys()) {
-		copy -> vector_Logos_[Logo_key] =
-				new QSvgRenderer(data_Logos_[Logo_key]);
+	foreach (QString logo_key, vector_logos_.keys()) {
+		copy -> vector_logos_[logo_key] =
+				new QSvgRenderer(data_logos_[logo_key]);
 	}
 
-	copy -> data_Logos_    = data_Logos_;
-	copy -> storage_Logos_ = storage_Logos_;
-	copy -> type_Logos_    = type_Logos_;
+	copy -> data_logos_    = data_logos_;
+	copy -> storage_logos_ = storage_logos_;
+	copy -> type_logos_    = type_logos_;
 	copy -> rows_heights_  = rows_heights_;
 	copy -> columns_width_ = columns_width_;
 
@@ -271,35 +271,35 @@ void TitleBlockTemplate::loadInformation(const QDomElement &xml_element) {
 
 /**
 	@brief TitleBlockTemplate::loadLogos
-	Import the Logos from a given XML titleblock template.
+	Import the logos from a given XML titleblock template.
 	@param xml_element : An XML element representing an titleblock template.
-	@param reset : true to delete all previously known Logos before,
+	@param reset : true to delete all previously known logos before,
 	false otherwise.
 	@return true if the reading succeeds, false otherwise.
 */
 bool TitleBlockTemplate::loadLogos(const QDomElement &xml_element, bool reset) {
 	if (reset) {
-		qDeleteAll(vector_Logos_.begin(), vector_Logos_.end());
-		vector_Logos_.clear();
+		qDeleteAll(vector_logos_.begin(), vector_logos_.end());
+		vector_logos_.clear();
 
 		// Note:
 		// QPixmap are only a key to access the implicitly shared pixmap
-		bitmap_Logos_.clear();
+		bitmap_logos_.clear();
 
-		data_Logos_.clear();
-		storage_Logos_.clear();
+		data_logos_.clear();
+		storage_logos_.clear();
 	}
 
-	// we look for //Logos/Logo elements
+	// we look for //logos/logo elements
 	for (QDomNode n = xml_element.firstChild() ;
 		 !n.isNull() ;
 		 n = n.nextSibling()) {
-		if (n.isElement() && n.toElement().tagName() == "Logos") {
+		if (n.isElement() && n.toElement().tagName() == "logos") {
 			for (QDomNode p = n.firstChild() ;
 				 !p.isNull() ;
 				 p = p.nextSibling()) {
 				if (p.isElement()  && p.toElement().tagName()
-						== "Logo") {
+						== "logo") {
 					loadLogo(p.toElement());
 				}
 			}
@@ -311,9 +311,9 @@ bool TitleBlockTemplate::loadLogos(const QDomElement &xml_element, bool reset) {
 
 /**
 	@brief TitleBlockTemplate::loadLogo
-	Import the Logo from a given XML Logo description.
+	Import the logo from a given XML logo description.
 	@param xml_element :
-	An XML element representing a Logo within an titleblock template.
+	An XML element representing a logo within an titleblock template.
 	@return true if the reading succeeds, false otherwise.
 */
 bool TitleBlockTemplate::loadLogo(const QDomElement &xml_element) {
@@ -321,30 +321,30 @@ bool TitleBlockTemplate::loadLogo(const QDomElement &xml_element) {
 	if (!xml_element.hasAttribute("name")) {
 		return(false);
 	}
-	QString Logo_name    = xml_element.attribute("name");
-	QString Logo_type    = xml_element.attribute("type", "png");
-	QString Logo_storage = xml_element.attribute("storage", "base64");
+	QString logo_name    = xml_element.attribute("name");
+	QString logo_type    = xml_element.attribute("type", "png");
+	QString logo_storage = xml_element.attribute("storage", "base64");
 
-	// Both QSvgRenderer && QPixmap read their data from a QByteArray, so
+	// Both QSvgRenderer and QPixmap read their data from a QByteArray, so
 	// we convert the available data to that format.
-	QByteArray Logo_data;
-	if (Logo_storage == "xml") {
+	QByteArray logo_data;
+	if (logo_storage == "xml") {
 		QDomNodeList svg_nodes = xml_element.elementsByTagName("svg");
 		if (svg_nodes.isEmpty()) {
 			return(false);
 		}
 		QDomElement svg_element = svg_nodes.at(0).toElement();
-		QTextStream xml_to_byte_array(&Logo_data);
+		QTextStream xml_to_byte_array(&logo_data);
 		svg_element.save(xml_to_byte_array, 0);
-	} else if (Logo_storage == "base64") {
-		Logo_data = QByteArray::fromBase64(xml_element.text().toLatin1());
+	} else if (logo_storage == "base64") {
+		logo_data = QByteArray::fromBase64(xml_element.text().toLatin1());
 	} else {
 		return(false);
 	}
 #ifdef TITLEBLOCK_TEMPLATE_DEBUG
-	qDebug() << Q_FUNC_INFO << Logo_name << Logo_type << Logo_storage;
+	qDebug() << Q_FUNC_INFO << logo_name << logo_type << logo_storage;
 #endif
-	addLogo(Logo_name, &Logo_data, Logo_type, Logo_storage);
+	addLogo(logo_name, &logo_data, logo_type, logo_storage);
 
 	return(true);
 }
@@ -471,7 +471,7 @@ void TitleBlockTemplate::parseColumns(const QString &cols_string) {
 #ifdef TITLEBLOCK_TEMPLATE_DEBUG
 	foreach (TitleBlockColDimension icd, columns_width_) {
 		qDebug() << Q_FUNC_INFO
-			 << QString("%1% {1?} [%2]").arg(icd.value).arg(
+			 << QString("%1 [%2]").arg(icd.value).arg(
 					QET::titleBlockColumnLengthToString(icd.type));
 	}
 #endif
@@ -480,12 +480,12 @@ void TitleBlockTemplate::parseColumns(const QString &cols_string) {
 /**
 	@brief TitleBlockTemplate::loadCells
 	Analyze an XML element, looking for grid cells. The grid cells are checked
-	&& stored in this object.
+	and stored in this object.
 	@param xml_element XML element to analyze
 	@return systematically true
 */
 bool TitleBlockTemplate::loadCells(const QDomElement &xml_element) {
-	// we are interested by the "Logo" && "field" elements
+	// we are interested by the "logo" and "field" elements
 	QDomElement grid_element;
 	for (QDomNode n = xml_element.firstChild() ;
 		 !n.isNull() ;
@@ -493,7 +493,7 @@ bool TitleBlockTemplate::loadCells(const QDomElement &xml_element) {
 		if (!n.isElement()) continue;
 		QDomElement cell_element = n.toElement();
 		if (cell_element.tagName() == "field"
-				|| cell_element.tagName() == "Logo") {
+				|| cell_element.tagName() == "logo") {
 			loadCell(cell_element);
 		}
 	}
@@ -531,51 +531,51 @@ void TitleBlockTemplate::saveInformation(QDomElement &xml_element) const
 
 /**
 	@brief TitleBlockTemplate::saveLogos
-	Export this template's Logos as XML
+	Export this template's logos as XML
 	@param xml_element :
-	XML Element under which the \<Logos\> element will be attached
+	XML Element under which the \<logos\> element will be attached
 */
 void TitleBlockTemplate::saveLogos(QDomElement &xml_element) const
 {
-	QDomElement Logos_element =
-			xml_element.ownerDocument().createElement("Logos");
-	foreach(QString Logo_name, type_Logos_.keys()) {
-		QDomElement Logo_element =
-				xml_element.ownerDocument().createElement("Logo");
-		saveLogo(Logo_name, Logo_element);
-		Logos_element.appendChild(Logo_element);
+	QDomElement logos_element =
+			xml_element.ownerDocument().createElement("logos");
+	foreach(QString logo_name, type_logos_.keys()) {
+		QDomElement logo_element =
+				xml_element.ownerDocument().createElement("logo");
+		saveLogo(logo_name, logo_element);
+		logos_element.appendChild(logo_element);
 	}
-	xml_element.appendChild(Logos_element);
+	xml_element.appendChild(logos_element);
 }
 
 /**
 	@brief TitleBlockTemplate::saveLogo
-	Export a specific Logo as XML
-	@param Logo_name : Name of the Logo to be exported
-	@param xml_element : XML element in which the Logo will be exported
+	Export a specific logo as XML
+	@param logo_name : Name of the logo to be exported
+	@param xml_element : XML element in which the logo will be exported
 */
-void TitleBlockTemplate::saveLogo(const QString &Logo_name,
+void TitleBlockTemplate::saveLogo(const QString &logo_name,
 				  QDomElement &xml_element) const
 {
-	if (!type_Logos_.contains(Logo_name)) return;
+	if (!type_logos_.contains(logo_name)) return;
 
-	xml_element.setAttribute("name", Logo_name);
-	xml_element.setAttribute("type", type_Logos_[Logo_name]);
-	xml_element.setAttribute("storage", storage_Logos_[Logo_name]);
+	xml_element.setAttribute("name", logo_name);
+	xml_element.setAttribute("type", type_logos_[logo_name]);
+	xml_element.setAttribute("storage", storage_logos_[logo_name]);
 
-	if (storage_Logos_[Logo_name] == "xml"
-			&& type_Logos_[Logo_name] == "svg") {
-		QDomDocument svg_Logo;
-		svg_Logo.setContent(data_Logos_[Logo_name]);
-		QDomNode svg_Logo_element =
+	if (storage_logos_[logo_name] == "xml"
+			&& type_logos_[logo_name] == "svg") {
+		QDomDocument svg_logo;
+		svg_logo.setContent(data_logos_[logo_name]);
+		QDomNode svg_logo_element =
 				xml_element.ownerDocument().importNode(
-					svg_Logo.documentElement(), true);
-		xml_element.appendChild(svg_Logo_element.toElement());
-	} else if (storage_Logos_[Logo_name] == "base64") {
-		QDomText base64_Logo =
+					svg_logo.documentElement(), true);
+		xml_element.appendChild(svg_logo_element.toElement());
+	} else if (storage_logos_[logo_name] == "base64") {
+		QDomText base64_logo =
 				xml_element.ownerDocument().createTextNode(
-					data_Logos_[Logo_name].toBase64());
-		xml_element.appendChild(base64_Logo);
+					data_logos_[logo_name].toBase64());
+		xml_element.appendChild(base64_logo);
 	}
 }
 
@@ -592,7 +592,7 @@ void TitleBlockTemplate::saveGrid(QDomElement &xml_element) const
 
 	QString rows_attr, cols_attr;
 	foreach(int row_height, rows_heights_)
-		rows_attr += QString("%1% {1?};").arg(row_height);
+		rows_attr += QString("%1;").arg(row_height);
 	foreach(TitleBlockDimension col_width, columns_width_)
 		cols_attr += col_width.toShortString();
 	grid_element.setAttribute("rows", rows_attr);
@@ -606,7 +606,7 @@ void TitleBlockTemplate::saveGrid(QDomElement &xml_element) const
 /**
 	@brief TitleBlockTemplate::saveCells
 	Export this template's cells as XML
-	(without the grid-related information, usch as rows && cols)
+	(without the grid-related information, usch as rows and cols)
 	@param xml_element :
 	XML element under which the \<cell\> elements will be attached
 */
@@ -660,12 +660,12 @@ void TitleBlockTemplate::saveCell(TitleBlockCell *cell,
 /**
 	@brief TitleBlockTemplate::checkCell
 	Load the essential attributes of a cell:
-	row && column indices && spans.
+	row and column indices and spans.
 	@param xml_element :
 	XML element representing a cell, i.e. either an titleblock
-	Logo or an titleblock field.
+	logo or an titleblock field.
 	@param titleblock_cell_ptr :
-	Pointer to a TitleBlockCell object pointer - if non-zero && if
+	Pointer to a TitleBlockCell object pointer - if non-zero and if
 	this method returns true, will be filled with the created TitleBlockCell
 	@return TRUE if the cell appears to be ok, FALSE otherwise
 */
@@ -682,7 +682,7 @@ bool TitleBlockTemplate::checkCell(const QDomElement &xml_element,
 	row_num = col_num = -1;
 	row_span = col_span = 0;
 
-	// parse the row && col attributes
+	// parse the row and col attributes
 	if (!QET::attributeIsAnInteger(xml_element, "row", &row_num)
 			|| row_num < 0
 			|| row_num >= row_count) {
@@ -703,11 +703,11 @@ bool TitleBlockTemplate::checkCell(const QDomElement &xml_element,
 			|| cell_ptr -> spanner_cell) {
 		return(false);
 	}
-	// ensure the num_row && num_col attributes are alright
+	// ensure the num_row and num_col attributes are alright
 	cell_ptr -> num_row = row_num;
 	cell_ptr -> num_col = col_num;
 
-	// parse the rowspan && colspan attributes
+	// parse the rowspan and colspan attributes
 	if (QET::attributeIsAnInteger(xml_element, "rowspan", &row_span)
 			&& row_span > 0) {
 		cell_ptr -> row_span = row_span;
@@ -726,9 +726,9 @@ bool TitleBlockTemplate::checkCell(const QDomElement &xml_element,
 
 /**
 	@brief TitleBlockTemplate::initCells
-	Initialize the internal cells grid with the row && column counts.
+	Initialize the internal cells grid with the row and column counts.
 	Note that this method does nothing if one of the internal lists
-	columns_width_ && rows_heights_ is empty.
+	columns_width_ and rows_heights_ is empty.
 */
 void TitleBlockTemplate::initCells()
 {
@@ -853,7 +853,7 @@ QList<int> TitleBlockTemplate::columnsWidth(int total_width) const
 {
 	if (total_width < 0) return(QList<int>());
 
-	// we first iter to determine the absolute && total-width-related widths
+	// we first iter to determine the absolute and total-width-related widths
 	QVector<int> final_widths(columns_width_.count());
 	int abs_widths_sum = 0, rel_widths_sum = 0;
 	QList<int> relative_columns;
@@ -889,7 +889,7 @@ QList<int> TitleBlockTemplate::columnsWidth(int total_width) const
 	if (relative_columns.count()) {
 		// Due to the rounding process,
 		// we may get a slight difference between the
-		// sum of the columns widths && the total width.
+		// sum of the columns widths and the total width.
 		int difference = total_width - abs_widths_sum - rel_widths_sum;
 
 		if (difference) {
@@ -966,7 +966,7 @@ int TitleBlockTemplate::minimumWidth()
 	// relative to remaining,
 	// TOT: total diagram/TBT width (variable).
 
-	// Minimum size may be enforced by ABS && RTT widths:
+	// Minimum size may be enforced by ABS and RTT widths:
 	// TOT >= ((sum(REL)/100)*TOT)+sum(ABS)
 	// => (1 - (sum(REL)/100))TOT >= sum(ABS)
 	// => TOT >= sum(ABS) / (1 - (sum(REL)/100))
@@ -1030,7 +1030,7 @@ int TitleBlockTemplate::height() const
 	@return true on row Changed or false
 */
 bool TitleBlockTemplate::moveRow(int from, int to) {
-	// checks from && to
+	// checks from and to
 	if (from >= rows_heights_.count()) return(false);
 	if (to   >= rows_heights_.count()) return(false);
 	for (int j = 0 ; j < columns_width_.count() ; ++ j) {
@@ -1108,7 +1108,7 @@ QList<TitleBlockCell *> TitleBlockTemplate::createRow()
 	@return true or false
 */
 bool TitleBlockTemplate::moveColumn(int from, int to) {
-	// checks from && to
+	// checks from and to
 	if (from >= columns_width_.count()) return(false);
 	if (to   >= columns_width_.count()) return(false);
 	cells_.move(from, to);
@@ -1190,7 +1190,7 @@ TitleBlockCell *TitleBlockTemplate::cell(int row, int col) const
 	cell A cell belonging to this title block template
 	@param ignore_span_state :
 	(Optional, defaults to false) If true, will consider
-	cells theoretically spanned (i.e. row_span && col_span attributes).
+	cells theoretically spanned (i.e. row_span and col_span attributes).
 	Otherwise, will take span_state attribute into account.
 	@return the set of cells spanned by the provided cell
 	Note the returned set does not include the spanning, provided cell
@@ -1267,55 +1267,55 @@ void TitleBlockTemplate::setAllSpans(const QHash<TitleBlockCell *,
 
 /**
 	@brief TitleBlockTemplate::addLogo
-	@param Logo_name :
+	@param logo_name :
 	Logo name to be added / replaced
-	@param Logo_data :
+	@param logo_data :
 	Logo data
-	@param Logo_type :
-	@param Logo_storage :
+	@param logo_type :
+	@param logo_storage :
 	@return true or false
 */
-bool TitleBlockTemplate::addLogo(const QString &Logo_name,
-				 QByteArray *Logo_data,
-				 const QString &Logo_type,
-				 const QString &Logo_storage) {
-	if (data_Logos_.contains(Logo_name)) {
-		// we are replacing the Logo
-		removeLogo(Logo_name);
+bool TitleBlockTemplate::addLogo(const QString &logo_name,
+				 QByteArray *logo_data,
+				 const QString &logo_type,
+				 const QString &logo_storage) {
+	if (data_logos_.contains(logo_name)) {
+		// we are replacing the logo
+		removeLogo(logo_name);
 	}
 
 	// we can now create our image object from the byte array
-	if (Logo_type == "svg") {
+	if (logo_type == "svg") {
 		// SVG format is handled by the QSvgRenderer class
 		QSvgRenderer *svg = new QSvgRenderer();
-		if (!svg -> load(*Logo_data)) {
+		if (!svg -> load(*logo_data)) {
 			return(false);
 		}
-		vector_Logos_.insert(Logo_name, svg);
+		vector_logos_.insert(logo_name, svg);
 
 		// we also memorize the way to store them in the final XML output
-		QString final_Logo_storage = Logo_storage;
-		if (Logo_storage != "xml" && Logo_storage != "base64") {
-			final_Logo_storage = "xml";
+		QString final_logo_storage = logo_storage;
+		if (logo_storage != "xml" && logo_storage != "base64") {
+			final_logo_storage = "xml";
 		}
-		storage_Logos_.insert(Logo_name, Logo_storage);
+		storage_logos_.insert(logo_name, logo_storage);
 	} else {
 
 		// bitmap formats are handled by the QPixmap class
-		QPixmap Logo_pixmap;
-		Logo_pixmap.loadFromData(*Logo_data);
-		if (!Logo_pixmap.width() || !Logo_pixmap.height()) {
+		QPixmap logo_pixmap;
+		logo_pixmap.loadFromData(*logo_data);
+		if (!logo_pixmap.width() || !logo_pixmap.height()) {
 			return(false);
 		}
-		bitmap_Logos_.insert(Logo_name, Logo_pixmap);
+		bitmap_logos_.insert(logo_name, logo_pixmap);
 
-		// bitmap Logos can only be stored using a base64 encoding
-		storage_Logos_.insert(Logo_name, "base64");
+		// bitmap logos can only be stored using a base64 encoding
+		storage_logos_.insert(logo_name, "base64");
 	}
 
 	// we systematically store the raw data
-	data_Logos_.insert(Logo_name, *Logo_data);
-	type_Logos_.insert(Logo_name, Logo_type);
+	data_logos_.insert(logo_name, *logo_data);
+	type_logos_.insert(logo_name, logo_type);
 
 	return(true);
 }
@@ -1323,11 +1323,11 @@ bool TitleBlockTemplate::addLogo(const QString &Logo_name,
 /**
 	@brief TitleBlockTemplate::addLogoFromFile
 	@param filepath :
-	Path of the image file to add as a Logo
+	Path of the image file to add as a logo
 	@param name :
-	Name used to store the Logo; if none is provided, the
+	Name used to store the logo; if none is provided, the
 	basename of the first argument is used.
-	@return true if the Logo could be deleted, false otherwise
+	@return true if the logo could be deleted, false otherwise
 */
 bool TitleBlockTemplate::addLogoFromFile(const QString &filepath,
 					 const QString &name) {
@@ -1335,10 +1335,10 @@ bool TitleBlockTemplate::addLogoFromFile(const QString &filepath,
 	QString filename = name.isEmpty() ? filepath_info.fileName() : name;
 	QString filetype = filepath_info.suffix();
 
-	// we read the provided Logo
-	QFile Logo_file(filepath);
-	if (!Logo_file.open(QIODevice::ReadOnly)) return(false);
-	QByteArray file_content = Logo_file.readAll();
+	// we read the provided logo
+	QFile logo_file(filepath);
+	if (!logo_file.open(QIODevice::ReadOnly)) return(false);
+	QByteArray file_content = logo_file.readAll();
 
 	// first, we try to add it as an SVG image
 	if (addLogo(filename, &file_content, "svg", "xml")) return(true);
@@ -1352,15 +1352,15 @@ bool TitleBlockTemplate::addLogoFromFile(const QString &filepath,
 
 /**
 	@brief TitleBlockTemplate::saveLogoToFile
-	@param Logo_name :
-	Name used to store the Logo
+	@param logo_name :
+	Name used to store the logo
 	@param filepath :
-	Path the Logo will be saved as
-	@return true if the Logo could be exported, false otherwise
+	Path the logo will be saved as
+	@return true if the logo could be exported, false otherwise
 */
-bool TitleBlockTemplate::saveLogoToFile(const QString &Logo_name,
+bool TitleBlockTemplate::saveLogoToFile(const QString &logo_name,
 					const QString &filepath) {
-	if (!data_Logos_.contains(Logo_name)) {
+	if (!data_logos_.contains(logo_name)) {
 		return(false);
 	}
 
@@ -1369,128 +1369,128 @@ bool TitleBlockTemplate::saveLogoToFile(const QString &Logo_name,
 		return(false);
 	}
 
-	target_file.write(data_Logos_[Logo_name]);
+	target_file.write(data_logos_[logo_name]);
 	target_file.close();
 	return(true);
 }
 
 /**
 	@brief TitleBlockTemplate::removeLogo
-	@param Logo_name : Name of the Logo to remove
-	@return true if the Logo could be deleted, false otherwise
+	@param logo_name : Name of the logo to remove
+	@return true if the logo could be deleted, false otherwise
 */
-bool TitleBlockTemplate::removeLogo(const QString &Logo_name) {
-	if (!data_Logos_.contains(Logo_name)) {
+bool TitleBlockTemplate::removeLogo(const QString &logo_name) {
+	if (!data_logos_.contains(logo_name)) {
 		return(false);
 	}
 #if TODO_LIST
-#pragma message("@TODO check existing cells using this Logo.")
+#pragma message("@TODO check existing cells using this logo.")
 #endif
-	/// TODO check existing cells using this Logo.
-	if (vector_Logos_.contains(Logo_name)) {
-		delete vector_Logos_.take(Logo_name);
+	/// TODO check existing cells using this logo.
+	if (vector_logos_.contains(logo_name)) {
+		delete vector_logos_.take(logo_name);
 	}
-	if (bitmap_Logos_.contains(Logo_name)) {
-		bitmap_Logos_.remove(Logo_name);
+	if (bitmap_logos_.contains(logo_name)) {
+		bitmap_logos_.remove(logo_name);
 	}
-	data_Logos_.remove(Logo_name);
-	storage_Logos_.remove(Logo_name);
+	data_logos_.remove(logo_name);
+	storage_logos_.remove(logo_name);
 	return(true);
 }
 
 /**
 	@brief TitleBlockTemplate::renameLogo
-	Rename the \a Logo_name Logo to \a new_name
-	@param Logo_name : Name of the Logo to be renamed
-	@param new_name : New name of the renamed Logo
+	Rename the \a logo_name logo to \a new_name
+	@param logo_name : Name of the logo to be renamed
+	@param new_name : New name of the renamed logo
 	@return
 */
-bool TitleBlockTemplate::renameLogo(const QString &Logo_name,
+bool TitleBlockTemplate::renameLogo(const QString &logo_name,
 					const QString &new_name) {
-	if (!data_Logos_.contains(Logo_name)
-			|| data_Logos_.contains(new_name)) {
+	if (!data_logos_.contains(logo_name)
+			|| data_logos_.contains(new_name)) {
 		return(false);
 	}
 #if TODO_LIST
-#pragma message("@TODO check existing cells using this Logo.")
+#pragma message("@TODO check existing cells using this logo.")
 #endif
-	/// TODO check existing cells using this Logo.
-	if (vector_Logos_.contains(Logo_name)) {
-		vector_Logos_.insert(new_name, vector_Logos_.take(Logo_name));
+	/// TODO check existing cells using this logo.
+	if (vector_logos_.contains(logo_name)) {
+		vector_logos_.insert(new_name, vector_logos_.take(logo_name));
 	}
-	if (bitmap_Logos_.contains(Logo_name)) {
-		bitmap_Logos_.insert(new_name, bitmap_Logos_.take(Logo_name));
+	if (bitmap_logos_.contains(logo_name)) {
+		bitmap_logos_.insert(new_name, bitmap_logos_.take(logo_name));
 	}
-	data_Logos_.insert(new_name, data_Logos_.take(Logo_name));
-	storage_Logos_.insert(new_name, storage_Logos_.take(Logo_name));
+	data_logos_.insert(new_name, data_logos_.take(logo_name));
+	storage_logos_.insert(new_name, storage_logos_.take(logo_name));
 	return(true);
 }
 
 /**
 	@brief TitleBlockTemplate::setLogoStorage
-	Set the kind of storage for the \a Logo_name Logo.
-	@param Logo_name :
-	Name of the Logo which kind of storage is to be changed
+	Set the kind of storage for the \a logo_name logo.
+	@param logo_name :
+	Name of the logo which kind of storage is to be changed
 	@param storage :
-	The kind of storage to use for the Logo, e.g. "xml" or "base64".
+	The kind of storage to use for the logo, e.g. "xml" or "base64".
 */
-void TitleBlockTemplate::setLogoStorage(const QString &Logo_name,
+void TitleBlockTemplate::setLogoStorage(const QString &logo_name,
 					const QString &storage) {
-	if (storage_Logos_.contains(Logo_name)) {
-		storage_Logos_[Logo_name] = storage;
+	if (storage_logos_.contains(logo_name)) {
+		storage_logos_[logo_name] = storage;
 	}
 }
 
 /**
-	@brief TitleBlockTemplate::Logos
-	@return The names of Logos embedded within this title block template.
+	@brief TitleBlockTemplate::logos
+	@return The names of logos embedded within this title block template.
 */
-QList<QString> TitleBlockTemplate::Logos() const
+QList<QString> TitleBlockTemplate::logos() const
 {
-	return(data_Logos_.keys());
+	return(data_logos_.keys());
 }
 
 /**
-	@brief TitleBlockTemplate::LogoType
-	@param Logo_name :
-	Name of a Logo embedded within this title block template.
-	@return the kind of storage used for the required Logo,
-	or a null QString if no such Logo was found in this template.
+	@brief TitleBlockTemplate::logoType
+	@param logo_name :
+	Name of a logo embedded within this title block template.
+	@return the kind of storage used for the required logo,
+	or a null QString if no such logo was found in this template.
 */
-QString TitleBlockTemplate::LogoType(const QString &Logo_name) const
+QString TitleBlockTemplate::logoType(const QString &logo_name) const
 {
-	if (type_Logos_.contains(Logo_name)) {
-		return type_Logos_[Logo_name];
+	if (type_logos_.contains(logo_name)) {
+		return type_logos_[logo_name];
 	}
 	return(QString());
 }
 
 /**
 	@brief TitleBlockTemplate::vectorLogo
-	@param Logo_name :
-	Name of a vector Logo embedded within this title block template.
-	@return the rendering object for the required vector Logo,
-	or 0 if no such vector Logo was found in this template.
+	@param logo_name :
+	Name of a vector logo embedded within this title block template.
+	@return the rendering object for the required vector logo,
+	or 0 if no such vector logo was found in this template.
 */
-QSvgRenderer *TitleBlockTemplate::vectorLogo(const QString &Logo_name) const
+QSvgRenderer *TitleBlockTemplate::vectorLogo(const QString &logo_name) const
 {
-	if (vector_Logos_.contains(Logo_name)) {
-		return vector_Logos_[Logo_name];
+	if (vector_logos_.contains(logo_name)) {
+		return vector_logos_[logo_name];
 	}
 	return(nullptr);
 }
 
 /**
 	@brief TitleBlockTemplate::bitmapLogo
-	@param Logo_name :
-	Name of a Logo embedded within this title block template.
-	@return the pixmap for the required bitmap Logo, or a null pixmap if no
-	such bitmap Logo was found in this template.
+	@param logo_name :
+	Name of a logo embedded within this title block template.
+	@return the pixmap for the required bitmap logo, or a null pixmap if no
+	such bitmap logo was found in this template.
 */
-QPixmap TitleBlockTemplate::bitmapLogo(const QString &Logo_name) const
+QPixmap TitleBlockTemplate::bitmapLogo(const QString &logo_name) const
 {
-	if (bitmap_Logos_.contains(Logo_name)) {
-		return bitmap_Logos_[Logo_name];
+	if (bitmap_logos_.contains(logo_name)) {
+		return bitmap_logos_[logo_name];
 	}
 	return(QPixmap());
 }
@@ -1668,20 +1668,20 @@ void TitleBlockTemplate::renderCell(QPainter &painter,
 	painter.save();
 	// render the inner content of the current cell
 	if (cell.type() == TitleBlockCell::LogoCell) {
-		if (!cell.Logo_reference.isEmpty()) {
-			/* the current cell appears to be a Logo
-			 *  - we first look for the Logo reference
-			 *    in our vector Logos list,
+		if (!cell.logo_reference.isEmpty()) {
+			/* the current cell appears to be a logo
+			 *  - we first look for the logo reference
+			 *    in our vector logos list,
 			 *    since they offer a potentially better
 			 *    (or, at least, not resolution-limited) rendering
 			 */
-			if (vector_Logos_.contains(cell.Logo_reference)) {
-				vector_Logos_[cell.Logo_reference] -> render(
+			if (vector_logos_.contains(cell.logo_reference)) {
+				vector_logos_[cell.logo_reference] -> render(
 							&painter,
 							cell_rect);
-			} else if (bitmap_Logos_.contains(cell.Logo_reference)) {
+			} else if (bitmap_logos_.contains(cell.logo_reference)) {
 				painter.drawPixmap(cell_rect,
-						   bitmap_Logos_[cell.Logo_reference]);
+						   bitmap_logos_[cell.logo_reference]);
 			}
 		}
 	} else if (cell.type() == TitleBlockCell::TextCell) {
@@ -1717,9 +1717,9 @@ QString TitleBlockTemplate::finalTextForCell(
 
 	if (cell.display_label && !cell.label.isEmpty()) {
 		cell_label = interpreteVariables(cell_label, diagram_context);
-		cell_text = QString(tr(" %1% {1?} : %2", "titleblock content - please let the blank space at the beginning")).arg(cell_label).arg(cell_text);
+		cell_text = QString(tr(" %1 : %2", "titleblock content - please let the blank space at the beginning")).arg(cell_label).arg(cell_text);
 	} else {
-		cell_text = QString(tr(" %1% {1?}")).arg(cell_text);
+		cell_text = QString(tr(" %1")).arg(cell_text);
 	}
 	return(cell_text);
 }
@@ -1739,7 +1739,7 @@ QString TitleBlockTemplate::interpreteVariables(
 {
 	QString interpreted_string = string;
 	foreach (QString key,
-		 diagram_context.keys(DiagramContext::TocreasingLength)) {
+		 diagram_context.keys(DiagramContext::DecreasingLength)) {
 		interpreted_string.replace("%{" % key % "}",
 					   diagram_context[key].toString());
 		interpreted_string.replace("%" % key,
@@ -1778,7 +1778,7 @@ QStringList TitleBlockTemplate::listOfVariables()
 	@brief TitleBlockTemplate::renderTextCell
 	This method uses a \a painter to render the \a text of a \a cell
 	into the \a cell_rect rectangle.
-	The alignment, font_size && other cell parameters are taken into account
+	The alignment, font_size and other cell parameters are taken into account
 	when rendering.
 	@param painter :
 	QPainter used to render the text
@@ -1950,7 +1950,7 @@ void TitleBlockTemplate::forgetSpanning()
 	@param spanning_cell :
 	@param modify_cell :
 	(Optional, defaults to true)
-	Whether to set row_span && col_span of \a spanning_cell to 0.
+	Whether to set row_span and col_span of \a spanning_cell to 0.
 */
 void TitleBlockTemplate::forgetSpanning(TitleBlockCell *spanning_cell,
 					bool modify_cell) {
@@ -1985,7 +1985,7 @@ void TitleBlockTemplate::applyCellSpans()
 
 /**
 	@brief TitleBlockTemplate::checkCellSpan
-	Check whether a given cell can be spanned according to its row_span &&
+	Check whether a given cell can be spanned according to its row_span and
 	col_span attributes. the following attributes of \a cell are updated
 	according to what is really possible:
 	  * applied_col_span
@@ -2097,8 +2097,8 @@ void TitleBlockTemplate::applyRowColNums()
 
 /**
 	@brief TitleBlockTemplate::rowColsChanged
-	Take care of consistency && span-related problematics when
-	adding/moving/deleting rows && columns.
+	Take care of consistency and span-related problematics when
+	adding/moving/deleting rows and columns.
 */
 void TitleBlockTemplate::rowColsChanged()
 {
@@ -2122,7 +2122,7 @@ int TitleBlockTemplate::lengthRange(
 			|| start >= lengths_list.count()
 			|| end > lengths_list.count()) {
 #ifdef TITLEBLOCK_TEMPLATE_DEBUG
-		qDebug() << Q_FUNC_INFO << "wont use" << start << "&&" << end;
+		qDebug() << Q_FUNC_INFO << "wont use" << start << "and" << end;
 #endif
 		return(0);
 	}

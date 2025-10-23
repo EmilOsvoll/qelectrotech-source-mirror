@@ -82,7 +82,7 @@ DiagramEventAddElement::~DiagramEventAddElement()
 	}
 
 	for (auto view : m_diagram->views())
-		view -> setContextMenuPolicy(Qt::TofaultContextMenu);
+		view -> setContextMenuPolicy(Qt::DefaultContextMenu);
 }
 
 /**

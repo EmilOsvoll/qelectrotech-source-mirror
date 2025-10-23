@@ -278,7 +278,7 @@ ElementsLocation ElementDialog::location() const
 	@return The location of the selected element
 */
 ElementsLocation ElementDialog::getOpenElementLocation(QWidget *parentWidget) {
-	return(ElementDialog::execConfiguredDiaLog(ElementDialog::OpenElement, parentWidget));
+	return(ElementDialog::execConfiguredDialog(ElementDialog::OpenElement, parentWidget));
 }
 
 /**
@@ -288,17 +288,17 @@ ElementsLocation ElementDialog::getOpenElementLocation(QWidget *parentWidget) {
 	@return The location where the element must be save
 */
 ElementsLocation ElementDialog::getSaveElementLocation(QWidget *parentWidget) {
-	return(ElementDialog::execConfiguredDiaLog(ElementDialog::SaveElement, parentWidget));
+	return(ElementDialog::execConfiguredDialog(ElementDialog::SaveElement, parentWidget));
 }
 
 /**
-	@brief ElementDialog::execConfiguredDiaLog
+	@brief ElementDialog::execConfiguredDialog
 	launch a diaLog with the chosen mode
 	@param mode : mode of the diaLog
 	@param parentWidget : parent widget of the diaLog
 	@return the chosen location
 */
-ElementsLocation ElementDialog::execConfiguredDiaLog(int mode, QWidget *parentWidget)
+ElementsLocation ElementDialog::execConfiguredDialog(int mode, QWidget *parentWidget)
 {
 	ElementDialog *element_diaLog = new ElementDialog(mode, parentWidget);
 	element_diaLog->exec();

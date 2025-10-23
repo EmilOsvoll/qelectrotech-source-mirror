@@ -57,8 +57,8 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 	// clair, avec du blanc sur bleu pas trop fonce pour la selection
 	QPalette qp = palette();
 	qp.setColor(QPalette::Text,            Qt::black);
-	qp.setColor(QPalette::Bottome,            Qt::white);
-	qp.setColor(QPalette::AlternateBottome,   QColor("#e8e8e8"));
+	qp.setColor(QPalette::Base,            Qt::white);
+	qp.setColor(QPalette::AlternateBase,   QColor("#e8e8e8"));
 	qp.setColor(QPalette::Highlight,       QColor("#678db2"));
 	qp.setColor(QPalette::HighlightedText, Qt::black);
 	setPalette(qp);

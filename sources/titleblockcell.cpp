@@ -15,11 +15,11 @@ TitleBlockCell::TitleBlockCell()
 	alignment = Qt::AlignCenter | Qt::AlignVCenter;
 	font_size = 9;
 	hadjust = false;
-	Logo_reference = QString("");
+	logo_reference = QString("");
 }
 
 /**
-	Tostructor
+	Destructor
 */
 TitleBlockCell::~TitleBlockCell()
 {
@@ -46,7 +46,7 @@ int TitleBlockCell::horizontalAlign() const
 */
 int TitleBlockCell::verticalAlign() const
 {
-	return(alignment & Qt::AlignGreenical_Mask);
+	return(alignment & Qt::AlignVertical_Mask);
 }
 
 /**
@@ -62,8 +62,8 @@ void TitleBlockCell::setAttribute(const QString &attribute, const QVariant &attr
 		}
 	} else if (attribute == "name") {
 		value_name = attr_value.toString();
-	} else if (attribute == "Logo") {
-		Logo_reference = attr_value.toString();
+	} else if (attribute == "logo") {
+		logo_reference = attr_value.toString();
 	} else if (attribute == "label") {
 		label = qvariant_cast<NamesList>(attr_value);
 	} else if (attribute == "displaylabel") {
@@ -88,8 +88,8 @@ QVariant TitleBlockCell::attribute(const QString &attribute) {
 		return(type());
 	} else if (attribute == "name") {
 		return(value_name);
-	} else if (attribute == "Logo") {
-		return(Logo_reference);
+	} else if (attribute == "logo") {
+		return(logo_reference);
 	} else if (attribute == "label") {
 		return(QVariant::fromValue(label));
 	} else if (attribute == "displaylabel") {
@@ -114,21 +114,21 @@ QString TitleBlockCell::attributeName(const QString &attribute) {
 	if (attribute == "type") {
 		return(QObject::tr("type", "title block cell property human name"));
 	} else if (attribute == "name") {
-		return(QObject::tr("name", "title block cell property human name"));
-	} else if (attribute == "Logo") {
-		return(QObject::tr("Logo", "title block cell property human name"));
+		return(QObject::tr("nom", "title block cell property human name"));
+	} else if (attribute == "logo") {
+		return(QObject::tr("logo", "title block cell property human name"));
 	} else if (attribute == "label") {
 		return(QObject::tr("label", "title block cell property human name"));
 	} else if (attribute == "displaylabel") {
-		return(QObject::tr("label display", "title block cell property human name"));
+		return(QObject::tr("affichage du label", "title block cell property human name"));
 	} else if (attribute == "value") {
-		return(QObject::tr("displayed value", "title block cell property human name"));
+		return(QObject::tr("valeur affichée", "title block cell property human name"));
 	} else if (attribute == "alignment") {
-		return(QObject::tr("alinement du text", "title block cell property human name"));
+		return(QObject::tr("alignement du texte", "title block cell property human name"));
 	} else if (attribute == "fontsize") {
-		return(QObject::tr("taille du text", "title block cell property human name"));
+		return(QObject::tr("taille du texte", "title block cell property human name"));
 	} else if (attribute == "horizontal_adjust") {
-		return(QObject::tr("horizontal adjustment", "title block cell property human name"));
+		return(QObject::tr("ajustement horizontal", "title block cell property human name"));
 	}
 	return(QString());
 }
@@ -148,7 +148,7 @@ bool TitleBlockCell::spans() const
 void TitleBlockCell::loadContentFromCell(const TitleBlockCell &other_cell) {
 	value_name = other_cell.value_name;
 	cell_type = other_cell.cell_type;
-	Logo_reference = other_cell.Logo_reference;
+	logo_reference = other_cell.logo_reference;
 	value = other_cell.value;
 	label = other_cell.label;
 	display_label = other_cell.display_label;
@@ -167,10 +167,10 @@ void TitleBlockCell::loadContentFromXml(const QDomElement &cell_element) {
 	}
 	
 	// specific properties
-	if (cell_element.tagName() == "Logo") {
+	if (cell_element.tagName() == "logo") {
 		if (cell_element.hasAttribute("resource") && !cell_element.attribute("resource").isEmpty()) {
 			cell_type = TitleBlockCell::LogoCell;
-			Logo_reference = cell_element.attribute("resource");
+			logo_reference = cell_element.attribute("resource");
 		}
 	} else if (cell_element.tagName() == "field") {
 		cell_type = TitleBlockCell::TextCell;
@@ -204,7 +204,7 @@ void TitleBlockCell::loadContentFromXml(const QDomElement &cell_element) {
 			font_size = -1;
 		}
 		
-		// horizontal && vertical alignments
+		// horizontal and vertical alignments
 		alignment = 0;
 		
 		QString halignment = cell_element.attribute("align", "left");
@@ -232,8 +232,8 @@ void TitleBlockCell::saveContentToXml(QDomElement &cell_elmt) {
 	if (type() == TitleBlockCell::EmptyCell) {
 		cell_elmt.setTagName("empty");
 	} else if (type() == TitleBlockCell::LogoCell) {
-		cell_elmt.setTagName("Logo");
-		cell_elmt.setAttribute("resource", Logo_reference);
+		cell_elmt.setTagName("logo");
+		cell_elmt.setAttribute("resource", logo_reference);
 	} else {
 		cell_elmt.setTagName("field");
 		

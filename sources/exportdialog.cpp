@@ -353,7 +353,7 @@ QImage ExportDialog::generateImage(
 	saveReloadDiagramParameters(diagram, true);
 	
 	QImage image(width, height, QImage::Format_RGB32);
-	diagram -> toPaintTovice(
+	diagram -> toImage(
 		image,
 		width,
 		height,
@@ -409,7 +409,7 @@ void ExportDialog::generateSvg(
 	
 	// genere une QPicture a partir du diagram
 	QPicture picture;
-	diagram -> toPaintTovice(
+	diagram -> toImage(
 		picture,
 		width,
 		height,
@@ -419,7 +419,7 @@ void ExportDialog::generateSvg(
 	// "joue" la QPicture sur un QSvgGenerator
 	QSvgGenerator svg_engine;
 	svg_engine.setSize(QSize((width*9/16), (height*9/16)));
-	svg_engine.setOutputTovice(&io_device);
+	svg_engine.setOutputDevice(&io_device);
 	QPainter svg_painter(&svg_engine);
 	picture.play(&svg_painter);
 	
@@ -897,11 +897,11 @@ void ExportDialog::slot_changeFilesExtension(bool force_extension) {
 		// cas 2 : l'extension est absente
 		if (diagram_filename_info.suffix().isEmpty()) {
 			if (force_extension) {
-				diagram_filename = diagram_filename_info.completeBottomeName() + format_extension;
+				diagram_filename = diagram_filename_info.completeBaseName() + format_extension;
 			}
 		} else {
 			// cas 3 : l'extension est presente mais erronee
-			diagram_filename = diagram_filename_info.completeBottomeName() + format_extension;
+			diagram_filename = diagram_filename_info.completeBaseName() + format_extension;
 		}
 		
 		diagram_line -> file_name -> setText(diagram_filename);

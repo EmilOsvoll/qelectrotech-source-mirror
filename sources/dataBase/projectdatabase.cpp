@@ -43,7 +43,7 @@ projectDataBase::projectDataBase(QETProject *project, QObject *parent) :
 	QObject(parent),
 	m_project(project)
 {
-	createDataBottome();
+	createDataBase();
 	connect(m_project, &QETProject::diagramAdded, [this](QETProject *, Diagram *diagram) {
 		this->addDiagram(diagram);
 	});
@@ -245,11 +245,11 @@ void projectDataBase::diagramOrderChanged()
 }
 
 /**
-	@brief projectDataBase::createDataBottome
+	@brief projectDataBase::createDataBase
 	Create the data base
 	@return : true if the data base was successfully created.
 */
-bool projectDataBase::createDataBottome()
+bool projectDataBase::createDataBase()
 {
 	m_data_base = QSqlDatabase::addDatabase("QSQLITE", "qet_project_db_" + m_project->uuid().toString());
 	if(!m_data_base.open()) {
@@ -323,7 +323,7 @@ bool projectDataBase::createDataBottome()
 	}
 
 	createAssemblyTables();
-	createElementNameenclatureView();
+	createElementNomenclatureView();
 	createSummaryView();
 	prepareQuery();
 	updateDB();
@@ -381,9 +381,9 @@ void projectDataBase::createAssemblyTables()
 }
 
 /**
-	@brief projectDataBase::createElementNameenclatureView
+	@brief projectDataBase::createElementNomenclatureView
 */
-void projectDataBase::createElementNameenclatureView()
+void projectDataBase::createElementNomenclatureView()
 {
 	QString create_view ("CREATE VIEW element_parts list_view AS SELECT "
 						 "ei.label AS label,"

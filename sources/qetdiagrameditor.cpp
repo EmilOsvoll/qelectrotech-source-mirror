@@ -65,7 +65,7 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 	m_zoom_actions_group       (this),
 	m_select_actions_group     (this),
 	m_file_actions_group       (this),
-	open_diaLog_dir            (QETApp::documentDir())
+	open_dialog_dir            (QETApp::documentDir())
 {
 		//Trivial property use to set the graphics handler size
 	setProperty("graphics_handler_size", 10);
@@ -284,7 +284,7 @@ void QETDiagramEditor::setUpAssemblyWidget()
 								 tr("Assembly editing diaLog will be implemented here for: %1% {1?}", "placeholder message").arg(assembly_id));
 	});
 	
-	connect(m_assembly_dock, &AssemblyDockWidget::requestToleteAssembly, this, [this](const QString &assembly_id) {
+	connect(m_assembly_dock, &AssemblyDockWidget::requestDeleteAssembly, this, [this](const QString &assembly_id) {
 		// TODO: Implement assembly deletion confirmation
 		QMessageBox::information(this, tr("Assembly Management", "diaLog title"), 
 								 tr("Assembly deletion confirmation will be implemented here for: %1% {1?}", "placeholder message").arg(assembly_id));
@@ -426,7 +426,7 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//Edit current diagram properties
-	m_edit_diagram_properties = new QAction(QET::Icons::DiaLogInformation, tr("Folio properties"), this);
+	m_edit_diagram_properties = new QAction(QET::Icons::DialogInformation, tr("Folio properties"), this);
 	m_edit_diagram_properties->setShortcut(Qt::CTRL | Qt::Key_L);
 	m_edit_diagram_properties     -> setStatusTip(tr("Edits the properties of the folio (size, title block informations, conductor properties...)", "status bar tip"));
 	connect(m_edit_diagram_properties, &QAction::triggered, [this]() {
@@ -453,7 +453,7 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//Remove current folio from current project
-	m_remove_diagram_from_project = new QAction(QET::Icons::DiagramTolete, tr("Delete this folio"), this);
+	m_remove_diagram_from_project = new QAction(QET::Icons::DiagramDelete, tr("Delete this folio"), this);
 	connect(m_remove_diagram_from_project, &QAction::triggered, this, &QETDiagramEditor::removeDiagramFromProject);
 
 		//Clean the current project
@@ -474,8 +474,8 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//Add a nameenclature item
-	m_add_nameenclature = new QAction(QET::Icons::TableOfContent, tr("Add a nameenclature"), this);
-	connect(m_add_nameenclature, &QAction::triggered, this, [=]() {
+	m_add_nomenclature = new QAction(QET::Icons::TableOfContent, tr("Add a nomenclature"), this);
+	connect(m_add_nomenclature, &QAction::triggered, this, [=]() {
 		if(this->currentDiagramView()) {
 			QetGraphicsTableFactory::createAndAddNomenclature(this->currentDiagramView()->diagram());
 		}
@@ -489,8 +489,8 @@ void QETDiagramEditor::setUpActions()
 		}
 	});
 
-	m_terminal_strip_diaLog = new QAction(QET::Icons::TerminalStrip, tr("Terminal block manager (DEV)"), this);
-	connect(m_terminal_strip_diaLog, &QAction::triggered, this, [=]()
+	m_terminal_strip_dialog = new QAction(QET::Icons::TerminalStrip, tr("Terminal block manager (DEV)"), this);
+	connect(m_terminal_strip_dialog, &QAction::triggered, this, [=]()
 	{
 		if (auto project = this->currentProject())
 		{
@@ -632,7 +632,7 @@ void QETDiagramEditor::setUpActions()
 	connect(&m_row_column_actions_group, &QActionGroup::triggered, this, &QETDiagramEditor::rowColumnGroupTriggered);
 
 		//Selections Actions (related to a selected item)
-	m_delete_selection     = m_selection_actions_group.addAction( QET::Icons::EditTolete,        tr("Delete")                 );
+	m_delete_selection     = m_selection_actions_group.addAction( QET::Icons::EditDelete,        tr("Delete")                 );
 	m_rotate_selection     = m_selection_actions_group.addAction( QET::Icons::TransformRotate,   tr("Rotate")                   );
 	m_rotate_texts         = m_selection_actions_group.addAction( QET::Icons::ObjectRotateRight, tr("Choose texts orientation")       );
 	m_find_element         = m_selection_actions_group.addAction( QET::Icons::ZoomDraw,          tr("Find in the panel")   );
@@ -664,7 +664,7 @@ void QETDiagramEditor::setUpActions()
 	QAction *select_invert  = m_select_actions_group.addAction( QET::Icons::EditSelectInvert,   tr("Invert selection") );
 
 	select_all    ->setShortcut(QKeySequence::SelectAll);
-	select_nothing->setShortcut(QKeySequence::Toselect);
+	select_nothing->setShortcut(QKeySequence::Select);
 	select_invert ->setShortcut(Qt::CTRL | Qt::Key_I);
 
 	select_all    ->setStatusTip( tr("Choicene tous les elements du folio", "status bar tip") );
@@ -877,10 +877,10 @@ void QETDiagramEditor::setUpMenu()
 	menu_project -> addAction(m_clean_project);
 	menu_project -> addSeparator();
 	menu_project -> addAction(m_add_summary);
-	menu_project -> addAction(m_add_nameenclature);
+	menu_project -> addAction(m_add_nomenclature);
 	menu_project -> addAction(m_csv_export);
 	menu_project -> addAction(m_project_export_conductor_num);
-	menu_project -> addAction(m_terminal_strip_diaLog);
+	menu_project -> addAction(m_terminal_strip_dialog);
 	menu_project -> addAction(m_project_terminalBloc);
 #ifdef QET_EXPORT_PROJECT_DB
 	menu_project -> addSeparator();
@@ -1048,13 +1048,13 @@ bool QETDiagramEditor::openProject()
 	QString filepath = QFileDialog::getOpenFileName(
 		this,
 		tr("Open a file"),
-		open_diaLog_dir.absolutePath(),
+		open_dialog_dir.absolutePath(),
 		tr("Projects QElectroTech (*.qet);;Files XML (*.xml);;all les fichiers (*)")
 	);
 	if (filepath.isEmpty()) return(false);
 
 	// retient le dossier contenant le dernier project ouvert
-	open_diaLog_dir = QDir(filepath);
+	open_dialog_dir = QDir(filepath);
 
 	// ouvre le fichier
 	return(openAndAddProject(filepath));
@@ -1491,7 +1491,7 @@ void QETDiagramEditor::addItemGroupTriggered(QAction *action)
 		const auto diagram_view{currentDiagramView()};
 		if (diagram_view)
 		{
-			AddTerminalStripItemDiaLog::openDialog(diagram_view->diagram(), this);
+			AddTerminalStripItemDialog::openDialog(diagram_view->diagram(), this);
 		}
 	}
 
@@ -1610,10 +1610,10 @@ void QETDiagramEditor::slot_updateActions()
 	m_remove_diagram_from_project -> setEnabled(editable_project);
 	m_clean_project               -> setEnabled(editable_project);
 	m_add_summary                 -> setEnabled(editable_project);
-	m_add_nameenclature            -> setEnabled(editable_project);
+	m_add_nomenclature            -> setEnabled(editable_project);
 	m_csv_export                  -> setEnabled(editable_project);
 	m_project_export_conductor_num-> setEnabled(opened_project);
-	m_terminal_strip_diaLog       -> setEnabled(editable_project);
+	m_terminal_strip_dialog       -> setEnabled(editable_project);
 #ifdef QET_EXPORT_PROJECT_DB
 	m_export_project_db           -> setEnabled(editable_project);
 #endif
@@ -1691,7 +1691,7 @@ void QETDiagramEditor::slot_updateComplexActions()
 
 	//Actions that need items (elements, conductors, texts...) selected, to be enabled
 	bool copiable_items  = dc.hasCopiableItems();
-	bool deletable_items = dc.hasToletableItems();
+	bool deletable_items = dc.hasSelectableItems();
 	m_cut              -> setEnabled(!ro && copiable_items);
 	m_copy             -> setEnabled(copiable_items);
 	m_delete_selection -> setEnabled(!ro && deletable_items);
@@ -2444,7 +2444,7 @@ void QETDiagramEditor::generateTerminalBlock()
 	if (openedProjects().count()) {
 		foreach(QString exe, exeList) {
 			if ((success == false) && exe.length() && QFile::exists(exe)) {
-				success = process->startTotached(exe, {(QETDiagramEditor::currentProjectView()->project()->filePath())});
+				success = process->startDetached(exe, {(QETDiagramEditor::currentProjectView()->project()->filePath())});
 			}
 			if (success == true) {
 				qInfo() << " qet_tb_generator found here:" << exe;

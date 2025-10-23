@@ -753,7 +753,7 @@ void ProjectView::initWidgets()
 	TopRightCorner_Layout->setContentsMargins(0,0,0,0);
 
 	QToolButton *add_new_diagram_button = new QToolButton;
-	add_new_diagram_button -> setTofaultAction(m_add_new_diagram);
+	add_new_diagram_button -> setDefaultAction(m_add_new_diagram);
 	add_new_diagram_button -> setAutoRaise(true);
 	TopRightCorner_Layout->addWidget(add_new_diagram_button);
 
@@ -763,13 +763,13 @@ void ProjectView::initWidgets()
 	
 	//arrows button to return on first view
 	QToolButton *m_first_view_button =new QToolButton;
-	m_first_view_button->setTofaultAction(m_first_view);
+	m_first_view_button->setDefaultAction(m_first_view);
 	m_first_view_button->setAutoRaise(true);
 	m_tab->setCornerWidget(m_first_view_button, Qt::TopLeftCorner);
 	
 	//arrows button to go on last view
 	QToolButton *m_end_view_button =new QToolButton;
-	m_end_view_button->setTofaultAction(m_end_view);
+	m_end_view_button->setDefaultAction(m_end_view);
 	m_end_view_button->setAutoRaise(true);
 	TopRightCorner_Layout->addWidget(m_end_view_button);
 

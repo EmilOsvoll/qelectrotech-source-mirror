@@ -671,7 +671,7 @@ void DiagramView::wheelEvent(QWheelEvent *event)
 			verticalScrollBar()->setValue(verticalScrollBar()->value() - angle.y());
 		}
 	}
-	else if (event->modifiers() == Qt::NoEdit) //Else we suppose the wheel event are made from a mouse.
+	else if (event->modifiers() == Qt::NoModifier) //Else we suppose the wheel event are made from a mouse.
 	{
 		qreal value = angle.y();
 		zoom(1 + value/1000);

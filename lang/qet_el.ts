@@ -2229,9 +2229,13 @@ Note: these options DO NOT allow or block auto numberings, only their update pol
 <context>
     <name>Diagram</name>
     <message>
-        <location filename="../sources/diagram.cpp" line="1862"/>
         <source>Change the depth</source>
-        <translation>Μετατροπή του βάθους</translation>
+        <translation type="vanished">Μετατροπή του βάθους</translation>
+    </message>
+    <message>
+        <location filename="../sources/diagram.cpp" line="1862"/>
+        <source>Modifier la profondeur</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -12399,11 +12403,6 @@ Available options:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="477"/>
-        <source>Add a nameenclature</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
         <source>Export la liste des names de conducteurs</source>
         <translation type="unfinished"></translation>
@@ -12864,8 +12863,9 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation type="vanished">Εμφανίζει τα διάφορα ανοιγμένα έργα, σε παράθυρα</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="477"/>
         <source>Add a nomenclature</source>
-        <translation type="vanished">Προσθήκη ονοματολογίας</translation>
+        <translation>Προσθήκη ονοματολογίας</translation>
     </message>
     <message>
         <source>Shows the various opened projects in tabs</source>
@@ -15434,20 +15434,55 @@ Que désirez vous faire ?</source>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="117"/>
-        <source>name</source>
+        <source>nom</source>
         <comment>title block cell property human name</comment>
-        <translation>όνομα</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>logo</source>
+        <location filename="../sources/titleblockcell.cpp" line="123"/>
+        <source>affichage du label</source>
         <comment>title block cell property human name</comment>
-        <translation type="vanished">λογότυπο</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="125"/>
+        <source>valeur affichée</source>
+        <comment>title block cell property human name</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="127"/>
+        <source>alignement du texte</source>
+        <comment>title block cell property human name</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="129"/>
+        <source>taille du texte</source>
+        <comment>title block cell property human name</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblockcell.cpp" line="131"/>
+        <source>ajustement horizontal</source>
+        <comment>title block cell property human name</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>name</source>
+        <comment>title block cell property human name</comment>
+        <translation type="vanished">όνομα</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="119"/>
+        <source>logo</source>
+        <comment>title block cell property human name</comment>
+        <translation>λογότυπο</translation>
+    </message>
+    <message>
         <source>Logo</source>
         <comment>title block cell property human name</comment>
-        <translation type="unfinished">Λογότυπο</translation>
+        <translation type="obsolete">Λογότυπο</translation>
     </message>
     <message>
         <location filename="../sources/titleblockcell.cpp" line="121"/>
@@ -15456,28 +15491,14 @@ Que désirez vous faire ?</source>
         <translation>ετικέτα</translation>
     </message>
     <message>
-        <location filename="../sources/titleblockcell.cpp" line="123"/>
         <source>label display</source>
         <comment>title block cell property human name</comment>
-        <translation>εμφάνιση ετικέτας</translation>
+        <translation type="vanished">εμφάνιση ετικέτας</translation>
     </message>
     <message>
-        <location filename="../sources/titleblockcell.cpp" line="125"/>
         <source>displayed value</source>
         <comment>title block cell property human name</comment>
-        <translation>εμφανιζόμενη τιμή</translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblockcell.cpp" line="127"/>
-        <source>alinement du text</source>
-        <comment>title block cell property human name</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblockcell.cpp" line="129"/>
-        <source>taille du text</source>
-        <comment>title block cell property human name</comment>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">εμφανιζόμενη τιμή</translation>
     </message>
     <message>
         <source>text alignment</source>
@@ -15490,10 +15511,9 @@ Que désirez vous faire ?</source>
         <translation type="vanished">μέγεθος κειμένου</translation>
     </message>
     <message>
-        <location filename="../sources/titleblockcell.cpp" line="131"/>
         <source>horizontal adjustment</source>
         <comment>title block cell property human name</comment>
-        <translation>οριζόντια προσαρμογή</translation>
+        <translation type="vanished">οριζόντια προσαρμογή</translation>
     </message>
     <message>
         <location filename="../sources/qetinformation.cpp" line="230"/>
@@ -21853,19 +21873,15 @@ The following variables can be used:
         <translation type="vanished"> %1: %2</translation>
     </message>
     <message>
-        <source> %1</source>
-        <translation type="vanished"> %1</translation>
-    </message>
-    <message>
         <location filename="../sources/titleblocktemplate.cpp" line="1720"/>
-        <source> %1% {1?} : %2</source>
+        <source> %1 : %2</source>
         <comment>titleblock content - please let the blank space at the beginning</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/titleblocktemplate.cpp" line="1722"/>
-        <source> %1% {1?}</source>
-        <translation type="unfinished"></translation>
+        <source> %1</source>
+        <translation> %1</translation>
     </message>
 </context>
 <context>
@@ -22124,9 +22140,8 @@ The following variables can be used:
         <translation type="vanished">Διαχειριστής λογότυπων</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="85"/>
         <source>Logos embedded within this template:</source>
-        <translation>Λογότυπα ενσωματωμένα στο πρότυπο:</translation>
+        <translation type="vanished">Λογότυπα ενσωματωμένα στο πρότυπο:</translation>
     </message>
     <message>
         <source>Add a logo</source>
@@ -22153,111 +22168,16 @@ The following variables can be used:
         <translation type="vanished">Μετονομασία</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="82"/>
-        <source>Gestionnaire de Logos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="94"/>
-        <source>Add un Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="95"/>
-        <source>Export ce Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="96"/>
-        <source>Delete ce Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="97"/>
-        <source>Propertys</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="98"/>
-        <source>Name :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="100"/>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="204"/>
-        <source>Renamemer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="101"/>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="266"/>
         <source>Type:</source>
-        <translation>Τύπος:</translation>
+        <translation type="vanished">Τύπος:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="197"/>
         <source>Logo already existing</source>
-        <translation>Το λογότυπο υπάρχει ήδη</translation>
+        <translation type="vanished">Το λογότυπο υπάρχει ήδη</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="203"/>
         <source>Replace</source>
-        <translation>Αντικατάσταση</translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="223"/>
-        <source>Il existe déjà un Logo portant le name &quot;%1% {1?}&quot; au sein de ce modèle de cartouche. Voulez-vous le remplacer ou préférez-vous spécifier un autre name pour ce nouveau Logo ?</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="262"/>
-        <source>Type: %1% {1?}</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="280"/>
-        <source>Choisir image / un Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="282"/>
-        <source>Images vectorielles (*.svg);;Images bitmap (*.png *.jpg *.jpeg *.gif *.bmp *.xpm);;all les fichiers (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="289"/>
-        <source>Unable to open file spécifié</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="314"/>
-        <source>Choisir un fichier pour exporter ce Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="316"/>
-        <source>all les fichiers (*);;Images vectorielles (*.svg);;Images bitmap (*.png *.jpg *.jpeg *.gif *.bmp *.xpm)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="351"/>
-        <source>Renamemer un Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="356"/>
-        <source>Vous devez saisir un nouveau name.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="365"/>
-        <source>Le nouveau name ne peut pas être vide.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="374"/>
-        <source>Le name saisi est déjà utilisé par un autre Logo.</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Αντικατάσταση</translation>
     </message>
     <message>
         <source>A logo named &quot;%1&quot; already exists. Do you wish to replace it or do you prefer specifying another name for the new logo?</source>
@@ -22276,10 +22196,8 @@ The following variables can be used:
         <translation type="vanished">Διανυσματικά γραφικά (*.svg);;Ψηφιδωτά γραφικά (*.png *.jpg *.jpeg *.gif *.xpm);;Όλα τα αρχεία (*)</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="289"/>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="322"/>
         <source>Error</source>
-        <translation>Σφάλμα</translation>
+        <translation type="vanished">Σφάλμα</translation>
     </message>
     <message>
         <source>Unable to open the specified file</source>
@@ -22294,9 +22212,8 @@ The following variables can be used:
         <translation type="vanished">Όλα τα αρχεία (*);;Διανυσματικά γραφικά (*.svg);;Ψηφιδωτά γραφικά (*.png *.jpg *.jpeg *.gif *.xpm)</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatelogomanager.cpp" line="322"/>
         <source>Unable to export to the specified file</source>
-        <translation>Αδυναμία εξαγωγής στο καθορισμένο αρχείο</translation>
+        <translation type="vanished">Αδυναμία εξαγωγής στο καθορισμένο αρχείο</translation>
     </message>
     <message>
         <source>Rename a logo</source>
@@ -22313,6 +22230,129 @@ The following variables can be used:
     <message>
         <source>The name you entered is already used by another logo.</source>
         <translation type="vanished">Το όνομα που δώσατε χρησιμοποιείται ήδη από άλλο λογότυπο</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="82"/>
+        <source>Gestionnaire de logos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="85"/>
+        <source>Logos embarqués dans ce modèle :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="94"/>
+        <source>Ajouter un logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="95"/>
+        <source>Exporter ce logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="96"/>
+        <source>Supprimer ce logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="97"/>
+        <source>Propriétés</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="98"/>
+        <source>Nom :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="100"/>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="204"/>
+        <source>Renommer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="101"/>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="266"/>
+        <source>Type :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="197"/>
+        <source>Logo déjà existant</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="203"/>
+        <source>Remplacer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="223"/>
+        <source>Il existe déjà un logo portant le nom &quot;%1&quot; au sein de ce modèle de cartouche. Voulez-vous le remplacer ou préférez-vous spécifier un autre nom pour ce nouveau logo ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="262"/>
+        <source>Type : %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="280"/>
+        <source>Choisir une image / un logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="282"/>
+        <source>Images vectorielles (*.svg);;Images bitmap (*.png *.jpg *.jpeg *.gif *.bmp *.xpm);;Tous les fichiers (*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="289"/>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="322"/>
+        <source>Erreur</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="289"/>
+        <source>Impossible d&apos;ouvrir le fichier spécifié</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="314"/>
+        <source>Choisir un fichier pour exporter ce logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="316"/>
+        <source>Tous les fichiers (*);;Images vectorielles (*.svg);;Images bitmap (*.png *.jpg *.jpeg *.gif *.bmp *.xpm)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="322"/>
+        <source>Impossible d&apos;exporter vers le fichier spécifié</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="351"/>
+        <source>Renommer un logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="356"/>
+        <source>Vous devez saisir un nouveau nom.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="365"/>
+        <source>Le nouveau nom ne peut pas être vide.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatelogomanager.cpp" line="374"/>
+        <source>Le nom saisi est déjà utilisé par un autre logo.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -48,7 +48,7 @@ DiagramEventAddImage::~DiagramEventAddImage()
 	}
 
 	foreach (QGraphicsView *view, m_diagram->views())
-		view->setContextMenuPolicy((Qt::TofaultContextMenu));
+		view->setContextMenuPolicy((Qt::DefaultContextMenu));
 }
 
 /**
@@ -66,7 +66,7 @@ void DiagramEventAddImage::mousePressEvent(QGraphicsSceneMouseEvent *event)
 		m_diagram -> undoStack().push (new AddGraphicsObjectCommand(m_image, m_diagram, pos));
 		
 		for (QGraphicsView *view : m_diagram->views()) {
-			view->setContextMenuPolicy((Qt::TofaultContextMenu));
+			view->setContextMenuPolicy((Qt::DefaultContextMenu));
 		}
 		
 		m_running = false;

@@ -403,7 +403,7 @@ QString QETProject::pathNameTitle() const
 				"Project %1% {1?}",
 				"displayed title for a title-less project - %1% {1?} is the file name"
 			)
-		).arg(QFileInfo(m_file_path).completeBottomeName());
+		).arg(QFileInfo(m_file_path).completeBaseName());
 	} else {
 		final_title = QString(
 			tr(
@@ -925,7 +925,7 @@ QDomDocument QETProject::toXml()
 	{
 		// if project_title_is Empty add title from m_file_path
 		// is for project name in Collectie
-		setTitle(QFileInfo(m_file_path).completeBottomeName());
+		setTitle(QFileInfo(m_file_path).completeBaseName());
 	}
 	project_root.setAttribute("title", project_title_);
 	xml_doc.appendChild(project_root);
@@ -947,7 +947,7 @@ QDomDocument QETProject::toXml()
 
 	// Properties for news diagrams
 	QDomElement new_diagrams_properties = xml_doc.createElement("newdiagrams");
-	writeTofaultPropertiesXml(new_diagrams_properties);
+	writeDefaultPropertiesXml(new_diagrams_properties);
 	project_root.appendChild(new_diagrams_properties);
 
 	// diagrams
@@ -1117,7 +1117,7 @@ ElementsLocation QETProject::importElement(ElementsLocation &location)
 			return existing_location;
 		}
 
-		ImportElementDiaLog ied;
+		ImportElementDialog ied;
 		if (ied.exec() == QDialog::Accepted) {
 			QET::Action action = ied.action();
 
@@ -1416,7 +1416,7 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 	readProjectPropertiesXml(xml_project);
 
 		//Load the default properties for the new diagrams
-	readTofaultPropertiesXml(xml_project);
+	readDefaultPropertiesXml(xml_project);
 
 		//load the embedded titleblock templates
 	m_titleblocks_collection.fromXml(xml_project.documentElement());
@@ -1546,12 +1546,12 @@ void QETProject::readProjectPropertiesXml(QDomDocument &xml_project)
 }
 
 /**
-	@brief QETProject::readTofaultPropertiesXml
+	@brief QETProject::readDefaultPropertiesXml
 	load default properties for new diagram, found in the xml of this project
 	or by default find in the QElectroTech global conf
 	@param xml_project : the xml description of the project
 */
-void QETProject::readTofaultPropertiesXml(QDomDocument &xml_project)
+void QETProject::readDefaultPropertiesXml(QDomDocument &xml_project)
 {
 		// Find xml element where is stored properties for new diagram
 	QDomNodeList newdiagrams_nodes = xml_project.elementsByTagName(QStringLiteral("newdiagrams"));
@@ -1667,7 +1667,7 @@ void QETProject::writeProjectPropertiesXml(QDomElement &xml_element) {
 }
 
 /**
-	@brief QETProject::writeTofaultPropertiesXml
+	@brief QETProject::writeDefaultPropertiesXml
 	Export all defaults properties used by a new diagram && his content
 	size of border
 	content of titleblock
@@ -1676,7 +1676,7 @@ void QETProject::writeProjectPropertiesXml(QDomElement &xml_element) {
 	default Xref
 	@param xml_element : xml element to use to store default properties.
 */
-void QETProject::writeTofaultPropertiesXml(QDomElement &xml_element)
+void QETProject::writeDefaultPropertiesXml(QDomElement &xml_element)
 {
 	QDomDocument xml_document = xml_element.ownerDocument();
 

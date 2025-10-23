@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it &&/or modify
+	QElectroTech is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -30,7 +30,7 @@
 	This class represents an title block template for an electric diagram.
 	It can read from an XML document the layout of the table
 	that graphically represents the title block,
-	&& can produce a graphical rendering of it from a diagram context
+	and can produce a graphical rendering of it from a diagram context
 	(object embedding the informations of the diagram we want to
 	represent the title block.
 */

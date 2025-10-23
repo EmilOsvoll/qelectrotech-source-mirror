@@ -55,10 +55,10 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	copy_path                = new QAction(QET::Icons::IC_CopyFile,            tr("Copy full path to clipboard"),                    this);
 	prj_activate             = new QAction(QET::Icons::ProjectFile,            tr("Activate this project"),             this);
 	prj_close                = new QAction(QET::Icons::DocumentClose,          tr("Close this project"),                    this);
-	prj_edit_prop            = new QAction(QET::Icons::DiaLogInformation,      tr("Propertys du project"),          this);
-	prj_prop_diagram         = new QAction(QET::Icons::DiaLogInformation,      tr("Folio properties"),       this);
+	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Propertys du project"),          this);
+	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Folio properties"),       this);
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
-	prj_del_diagram          = new QAction(QET::Icons::DiagramTolete,          tr("Delete this folio"),              this);
+	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move up  this folio"),               this);
 	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move down this folio"),               this);
 	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move up  this folio x10"),           this);
@@ -230,12 +230,12 @@ void ElementsPanelWidget::newDiagram()
 }
 
 /**
-	Emet le signal requestForDiagramToletion avec le diagram selectionne
+	Emet le signal requestForDiagramDeletion avec le diagram selectionne
 */
 void ElementsPanelWidget::deleteDiagram()
 {
 	if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
-		emit(requestForDiagramToletion(selected_diagram));
+		emit(requestForDiagramDeletion(selected_diagram));
 	}
 }
 
@@ -468,7 +468,7 @@ void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
 	switch(e -> key()) {
 				case Qt::Key_Delete: //delete diagram through elements panel widget
 					if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
-						emit(requestForDiagramToletion(selected_diagram));
+						emit(requestForDiagramDeletion(selected_diagram));
 					}
 					break;
 					case Qt::Key_F3:
