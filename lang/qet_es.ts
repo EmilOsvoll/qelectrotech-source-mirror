@@ -4353,8 +4353,9 @@ Se eliminarán todos los elementos y carpetas contenidas en esta carpeta.</trans
         <translation>Cierra este proyecto</translation>
     </message>
     <message>
+        <location filename="../sources/elementspanelwidget.cpp" line="58"/>
         <source>Project properties</source>
-        <translation type="vanished">Propiedades del proyecto</translation>
+        <translation>Propiedades del proyecto</translation>
     </message>
     <message>
         <source>Edit this template</source>
@@ -4375,11 +4376,6 @@ Se eliminarán todos los elementos y carpetas contenidas en esta carpeta.</trans
         <source>Copy full path to clipboard</source>
         <translatorcomment>Copia la ruta</translatorcomment>
         <translation>Copiar la ruta</translation>
-    </message>
-    <message>
-        <location filename="../sources/elementspanelwidget.cpp" line="58"/>
-        <source>Propertys du project</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/elementspanelwidget.cpp" line="59"/>
@@ -11844,7 +11840,7 @@ Voulez-vous enregistrer les modifications ?</source>
     <message>
         <location filename="../sources/PropertiesEditor/propertieseditordockwidget.ui" line="14"/>
         <location filename="../build_clean/qelectrotech_autogen/include_Debug/ui_propertieseditordockwidget.h" line="52"/>
-        <source>Propertys de la sélection</source>
+        <source>Properties of selection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -12456,16 +12452,6 @@ Options disponibles :
         <translation>Profundidad</translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="891"/>
-        <source>Affiche ou non la barre d&apos;outils Display</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="898"/>
-        <source>Display les projects</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="979"/>
         <location filename="../sources/qetdiagrameditor.cpp" line="1002"/>
         <source>Project %1% {1?} enregistré dans le repertoire: %2.</source>
@@ -12593,8 +12579,9 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation>Eliminar una columna</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="441"/>
         <source>Project properties</source>
-        <translation type="vanished">Propiedades del proyecto</translation>
+        <translation>Propiedades del proyecto</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="681"/>
@@ -12815,11 +12802,6 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="441"/>
-        <source>Propertys du project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
         <source>Nettoyer le project</source>
         <translation type="unfinished"></translation>
@@ -12834,6 +12816,11 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <source>Launch the terminal block creation plugin</source>
         <translatorcomment>terminales o bornes</translatorcomment>
         <translation>Lanzar el plugin de creación de terminales</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="891"/>
+        <source>Show or hide the Display toolbar</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="1752"/>
@@ -12980,8 +12967,9 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation>Mostrar u ocultar la lista de modificaciones</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="898"/>
         <source>Display projects</source>
-        <translation type="vanished">Mostrar los proyectos</translation>
+        <translation>Mostrar los proyectos</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="766"/>
@@ -14259,11 +14247,6 @@ Las condiciones requeridas no son validas</translation>
         <translation>Inicia el manual en línea de QElectroTech</translation>
     </message>
     <message>
-        <location filename="../sources/qetmainwindow.cpp" line="89"/>
-        <source>From &amp;propos de QElectroTech</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetmainwindow.cpp" line="104"/>
         <source>Launches the default browser on the Youtube channel of QElectroTech</source>
         <comment>status bar tip</comment>
@@ -14301,8 +14284,13 @@ Las condiciones requeridas no son validas</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../sources/qetmainwindow.cpp" line="89"/>
+        <source>About QElectroTech</source>
+        <translation type="unfinished">Acerca de QElectroTech</translation>
+    </message>
+    <message>
         <location filename="../sources/qetmainwindow.cpp" line="135"/>
-        <source>About de &amp;Qt</source>
+        <source>About Qt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -14544,30 +14532,6 @@ Que désirez vous faire ?</source>
         <translation>&amp;Salir</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="379"/>
-        <source>Gérer les Logos</source>
-        <comment>menu entry</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="380"/>
-        <source>Edit les informations complémentaires</source>
-        <comment>menu entry</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="385"/>
-        <source>Add une &amp;line</source>
-        <comment>menu entry</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="386"/>
-        <source>Add une &amp;colonne</source>
-        <comment>menu entry</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/titleblock/qettemplateeditor.cpp" line="518"/>
         <source>Nonee modification</source>
         <comment>label displayed in the undo list when empty</comment>
@@ -14634,9 +14598,16 @@ Que désirez vous faire ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="379"/>
         <source>Manage logos</source>
         <comment>menu entry</comment>
-        <translation type="vanished">Administrar los logotipos</translation>
+        <translation>Administrar los logotipos</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="380"/>
+        <source>Edit additional information</source>
+        <comment>menu entry</comment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/titleblock/qettemplateeditor.cpp" line="381"/>
@@ -14726,14 +14697,16 @@ Que désirez vous faire ?</source>
         <translation type="vanished">Editar las informaciones complementarias</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="385"/>
         <source>Add a &amp;row</source>
         <comment>menu entry</comment>
-        <translation type="vanished">Añadir una &amp;línea</translation>
+        <translation>Añadir una &amp;línea</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/qettemplateeditor.cpp" line="386"/>
         <source>Add a &amp;column</source>
         <comment>menu entry</comment>
-        <translation type="vanished">Añadir una &amp;columna</translation>
+        <translation>Añadir una &amp;columna</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/qettemplateeditor.cpp" line="388"/>
@@ -15506,9 +15479,10 @@ Que désirez vous faire ?</source>
         <translation>Fecha</translation>
     </message>
     <message>
+        <location filename="../sources/ui/projectpropertiesdialog.cpp" line="36"/>
         <source>Project properties</source>
         <comment>window title</comment>
-        <translation type="vanished">Propiedades del proyecto</translation>
+        <translation>Propiedades del proyecto</translation>
     </message>
     <message>
         <source>Select an image ...</source>
@@ -16711,12 +16685,6 @@ Voulez-vous la remplacer ?</source>
         <location filename="../sources/titleblock/dimension.cpp" line="42"/>
         <source>%1% {1?}% du restant</source>
         <comment>titleblock: width relative to remaining length</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/ui/projectpropertiesdialog.cpp" line="36"/>
-        <source>Propertys du project</source>
-        <comment>window title</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21778,31 +21746,19 @@ asociar el nombre de &quot;volta&quot; y el valor &quot;1745&quot; reemplazara %
 <context>
     <name>TitleBlockTemplateCellWidget</name>
     <message>
-        <source>Cell type:</source>
-        <translation type="vanished">Tipo de celda:</translation>
-    </message>
-    <message>
-        <source>Empty</source>
-        <translation type="vanished">Vacío</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="vanished">Texto</translation>
-    </message>
-    <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="58"/>
-        <source>Type de cellule :</source>
-        <translation type="unfinished"></translation>
+        <source>Cell type:</source>
+        <translation>Tipo de celda:</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="60"/>
-        <source>Vide</source>
-        <translation type="unfinished"></translation>
+        <source>Empty</source>
+        <translation>Vacío</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="61"/>
-        <source>Texte</source>
-        <translation type="unfinished"></translation>
+        <source>Text</source>
+        <translation>Texto</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="62"/>
@@ -21811,95 +21767,14 @@ asociar el nombre de &quot;volta&quot; y el valor &quot;1745&quot; reemplazara %
         <translation>Logotipo</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="65"/>
-        <source>Nom :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="69"/>
-        <source>Attention : les bordures des cellules vides n&apos;apparaissent pas lors du rendu final sur le folio.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="74"/>
-        <source>Aucun logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="75"/>
-        <source>Gérer les logos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="78"/>
-        <source>Afficher un label :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="81"/>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="85"/>
-        <source>Editer</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="82"/>
-        <source>Texte :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="86"/>
-        <source>Alignement :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="87"/>
-        <source>horizontal :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="89"/>
-        <source>Gauche</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="90"/>
-        <source>Centré</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="91"/>
-        <source>Droite</source>
-        <translation type="unfinished"></translation>
+        <source>Horizontal:</source>
+        <translation type="unfinished">Horizontal :</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="95"/>
-        <source>vertical :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="97"/>
-        <source>Haut</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="98"/>
-        <source>Milieu</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="99"/>
-        <source>Bas</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="103"/>
-        <source>Police :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="105"/>
-        <source>Ajuster la taille de police si besoin</source>
-        <translation type="unfinished"></translation>
+        <source>Vertical:</source>
+        <translation type="unfinished">Vertical :</translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="261"/>
@@ -21938,72 +21813,93 @@ asociar el nombre de &quot;volta&quot; y el valor &quot;1745&quot; reemplazara %
         <translation type="vanished">Advertencia: los bordes de las celdas vacías no se ven durante el renderizado final del folio.</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="74"/>
         <source>No logo</source>
-        <translation type="vanished">Ningún logotipo</translation>
+        <translation>Ningún logotipo</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="75"/>
         <source>Manage logos</source>
-        <translation type="vanished">Administrar los logotipos</translation>
+        <translation>Administrar los logotipos</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="65"/>
         <source>Name:</source>
-        <translation type="vanished">Nombre:</translation>
+        <translation>Nombre:</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="69"/>
+        <source>Warning: the edges of empty cells do not appear in the final render of the folio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="78"/>
         <source>Display a label:</source>
-        <translation type="vanished">Mostrar una etiqueta:</translation>
+        <translation>Mostrar una etiqueta:</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="81"/>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="85"/>
         <source>Edit</source>
-        <translation type="vanished">Editar</translation>
+        <translation>Editar</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="82"/>
         <source>Text:</source>
-        <translation type="vanished">Texto:</translation>
+        <translation>Texto:</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="86"/>
         <source>Alignment:</source>
-        <translation type="vanished">Alineación:</translation>
+        <translation>Alineación:</translation>
     </message>
     <message>
         <source>horizontal:</source>
         <translation type="vanished">horizontal:</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="89"/>
         <source>Left</source>
-        <translation type="vanished">Izquierda</translation>
+        <translation>Izquierda</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="90"/>
         <source>Center</source>
-        <translation type="vanished">Centrado</translation>
+        <translation>Centrado</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="91"/>
         <source>Right</source>
-        <translation type="vanished">Derecho</translation>
+        <translation>Derecho</translation>
     </message>
     <message>
         <source>vertical:</source>
         <translation type="vanished">vertical:</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="97"/>
         <source>Top</source>
-        <translation type="vanished">Arriba</translation>
+        <translation>Arriba</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="98"/>
         <source>Middle</source>
-        <translation type="vanished">Medio</translation>
+        <translation>Medio</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="99"/>
         <source>Bottom</source>
-        <translation type="vanished">Bajo</translation>
+        <translation>Bajo</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="103"/>
         <source>Font:</source>
-        <translation type="vanished">Tipo de letra:</translation>
+        <translation>Tipo de letra:</translation>
     </message>
     <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="105"/>
         <source>Adjust font size if needed</source>
-        <translation type="vanished">Ajuste el tamaño de la fuente si es necesario</translation>
+        <translation>Ajuste el tamaño de la fuente si es necesario</translation>
     </message>
     <message>
         <source>Label for this cell</source>

@@ -376,14 +376,14 @@ void QETTitleBlockTemplateEditor::initActions()
 	cut_            = new QAction(QET::Icons::EditCut,              tr("Cu&t", "menu entry"),                      this);
 	copy_           = new QAction(QET::Icons::EditCopy,             tr("&Copy", "menu entry"),                      this);
 	paste_          = new QAction(QET::Icons::EditPaste,            tr("&Paste", "menu entry"),                      this);
-	edit_logos_     = new QAction(QET::Icons::InsertImage,          tr("Gérer les Logos", "menu entry"),           this);
-	edit_info_      = new QAction(QET::Icons::UserInformations,     tr("Edit les informations complémentaires", "menu entry"), this);
+	edit_logos_     = new QAction(QET::Icons::InsertImage,          tr("Manage logos", "menu entry"),           this);
+	edit_info_      = new QAction(QET::Icons::UserInformations,     tr("Edit additional information", "menu entry"), this);
 	zoom_in_        = new QAction(QET::Icons::ZoomIn,               tr("Zoom In",                   "menu entry"), this);
 	zoom_out_       = new QAction(QET::Icons::ZoomOut,              tr("Zoom out",              "menu entry"), this);
 	zoom_fit_       = new QAction(QET::Icons::ZoomFitBest,          tr("Fit in view",               "menu entry"), this);
 	zoom_reset_     = new QAction(QET::Icons::ZoomOriginal,         tr("Reset zoom",                  "menu entry"), this);
-	add_row_        = new QAction(QET::Icons::EditTableInsertRowAbove,    tr("Add une &line",      "menu entry"), this);
-	add_col_        = new QAction(QET::Icons::EditTableInsertColumnRight, tr("Add une &colonne",    "menu entry"), this);
+	add_row_        = new QAction(QET::Icons::EditTableInsertRowAbove,    tr("Add a &row",      "menu entry"), this);
+	add_col_        = new QAction(QET::Icons::EditTableInsertColumnRight, tr("Add a &column",    "menu entry"), this);
 	merge_cells_    = new QAction(QET::Icons::EditTableCellMerge,   tr("&Merge cells",      "menu entry"), this);
 	split_cell_     = new QAction(QET::Icons::EditTableCellSplit,   tr("&Split cells",     "menu entry"), this);
 

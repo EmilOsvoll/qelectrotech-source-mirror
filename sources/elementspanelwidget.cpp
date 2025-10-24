@@ -55,7 +55,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	copy_path                = new QAction(QET::Icons::IC_CopyFile,            tr("Copy full path to clipboard"),                    this);
 	prj_activate             = new QAction(QET::Icons::ProjectFile,            tr("Activate this project"),             this);
 	prj_close                = new QAction(QET::Icons::DocumentClose,          tr("Close this project"),                    this);
-	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Propertys du project"),          this);
+	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Project properties"),          this);
 	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Folio properties"),       this);
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);

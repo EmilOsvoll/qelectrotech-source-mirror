@@ -438,7 +438,7 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//Edit current project properties
-	m_project_edit_properties = new QAction(QET::Icons::ProjectProperties, tr("Propertys du project"), this);
+	m_project_edit_properties = new QAction(QET::Icons::ProjectProperties, tr("Project properties"), this);
 	connect(m_project_edit_properties, &QAction::triggered, [this]() {
 		editProjectProperties(currentProjectView());
 	});
@@ -888,14 +888,14 @@ void QETDiagramEditor::setUpMenu()
 #endif
 
 	main_tool_bar         -> toggleViewAction() -> setStatusTip(tr("Display or hide the main toolbar"));
-	view_tool_bar         -> toggleViewAction() -> setStatusTip(tr("Affiche ou non la barre d'outils Display"));
+	view_tool_bar         -> toggleViewAction() -> setStatusTip(tr("Show or hide the Display toolbar"));
 	diagram_tool_bar      -> toggleViewAction() -> setStatusTip(tr("Display or hide the Diagram toolbar"));
 	qdw_pa           -> toggleViewAction() -> setStatusTip(tr("Show or hide the elements panel"));
 	qdw_undo         -> toggleViewAction() -> setStatusTip(tr("Display or hide the undo list"));
 
 
 	// menu Display
-	QMenu *projects_view_mode = menu_affichage -> addMenu(QET::Icons::ConfigureToolbars, tr("Display les projects"));
+	QMenu *projects_view_mode = menu_affichage -> addMenu(QET::Icons::ConfigureToolbars, tr("Display projects"));
 	projects_view_mode -> setTearOffEnabled(true);
 	projects_view_mode -> addAction(m_windowed_view_mode);
 	projects_view_mode -> addAction(m_tabbed_view_mode);

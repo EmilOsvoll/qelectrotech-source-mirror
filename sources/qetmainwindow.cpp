@@ -86,7 +86,7 @@ void QETMainWindow::initCommonActions()
 
 	whatsthis_action_ = QWhatsThis::createAction(this);
 
-	about_qet_ = new QAction(QET::Icons::QETLogo, tr("From &propos de QElectroTech"), this);
+	about_qet_ = new QAction(QET::Icons::QETLogo, tr("About QElectroTech"), this);
 	about_qet_ -> setStatusTip(tr("Displays information about QElectroTech", "status bar tip"));
 	connect(about_qet_,  SIGNAL(triggered()), qet_app, SLOT(aboutQET()));
 
@@ -132,7 +132,7 @@ void QETMainWindow::initCommonActions()
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
-	about_qt_ = new QAction(QET::Icons::QtLogo,  tr("About de &Qt"), this);
+	about_qt_ = new QAction(QET::Icons::QtLogo,  tr("About Qt"), this);
 	about_qt_ -> setStatusTip(tr("Displays information about Qt library", "status bar tip"));
 	connect(about_qt_, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
