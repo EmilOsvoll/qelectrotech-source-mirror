@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it &&/or modify
+	QElectroTech is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -20,7 +20,7 @@
 /**
 	@brief ElementEditionCommand::ElementEditionCommand
 	Constructs an ElementEditionCommand,
-	thus embedding the provided \a scene && \a view.
+	thus embedding the provided \a scene and \a view.
 	@param scene
 	@param view
 	@param parent : Parent command
@@ -37,7 +37,7 @@ ElementEditionCommand::ElementEditionCommand(ElementScene *scene,
 /**
 	@brief ElementEditionCommand::ElementEditionCommand
 	Constructs an ElementEditionCommand,
-	thus embedding the provided \a scene && \a view.
+	thus embedding the provided \a scene and \a view.
 	@param text : Text describing the effect of the command
 	@param scene
 	@param view
@@ -54,7 +54,7 @@ ElementEditionCommand::ElementEditionCommand(const QString &text,
 }
 
 /**
-	Tostructor
+	Destructor
 */
 ElementEditionCommand::~ElementEditionCommand()
 {
@@ -69,7 +69,7 @@ ElementScene *ElementEditionCommand::elementScene() const
 }
 
 /**
-	Tofine \a scene as the element editor/scene the command should take place
+	Define \a scene as the element editor/scene the command should take place
 */
 void ElementEditionCommand::setElementScene(ElementScene *scene) {
 	m_scene = scene;
@@ -84,7 +84,7 @@ ElementView *ElementEditionCommand::elementView() const
 }
 
 /**
-	Tofine \a view as the view the effect of the command should be rendered on
+	Define \a view as the view the effect of the command should be rendered on
 */
 void ElementEditionCommand::setElementView(ElementView *view) {
 	m_view = view;
@@ -104,10 +104,10 @@ CutPartsCommand::CutPartsCommand(
 ) :
 	DeletePartsCommand(scene, parts.toVector(), parent)
 {
-	setText(QString(QObject::tr("cut parts", "undo caption")));
+	setText(QString(QObject::tr("couper des parties", "undo caption")));
 }
 
-/// Tostructeur
+/// Destructeur
 CutPartsCommand::~CutPartsCommand()
 {
 }
@@ -126,14 +126,14 @@ MovePartsCommand::MovePartsCommand(
 	const QList<QGraphicsItem *>& parts,
 	QUndoCommand *parent
 ) :
-	ElementEditionCommand(QObject::tr("move", "undo caption"), scene, nullptr, parent),
+	ElementEditionCommand(QObject::tr("déplacement", "undo caption"), scene, nullptr, parent),
 	movement(m),
 	first_redo(true)
 {
 	moved_parts = parts;
 }
 
-/// Tostructeur
+/// Destructeur
 MovePartsCommand::~MovePartsCommand()
 {
 }
@@ -158,8 +158,8 @@ void MovePartsCommand::redo()
 /**
 	Constructeur
 	@param element_scene Element edite
-	@param before Listes des names avant changement
-	@param after Listes des names apres changement
+	@param before Listes des noms avant changement
+	@param after Listes des noms apres changement
 	@param parent QUndoCommand parent
 */
 ChangeNamesCommand::ChangeNamesCommand(
@@ -168,13 +168,13 @@ ChangeNamesCommand::ChangeNamesCommand(
 	const NamesList &after,
 	QUndoCommand *parent
 ) :
-	ElementEditionCommand(QObject::tr("modify names", "undo caption"), element_scene, nullptr, parent),
+	ElementEditionCommand(QObject::tr("modification noms", "undo caption"), element_scene, nullptr, parent),
 	names_before(before),
 	names_after(after)
 {
 }
 
-/// Tostructeur
+/// Destructeur
 ChangeNamesCommand::~ChangeNamesCommand()
 {
 }
@@ -215,23 +215,23 @@ ChangeZValueCommand::ChangeZValueCommand(
 	// prend un snapshot des zValues
 	foreach(QGraphicsItem *qgi, items_list) undo_hash.insert(qgi, qgi -> zValue());
 
-	// choisit le name en fonction du traitement
+	// choisit le nom en fonction du traitement
 	if (m_option == QET::BringForward) {
-		setText(QObject::tr("bring forward", "undo caption"));
+		setText(QObject::tr("amener au premier plan", "undo caption"));
 		applyBringForward(items_list);
 	} else if (m_option == QET::Raise) {
-		setText(QObject::tr("raise", "undo caption"));
+		setText(QObject::tr("rapprocher", "undo caption"));
 		applyRaise(items_list);
 	} else if (m_option == QET::Lower) {
-		setText(QObject::tr("lower", "undo caption"));
+		setText(QObject::tr("éloigner", "undo caption"));
 		applyLower(items_list);
 	} else if (m_option == QET::SendBackward) {
-		setText(QObject::tr("Send to back", "undo caption"));
+		setText(QObject::tr("envoyer au fond", "undo caption"));
 		applySendBackward(items_list);
 	}
 }
 
-/// Tostructeur
+/// Destructeur
 ChangeZValueCommand::~ChangeZValueCommand()
 {
 }
@@ -250,7 +250,7 @@ void ChangeZValueCommand::redo()
 
 /**
 	Amene les elements selectionnes au premier plan
-	@param items_list Liste des elements (selectionnes && non selectionnes)
+	@param items_list Liste des elements (selectionnes et non selectionnes)
 */
 void ChangeZValueCommand::applyBringForward(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> non_selected_items = items_list;
@@ -268,7 +268,7 @@ void ChangeZValueCommand::applyBringForward(const QList<QGraphicsItem *> &items_
 
 /**
 	Remonte les elements selectionnes d'un plan
-	@param items_list Liste des elements (selectionnes && non selectionnes)
+	@param items_list Liste des elements (selectionnes et non selectionnes)
 */
 void ChangeZValueCommand::applyRaise(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> my_items_list = items_list;
@@ -292,8 +292,8 @@ void ChangeZValueCommand::applyRaise(const QList<QGraphicsItem *> &items_list) {
 }
 
 /**
-	Toscend les elements selectionnes d'un plan
-	@param items_list Liste des elements (selectionnes && non selectionnes)
+	Descend les elements selectionnes d'un plan
+	@param items_list Liste des elements (selectionnes et non selectionnes)
 */
 void ChangeZValueCommand::applyLower(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> my_items_list = items_list;
@@ -319,7 +319,7 @@ void ChangeZValueCommand::applyLower(const QList<QGraphicsItem *> &items_list) {
 
 /**
 	Envoie les elements selectionnes au fond
-	@param items_list Liste des elements (selectionnes && non selectionnes)
+	@param items_list Liste des elements (selectionnes et non selectionnes)
 */
 void ChangeZValueCommand::applySendBackward(const QList<QGraphicsItem *> &items_list) {
 	QList<QGraphicsItem *> non_selected_items = items_list;
@@ -343,13 +343,13 @@ void ChangeZValueCommand::applySendBackward(const QList<QGraphicsItem *> &items_
 	@param parent QUndoCommand parent
 */
 ChangeInformationsCommand::ChangeInformationsCommand(ElementScene *elmt, const QString &old_infos, const QString &new_infos, QUndoCommand *parent) :
-	ElementEditionCommand(QObject::tr("Modification complementary information", "undo caption"), elmt, nullptr, parent),
+	ElementEditionCommand(QObject::tr("modification informations complementaires", "undo caption"), elmt, nullptr, parent),
 	old_informations_(old_infos),
 	new_informations_(new_infos)
 {
 }
 
-/// Tostructeur
+/// Destructeur
 ChangeInformationsCommand::~ChangeInformationsCommand()
 {
 }
@@ -381,7 +381,7 @@ ScalePartsCommand::ScalePartsCommand(ElementScene *scene, QUndoCommand * parent)
 {}
 
 /**
-	Tostructor
+	Destructor
 */
 ScalePartsCommand::~ScalePartsCommand()
 {
@@ -433,7 +433,7 @@ QList<CustomElementPart *> ScalePartsCommand::scaledPrimitives() const
 
 /**
 	@brief ScalePartsCommand::setTransformation
-	Tofine the transformation applied by this command
+	Define the transformation applied by this command
 	@param original_rect :
 	Bounding rectangle for all scaled primitives before the operation
 	@param new_rect :
@@ -448,7 +448,7 @@ void ScalePartsCommand::setTransformation(const QRectF &original_rect,
 /**
 	@return the transformation applied by this command. The returned rectangles
 	are the bounding rectangles for all scaled primitives respectively before
-	&& after the operation.
+	and after the operation.
 */
 QPair<QRectF, QRectF> ScalePartsCommand::transformation()
 {
@@ -475,9 +475,9 @@ void ScalePartsCommand::scale(const QRectF &before, const QRectF &after) {
 void ScalePartsCommand::adjustText()
 {
 	if (scaled_primitives_.count() == 1) {
-		setText(QObject::tr("scale %1% {1?}", "undo caption -- %1% {1?} is the resized primitive type name").arg(scaled_primitives_.first() -> name()));
+		setText(QObject::tr("redimensionnement %1", "undo caption -- %1 is the resized primitive type name").arg(scaled_primitives_.first() -> name()));
 	} else {
-		setText(QObject::tr("redimensionnement de %1% {1?} primitives", "undo caption -- %1% {1?} always > 1").arg(scaled_primitives_.count()));
+		setText(QObject::tr("redimensionnement de %1 primitives", "undo caption -- %1 always > 1").arg(scaled_primitives_.count()));
 	}
 }
 
@@ -497,7 +497,7 @@ changeElementDataCommand::changeElementDataCommand(ElementScene *scene,
 	m_old(old_data),
 	m_new(new_data)
 {
-	setText(QObject::tr("Modify item properties"));
+	setText(QObject::tr("Modifier les propriétées de l'élément"));
 }
 
 void changeElementDataCommand::undo() {
@@ -511,7 +511,7 @@ void changeElementDataCommand::redo() {
 }
 
 RotateElementsCommand::RotateElementsCommand(ElementScene *scene, QUndoCommand *parent) :
-ElementEditionCommand(QObject::tr("Rotate the selection", "undo caption"), scene, nullptr, parent)
+ElementEditionCommand(QObject::tr("Pivoter la selection", "undo caption"), scene, nullptr, parent)
 {
 	m_items = scene->selectedItems();
 }
@@ -615,16 +615,16 @@ void RotateElementsCommand::redo()
 }
 
 
-RotateThinElementsCommand::RotateThinElementsCommand(ElementScene *scene, QUndoCommand *parent) :
-ElementEditionCommand(QObject::tr("Rotate the selection", "undo caption"), scene, nullptr, parent)
+RotateFineElementsCommand::RotateFineElementsCommand(ElementScene *scene, QUndoCommand *parent) :
+ElementEditionCommand(QObject::tr("Pivoter la selection", "undo caption"), scene, nullptr, parent)
 {
 	m_items = scene->selectedItems();
 }
 
 /**
-	@brief RotateThinElementsCommand::undo
+	@brief RotateFineElementsCommand::undo
 */
-void RotateThinElementsCommand::undo()
+void RotateFineElementsCommand::undo()
 {
 	for (QGraphicsItem *item : m_items)
 	{
@@ -651,9 +651,9 @@ void RotateThinElementsCommand::undo()
 }
 
 /**
-	@brief RotateThinElementsCommand::redo
+	@brief RotateFineElementsCommand::redo
 */
-void RotateThinElementsCommand::redo()
+void RotateFineElementsCommand::redo()
 {
 	for (QGraphicsItem *item : m_items)
 	{
@@ -681,7 +681,7 @@ void RotateThinElementsCommand::redo()
 
 
 MirrorElementsCommand::MirrorElementsCommand(ElementScene *scene, QUndoCommand *parent) :
-ElementEditionCommand(QObject::tr("Mirror selection", "undo caption"), scene, nullptr, parent)
+ElementEditionCommand(QObject::tr("Miroir de sélection", "undo caption"), scene, nullptr, parent)
 {
 	m_items = scene->selectedItems();
 }
@@ -729,7 +729,7 @@ void MirrorElementsCommand::undo()
 
 
 FlipElementsCommand::FlipElementsCommand(ElementScene *scene, QUndoCommand *parent) :
-ElementEditionCommand(QObject::tr("Flip selection", "undo caption"), scene, nullptr, parent)
+ElementEditionCommand(QObject::tr("Retourner la sélection", "undo caption"), scene, nullptr, parent)
 {
 	m_items = scene->selectedItems();
 }

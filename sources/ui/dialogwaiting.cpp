@@ -79,6 +79,14 @@ void DialogWaiting::setTitle(const QString& val){
 }
 
 /**
+	@brief DialogWaiting::setDetail of action
+	@param val is the string of detail action
+*/
+void DialogWaiting::setDetail(const QString& val){
+	ui->label_detail->setText(val);
+}
+
+/**
 	@brief DialogWaiting::setTotal of action
 	@param val is the string of detail action
 */

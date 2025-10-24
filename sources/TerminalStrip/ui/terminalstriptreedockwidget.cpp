@@ -124,10 +124,10 @@ TerminalStrip *TerminalStripTreeDockWidget::currentStrip() const {
 }
 
 /**
- * @brief TerminalStripTreeDockWidget::currentPlant
+ * @brief TerminalStripTreeDockWidget::currentInstallation
  * @return the installation according to the current selection
  */
-QString TerminalStripTreeDockWidget::currentPlant() const
+QString TerminalStripTreeDockWidget::currentInstallation() const
 {
 	if (m_current_strip) {
 		return m_current_strip->installation();
@@ -138,7 +138,7 @@ QString TerminalStripTreeDockWidget::currentPlant() const
 		if (item->type() == Location) {
 			item = item->parent();
 		}
-		if (item->type() == Plant) {
+		if (item->type() == Installation) {
 			return item->data(0, Qt::DisplayRole).toString();
 		}
 	}
@@ -277,7 +277,7 @@ QTreeWidgetItem* TerminalStripTreeDockWidget::addTerminalStrip(TerminalStrip *te
 	}
 	if (!inst_qtwi) {
 		QStringList inst_strl{installation_str};
-		inst_qtwi = new QTreeWidgetItem(root_item, inst_strl, Plant);
+		inst_qtwi = new QTreeWidgetItem(root_item, inst_strl, Installation);
 	}
 
 		//Check if location already exist

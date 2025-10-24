@@ -751,7 +751,7 @@ QString QET::qetCollectionToString(const QET::QetCollection &c)
 	@return The corresponding QetCollection value from a string.
 	If the string don't match anything, we return the failsafe value QetCollection::Common
 */
-QET::QetQET Collection::qetCollectionFromString(const QString &str)
+QET::QetCollection QET::qetCollectionFromString(const QString &str)
 {
 	if (str == "common")
 		return QetCollection::Common;

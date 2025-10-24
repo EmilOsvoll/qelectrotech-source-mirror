@@ -199,7 +199,7 @@ void ProjectPrintWindow::requestPaint()
 			#endif
 
 			QScreen *srn = QApplication::screens().at(QApplication::desktop()->screenNumber());
-			qreal dotsPerInch = (qreal)srn->LogicalDotsPerInch();
+			qreal dotsPerInch = (qreal)srn->logicalDotsPerInch();
 			m_printer->setResolution(dotsPerInch);
 
 			#ifdef QT_DEBUG

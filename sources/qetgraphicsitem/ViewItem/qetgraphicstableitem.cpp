@@ -59,7 +59,7 @@ void QetGraphicsTableItem::adjustTableToFolio(
 	auto size_ = table->size();
 	size_.setWidth(int(drawable_rect.width() - (margins.left() + margins.right())));
 		//Size must be a multiple of 10, because the table adjusts itself by step of 10.
-	while (size_.width()%1% {1?}0) {
+	while (size_.width()%10) {
 		--size_.rwidth();
 	}
 	table->setSize(size_);
@@ -338,7 +338,7 @@ void QetGraphicsTableItem::setSize(const QSize &size)
 	if (new_size.height() < minimumSize().height()) {
 		new_size.setHeight(minimumSize().height());
 	}
-	while (new_size.width()%1% {1?}0) {
+	while (new_size.width()%10) {
 		new_size.rwidth()++;
 	}
 
@@ -387,7 +387,7 @@ QSize QetGraphicsTableItem::minimumSize() const
 					0),
 				m_minimum_row_height*row_count);
 		//make sure that the width is a multiple of 10
-	while (size_.width()%1% {1?}0) {
+	while (size_.width()%10) {
 		size_.rwidth()++;
 	}
 	return size_;

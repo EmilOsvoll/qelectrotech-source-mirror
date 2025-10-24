@@ -36,7 +36,7 @@ QETTitleBlockTemplateEditor::QETTitleBlockTemplateEditor(QWidget *parent) :
 	read_only_(false),
 	duplicate_(false),
 	tb_template_(nullptr),
-	Logo_manager_(nullptr)
+	logo_manager_(nullptr)
 {
 	setWindowIcon(QET::Icons::QETLogo);
 	setAttribute(Qt::WA_DeleteOnClose);
@@ -327,25 +327,25 @@ bool QETTitleBlockTemplateEditor::edit(TitleBlockTemplate *tbt)
 void QETTitleBlockTemplateEditor::editLogos()
 {
 	if (tb_template_) {
-		if (!Logo_manager_) {
+		if (!logo_manager_) {
 			initLogoManager();
 		}
 
-		Logo_manager_ -> layout() -> setContentsMargins(0, 0, 0, 0);
+		logo_manager_ -> layout() -> setContentsMargins(0, 0, 0, 0);
 		QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Close);
 
 		QVBoxLayout *vlayout0 = new QVBoxLayout();
-		vlayout0 -> addWidget(Logo_manager_);
+		vlayout0 -> addWidget(logo_manager_);
 		vlayout0 -> addWidget(buttons);
 
 		QDialog d(this);
-		d.setWindowTitle(Logo_manager_ -> windowTitle());
+		d.setWindowTitle(logo_manager_ -> windowTitle());
 		d.setLayout(vlayout0);
 		connect(buttons, SIGNAL(rejected()), &d, SLOT(reject()));
 		d.exec();
 
 		// prevent the Logo manager from being deleted along with the diaLog
-		Logo_manager_ -> setParent(this);
+		logo_manager_ -> setParent(this);
 	}
 }
 
@@ -376,7 +376,7 @@ void QETTitleBlockTemplateEditor::initActions()
 	cut_            = new QAction(QET::Icons::EditCut,              tr("Cu&t", "menu entry"),                      this);
 	copy_           = new QAction(QET::Icons::EditCopy,             tr("&Copy", "menu entry"),                      this);
 	paste_          = new QAction(QET::Icons::EditPaste,            tr("&Paste", "menu entry"),                      this);
-	edit_Logos_     = new QAction(QET::Icons::InsertImage,          tr("Gérer les Logos", "menu entry"),           this);
+	edit_logos_     = new QAction(QET::Icons::InsertImage,          tr("Gérer les Logos", "menu entry"),           this);
 	edit_info_      = new QAction(QET::Icons::UserInformations,     tr("Edit les informations complémentaires", "menu entry"), this);
 	zoom_in_        = new QAction(QET::Icons::ZoomIn,               tr("Zoom In",                   "menu entry"), this);
 	zoom_out_       = new QAction(QET::Icons::ZoomOut,              tr("Zoom out",              "menu entry"), this);
@@ -401,7 +401,7 @@ void QETTitleBlockTemplateEditor::initActions()
 	cut_              -> setShortcut(QKeySequence::Cut);
 	copy_             -> setShortcut(QKeySequence::Copy);
 	paste_            -> setShortcut(QKeySequence::Paste);
-	edit_Logos_       -> setShortcut(Qt::CTRL | Qt::Key_T);
+	edit_logos_       -> setShortcut(Qt::CTRL | Qt::Key_T);
 	edit_info_        -> setShortcut(Qt::CTRL | Qt::Key_Y);
 	merge_cells_      -> setShortcut(Qt::CTRL | Qt::Key_J);
 	split_cell_       -> setShortcut(Qt::CTRL | Qt::Key_K);
@@ -424,7 +424,7 @@ void QETTitleBlockTemplateEditor::initActions()
 	connect(zoom_out_,        SIGNAL(triggered()), template_edition_area_view_, SLOT(zoomOut()));
 	connect(zoom_fit_,        SIGNAL(triggered()), template_edition_area_view_, SLOT(zoomFit()));
 	connect(zoom_reset_,      SIGNAL(triggered()), template_edition_area_view_, SLOT(zoomReset()));
-	connect(edit_Logos_,      SIGNAL(triggered()), this, SLOT(editLogos()));
+	connect(edit_logos_,      SIGNAL(triggered()), this, SLOT(editLogos()));
 	connect(edit_info_,       SIGNAL(triggered()), this, SLOT(editTemplateInformation()));
 	connect(add_row_,         SIGNAL(triggered()), template_edition_area_view_, SLOT(addRowAtEnd()));
 	connect(add_col_,         SIGNAL(triggered()), template_edition_area_view_, SLOT(addColumnAtEnd()));
@@ -462,7 +462,7 @@ void QETTitleBlockTemplateEditor::initMenus()
 	edit_menu_   -> addAction(merge_cells_);
 	edit_menu_   -> addAction(split_cell_);
 	edit_menu_   -> addSeparator();
-	edit_menu_   -> addAction(edit_Logos_);
+	edit_menu_   -> addAction(edit_logos_);
 	edit_menu_   -> addAction(edit_info_);
 	display_menu_ -> addAction(zoom_in_);
 	display_menu_ -> addAction(zoom_out_);
@@ -588,10 +588,10 @@ void QETTitleBlockTemplateEditor::initWidgets()
 */
 void QETTitleBlockTemplateEditor::initLogoManager()
 {
-	Logo_manager_ = new TitleBlockTemplateLogoManager(tb_template_, this);
-	Logo_manager_ -> setReadOnly(read_only_);
+	logo_manager_ = new TitleBlockTemplateLogoManager(tb_template_, this);
+	logo_manager_ -> setReadOnly(read_only_);
 	connect(
-		Logo_manager_,
+		logo_manager_,
 		SIGNAL(logosChanged(const TitleBlockTemplate *)),
 		template_cell_editor_widget_,
 		SLOT(updateLogosComboBox(const TitleBlockTemplate *))
@@ -921,8 +921,8 @@ bool QETTitleBlockTemplateEditor::saveAsFile()
 void QETTitleBlockTemplateEditor::setReadOnly(bool read_only) {
 	if (read_only != read_only_) {
 		read_only_ = read_only;
-		if (Logo_manager_) {
-			Logo_manager_ -> setReadOnly(read_only_);
+		if (logo_manager_) {
+			logo_manager_ -> setReadOnly(read_only_);
 		}
 		template_cell_editor_widget_ -> setReadOnly(read_only_);
 		template_edition_area_view_ -> setReadOnly(read_only_);

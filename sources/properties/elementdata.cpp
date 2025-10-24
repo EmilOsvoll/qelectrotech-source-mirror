@@ -395,9 +395,9 @@ QString ElementData::slaveTypeToString(ElementData::SlaveType type)
 			return QStringLiteral("simple");
 		case ElementData::Power:
 			return QStringLiteral("power");
-		case ElementData::PlayOn:
+		case ElementData::DelayOn:
 			return QStringLiteral("delayOn");
-		case ElementData::PlayOff:
+		case ElementData::DelayOff:
 			return  QStringLiteral("delayOff");
 		case ElementData::delayOnOff:
 			return QStringLiteral("delayOnOff");
@@ -412,9 +412,9 @@ ElementData::SlaveType ElementData::slaveTypeFromString(const QString &string)
 	} else if (string == QLatin1String("power")) {
 		return  ElementData::Power;
 	} else if (string == QLatin1String("delayOn")) {
-		return ElementData::PlayOn;
+		return ElementData::DelayOn;
 	} else if (string == QLatin1String("delayOff")) {
-		return ElementData::PlayOff;
+		return ElementData::DelayOff;
 	} else if (string == QLatin1String("delayOnOff")) {
 		return ElementData::delayOnOff;
 	}

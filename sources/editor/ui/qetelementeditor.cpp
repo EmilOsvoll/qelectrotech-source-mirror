@@ -1004,7 +1004,7 @@ void QETElementEditor::setupActions()
 
 		//Rotate Thin action = rotate with smaller inkrement
 	ui->m_rotateThin_action -> setShortcut(Qt::CTRL | Qt::Key_Space);
-	connect(ui->m_rotateThin_action, &QAction::triggered, [this]() {this -> elementScene() -> undoStack().push(new RotateThinElementsCommand(this->elementScene()));});
+	connect(ui->m_rotateThin_action, &QAction::triggered, [this]() {this -> elementScene() -> undoStack().push(new RotateFineElementsCommand(this->elementScene()));});
 
 		//Flip action
 	ui->m_flip_action -> setShortcut(Qt::Key_F);

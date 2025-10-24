@@ -178,7 +178,7 @@ void ElementScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *e)
 	if (m_behavior == PasteArea) {
 		m_defined_paste_area = m_paste_area -> rect();
 		removeItem(m_paste_area);
-		emit(pasteAreaTofined(m_defined_paste_area));
+		emit(pasteAreaDefined(m_defined_paste_area));
 		m_behavior = Normal;
 		return;
 	}
@@ -425,11 +425,11 @@ const QDomDocument ElementScene::toXml(bool all_parts)
 
 	// define the size of the element by the upper multiple of 10
 	int upwidth = ((qRound(size.width())/10)*10)+10;
-	if ((qRound(size.width())%1% {1?}0) > 6)
+	if ((qRound(size.width())%10) > 6)
 		upwidth += 10;
 
 	int upheight = ((qRound(size.height())/10)*10)+10;
-	if ((qRound(size.height())%1% {1?}0) > 6)
+	if ((qRound(size.height())%10) > 6)
 		upheight += 10;
 
 	// the margin between the real size of the element && the rectangle that delimits

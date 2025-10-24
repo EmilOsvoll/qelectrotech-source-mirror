@@ -288,7 +288,7 @@ void AboutQETDialog::on_m_licenses_comboBox_currentTextChanged(
 	}
 }
 
-void AboutQETDialog::on_m_Log_comboBox_currentTextChanged(const QString &arg1)
+void AboutQETDialog::on_m_log_comboBox_currentTextChanged(const QString &arg1)
 {
 	QFile Log_File(arg1);
 	if(Log_File.open(QIODevice::ReadOnly)){

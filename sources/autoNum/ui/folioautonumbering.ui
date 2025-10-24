@@ -157,7 +157,7 @@
           <property name="maximum">
            <number>999</number>
           </property>
-          <property name="displayIntegerBottome">
+          <property name="displayIntegerBase">
            <number>10</number>
           </property>
          </widget>

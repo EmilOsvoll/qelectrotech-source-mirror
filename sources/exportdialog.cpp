@@ -409,7 +409,7 @@ void ExportDialog::generateSvg(
 	
 	// genere une QPicture a partir du diagram
 	QPicture picture;
-	diagram -> toImage(
+	diagram -> toPaintDevice(
 		picture,
 		width,
 		height,

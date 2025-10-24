@@ -14984,58 +14984,39 @@ Que désirez vous faire ?</source>
         <translation>slet</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="129"/>
         <source>move</source>
         <comment>undo caption</comment>
-        <translation>Forskyd</translation>
+        <translation type="vanished">Forskyd</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="171"/>
         <source>modify names</source>
         <comment>undo caption</comment>
-        <translation>rediger navn</translation>
+        <translation type="vanished">rediger navn</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="220"/>
         <source>bring forward</source>
         <comment>undo caption</comment>
-        <translation>flyt forrest</translation>
+        <translation type="vanished">flyt forrest</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="223"/>
         <source>raise</source>
         <comment>undo caption</comment>
-        <translation>flyt fremad</translation>
+        <translation type="vanished">flyt fremad</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="226"/>
         <source>lower</source>
         <comment>undo caption</comment>
-        <translation>flyt bagud</translation>
+        <translation type="vanished">flyt bagud</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="229"/>
         <source>Send to back</source>
         <comment>undo caption</comment>
-        <translation>flyt bagerst</translation>
+        <translation type="vanished">flyt bagerst</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="346"/>
         <source>Modification complementary information</source>
         <comment>undo caption</comment>
-        <translation>ændringsinformation</translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="478"/>
-        <source>scale %1% {1?}</source>
-        <comment>undo caption -- %1% {1?} is the resized primitive type name</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="480"/>
-        <source>redimensionnement de %1% {1?} primitives</source>
-        <comment>undo caption -- %1% {1?} always &gt; 1</comment>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">ændringsinformation</translation>
     </message>
     <message>
         <source>scale %1</source>
@@ -15048,28 +15029,13 @@ Que désirez vous faire ?</source>
         <translation type="vanished">tilpas størrelse %1 til oprindelig</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="500"/>
         <source>Modify item properties</source>
-        <translation>Ændre symbol egenskab</translation>
+        <translation type="vanished">Ændre symbol egenskab</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="514"/>
-        <location filename="../sources/editor/editorcommands.cpp" line="619"/>
         <source>Rotate the selection</source>
         <comment>undo caption</comment>
-        <translation>Rotere valgt</translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="684"/>
-        <source>Mirror selection</source>
-        <comment>undo caption</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="732"/>
-        <source>Flip selection</source>
-        <comment>undo caption</comment>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Rotere valgt</translation>
     </message>
     <message>
         <location filename="../sources/editor/graphicspart/partarc.h" line="52"/>
@@ -15266,10 +15232,9 @@ Que désirez vous faire ?</source>
         <translation>Terminal</translation>
     </message>
     <message>
-        <location filename="../sources/editor/editorcommands.cpp" line="107"/>
         <source>cut parts</source>
         <comment>undo caption</comment>
-        <translation>Klip dele</translation>
+        <translation type="vanished">Klip dele</translation>
     </message>
     <message>
         <location filename="../sources/editor/graphicspart/partrectangle.h" line="62"/>
@@ -16811,6 +16776,90 @@ Voulez-vous la remplacer ?</source>
         <location filename="../sources/undocommand/linkelementcommand.cpp" line="38"/>
         <source>Edit the cross reference</source>
         <translation type="unfinished">Rediger referencekors</translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="107"/>
+        <source>couper des parties</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="129"/>
+        <source>déplacement</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="171"/>
+        <source>modification noms</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="220"/>
+        <source>amener au premier plan</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="223"/>
+        <source>rapprocher</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="226"/>
+        <source>éloigner</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="229"/>
+        <source>envoyer au fond</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="346"/>
+        <source>modification informations complementaires</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="478"/>
+        <source>redimensionnement %1</source>
+        <comment>undo caption -- %1 is the resized primitive type name</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="480"/>
+        <source>redimensionnement de %1 primitives</source>
+        <comment>undo caption -- %1 always &gt; 1</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="500"/>
+        <source>Modifier les propriétées de l&apos;élément</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="514"/>
+        <location filename="../sources/editor/editorcommands.cpp" line="619"/>
+        <source>Pivoter la selection</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="684"/>
+        <source>Miroir de sélection</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/editor/editorcommands.cpp" line="732"/>
+        <source>Retourner la sélection</source>
+        <comment>undo caption</comment>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -21939,19 +21988,31 @@ Eksempel: forbind navn &quot;volta&quot; og værdi &quot;1745&quot; erstat %{vol
 <context>
     <name>TitleBlockTemplateCellWidget</name>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="58"/>
         <source>Cell type:</source>
-        <translation>Celletype:</translation>
+        <translation type="vanished">Celletype:</translation>
+    </message>
+    <message>
+        <source>Empty</source>
+        <translation type="vanished">Tom</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Tekst</translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="58"/>
+        <source>Type de cellule :</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="60"/>
-        <source>Empty</source>
-        <translation>Tom</translation>
+        <source>Vide</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="61"/>
-        <source>Text</source>
-        <translation>Tekst</translation>
+        <source>Texte</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="62"/>
@@ -21961,13 +22022,130 @@ Eksempel: forbind navn &quot;volta&quot; og værdi &quot;1745&quot; erstat %{vol
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="65"/>
-        <source>Name :</source>
+        <source>Nom :</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/titleblock/templatecellwidget.cpp" line="69"/>
+        <source>Attention : les bordures des cellules vides n&apos;apparaissent pas lors du rendu final sur le folio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="74"/>
+        <source>Aucun logo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="75"/>
+        <source>Gérer les logos</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="78"/>
+        <source>Afficher un label :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="81"/>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="85"/>
+        <source>Editer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="82"/>
+        <source>Texte :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="86"/>
+        <source>Alignement :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="87"/>
+        <source>horizontal :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="89"/>
+        <source>Gauche</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="90"/>
+        <source>Centré</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="91"/>
+        <source>Droite</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="95"/>
+        <source>vertical :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="97"/>
+        <source>Haut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="98"/>
+        <source>Milieu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="99"/>
+        <source>Bas</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="103"/>
+        <source>Police :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="105"/>
+        <source>Ajuster la taille de police si besoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="261"/>
+        <source>Label de cette cellule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="272"/>
+        <source>Valeur de cette cellule</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="323"/>
+        <source>Aucun logo</source>
+        <comment>text displayed in the combo box when a template has no logo</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="433"/>
+        <source>Édition d&apos;une cellule : %1</source>
+        <comment>label of and undo command when editing a cell</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="445"/>
+        <source>Par défaut, les variables suivantes sont disponibles :&lt;ul&gt;&lt;li&gt;%{author} : auteur du folio&lt;/li&gt;&lt;li&gt;%{date} : date du folio&lt;/li&gt;&lt;li&gt;%{title} : titre du folio&lt;/li&gt;&lt;li&gt;%{filename} : nom de fichier du projet&lt;/li&gt;&lt;li&gt;%{plant} : nom de l&apos;installation (=) dans laquelle se trouve le folio&lt;/li&gt;&lt;li&gt;%{locmach} : nom de la localisation (+) dans laquelle se trouve le folio&lt;/li&gt;&lt;li&gt;%{indexrev} : indice de révision du folio&lt;/li&gt;&lt;li&gt;%{version} : version du logiciel&lt;/li&gt;&lt;li&gt;%{folio} : numéro du folio&lt;/li&gt;&lt;li&gt;%{folio-id} : position du folio dans le projet&lt;/li&gt;&lt;li&gt;%{folio-total} : nombre total de folios dans le projet&lt;/li&gt;&lt;li&gt;%{previous-folio-num} : numéro du folio précédent&lt;/li&gt;&lt;li&gt;%{next-folio-num} : numéro du folio suivant&lt;/li&gt;&lt;li&gt;%{projecttitle} : titre du projet&lt;/li&gt;&lt;li&gt;%{projectpath} : chemin du projet&lt;/li&gt;&lt;li&gt;%{projectfilename} : nom du fichier&lt;/li&gt;&lt;li&gt;%{saveddate} : date d&apos;enregistrement du fichier format local&lt;/li&gt;&lt;li&gt;%{saveddate-eu} : date d&apos;enregistrement du fichier format dd-MM-yyyy&lt;/li&gt;&lt;li&gt;%{saveddate-us} : date d&apos;enregistrement du fichier format yyyy-MM-dd&lt;/li&gt;&lt;li&gt;%{savedtime} : heure d&apos;enregistrement du fichier&lt;/li&gt;&lt;li&gt;%{savedfilename} : nom du fichier enregistré&lt;/li&gt;&lt;li&gt;%{savedfilepath} : chemin du fichier enregistré&lt;/li&gt;&lt;/ul&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/titleblock/templatecellwidget.cpp" line="480"/>
+        <source>Chaque cellule d&apos;un cartouche affiche une valeur, optionnellement précédée d&apos;un label. Tous deux peuvent être traduits en plusieurs langues.&lt;br/&gt;Comme ce que vous éditez actuellement est un &lt;em&gt;modèle&lt;/em&gt; de cartouche, ne saisissez pas directement des données brutes : insérez plutôt des variables sous la forme %{nom-de-variable}, qui seront ensuite remplacées par les valeurs adéquates sur le folio.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Warning: the edges of empty cells do not appear in the final render the folio.</source>
-        <translation>Advarsel: kanter på tomme celler vises ikke i arkets endelig præsentation.</translation>
+        <translation type="vanished">Advarsel: kanter på tomme celler vises ikke i arkets endelig præsentation.</translation>
     </message>
     <message>
         <source>No logo</source>
@@ -21986,117 +22164,60 @@ Eksempel: forbind navn &quot;volta&quot; og værdi &quot;1745&quot; erstat %{vol
         <translation type="vanished">Vis etiket:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="74"/>
-        <source>None Logo</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="75"/>
-        <source>Gérer les Logos</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="78"/>
-        <source>Display un label :</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="81"/>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="85"/>
         <source>Edit</source>
-        <translation>Rediger</translation>
+        <translation type="vanished">Rediger</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="82"/>
         <source>Text:</source>
-        <translation>Tekst:</translation>
+        <translation type="vanished">Tekst:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="86"/>
         <source>Alignment:</source>
-        <translation>Juster:</translation>
+        <translation type="vanished">Juster:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="87"/>
         <source>horizontal:</source>
-        <translation>Vandret:</translation>
+        <translation type="vanished">Vandret:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="89"/>
         <source>Left</source>
-        <translation>Venstre</translation>
+        <translation type="vanished">Venstre</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="90"/>
         <source>Center</source>
-        <translation>Centrer</translation>
+        <translation type="vanished">Centrer</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="91"/>
         <source>Right</source>
-        <translation>Højre</translation>
+        <translation type="vanished">Højre</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="95"/>
         <source>vertical:</source>
-        <translation>Lodret:</translation>
+        <translation type="vanished">Lodret:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="97"/>
         <source>Top</source>
-        <translation>Top</translation>
+        <translation type="vanished">Top</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="98"/>
         <source>Middle</source>
-        <translation>Midten</translation>
+        <translation type="vanished">Midten</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="99"/>
         <source>Bottom</source>
-        <translation>Bund</translation>
+        <translation type="vanished">Bund</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="103"/>
         <source>Font:</source>
-        <translation>Skrifttype:</translation>
+        <translation type="vanished">Skrifttype:</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="105"/>
         <source>Adjust font size if needed</source>
-        <translation>Juster størrelse hvis nødvendigt</translation>
+        <translation type="vanished">Juster størrelse hvis nødvendigt</translation>
     </message>
     <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="261"/>
         <source>Label for this cell</source>
-        <translation>Celle etiket</translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="272"/>
-        <source>Value de cette cellule</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="323"/>
-        <source>None Logo</source>
-        <comment>text displayed in the combo box when a template has no Logo</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="433"/>
-        <source>Edit d&apos;une cellule : %1% {1?}</source>
-        <comment>label of &amp;&amp; undo command when editing a cell</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="445"/>
-        <source>Par défaut, les variables suivantes sont disponibles :&lt;ul&gt;&lt;li&gt;%{author} : auteur du folio&lt;/li&gt;&lt;li&gt;%{date} : date du folio&lt;/li&gt;&lt;li&gt;%{title} : titre du folio&lt;/li&gt;&lt;li&gt;%{filename} : name de fichier du project&lt;/li&gt;&lt;li&gt;%{plant} : name de l&apos;installation (=) dans laquelle se trouve le folio&lt;/li&gt;&lt;li&gt;%{locmach} : name de la localisation (+) dans laquelle se trouve le folio&lt;/li&gt;&lt;li&gt;%{indexrev} : indice de révision du folio&lt;/li&gt;&lt;li&gt;%{version} : version du Logiciel&lt;/li&gt;&lt;li&gt;%{folio} : numéro du folio&lt;/li&gt;&lt;li&gt;%{folio-id} : position du folio dans le project&lt;/li&gt;&lt;li&gt;%{folio-total} : namebre total de folios dans le project&lt;/li&gt;&lt;li&gt;%{previous-folio-num} : numéro du folio précédent&lt;/li&gt;&lt;li&gt;%{next-folio-num} : numéro du folio suivant&lt;/li&gt;&lt;li&gt;%{projecttitle} : titre du project&lt;/li&gt;&lt;li&gt;%{projectpath} : chemin du project&lt;/li&gt;&lt;li&gt;%{projectfilename} : name du fichier&lt;/li&gt;&lt;li&gt;%{saveddate} : date d&apos;enregistrement du fichier format local&lt;/li&gt;&lt;li&gt;%{saveddate-eu} : date d&apos;enregistrement du fichier format dd-MM-yyyy&lt;/li&gt;&lt;li&gt;%{saveddate-us} : date d&apos;enregistrement du fichier format yyyy-MM-dd&lt;/li&gt;&lt;li&gt;%{savedtime} : heure d&apos;enregistrement du fichier&lt;/li&gt;&lt;li&gt;%{savedfilename} : name du fichier enregistré&lt;/li&gt;&lt;li&gt;%{savedfilepath} : chemin du fichier enregistré&lt;/li&gt;&lt;/ul&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/titleblock/templatecellwidget.cpp" line="480"/>
-        <source>Chaque cellule d&apos;un cartouche affiche une valeur, optionnellement précédée d&apos;un label. all deux peuvent être traduits en plusieurs langues.&lt;br/&gt;Comme ce que vous éditez actuellement est un &lt;em&gt;modèle&lt;/em&gt; de cartouche, ne saisissez pas directement des données brutes : insérez plutôt des variables sous la forme %{name-de-variable}, qui seront ensuite remplacées par les valeurs adéquates sur le folio.</source>
-        <translation type="unfinished"></translation>
+        <translation type="vanished">Celle etiket</translation>
     </message>
     <message>
         <source>Value for this cell</source>

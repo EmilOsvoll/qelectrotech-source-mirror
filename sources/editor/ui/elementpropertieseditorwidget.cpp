@@ -131,8 +131,8 @@ void ElementPropertiesEditorWidget::setUpInterface()
 	ui->m_state_cb->addItem(tr("Other"),                    ElementData::Other);
 	ui->m_type_cb->addItem(tr("Simple"),                    ElementData::SSimple);
 	ui->m_type_cb->addItem(tr("Power switch"),                 ElementData::Power);
-	ui->m_type_cb->addItem(tr("Switch-on delayed"),         ElementData::PlayOn);
-	ui->m_type_cb->addItem(tr("Switch-off delayed"),           ElementData::PlayOff);
+	ui->m_type_cb->addItem(tr("Switch-on delayed"),         ElementData::DelayOn);
+	ui->m_type_cb->addItem(tr("Switch-off delayed"),           ElementData::DelayOff);
 	ui->m_type_cb->addItem(tr("Switch-on delayed & repos"), ElementData::delayOnOff);
 
 		//Master option
