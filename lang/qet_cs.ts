@@ -11801,12 +11801,6 @@ Voulez-vous enregistrer les modifications ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/projectview.cpp" line="682"/>
-        <source>Nettoyer le project</source>
-        <comment>window title</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/projectview.cpp" line="719"/>
         <source>Revenir au debut du project</source>
         <translation type="unfinished"></translation>
@@ -11848,9 +11842,10 @@ Voulez-vous enregistrer les modifications ?</source>
         <translation type="vanished">Smazat v projektu nepoužívané vzory</translation>
     </message>
     <message>
+        <location filename="../sources/projectview.cpp" line="682"/>
         <source>Clean project</source>
         <comment>window title</comment>
-        <translation type="vanished">Vyčistit projekt</translation>
+        <translation>Vyčistit projekt</translation>
     </message>
     <message>
         <location filename="../sources/projectview.cpp" line="716"/>
@@ -12762,27 +12757,6 @@ Options disponibles :
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="406"/>
-        <source>Color de fond blanc/gris</source>
-        <comment>Tool tip of white/grey background button</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
-        <source>Nettoyer le project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="470"/>
-        <source>Export au format CSV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
-        <source>Export la liste des names de conducteurs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="517"/>
         <source>Export la base de donnée interne du project</source>
         <translation type="unfinished"></translation>
@@ -12802,28 +12776,6 @@ Options disponibles :
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="549"/>
         <source>Permet de sélectionner les elements</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="577"/>
-        <source>Project suivant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="579"/>
-        <source>Active le project suivant</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="582"/>
-        <source>Project précédent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="584"/>
-        <source>Active le project précédent</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -12857,16 +12809,6 @@ Options disponibles :
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="639"/>
-        <source>Edit l&apos;item sélectionné</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="640"/>
-        <source>Groupr les texts sélectionnés</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="647"/>
         <source>Enlève les elements sélectionnés du folio</source>
         <comment>status bar tip</comment>
@@ -12876,18 +12818,6 @@ Options disponibles :
         <location filename="../sources/qetdiagrameditor.cpp" line="662"/>
         <source>Select All</source>
         <translation>Vybrat vše</translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="670"/>
-        <source>Choicene tous les elements du folio</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="671"/>
-        <source>Désélectionne tous les elements du folio</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="684"/>
@@ -12972,20 +12902,47 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation>Obnovit výchozí vodiče</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="406"/>
+        <source>White/grey background</source>
+        <comment>Tool tip of white/grey background button</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="470"/>
+        <source>Export to CSV format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
+        <source>Export conductor names list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="579"/>
+        <source>Activate next project</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="584"/>
+        <source>Activate previous project</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="603"/>
         <source>Enregistre le project courant &amp;&amp; tous ses folios</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="648"/>
-        <source>Pivote les elements &amp;&amp; texts sélectionnés</source>
-        <comment>status bar tip</comment>
+        <location filename="../sources/qetdiagrameditor.cpp" line="639"/>
+        <source>Edit selected item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="672"/>
-        <source>Désélectionne les elements sélectionnés &amp;&amp; sélectionne les elements non sélectionnés</source>
+        <location filename="../sources/qetdiagrameditor.cpp" line="648"/>
+        <source>Pivote les elements &amp;&amp; texts sélectionnés</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -13037,8 +12994,9 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation type="vanished">Upravit vybranou položku</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="640"/>
         <source>Group selected texts</source>
-        <translation type="vanished">Seskupit vybrané texty</translation>
+        <translation>Seskupit vybrané texty</translation>
     </message>
     <message>
         <source>Rotate selected elements and texts</source>
@@ -13050,6 +13008,24 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <source>Rotate selected texts to a specific angle</source>
         <comment>status bar tip</comment>
         <translation>Otáčí vybrané texty v přesném úhlu</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="670"/>
+        <source>Select all elements of the folio</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="671"/>
+        <source>Deselect all elements of the folio</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="672"/>
+        <source>Deselect selected elements and select non-selected elements</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="749"/>
@@ -13099,8 +13075,9 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation>Vlastnosti projektu</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
         <source>Clean project</source>
-        <translation type="vanished">Vyčistit projekt</translation>
+        <translation>Vyčistit projekt</translation>
     </message>
     <message>
         <source>Unable to open project</source>
@@ -13381,12 +13358,14 @@ Déponter &amp;&amp;/ou supprimer les niveaux des bornes concerné afin de pouvo
         <translation>Uspořádá okna tím způsobem, že je položí v kaskádě pod sebe</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="577"/>
         <source>Next project</source>
-        <translation type="vanished">Další projekt</translation>
+        <translation>Další projekt</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="582"/>
         <source>Previous project</source>
-        <translation type="vanished">Předchozí projekt</translation>
+        <translation>Předchozí projekt</translation>
     </message>
     <message>
         <source>Activates the next project</source>
@@ -14449,7 +14428,7 @@ podmínky nejsou platné</translation>
     </message>
     <message>
         <location filename="../sources/qetproject.cpp" line="409"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <comment>displayed title for a project-less, file-less project</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -15829,7 +15808,7 @@ Co si přejete udělat?</translation>
     </message>
     <message>
         <location filename="../sources/ElementsCollection/xmlprojectelementcollectionitem.cpp" line="62"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21822,7 +21801,7 @@ Ostatní pole se nepoužívají.</translation>
     </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstriptreedockwidget.cpp" line="239"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -23191,7 +23170,7 @@ Největší délka: %2px</translation>
     </message>
     <message>
         <location filename="../sources/ui/diagramselection.cpp" line="30"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

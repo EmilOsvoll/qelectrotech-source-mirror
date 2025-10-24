@@ -10620,9 +10620,10 @@ Les variables suivantes sont incompatibles :
         <translation>Obriši prazne kategorije</translation>
     </message>
     <message>
+        <location filename="../sources/projectview.cpp" line="682"/>
         <source>Clean project</source>
         <comment>window title</comment>
-        <translation type="vanished">Obriši projekt</translation>
+        <translation>Obriši projekt</translation>
     </message>
     <message>
         <source>Save as</source>
@@ -10678,12 +10679,6 @@ Voulez-vous enregistrer les modifications ?</source>
     <message>
         <location filename="../sources/projectview.cpp" line="669"/>
         <source>Delete les elements inutilisés dans le project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/projectview.cpp" line="682"/>
-        <source>Nettoyer le project</source>
-        <comment>window title</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -11140,27 +11135,6 @@ Dostupne opcije:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="406"/>
-        <source>Color de fond blanc/gris</source>
-        <comment>Tool tip of white/grey background button</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
-        <source>Nettoyer le project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="470"/>
-        <source>Export au format CSV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
-        <source>Export la liste des names de conducteurs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="517"/>
         <source>Export la base de donnée interne du project</source>
         <translation type="unfinished"></translation>
@@ -11184,28 +11158,6 @@ Dostupne opcije:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="577"/>
-        <source>Project suivant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="579"/>
-        <source>Active le project suivant</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="582"/>
-        <source>Project précédent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="584"/>
-        <source>Active le project précédent</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="588"/>
         <source>&amp;New</source>
         <translation>&amp;Novo</translation>
@@ -11219,6 +11171,24 @@ Dostupne opcije:
         <location filename="../sources/qetdiagrameditor.cpp" line="592"/>
         <source>&amp;Close</source>
         <translation>&amp;Zatvori</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="670"/>
+        <source>Select all elements of the folio</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="671"/>
+        <source>Deselect all elements of the folio</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="672"/>
+        <source>Deselect selected elements and select non-selected elements</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="718"/>
@@ -11441,6 +11411,12 @@ Dostupne opcije:
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="406"/>
+        <source>White/grey background</source>
+        <comment>Tool tip of white/grey background button</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="407"/>
         <source>Displays the background color of the folio in white or gray</source>
         <comment>Status tip of white/grey background button</comment>
@@ -11478,6 +11454,11 @@ Dostupne opcije:
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="470"/>
+        <source>Export to CSV format</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="477"/>
         <source>Add a nomenclature</source>
         <translation type="unfinished"></translation>
@@ -11498,8 +11479,25 @@ Dostupne opcije:
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
+        <source>Export conductor names list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="561"/>
         <source>Allows to view the folio without modifying it</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="579"/>
+        <source>Activate next project</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="584"/>
+        <source>Activate previous project</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -11546,6 +11544,16 @@ Dostupne opcije:
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="639"/>
+        <source>Edit selected item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="640"/>
+        <source>Group selected texts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="648"/>
         <source>Pivote les elements &amp;&amp; texts sélectionnés</source>
         <comment>status bar tip</comment>
@@ -11571,12 +11579,6 @@ Dostupne opcije:
         <location filename="../sources/qetdiagrameditor.cpp" line="664"/>
         <source>Invert selection</source>
         <translation>Obrnuta (inverzna) selekcija</translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="672"/>
-        <source>Désélectionne les elements sélectionnés &amp;&amp; sélectionne les elements non sélectionnés</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="683"/>
@@ -11732,8 +11734,9 @@ Dostupne opcije:
         <translation>Svojstva projekta</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
         <source>Clean project</source>
-        <translation type="vanished">Obriši projekt</translation>
+        <translation>Obriši projekt</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="681"/>
@@ -11786,12 +11789,14 @@ Dostupne opcije:
         <translation>&amp;Kaskada</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="577"/>
         <source>Next project</source>
-        <translation type="vanished">Slijedeći projekt</translation>
+        <translation>Slijedeći projekt</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="582"/>
         <source>Previous project</source>
-        <translation type="vanished">Prethodni projekt</translation>
+        <translation>Prethodni projekt</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="712"/>
@@ -11866,30 +11871,8 @@ Dostupne opcije:
         <translation>Vrati putanje vodiča ignorirajući korisničke promjene</translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="639"/>
-        <source>Edit l&apos;item sélectionné</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="640"/>
-        <source>Groupr les texts sélectionnés</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="647"/>
         <source>Enlève les elements sélectionnés du folio</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="670"/>
-        <source>Choicene tous les elements du folio</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="671"/>
-        <source>Désélectionne tous les elements du folio</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -13059,7 +13042,7 @@ veuillez patienter durant l&apos;import...</source>
     </message>
     <message>
         <location filename="../sources/qetproject.cpp" line="409"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <comment>displayed title for a project-less, file-less project</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -14171,7 +14154,7 @@ Que désirez vous faire ?</source>
     </message>
     <message>
         <location filename="../sources/ElementsCollection/xmlprojectelementcollectionitem.cpp" line="62"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -19350,7 +19333,7 @@ Les autres champs ne sont pas utilisés.</source>
     </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstriptreedockwidget.cpp" line="239"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -20598,7 +20581,7 @@ Longueur maximale : %2px
     </message>
     <message>
         <location filename="../sources/ui/diagramselection.cpp" line="30"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

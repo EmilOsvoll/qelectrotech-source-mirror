@@ -11510,12 +11510,6 @@ Voulez-vous enregistrer les modifications ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/projectview.cpp" line="682"/>
-        <source>Nettoyer le project</source>
-        <comment>window title</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/projectview.cpp" line="719"/>
         <source>Revenir au debut du project</source>
         <translation type="unfinished"></translation>
@@ -11577,9 +11571,10 @@ Voulez-vous enregistrer les modifications ?</source>
         <translation>Slett alle tomme kategorier</translation>
     </message>
     <message>
+        <location filename="../sources/projectview.cpp" line="682"/>
         <source>Clean project</source>
         <comment>window title</comment>
-        <translation type="vanished">Rense prosjektet</translation>
+        <translation>Rense prosjektet</translation>
     </message>
     <message>
         <location filename="../sources/projectview.cpp" line="716"/>
@@ -12168,8 +12163,14 @@ Tilgjengelige opsjoner:
         <translation>Slett siden</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
         <source>Clean project</source>
-        <translation type="vanished">Rense prosjektet</translation>
+        <translation>Rense prosjektet</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="470"/>
+        <source>Export to CSV format</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="485"/>
@@ -12257,8 +12258,9 @@ Tilgjengelige opsjoner:
         <translation>Tillater visning av sider uten mulighet for endring</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="577"/>
         <source>Next project</source>
-        <translation type="vanished">Neste prosjekt</translation>
+        <translation>Neste prosjekt</translation>
     </message>
     <message>
         <source>Activates the next project</source>
@@ -12266,8 +12268,9 @@ Tilgjengelige opsjoner:
         <translation type="vanished">Aktiverer det neste prosjektet</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="582"/>
         <source>Previous project</source>
-        <translation type="vanished">Forrige prosjekt</translation>
+        <translation>Forrige prosjekt</translation>
     </message>
     <message>
         <source>Activates the previous project</source>
@@ -12395,13 +12398,20 @@ Tilgjengelige opsjoner:
         <translation type="vanished">Endre utvalgt</translation>
     </message>
     <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="640"/>
         <source>Group selected texts</source>
-        <translation type="vanished">Grupperer de utvalgte tekstene</translation>
+        <translation>Grupperer de utvalgte tekstene</translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="477"/>
         <source>Add a nomenclature</source>
         <translation>Legg til en register</translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="406"/>
+        <source>White/grey background</source>
+        <comment>Tool tip of white/grey background button</comment>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="492"/>
@@ -12639,27 +12649,6 @@ Tilgjengelige opsjoner:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="406"/>
-        <source>Color de fond blanc/gris</source>
-        <comment>Tool tip of white/grey background button</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="460"/>
-        <source>Nettoyer le project</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="470"/>
-        <source>Export au format CSV</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
-        <source>Export la liste des names de conducteurs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="517"/>
         <source>Export la base de donnée interne du project</source>
         <translation type="unfinished"></translation>
@@ -12679,28 +12668,6 @@ Tilgjengelige opsjoner:
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="549"/>
         <source>Permet de sélectionner les elements</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="577"/>
-        <source>Project suivant</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="579"/>
-        <source>Active le project suivant</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="582"/>
-        <source>Project précédent</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="584"/>
-        <source>Active le project précédent</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -12735,25 +12702,31 @@ Tilgjengelige opsjoner:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="672"/>
-        <source>Désélectionne les elements sélectionnés &amp;&amp; sélectionne les elements non sélectionnés</source>
-        <comment>status bar tip</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="604"/>
         <source>Enregistre le project courant avec un autre name de fichier</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="639"/>
-        <source>Edit l&apos;item sélectionné</source>
+        <location filename="../sources/qetdiagrameditor.cpp" line="506"/>
+        <source>Export conductor names list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sources/qetdiagrameditor.cpp" line="640"/>
-        <source>Groupr les texts sélectionnés</source>
+        <location filename="../sources/qetdiagrameditor.cpp" line="579"/>
+        <source>Activate next project</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="584"/>
+        <source>Activate previous project</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="639"/>
+        <source>Edit selected item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -12764,13 +12737,19 @@ Tilgjengelige opsjoner:
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="670"/>
-        <source>Choicene tous les elements du folio</source>
+        <source>Select all elements of the folio</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../sources/qetdiagrameditor.cpp" line="671"/>
-        <source>Désélectionne tous les elements du folio</source>
+        <source>Deselect all elements of the folio</source>
+        <comment>status bar tip</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sources/qetdiagrameditor.cpp" line="672"/>
+        <source>Deselect selected elements and select non-selected elements</source>
         <comment>status bar tip</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -14156,7 +14135,7 @@ the conditions are not valid</source>
     </message>
     <message>
         <location filename="../sources/qetproject.cpp" line="409"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <comment>displayed title for a project-less, file-less project</comment>
         <translation type="unfinished"></translation>
     </message>
@@ -14659,7 +14638,7 @@ Que désirez vous faire ?</source>
     </message>
     <message>
         <location filename="../sources/ElementsCollection/xmlprojectelementcollectionitem.cpp" line="62"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -21090,7 +21069,7 @@ The other fields are not used.</source>
     </message>
     <message>
         <location filename="../sources/TerminalStrip/ui/terminalstriptreedockwidget.cpp" line="239"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -22438,7 +22417,7 @@ Største lengde: %2px</translation>
     </message>
     <message>
         <location filename="../sources/ui/diagramselection.cpp" line="30"/>
-        <source>Project none titre</source>
+        <source>Project no title</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

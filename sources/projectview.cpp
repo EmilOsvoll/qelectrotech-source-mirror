@@ -679,7 +679,7 @@ int ProjectView::cleanProject()
 	clean_diaLog.setWindowFlags(Qt::Sheet);
 #endif
 
-	clean_diaLog.setWindowTitle(tr("Nettoyer le project", "window title"));
+	clean_diaLog.setWindowTitle(tr("Clean project", "window title"));
 	QVBoxLayout *clean_diaLog_layout = new QVBoxLayout();
 	clean_diaLog_layout -> addWidget(clean_tbt);
 	clean_diaLog_layout -> addWidget(clean_elements);

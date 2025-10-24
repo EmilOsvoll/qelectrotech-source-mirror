@@ -403,7 +403,7 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//Switch background color
-	m_grey_background = new QAction   (QET::Icons::DiagramBg, tr("Color de fond blanc/gris","Tool tip of white/grey background button"), this);
+	m_grey_background = new QAction   (QET::Icons::DiagramBg, tr("White/grey background","Tool tip of white/grey background button"), this);
 	m_grey_background -> setStatusTip (tr("Displays the background color of the folio in white or gray", "Status tip of white/grey background button"));
 	m_grey_background -> setCheckable (true);
 	connect (m_grey_background, &QAction::triggered, [this](bool checked) {
@@ -457,7 +457,7 @@ void QETDiagramEditor::setUpActions()
 	connect(m_remove_diagram_from_project, &QAction::triggered, this, &QETDiagramEditor::removeDiagramFromProject);
 
 		//Clean the current project
-	m_clean_project         = new QAction(QET::Icons::EditClear,             tr("Nettoyer le project"),                   this);
+	m_clean_project         = new QAction(QET::Icons::EditClear,             tr("Clean project"),                   this);
 	connect(m_clean_project, &QAction::triggered, [this]() {
 		if (ProjectView *current_project = currentProjectView()) {
 			if (current_project->cleanProject()) {
@@ -467,7 +467,7 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//Export nameenclature to CSV
-	m_csv_export = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export au format CSV"), this);
+	m_csv_export = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export to CSV format"), this);
 	connect(m_csv_export, &QAction::triggered, [this]() {
 		BOMExportDialog bom(currentProjectView()->project(), this);
 		bom.exec();
@@ -503,7 +503,7 @@ void QETDiagramEditor::setUpActions()
 	connect(m_project_terminalBloc, &QAction::triggered, this, &QETDiagramEditor::generateTerminalBlock);
 
 	//Export conductor num to csv
-	m_project_export_conductor_num = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export la liste des names de conducteurs"), this);
+	m_project_export_conductor_num = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export conductor names list"), this);
 	connect(m_project_export_conductor_num, &QAction::triggered, [this]() {
 		QETProject *project = this->currentProject();
 		if (project)
@@ -574,14 +574,14 @@ void QETDiagramEditor::setUpActions()
 	grp_visu_sel->setExclusive(true);
 
 		//Navigate next/previous project
-	m_next_window = new QAction(tr("Project suivant"), this);
+	m_next_window = new QAction(tr("Next project"), this);
 	m_next_window->setShortcut(QKeySequence::NextChild);
-	m_next_window->setStatusTip(tr("Active le project suivant", "status bar tip"));
+	m_next_window->setStatusTip(tr("Activate next project", "status bar tip"));
 	connect(m_next_window, &QAction::triggered, &m_workspace, &QMdiArea::activateNextSubWindow);
 
-	m_previous_window = new QAction(tr("Project précédent"), this);
+	m_previous_window = new QAction(tr("Previous project"), this);
 	m_previous_window->setShortcut(QKeySequence::PreviousChild);
-	m_previous_window->setStatusTip(tr("Active le project précédent", "status bar tip"));
+	m_previous_window->setStatusTip(tr("Activate previous project", "status bar tip"));
 	connect(m_previous_window, &QAction::triggered, &m_workspace, &QMdiArea::activatePreviousSubWindow);
 
 		//Files action
@@ -636,8 +636,8 @@ void QETDiagramEditor::setUpActions()
 	m_rotate_selection     = m_selection_actions_group.addAction( QET::Icons::TransformRotate,   tr("Rotate")                   );
 	m_rotate_texts         = m_selection_actions_group.addAction( QET::Icons::ObjectRotateRight, tr("Choose texts orientation")       );
 	m_find_element         = m_selection_actions_group.addAction( QET::Icons::ZoomDraw,          tr("Find in the panel")   );
-	m_edit_selection       = m_selection_actions_group.addAction( QET::Icons::ElementEdit,       tr("Edit l'item sélectionné") );
-	m_group_selected_texts = m_selection_actions_group.addAction( QET::Icons::textGroup,         tr("Groupr les texts sélectionnés"));
+	m_edit_selection       = m_selection_actions_group.addAction( QET::Icons::ElementEdit,       tr("Edit selected item") );
+	m_group_selected_texts = m_selection_actions_group.addAction( QET::Icons::textGroup,         tr("Group selected texts"));
 
 	m_delete_selection->setShortcut(Qt::Key_Delete);
 	m_rotate_selection->setShortcut(Qt::Key_Space);
@@ -667,9 +667,9 @@ void QETDiagramEditor::setUpActions()
 	select_nothing->setShortcut(Qt::CTRL | Qt::Key_D);
 	select_invert ->setShortcut(Qt::CTRL | Qt::Key_I);
 
-	select_all    ->setStatusTip( tr("Choicene tous les elements du folio", "status bar tip") );
-	select_nothing->setStatusTip( tr("Désélectionne tous les elements du folio", "status bar tip") );
-	select_invert ->setStatusTip( tr("Désélectionne les elements sélectionnés && sélectionne les elements non sélectionnés", "status bar tip") );
+	select_all    ->setStatusTip( tr("Select all elements of the folio", "status bar tip") );
+	select_nothing->setStatusTip( tr("Deselect all elements of the folio", "status bar tip") );
+	select_invert ->setStatusTip( tr("Deselect selected elements and select non-selected elements", "status bar tip") );
 
 	select_all    ->setData("select_all");
 	select_nothing->setData("deselect");

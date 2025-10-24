@@ -236,7 +236,7 @@ void TerminalStripTreeDockWidget::buildTree()
 
 	auto title_ = m_project->title();
 	if (title_.isEmpty()) {
-		title_ = tr("Project none titre");
+		title_ = tr("Project no title");
 	}
 
 	QStringList strl{title_};

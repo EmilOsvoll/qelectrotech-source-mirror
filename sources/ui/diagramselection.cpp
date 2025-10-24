@@ -27,7 +27,7 @@ diagramselection::diagramselection(QETProject *prj, QWidget *parent) :
 	ui -> setupUi(this);
 
 	QString project_title = prj_ -> title();
-	if (project_title.isEmpty()) project_title = tr("Project none titre");
+	if (project_title.isEmpty()) project_title = tr("Project no title");
 
 	ui -> label_prj -> setText( tr("Project : ") + project_title );
 	load_TableDiagram();
