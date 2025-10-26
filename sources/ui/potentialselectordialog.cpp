@@ -199,8 +199,8 @@ ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorPro
 	QDialog dialog(widget);
 	QVBoxLayout layout(widget);
 	dialog.setLayout(&layout);
-	QLabel label(tr("Veuillez choisir un potentiel électrique de la liste \n"
-					"à utiliser pour le nouveau potentiel"));
+	QLabel label(tr("Please choose an electrical potential from the list \n"
+					"to use for the new potential"));
 	layout.addWidget(&label);
 
 	QHash <QRadioButton *, ConductorProperties> H;
@@ -208,15 +208,15 @@ ConductorProperties PotentialSelectorDialog::chosenProperties(QList<ConductorPro
 	{
 		QString text;
 		if(!cp.text.isEmpty())
-			text.append(tr("\nNuméro : %1").arg(cp.text));
+			text.append(tr("\Number : %1").arg(cp.text));
 		if(!cp.m_function.isEmpty())
-			text.append(tr("\nFonction : %1").arg(cp.m_function));
+			text.append(tr("\nFunction : %1").arg(cp.m_function));
 		if(!cp.m_tension_protocol.isEmpty())
-			text.append(tr("\nTension/protocole : %1").arg(cp.m_tension_protocol));
+			text.append(tr("\nVoltage/protocol : %1").arg(cp.m_tension_protocol));
 		if(!cp.m_wire_color.isEmpty())
-			text.append(tr("\nCouleur du conducteur : %1").arg(cp.m_wire_color));
+			text.append(tr("\nConductor color : %1").arg(cp.m_wire_color));
 		if(!cp.m_wire_section.isEmpty())
-			text.append(tr("\nSection du conducteur : %1").arg(cp.m_wire_section));
+			text.append(tr("\nConductor cross section : %1").arg(cp.m_wire_section));
 
 		QRadioButton *b = new QRadioButton(text, &dialog);
 		layout.addWidget(b);
@@ -300,20 +300,20 @@ void PotentialSelectorDialog::buildWidget()
 		cp1 = m_potential_selector->m_properties_list_1.first();;
 
 	if(!cp1.text.isEmpty())
-		text1.append(tr("\nNuméro : %1").arg(cp1.text));
+		text1.append(tr("\nNumber : %1").arg(cp1.text));
 	if(!cp1.m_function.isEmpty())
-		text1.append(tr("\nFonction : %1").arg(cp1.m_function));
+		text1.append(tr("\nFunction : %1").arg(cp1.m_function));
 	if(!cp1.m_tension_protocol.isEmpty())
-		text1.append(tr("\nTension/protocole : %1")
+		text1.append(tr("\nVoltage/protocol : %1")
 			     .arg(cp1.m_tension_protocol));
 	if(!cp1.m_wire_color.isEmpty())
-		text1.append(tr("\nCouleur du conducteur : %1")
+		text1.append(tr("\nConductor color : %1")
 			     .arg(cp1.m_wire_color));
 	if(!cp1.m_wire_section.isEmpty())
-		text1.append(tr("\nSection du conducteur : %1")
+		text1.append(tr("\nConductor cross section : %1")
 			     .arg(cp1.m_wire_section));
 
-	QString text2(tr("%n conducteurs composent le potentiel suivant :",
+	QString text2(tr("%n conductors compose the following potential :",
 			 "",
 			 m_potential_selector->m_conductor_number_2));
 	ConductorProperties cp2;
@@ -321,27 +321,27 @@ void PotentialSelectorDialog::buildWidget()
 		cp2 = m_potential_selector->m_properties_list_2.first();
 
 	if(!cp2.text.isEmpty())
-		text2.append(tr("\nNuméro : %1").arg(cp2.text));
+		text2.append(tr("\nNumber : %1").arg(cp2.text));
 	if(!cp2.m_function.isEmpty())
-		text2.append(tr("\nFonction : %1").arg(cp2.m_function));
+		text2.append(tr("\nFunction : %1").arg(cp2.m_function));
 	if(!cp2.m_tension_protocol.isEmpty())
-		text2.append(tr("\nTension/protocole : %1")
+		text2.append(tr("\nVoltage/protocol : %1")
 			     .arg(cp2.m_tension_protocol));
 	if(!cp2.m_wire_color.isEmpty())
-		text2.append(tr("\nCouleur du conducteur : %1")
+		text2.append(tr("\nConductor color : %1")
 			     .arg(cp2.m_wire_color));
 	if(!cp2.m_wire_section.isEmpty())
-		text2.append(tr("\nSection du conducteur : %1")
+		text2.append(tr("\nConductor cross section : %1")
 			     .arg(cp2.m_wire_section));
 
 	QRadioButton *rb1 = new QRadioButton(text1, this);
 	QRadioButton *rb2 = new QRadioButton(text2, this);
 
 	QRadioButton *rbk = new QRadioButton(
-				tr("Ajouter au câble: %1")
+				tr("Add to cable: %1")
 				.arg("wouldn't this be nice?"), this);
 	QRadioButton *rbb = new QRadioButton(
-				tr("Ajouter au bus: %1")
+				tr("Add to bus: %1")
 				.arg("wouldn't this be nice?"), this);
 
 #if TODO_LIST
@@ -413,7 +413,7 @@ void PotentialSelectorDialog::on_buttonBox_accepted()
 		undo = m_parent_undo;
 	else
 		undo = new QUndoCommand(
-				tr("Modifier les propriétés de plusieurs conducteurs",
+				tr("Edit the properties of several conductors",
 				   "undo caption"));
 
 	Diagram * diagram = nullptr;
@@ -466,9 +466,9 @@ void PotentialSelectorDialog::on_buttonBox_accepted()
 						      << "%M"
 						      << "%LM";
 
-					QString text(tr("La formule du nouveau potentiel contient des variables incompatibles avec les reports de folio.\n"
-									"Veuillez saisir une formule compatible pour ce potentiel.\n"
-									"Les variables suivantes sont incompatibles :\n"
+					QString text(tr("The formula for the new potential contains variables that are incompatible with folio rollovers.\n"
+									"Please enter a compatible formula for this potential.\n"
+									"The following variables are incompatible :\n"
 									"%sequf_  %seqtf_  %seqhf_  %id  %F  %M  %LM"));
 					FormulaAssistantDialog fag(this);
 					fag.setForbiddenVariables(forbidden_str);

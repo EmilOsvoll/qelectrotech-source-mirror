@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Gestionnaire de borniers</string>
+   <string>Terminal block manager</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -58,10 +58,10 @@
      <normaloff>:/ico/16x16/list-add.png</normaloff>:/ico/16x16/list-add.png</iconset>
    </property>
    <property name="text">
-    <string>Ajouter un bornier</string>
+    <string>Add a terminal block</string>
    </property>
    <property name="toolTip">
-    <string>Ajouter un bornier au projet</string>
+    <string>Add a terminal block to the project</string>
    </property>
   </action>
   <action name="m_remove_terminal">
@@ -70,10 +70,10 @@
      <normaloff>:/ico/16x16/list-remove.png</normaloff>:/ico/16x16/list-remove.png</iconset>
    </property>
    <property name="text">
-    <string>Supprimer le bornier</string>
+    <string>Remove the terminal block</string>
    </property>
    <property name="toolTip">
-    <string>Supprimer le bornier du projet</string>
+    <string>Remove the terminal block from the project</string>
    </property>
   </action>
   <action name="m_reload">
@@ -82,10 +82,10 @@
      <normaloff>:/ico/16x16/view-refresh.png</normaloff>:/ico/16x16/view-refresh.png</iconset>
    </property>
    <property name="text">
-    <string>Recharger</string>
+    <string>Reload</string>
    </property>
    <property name="toolTip">
-    <string>Recharger les borniers</string>
+    <string>Reload the terminals</string>
    </property>
   </action>
  </widget>

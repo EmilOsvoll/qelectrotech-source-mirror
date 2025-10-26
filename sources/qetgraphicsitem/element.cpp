@@ -399,7 +399,7 @@ bool Element::buildFromXml(const QDomElement &xml_def_elmt, int *state)
 		&& QetVersion::currentVersion() < elmt_version)
 	{
 		std::cerr << qPrintable(
-						 QObject::tr("Avertissement : l'élément "
+						 QObject::tr("Warning : element "
 									 " a été enregistré avec une version"
 									 " ultérieure de QElectroTech.")
 						 ) << std::endl;

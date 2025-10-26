@@ -58,7 +58,7 @@
    <item row="2" column="1">
     <widget class="QCheckBox" name="m_erase_text">
      <property name="toolTip">
-      <string>Supprimer ce texte</string>
+      <string>Delete this text</string>
      </property>
      <property name="text">
       <string/>

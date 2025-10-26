@@ -46,7 +46,7 @@ ConductorCreator::ConductorCreator(Diagram *d, QList<Terminal *> terminals_list)
 	setUpPropertieToUse();
 	Terminal *hub_terminal = hubTerminal();
 	
-	d->undoStack().beginMacro(QObject::tr("Création de conducteurs"));
+	d->undoStack().beginMacro(QObject::tr("Conductor creation"));
 	
 	QList<Conductor *> c_list;
 	for (Terminal *t : m_terminals_list)

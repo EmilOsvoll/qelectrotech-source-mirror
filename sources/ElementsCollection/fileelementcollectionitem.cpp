@@ -121,13 +121,13 @@ QString FileElementCollectionItem::localName()
 	else if (isDir()) {
 		if (isCollectionRoot()) {
 			if (m_path == QETApp::commonElementsDirN())
-				setText(QObject::tr("Collection QET"));
+				setText(QObject::tr("QET Collection"));
 			else if (m_path == QETApp::companyElementsDirN())
-				setText(QObject::tr("Collection Company"));
+				setText(QObject::tr("Company collection"));
 			else if (m_path == QETApp::customElementsDirN())
-				setText(QObject::tr("Collection utilisateur"));
+				setText(QObject::tr("User Collection"));
 			else
-				setText(QObject::tr("Collection inconnue"));
+				setText(QObject::tr("Unknown collection"));
 		}
 		else
 		{

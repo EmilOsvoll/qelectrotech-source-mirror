@@ -41,7 +41,7 @@ DynamicElementTextItem::DynamicElementTextItem(Element *parent_element) :
 	m_uuid(QUuid::createUuid())
 {
 	setFont(QETApp::dynamicTextsItemFont());
-	setText(tr("Texte"));
+	setText(tr("Text"));
 	setParentItem(parent_element);
 	QSettings settings;
 	setRotation(settings.value("dynamic_text_rotation", 0).toInt());
@@ -52,7 +52,7 @@ DynamicElementTextItem::DynamicElementTextItem(Element *parent_element) :
 		if(this->m_parent_element && this->m_parent_element->diagram())
 		{
 			QUndoCommand *undo = new QPropertyUndoCommand(this, "text", old_str, new_str);
-			undo->setText(tr("Éditer un texte d'élément"));
+			undo->setText(tr("Edit element text"));
 			this->m_parent_element->diagram()->undoStack().push(undo);
 		}
 	});

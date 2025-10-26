@@ -115,7 +115,7 @@ void FreeTerminalEditor::apply()
 	const auto modified_data = m_model->modifiedModelRealTerminalData();
 	if (modified_data.size())
 	{
-		m_project->undoStack()->beginMacro(tr("Modifier des propriétés de borniers"));
+		m_project->undoStack()->beginMacro(tr("Modify terminal block properties"));
 
 		for (const auto &data_ : modified_data)
 		{

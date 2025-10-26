@@ -114,14 +114,14 @@ CustomElementPart *TerminalEditor::currentPart() const
  */
 void TerminalEditor::init()
 {
-	ui->m_orientation_cb->addItem(QET::Icons::North, tr("Nord"),  Qet::North);
-	ui->m_orientation_cb->addItem(QET::Icons::East,  tr("Est"),   Qet::East);
-	ui->m_orientation_cb->addItem(QET::Icons::South, tr("Sud"),   Qet::South);
-	ui->m_orientation_cb->addItem(QET::Icons::West,  tr("Ouest"), Qet::West);
+	ui->m_orientation_cb->addItem(QET::Icons::North, tr("North"),  Qet::North);
+	ui->m_orientation_cb->addItem(QET::Icons::East,  tr("East"),   Qet::East);
+	ui->m_orientation_cb->addItem(QET::Icons::South, tr("South"),   Qet::South);
+	ui->m_orientation_cb->addItem(QET::Icons::West,  tr("West"), Qet::West);
 
-	ui->m_type_cb->addItem(tr("Générique"),         TerminalData::Generic);
-	ui->m_type_cb->addItem(tr("Bornier intérieur"), TerminalData::Inner);
-	ui->m_type_cb->addItem(tr("Bornier extérieur"), TerminalData::Outer);
+	ui->m_type_cb->addItem(tr("Generic"),         TerminalData::Generic);
+	ui->m_type_cb->addItem(tr("Interior terminal block"), TerminalData::Inner);
+	ui->m_type_cb->addItem(tr("Exterior terminal block"), TerminalData::Outer);
 }
 
 /**
@@ -140,7 +140,7 @@ void TerminalEditor::posEdited()
 	if (m_part->pos() != new_pos)
 	{
 		auto undo = new QPropertyUndoCommand(m_part, "pos", m_part->property("pos"), new_pos);
-		undo->setText(tr("Déplacer une borne"));
+		undo->setText(tr("Move a terminal"));
 		undo->setAnimated(true, false);
 		undoStack().push(undo);
 	}
@@ -162,7 +162,7 @@ void TerminalEditor::orientationEdited()
 	if (m_part->orientation() != ori_)
 	{
 		auto undo = new QPropertyUndoCommand(m_part, "orientation", m_part->property("orientation"), ori_);
-		undo->setText(tr("Modifier l'orientation d'une borne"));
+		undo->setText(tr("Change the orientation of a terminal"));
 		undoStack().push(undo);
 	}
 
@@ -184,7 +184,7 @@ void TerminalEditor::nameEdited()
 	if (m_part->terminalName() != name_)
 	{
 		auto undo = new QPropertyUndoCommand(m_part, "terminal_name", m_part->property("terminal_name"), name_);
-		undo->setText(tr("Modifier le nom du terminal"));
+		undo->setText(tr("Change terminal name"));
 		undoStack().push(undo);
 	}
 	m_locked=false;
@@ -203,7 +203,7 @@ void TerminalEditor::typeEdited()
 	auto type = ui->m_type_cb->currentData();
 	if (type != m_part->terminalType()) {
 		auto undo = new QPropertyUndoCommand(m_part, "terminal_type", m_part->terminalType(), type);
-		undo->setText(tr("Modifier le type d'une borne"));
+		undo->setText(tr("Change the type of a terminal"));
 		undoStack().push(undo);
 	}
 	m_locked = false;

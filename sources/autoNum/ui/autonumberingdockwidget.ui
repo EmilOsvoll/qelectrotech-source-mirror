@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Sélection numérotation auto</string>
+   <string>Auto numbering selection</string>
   </property>
   <widget class="QWidget" name="dockWidgetContents">
    <layout class="QGridLayout" name="gridLayout">
@@ -38,7 +38,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>Conducteur</string>
+       <string>Conductor</string>
       </property>
      </widget>
     </item>
@@ -61,10 +61,10 @@
     <item row="5" column="1">
      <widget class="QPushButton" name="m_configure_pb">
       <property name="toolTip">
-       <string>Configurer les règles d'auto numérotation</string>
+       <string>Configure auto numbering rules</string>
       </property>
       <property name="text">
-       <string>Configurer</string>
+       <string>Configure</string>
       </property>
       <property name="icon">
        <iconset resource="../../../qelectrotech.qrc">

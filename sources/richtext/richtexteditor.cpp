@@ -460,19 +460,19 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 
 	m_bold_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-bold.png"),
-				tr("Texte en gras"), editor, SLOT(setFontBold(bool)), this);
+				tr("Bold text"), editor, SLOT(setFontBold(bool)), this);
 	m_bold_action->setShortcut(Qt::CTRL | Qt::Key_B);
 	addAction(m_bold_action);
 
 	m_italic_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-italic.png"),
-				tr("Texte en italique"), editor, SLOT(setFontItalic(bool)), this);
+				tr("Text in italics"), editor, SLOT(setFontItalic(bool)), this);
 	m_italic_action->setShortcut(Qt::CTRL | Qt::Key_I);
 	addAction(m_italic_action);
 
 	m_underline_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-underline.png"),
-				tr("Texte souligé"), editor, SLOT(setFontUnderline(bool)), this);
+				tr("Underlined text"), editor, SLOT(setFontUnderline(bool)), this);
 	m_underline_action->setShortcut(Qt::CTRL | Qt::Key_U);
 	addAction(m_underline_action);
 
@@ -527,7 +527,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 
 	// Insert hyperlink and image buttons
 
-	m_link_action->setText(tr("Insérer un lien"));
+	m_link_action->setText(tr("Insert link"));
 	connect(m_link_action, SIGNAL(triggered()), SLOT(insertLink()));
 	addAction(m_link_action);
 
