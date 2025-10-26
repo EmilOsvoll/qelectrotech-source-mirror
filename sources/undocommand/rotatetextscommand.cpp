@@ -57,15 +57,15 @@ m_diagram(diagram)
 		
 		QString text;
 		if(texts_list.count())
-			text.append(QObject::tr("Pivoter %1 textes").arg(texts_list.count()));
+			text.append(QObject::tr("Rotate %1 texts").arg(texts_list.count()));
 		if(groups_list.count())
 		{
 			if(text.isEmpty())
-				text.append(QObject::tr("Pivoter"));
+				text.append(QObject::tr("Rotate"));
 			else
-				text.append(QObject::tr(" et"));
+				text.append(QObject::tr(" and"));
 			
-			text.append(QObject::tr(" %1 groupes de textes").arg(groups_list.count()));
+			text.append(QObject::tr(" %1 groups of texts").arg(groups_list.count()));
 		}
 		if(!text.isNull())
 			setText(text);
@@ -112,7 +112,7 @@ void RotateTextsCommand::openDialog()
 #ifdef Q_OS_MACOS
 	ori_text_dialog.setWindowFlags(Qt::Sheet);
 #endif
-	ori_text_dialog.setWindowTitle(QObject::tr("Orienter les textes sélectionnés", "window title"));
+	ori_text_dialog.setWindowTitle(QObject::tr("Choose orientation for selected texts"));
 	
 	
 	QTextOrientationSpinBoxWidget *ori_widget = QETApp::createTextOrientationSpinBoxWidget();

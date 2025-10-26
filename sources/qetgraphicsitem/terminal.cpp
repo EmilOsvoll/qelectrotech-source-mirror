@@ -67,7 +67,7 @@ void Terminal::init()
 
 	setAcceptHoverEvents(true);
 	setAcceptedMouseButtons(Qt::LeftButton);
-	setToolTip(QObject::tr("Borne", "tooltip"));
+	setToolTip(QObject::tr("Terminal", "tooltip"));
 	setZValue(Z);
 }
 
@@ -478,7 +478,7 @@ void Terminal::mouseMoveEvent(QGraphicsSceneMouseEvent *e)
 	   = la liste ne peut etre vide
 	   = on prend le deuxieme element de la liste
 	*/
-	Q_ASSERT_X(!(qgis.isEmpty()), "Terminal::mouseMoveEvent", "La liste d'items ne devrait pas etre vide");
+	Q_ASSERT_X(!(qgis.isEmpty()), "Terminal::mouseMoveEvent", "The list of items should not be empty");
 
 	// s'il n'y rien d'autre que le poseur de conducteur dans la liste, on arrete la
 	if (qgis.size() <= 1) return;

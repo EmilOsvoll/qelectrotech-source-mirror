@@ -200,7 +200,7 @@ void ElementsMover::endMovement()
 					//Create an undo object for each new auto conductor, with undo_object for parent
 				new AddGraphicsObjectCommand(conductor, m_diagram, QPointF(), undo_object);
 				if (undo_object->text().isEmpty())
-					undo_object->setText(QObject::tr("Ajouter %n conducteur(s)", "add a numbers of conductor one or more", acc));
+					undo_object->setText(QObject::tr("Add %n conductor(s)", "add a number of conductors - one or more", acc));
 
 					//Get all conductors at the same potential of conductor
 				const auto conductors_list{conductor->relatedPotentialConductors()};

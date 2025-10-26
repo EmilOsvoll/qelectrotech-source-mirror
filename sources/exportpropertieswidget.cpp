@@ -129,7 +129,7 @@ void ExportPropertiesWidget::slot_chooseADirectory()
 {
 	QString user_dir = QFileDialog::getExistingDirectory(
 		this,
-		tr("Exporter dans le dossier", "dialog title"),
+		tr("Export to directory", "dialog title"),
 		dirpath -> text()
 	);
 	if (!user_dir.isEmpty()) {
@@ -150,12 +150,12 @@ void ExportPropertiesWidget::build()
 	
 	/* le dialogue comprend une ligne permettant d'indiquer un chemin de dossier (hboxLayout) */
 	QHBoxLayout *hboxLayout = new QHBoxLayout();
-	dirpath_label = new QLabel(tr("Dossier cible :"), this);
+	dirpath_label = new QLabel(tr("Target directory :"), this);
 	dirpath = new QLineEdit(this);
 	QCompleter *completer = new QCompleter(this);
 	completer -> setModel(new QFileSystemModel(completer));
 	dirpath -> setCompleter(completer);
-	button_browse = new QPushButton(tr("Parcourir"), this);
+	button_browse = new QPushButton(tr("Browse"), this);
 	hboxLayout -> addWidget(dirpath_label);
 	hboxLayout -> addWidget(dirpath);
 	hboxLayout -> addWidget(button_browse);
@@ -178,40 +178,40 @@ void ExportPropertiesWidget::build()
 	vboxLayout -> addLayout(hboxLayout1);
 	
 	/* un cadre permettant de specifier les options de l'image finale */
-	QGroupBox *groupbox_options = new QGroupBox(tr("Options de rendu", "groupbox title"));
+	QGroupBox *groupbox_options = new QGroupBox(tr("Rendering options", "groupbox title"));
 	QGridLayout *optionshlayout = new QGridLayout(groupbox_options);
 	
 	// Choix de la zone du schema a exporter
 	exported_content_choices = new QButtonGroup(groupbox_options);
-	export_border = new QRadioButton(tr("Exporter entièrement le folio"), groupbox_options);
+	export_border = new QRadioButton(tr("Export the entire folio"), groupbox_options);
 	optionshlayout -> addWidget(export_border, 0, 0);
 	exported_content_choices -> addButton(export_border);
-	export_elements = new QRadioButton(tr("Exporter seulement les éléments"), groupbox_options);
+	export_elements = new QRadioButton(tr("Export only elements"), groupbox_options);
 	optionshlayout -> addWidget(export_elements, 0, 1);
 	exported_content_choices -> addButton(export_elements);
 	
 	// dessiner la grille
-	draw_grid = new QCheckBox(tr("Dessiner la grille"), groupbox_options);
+	draw_grid = new QCheckBox(tr("Draw the grid"), groupbox_options);
 	optionshlayout -> addWidget(draw_grid, 1, 1);
 	
 	// dessiner le cadre
-	draw_border = new QCheckBox(tr("Dessiner le cadre"), groupbox_options);
+	draw_border = new QCheckBox(tr("Draw the border"), groupbox_options);
 	optionshlayout -> addWidget(draw_border, 1, 0);
 	
 	// dessiner le cartouche
-	draw_titleblock = new QCheckBox(tr("Dessiner le cartouche"), groupbox_options);
+	draw_titleblock = new QCheckBox(tr("Draw the title block"), groupbox_options);
 	optionshlayout -> addWidget(draw_titleblock, 2, 0);
 	
 	// dessiner les bornes
-	draw_terminals = new QCheckBox(tr("Dessiner les bornes"), groupbox_options);
+	draw_terminals = new QCheckBox(tr("Draw terminals"), groupbox_options);
 	optionshlayout -> addWidget(draw_terminals, 2, 1);
 	
 	// conserver les couleurs des conducteurs
-	draw_colored_conductors = new QCheckBox(tr("Conserver les couleurs des conducteurs"), groupbox_options);
+	draw_colored_conductors = new QCheckBox(tr("Keep conductors colors"), groupbox_options);
 	optionshlayout -> addWidget(draw_colored_conductors, 3, 0);
 	
 	// use transparent background for SVG-Export
-	draw_bg_transparent = new QCheckBox(tr("SVG: fond transparent"), groupbox_options);
+	draw_bg_transparent = new QCheckBox(tr("SVG: transparent background"), groupbox_options);
 	optionshlayout -> addWidget(draw_bg_transparent, 3, 1);
 	
 	vboxLayout -> addWidget(groupbox_options);

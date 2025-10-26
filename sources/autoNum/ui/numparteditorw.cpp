@@ -107,37 +107,37 @@ void NumPartEditorW::setVisibleItems()
 	QStringList items;
 	if (m_edited_type == 2)
 	{
-		items	<< tr("Chiffre 1")
-			<< tr("Chiffre 01")
-			<< tr("Chiffre 001")
-			<< tr("Texte");
+		items	<< tr("Number format 1")
+			<< tr("Number format 01")
+			<< tr("Number format 001")
+			<< tr("Text");
 	}
 	else if (m_edited_type == 1)
 	{
-		items	<< tr("Chiffre 1")
-			<< tr("Chiffre 1 - Folio")
-			<< tr("Chiffre 01")
-			<< tr("Chiffre 01 - Folio")
-			<< tr("Chiffre 001")
-			<< tr("Chiffre 001 - Folio")
-			<< tr("Texte")
-			<< tr("N° folio")
+		items	<< tr("Number format 1")
+			<< tr("Number format 1 - Folio")
+			<< tr("Number format 01")
+			<< tr("Number format 01 - Folio")
+			<< tr("Number format 001")
+			<< tr("Number format 001 - Folio")
+			<< tr("Text")
+			<< tr("N° scheme")
 			<< tr("Folio")
-			<< tr("Installation")
-			<< tr("Locmach");
+			<< tr("Facility")
+			<< tr("Location");
 	}
 	else
-		items << tr("Chiffre 1")
-		      << tr("Chiffre 1 - Folio")
-		      << tr("Chiffre 01")
-		      << tr("Chiffre 01 - Folio")
-		      << tr("Chiffre 001")
-		      << tr("Chiffre 001 - Folio")
-		      << tr("Texte")
-		      << tr("N° folio")
+		items << tr("Number format 1")
+		      << tr("Number format 1 - Folio")
+		      << tr("Number format 01")
+		      << tr("Number format 01 - Folio")
+		      << tr("Number format 001")
+		      << tr("Number format 001 - Folio")
+		      << tr("Text")
+		      << tr("N° scheme")
 		      << tr("Folio")
-		      << tr("Installation")
-		      << tr("Locmach")
+		      << tr("Facility")
+		      << tr("Location")
 		      << tr("Element Line")
 		      << tr("Element Column")
 		      << tr("Element Prefix");
@@ -232,29 +232,29 @@ bool NumPartEditorW::isValid()
 	Action when user change the type comboBox
 */
 void NumPartEditorW::on_type_cb_activated(int) {
-	if (ui->type_cb->currentText() == tr("Chiffre 1"))
+	if (ui->type_cb->currentText() == tr("Number format 1"))
 		setType(unit);
-	else if (ui->type_cb->currentText() == tr("Chiffre 1 - Folio"))
+	else if (ui->type_cb->currentText() == tr("Number format 1 - Folio"))
 		setType(unitfolio);
-	else if (ui->type_cb->currentText() ==  tr("Chiffre 01"))
+	else if (ui->type_cb->currentText() ==  tr("Number format 01"))
 		setType(ten);
-	else if (ui->type_cb->currentText() == tr("Chiffre 01 - Folio"))
+	else if (ui->type_cb->currentText() == tr("Number format 01 - Folio"))
 		setType(tenfolio);
-	else if (ui->type_cb->currentText() == tr("Chiffre 001"))
+	else if (ui->type_cb->currentText() == tr("Number format 001"))
 		setType(hundred);
-	else if (ui->type_cb->currentText() == tr("Chiffre 001 - Folio"))
+	else if (ui->type_cb->currentText() == tr("Number format 001 - Folio"))
 		setType(hundredfolio);
-	else if (ui->type_cb->currentText() == tr("Texte"))
+	else if (ui->type_cb->currentText() == tr("Text"))
 		setType(string);
-	else if (ui->type_cb->currentText() == tr("N° folio"))
+	else if (ui->type_cb->currentText() == tr("Folio number"))
 		setType(idfolio);
 	else if (ui->type_cb->currentText() == tr("Folio"))
 		setType(folio);
-	else if (ui->type_cb->currentText() == tr("Installation"))
+	else if (ui->type_cb->currentText() == tr("Facility"))
 		setType(plant);
-	else if (ui->type_cb->currentText() == tr("Locmach"))
+	else if (ui->type_cb->currentText() == tr("Location"))
 		setType(locmach);
-	else if (ui->type_cb->currentText() == tr("Element Line"))
+	else if (ui->type_cb->currentText() == tr("Element Row"))
 		setType(elementline);
 	else if (ui->type_cb->currentText() == tr("Element Column"))
 		setType(elementcolumn);
@@ -373,29 +373,29 @@ void NumPartEditorW::setType(NumPartEditorW::type t, bool fnum) {
 void NumPartEditorW::setCurrentIndex(NumPartEditorW::type t) {
 	int i=-1;
 	if (t == unit)
-		i = ui->type_cb->findText(tr("Chiffre 1"));
+		i = ui->type_cb->findText(tr("Number format 1"));
 	else if (t == unitfolio)
-		i = ui->type_cb->findText(tr("Chiffre 1 - Folio"));
+		i = ui->type_cb->findText(tr("Number format 1 - Folio"));
 	else if (t == ten)
-		i = ui->type_cb->findText(tr("Chiffre 01"));
+		i = ui->type_cb->findText(tr("Number format 01"));
 	else if (t == tenfolio)
-		i = ui->type_cb->findText(tr("Chiffre 01 - Folio"));
+		i = ui->type_cb->findText(tr("Number format 01 - Folio"));
 	else if (t == hundred)
-		i = ui->type_cb->findText(tr("Chiffre 001"));
+		i = ui->type_cb->findText(tr("Number format 001"));
 	else if (t == hundredfolio)
-		i = ui->type_cb->findText(tr("Chiffre 001 - Folio"));
+		i = ui->type_cb->findText(tr("Number format 001 - Folio"));
 	else if (t == string)
-		i = ui->type_cb->findText(tr("Texte"));
+		i = ui->type_cb->findText(tr("Text"));
 	else if (t == idfolio)
-		i = ui->type_cb->findText(tr("N° folio"));
+		i = ui->type_cb->findText(tr("Folio number"));
 	else if (t == folio)
 		i = ui->type_cb->findText(tr("Folio"));
 	else if (t == plant)
-		i = ui->type_cb->findText(tr("Installation"));
+		i = ui->type_cb->findText(tr("Facility"));
 	else if (t == locmach)
-		i = ui->type_cb->findText(tr("Locmach"));
+		i = ui->type_cb->findText(tr("Location"));
 	else if (t == elementline)
-			i = ui->type_cb->findText(tr("Element Line"));
+			i = ui->type_cb->findText(tr("Element Row"));
 	else if (t == elementcolumn)
 		i = ui->type_cb->findText(tr("Element Column"));
 	else if (t == elementprefix)

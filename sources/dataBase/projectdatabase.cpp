@@ -671,14 +671,14 @@ void projectDataBase::exportDb(projectDataBase *db,
 {
 	auto caption_ = caption;
 	if (caption_.isEmpty()) {
-		caption_ = tr("Exporter la base de données interne du projet");
+		caption_ = tr("Export the internal project database");
 	}
 
 	auto dir_ = dir;
 	if(dir_.isEmpty()) {
 		dir_ = db->project()->filePath();
 		if (dir_.isEmpty()) {
-			dir_ = QETApp::documentDir() % "/" % tr("sans_nom") % ".sqlite";
+			dir_ = QETApp::documentDir() % "/" % tr("without_name") % ".sqlite";
 		} else {
 			dir_.remove(".qet");
 			dir_.append(".sqlite");

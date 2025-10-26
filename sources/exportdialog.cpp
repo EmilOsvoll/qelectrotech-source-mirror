@@ -65,7 +65,7 @@ ExportDialog::ExportDialog(
 	// la taille minimale du dialogue est fixee
 	setMinimumSize(800, 590);
 	resize(minimumSize());
-	setWindowTitle(tr("Exporter les folios du projet", "window title"));
+	setWindowTitle(tr("Export project folios", "window title"));
 
 	// options d'export, dans le widget epw
 	epw = new ExportPropertiesWidget(default_export_properties);
@@ -75,16 +75,16 @@ ExportDialog::ExportDialog(
 	buttons -> setOrientation(Qt::Horizontal);
 	buttons -> setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Save);
 	QPushButton *export_button = buttons -> button(QDialogButtonBox::Save);
-	export_button -> setText(tr("Exporter"));
+	export_button -> setText(tr("Export"));
 	
 	// disposition des elements
 
 	QHBoxLayout *hLayout = new QHBoxLayout();
-	hLayout -> addWidget(new QLabel(tr("Choisissez les folios que vous désirez exporter ainsi que leurs dimensions :")));
+	hLayout -> addWidget(new QLabel(tr("Choose the folios you wish to export and specify their size :")));
 	selectAll   = new QPushButton();
 	deSelectAll = new QPushButton();
-	selectAll   -> setText(tr("Tout cocher"));
-	deSelectAll -> setText(tr("Tout décocher"));
+	selectAll   -> setText(tr("Select all"));
+	deSelectAll -> setText(tr("Unselect all"));
 	hLayout -> addWidget(selectAll);
 	hLayout -> addWidget(deSelectAll);
 	connect(selectAll,   SIGNAL(clicked()),            this, SLOT(slot_selectAllClicked()));
@@ -149,8 +149,8 @@ QWidget *ExportDialog::initDiagramsListPart()
 	diagrams_list_layout_ = new QGridLayout();
 	
 	int line_count = 0;
-	diagrams_list_layout_ -> addWidget(new QLabel(tr("Titre du folio")),        line_count, 1, Qt::AlignHCenter | Qt::AlignVCenter);
-	diagrams_list_layout_ -> addWidget(new QLabel(tr("Nom de fichier")),   line_count, 2, Qt::AlignHCenter | Qt::AlignVCenter);
+	diagrams_list_layout_ -> addWidget(new QLabel(tr("Folio title")),        line_count, 1, Qt::AlignHCenter | Qt::AlignVCenter);
+	diagrams_list_layout_ -> addWidget(new QLabel(tr("File name")),   line_count, 2, Qt::AlignHCenter | Qt::AlignVCenter);
 	diagrams_list_layout_ -> addWidget(new QLabel(tr("Dimensions")),       line_count, 3, Qt::AlignHCenter | Qt::AlignVCenter);
 	
 	// remplit la liste
@@ -728,10 +728,10 @@ void ExportDialog::slot_export()
 	if (filenames.count() != diagrams_to_export.count()) {
 		QET::QetMessageBox::warning(
 			this,
-			tr("Noms des fichiers cibles", "message box title"),
+			tr("Target file names", "message box title"),
 			tr(
-				"Vous devez entrer un nom de fichier non vide et unique pour chaque "
-				"folio à exporter.",
+				"You must enter a non-empty and unique file name for each "
+				"folio to export.",
 				"message box content"
 			)
 		);
@@ -744,8 +744,8 @@ void ExportDialog::slot_export()
 	if (!target_dir_path.exists()) {
 		QET::QetMessageBox::warning(
 			this,
-			tr("Dossier non spécifié", "message box title"),
-			tr("Vous devez spécifier le chemin du dossier dans lequel seront enregistrés les fichiers images.", "message box content"),
+			tr("Unspecified directory", "message box title"),
+			tr("You must specify the path to the folder where the image files will be saved.", "message box content"),
 			QMessageBox::Ok
 		);
 		return;
@@ -786,11 +786,11 @@ void ExportDialog::exportDiagram(ExportDiagramLine *diagram_line) {
 	if (file_infos.exists() && !file_infos.isWritable()) {
 		QET::QetMessageBox::critical(
 			this,
-			tr("Impossible d'écrire dans ce fichier", "message box title"),
+			tr("Unable to write to this file", "message box title"),
 			QString(
 				tr(
-					"Il semblerait que vous n'ayez pas les permissions "
-					"nécessaires pour écrire dans le fichier %1.",
+					"It looks like you don't have permissions "
+					"needed to write to file %1.",
 					"message box content"
 				)
 			).arg(diagram_path),
@@ -1011,9 +1011,9 @@ ExportDialog::ExportDiagramLine::ExportDiagramLine(Diagram *dia, QSize diagram_s
 	QString diagram_title = diagram -> title();
 	QString diagram_index = QString::number(diagram -> folioIndex()+1);
 	//QString diagram_folio_label = diagram -> border_and_titleblock.finalfolio();
-	if (diagram_title.isEmpty()) diagram_title = QObject::tr("Folio sans titre");
+	if (diagram_title.isEmpty()) diagram_title = QObject::tr("Untitled Folio");
 	QString diagram_filename = diagram -> title();
-	if (diagram_filename.isEmpty()) diagram_filename = QObject::tr("schema");
+	if (diagram_filename.isEmpty()) diagram_filename = QObject::tr("diagram");
 	diagram_filename = QET::stringToFileName(diagram_index % "_" % diagram_filename);
 	
 	title_label = new QLabel(diagram_title);
@@ -1038,19 +1038,19 @@ ExportDialog::ExportDiagramLine::ExportDiagramLine(Diagram *dia, QSize diagram_s
 	keep_ratio -> setCheckable(true);
 	keep_ratio -> setChecked(true);
 	keep_ratio -> setIcon(QET::Icons::ObjectLocked);
-	keep_ratio -> setToolTip(QObject::tr("Conserver les proportions"));
+	keep_ratio -> setToolTip(QObject::tr("Keep aspect ratio"));
 	
 	reset_size = new QPushButton();
 	reset_size -> setIcon(QET::Icons::Start);
-	reset_size -> setToolTip(QObject::tr("Réinitialiser les dimensions"));
+	reset_size -> setToolTip(QObject::tr("Reset size"));
 	
 	preview = new QPushButton();
 	preview -> setIcon(QET::Icons::ZoomOriginal);
-	preview -> setToolTip(QObject::tr("Aperçu"));
+	preview -> setToolTip(QObject::tr("Preview"));
 	
 	clipboard = new QPushButton();
 	clipboard -> setIcon(QET::Icons::IC_CopyFile);
-	clipboard -> setToolTip(QObject::tr("Exporter vers le presse-papier"));
+	clipboard -> setToolTip(QObject::tr("Export to clipboard"));
 }
 
 /**

@@ -348,7 +348,7 @@ void ElementPropertiesWidget::addGeneralWidget()
 		delete m_general_widget;
 	}
 	m_general_widget = generalWidget();
-	m_tab -> addTab(m_general_widget, tr("Général"));
+	m_tab -> addTab(m_general_widget, tr("General"));
 	m_tab->setCurrentIndex(index);
 }
 
@@ -361,18 +361,18 @@ QWidget *ElementPropertiesWidget::generalWidget()
 	QString description_string(tr("Élement\n"));
 
 		// some element characteristic
-	description_string += QString(tr("Nom : %1\n")).arg(m_element -> name());
+	description_string += QString(tr("Name : %1\n")).arg(m_element -> name());
 	int folio_index = m_diagram -> folioIndex();
 	if (folio_index != -1) {
 		description_string += QString(tr("Folio : %1\n")).arg(folio_index + 1);
 	}
 	description_string += QString(tr("Type : %1\n")).arg(m_element->elementData().typeToString());
-	description_string += QString(tr("Sous-type : %1\n")).arg(m_element ->kindInformations()["type"].toString());
+	description_string += QString(tr("Subtype : %1\n")).arg(m_element ->kindInformations()["type"].toString());
 	description_string += QString(tr("Position : %1\n")).arg(m_diagram -> convertPosition(m_element -> scenePos()).toString());
 	description_string += QString(tr("Rotation : %1°\n")).arg(m_element.data()->rotation());
 	description_string += QString(tr("Dimensions : %1*%2\n")).arg(m_element -> size().width()).arg(m_element -> size().height());
-	description_string += QString(tr("Bornes : %1\n")).arg(m_element -> terminals().count());
-	description_string += QString(tr("Emplacement : %1\n")).arg(m_element.data()->location().toString());
+	description_string += QString(tr("Terminals : %1\n")).arg(m_element -> terminals().count());
+	description_string += QString(tr("Placement : %1\n")).arg(m_element.data()->location().toString());
 
 		// widget himself
 	QWidget *general_widget = new QWidget (m_tab);
@@ -391,9 +391,9 @@ QWidget *ElementPropertiesWidget::generalWidget()
 	vlayout_ -> addStretch();
 
 		//button widget
-	QPushButton *find_in_panel = new QPushButton(QET::Icons::ZoomDraw, tr("Retrouver dans le panel"), general_widget);
+	QPushButton *find_in_panel = new QPushButton(QET::Icons::ZoomDraw, tr("Find in the panel"), general_widget);
 	connect(find_in_panel, SIGNAL(clicked()), this, SLOT(findInPanel()));
-	QPushButton *edit_element = new QPushButton(QET::Icons::ElementEdit, tr("Éditer l'élément"), general_widget);
+	QPushButton *edit_element = new QPushButton(QET::Icons::ElementEdit, tr("Edit element"), general_widget);
 	connect(edit_element, SIGNAL(clicked()), this, SLOT(editElement()));
 	QHBoxLayout *hlayout_ = new QHBoxLayout;
 	hlayout_->addWidget(find_in_panel);

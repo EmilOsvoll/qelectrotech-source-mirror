@@ -35,7 +35,7 @@ AddTerminalStripCommand::AddTerminalStripCommand(TerminalStrip *strip,
 	m_strip(strip),
 	m_project(project)
 {
-	setText(QObject::tr("Ajouter un groupe de bornes"));
+	setText(QObject::tr("Add a terminal group"));
 }
 
 AddTerminalStripCommand::~AddTerminalStripCommand()
@@ -65,7 +65,7 @@ RemoveTerminalStripCommand::RemoveTerminalStripCommand(TerminalStrip *strip,
 		if (real_t->element())
 			m_elements.append(real_t->element());
 	}
-	setText(QObject::tr("Supprimer un groupe de bornes"));
+	setText(QObject::tr("Delete a terminal group"));
 }
 
 RemoveTerminalStripCommand::~RemoveTerminalStripCommand()

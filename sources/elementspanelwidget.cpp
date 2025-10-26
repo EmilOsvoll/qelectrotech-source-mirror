@@ -51,24 +51,24 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	elements_panel = new ElementsPanel(this);
 
 	// initialise les actions
-	open_directory           = new QAction(QET::Icons::FolderOpen,             tr("Ouvrir le dossier correspondant"),     this);
-	copy_path                = new QAction(QET::Icons::IC_CopyFile,            tr("Copier le chemin"),                    this);
-	prj_activate             = new QAction(QET::Icons::ProjectFile,            tr("Basculer vers ce projet"),             this);
-	prj_close                = new QAction(QET::Icons::DocumentClose,          tr("Fermer ce projet"),                    this);
-	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Propriétés du projet"),          this);
-	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Propriétés du folio"),       this);
-	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Ajouter un folio"),                this);
-	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Supprimer ce folio"),              this);
-	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Remonter ce folio"),               this);
-	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Abaisser ce folio"),               this);
-	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Remonter ce folio x10"),           this);
-	prj_move_diagram_upx100  = new QAction(QET::Icons::GoUpDouble,             tr("Remonter ce folio x100"),           this);
-	prj_move_diagram_top     = new QAction(QET::Icons::GoTop,                  tr("Remonter ce folio au debut"),               this);
-	prj_move_diagram_downx10 = new QAction(QET::Icons::GoDownDouble,           tr("Abaisser ce folio x10"),           this);
-	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Abaisser ce folio x100"),           this);
-	tbt_add               = new QAction(QET::Icons::TitleBlock,                tr("Nouveau modèle"),                   this);
-	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Éditer ce modèle"),              this);
-	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Supprimer ce modèle"),              this);
+	open_directory           = new QAction(QET::Icons::FolderOpen,             tr("Open the underlying directory"),     this);
+	copy_path                = new QAction(QET::Icons::IC_CopyFile,            tr("Copy full path to clipboard"),                    this);
+	prj_activate             = new QAction(QET::Icons::ProjectFile,            tr("Activate this project"),             this);
+	prj_close                = new QAction(QET::Icons::DocumentClose,          tr("Close this project"),                    this);
+	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Project properties"),          this);
+	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Folio properties"),       this);
+	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
+	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);
+	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this folio up"),               this);
+	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move this folio down"),               this);
+	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move this folio up x10"),           this);
+	prj_move_diagram_upx100  = new QAction(QET::Icons::GoUpDouble,             tr("Move this folio up x100"),           this);
+	prj_move_diagram_top     = new QAction(QET::Icons::GoTop,                  tr("Move this folio to the start"),               this);
+	prj_move_diagram_downx10 = new QAction(QET::Icons::GoDownDouble,           tr("Move this folio down x10"),           this);
+	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Move this folio down x100"),           this);
+	tbt_add               = new QAction(QET::Icons::TitleBlock,                tr("New template"),                   this);
+	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Edit this template"),              this);
+	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Delete this template"),              this);
 
 
 	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Delete));
@@ -85,7 +85,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	// initialise le champ de texte pour filtrer avec une disposition horizontale
 	filter_textfield = new QLineEdit(this);
 	filter_textfield -> setClearButtonEnabled(true);
-	filter_textfield -> setPlaceholderText(tr("Filtrer"));
+	filter_textfield -> setPlaceholderText(tr("Filter"));
 
 
 	context_menu = new QMenu(this);

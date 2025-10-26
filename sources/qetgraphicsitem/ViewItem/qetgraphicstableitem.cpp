@@ -113,13 +113,13 @@ void QetGraphicsTableItem::checkInsufficientRowsCount(
 
 		QString text;
 		if (several_table) {
-			text = tr("Les information à afficher sont supérieurs à la quantité maximal pouvant être affiché par les tableaux.\n"
-					  "Veuillez ajouter un nouveau tableau ou regler les tableaux existant afin d'afficher l'integralité des informations.");
+			text = tr("The information to be displayed is greater than the maximum quantity that can be displayed by the tables.\n"
+					  "Please add a new table or adjust existing tables to display the full information.");
 		} else {
-			text = tr("Les information à afficher sont supérieurs à la quantité maximal pouvant être affiché par le tableau.\n"
-					  "Veuillez ajouter un nouveau tableau ou regler le tableau existant afin d'afficher l'integralité des informations.");
+			text = tr("The information to be displayed is greater than the maximum quantity that can be displayed by the table.\n"
+					  "Please add a new table or adjust the existing table to display the full information.");
 		}
-		QMessageBox::information(parent, tr("Limitation de tableau"), text);
+		QMessageBox::information(parent, tr("Table limitation"), text);
 	}
 
 }
@@ -964,7 +964,7 @@ void QetGraphicsTableItem::handlerMouseReleaseEvent(
 	{
 		auto undo = new QPropertyUndoCommand(this, "size", m_old_size, size());
 		undo->setAnimated();
-		undo->setText(tr("Modifier la géometrie d'un tableau"));
+		undo->setText(tr("Modify the geometry of a table"));
 		diagram()->undoStack().push(undo);
 	}
 }

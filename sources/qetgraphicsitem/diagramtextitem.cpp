@@ -54,7 +54,7 @@ void DiagramTextItem::build()
 	setFont(QETApp::diagramTextsItemFont());
 	setFlags(QGraphicsItem::ItemIsSelectable|QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemSendsGeometryChanges);
 	setNoEditable(false);
-	setToolTip(tr("Maintenir ctrl pour un déplacement libre"));
+	setToolTip(tr("Hold ctrl to move freely"));
 }
 
 /**

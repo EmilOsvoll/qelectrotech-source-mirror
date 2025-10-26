@@ -66,5 +66,5 @@ void NameListDialog::setHelpText(const QString &text)
 
 void NameListDialog::showHelpDialog()
 {
-	QMessageBox::information(this, tr("Variables de cartouche"), m_help_text);
+	QMessageBox::information(this, tr("Title block variables"), m_help_text);
 }

@@ -124,7 +124,7 @@ QRectF DiagramImageItem::boundingRect() const
 */
 QString DiagramImageItem::name() const
 {
-	return tr("une image");
+	return tr("an image");
 }
 
 /**

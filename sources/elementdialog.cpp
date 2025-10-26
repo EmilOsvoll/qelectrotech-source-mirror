@@ -59,23 +59,23 @@ void ElementDialog::setUpWidget()
 	switch (m_mode)
 	{
 		case OpenElement:
-			title_ = tr("Ouvrir un élément", "dialog title");
-			label_ = tr("Choisissez l'élément que vous souhaitez ouvrir.", "dialog content");
+			title_ = tr("Open an element", "dialog title");
+			label_ = tr("Choose the element you wish to open.", "dialog content");
 			break;
 		case SaveElement:
-			title_ = tr("Enregistrer un élément", "dialog title");
-			label_ = tr("Choisissez l'élément dans lequel vous souhaitez enregistrer votre définition.", "dialog content");
+			title_ = tr("Save an element", "dialog title");
+			label_ = tr("Choose the element you wish to save your definition into.", "dialog content");
 			break;
 		case OpenCategory:
-			title_ = tr("Ouvrir une catégorie", "dialog title");
-			label_ = tr("Choisissez une catégorie.", "dialog content");
+			title_ = tr("Open a category", "dialog title");
+			label_ = tr("Choose a category.", "dialog content");
 			break;
 		case SaveCategory:
-			title_ = tr("Enregistrer une catégorie", "dialog title");
-			label_ = tr("Choisissez une catégorie.", "dialog content");
+			title_ = tr("Save a category", "dialog title");
+			label_ = tr("Choose a category.", "dialog content");
 			break;
 		default:
-			title_ = tr("Titre");
+			title_ = tr("Title");
 			label_ = tr("Label");
 			break;
 	}
@@ -110,7 +110,7 @@ void ElementDialog::setUpWidget()
 
 		m_text_field = new QFileNameEdit();
 		m_text_field->setDisabled(true);
-		m_text_field->setPlaceholderText(m_mode == SaveCategory? tr("Nom du nouveau dossier") : tr("Nom du nouvel élément"));
+		m_text_field->setPlaceholderText(m_mode == SaveCategory? tr("Name of the new directory") : tr("Name of the new element"));
 
 		layout->addWidget(m_text_field);
 	}
@@ -197,15 +197,15 @@ void ElementDialog::checkAccept()
 		if (!loc.exist())
 		{
 			QET::QetMessageBox::critical(this,
-										 tr("Sélection inexistante", "message box title"),
-										 tr("La sélection n'existe pas.", "message box content"));
+										 tr("Non-existent selection", "message box title"),
+										 tr("The selection does not exist.", "message box content"));
 			return;
 		}
 		else if (!loc.isElement())
 		{
 			QET::QetMessageBox::critical(this,
-										 tr("Sélection incorrecte", "message box title"),
-										 tr("La sélection n'est pas un élément.", "message box content"));
+										 tr("Wrong selection", "message box title"),
+										 tr("The selection is not an element.", "message box content"));
 			return;
 		}
 	}
@@ -216,8 +216,8 @@ void ElementDialog::checkAccept()
 			if (loc.exist())
 			{
 				QMessageBox::StandardButton answer = QET::QetMessageBox::question(this,
-																				  tr("Écraser l'élément ?", "message box title"),
-																				  tr("L'élément existe déjà. Voulez-vous l'écraser ?", "message box content"),
+																				  tr("Overwrite the element?", "message box title"),
+																				  tr("The element already exists. Do you want to overwrite it?", "message box content"),
 																				  QMessageBox::Yes | QMessageBox::No,
 																				  QMessageBox::No);
 				if (answer == QMessageBox::Yes) {accept();}
@@ -228,8 +228,8 @@ void ElementDialog::checkAccept()
 		else
 		{
 			QET::QetMessageBox::critical(this,
-										 tr("Sélection incorrecte", "message box title"),
-										 tr("Vous devez sélectionner un élément ou une catégorie avec un nom pour l'élément.", "message box content"));
+										 tr("Wrong selection", "message box title"),
+										 tr("You must select an element or category with a name for the element.", "message box content"));
 			return;
 		}
 	}

@@ -56,8 +56,8 @@ void QETMainWindow::initCommonActions()
 {
 	QETApp *qet_app = QETApp::instance();
 
-	configure_action_ = new QAction(QET::Icons::Configure, tr("&Configurer QElectroTech"), this);
-	configure_action_ -> setStatusTip(tr("Permet de régler différents paramètres de QElectroTech", "status bar tip"));
+	configure_action_ = new QAction(QET::Icons::Configure, tr("&Configure QElectroTech"), this);
+	configure_action_ -> setStatusTip(tr("Allows to specify various parameters for QElectroTech", "status bar tip"));
 	connect(configure_action_, &QAction::triggered, [qet_app]()
 	{
 		qet_app->configureQET();
@@ -86,12 +86,12 @@ void QETMainWindow::initCommonActions()
 
 	whatsthis_action_ = QWhatsThis::createAction(this);
 
-	about_qet_ = new QAction(QET::Icons::QETLogo, tr("À &propos de QElectroTech"), this);
-	about_qet_ -> setStatusTip(tr("Affiche des informations sur QElectroTech", "status bar tip"));
+	about_qet_ = new QAction(QET::Icons::QETLogo, tr("About QElectroTech"), this);
+	about_qet_ -> setStatusTip(tr("Displays information about QElectroTech", "status bar tip"));
 	connect(about_qet_,  SIGNAL(triggered()), qet_app, SLOT(aboutQET()));
 
-	manual_online_ = new QAction(QET::Icons::QETManual, tr("Manuel en ligne"), this);
-	manual_online_ -> setStatusTip(tr("Lance le navigateur par défaut vers le manuel en ligne de QElectroTech", "status bar tip"));
+	manual_online_ = new QAction(QET::Icons::QETManual, tr("Online manual"), this);
+	manual_online_ -> setStatusTip(tr("Launches the default browser to the online manual QElectroTech", "status bar tip"));
 
 	connect(manual_online_, &QAction::triggered, [](bool) {
 	QString link = "https://download.qelectrotech.org/qet/manual_0.7/build/index.html";
@@ -100,19 +100,19 @@ void QETMainWindow::initCommonActions()
 
 	manual_online_ -> setShortcut(Qt::Key_F1);
 
-	youtube_ = new QAction(QET::Icons::QETVideo, tr("Chaine Youtube"), this);
-	youtube_ -> setStatusTip(tr("Lance le navigateur par défaut vers la chaine Youtube de QElectroTech", "status bar tip"));
+	youtube_ = new QAction(QET::Icons::QETVideo, tr("YouTube channel"), this);
+	youtube_ -> setStatusTip(tr("Launches the default browser on the YouTube channel of QElectroTech", "status bar tip"));
 
 	connect(youtube_, &QAction::triggered, [](bool) {
 	QString link = "https://www.youtube.com/user/scorpio8101/videos";
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
-	upgrade_ = new QAction(QET::Icons::QETDownload, tr("Télécharger une nouvelle version (dev)"), this);
-	upgrade_ -> setStatusTip(tr("Lance le navigateur par défaut vers le dépot Nightly en ligne de QElectroTech", "status bar tip"));
+	upgrade_ = new QAction(QET::Icons::QETDownload, tr("Download a new version (dev)"), this);
+	upgrade_ -> setStatusTip(tr("Launches the default browser to the online repository Nightly QElectroTech", "status bar tip"));
 
-	upgrade_M = new QAction(QET::Icons::QETDownload, tr("Télécharger une nouvelle version (dev)"), this);
-	upgrade_M -> setStatusTip(tr("Lance le navigateur par défaut vers le dépot Nightly en ligne de QElectroTech", "status bar tip"));
+	upgrade_M = new QAction(QET::Icons::QETDownload, tr("Download a new version (dev)"), this);
+	upgrade_M -> setStatusTip(tr("Launches the default browser to the online repository Nightly QElectroTech", "status bar tip"));
 
 	connect(upgrade_, &QAction::triggered, [](bool) {
 	QString link = "https://qelectrotech.org/download_windows.php";
@@ -124,16 +124,16 @@ void QETMainWindow::initCommonActions()
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
-	donate_ = new QAction(QET::Icons::QETDonate, tr("Soutenir le projet par un don"), this);
-	donate_ -> setStatusTip(tr("Soutenir le projet QElectroTech par un don", "status bar tip"));
+	donate_ = new QAction(QET::Icons::QETDonate, tr("Support the project with a donation"), this);
+	donate_ -> setStatusTip(tr("Support the QElectroTech project with a donation", "status bar tip"));
 
 	connect(donate_, &QAction::triggered, [](bool) {
 	QString link = "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZZHC9D7C3MDPC";
 	QDesktopServices::openUrl(QUrl(link));
 	});
 
-	about_qt_ = new QAction(QET::Icons::QtLogo,  tr("À propos de &Qt"), this);
-	about_qt_ -> setStatusTip(tr("Affiche des informations sur la bibliothèque Qt", "status bar tip"));
+	about_qt_ = new QAction(QET::Icons::QtLogo,  tr("About Qt"), this);
+	about_qt_ -> setStatusTip(tr("Displays information about Qt library", "status bar tip"));
 	connect(about_qt_, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 }
 
@@ -142,12 +142,12 @@ void QETMainWindow::initCommonActions()
 */
 void QETMainWindow::initCommonMenus()
 {
-	settings_menu_ = new QMenu(tr("&Configuration", "window menu"), this);
+	settings_menu_ = new QMenu(tr("&Settings", "window menu"), this);
 	settings_menu_ -> addAction(fullscreen_action_);
 	settings_menu_ -> addAction(configure_action_);
 	connect(settings_menu_, SIGNAL(aboutToShow()), this, SLOT(checkToolbarsmenu()));
 
-	help_menu_ = new QMenu(tr("&Aide", "window menu"), this);
+	help_menu_ = new QMenu(tr("&Help", "window menu"), this);
 	help_menu_ -> addAction(whatsthis_action_);
 	help_menu_ -> addSeparator();
 	help_menu_ -> addAction(manual_online_);
@@ -212,13 +212,13 @@ void QETMainWindow::toggleFullScreen()
 void QETMainWindow::updateFullScreenAction()
 {
 	if (windowState() & Qt::WindowFullScreen) {
-		fullscreen_action_ -> setText(tr("Sortir du &mode plein écran"));
+		fullscreen_action_ -> setText(tr("Exit f&ull screen mode"));
 		fullscreen_action_ -> setIcon(QET::Icons::FullScreenExit);
-		fullscreen_action_ -> setStatusTip(tr("Affiche QElectroTech en mode fenêtré", "status bar tip"));
+		fullscreen_action_ -> setStatusTip(tr("Displays QElectroTech in windowed mode", "status bar tip"));
 	} else {
-		fullscreen_action_ -> setText(tr("Passer en &mode plein écran"));
+		fullscreen_action_ -> setText(tr("Enter f&ull screen mode"));
 		fullscreen_action_ -> setIcon(QET::Icons::FullScreenEnter);
-		fullscreen_action_ -> setStatusTip(tr("Affiche QElectroTech en mode plein écran", "status bar tip"));
+		fullscreen_action_ -> setStatusTip(tr("Displays QElectroTech in full screen mode", "status bar tip"));
 	}
 	fullscreen_action_ -> setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_F);
 }
@@ -233,7 +233,7 @@ void QETMainWindow::checkToolbarsmenu()
 	display_toolbars_ = createPopupMenu();
 	if (display_toolbars_) {
 		display_toolbars_ -> setTearOffEnabled(true);
-		display_toolbars_ -> setTitle(tr("Afficher", "menu entry"));
+		display_toolbars_ -> setTitle(tr("Display", "menu entry"));
 		display_toolbars_ -> setIcon(QET::Icons::ConfigureToolbars);
 		settings_menu_ -> insertMenu(fullscreen_action_, display_toolbars_);
 	}

@@ -146,28 +146,28 @@ void ElementsCollectionWidget::leaveEvent(QEvent *event)
 void ElementsCollectionWidget::setUpAction()
 {
 	m_open_dir = new QAction(QET::Icons::FolderOpen,
-				 tr("Ouvrir le dossier correspondant"), this);
+				 tr("Open the underlying directory"), this);
 	m_edit_element = new QAction(QET::Icons::ElementEdit,
-					 tr("Éditer l'élément"), this);
+					 tr("Edit element"), this);
 	m_delete_element = new QAction(QET::Icons::ElementDelete,
-					   tr("Supprimer l'élément"), this);
+					   tr("Delete element"), this);
 	m_delete_dir = new QAction(QET::Icons::FolderDelete,
-				   tr("Supprimer le dossier"), this);
+				   tr("Delete directory"), this);
 	m_reload = new QAction(QET::Icons::ViewRefresh,
-				   tr("Recharger les collections"), this);
+				   tr("Reload collections"), this);
 	m_edit_dir = new QAction(QET::Icons::FolderEdit,
-				 tr("Éditer le dossier"), this);
+				 tr("Edit the directory"), this);
 	m_new_directory = new QAction(QET::Icons::FolderNew,
-					  tr("Nouveau dossier"), this);
+					  tr("New directory"), this);
 	m_new_element = new QAction(QET::Icons::ElementNew,
-					tr("Nouvel élément"), this);
+					tr("New element"), this);
 	m_show_this_dir = new QAction(QET::Icons::FolderOnlyThis,
-					  tr("Afficher uniquement ce dossier"),
+					  tr("Show only this directory"),
 					  this);
 	m_show_all_dir = new QAction(QET::Icons::FolderShowAll,
-					 tr("Afficher tous les dossiers"), this);
+					 tr("Show all directories"), this);
 	m_dir_propertie = new QAction(QET::Icons::FolderProperties,
-					  tr("Propriété du dossier"), this);
+					  tr("Directory properties"), this);
 }
 
 /**
@@ -181,7 +181,7 @@ void ElementsCollectionWidget::setUpWidget()
 	this->setLayout(m_main_vlayout);
 
 	m_search_field = new QLineEdit(this);
-	m_search_field->setPlaceholderText(tr("Rechercher"));
+	m_search_field->setPlaceholderText(tr("Search"));
 	m_search_field->setClearButtonEnabled(true);
 	m_main_vlayout->addWidget(m_search_field);
 
@@ -199,7 +199,7 @@ void ElementsCollectionWidget::setUpWidget()
 
 	//Setup the progress bar
 	m_progress_bar = new QProgressBar(this);
-	m_progress_bar->setFormat(QObject::tr("chargement %p% (%v sur %m)"));
+	m_progress_bar->setFormat(QObject::tr("load %p% (%v on %m)"));
 
 	m_main_vlayout->addWidget(m_progress_bar);
 	m_progress_bar->hide();
@@ -392,8 +392,8 @@ void ElementsCollectionWidget::deleteElement()
 
 	if (QET::QetMessageBox::question(
 		this,
-		tr("Supprimer l'élément ?", "message box title"),
-		tr("Êtes-vous sûr  de vouloir supprimer cet élément ?\n",
+		tr("Delete element ?", "message box title"),
+		tr("Are you sure you want to delete this element?\n",
 		   "message box content"),
 		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
 	{
@@ -408,9 +408,9 @@ void ElementsCollectionWidget::deleteElement()
 		{
 			QET::QetMessageBox::warning(
 				this,
-				tr("Suppression de l'élément",
+				tr("Deleting element",
 				   "message box title"),
-				tr("La suppression de l'élément a échoué.",
+				tr("Deleting element failed.",
 				   "message box content"));
 		}
 	}
@@ -436,9 +436,9 @@ void ElementsCollectionWidget::deleteDirectory()
 
 	if (QET::QetMessageBox::question(
 		this,
-		tr("Supprimer le dossier?", "message box title"),
-		tr("Êtes-vous sûr  de vouloir supprimer le dossier ?\n"
-		"Tout les éléments et les dossier contenus dans ce dossier seront supprimés.",
+		tr("Delete directory?", "message box title"),
+		tr("Are you sure you want to delete the directory?\n"
+		"All elements and directories contained in this directory will be deleted.",
 		"message box content"),
 		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
 	{
@@ -453,9 +453,9 @@ void ElementsCollectionWidget::deleteDirectory()
 		{
 			QET::QetMessageBox::warning(
 				this,
-				tr("Suppression du dossier",
+				tr("Delete directory",
 				   "message box title"),
-				tr("La suppression du dossier a échoué.",
+				tr("Directory deletion failed.",
 				   "message box content"));
 		}
 	}
@@ -598,23 +598,23 @@ void ElementsCollectionWidget::dirProperties()
 	{
 		QString filePath;
 		if (eci->type() == FileElementCollectionItem::Type) {
-			filePath = tr("Chemin dans le système de fichiers :  %1")
+			filePath = tr("Path in the file system :  %1")
 						   .arg(
 							   static_cast<FileElementCollectionItem*>(eci)
 								   ->fileSystemPath());
 		}
 		QString out =
-			tr("Le dossier %1 contient").arg(eci->localName()) % " "
-			% tr("%n élément(s), répartie(s)", "", eci->elementsChild().size())
+			tr("The directory %1 contains").arg(eci->localName()) % " "
+			% tr("%n element(s), distributed", "", eci->elementsChild().size())
 			% " "
-			% tr("dans %n dossier(s).", "", eci->directoriesChild().size())
+			% tr("in %n folder(s).", "", eci->directoriesChild().size())
 			% "\n\n"
-			% tr("Chemin de la collection :  %1").arg(eci->collectionPath())
+			% tr("Collection path :  %1").arg(eci->collectionPath())
 			% "\n" % filePath;
 		qInfo() << out;
 		QMessageBox::information(
 			this,
-			tr("Propriété du dossier %1").arg(eci->localName()),
+			tr("Directory properties %1").arg(eci->localName()),
 			out);
 	}
 }
@@ -636,7 +636,7 @@ void ElementsCollectionWidget::reload()
 	// Force to repaint now,
 	// else tree view will be not disabled immediately
 	m_tree_view->repaint();
-	m_progress_bar->setFormat(QObject::tr("chargement %p% (%v sur %m)"));
+	m_progress_bar->setFormat(QObject::tr("load %p% (%v on %m)"));
 	
 	QList <QETProject *> project_list;
 	project_list.append(m_waiting_project);

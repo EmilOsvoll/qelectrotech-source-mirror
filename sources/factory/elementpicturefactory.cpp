@@ -159,9 +159,9 @@ bool ElementPictureFactory::build(const ElementsLocation &location,
 		&& QetVersion::currentVersion() < elmt_version)
 	{
 		std::cerr << qPrintable(
-						 QObject::tr("Avertissement : l'élément "
-									 " a été enregistré avec une version"
-									 " ultérieure de QElectroTech.")
+						 QObject::tr("Warning : the element "
+									 " was created with an earlier"
+									 " version of QElectroTech.")
 						 ) << std::endl;
 	}
 

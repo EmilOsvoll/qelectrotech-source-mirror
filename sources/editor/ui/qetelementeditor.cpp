@@ -68,7 +68,7 @@ QETElementEditor::QETElementEditor(QWidget *parent) :
 
 	auto menu = createPopupMenu();
 	menu->setTearOffEnabled(true);
-	menu->setTitle(tr("Afficher", "menu entry"));
+	menu->setTitle(tr("Display", "menu entry"));
 	menu->setIcon(QET::Icons::ConfigureToolbars);
 	ui->m_display_menu->addMenu(menu);
 	//ui->m_display_menu->insertMenu(ui->m_zoom_in_action, menu);
@@ -212,26 +212,26 @@ void QETElementEditor::fromFile(const QString &filepath)
 	if (!infos_file.exists() || !infos_file.isFile())
 	{
 		state_ = false;
-		error_message = QString(tr("Le fichier %1 n'existe pas.", "message box content")).arg(filepath);
+		error_message = QString(tr("The file %1 does not exist.", "message box content")).arg(filepath);
 	}
 
 	QFile file(filepath);
 	if (state_ && !file.open(QIODevice::ReadOnly)) {
 		state_ = false;
-		error_message = QString(tr("Impossible d'ouvrir le fichier %1.", "message box content")).arg(filepath);
+		error_message = QString(tr("Unable to open file %1.", "message box content")).arg(filepath);
 	}
 
 	QDomDocument document_xml;
 	if (state_) {
 		if (!document_xml.setContent(&file)) {
 			state_ = false;
-			error_message = tr("Ce fichier n'est pas un document XML valide", "message box content");
+			error_message = tr("This file is not a valid XML document", "message box content");
 		}
 		file.close();
 	}
 
 	if (!state_) {
-		QET::QetMessageBox::critical(this, tr("Erreur", "toolbar title"), error_message);
+		QET::QetMessageBox::critical(this, tr("Error", "toolbar title"), error_message);
 		return;
 	}
 
@@ -242,8 +242,8 @@ void QETElementEditor::fromFile(const QString &filepath)
 	{
 		QET::QetMessageBox::warning(
 			this,
-			tr("Édition en lecture seule", "message box title"),
-			tr("Vous n'avez pas les privilèges nécessaires pour modifier cet élement. Il sera donc ouvert en lecture seule.", "message box content")
+			tr("Read only edition", "message box title"),
+			tr("You are not allowed to modify this element. Thus it will be edited read-only.", "message box content")
 		);
 		setReadOnly(true);
 	}
@@ -274,8 +274,8 @@ bool QETElementEditor::toFile(const QString &filepath)
 	if (!writing) {
 		QET::QetMessageBox::warning(
 			this,
-			tr("Erreur", "message box title"),
-			tr("Impossible d'écrire dans ce fichier", "message box content")
+			tr("Error", "message box title"),
+			tr("Unable to write to this file", "message box content")
 		);
 	}
 	return(writing);
@@ -289,14 +289,14 @@ void QETElementEditor::fromLocation(const ElementsLocation &location)
 {
 	if (!location.isElement()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Élément inexistant.", "message box title"),
-									 tr("Le chemin virtuel choisi ne correspond pas à un élément.", "message box content"));
+									 tr("Non-existent element.", "message box title"),
+									 tr("The chosen virtual path does not match an element.", "message box content"));
 		return;
 	}
 	if (!location.exist()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Élément inexistant.", "message box title"),
-									 tr("L'élément n'existe pas.", "message box content"));
+									 tr("Non-existent element.", "message box title"),
+									 tr("The element does not exist.", "message box content"));
 		return;
 	}
 
@@ -312,8 +312,8 @@ void QETElementEditor::fromLocation(const ElementsLocation &location)
 		//location is read only
 	if (!location.isWritable()) {
 		QET::QetMessageBox::warning(this,
-									tr("Édition en lecture seule", "message box title"),
-									tr("Vous n'avez pas les privilèges nécessaires pour modifier cet élement. Il sera donc ouvert en lecture seule.", "message box content"));
+									tr("Read only edition", "message box title"),
+									tr("You are not allowed to modify this element. Thus it will be edited read-only.", "message box content"));
 		setReadOnly(true);
 	}
 	else {
@@ -338,8 +338,8 @@ bool QETElementEditor::toLocation(const ElementsLocation &location)
 
 	if (!location.setXml(m_elmt_scene -> toXml())) {
 		QET::QetMessageBox::critical(this,
-									 tr("Erreur", "message box title"),
-									 tr("Impossible d'enregistrer l'élément", "message box content"));
+									 tr("Error", "message box title"),
+									 tr("Unable to save the element", "message box content"));
 		return(false);
 	}
 	return(true);
@@ -423,12 +423,12 @@ QString QETElementEditor::getOpenElementFileName(QWidget *parent, const QString 
 {
 	QString user_filename = QFileDialog::getOpenFileName(
 		parent,
-		tr("Ouvrir un fichier", "dialog title"),
+		tr("Open a file", "dialog title"),
 		dir.isEmpty() ? QETApp::customElementsDir() : dir,
 		tr(
-			"Éléments QElectroTech (*.elmt);;"
-			"Fichiers XML (*.xml);;"
-			"Tous les fichiers (*)",
+			"QElectroTech Elements (*.elmt);;"
+			"XML Files (*.xml);;"
+			"All Files (*)",
 			"filetypes allowed when opening an element file"
 		)
 	);
@@ -445,11 +445,11 @@ void QETElementEditor::updateTitle()
 	title += " - " + m_elmt_scene->elementData().m_names_list.name() + " ";
 	if (!m_file_name.isEmpty() || !m_location.isNull()) {
 		if (!m_elmt_scene -> undoStack().isClean()) {
-			title += tr("[Modifié]", "window title tag");
+			title += tr("[Changed]", "window title tag");
 		}
 	}
 	if (isReadOnly()) {
-		title += tr(" [lecture seule]", "window title tag");
+		title += tr(" [Read only]", "window title tag");
 	}
 	setWindowTitle(title);
 }
@@ -496,7 +496,7 @@ void QETElementEditor::fillPartsList()
 		}
 	}
 	else {
-		m_parts_list -> addItem(new QListWidgetItem(tr("Trop de primitives, liste non générée: %1").arg(qgis.count())));
+		m_parts_list -> addItem(new QListWidgetItem(tr("Too many primitives, list not generated: %1").arg(qgis.count())));
 	}
 	m_parts_list -> blockSignals(false);
 }
@@ -741,10 +741,10 @@ bool QETElementEditor::checkElement()
 	if (!m_elmt_scene -> containsTerminals() &&
 		!(m_elmt_scene->elementData().m_type & ElementData::AllReport)) {
 		warnings << qMakePair(
-						tr("Absence de borne", "warning title"),
+						tr("Missing terminal", "warning title"),
 						tr(
-							"<br>En l'absence de borne, l'élément ne pourra être"
-			" relié à d'autres éléments par l'intermédiaire de conducteurs.",
+							"<br>In the absence of a terminal, the element cannot be"
+			" connected to other elements via conductors.",
 							"warning description"
 		)
 						);
@@ -763,11 +763,11 @@ bool QETElementEditor::checkElement()
 
 			//Error folio report must have only one terminal
 		if (terminal != 1) {
-			errors << qMakePair (tr("Absence de borne"),
-								 tr("<br><b>Erreur</b> :"
-								"<br>Les reports de folio doivent posséder une seul borne."
+			errors << qMakePair (tr("Missing terminal"),
+								 tr("<br><b>Error</b> :"
+								"<br>Folio reports must have a single terminal."
 								"<br><b>Solution</b> :"
-								"<br>Verifier que l'élément ne possède qu'une seul borne"));
+								"<br>Check that the element has only one terminal"));
 		}
 	}
 
@@ -776,17 +776,17 @@ bool QETElementEditor::checkElement()
 	}
 
 		// Display warnings
-	QString dialog_message = tr("La vérification de cet élément a généré", "message box content");
+	QString dialog_message = tr("The verification of this element generated", "message box content");
 
 	if (errors.size()) {
-		dialog_message += QString(tr(" %n erreur(s)", "errors", errors.size()));
+		dialog_message += QString(tr(" %n error(s)", "errors", errors.size()));
 	}
 
 	if (warnings.size()) {
 		if (errors.size()) {
-			dialog_message += QString (tr(" et"));
+			dialog_message += QString (tr(" and"));
 		}
-		dialog_message += QString (tr(" %n avertissement(s)", "warnings", warnings.size()));
+		dialog_message += QString (tr(" %n warning(s)", "warnings", warnings.size()));
 	}
 	dialog_message += " :";
 
@@ -803,10 +803,10 @@ bool QETElementEditor::checkElement()
 	dialog_message += "</ol>";
 
 	if (errors.size()) {
-		QMessageBox::critical(this, tr("Erreurs"), dialog_message);
+		QMessageBox::critical(this, tr("Errors"), dialog_message);
 	}
 	else {
-		QMessageBox::warning(this, tr("Avertissements"), dialog_message);
+		QMessageBox::warning(this, tr("Warnings"), dialog_message);
 	}
 
 		//if error == 0 that means they are only warning, we return true.
@@ -846,10 +846,10 @@ void QETElementEditor::openElement(const QString &filepath)
 	if (!QFile::exists(filepath)) {
 		QET::QetMessageBox::critical(
 			this,
-			tr("Impossible d'ouvrir le fichier", "message box title"),
+			tr("Unable to open file", "message box title"),
 			QString(
-				tr("Il semblerait que le fichier %1 que vous essayez d'ouvrir"
-				" n'existe pas ou plus.")
+				tr("It looks like the file %1 you are trying to open"
+ 				" does not exist or no longer exists.")
 			).arg(filepath)
 		);
 	}
@@ -885,10 +885,10 @@ bool QETElementEditor::canClose()
 		//First ask user to save
 	QMessageBox::StandardButton answer = QET::QetMessageBox::question(
 		this,
-		tr("Enregistrer l'élément en cours ?", "dialog title"),
+		tr("Save current element?", "dialog title"),
 		QString(
 			tr(
-				"Voulez-vous enregistrer l'élément %1 ?",
+				"Do you want to save item %1 ?",
 				"dialog content - %1 is an element name"
 			)
 		).arg(m_elmt_scene->elementData().m_names_list.name()),
@@ -954,8 +954,8 @@ void QETElementEditor::writeSettings() const
  */
 void QETElementEditor::setupActions()
 {
-	m_undo_action = m_elmt_scene -> undoStack().createUndoAction(this, tr("Annuler"));
-	m_redo_action = m_elmt_scene -> undoStack().createRedoAction(this, tr("Refaire"));
+	m_undo_action = m_elmt_scene -> undoStack().createUndoAction(this, tr("Undo"));
+	m_redo_action = m_elmt_scene -> undoStack().createRedoAction(this, tr("Redo"));
 	m_undo_action -> setIcon(QET::Icons::EditUndo);
 	m_redo_action -> setIcon(QET::Icons::EditRedo);
 	m_undo_action -> setShortcuts(QKeySequence::Undo);
@@ -993,7 +993,7 @@ void QETElementEditor::setupActions()
 			new ChangeZValueCommand(this -> elementScene(), action -> data().value<QET::DepthOption>()));
 		emit(this -> elementScene() -> partsZValueChanged());
 	});
-	auto depth_toolbar = addToolBar(tr("Profondeur", "toolbar title"));
+	auto depth_toolbar = addToolBar(tr("Depth", "toolbar title"));
 	depth_toolbar -> setObjectName("depth_toolbar");
 	depth_toolbar -> addActions(m_depth_action_group -> actions());
 	addToolBar(Qt::TopToolBarArea, depth_toolbar);
@@ -1024,14 +1024,14 @@ void QETElementEditor::setupActions()
 		//Add primitive actions
 	m_add_part_action_grp = new QActionGroup(this);
 
-	auto *add_line               = new QAction(QET::Icons::PartLine,      tr("Ajouter une ligne"),                m_add_part_action_grp);
-	auto *add_rectangle          = new QAction(QET::Icons::PartRectangle, tr("Ajouter un rectangle"),             m_add_part_action_grp);
-	auto *add_ellipse            = new QAction(QET::Icons::PartEllipse,   tr("Ajouter une ellipse"),              m_add_part_action_grp);
-	auto *add_polygon            = new QAction(QET::Icons::PartPolygon,   tr("Ajouter un polygone"),              m_add_part_action_grp);
-	auto *add_text               = new QAction(QET::Icons::PartText,      tr("Ajouter du texte"),                 m_add_part_action_grp);
-	auto *add_arc                = new QAction(QET::Icons::PartArc,       tr("Ajouter un arc de cercle"),         m_add_part_action_grp);
-	auto *add_terminal           = new QAction(QET::Icons::Terminal,      tr("Ajouter une borne"),                m_add_part_action_grp);
-	auto *add_dynamic_text_field = new QAction(QET::Icons::PartTextField, tr("Ajouter un champ texte dynamique"), m_add_part_action_grp);
+	auto *add_line               = new QAction(QET::Icons::PartLine,      tr("Add a line"),                m_add_part_action_grp);
+	auto *add_rectangle          = new QAction(QET::Icons::PartRectangle, tr("Add a rectangle"),             m_add_part_action_grp);
+	auto *add_ellipse            = new QAction(QET::Icons::PartEllipse,   tr("Add an ellipse"),              m_add_part_action_grp);
+	auto *add_polygon            = new QAction(QET::Icons::PartPolygon,   tr("Add a polygon"),              m_add_part_action_grp);
+	auto *add_text               = new QAction(QET::Icons::PartText,      tr("Add text"),                 m_add_part_action_grp);
+	auto *add_arc                = new QAction(QET::Icons::PartArc,       tr("Add an arc"),         m_add_part_action_grp);
+	auto *add_terminal           = new QAction(QET::Icons::Terminal,      tr("Add a terminal"),                m_add_part_action_grp);
+	auto *add_dynamic_text_field = new QAction(QET::Icons::PartTextField, tr("Add a dynamic text field"), m_add_part_action_grp);
 
 	for (auto action : m_add_part_action_grp->actions()) {
 		action -> setCheckable(true);
@@ -1046,11 +1046,11 @@ void QETElementEditor::setupActions()
 	connect(add_terminal,  &QAction::triggered, [this]() {m_elmt_scene->setEventInterface(new ESEventAddTerminal(m_elmt_scene));});
 	connect(add_dynamic_text_field, &QAction::triggered, [this]() {m_elmt_scene->setEventInterface(new ESEventAddDynamicTextField(m_elmt_scene));});
 
-	add_polygon -> setStatusTip(tr("Double-click pour terminer la forme, Click droit pour annuler le dernier point"));
-	add_text    -> setStatusTip(tr("Ajouter un texte d'élément non éditable dans les schémas"));
-	add_dynamic_text_field -> setStatusTip(tr("Ajouter un texte d'élément pouvant être édité dans les schémas"));
+	add_polygon -> setStatusTip(tr("Double-click to finish the shape, Right click to cancel the last point"));
+	add_text    -> setStatusTip(tr("Add non-editable element text in diagrams"));
+	add_dynamic_text_field -> setStatusTip(tr("Add editable element text to diagrams"));
 
-	auto parts_toolbar =  addToolBar(tr("Parties", "toolbar title"));
+	auto parts_toolbar =  addToolBar(tr("Parts", "toolbar title"));
 	parts_toolbar -> setAllowedAreas(Qt::AllToolBarAreas);
 	parts_toolbar -> setObjectName("parts");
 	parts_toolbar -> addActions(m_add_part_action_grp -> actions());
@@ -1156,7 +1156,7 @@ void QETElementEditor::initGui()
 
 		//Undo dock
 	auto undo_view = new QUndoView(&(m_elmt_scene->undoStack()), this);
-	undo_view->setEmptyLabel(tr("Aucune modification"));
+	undo_view->setEmptyLabel(tr("No changes"));
 	ui->m_undo_dock->setWidget(undo_view);
 
 		//parts list dock
@@ -1168,7 +1168,7 @@ void QETElementEditor::initGui()
 	updateInformations();
 	fillPartsList();
 
-	statusBar()->showMessage(tr("Éditeur d'éléments", "status bar message"));
+	statusBar()->showMessage(tr("Element editor", "status bar message"));
 }
 
 /**
@@ -1241,7 +1241,7 @@ bool QETElementEditor::on_m_save_action_triggered()
 		}
 	}
 
-	QMessageBox::critical(this, tr("Echec de l'enregistrement"), tr("L'enregistrement à échoué,\nles conditions requises ne sont pas valides"));
+	QMessageBox::critical(this, tr("Registration failed"), tr("Registration failed,\nrequirements are invalid"));
 	return false;
 }
 
@@ -1270,7 +1270,7 @@ bool QETElementEditor::on_m_save_as_action_triggered()
 
 		return(result_save);
 	}
-	QMessageBox::critical(this, tr("Echec de l'enregistrement"), tr("L'enregistrement à échoué,\nles conditions requises ne sont pas valides"));
+	QMessageBox::critical(this, tr("Registration failed"), tr("Registration failed,\nrequirements are invalid"));
 	return (false);
 }
 
@@ -1309,10 +1309,10 @@ bool QETElementEditor::on_m_save_as_file_action_triggered()
 		//Ask a filename to user, for save the element
 		QString fn = QFileDialog::getSaveFileName(
 						 this,
-						 tr("Enregistrer sous", "dialog title"),
+						 tr("Save as", "dialog title"),
 						 m_file_name.isEmpty() ? QETApp::customElementsDir() : QDir(m_file_name).absolutePath(),
 						 tr(
-							 "Éléments QElectroTech (*.elmt)",
+							 "QElectroTech Elements (*.elmt)",
 							 "filetypes allowed when saving an element file"
 		)
 						 );
@@ -1336,7 +1336,7 @@ bool QETElementEditor::on_m_save_as_file_action_triggered()
 
 		return(result_save);
 	}
-	QMessageBox::critical(this, tr("Echec de l'enregistrement"), tr("L'enregistrement à échoué,\nles conditions requises ne sont pas valides"));
+	QMessageBox::critical(this, tr("Registration failed"), tr("Registration failed,\nrequirements are invalid"));
 	return false;
 }
 
@@ -1345,8 +1345,8 @@ void QETElementEditor::on_m_reload_action_triggered()
 	//If user already edit the element, ask confirmation to reload
 	if (!m_elmt_scene -> undoStack().isClean()) {
 		QMessageBox::StandardButton answer = QET::QetMessageBox::question(this,
-																		  tr("Recharger l'élément", "dialog title"),
-																		  tr("Vous avez efffectué des modifications sur cet élément. Si vous le rechargez, ces modifications seront perdues. Voulez-vous vraiment recharger l'élément ?", "dialog content"),
+																		  tr("Reload element", "dialog title"),
+																		  tr("This element has been modified since last save. If you reload it, these changes will be lost. Do you really want to reload this element?", "dialog content"),
 																		  QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
 																		  QMessageBox::Cancel);
 		if (answer != QMessageBox::Yes){
@@ -1388,18 +1388,18 @@ void QETElementEditor::on_m_paste_from_file_action_triggered()
 	QFile element_file(element_file_path);
 	// le fichier doit etre lisible
 	if (!element_file.open(QIODevice::ReadOnly)) {
-		error_message = QString(tr("Impossible d'ouvrir le fichier %1.", "message box content")).arg(element_file_path);
+		error_message = QString(tr("Unable to open file %1.", "message box content")).arg(element_file_path);
 	}
 	else {
 		// le fichier doit etre un document XML
 		if (!xml_document.setContent(&element_file)) {
-			error_message = tr("Ce fichier n'est pas un document XML valide", "message box content");
+			error_message = tr("This file is not a valid XML document", "message box content");
 		}
 		element_file.close();
 	}
 
 	if (!error_message.isEmpty()) {
-		QET::QetMessageBox::critical(this, tr("Erreur", "toolbar title"), error_message);
+		QET::QetMessageBox::critical(this, tr("Error", "toolbar title"), error_message);
 	}
 	copyAndPasteXml(xml_document);
 }
@@ -1414,14 +1414,14 @@ void QETElementEditor::on_m_paste_from_element_action_triggered()
 
 	if (!location.isElement()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Élément inexistant.", "message box title"),
-									 tr("Le chemin virtuel choisi ne correspond pas à un élément.", "message box content"));
+									 tr("Non-existent element.", "message box title"),
+									 tr("The chosen virtual path does not correspond to an element.", "message box content"));
 		return;
 	}
 	if (!location.exist()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Élément inexistant.", "message box title"),
-									 tr("L'élément n'existe pas.", "message box content"));
+									 tr("Non-existent element.", "message box title"),
+									 tr("The element does not exist.", "message box content"));
 		return;
 	}
 
@@ -1473,15 +1473,15 @@ void QETElementEditor::on_m_import_dxf_triggered()
 	if (dxf2ElmtIsPresent(true, this))
 	{
 		QString file_path{QFileDialog::getOpenFileName(this,
-													   QObject::tr("Importer un fichier dxf"),
+													   QObject::tr("Import a dxf file"),
 													   QETApp::documentDir(),
 													   "DXF (*.dxf)")};
 		if (file_path.isEmpty()) {
 			return;
 		}
 
-		QMessageBox::information(this, tr("Avertissement"), tr("L'import d'un dxf volumineux peut prendre du temps \n"
-															   "veuillez patienter durant l'import..."));
+		QMessageBox::information(this, tr("Warning"), tr("Importing a large dxf may take time \n"
+															   "Please wait while the import is taking place..."));
 
 		const QByteArray array_{dxfToElmt(file_path)};
 		if (array_.isEmpty()) {
@@ -1499,9 +1499,9 @@ void QETElementEditor::on_m_import_scaled_element_triggered()
 	if (ElementScalerIsPresent(true, this))
 	{
 		QString file_path{QFileDialog::getOpenFileName(this,
-													   tr("Importer un élément à redimensionner"),
+													   tr("Import an element to resize"),
 													   QETApp::documentDir(),
-													   tr("Éléments QElectroTech (*.elmt)"))};
+													   tr("QElectroTech Elements (*.elmt)"))};
 		if (file_path.isEmpty()) {
 			return;
 		}
