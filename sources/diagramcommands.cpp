@@ -267,7 +267,7 @@ ChangeDiagramTextCommand::ChangeDiagramTextCommand(
 	const QString &after,
 	QUndoCommand *parent
 ) :
-	QUndoCommand(QObject::tr("modifier le texte", "undo caption"), parent),
+	QUndoCommand(QObject::tr("modify text", "undo caption"), parent),
 	text_item(dti),
 	text_before(before),
 	text_after(after),
@@ -319,7 +319,7 @@ ChangeConductorCommand::ChangeConductorCommand(
 	Qt::Corner path_t,
 	QUndoCommand *parent
 ) :
-	QUndoCommand(QObject::tr("modifier un conducteur", "undo caption"), parent),
+	QUndoCommand(QObject::tr("modify a conductor", "undo caption"), parent),
 	conductor(c),
 	old_profile(old_p),
 	new_profile(new_p),
@@ -440,7 +440,7 @@ ChangeBorderCommand::ChangeBorderCommand(Diagram *dia,
 					 const BorderProperties &new_bp,
 					 QUndoCommand *parent) :
 	QUndoCommand(
-		QObject::tr("modifier les dimensions du folio", "undo caption"),
+		QObject::tr("change the folio size", "undo caption"),
 		parent),
 	diagram(dia),
 	old_properties(old_bp),

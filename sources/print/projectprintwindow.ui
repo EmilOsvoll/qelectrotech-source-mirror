@@ -28,7 +28,7 @@
         <item>
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>Folios à imprimer :</string>
+           <string>Folios to print :</string>
           </property>
          </widget>
         </item>
@@ -67,14 +67,14 @@
         <item>
          <widget class="QPushButton" name="m_check_all_pb">
           <property name="text">
-           <string>Tout cocher</string>
+           <string>Check all</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="m_uncheck_all">
           <property name="text">
-           <string>Tout décocher</string>
+           <string>Uncheck all</string>
           </property>
          </widget>
         </item>
@@ -100,17 +100,17 @@
             <widget class="QComboBox" name="m_date_from_cb">
              <item>
               <property name="text">
-               <string>Toutes les dates</string>
+               <string>All dates</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>À partir de la date du :</string>
+               <string>From the date of :</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>À la date du  :</string>
+               <string>As of :</string>
               </property>
              </item>
             </widget>
@@ -152,34 +152,34 @@
     <item>
      <widget class="QGroupBox" name="groupBox">
       <property name="title">
-       <string>Option de rendu</string>
+       <string>Rendering option</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QCheckBox" name="m_draw_border_cb">
          <property name="text">
-          <string>Dessiner le cadre</string>
+          <string>Draw the border</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="m_draw_titleblock_cb">
          <property name="text">
-          <string>Dessiner le cartouche</string>
+          <string>Draw the title block</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="m_keep_conductor_color_cb">
          <property name="text">
-          <string>Conserver les couleurs des conducteurs</string>
+          <string>Keep conductor colors</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="m_draw_terminal_cb">
          <property name="text">
-          <string>Dessiner les bornes</string>
+          <string>Draw terminals</string>
          </property>
         </widget>
        </item>
@@ -189,13 +189,13 @@
     <item>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="title">
-       <string>Option d'impression</string>
+       <string>Printing option</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="3" column="0">
         <widget class="QCheckBox" name="m_fit_in_page_cb">
          <property name="text">
-          <string>Adapter le folio à la page</string>
+          <string>Fit folio to page</string>
          </property>
          <property name="checked">
           <bool>true</bool>
@@ -205,14 +205,14 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="m_use_full_page_cb">
          <property name="text">
-          <string>Utiliser toute la feuille</string>
+          <string>Use the whole page</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Si cette option est cochée, le folio sera agrandi ou rétréci de façon à remplir toute la surface imprimable d'une et une seule page.&quot;</string>
+          <string>If this option is checked, the folio will be enlarged or shrunk so as to fill the entire printable area of one and only one page.&quot;</string>
          </property>
          <property name="margin">
           <number>0</number>
@@ -222,7 +222,7 @@
        <item row="0" column="1">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Si cette option est cochée, les marges de la feuille seront  ignorées et toute sa surface sera utilisée pour l'impression.  Cela peut ne pas être supporté par votre imprimante.</string>
+          <string>If this option is checked, the margins of the sheet will be ignored and its entire surface will be used for printing. This may not be supported by your printer.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -289,7 +289,7 @@
      <normaloff>:/ico/22x22/view_fit_width.png</normaloff>:/ico/22x22/view_fit_width.png</iconset>
    </property>
    <property name="text">
-    <string>Ajuster la largeur</string>
+    <string>Fit to width</string>
    </property>
   </action>
   <action name="m_adjust_page_action">
@@ -298,7 +298,7 @@
      <normaloff>:/ico/22x22/view-fit-window.png</normaloff>:/ico/22x22/view-fit-window.png</iconset>
    </property>
    <property name="text">
-    <string>Ajuster la page</string>
+    <string>Fit to page</string>
    </property>
   </action>
   <action name="m_zoom_out_action">
@@ -307,7 +307,7 @@
      <normaloff>:/ico/16x16/zoom-out.png</normaloff>:/ico/16x16/zoom-out.png</iconset>
    </property>
    <property name="text">
-    <string>Zoom arrière</string>
+    <string>Zoom out</string>
    </property>
   </action>
   <action name="m_zoom_in_action">
@@ -316,7 +316,7 @@
      <normaloff>:/ico/16x16/zoom-in.png</normaloff>:/ico/16x16/zoom-in.png</iconset>
    </property>
    <property name="text">
-    <string>Zoom avant</string>
+    <string>Zoom In</string>
    </property>
   </action>
   <action name="m_landscape_action">
@@ -325,7 +325,7 @@
      <normaloff>:/ico/22x22/landscape.png</normaloff>:/ico/22x22/landscape.png</iconset>
    </property>
    <property name="text">
-    <string>Paysage</string>
+    <string>Landscape</string>
    </property>
   </action>
   <action name="m_portrait_action">
@@ -343,7 +343,7 @@
      <normaloff>:/ico/16x16/arrow-left-double.png</normaloff>:/ico/16x16/arrow-left-double.png</iconset>
    </property>
    <property name="text">
-    <string>Première page</string>
+    <string>First page</string>
    </property>
   </action>
   <action name="m_previous_page_action">
@@ -352,7 +352,7 @@
      <normaloff>:/ico/16x16/arrow-left.png</normaloff>:/ico/16x16/arrow-left.png</iconset>
    </property>
    <property name="text">
-    <string>Page précédente</string>
+    <string>Previous page</string>
    </property>
   </action>
   <action name="m_next_page_action">
@@ -361,7 +361,7 @@
      <normaloff>:/ico/16x16/arrow-right.png</normaloff>:/ico/16x16/arrow-right.png</iconset>
    </property>
    <property name="text">
-    <string>Page suivante</string>
+    <string>Next page</string>
    </property>
   </action>
   <action name="m_last_page_action">
@@ -370,7 +370,7 @@
      <normaloff>:/ico/22x22/arrow-right-double.png</normaloff>:/ico/22x22/arrow-right-double.png</iconset>
    </property>
    <property name="text">
-    <string>Dernière page</string>
+    <string>Last page</string>
    </property>
   </action>
   <action name="m_display_single_page_action">
@@ -379,7 +379,7 @@
      <normaloff>:/ico/22x22/single_page.png</normaloff>:/ico/22x22/single_page.png</iconset>
    </property>
    <property name="text">
-    <string>Afficher une seule page</string>
+    <string>Show single page</string>
    </property>
   </action>
   <action name="m_display_two_page_action">
@@ -388,7 +388,7 @@
      <normaloff>:/ico/22x22/two_pages.png</normaloff>:/ico/22x22/two_pages.png</iconset>
    </property>
    <property name="text">
-    <string>Afficher deux pages</string>
+    <string>Display facing pages</string>
    </property>
   </action>
   <action name="m_display_all_page_action">
@@ -397,7 +397,7 @@
      <normaloff>:/ico/22x22/all_pages.png</normaloff>:/ico/22x22/all_pages.png</iconset>
    </property>
    <property name="text">
-    <string>Afficher un aperçu de toutes les pages</string>
+    <string>Show preview of all pages</string>
    </property>
   </action>
   <action name="m_page_setup">
@@ -406,7 +406,7 @@
      <normaloff>:/ico/48x48/document-print-frame.png</normaloff>:/ico/48x48/document-print-frame.png</iconset>
    </property>
    <property name="text">
-    <string>mise en page</string>
+    <string>Page layout</string>
    </property>
   </action>
  </widget>

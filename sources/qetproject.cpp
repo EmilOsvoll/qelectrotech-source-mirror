@@ -393,21 +393,21 @@ QString QETProject::pathNameTitle() const
 	if (!project_title_.isEmpty()) {
 		final_title = QString(
 			tr(
-				"Projet « %1 : %2»",
-				"displayed title for a ProjectView - %1 is the project title, -%2 is the project path"
+				"Project «%1 : %2»",
+				"displayed title for a ProjectView - %1 is the project title, - %2 is the project path"
 			)
 		).arg(project_title_, m_file_path);
 	} else if (!m_file_path.isEmpty()) {
 		final_title = QString(
 			tr(
-				"Projet %1",
+				"Project %1",
 				"displayed title for a title-less project - %1 is the file name"
 			)
 		).arg(QFileInfo(m_file_path).completeBaseName());
 	} else {
 		final_title = QString(
 			tr(
-				"Projet sans titre",
+				"Project without title",
 				"displayed title for a project-less, file-less project"
 			)
 		);
@@ -416,7 +416,7 @@ QString QETProject::pathNameTitle() const
 	if (isReadOnly()) {
 		final_title = QString(
 			tr(
-				"%1 [lecture seule]",
+				"%1 [Read only]",
 				"displayed title for a read-only project - %1 is a displayable title"
 			)
 		).arg(final_title);
@@ -424,7 +424,7 @@ QString QETProject::pathNameTitle() const
 	if (m_modified) {
 		final_title = QString(
 			tr(
-				"%1 [modifié]",
+				"%1 [Edited]",
 				"displayed title for a modified project - %1 is a displayable title"
 			)
 		).arg(final_title);
@@ -952,7 +952,7 @@ QDomDocument QETProject::toXml()
 
 	// schemas
 
-	qDebug() << "Export XML de" << m_diagrams_list.count() << "schemas";
+	qDebug() << "Export XML de" << m_diagrams_list.count() << "diagrams";
 	int order_num = 1;
 	const QList<Diagram *> diagrams_list = m_diagrams_list;
 	for(Diagram *diagram : diagrams_list)
@@ -1357,9 +1357,9 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 			{
 				int ret = QET::QetMessageBox::warning(
 							nullptr,
-							tr("Avertissement",
+							tr("Warning",
 							   "message box title"),
-							tr("Ce document semble avoir été enregistré avec une version %1"
+							tr("This document appears to have been saved with version %1"
 							   "\n qui est ultérieure à votre version !"
 							   " \n"
 							   "Vous utilisez actuellement QElectroTech en version %2")
@@ -1384,12 +1384,12 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 			{
 				auto ret = QET::QetMessageBox::warning(
 							nullptr,
-							tr("Avertissement ", "message box title"),
-							tr("Le projet que vous tentez d'ouvrir est partiellement "
-							   "compatible avec votre version %1 de QElectroTech.\n")
+							tr("Warning ", "message box title"),
+							tr("The project you are trying to open is partially "
+							   "compatible with your version %1 of QElectroTech.\n")
 							.arg(QetVersion::currentVersion().toString()) +
-							tr("Afin de le rendre totalement compatible veuillez ouvrir ce même projet "
-							   "avec la version 0.8, ou 0.80 de QElectroTech et sauvegarder le projet "
+							tr("In order to make it fully compatible please open this same project "
+							   "with version 0.8, or 0.80 of QElectroTech and save the project "
 							   "et l'ouvrir à  nouveau avec cette version.\n"
 							   "Que désirez vous faire ?"),
 							   QMessageBox::Open | QMessageBox::Cancel
@@ -1460,7 +1460,7 @@ void QETProject::readDiagramsXml(QDomDocument &xml_project)
 		dlgWaiting -> setModal(true);
 		dlgWaiting -> show();
 		dlgWaiting -> setTitle(tr("<p align=\"center\">"
-					  "<b>Ouverture du projet en cours...</b><br/>"
+					  "<b>Opening of the current project...</b><br/>"
 					  "Création des folios"
 					  "</p>"));
 	}
@@ -1502,7 +1502,7 @@ void QETProject::readDiagramsXml(QDomDocument &xml_project)
 	if(dlgWaiting)
 	{
 		dlgWaiting->setTitle( tr("<p align=\"center\">"
-								 "<b>Ouverture du projet en cours...</b><br/>"
+								 "<b>Opening of the current project...</b><br/>"
 								 "Mise en place des références croisées"
 								 "</p>"));
 	}

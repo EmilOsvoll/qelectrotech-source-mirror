@@ -157,14 +157,14 @@ void DiagramEventAddImage::openDialog()
 	
 	//Open dialog to select image
 	QString pathPictures = QETApp::pictureDir();
-	QString fileName = QFileDialog::getOpenFileName(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Selectionner une image..."), pathPictures, QObject::tr("Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)"));
+	QString fileName = QFileDialog::getOpenFileName(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Select an image..."), pathPictures, QObject::tr("Image Files (*.png *.jpg  *.jpeg *.bmp *.svg)"));
 	
 	if (fileName.isEmpty()) return;
 	
 	QImage image(fileName);
 	if(image.isNull())
 	{
-		QMessageBox::critical(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Erreur"), QObject::tr("Impossible de charger l'image."));
+		QMessageBox::critical(m_diagram->views().isEmpty()? nullptr : m_diagram->views().first(), QObject::tr("Error"), QObject::tr("Unable to load the image."));
 		return;
 	}
 	

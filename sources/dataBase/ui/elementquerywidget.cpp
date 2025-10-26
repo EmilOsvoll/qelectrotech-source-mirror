@@ -35,9 +35,9 @@ ElementQueryWidget::ElementQueryWidget(QWidget *parent) :
 	ui->setupUi(this);
 
 	m_export_info.insert("position", tr("Position"));
-	m_export_info.insert("title", tr("Titre du folio"));
-	m_export_info.insert("diagram_position", tr("Position du folio"));
-	m_export_info.insert("folio", tr("Numéro du folio"));
+	m_export_info.insert("title", tr("Folio title"));
+	m_export_info.insert("diagram_position", tr("Folio position"));
+	m_export_info.insert("folio", tr("Folio number"));
 
 	m_button_group.setExclusive(false);
 	m_button_group.addButton(ui->m_all_cb, 0);

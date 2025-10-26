@@ -130,13 +130,13 @@ void TitleBlockDimensionWidget::initWidgets()
 	// extra widgets, for the user to specify whether the value is absolute, relative, etc.
 	if (complete_) {
 		absolute_button_  = new QRadioButton(
-					tr("Absolu",
+					tr("Absolute",
 					   "a traditional, absolute measure"));
 		relative_button_  = new QRadioButton(
-					tr("Relatif au total",
+					tr("Relative to total",
 					   "a percentage of the total width"));
 		remaining_button_ = new QRadioButton(
-					tr("Relatif au restant",
+					tr("Relative to remaining",
 					   "a percentage of what remains from the total width"));
 		dimension_type_   = new QButtonGroup(this);
 		dimension_type_ -> addButton(absolute_button_,  QET::Absolute);
