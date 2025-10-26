@@ -296,7 +296,7 @@ QString QET::ElementsAndConductorsSentence(
 	if (texts_count) {
 		if (!text.isEmpty()) text += ", ";
 		text += QObject::tr(
-			"%n champ(s) de texte",
+			"%n text field(s)",
 			"part of a sentence listing the content of a diagram",
 			texts_count
 		);
@@ -323,7 +323,7 @@ QString QET::ElementsAndConductorsSentence(
 	if (element_text_count) {
 		if (!text.isEmpty()) text += ", ";
 		text += QObject::tr(
-					"%n texte(s) d'élément",
+					"%n element text(s)",
 					"part of a sentence listing the content of a diagram",
 					element_text_count);
 	}
@@ -339,7 +339,7 @@ QString QET::ElementsAndConductorsSentence(
 	if (terminal_strip_count) {
 		if (!text.isEmpty()) text += ", ";
 		text += QObject::tr(
-					"%n plan de bornes",
+					"%n terminal plan",
 					"part of a sentence listing the content of a diagram",
 					terminal_strip_count);
 	}
@@ -408,11 +408,11 @@ QString QET::license()
 	QString txt_license;
 	// verifie que le fichier existe
 	if (!file_license -> exists()) {
-		txt_license = QString(QObject::tr("Le fichier texte contenant la licence GNU/GPL est introuvable - bon bah de toute façon, vous la connaissez par coeur non ?"));
+		txt_license = QString(QObject::tr("The text file containing the GNU/GPL license could not be found - however, you know it by heart, don't you?"));
 	} else {
 		// ouvre le fichier en mode texte et en lecture seule
 		if (!file_license -> open(QIODevice::ReadOnly | QIODevice::Text)) {
-			txt_license = QString(QObject::tr("Le fichier texte contenant la licence GNU/GPL existe mais n'a pas pu être ouvert - bon bah de toute façon, vous la connaissez par coeur non ?"));
+			txt_license = QString(QObject::tr("The text file containing the GNU/GPL license exists but could not be opened - however, you know it by heart, don't you?"));
 		} else {
 			// charge le contenu du fichier dans une QString
 			QTextStream in(file_license);
@@ -677,7 +677,7 @@ bool QET::writeXmlFile(QDomDocument &xml_doc, const QString &filepath, QString *
 		if (error_message)
 		{
 			*error_message = QString(QObject::tr(
-							 "Impossible d'ouvrir le fichier %1 en écriture, erreur %2 rencontrée.",
+							 "Unable to open file %1 for writing, error %2 encountered.",
 							 "error message when attempting to write an XML file")).arg(filepath).arg(file.error());
 		}
 		return(false);
@@ -698,7 +698,7 @@ bool QET::writeXmlFile(QDomDocument &xml_doc, const QString &filepath, QString *
 	{
 		if (error_message) {
 			*error_message = QString(QObject::tr(
-							 "Une erreur est survenue lors de l'écriture du fichier %1, erreur %2 rencontrée.",
+							 "An error occurred while writing file %1, error %2 encountered.",
 							 "error message when attempting to write an XML file")).arg(filepath).arg(file.error());
 		}
 
@@ -775,15 +775,15 @@ QActionGroup *QET::depthActionGroup(QObject *parent)
 {
 	QActionGroup *action_group = new QActionGroup(parent);
 
-	QAction *edit_forward  = new QAction(QET::Icons::BringForward, QObject::tr("Amener au premier plan"), action_group);
-	QAction *edit_raise    = new QAction(QET::Icons::Raise,        QObject::tr("Rapprocher"),             action_group);
-	QAction *edit_lower    = new QAction(QET::Icons::Lower,        QObject::tr("Éloigner"),               action_group);
-	QAction *edit_backward = new QAction(QET::Icons::SendBackward, QObject::tr("Envoyer au fond"),        action_group);
+	QAction *edit_forward  = new QAction(QET::Icons::BringForward, QObject::tr("Bring forward"), action_group);
+	QAction *edit_raise    = new QAction(QET::Icons::Raise,        QObject::tr("Raise"),             action_group);
+	QAction *edit_lower    = new QAction(QET::Icons::Lower,        QObject::tr("Lower"),               action_group);
+	QAction *edit_backward = new QAction(QET::Icons::SendBackward, QObject::tr("Send backward"),        action_group);
 
-	edit_forward ->setStatusTip(QObject::tr("Ramène la ou les sélections au premier plan"));
-	edit_raise   ->setStatusTip(QObject::tr("Rapproche la ou les sélections"));
-	edit_lower   ->setStatusTip(QObject::tr("Éloigne la ou les sélections"));
-	edit_backward->setStatusTip(QObject::tr("Envoie en arrière plan la ou les sélections"));
+	edit_forward ->setStatusTip(QObject::tr("Brings the selection(s) to the front"));
+	edit_raise   ->setStatusTip(QObject::tr("Brings the selection(s) closer together"));
+	edit_lower   ->setStatusTip(QObject::tr("Moves the selection(s) away"));
+	edit_backward->setStatusTip(QObject::tr("Sends the selection(s) to the background"));
 
 	edit_raise   ->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_Up);
 	edit_lower   ->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_Down);
@@ -812,7 +812,7 @@ bool QET::writeToFile(QDomDocument &xml_doc, QFile *file, QString *error_message
 				QFileInfo info_(*file);
 				*error_message = QString(
 							QObject::tr(
-								"Impossible d'ouvrir le fichier %1 en écriture, erreur %2 rencontrée.",
+								"Unable to open file %1 for writing, error %2 encountered.",
 								"error message when attempting to write an XML file")
 				).arg(info_.absoluteFilePath()).arg(file->error());
 			}

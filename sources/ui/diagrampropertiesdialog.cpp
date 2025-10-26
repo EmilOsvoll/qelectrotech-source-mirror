@@ -47,7 +47,7 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	setWindowFlags(Qt::Sheet);
 #endif
 
-	setWindowTitle(tr("Propriétés du folio", "window title"));
+	setWindowTitle(tr("Folio properties", "window title"));
 
 	//Border widget
 	BorderPropertiesWidget *border_infos = new BorderPropertiesWidget(border, this);

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ ChangeElementInformationCommand::ChangeElementInformationCommand(
 	QUndoCommand (parent)
 {
 	m_map.insert(QPointer<Element>(elmt), qMakePair(old_info, new_info));
-	setText(QObject::tr("Modifier les informations de l'élément : %1")
+	setText(QObject::tr("Edit information of the element : %1")
 			.arg(elmt -> name()));
 }
 
@@ -47,7 +47,7 @@ ChangeElementInformationCommand::ChangeElementInformationCommand(QMap<QPointer<E
 	QUndoCommand(parent),
 	m_map(map)
 {
-	setText(QObject::tr("Modifier les informations de plusieurs éléments"));
+	setText(QObject::tr("Edit information for multiple items"));
 }
 
 bool ChangeElementInformationCommand::mergeWith(const QUndoCommand *other)

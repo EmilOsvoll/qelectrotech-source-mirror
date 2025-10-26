@@ -55,54 +55,54 @@ TitleBlockTemplateCellWidget::~TitleBlockTemplateCellWidget()
 void TitleBlockTemplateCellWidget::initWidgets()
 {
 	// type combo box: always displayed
-	cell_type_label_ = new QLabel(tr("Type de cellule :"));
+	cell_type_label_ = new QLabel(tr("Cell type:"));
 	cell_type_input_ = new QComboBox();
-	cell_type_input_ -> addItem(tr("Vide"),  TitleBlockCell::EmptyCell);
-	cell_type_input_ -> addItem(tr("Texte"), TitleBlockCell::TextCell);
+	cell_type_input_ -> addItem(tr("Empty"),  TitleBlockCell::EmptyCell);
+	cell_type_input_ -> addItem(tr("Text"), TitleBlockCell::TextCell);
 	cell_type_input_ -> addItem(tr("Logo"),  TitleBlockCell::LogoCell);
 	
 	// name input: displayed for text and logo cells
-	name_label_ = new QLabel(tr("Nom :"));
+	name_label_ = new QLabel(tr("Name:"));
 	name_input_ = new QLineEdit();
 	
 	// widgets specific to empty cells
-	empty_label_ = new QLabel(tr("Attention : les bordures des cellules vides n'apparaissent pas lors du rendu final sur le folio."));
+	empty_label_ = new QLabel(tr("Warning: the edges of empty cells do not appear in the final render of the folio."));
 	
 	// widgets specific to logo cells
 	logo_label_ = new QLabel(tr("Logo"));
 	logo_input_ = new QComboBox();
-	logo_input_ -> addItem(tr("Aucun logo"));
-	add_logo_input_ = new QPushButton(QET::Icons::InsertImage, tr("Gérer les logos"));
+	logo_input_ -> addItem(tr("No logo"));
+	add_logo_input_ = new QPushButton(QET::Icons::InsertImage, tr("Manage logos"));
 	
 	// widgets specific to text cells
-	label_checkbox_ = new QCheckBox(tr("Afficher un label :"));
+	label_checkbox_ = new QCheckBox(tr("Display a label:"));
 	label_input_ = new QLineEdit();
 	label_input_ -> setReadOnly(true);
-	label_edit_ = new QPushButton(tr("Editer"));
-	value_label_ = new QLabel(tr("Texte :"));
+	label_edit_ = new QPushButton(tr("Edit"));
+	value_label_ = new QLabel(tr("Text:"));
 	value_input_ = new QLineEdit();
 	value_input_ -> setReadOnly(true);
-	value_edit_ = new QPushButton(tr("Editer"));
-	align_label_ = new QLabel(tr("Alignement :"));
-	horiz_align_label_ = new QLabel(tr("horizontal :"));
+	value_edit_ = new QPushButton(tr("Edit"));
+	align_label_ = new QLabel(tr("Alignment:"));
+	horiz_align_label_ = new QLabel(tr("Horizontal:"));
 	horiz_align_input_ = new QComboBox();
-	horiz_align_input_ -> addItem(tr("Gauche"), Qt::AlignLeft);
-	horiz_align_input_ -> addItem(tr("Centré"), Qt::AlignHCenter);
-	horiz_align_input_ -> addItem(tr("Droite"), Qt::AlignRight);
+	horiz_align_input_ -> addItem(tr("Left"), Qt::AlignLeft);
+	horiz_align_input_ -> addItem(tr("Center"), Qt::AlignHCenter);
+	horiz_align_input_ -> addItem(tr("Right"), Qt::AlignRight);
 	horiz_align_indexes_.insert(Qt::AlignLeft,    0);
 	horiz_align_indexes_.insert(Qt::AlignHCenter, 1);
 	horiz_align_indexes_.insert(Qt::AlignRight,   2);
-	vert_align_label_= new QLabel(tr("vertical :"));
+	vert_align_label_= new QLabel(tr("Vertical:"));
 	vert_align_input_ = new QComboBox();
-	vert_align_input_ -> addItem(tr("Haut"),   Qt::AlignTop);
-	vert_align_input_ -> addItem(tr("Milieu"), Qt::AlignVCenter);
-	vert_align_input_ -> addItem(tr("Bas"),    Qt::AlignBottom);
+	vert_align_input_ -> addItem(tr("Top"),   Qt::AlignTop);
+	vert_align_input_ -> addItem(tr("Middle"), Qt::AlignVCenter);
+	vert_align_input_ -> addItem(tr("Bottom"),    Qt::AlignBottom);
 	vert_align_indexes_.insert(Qt::AlignTop,     0);
 	vert_align_indexes_.insert(Qt::AlignVCenter, 1);
 	vert_align_indexes_.insert(Qt::AlignBottom,  2);
-	font_size_label_ = new QLabel(tr("Police :"));
+	font_size_label_ = new QLabel(tr("Font:"));
 	font_size_input_ = new QSpinBox();
-	font_adjust_input_ = new QCheckBox(tr("Ajuster la taille de police si besoin"));
+	font_adjust_input_ = new QCheckBox(tr("Adjust font size if needed"));
 	
 	// layout
 	QHBoxLayout *label_edition = new QHBoxLayout();

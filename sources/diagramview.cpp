@@ -75,10 +75,10 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 	m_diagram->loadElmtFolioSeq();
 	m_diagram->loadCndFolioSeq();
 
-	m_paste_here = new QAction(QET::Icons::EditPaste, tr("Coller ici", "context menu action"), this);
+	m_paste_here = new QAction(QET::Icons::EditPaste, tr("Paste Here", "context menu action"), this);
 	connect(m_paste_here, SIGNAL(triggered()), this, SLOT(pasteHere()));
 
-	m_multi_paste = new QAction(QET::Icons::EditPaste, tr("Collage multiple"), this);
+	m_multi_paste = new QAction(QET::Icons::EditPaste, tr("Multiple paste"), this);
 	connect(m_multi_paste, &QAction::triggered, [this]() {
 		MultiPasteDialog d(this->m_diagram, this);
 		d.exec();
@@ -115,7 +115,7 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 
 			// prepare a color dialog showing the initial conductor color
 		QColorDialog *color_dialog = new QColorDialog(this);
-		color_dialog->setWindowTitle(tr("Choisir la nouvelle couleur de ce conducteur"));
+		color_dialog->setWindowTitle(tr("Choose the new color for this conductor"));
 #ifdef Q_OS_MACOS
 		color_dialog -> setWindowFlags(Qt::Sheet);
 #endif
@@ -134,7 +134,7 @@ DiagramView::DiagramView(Diagram *diagram, QWidget *parent) :
 				new_value.setValue(initial_properties);
 
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(edited_conductor, "properties", old_value, new_value);
-				undo->setText(tr("Modifier les propriétés d'un conducteur", "undo caption"));
+				undo->setText(tr("Edit conductor properties", "undo caption"));
 				m_diagram->undoStack().push(undo);
 			}
 		}
@@ -607,7 +607,7 @@ void DiagramView::mouseReleaseEvent(QMouseEvent *e)
 		{
 				//Popup a menu with an action to create conductors between
 				//all selected terminals.
-			QAction *act = new QAction(tr("Connecter les bornes sélectionnées"), this);
+			QAction *act = new QAction(tr("Connect the selected terminals"), this);
 			QPolygonF polygon_ = m_free_rubberband;
 			connect(act, &QAction::triggered, [this, polygon_]()
 			{
@@ -895,7 +895,7 @@ QString DiagramView::title() const
 	QString view_title;
 	QString diagram_title(m_diagram -> title());
 	if (diagram_title.isEmpty()) {
-		view_title = tr("Sans titre", "what to display for untitled diagrams");
+		view_title = tr("Untitled", "what to display for untitled diagrams");
 	} else {
 		view_title = diagram_title;
 	}

@@ -101,7 +101,7 @@ void MultiPasteDialog::on_m_button_box_accepted()
 {
 	if(m_pasted_content.count())
 	{
-		m_diagram->undoStack().beginMacro(tr("Multi-collage"));
+		m_diagram->undoStack().beginMacro(tr("Multi-paste"));
 
 		QSettings settings;
 		bool erase_label = settings.value("diagramcommands/erase-label-on-copy", true).toBool();

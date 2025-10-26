@@ -1386,8 +1386,8 @@ bool Diagram::fromXml(QDomElement &document,
 		{
 			QString debug_message =
 				QString("Diagram::fromXml() : Le chargement de "
-					"la description de l'element %1 a "
-					"echoue avec le code d'erreur %2").arg(
+					"the description of element %1 a "
+					"fails with error code %2").arg(
 					element_location.path()).arg(state);
 			qDebug() << qPrintable(debug_message);
 			delete nvel_elmt;
@@ -1859,7 +1859,7 @@ void Diagram::loadFolioSeqHash(QHash<QString,
 void Diagram::changeZValue(QET::DepthOption option)
 {
 	DiagramContent dc(this);
-	QUndoCommand *undo = new QUndoCommand(tr("Modifier la profondeur"));
+	QUndoCommand *undo = new QUndoCommand(tr("Change the depth"));
 	QList<QGraphicsItem *> l = dc.items(DiagramContent::SelectedOnly | \
 					    DiagramContent::Elements | \
 					    DiagramContent::Shapes | \

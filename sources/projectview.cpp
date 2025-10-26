@@ -359,7 +359,7 @@ QString ProjectView::askUserForFilePath(bool assign) {
 */
 QETResult ProjectView::noProjectResult() const
 {
-	QETResult no_project(tr("aucun projet affiché", "error message"), false);
+	QETResult no_project(tr("no projects displayed", "error message"), false);
 	return(no_project);
 }
 
@@ -381,8 +381,8 @@ void ProjectView::removeDiagram(DiagramView *diagram_view)
 	//Ask confirmation to user.
 	int answer = QET::QetMessageBox::question(
 		this,
-		tr("Supprimer le folio ?", "message box title"),
-		tr("Êtes-vous sûr  de vouloir supprimer ce folio du projet ? Ce changement est irréversible.", "message box content"),
+		tr("Delete this folio ?", "message box title"),
+		tr("Are you sure you want to remove this folio from the project ? This change is irreversible.", "message box content"),
 		QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
 		QMessageBox::No
 	);
@@ -658,16 +658,16 @@ int ProjectView::cleanProject()
 	if (m_project -> isReadOnly()) {
 		QET::QetMessageBox::critical(
 			this,
-			tr("Projet en lecture seule", "message box title"),
-			tr("Ce projet est en lecture seule. Il n'est donc pas possible de le nettoyer.", "message box content")
+			tr("Read-only project", "message box title"),
+			tr("This project is read-only, so it cannot be cleaned.", "message box content")
 		);
 		return(0);
 	}
 
 	// construit un petit dialogue pour parametrer le nettoyage
-	QCheckBox *clean_tbt		= new QCheckBox(tr("Supprimer les modèles de cartouche inutilisés dans le projet"));
-	QCheckBox *clean_elements   = new QCheckBox(tr("Supprimer les éléments inutilisés dans le projet"));
-	QCheckBox *clean_categories = new QCheckBox(tr("Supprimer les catégories vides"));
+	QCheckBox *clean_tbt		= new QCheckBox(tr("Delete unused title block templates in the project"));
+	QCheckBox *clean_elements   = new QCheckBox(tr("Delete unused elements in the project"));
+	QCheckBox *clean_categories = new QCheckBox(tr("Delete empty categories"));
 	QDialogButtonBox *buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
 	clean_tbt		-> setChecked(true);
@@ -713,13 +713,13 @@ int ProjectView::cleanProject()
 */
 void ProjectView::initActions()
 {
-	m_add_new_diagram = new QAction(QET::Icons::AddFolio, tr("Ajouter un folio"), this);
+	m_add_new_diagram = new QAction(QET::Icons::AddFolio, tr("Add a folio"), this);
 	connect(m_add_new_diagram, &QAction::triggered, [this](){this->m_project->addNewDiagram();});
 	
-	m_first_view = new QAction(QET::Icons::ArrowLeftDouble, tr("Revenir au debut du projet"),this);
+	m_first_view = new QAction(QET::Icons::ArrowLeftDouble, tr("Return to the beginning of the project"),this);
 	connect(m_first_view, &QAction::triggered, [this](){this->m_tab->setCurrentWidget(firstDiagram());});
 	
-	m_end_view = new QAction(QET::Icons::ArrowRightDouble, tr("Aller à la fin du projet"),this);
+	m_end_view = new QAction(QET::Icons::ArrowRightDouble, tr("Go to the end of the project"),this);
 	connect(m_end_view, &QAction::triggered, [this](){this->m_tab->setCurrentWidget(lastDiagram());});
 }
 
@@ -735,7 +735,7 @@ void ProjectView::initWidgets()
 	fallback_widget_ = new QWidget();
 	fallback_label_ = new QLabel(
 		tr(
-			"Ce projet ne contient aucun folio",
+			"This project does not contain any folio",
 			"label displayed when a project contains no diagram"
 		)
 	);
@@ -817,7 +817,7 @@ void ProjectView::loadDiagrams()
 	if(dialog)
 	{
 		dialog->setTitle( tr("<p align=\"center\">"
-												"<b>Ouverture du projet en cours...</b><br/>"
+												"<b>Opening of the current project...</b><br/>"
 												"Création des onglets de folio :"
 												"</p>"));
 	}
@@ -859,7 +859,7 @@ void ProjectView::updateWindowTitle()
 	if (m_project) {
 		title = m_project -> pathNameTitle();
 	} else {
-		title = tr("Projet", "window title for a project-less ProjectView");
+		title = tr("Project", "window title for a project-less ProjectView");
 	}
 	setWindowTitle(title);
 }

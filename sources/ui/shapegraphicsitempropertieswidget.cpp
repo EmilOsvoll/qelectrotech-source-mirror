@@ -179,7 +179,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 			if (new_pen != old_pen)
 			{
 				undo = new QPropertyUndoCommand(m_shape, "pen", old_pen, new_pen);
-				undo->setText(tr("Modifier le trait d'une forme"));
+				undo->setText(tr("Change the stroke of a shape"));
 			}
 
 			QBrush old_brush = m_shape->brush();
@@ -194,7 +194,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 				else
 				{
 					undo = new QPropertyUndoCommand(m_shape, "brush", old_brush, new_brush);
-					undo->setText(tr("Modifier le remplissage d'une forme"));
+					undo->setText(tr("Change the fill of a shape"));
 				}
 			}
 
@@ -205,7 +205,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 				else
 				{
 					undo = new QPropertyUndoCommand(m_shape, "close", m_shape->isClosed(), ui->m_close_polygon->isChecked(), undo);
-					undo->setText(tr("Fermer le polygone"));
+					undo->setText(tr("Close the polygon"));
 				}
 			}
 
@@ -261,7 +261,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 			for (QPointer<QetShapeItem> qsi : pen_H.keys())
 			{
 				if (!parent_undo) {
-					parent_undo = new QUndoCommand(tr("Modifier une forme simple"));
+					parent_undo = new QUndoCommand(tr("Edit a simple shape"));
 				}
 				new QPropertyUndoCommand(qsi, "pen", qsi->pen(), pen_H.value(qsi), parent_undo);
 			}
@@ -293,7 +293,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 			for (QPointer<QetShapeItem> qsi : brush_H.keys())
 			{
 				if (!parent_undo) {
-					parent_undo = new QUndoCommand(tr("Modifier une forme simple"));
+					parent_undo = new QUndoCommand(tr("Edit a simple shape"));
 				}
 
 				new QPropertyUndoCommand(qsi, "brush", qsi->brush(), brush_H.value(qsi), parent_undo);
@@ -305,7 +305,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 		//In mode not live edit, only one shape can be edited
 	else if (m_shapes_list.isEmpty())
 	{
-		QUndoCommand *undo = new QUndoCommand(tr("Modifier les propriétés d'une forme simple"));
+		QUndoCommand *undo = new QUndoCommand(tr("Edit the properties of a simple shape"));
 		QPen old_pen = m_shape->pen();
 		QPen new_pen = old_pen;
 
