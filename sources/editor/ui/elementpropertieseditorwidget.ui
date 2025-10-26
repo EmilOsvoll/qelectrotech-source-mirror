@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Propriété de l'élément</string>
+   <string>Element property</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -32,7 +32,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Type de base :</string>
+            <string>Basic type:</string>
            </property>
           </widget>
          </item>
@@ -44,7 +44,7 @@
        <item>
         <widget class="QGroupBox" name="m_slave_gb">
          <property name="title">
-          <string>Élément esclave</string>
+          <string>Slave element</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
@@ -59,21 +59,21 @@
             <item row="3" column="0">
              <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>Nombre de contact représenté</string>
+               <string>Number of switches represented</string>
               </property>
              </widget>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_3">
               <property name="text">
-               <string>Type de contact</string>
+               <string>Type of switch</string>
               </property>
              </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_2">
               <property name="text">
-               <string>État du contact</string>
+               <string>Switch state</string>
               </property>
              </widget>
             </item>
@@ -91,13 +91,13 @@
        <item>
         <widget class="QGroupBox" name="m_master_gb">
          <property name="title">
-          <string>Élément maître</string>
+          <string>Master element</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Type concret</string>
+             <string>Concrete type</string>
             </property>
            </widget>
           </item>
@@ -110,7 +110,7 @@
        <item>
         <widget class="QGroupBox" name="m_terminal_gb">
          <property name="title">
-          <string>Élément bornier</string>
+          <string>Terminal block element</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
           <item row="0" column="0">
@@ -123,7 +123,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_7">
             <property name="text">
-             <string>Fonction</string>
+             <string>Function</string>
             </property>
            </widget>
           </item>
@@ -163,12 +163,12 @@
          </attribute>
          <column>
           <property name="text">
-           <string>Nom</string>
+           <string>Name</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Valeurs</string>
+           <string>Values</string>
           </property>
          </column>
         </widget>

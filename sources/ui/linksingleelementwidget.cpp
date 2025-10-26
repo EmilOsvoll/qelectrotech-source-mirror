@@ -46,10 +46,10 @@ LinkSingleElementWidget::LinkSingleElementWidget(Element *elmt,
 	
 	ui->m_tree_widget->setContextMenuPolicy(Qt::CustomContextMenu);
 	m_context_menu  = new QMenu(this);
-	m_link_action   = new QAction(tr("Lier l'élément"), this);
-	m_show_qtwi     = new QAction(tr("Montrer l'élément"), this);
-	m_show_element  = new QAction(tr("Montrer l'élément esclave"), this);
-	m_save_header_state = new QAction(tr("Enregistrer la disposition"), this);
+	m_link_action   = new QAction(tr("Link the element"), this);
+	m_show_qtwi     = new QAction(tr("Show element"), this);
+	m_show_element  = new QAction(tr("Show slave element"), this);
+	m_save_header_state = new QAction(tr("Save header state"), this);
 	
 	connect(m_show_qtwi, &QAction::triggered, this, [=]()
 	{
@@ -206,9 +206,9 @@ QUndoCommand *LinkSingleElementWidget::associatedUndo() const
 QString LinkSingleElementWidget::title() const
 {
 	if (m_element->elementData().m_type & ElementData::AllReport)
-		return tr("Report de folio");
+		return tr("Folio referencing");
 	else
-		return tr("Référence croisée (esclave)");
+		return tr("Cross reference (esclave)");
 }
 
 /**
@@ -442,18 +442,18 @@ void LinkSingleElementWidget::setUpHeaderLabels()
 		if (settings.value(QStringLiteral("genericpanel/folio"), false).toBool())
 		{
 			list << tr("Label")
-			     << tr("Commentaire")
-			     << tr("Label de folio")
+			     << tr("Annotation")
+			     << tr("Folio label")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Folio title");
 		}
 		else
 		{
 			list << tr("Label")
-			     << tr("Commentaire")
-			     << tr("N° de folio")
+			     << tr("Annotation")
+			     << tr("Folio number")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Folio title");
 		}
 	}
 	
@@ -461,25 +461,25 @@ void LinkSingleElementWidget::setUpHeaderLabels()
 	{
 		if (settings.value(QStringLiteral("genericpanel/folio"), false).toBool())
 		{
-			list << tr("N° de fil")
-			     << tr("Fonction")
-			     << tr("Tension / Protocole")
-			     << tr("Couleur du conducteur")
-			     << tr("Section du conducteur")
-			     << tr("Label de folio")
+			list << tr("Wire number")
+			     << tr("Function")
+			     << tr("Voltage / Protocol")
+			     << tr("Conductor color")
+			     << tr("Conductor section")
+			     << tr("Folio label")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Folio title");
 		}
 		else
 		{
-			list << tr("N° de fil")
-			     << tr("Fonction")
-			     << tr("Tension / Protocole")
-			     << tr("Couleur du conducteur")
-			     << tr("Section du conducteur")
-			     << tr("N° de folio")
+			list << tr("Wire number")
+			     << tr("Function")
+			     << tr("Voltage / Protocol")
+			     << tr("Conductor color")
+			     << tr("Conductor section")
+			     << tr("Folio number")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Folio title");
 		}
 	}
 	

@@ -60,6 +60,12 @@ if(WIN32)
   set(QET_COMMON_TBT_PATH         "titleblocks/")
   set(QET_LANG_PATH               "l10n/")
   set(QET_LICENSE_PATH            "./")
+  set(QET_ICONS_PATH              "icons/")
+  set(QET_MIME_PACKAGE_PATH       "mime/")
+  set(QET_DESKTOP_PATH            "applications/")
+  set(QET_MAN_PATH                "man/")
+  set(QET_APPDATA_PATH            "appdata/")
+  set(QET_EXAMPLES_PATH           "examples/")
   # Liste des ressources Windows
 #RC_FILE = qelectrotech.rc
 endif()

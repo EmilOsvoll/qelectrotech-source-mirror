@@ -268,7 +268,7 @@ bool QETXML::writeXmlFile(
 		{
 			*error_message = QString(
 						QObject::tr(
-							"Impossible d'ouvrir le fichier %1 en écriture, erreur %2 rencontrée.",
+							"Unable to open file %1 for writing, error %2 encountered.",
 							 "error message when attempting to write an XML file")
 							 ).arg(file_path).arg(file.error());
 		}

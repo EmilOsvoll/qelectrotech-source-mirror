@@ -124,7 +124,7 @@ QETApp::QETApp() :
 		this, &QETApp::checkRemainingWindows);
 
 	setSplashScreenStep(
-		tr("Chargement... Initialisation du cache des collections d'éléments",
+		tr("Loading... Initializing the item collection cache",
 		   "splash screen caption"));
 	if (!collections_cache_) {
 	QString cache_path = QETApp::dataDir() + "/elements_cache.sqlite";
@@ -135,12 +135,12 @@ QETApp::QETApp() :
 
 	if (qet_arguments_.files().isEmpty())
 	{
-		setSplashScreenStep(tr("Chargement... Éditeur de schéma",
+		setSplashScreenStep(tr("Loading... Schema Editor",
 					   "splash screen caption"));
 		new QETDiagramEditor();
 	} else
 	{
-		setSplashScreenStep(tr("Chargement... Ouverture des fichiers",
+		setSplashScreenStep(tr("Loading... Opening files",
 					   "splash screen caption"));
 		openFiles(qet_arguments_);
 	}
@@ -439,7 +439,7 @@ TitleBlockTemplatesFilesCollection *QETApp::commonTitleBlockTemplatesCollection(
 				new TitleBlockTemplatesFilesCollection(
 					QETApp::commonTitleBlockTemplatesDir());
 		m_common_tbt_collection -> setTitle(
-					tr("Cartouches QET",
+					tr("QET title blocks",
 					   "title of the title block templates \
 					collection provided by QElectroTech"));
 		m_common_tbt_collection -> setProtocol(QETAPP_COMMON_TBT_PROTOCOL);
@@ -460,7 +460,7 @@ TitleBlockTemplatesFilesCollection *QETApp::companyTitleBlockTemplatesCollection
 				new TitleBlockTemplatesFilesCollection(
 					QETApp::companyTitleBlockTemplatesDir());
 		m_company_tbt_collection -> setTitle(
-					tr("Cartouches company",
+					tr("Company title-blocks",
 					   "title of the company's \
 					title block templates collection"));
 		m_company_tbt_collection -> setProtocol(QETAPP_COMPANY_TBT_PROTOCOL);
@@ -480,7 +480,7 @@ TitleBlockTemplatesFilesCollection *QETApp::customTitleBlockTemplatesCollection(
 		m_custom_tbt_collection =
 				new TitleBlockTemplatesFilesCollection(
 					QETApp::customTitleBlockTemplatesDir());
-		m_custom_tbt_collection -> setTitle(tr("Cartouches utilisateur",
+		m_custom_tbt_collection -> setTitle(tr("User title blocks",
 							   "title of the user's \
 					title block templates collection"));
 		m_custom_tbt_collection -> setProtocol(QETAPP_CUSTOM_TBT_PROTOCOL);
@@ -1442,9 +1442,9 @@ QTextOrientationSpinBoxWidget *QETApp::createTextOrientationSpinBoxWidget()
 				  "Single-letter example text - translate length, not meaning")
 		<< QETApp::tr("QET",
 				  "Small example text - translate length, not meaning")
-		<< QETApp::tr("Schema",
+		<< QETApp::tr("Diagram",
 				  "Normal example text - translate length, not meaning")
-		<< QETApp::tr("Electrique",
+		<< QETApp::tr("Electric",
 				  "Normal example text - translate length, not meaning")
 		<< QETApp::tr("QElectroTech",
 				  "Long example text - translate length, not meaning")
@@ -2074,7 +2074,7 @@ void QETApp::initSplashScreen()
 	if (non_interactive_execution_) return;
 	m_splash_screen = new QSplashScreen(QPixmap(":/ico/splash.png"));
 	m_splash_screen -> show();
-	setSplashScreenStep(tr("Chargement...", "splash screen caption"));
+	setSplashScreenStep(tr("Loading...", "splash screen caption"));
 }
 
 /**
@@ -2230,44 +2230,44 @@ void QETApp::initConfiguration()
 */
 void QETApp::initSystemTray()
 {
-	setSplashScreenStep(tr("Chargement... icône du systray",
+	setSplashScreenStep(tr("Loading... systray icon",
 				   "splash screen caption"));
 	// initialization of the icon menus in the systray
 	// initialisation des menus de l'icone dans le systray
 	menu_systray = new QMenu(tr("QElectroTech", "systray menu title"));
 
 	quitter_qet       = new QAction(QET::Icons::ApplicationExit,
-					tr("&Quitter"),this);
+					tr("&Quit"),this);
 	reduce_appli      = new QAction(QET::Icons::Hide,
-					tr("&Masquer"),this);
+					tr("&Hide"),this);
 	restore_appli     = new QAction(QET::Icons::Restore,
-					tr("&Restaurer"),this);
+					tr("&Show"),this);
 	reduce_diagrams   = new QAction(QET::Icons::Hide,
-					tr("&Masquer tous les éditeurs de schéma"),
+					tr("&Hide all diagram editors"),
 					this);
 	restore_diagrams  = new QAction(QET::Icons::Restore,
-					tr("&Restaurer tous les éditeurs de schéma"),
+					tr("&Show all diagram editors"),
 					this);
 	reduce_elements   = new QAction(QET::Icons::Hide,
-					tr("&Masquer tous les éditeurs d'élément"),
+					tr("&Hide all element editors"),
 					this);
 	restore_elements  = new QAction(QET::Icons::Restore,
-					tr("&Restaurer tous les éditeurs d'élément"),
+					tr("&Show all element editors"),
 					this);
 	reduce_templates  = new QAction(QET::Icons::Hide,
-					tr("&Masquer tous les éditeurs de cartouche",
+					tr("&Hide all template editors",
 					   "systray submenu entry"), this);
 	restore_templates = new QAction(QET::Icons::Restore,
-					tr("&Restaurer tous les éditeurs de cartouche",
+					tr("&Show all template editors",
 					   "systray submenu entry"), this);
 	new_diagram       = new QAction(QET::Icons::WindowNew,
-					tr("&Nouvel éditeur de schéma"),this);
+					tr("&New diagram editor"),this);
 	new_element       = new QAction(QET::Icons::WindowNew,
-					tr("&Nouvel éditeur d'élément"),this);
+					tr("&New element editor"),this);
 
-	quitter_qet   -> setStatusTip(tr("Ferme l'application QElectroTech"));
-	reduce_appli  -> setToolTip(tr("Réduire QElectroTech dans le systray"));
-	restore_appli -> setToolTip(tr("Restaurer QElectroTech"));
+	quitter_qet   -> setStatusTip(tr("Closes QElectroTech"));
+	reduce_appli  -> setToolTip(tr("Minimizes QElectroTech into the systray"));
+	restore_appli -> setToolTip(tr("Shows QElectroTech"));
 
 	connect(quitter_qet,      SIGNAL(triggered()), this, SLOT(quitQET()));
 	connect(reduce_appli,     SIGNAL(triggered()), this, SLOT(reduceEveryEditor()));
@@ -2389,7 +2389,7 @@ void QETApp::buildSystemTrayMenu()
 
 	// add item editors to the menu
 	// ajoute les editeurs d'elements au menu
-	QMenu *elements_submenu = menu_systray -> addMenu(tr("Éditeurs d'élément"));
+	QMenu *elements_submenu = menu_systray -> addMenu(tr("Element editors"));
 	elements_submenu -> addAction(reduce_elements);
 	elements_submenu -> addAction(restore_elements);
 	elements_submenu -> addAction(new_element);
@@ -2400,7 +2400,7 @@ void QETApp::buildSystemTrayMenu()
 
 	// add title block template editors in a submenu
 	// add title block template editors in a submenu
-	QMenu *tbtemplates_submenu = menu_systray -> addMenu(tr("Éditeurs de cartouche",
+	QMenu *tbtemplates_submenu = menu_systray -> addMenu(tr("Title block template editors",
 								"systray menu entry"));
 	tbtemplates_submenu -> addAction(reduce_templates);
 	tbtemplates_submenu -> addAction(restore_templates);
@@ -2470,7 +2470,7 @@ void QETApp::checkBackupFiles()
 
 	//Open backup file
 	if (QET::QetMessageBox::question(nullptr,
-					 tr("Fichier de restauration"),
+					 tr("Restore file"),
 					 text,
 					 QMessageBox::Ok
 					 |QMessageBox::Cancel
@@ -2575,24 +2575,24 @@ void QETApp::printHelp()
 		tr("Usage : ")
 		+ QFileInfo(qApp->applicationFilePath()).fileName()
 		+ tr(" [options] [fichier]...\n\n")
-		+ tr("QElectroTech, une application de réalisation de schémas électriques.\n\n"
+		+ tr("QElectroTech, an application to design electric diagrams.\n\n"
 		"Options disponibles : \n"
-		"  --help                        Afficher l'aide sur les options\n"
-		"  -v, --version                 Afficher la version\n"
-		"  --license                     Afficher la licence\n")
+		"  --help                        Show help on options\n"
+		"  -v, --version                 Show version\n"
+		"  --license                     Show license\n")
 #ifdef QET_ALLOW_OVERRIDE_CED_OPTION
-		+ tr("  --common-elements-dir=DIR     Definir le dossier de la collection d'elements\n")
+		+ tr("  --common-elements-dir=DIR     Set the element collection directory\n")
 #endif
 #ifdef QET_ALLOW_OVERRIDE_CTBTD_OPTION
-		+ tr("  --common-tbt-dir=DIR          Definir le dossier de la collection de modeles de cartouches\n")
+		+ tr("  --common-tbt-dir=DIR          Set the cartridge template collection directory\n")
 #endif
 #ifdef QET_ALLOW_OVERRIDE_CD_OPTION
-		+ tr("  --config-dir=DIR              Definir le dossier de configuration\n")
+		+ tr("  --config-dir=DIR              Set the configuration directory\n")
 #endif
 #ifdef QET_ALLOW_OVERRIDE_DD_OPTION
-		+ tr("  --data-dir=DIR                Definir le dossier de data\n")
+		+ tr("  --data-dir=DIR                Define the data directory\n")
 #endif
-		+ tr("  --lang-dir=DIR                Definir le dossier contenant les fichiers de langue\n")
+		+ tr("  --lang-dir=DIR                Define the directory containing the language files\n")
 	);
 	std::cout << qPrintable(help) << std::endl;
 }

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -98,12 +98,12 @@ void XRefPropertiesWidget::setReadOnly(bool ro) {
 */
 void XRefPropertiesWidget::buildUi()
 {
-	ui -> m_type_cb -> addItem(tr("Bobine"), "coil");
-	ui -> m_type_cb -> addItem(tr("Organe de protection"), "protection");
-	ui -> m_type_cb -> addItem(tr("Commutateur / bouton"), "commutator");
+	ui -> m_type_cb -> addItem(tr("Coil"), "coil");
+	ui -> m_type_cb -> addItem(tr("Safety device"), "protection");
+	ui -> m_type_cb -> addItem(tr("Switch / button"), "commutator");
 
-	ui -> m_snap_to_cb -> addItem(tr("En bas de page"), "bottom");
-	ui -> m_snap_to_cb -> addItem(tr("Sous le label de l'élément"), "label");
+	ui -> m_snap_to_cb -> addItem(tr("Footer"), "bottom");
+	ui -> m_snap_to_cb -> addItem(tr("Under the label of the element"), "label");
 
 	ui -> m_xrefpos_cb -> addItem(tr("Top"),"top");
 	ui -> m_xrefpos_cb -> addItem(tr("Bottom"),"bottom");

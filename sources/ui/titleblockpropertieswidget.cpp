@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -324,8 +324,8 @@ void TitleBlockPropertiesWidget::initDialog(
 	setTitleBlockTemplatesVisible(false);
 	ui -> m_current_date_rb -> setVisible(current_date);
 
-	m_tbt_edit = new QAction(tr("Éditer ce modèle", "menu entry"), this);
-	m_tbt_duplicate = new QAction(tr("Dupliquer et éditer ce modèle",
+	m_tbt_edit = new QAction(tr("Edit this template", "menu entry"), this);
+	m_tbt_duplicate = new QAction(tr("Duplicate and edit this template",
 					 "menu entry"),
 				      this);
 
@@ -352,7 +352,7 @@ void TitleBlockPropertiesWidget::initDialog(
 		keys_2 = project -> folioAutoNum().keys();
 		foreach (QString str, keys_2) { ui -> auto_page_cb -> addItem(str); }
 		if (ui->auto_page_cb->currentText()==nullptr)
-			ui->auto_page_cb->addItem(tr("Créer un Folio Numérotation Auto"));
+			ui->auto_page_cb->addItem(tr("Create an auto-numbering of folios"));
 	}
 	else{
 		ui->auto_page_cb->hide();
@@ -410,7 +410,7 @@ void TitleBlockPropertiesWidget::updateTemplateList()
 		//Add the default title block
 	m_map_index_to_collection_type.clear();
 	m_map_index_to_collection_type.append(QET::QetCollection::Common);
-	ui -> m_tbt_cb -> addItem(QET::Icons::QETLogo, tr("Modèle par défaut"));
+	ui -> m_tbt_cb -> addItem(QET::Icons::QETLogo, tr("Default template"));
 
 		//Add every title block stored in m_tbt_collection_list
 	foreach (TitleBlockTemplatesCollection *tbt_c, m_tbt_collection_list)
@@ -479,7 +479,7 @@ void TitleBlockPropertiesWidget::on_m_date_now_pb_clicked()
 void TitleBlockPropertiesWidget::on_m_edit_autofolionum_pb_clicked()
 {
 	emit openAutoNumFolioEditor(ui->auto_page_cb->currentText());
-	if (ui->auto_page_cb->currentText()!=tr("Créer un Folio Numérotation Auto"))
+	if (ui->auto_page_cb->currentText()!=tr("Create an auto-numbering of folios"))
 	{
 		//still to implement: load current auto folio num settings
 	}

@@ -95,9 +95,9 @@ NewDiagramPage::NewDiagramPage(QETProject *project,
 	tab_widget->setMinimumSize(800, 650);
 
 	tab_widget -> addTab (diagram_widget, tr("Folio"));
-	tab_widget -> addTab (m_cpw,            tr("Conducteur"));
-	tab_widget -> addTab (rpw,            tr("Reports de folio"));
-	tab_widget -> addTab (xrefpw,         tr("Références croisées"));
+	tab_widget -> addTab (m_cpw,            tr("Conductor"));
+	tab_widget -> addTab (rpw,            tr("Folio referencings"));
+	tab_widget -> addTab (xrefpw,         tr("Cross References"));
 
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 	vlayout1->addWidget(tab_widget);
@@ -201,8 +201,8 @@ QIcon NewDiagramPage::icon() const
 */
 QString NewDiagramPage::title() const
 {
-	if (m_project) return(tr("Nouveau folio", "configuration page title"));
-	return(tr("Nouveau projet", "configuration page title"));
+	if (m_project) return(tr("New folio", "configuration page title"));
+	return(tr("New project", "configuration page title"));
 }
 
 /**
@@ -353,6 +353,6 @@ QIcon PrintConfigPage::icon() const
 /// @return le titre de cette page
 QString PrintConfigPage::title() const
 {
-	return(tr("Impression", "configuration page title"));
+	return(tr("Printing", "configuration page title"));
 }
 

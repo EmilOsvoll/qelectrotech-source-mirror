@@ -53,7 +53,7 @@ void SearchAndReplaceWorker::replaceDiagram(QList<Diagram *> diagram_list)
 	}
 
 	QUndoStack *us = project->undoStack();
-	us->beginMacro(QObject::tr("Chercher/remplacer les propriétés de folio"));
+	us->beginMacro(QObject::tr("Search / Replace folio properties"));
 	for (Diagram *d : diagram_list)
 	{
 		TitleBlockProperties old_propertie = d->border_and_titleblock.exportTitleBlock();
@@ -117,7 +117,7 @@ void SearchAndReplaceWorker::replaceElement(QList<Element *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Chercher/remplacer les propriétés d'éléments."));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace element properties."));
 	for (Element *elmt : list)
 	{
 			//We apply change only for master, slave, and terminal element.
@@ -170,7 +170,7 @@ void SearchAndReplaceWorker::replaceIndiText(QList<IndependentTextItem *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Chercher/remplacer des textes independants"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace independent texts"));
 	for (IndependentTextItem *text : list)
 	{
 		QString before = text->toPlainText();
@@ -210,7 +210,7 @@ void SearchAndReplaceWorker::replaceConductor(QList<Conductor *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Chercher/remplacer les propriétés de conducteurs."));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace conductor properties"));
 	for (Conductor *c : list)
 	{
 		ConductorProperties cp = applyChange(c->properties(), m_conductor_properties);
@@ -297,7 +297,7 @@ void SearchAndReplaceWorker::replaceAdvanced(
 		return;
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Rechercher / remplacer avancé"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / replace advanced"));
 	if (who == 0)
 	{
 		for (Diagram *diagram : diagrams)
