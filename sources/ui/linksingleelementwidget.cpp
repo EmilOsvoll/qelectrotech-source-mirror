@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -46,10 +46,10 @@ LinkSingleElementWidget::LinkSingleElementWidget(Element *elmt,
 	
 	ui->m_tree_widget->setContextMenuPolicy(Qt::CustomContextMenu);
 	m_context_menu  = new QMenu(this);
-	m_link_action   = new QAction(tr("Lier l'élément"), this);
-	m_show_qtwi     = new QAction(tr("Montrer l'élément"), this);
-	m_show_element  = new QAction(tr("Montrer l'élément esclave"), this);
-	m_save_header_state = new QAction(tr("Enregistrer la disposition"), this);
+	m_link_action   = new QAction(tr("Link the item"), this);
+	m_show_qtwi     = new QAction(tr("Show item"), this);
+	m_show_element  = new QAction(tr("Show item esclave"), this);
+	m_save_header_state = new QAction(tr("Save the layout"), this);
 	
 	connect(m_show_qtwi, &QAction::triggered, this, [=]()
 	{
@@ -140,7 +140,7 @@ void LinkSingleElementWidget::setElement(Element *element)
 	m_element_to_link = nullptr;
 	m_pending_qtwi = nullptr;
 
-		//Setup the new element, connection and ui
+		//Setup the new element, connection && ui
 	m_element = element;
 
 	const auto elmt_type{m_element->elementData().m_type};
@@ -206,9 +206,9 @@ QUndoCommand *LinkSingleElementWidget::associatedUndo() const
 QString LinkSingleElementWidget::title() const
 {
 	if (m_element->elementData().m_type & ElementData::AllReport)
-		return tr("Report de folio");
+		return tr("Folio referencing");
 	else
-		return tr("Référence croisée (esclave)");
+		return tr("Cross referencee (esclave)");
 }
 
 /**
@@ -372,7 +372,7 @@ bool LinkSingleElementWidget::setLiveEdit(bool live_edit)
 QVector <QPointer<Element>> LinkSingleElementWidget::availableElements()
 {
 	QVector <QPointer<Element>> elmt_vector;
-	//if element isn't free and unlink isn't pressed, return an empty list
+	//if element isn't free && unlink isn't pressed, return an empty list
 	if (!m_element->isFree() && !m_unlink)
 		return elmt_vector;
 	
@@ -412,7 +412,7 @@ void LinkSingleElementWidget::setUpCompleter()
 /**
 	@brief LinkSingleElementWidget::clearTreeWidget
 	Clear the tree widget.
-	Delete all QTreeWidget (in the tree widget and in the hash).
+	Delete all QTreeWidget (in the tree widget && in the hash).
 	Clear the hash.
 */
 void LinkSingleElementWidget::clearTreeWidget()
@@ -442,18 +442,18 @@ void LinkSingleElementWidget::setUpHeaderLabels()
 		if (settings.value(QStringLiteral("genericpanel/folio"), false).toBool())
 		{
 			list << tr("Label")
-			     << tr("Commentaire")
-			     << tr("Label de folio")
+			     << tr("Annotation")
+			     << tr("Label folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 		else
 		{
 			list << tr("Label")
-			     << tr("Commentaire")
-			     << tr("N° de folio")
+			     << tr("Annotation")
+			     << tr("N° of folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 	}
 	
@@ -461,25 +461,25 @@ void LinkSingleElementWidget::setUpHeaderLabels()
 	{
 		if (settings.value(QStringLiteral("genericpanel/folio"), false).toBool())
 		{
-			list << tr("N° de fil")
-			     << tr("Fonction")
-			     << tr("Tension / Protocole")
-			     << tr("Couleur du conducteur")
-			     << tr("Section du conducteur")
-			     << tr("Label de folio")
+			list << tr("N° wire")
+			     << tr("Function")
+			     << tr("Voltage / Protocol")
+			     << tr("Conductor color")
+			     << tr("Conductor section")
+			     << tr("Label folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 		else
 		{
-			list << tr("N° de fil")
-			     << tr("Fonction")
-			     << tr("Tension / Protocole")
-			     << tr("Couleur du conducteur")
-			     << tr("Section du conducteur")
-			     << tr("N° de folio")
+			list << tr("N° wire")
+			     << tr("Function")
+			     << tr("Voltage / Protocol")
+			     << tr("Conductor color")
+			     << tr("Conductor section")
+			     << tr("N° of folio")
 			     << tr("Position")
-			     << tr("Titre de folio");
+			     << tr("Title de folio");
 		}
 	}
 	
@@ -665,7 +665,7 @@ void LinkSingleElementWidget::on_m_show_this_pb_clicked()
 
 /**
 	@brief LinkSingleElementWidget::on_m_search_field_textEdited
-	Search all items which match with arg1 and shows it,
+	Search all items which match with arg1 && shows it,
 	other items is hidden.
 	If arg1 is empty, show all items.
 	@param arg1

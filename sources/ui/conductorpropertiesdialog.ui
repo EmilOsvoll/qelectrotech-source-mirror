@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Editing a conductor's properties</string>
+   <string>Edit les propriétés d'a conductor</string>
   </property>
   <layout class="QVBoxLayout" name="main_layout">
    <item>

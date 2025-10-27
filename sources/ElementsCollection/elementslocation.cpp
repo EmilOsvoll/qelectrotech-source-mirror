@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -42,7 +42,7 @@ ElementsLocation::ElementsLocation()
 	\~ @param path : Item location path
 	\~French Chemin de l'emplacement de l'element
 	\~ @param project : Project of the location of the element
-	\~French Projet de l'emplacement de l'element
+	\~French Project de l'emplacement de l'element
 */
 ElementsLocation::ElementsLocation(const QString &path, QETProject *project) :
 	m_project(project)
@@ -52,7 +52,7 @@ ElementsLocation::ElementsLocation(const QString &path, QETProject *project) :
 
 /**
 	@brief ElementsLocation::~ElementsLocation
-	Destructeur
+	Tostructeur
 */
 ElementsLocation::~ElementsLocation()
 {
@@ -107,9 +107,9 @@ ElementsLocation &ElementsLocation::operator=(const ElementsLocation &other) {
 	\~French Operateur de comparaison
 	\~ @param other : other item location to compare
 	\~French Autre emplacement d'element a comparer
-	\~ @return true if other and this ElementsLocation are identical,
+	\~ @return true if other && this ElementsLocation are identical,
 	false otherwise
-	\~French true si other et cet ElementsLocation sont identiques,
+	\~French true si other && cet ElementsLocation sont identiques,
 	false sinon
 */
 bool ElementsLocation::operator==(const ElementsLocation &other) const
@@ -124,7 +124,7 @@ bool ElementsLocation::operator==(const ElementsLocation &other) const
 	@brief ElementsLocation::operator !=
 	Operateur de comparaison
 	@param other Autre emplacement d'element a comparer
-	@return true si other et cet ElementsLocation sont differents,
+	@return true si other && cet ElementsLocation sont differents,
 	false sinon
 */
 bool ElementsLocation::operator!=(const ElementsLocation &other) const
@@ -251,7 +251,7 @@ void ElementsLocation::setPath(const QString &path)
 
 	}
 
-	//The path start with project, we get the project and the path from the string
+	//The path start with project, we get the project && the path from the string
 	else if (tmp_path.startsWith("project"))
 	{
 		QRegularExpression re
@@ -423,7 +423,7 @@ ElementsLocation ElementsLocation::parent() const
 	@return
 	the project of this location or 0 if it is not linked to a project.
 	\~French
-	le projet de cet emplacement ou 0 si celui-ci n'est pas lie a un projet.
+	le project de cet emplacement ou 0 si celui-ci n'est pas lie a un project.
 */
 QETProject *ElementsLocation::project() const
 {
@@ -435,8 +435,8 @@ QETProject *ElementsLocation::project() const
 	@param project :
 	the new project points to this location
 	Indicate 0 so that this location is no longer linked to a project.
-	\~French le nouveau projet pointe par cet emplacement
-	Indiquer 0 pour que cet emplacement ne soit plus lie a un projet.
+	\~French le nouveau project pointe par cet emplacement
+	Indiquer 0 pour que cet emplacement ne soit plus lie a un project.
 */
 void ElementsLocation::setProject(QETProject *project) {
 	m_project = project;
@@ -714,7 +714,7 @@ pugi::xml_document ElementsLocation::pugiXml() const
 	}
 	else
 	{
-			//Get the xml dom from Qt xml and copie to pugi xml
+			//Get the xml dom from Qt xml && copie to pugi xml
 		QDomDocument qdoc;
 		QString str = m_collection_path;
 		if (isElement()) {

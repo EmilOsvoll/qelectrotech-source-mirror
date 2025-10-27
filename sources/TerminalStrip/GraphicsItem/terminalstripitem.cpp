@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -93,7 +93,7 @@ QRectF TerminalStripItem::boundingRect() const
  * @return usual name of this item
  */
 QString TerminalStripItem::name() const {
-	return tr("terminal plan");
+	return tr("plan of terminals");
 }
 
 void TerminalStripItem::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
@@ -131,7 +131,7 @@ void TerminalStripItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 					if (QPointer<Element> element = real_terminal->element();
 						!element.isNull())
 					{
-						//Unselect and ungrab mouse to prevent unwanted
+						//Unselect && ungrab mouse to prevent unwanted
 						//move when element is in the same scene of this.
 						setSelected(false);
 						ungrabMouse();

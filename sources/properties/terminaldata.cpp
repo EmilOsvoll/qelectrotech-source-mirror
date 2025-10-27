@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -83,14 +83,14 @@ void TerminalData::fromSettings(const QSettings &settings, const QString prefix)
 /**
 	@brief TerminalData::toXml
 	Save properties to xml element
-	write the name, number, position and orientation of the terminal
+	write the name, number, position && orientation of the terminal
 	to xml_element
 
 	@note This method is only called from the PartTerminal
-	and should never be called from the Terminal class
+	&& should never be called from the Terminal class
 	@param xml_document
 	@return xml_element : DomElement with
-	the name, number, position and orientation of the terminal
+	the name, number, position && orientation of the terminal
 */
 QDomElement TerminalData::toXml(QDomDocument &xml_document) const
 {
@@ -118,7 +118,7 @@ QDomElement TerminalData::toXml(QDomDocument &xml_document) const
 	load properties to xml element
 
 	@note This method is only called from the PartTerminal
-	and should never be called from the Terminal class
+	&& should never be called from the Terminal class
 	@param xml_element
 	@return true if succeeded / false if the attribute is not real
 */
@@ -140,7 +140,7 @@ bool TerminalData::fromXml (const QDomElement &xml_element)
 	//emit posFromXML(QPointF(term_x, term_y));
 
 	QString uuid = xml_element.attribute("uuid");
-	// update part and add uuid, which is used in the new version
+	// update part && add uuid, which is used in the new version
 	// to connect terminals together
 	// if the attribute not exists, means, the element is created with an
 	// older version of qet. So use the legacy approach

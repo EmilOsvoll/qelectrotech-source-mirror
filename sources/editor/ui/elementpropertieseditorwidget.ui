@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Element property</string>
+   <string>Property de l'élément</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
@@ -32,7 +32,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Basic type:</string>
+            <string>Bottome type:</string>
            </property>
           </widget>
          </item>
@@ -59,7 +59,7 @@
             <item row="3" column="0">
              <widget class="QLabel" name="label_4">
               <property name="text">
-               <string>Number of switches represented</string>
+               <string>Namebre de contact représenté</string>
               </property>
              </widget>
             </item>
@@ -73,7 +73,7 @@
             <item row="1" column="0">
              <widget class="QLabel" name="label_2">
               <property name="text">
-               <string>Switch state</string>
+               <string>switch state</string>
               </property>
              </widget>
             </item>
@@ -97,7 +97,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Concrete type</string>
+             <string>concrete type</string>
             </property>
            </widget>
           </item>
@@ -158,7 +158,7 @@
       <layout class="QVBoxLayout" name="verticalLayout_4">
        <item>
         <widget class="QTreeWidget" name="m_tree">
-         <attribute name="headerDefaultSectionSize">
+         <attribute name="headerTofaultSectionSize">
           <number>150</number>
          </attribute>
          <column>

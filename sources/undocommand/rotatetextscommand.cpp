@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,7 +27,7 @@
 
 /**
 	@brief RotateTextsCommand::RotateTextsCommand
-	@param diagram : Apply the rotation to the selected texts and group of texts
+	@param diagram : Apply the rotation to the selected texts && group of texts
 	of diagram at construction time. 
 	@param parent : undo parent
 */
@@ -57,15 +57,15 @@ m_diagram(diagram)
 		
 		QString text;
 		if(texts_list.count())
-			text.append(QObject::tr("Pivoter %1 textes").arg(texts_list.count()));
+			text.append(QObject::tr("Rotate %1 texts").arg(texts_list.count()));
 		if(groups_list.count())
 		{
 			if(text.isEmpty())
-				text.append(QObject::tr("Pivoter"));
+				text.append(QObject::tr("Rotate"));
 			else
-				text.append(QObject::tr(" et"));
+				text.append(QObject::tr(" &&"));
 			
-			text.append(QObject::tr(" %1 groupes de textes").arg(groups_list.count()));
+			text.append(QObject::tr(" %1 groups of texts").arg(groups_list.count()));
 		}
 		if(!text.isNull())
 			setText(text);
@@ -106,30 +106,30 @@ void RotateTextsCommand::redo()
 
 void RotateTextsCommand::openDialog()
 {
-		//Open the dialog
-	QDialog ori_text_dialog;
-	ori_text_dialog.setSizeGripEnabled(false);
+		//Open the diaLog
+	QDialog ori_text_diaLog;
+	ori_text_diaLog.setSizeGripEnabled(false);
 #ifdef Q_OS_MACOS
-	ori_text_dialog.setWindowFlags(Qt::Sheet);
+	ori_text_diaLog.setWindowFlags(Qt::Sheet);
 #endif
-	ori_text_dialog.setWindowTitle(QObject::tr("Orienter les textes sélectionnés", "window title"));
+	ori_text_diaLog.setWindowTitle(QObject::tr("Choose orientation for selected texts"));
 	
 	
 	QTextOrientationSpinBoxWidget *ori_widget = QETApp::createTextOrientationSpinBoxWidget();
-	ori_widget->setParent(&ori_text_dialog);
+	ori_widget->setParent(&ori_text_diaLog);
 	ori_widget->spinBox()->selectAll();
 	
 	QDialogButtonBox buttons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-	QObject::connect(&buttons, SIGNAL(accepted()), &ori_text_dialog, SLOT(accept()));
-	QObject::connect(&buttons, SIGNAL(rejected()), &ori_text_dialog, SLOT(reject()));
+	QObject::connect(&buttons, SIGNAL(accepted()), &ori_text_diaLog, SLOT(accept()));
+	QObject::connect(&buttons, SIGNAL(rejected()), &ori_text_diaLog, SLOT(reject()));
 	
-	QVBoxLayout layout_v(&ori_text_dialog);
+	QVBoxLayout layout_v(&ori_text_diaLog);
 	layout_v.setSizeConstraint(QLayout::SetFixedSize);
 	layout_v.addWidget(ori_widget);
 	layout_v.addStretch();
 	layout_v.addWidget(&buttons);
 	
-	if (ori_text_dialog.exec() == QDialog::Accepted)
+	if (ori_text_diaLog.exec() == QDialog::Accepted)
 		m_rotation = ori_widget->orientation();
 	else
 		setObsolete(true);

@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="report_label_gb">
      <property name="title">
-      <string>Label de report de folio</string>
+      <string>Label of folio referencing</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
@@ -33,12 +33,12 @@
          <widget class="QLabel" name="label_">
           <property name="text">
            <string>Vous pouvez définir un label personnalisé pour les reports de folio.
-Créer votre propre texte en vous aidant des variables suivantes :
-%f : la position du folio dans le projet 
+Créer votre propre text en vous aidant des variables suivantes :
+%f : la position du folio dans le project 
 %F : le numéro de folio
 %M :  l'installation
 %LM : la localisation
-%l : le numéro de ligne
+%l : le numéro de line
 %c : le numéro de colonne</string>
           </property>
           <property name="scaledContents">

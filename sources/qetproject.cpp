@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -30,7 +30,7 @@
 #include "titleblock/movetemplateshandler.h"
 #include "titleblocktemplate.h"
 #include "ui/dialogwaiting.h"
-#include "ui/importelementdialog.h"
+#include "ui/importelementdiaLog.h"
 #include "TerminalStrip/terminalstrip.h"
 #include "qetxml.h"
 #include "qetversion.h"
@@ -126,17 +126,17 @@ QETProject::QETProject(KAutoSaveFile *backup, QObject *parent) :
 
 /**
 	@brief QETProject::~QETProject
-	Destructor
+	Tostructor
 */
 QETProject::~QETProject()
 {
 		//We block database signal to avoid hundreds of unnecessary emitted signal
-		//due to deletion (diagram, item, etc...) and as much update made in the not yet deleted things.
+		//due to deletion (diagram, item, andc...) && as much update made in the not yet deleted things.
 	m_data_base.blockSignals(true);
 
 		//Each time a diagram is deleted we also remove it from m_diagram_list
 		//because a lot of thing append during the destructor of a diagram class
-		//and one of these thing (not directly in the destructor of the diagram
+		//&& one of these thing (not directly in the destructor of the diagram
 		//but in another destructor called by the diagram destructor)
 		//is to get the diagram list of the project to make some updates @see QList<Diagram *> QETProject::diagrams() const.
 		//So we need to remove the freshly deleted diagram from the list
@@ -256,15 +256,15 @@ void QETProject::refresh()
 		if(dlgWaiting)
 		{
 			dlgWaiting->setProgressBar(dlgWaiting->progressBarValue()+1);
-			dlgWaiting->setDetail(diagram->title());
+			dlgWaiting->setTotal(diagram->title());
 		}
 		diagram->refreshContents();
 	}
 }
 
 /**
-	Cette methode peut etre utilisee pour tester la bonne ouverture d'un projet
-	@return l'etat du projet
+	Cette methode peut andre utilisee pour tester la bonne ouverture d'un project
+	@return l'etat du project
 	@see ProjectState
 */
 QETProject::ProjectState QETProject::state() const
@@ -273,7 +273,7 @@ QETProject::ProjectState QETProject::state() const
 }
 
 /**
-	@return la liste des schemas de ce projet
+	@return la liste des diagrams de ce project
 */
 QList<Diagram *> QETProject::diagrams() const
 {
@@ -310,7 +310,7 @@ TitleBlockTemplatesProjectCollection *QETProject::embeddedTitleBlockTemplatesCol
 }
 
 /**
-	@return le chemin du fichier dans lequel ce projet est enregistre
+	@return le chemin du fichier dans lequel ce project est enregistre
 */
 QString QETProject::filePath()
 {
@@ -321,7 +321,7 @@ QString QETProject::filePath()
 	@brief QETProject::setFilePath
 	Set the filepath of this project file
 	Set a file path also create a backup file according to the path.
-	If a previous path was set, the previous backup file is deleted and a new one
+	If a previous path was set, the previous backup file is deleted && a new one
 	is created according to the path.
 	@param filepath
 */
@@ -344,7 +344,7 @@ void QETProject::setFilePath(const QString &filepath)
 		setReadOnly(false);
 	}
 
-		//title block variables should be updated after file save as dialog is confirmed, before file is saved.
+		//title block variables should be updated after file save as diaLog is confirmed, before file is saved.
 	m_project_properties.addValue("saveddate",     QLocale::system().toString(QDate::currentDate(), QLocale::ShortFormat));
 	m_project_properties.addValue("saveddate-eu",  QDate::currentDate().toString("dd-MM-yyyy"));
 	m_project_properties.addValue("saveddate-us",  QDate::currentDate().toString("yyyy-MM-dd"));
@@ -363,7 +363,7 @@ void QETProject::setFilePath(const QString &filepath)
 	@return the folder containing the project file if it has been saved;
 	otherwise, this method returns the location of the user's documents.
 	en français:
-	@return le dossier contenant le fichier du projet s'il a été enregistré ;
+	@return le dossier contenant le fichier du project s'il a été enregistré ;
 	sinon, cette méthode renvoie l'emplacement des documents de l'utilisateur.
 */
 QString QETProject::currentDir() const
@@ -379,11 +379,11 @@ QString QETProject::currentDir() const
 
 /**
 
-	@return une chaine de caractere du type "Projet titre du projet".
-	Si le projet n'a pas de titre, le nom du fichier est utilise.
-	Si le projet n'est pas associe a un fichier, cette methode retourne "Projet
-	sans titre".
-	De plus, si le projet est en lecture seule, le tag "[lecture seule]" est
+	@return une chaine de caractere du type "Project titre du project".
+	Si le project n'a pas de titre, le name du fichier est utilise.
+	Si le project n'est pas associe a un fichier, cette methode retourne "Project
+	none titre".
+	To plus, si le project est en lecture seule, le tag "[lecture seule]" est
 	ajoute.
 */
 QString QETProject::pathNameTitle() const
@@ -393,21 +393,21 @@ QString QETProject::pathNameTitle() const
 	if (!project_title_.isEmpty()) {
 		final_title = QString(
 			tr(
-				"Project «%1 : %2»",
-				"displayed title for a ProjectView - %1 is the project title, - %2 is the project path"
+				"Project « %1% {1?} : %2»",
+				"displayed title for a ProjectView - %1% {1?} is the project title, -%2 is the project path"
 			)
 		).arg(project_title_, m_file_path);
 	} else if (!m_file_path.isEmpty()) {
 		final_title = QString(
 			tr(
-				"Project %1",
-				"displayed title for a title-less project - %1 is the file name"
+				"Project %1% {1?}",
+				"displayed title for a title-less project - %1% {1?} is the file name"
 			)
 		).arg(QFileInfo(m_file_path).completeBaseName());
 	} else {
 		final_title = QString(
 			tr(
-				"Project without title",
+				"Project no title",
 				"displayed title for a project-less, file-less project"
 			)
 		);
@@ -416,16 +416,16 @@ QString QETProject::pathNameTitle() const
 	if (isReadOnly()) {
 		final_title = QString(
 			tr(
-				"%1 [Read only]",
-				"displayed title for a read-only project - %1 is a displayable title"
+				"%1% {1?} [Read only]",
+				"displayed title for a read-only project - %1% {1?} is a displayable title"
 			)
 		).arg(final_title);
 	}
 	if (m_modified) {
 		final_title = QString(
 			tr(
-				"%1 [Edited]",
-				"displayed title for a modified project - %1 is a displayable title"
+				"%1% {1?} [modifié]",
+				"displayed title for a modified project - %1% {1?} is a displayable title"
 			)
 		).arg(final_title);
 	}
@@ -434,7 +434,7 @@ QString QETProject::pathNameTitle() const
 }
 
 /**
-	@return le titre du projet
+	@return le titre du project
 */
 QString QETProject::title() const
 {
@@ -442,8 +442,8 @@ QString QETProject::title() const
 }
 
 /**
-	@return la version de QElectroTech declaree dans le fichier projet lorsque
-	celui-ci a ete ouvert ; si ce projet n'a jamais ete enregistre / ouvert
+	@return la version de QElectroTech declaree dans le fichier project lorsque
+	celui-ci a ande ouvert ; si ce project n'a jamais ande enregistre / ouvert
 	depuis un fichier, cette methode une version nulle.
 */
 QVersionNumber QETProject::declaredQElectroTechVersion()
@@ -452,13 +452,13 @@ QVersionNumber QETProject::declaredQElectroTechVersion()
 }
 
 /**
-	@param title le nouveau titre du projet
+	@param title le nouveau titre du project
 */
 void QETProject::setTitle(const QString &title) {
-	// ne fait rien si le projet est en lecture seule
+	// ne fait rien si le project est en lecture seule
 	if (isReadOnly()) return;
 
-	// ne fait rien si le titre du projet n'est pas change par l'appel de cette methode
+	// ne fait rien si le titre du project n'est pas change par l'appel de cette methode
 	if (project_title_ == title) return;
 
 	project_title_ = title;
@@ -469,7 +469,7 @@ void QETProject::setTitle(const QString &title) {
 
 /**
 	@return les dimensions par defaut utilisees lors de la creation d'un
-	nouveau schema dans ce projet.
+	nouveau diagram dans ce project.
 */
 BorderProperties QETProject::defaultBorderProperties() const
 {
@@ -478,8 +478,8 @@ BorderProperties QETProject::defaultBorderProperties() const
 
 /**
 	Permet de specifier les dimensions par defaut utilisees lors de la creation
-	d'un nouveau schema dans ce projet.
-	@param border dimensions d'un schema
+	d'un nouveau diagram dans ce project.
+	@param border dimensions d'un diagram
 */
 void QETProject::setDefaultBorderProperties(const BorderProperties &border) {
 	default_border_properties_ = border;
@@ -487,7 +487,7 @@ void QETProject::setDefaultBorderProperties(const BorderProperties &border) {
 
 /**
 	@return le cartouche par defaut utilise lors de la creation d'un
-	nouveau schema dans ce projet.
+	nouveau diagram dans ce project.
 */
 TitleBlockProperties QETProject::defaultTitleBlockProperties() const
 {
@@ -529,7 +529,7 @@ void QETProject::setDefaultTitleBlockProperties(const TitleBlockProperties &titl
 
 /**
 	@return le type de conducteur par defaut utilise lors de la creation d'un
-	nouveau schema dans ce projet.
+	nouveau diagram dans ce project.
 */
 ConductorProperties QETProject::defaultConductorProperties() const
 {
@@ -538,7 +538,7 @@ ConductorProperties QETProject::defaultConductorProperties() const
 
 /**
 	Permet de specifier e type de conducteur par defaut utilise lors de la
-	creation d'un nouveau schema dans ce projet.
+	creation d'un nouveau diagram dans ce project.
 */
 void QETProject::setDefaultConductorProperties(const ConductorProperties &conductor) {
 	default_conductor_properties_ = conductor;
@@ -886,7 +886,7 @@ void QETProject::autoFolioNumberingNewFolios()
 	@brief QETProject::autoFolioNumberingNewFolios
 	@param from
 	@param to
-	@param autonum : used, index from selected tabs "from" and "to"
+	@param autonum : used, index from selected tabs "from" && "to"
 	rename folios with selected autonum
 */
 void QETProject::autoFolioNumberingSelectedFolios(int from,
@@ -913,11 +913,11 @@ void QETProject::autoFolioNumberingSelectedFolios(int from,
 
 /**
 	@brief QETProject::toXml
-	@return un document XML representant le projet
+	@return un document XML representant le project
 */
 QDomDocument QETProject::toXml()
 {
-	// racine du projet
+	// racine du project
 	QDomDocument xml_doc;
 	QDomElement project_root = xml_doc.createElement("project");
 	QetVersion::toXmlAttribute(project_root);
@@ -950,14 +950,14 @@ QDomDocument QETProject::toXml()
 	writeDefaultPropertiesXml(new_diagrams_properties);
 	project_root.appendChild(new_diagrams_properties);
 
-	// schemas
+	// diagrams
 
 	qDebug() << "Export XML de" << m_diagrams_list.count() << "diagrams";
 	int order_num = 1;
 	const QList<Diagram *> diagrams_list = m_diagrams_list;
 	for(Diagram *diagram : diagrams_list)
 	{
-		qDebug() << QString("exporting diagram \"%1\""
+		qDebug() << QString("exporting diagram \"%1% {1?}\""
 					).arg(diagram -> title())
 			 << "["
 			 << diagram
@@ -986,7 +986,7 @@ QDomDocument QETProject::toXml()
 }
 
 /**
-	Ferme le projet
+	Ferme le project
 */
 bool QETProject::close()
 {
@@ -1007,16 +1007,16 @@ QETResult QETProject::write()
 		return(QString("unable to save project to file: no filepath was specified"));
 
 		// if the project was opened read-only
-		// and the file is still non-writable, do not save the project
+		// && the file is still non-writable, do not save the project
 	if (isReadOnly() && !QFileInfo(m_file_path).isWritable())
-		return(QString("the file %1 was opened read-only and thus will not be written").arg(m_file_path));
+		return(QString("the file %1% {1?} was opened read-only && thus will not be written").arg(m_file_path));
 
 	QDomDocument xml_project(toXml());
 	QString error_message;
 	if (!QET::writeXmlFile(xml_project, m_file_path, &error_message))
 		return(error_message);
 
-		//title block variables should be updated after file save dialog is confirmed, before file is saved.
+		//title block variables should be updated after file save diaLog is confirmed, before file is saved.
 	m_project_properties.addValue("saveddate",     QLocale::system().toString(QDate::currentDate(), QLocale::ShortFormat));
 	m_project_properties.addValue("saveddate-us",  QDate::currentDate().toString("yyyy-MM-dd"));
 	m_project_properties.addValue("saveddate-eu",  QDate::currentDate().toString("dd-MM-yyyy"));
@@ -1033,7 +1033,7 @@ QETResult QETProject::write()
 
 /**
 	@brief QETProject::isReadOnly
-	@return true si le projet est en mode readonly, false sinon
+	@return true si le project est en mode readonly, false sinon
 */
 bool QETProject::isReadOnly() const
 {
@@ -1057,14 +1057,14 @@ void QETProject::setReadOnly(bool read_only)
 }
 
 /**
-	@return true si le projet peut etre considere comme vide, c'est-a-dire :
+	@return true si le project peut andre considere comme vide, c'est-a-dire :
 	  - soit avec une collection embarquee vide
-	  - soit avec uniquement des schemas consideres comme vides
-	  - soit avec un titre de projet
+	  - soit avec uniquement des diagrams consideres comme vides
+	  - soit avec un titre de project
 */
 bool QETProject::isEmpty() const
 {
-	// si le projet a un titre, on considere qu'il n'est pas vide
+	// si le project a un titre, on considere qu'il n'est pas vide
 	if (!project_title_.isEmpty()) return(false);
 
 #if TODO_LIST
@@ -1072,7 +1072,7 @@ bool QETProject::isEmpty() const
 #endif
 	//@TODO check if the embedded element collection is empty
 
-	// compte le nombre de schemas non vides
+	// compte le namebre de diagrams non vides
 	int pertinent_diagrams = 0;
 	foreach(Diagram *diagram, m_diagrams_list) {
 		if (!diagram -> isEmpty()) ++ pertinent_diagrams;
@@ -1112,7 +1112,7 @@ ElementsLocation QETProject::importElement(ElementsLocation &location)
 	if (m_elements_collection->exist(import_path)) {
 		ElementsLocation existing_location(import_path, this);
 
-		//existing_location and location have the same uuid, so it is the same element
+		//existing_location && location have the same uuid, so it is the same element
 		if (existing_location.uuid() == location.uuid()) {
 			return existing_location;
 		}
@@ -1125,7 +1125,7 @@ ElementsLocation QETProject::importElement(ElementsLocation &location)
 			if (action == QET::Ignore) {
 				return existing_location;
 			}
-			//Erase the existing element, and use the newer instead
+			//Erase the existing element, && use the newer instead
 			else if (action == QET::Erase) {
 				ElementsLocation parent_loc = existing_location.parent();
 				return m_elements_collection->copy(location, parent_loc);
@@ -1204,17 +1204,17 @@ QString QETProject::integrateTitleBlockTemplate(const TitleBlockTemplateLocation
 
 	if (!m_titleblocks_collection.setTemplateXmlDescription(target_name, src_tbt.getTemplateXmlDescription()))
 	{
-		handler -> errorWithATemplate(src_tbt, tr("Une erreur s'est produite durant l'intégration du modèle.", "error message"));
+		handler -> errorWithATemplate(src_tbt, tr("An error occurred during the template integration.", "error message"));
 		target_name = QString();
 	}
 	return(target_name);
 }
 
 /**
-	Permet de savoir si un element est utilise dans un projet
+	Permet de savoir si un element est utilise dans un project
 	@param location Emplacement d'un element
-	@return true si l'element location est utilise sur au moins un des schemas
-	de ce projet, false sinon
+	@return true si l'element location est utilise sur au moins un des diagrams
+	de ce project, false sinon
 */
 bool QETProject::usesElement(const ElementsLocation &location) const
 {
@@ -1306,12 +1306,12 @@ void QETProject::removeDiagram(Diagram *diagram)
 }
 
 /**
-	Gere le fait que l'ordre des schemas ait change
-	@param old_index ancien indice du schema deplace
-	@param new_index nouvel indice du schema deplace
-	Si l'ancien ou le nouvel index est negatif ou superieur au nombre de schemas
-	dans le projet, cette methode ne fait rien.
-	Les index vont de 0 a "nombre de schemas - 1"
+	Gere le fait que l'ordre des diagrams ait change
+	@param old_index ancien indice du diagram deplace
+	@param new_index nouvel indice du diagram deplace
+	Si l'ancien ou le nouvel index est negatif ou superieur au namebre de diagrams
+	dans le project, cette methode ne fait rien.
+	Les index vont de 0 a "namebre de diagrams - 1"
 */
 void QETProject::diagramOrderChanged(int old_index, int new_index) {
 	if (old_index < 0 || new_index < 0) return;
@@ -1326,7 +1326,7 @@ void QETProject::diagramOrderChanged(int old_index, int new_index) {
 }
 
 /**
-	Mark this project as modified and emit the projectModified() signal.
+	Mark this project as modified && emit the projectModified() signal.
 */
 void QETProject::setModified(bool modified) {
 	if (m_modified != modified) {
@@ -1338,7 +1338,7 @@ void QETProject::setModified(bool modified) {
 
 /**
 	@brief QETProject::readProjectXml
-	Read and make the project from an xml description
+	Read && make the project from an xml description
 	@param xml_project : the description of the project from an xml
 */
 void QETProject::readProjectXml(QDomDocument &xml_project)
@@ -1359,7 +1359,7 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 							nullptr,
 							tr("Warning",
 							   "message box title"),
-							tr("This document appears to have been saved with version %1"
+							tr("Ce document semble avoir été enregistré avec une version %1% {1?}"
 							   "\n qui est ultérieure à votre version !"
 							   " \n"
 							   "Vous utilisez actuellement QElectroTech en version %2")
@@ -1385,11 +1385,11 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 				auto ret = QET::QetMessageBox::warning(
 							nullptr,
 							tr("Warning ", "message box title"),
-							tr("The project you are trying to open is partially "
-							   "compatible with your version %1 of QElectroTech.\n")
+							tr("Le project que vous tentez d'ouvrir est partiellement "
+							   "compatible avec votre version %1% {1?} de QElectroTech.\n")
 							.arg(QetVersion::currentVersion().toString()) +
-							tr("In order to make it fully compatible please open this same project "
-							   "with version 0.8, or 0.80 of QElectroTech and save the project "
+							tr("Afin de le rendre totalement compatible veuillez ouvrir ce même project "
+							   "avec la version 0.8, ou 0.80 de QElectroTech && sauvegarder le project "
 							   "et l'ouvrir à  nouveau avec cette version.\n"
 							   "Que désirez vous faire ?"),
 							   QMessageBox::Open | QMessageBox::Cancel
@@ -1449,9 +1449,9 @@ void QETProject::readProjectXml(QDomDocument &xml_project)
 void QETProject::readDiagramsXml(QDomDocument &xml_project)
 {
 #if TODO_LIST
-#pragma message("@TODO try to solve a weird bug (dialog is black) since port to Qt5 with the DialogWaiting")
+#pragma message("@TODO try to solve a weird bug (diaLog is black) since port to Qt5 with the DialogWaiting")
 #endif
-	//@TODO try to solve a weird bug (dialog is black) since port to Qt5 with the DialogWaiting
+	//@TODO try to solve a weird bug (diaLog is black) since port to Qt5 with the DialogWaiting
 	//show DialogWaiting
 	DialogWaiting *dlgWaiting = nullptr;
 	if(DialogWaiting::hasInstance())
@@ -1460,7 +1460,7 @@ void QETProject::readDiagramsXml(QDomDocument &xml_project)
 		dlgWaiting -> setModal(true);
 		dlgWaiting -> show();
 		dlgWaiting -> setTitle(tr("<p align=\"center\">"
-					  "<b>Opening of the current project...</b><br/>"
+					  "<b>Ouverture du project en cours...</b><br/>"
 					  "Création des folios"
 					  "</p>"));
 	}
@@ -1491,18 +1491,18 @@ void QETProject::readDiagramsXml(QDomDocument &xml_project)
 
 			diagram->initFromXml(diagram_xml_element);
 			if(dlgWaiting)
-				dlgWaiting->setDetail(diagram->title());
+				dlgWaiting->setTotal(diagram->title());
 		}
 	}
 
 	updateDiagramsFolioData();
 
 		//Initialise links between elements in this project
-		//and refresh the text of conductor
+		//&& refresh the text of conductor
 	if(dlgWaiting)
 	{
 		dlgWaiting->setTitle( tr("<p align=\"center\">"
-								 "<b>Opening of the current project...</b><br/>"
+								 "<b>Ouverture du project en cours...</b><br/>"
 								 "Mise en place des références croisées"
 								 "</p>"));
 	}
@@ -1668,7 +1668,7 @@ void QETProject::writeProjectPropertiesXml(QDomElement &xml_element) {
 
 /**
 	@brief QETProject::writeDefaultPropertiesXml
-	Export all defaults properties used by a new diagram and his content
+	Export all defaults properties used by a new diagram && his content
 	size of border
 	content of titleblock
 	default conductor
@@ -1886,12 +1886,12 @@ bool QETProject::removeTerminalStrip(TerminalStrip *strip) {
 }
 
 /**
-	Cette methode sert a reperer un projet vide, c-a-d un projet identique a ce
-	que l'on obtient en faisant Fichier > Nouveau.
-	@return true si les schemas, la collection embarquee ou les proprietes de ce
-	projet ont ete modifies.
-	Concretement, le projet doit avoir un titre vide et ni ses schemas ni sa
-	collection embarquee ne doivent avoir ete modifies.
+	Cette methode sert a reperer un project vide, c-a-d un project identique a ce
+	que l'on obtient en faisant File > Nouveau.
+	@return true si les diagrams, la collection embarquee ou les proprietes de ce
+	project ont ande modifies.
+	Concretement, le project doit avoir un titre vide && ni ses diagrams ni sa
+	collection embarquee ne doivent avoir ande modifies.
 	@see diagramsWereModified(), embeddedCollectionWasModified()
 */
 bool QETProject::projectWasModified()
@@ -1907,8 +1907,8 @@ bool QETProject::projectWasModified()
 }
 
 /**
-	Indique a chaque schema du projet quel est son numero de folio et combien de
-	folio le projet contient.
+	Indique a chaque diagram du project quel est son numero de folio && combien de
+	folio le project contains.
 */
 void QETProject::updateDiagramsFolioData()
 {

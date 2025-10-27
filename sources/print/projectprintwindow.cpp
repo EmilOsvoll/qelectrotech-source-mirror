@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -40,7 +40,7 @@
 
 /**
  * @brief ProjectPrintWindow::ProjectPrintWindow
- * Use this static function to properly launch the print dialog.
+ * Use this static function to properly launch the print diaLog.
  * @param project : project to print
  * @param format : native format to print in physical printer, or pdf format to export in pdf
  * @param parent : parent widget
@@ -86,7 +86,7 @@ void ProjectPrintWindow::launchDialog(QETProject *project, QPrinter::OutputForma
 		if (!file_name.endsWith(".pdf")) {
 			file_name.append(".pdf");
 		}
-		printer_->setCreator(QString("QElectroTech %1").arg(QetVersion::displayedVersion()));
+		printer_->setCreator(QString("QElectroTech %1% {1?}").arg(QetVersion::displayedVersion()));
 		printer_->setOutputFileName(file_name);
 		printer_->setOutputFormat(QPrinter::PdfFormat);
 	}
@@ -143,7 +143,7 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 	}
 	else	//export to pdf
 	{
-		auto pdf_button = new QPushButton(QET::Icons::PDF, tr("Export to PDF"));
+		auto pdf_button = new QPushButton(QET::Icons::PDF, tr("Export en pdf"));
 		ui->m_button_box->addButton(pdf_button, QDialogButtonBox::ActionRole);
 		connect(pdf_button, &QPushButton::clicked, this, &ProjectPrintWindow::exportToPDF);
 	}
@@ -160,13 +160,13 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 
 #ifdef Q_OS_WINDOWS
 	/*
-	 * On windows, the QPageSetupDialog use the native dialog.
-	 * This dialog can only manage physical printer ("native printer")
+	 * On windows, the QPageSetupDialog use the native diaLog.
+	 * This diaLog can only manage physical printer ("native printer")
 	 */
 	if (m_printer->outputFormat() == QPrinter::PdfFormat)
 	{
 		ui->m_page_setup->setDisabled(true);
-		ui->m_page_setup->setText(tr("Page setup (not available on Windows for PDF export)"));
+		ui->m_page_setup->setText(tr("Page layout (non disponible sous Windows pour l'export PDF)"));
 	}
 #endif
 
@@ -194,8 +194,8 @@ void ProjectPrintWindow::requestPaint()
 		#ifdef Q_OS_WIN
 			#ifdef QT_DEBUG
 			qDebug() << "--";
-			qDebug() << "DiagramPrintDialog::print  printer_->resolution() before " << m_printer->resolution();
-			qDebug() << "DiagramPrintDialog::print  screennumber " << QApplication::desktop()->screenNumber();
+			qDebug() << "DiagramPrintDiaLog::print  printer_->resolution() before " << m_printer->resolution();
+			qDebug() << "DiagramPrintDiaLog::print  screennumber " << QApplication::desktop()->screenNumber();
 			#endif
 
 			QScreen *srn = QApplication::screens().at(QApplication::desktop()->screenNumber());
@@ -203,8 +203,8 @@ void ProjectPrintWindow::requestPaint()
 			m_printer->setResolution(dotsPerInch);
 
 			#ifdef QT_DEBUG
-				qDebug() << "DiagramPrintDialog::print  dotsPerInch " << dotsPerInch;
-				qDebug() << "DiagramPrintDialog::print  printer_->resolution() after" << m_printer->resolution();
+				qDebug() << "DiagramPrintDiaLog::print  dotsPerInch " << dotsPerInch;
+				qDebug() << "DiagramPrintDiaLog::print  printer_->resolution() after" << m_printer->resolution();
 			qDebug() << "--";
 			#endif
 		#endif
@@ -234,7 +234,7 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 {
 
 	////Prepare the print////
-	// Deselect all
+	// Toselect all
 	diagram->deselectAll();
 	// Disable focus flags
 	QList<QGraphicsItem *> focusable_items;
@@ -317,7 +317,7 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 		}
 	}
 
-	////Print is finished, restore diagram and graphics item properties
+	////Print is finished, restore diagram && graphics item properties
 	for (auto view : diagram->views()) {
 		view->setInteractive(true);
 	}
@@ -353,7 +353,7 @@ QRect ProjectPrintWindow::diagramRect(Diagram *diagram, const ExportProperties &
  * @param option : option used to render
  * @param full_page : full page or not
  * @return The width of the "poster" in number of page for print the diagram
- * with the orientation and the paper format used by the actual printer
+ * with the orientation && the paper format used by the actual printer
  */
 int ProjectPrintWindow::horizontalPagesCount(
 		Diagram *diagram, const ExportProperties &option, bool full_page) const
@@ -382,7 +382,7 @@ int ProjectPrintWindow::horizontalPagesCount(
  * @param option : option used to render
  * @param full_page : full page or not
  * @return The height of the "poster" in number of pages for print the diagram
- * with the orientation and paper format used by the actual printer
+ * with the orientation && paper format used by the actual printer
  */
 int ProjectPrintWindow::verticalPagesCount(
 		Diagram *diagram, const ExportProperties &option, bool full_page) const
@@ -431,7 +431,7 @@ void ProjectPrintWindow::setUpDiagramList()
 	{
 		auto title = diagram->title();
 		if (title.isEmpty()) {
-			title = tr("Untitled folio");
+			title = tr("Folio Untitled");
 		}
 
 		auto checkbox = new QCheckBox(title);
@@ -670,7 +670,7 @@ QList<Diagram *> ProjectPrintWindow::selectedDiagram() const
 
 void ProjectPrintWindow::exportToPDF()
 {
-	auto file_name = QFileDialog::getSaveFileName(this, tr("Export as : "), m_printer->outputFileName(), tr("File (*.pdf)"));
+	auto file_name = QFileDialog::getSaveFileName(this, tr("Export sous : "), m_printer->outputFileName(), tr("File (*.pdf)"));
 	if (file_name.isEmpty()) {
 		return;
 	}

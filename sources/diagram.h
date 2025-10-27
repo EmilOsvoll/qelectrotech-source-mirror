@@ -204,6 +204,7 @@ class Diagram : public QGraphicsScene
 	
 		// methods related to graphics options
 		ExportProperties applyProperties(const ExportProperties &);
+		void toImage(QImage &image, int width, int height, Qt::AspectRatioMode aspectRatioMode = Qt::KeepAspectRatio);
 		void setDisplayGrid(bool);
 		bool displayGrid();
 		void setUseBorder(bool);

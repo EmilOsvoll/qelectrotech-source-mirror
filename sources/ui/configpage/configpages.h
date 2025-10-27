@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -69,7 +69,7 @@ public slots:
 	ConductorPropertiesWidget  *m_cpw;     ///< Widget to edit default conductor properties
 	ReportPropertieWidget      *rpw;       ///< Widget to edit default report label
 	XRefPropertiesWidget       *xrefpw;    ///< Widget to edit default xref properties
-	TitleBlockProperties       savedTbp;   ///< Used to save current TBP and retrieve later
+	TitleBlockProperties       savedTbp;   ///< Used to save current TBP && retrieve later
 
 };
 

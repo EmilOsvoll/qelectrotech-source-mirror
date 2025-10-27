@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -421,7 +421,7 @@ void GraphicsTablePropertiesEditor::updateInfoLabel()
 
 	auto value = m_table_item->model()->rowCount() - count_;
 	if (value > 0 && !infinite) {
-		ui->m_info_label->setText(tr("<center>ATTENTION :</center>\n %1 lines are missing to display the full information").arg(value));
+		ui->m_info_label->setText(tr("<center>ATTENTION :</center>\n il manque %1% {1?} lines afin d'afficher l'intégralité des informations").arg(value));
 		ui->m_info_label->show();
 	} else {
 		ui->m_info_label->hide();

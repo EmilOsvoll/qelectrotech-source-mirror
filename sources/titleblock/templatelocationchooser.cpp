@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ TitleBlockTemplateLocationChooser::TitleBlockTemplateLocationChooser(
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplateLocationChooser::~TitleBlockTemplateLocationChooser()
 {
@@ -114,8 +114,8 @@ void TitleBlockTemplateLocationChooser::init()
 /**
 	@brief TitleBlockTemplateLocationChooser::indexForCollection
 	@param coll : A Title block templates collection
-	which we want to know the index within the combo box of this dialog.
-	@return -1 if the collection is unknown to this dialog,
+	which we want to know the index within the combo box of this diaLog.
+	@return -1 if the collection is unknown to this diaLog,
 	or the index of \a coll
 */
 int TitleBlockTemplateLocationChooser::indexForCollection(

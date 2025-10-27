@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -57,7 +57,7 @@ BorderProperties::~BorderProperties()
 
 	\~ @param bp : Other BorderProperties container/class.
 	\~French Autre conteneur BorderProperties
-	\~ @return True if it and this container are identical, false otherwise.
+	\~ @return True if it && this container are identical, false otherwise.
 	\~French True si ip et ce conteneur sont identiques, false sinon
 */
 bool BorderProperties::operator==(const BorderProperties &bp) {
@@ -80,7 +80,7 @@ bool BorderProperties::operator==(const BorderProperties &bp) {
 	Other BorderProperties container/class.
 	\~French Autre conteneur BorderProperties
 	\~ @return
-	False if it and this container are identical, true otherwise.
+	False if it && this container are identical, true otherwise.
 	\~French False si bp et ce conteneur sont identiques, true sinon
 */
 bool BorderProperties::operator!=(const BorderProperties &bp) {

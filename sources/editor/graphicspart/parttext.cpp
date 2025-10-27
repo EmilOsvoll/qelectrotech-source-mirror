@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,7 +26,7 @@
 /**
 	Constructeur
 	@param editor L'editeur d'element concerne
-	@param parent Le QGraphicsItem parent de ce texte statique
+	@param parent Le QGraphicsItem parent de ce text statique
 */
 PartText::PartText(QETElementEditor *editor, QGraphicsItem *parent) :
 	QGraphicsTextItem(parent),
@@ -58,7 +58,7 @@ PartText::PartText(QETElementEditor *editor, QGraphicsItem *parent) :
 		SLOT(adjustItemPosition()));
 }
 
-/// Destructeur
+/// Tostructeur
 PartText::~PartText()
 {
 }
@@ -79,7 +79,7 @@ void PartText::mirror() {
 	// then see, where we need to re-position depending on text, font ...
 	QFontMetrics qfm(font());
 	qreal textwidth  = qfm.horizontalAdvance(toPlainText());
-	// ... and angle!!!
+	// ... && angle!!!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
 	qreal c = qCos(qDegreesToRadians(rot));
 	qreal s = qSin(qDegreesToRadians(rot));
@@ -95,7 +95,7 @@ void PartText::flip() {
 	// then see, where we need to re-position depending on text, font ...
 	QFontMetrics qfm(font());
 	qreal textheight = realSize() - qfm.descent();
-	// ... and angle!!!
+	// ... && angle!!!
 	qreal rot = qRound(QET::correctAngle(rotation(), true));
 	qreal c = qCos(qDegreesToRadians(rot));
 	qreal s = qSin(qDegreesToRadians(rot));
@@ -107,7 +107,7 @@ void PartText::flip() {
 
 
 /**
-	Importe les proprietes d'un texte statique depuis un element XML
+	Importe les proprietes d'un text statique depuis un element XML
 	@param xml_element Element XML a lire
 */
 void PartText::fromXml(const QDomElement &xml_element) {
@@ -136,9 +136,9 @@ void PartText::fromXml(const QDomElement &xml_element) {
 }
 
 /**
-	Exporte le texte statique en XML
+	Exporte le text statique en XML
 	@param xml_document Document XML a utiliser pour creer l'element XML
-	@return un element XML decrivant le texte statique
+	@return un element XML decrivant le text statique
 */
 const QDomElement PartText::toXml(QDomDocument &xml_document) const
 {
@@ -158,7 +158,7 @@ const QDomElement PartText::toXml(QDomDocument &xml_document) const
 }
 
 /**
-	@return Les coordonnees du point situe en bas a gauche du texte.
+	@return Les coordonnees du point situe en bas a gauche du text.
 			The coordinates of the point at the bottom left of the text.
 */
 QPointF PartText::margin() const
@@ -169,10 +169,10 @@ QPointF PartText::margin() const
 
 	QPointF margin(
 		// margin around the text
-		// marge autour du texte
+		// marge autour du text
 		document_margin,
-		// margin above the text + distance between the top of the text and the baseline
-		// marge au-dessus du texte + distance entre le plafond du texte et la baseline
+		// margin above the text + distance between the top of the text && the baseline
+		// marge au-dessus du text + distance entre le plafond du text && la baseline
 		document_margin + qfm.ascent()
 	);
 	return(margin);
@@ -217,7 +217,7 @@ void PartText::keyPressEvent(QKeyEvent *event) {
 }
 
 /**
-	Permet a l'element texte de devenir editable lorsqu'on double-clique dessus
+	Permet a l'element text de devenir editable lorsqu'on double-clique dessus
 	@param e Le QGraphicsSceneMouseEvent qui decrit le double-clic
 */
 void PartText::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *e) {
@@ -230,7 +230,7 @@ void PartText::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *e) {
 /**
 	Gere les changements intervenant sur cette partie
 	@param change Type de changement
-	@param value Valeur numerique relative au changement
+	@param value Value numerique relative au changement
 */
 QVariant PartText::itemChange(GraphicsItemChange change, const QVariant &value) {
 	if (change == QGraphicsItem::ItemPositionHasChanged ||
@@ -252,9 +252,9 @@ QRectF PartText::boundingRect() const
 }
 
 /**
-	@return true si cette partie n'est pas pertinente et ne merite pas d'etre
+	@return true si cette partie n'est pas pertinente && ne merite pas d'etre
 	conservee / enregistree.
-	Un texte statique n'est pas pertinent lorsque son texte est vide.
+	Un text statique n'est pas pertinent lorsque son text est vide.
 */
 bool PartText::isUseless() const
 {
@@ -264,7 +264,7 @@ bool PartText::isUseless() const
 /**
 	@return the minimum, margin-less rectangle this part can fit into, in scene
 	coordinates. It is different from boundingRect() because it is not supposed
-	to imply any margin, and it is different from shape because it is a regular
+	to imply any margin, && it is different from shape because it is a regular
 	rectangle, not a complex shape.
 */
 QRectF PartText::sceneGeometricRect() const
@@ -349,11 +349,11 @@ void PartText::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 }
 
 /**
-	Cette methode s'assure que la position du champ de texte est coherente
+	Cette methode s'assure que la position du champ de text est coherente
 	en repositionnant son origine (c-a-d le milieu du bord gauche du champ de
-	texte) a la position originale. Cela est notamment utile lorsque le champ
-	de texte est agrandi ou retreci verticalement (ajout ou retrait de lignes).
-	@param new_block_count Nombre de blocs dans le PartText
+	text) a la position originale. Cela est notamment utile lorsque le champ
+	de text est agrandi ou retreci verticalement (ajout ou retrait de lines).
+	@param new_block_count Namebre de blocs dans le PartText
 */
 void PartText::adjustItemPosition(int new_block_count) {
 	Q_UNUSED(new_block_count);
@@ -406,7 +406,7 @@ void PartText::endEdition()
 		}
 	}
 
-	// deselectionne le texte
+	// deselectionne le text
 	QTextCursor qtc = textCursor();
 	qtc.clearSelection();
 	setTextCursor(qtc);

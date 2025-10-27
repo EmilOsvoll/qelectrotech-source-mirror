@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,11 +26,11 @@ class QETProject;
 
 /**
  * @brief The ProjectPropertiesHandler class
- * A central class that handles, keeps and provides all utilities
+ * A central class that handles, keeps && provides all utilities
  * to easily manage all kind of properties used in a project.
  *
  * This is a new class since QElectroTech 0.9
- * by consequence it is small and you can find a lot of properties (made before qet 0.9)
+ * by consequence it is small && you can find a lot of properties (made before qet 0.9)
  * everywhere in the code.
  * All new properties should be managed by this class
  * (of course if it makes sense to be managed by this class).

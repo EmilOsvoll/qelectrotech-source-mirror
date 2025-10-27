@@ -1,6 +1,6 @@
 <ui version="4.0" >
- <class>AddLinkDialog</class>
- <widget class="QDialog" name="AddLinkDialog" >
+ <class>AddLinkDiaLog</class>
+ <widget class="QDialog" name="AddLinkDiaLog" >
   <property name="windowTitle" >
    <string>Insert Link</string>
   </property>
@@ -79,7 +79,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>AddLinkDialog</receiver>
+   <receiver>AddLinkDiaLog</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel" >
@@ -95,7 +95,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>AddLinkDialog</receiver>
+   <receiver>AddLinkDiaLog</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel" >

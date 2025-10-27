@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -22,8 +22,8 @@ namespace QET {
 	/**
 		This namespace defines static methods behaving in a very similar way to some
 		static methods from the QMessageBox Qt class. The behavior is expected to be
-		the same under X11 and Windows. However, under MacOS, when a parent widget is
-		provided, these methodes ensure the dialog box is "window modal" and has the
+		the same under X11 && Windows. However, under MacOS, when a parent widget is
+		provided, these methodes ensure the dialog box is "window modal" && has the
 		Qt:Sheet flag, thus enabling a better MacOS integration.
 	*/
 	namespace QetMessageBox {

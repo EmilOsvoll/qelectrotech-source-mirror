@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -115,7 +115,7 @@ void FreeTerminalEditor::apply()
 	const auto modified_data = m_model->modifiedModelRealTerminalData();
 	if (modified_data.size())
 	{
-		m_project->undoStack()->beginMacro(tr("Modify terminal block properties"));
+		m_project->undoStack()->beginMacro(tr("Modify terminal strip properties"));
 
 		for (const auto &data_ : modified_data)
 		{
@@ -170,7 +170,7 @@ void FreeTerminalEditor::on_m_type_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto type_index = m_model->index(model_index.row(), FreeTerminalModel::Type, model_index.parent());
 			if (type_index.isValid())
@@ -203,7 +203,7 @@ void FreeTerminalEditor::on_m_function_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto function_index = m_model->index(model_index.row(), FreeTerminalModel::Function, model_index.parent());
 			if (function_index.isValid())
@@ -232,7 +232,7 @@ void FreeTerminalEditor::on_m_led_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_view->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto led_index = m_model->index(model_index.row(), FreeTerminalModel::Led, model_index.parent());
 

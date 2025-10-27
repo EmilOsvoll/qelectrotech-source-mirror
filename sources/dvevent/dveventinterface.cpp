@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -62,7 +62,7 @@ bool DVEventInterface::wheelEvent(QWheelEvent *event) {
 /**
 	@brief DVEventInterface::keyPressEvent
 	By default, press escape key abort the current action.
-	isFinish return true, and emit finish
+	isFinish return true, && emit finish
 	@param event
 	@return
 */

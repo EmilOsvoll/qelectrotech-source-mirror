@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0" columnstretch="0,0">
    <property name="leftMargin">
@@ -35,7 +35,7 @@
       <item>
        <widget class="QLabel" name="m_search">
         <property name="text">
-         <string>Chercher :</string>
+         <string>Find :</string>
         </property>
        </widget>
       </item>
@@ -77,12 +77,12 @@
            </property>
            <item>
             <property name="text">
-             <string>Texte brut</string>
+             <string>Text brut</string>
             </property>
            </item>
            <item>
             <property name="text">
-             <string>Mots entiers</string>
+             <string>Whole words</string>
             </property>
            </item>
           </widget>
@@ -90,7 +90,7 @@
          <item>
           <widget class="QCheckBox" name="m_case_sensitive_cb">
            <property name="text">
-            <string>Sensible à la casse</string>
+            <string>Case sensitive</string>
            </property>
           </widget>
          </item>
@@ -134,7 +134,7 @@
       <item>
        <widget class="QPushButton" name="m_reload_pb">
         <property name="toolTip">
-         <string>Refresh</string>
+         <string>Actualize</string>
         </property>
         <property name="text">
          <string/>
@@ -151,7 +151,7 @@
       <item>
        <widget class="QPushButton" name="m_advanced_pb">
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Show advanced options&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Display les options advancedes&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string/>
@@ -221,7 +221,7 @@
          <bool>false</bool>
         </property>
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace selected matches&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace les correspondances cochées&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Replace all</string>
@@ -238,7 +238,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="m_replace">
         <property name="text">
-         <string>Replace :</string>
+         <string>Replace:</string>
         </property>
        </widget>
       </item>
@@ -261,7 +261,7 @@
          </size>
         </property>
         <property name="placeholderText">
-         <string>Folio text field</string>
+         <string>Champ text de folio</string>
         </property>
         <property name="clearButtonEnabled">
          <bool>true</bool>
@@ -274,7 +274,7 @@
          <bool>false</bool>
         </property>
         <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace selected match&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Replace la correspondance sélectionnée&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="text">
          <string>Replace</string>

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -162,7 +162,7 @@ void NewDiagramPage::applyConf()
 	} else { //Else we save to the default value
 		QSettings settings;
 
-		// dimensions des nouveaux schemas
+		// dimensions des nouveaux diagrams
 		bpw -> properties().toSettings(settings, "diagrameditor/default");
 
 		// proprietes du cartouche
@@ -252,10 +252,10 @@ void NewDiagramPage::loadSavedTbp()
 	@param parent QWidget parent
 */
 ExportConfigPage::ExportConfigPage(QWidget *parent) : ConfigPage(parent) {
-	// epw contient les options d'export
+	// epw contains les options d'export
 	epw = new ExportPropertiesWidget(ExportProperties::defaultExportProperties());
 
-	// layout vertical contenant le titre, une ligne horizontale et epw
+	// layout vertical contenant le titre, une line horizontale && epw
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 
 	QLabel *title = new QLabel(this -> title());
@@ -271,7 +271,7 @@ ExportConfigPage::ExportConfigPage(QWidget *parent) : ConfigPage(parent) {
 	setLayout(vlayout1);
 }
 
-/// Destructeur
+/// Tostructeur
 ExportConfigPage::~ExportConfigPage()
 {
 }
@@ -302,11 +302,11 @@ QString ExportConfigPage::title() const
 	@param parent QWidget parent
 */
 PrintConfigPage::PrintConfigPage(QWidget *parent) : ConfigPage(parent) {
-	// epw contient les options d'export
+	// epw contains les options d'export
 	epw = new ExportPropertiesWidget(ExportProperties::defaultPrintProperties());
 	epw -> setPrintingMode(true);
 
-	// layout vertical contenant le titre, une ligne horizontale et epw
+	// layout vertical contenant le titre, une line horizontale && epw
 	QVBoxLayout *vlayout1 = new QVBoxLayout();
 
 	QLabel *title = new QLabel(this -> title());
@@ -322,7 +322,7 @@ PrintConfigPage::PrintConfigPage(QWidget *parent) : ConfigPage(parent) {
 	setLayout(vlayout1);
 }
 
-/// Destructeur
+/// Tostructeur
 PrintConfigPage::~PrintConfigPage()
 {
 }

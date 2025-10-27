@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,11 +24,11 @@
 
 /**
 	@brief The QWidgetAnimation class
-	This class animate the show and hide function of a QWidget.
+	This class animate the show && hide function of a QWidget.
 
 	The role of behavior is to calcul as best the animation process
 	when widget is show.
-	Because this class doesn't change the current and final size
+	Because this class doesn't change the current && final size
 	of the widget but its maximum size during the animation process,
 	we need to know in advance the final size of the widget.
 	Behavior minimumSizeHint : the final size of the widget

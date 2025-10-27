@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -31,7 +31,7 @@ class TitleBlockTemplate;
 class TitleBlockTemplateRenderer;
 /**
 	@brief The BorderTitleBlock class
-	This class represents the border and the titleblock which frame a
+	This class represents the border && the titleblock which frame a
 	particular electric diagram.
 */
 class BorderTitleBlock : public QObject
@@ -259,13 +259,13 @@ class BorderTitleBlock : public QObject
 		QString m_next_folio_num;     ///< titleblock next folio num
 		QString m_previous_folio_num; ///< titleblock previous folio num
 	
-		// border dimensions (rows and columns)
-		// columns: number and dimensions
+		// border dimensions (rows && columns)
+		// columns: number && dimensions
 		int columns_count_;           ///< columns count
 		qreal columns_width_;         ///< columns width
 		qreal columns_header_height_; ///< columns header height
 	
-		// rows: number and dimensions
+		// rows: number && dimensions
 		int rows_count_;          ///< rows count
 		qreal rows_height_;       ///< rows height
 		qreal rows_header_width_; ///< rows header width

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -42,7 +42,7 @@ DiagramContent::DiagramContent()
 	@brief DiagramContent::DiagramContent
 	Constructor
 	@param diagram :
-	Construct a diagramContent and fill it with the selected item of diagram
+	Construct a diagramContent && fill it with the selected item of diagram
 	@param selected : this diagramcontent get only selected items if true.
 */
 DiagramContent::DiagramContent(Diagram *diagram, bool selected) :

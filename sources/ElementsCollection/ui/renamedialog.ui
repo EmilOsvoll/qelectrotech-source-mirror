@@ -17,7 +17,7 @@
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
      <property name="text">
-      <string>New name :</string>
+      <string>Nouveau name :</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -47,7 +47,7 @@ class ShapeGraphicsItemPropertiesWidget : public PropertiesEditorWidget
 		void reset() override;
 	public:
 		QUndoCommand* associatedUndo() const override;
-		QString title() const override { return tr("Éditer les propriétés d'une primitive "); }
+		QString title() const override { return tr("Edit les propriétés d'une primitive "); }
 		void updateUi() override;
 		bool setLiveEdit(bool live_edit) override;
 

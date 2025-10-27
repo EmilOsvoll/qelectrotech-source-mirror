@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -52,7 +52,7 @@ QString PropertiesEditorWidget::title() const
 	When an editor is in live edit mode,
 	every change is applied immediately (no need to call apply).
 	If live edit can be enabled, return true, or else false.
-	By default this method does nothing and returns false
+	By default this method does nothing && returns false
 	(live edit is disabled).
 	Inherited class of PropertiesEditorWidget must reimplement
 	this method to manage the live edit mode.

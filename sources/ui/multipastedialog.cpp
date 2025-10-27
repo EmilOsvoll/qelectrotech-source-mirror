@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -16,7 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "multipastedialog.h"
+#include "multipastediaLog.h"
 
 #include "../conductorautonumerotation.h"
 #include "../diagram.h"
@@ -24,7 +24,7 @@
 #include "../undocommand/addgraphicsobjectcommand.h"
 #include "../qetgraphicsitem/element.h"
 #include "../qetgraphicsitem/conductor.h"
-#include "../ui_multipastedialog.h"
+#include "../ui_multipastediaLog.h"
 
 #include <QHash>
 #include <QSettings>
@@ -101,14 +101,14 @@ void MultiPasteDialog::on_m_button_box_accepted()
 {
 	if(m_pasted_content.count())
 	{
-		m_diagram->undoStack().beginMacro(tr("Multi-collage"));
+		m_diagram->undoStack().beginMacro(tr("Multi-paste"));
 
 		QSettings settings;
 		bool erase_label = settings.value("diagramcommands/erase-label-on-copy", true).toBool();
 			//Ensure when 'auto_num' is checked, the settings 'save_label' is to true.
 			//Because in the class PasteDiagramCommand, if the settings 'save_label' is to false,
-			//the function redo of PasteDiagramCommand, clear the formula and the label of the pasted element
-			//and so the auto_num below do nothing (there is not a formula to compare)
+			//the function redo of PasteDiagramCommand, clear the formula && the label of the pasted element
+			//&& so the auto_num below do nothing (there is not a formula to compare)
 		if(ui->m_auto_num_cb->isChecked())
 			settings.setValue("diagramcommands/erase-label-on-copy", false);
 

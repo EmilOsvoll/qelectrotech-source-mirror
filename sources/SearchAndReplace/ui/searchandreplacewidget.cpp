@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -70,7 +70,7 @@ SearchAndReplaceWidget::SearchAndReplaceWidget(QWidget *parent) :
 
 /**
 	@brief SearchAndReplaceWidget::~SearchAndReplaceWidget
-	Destructor
+	Tostructor
 */
 SearchAndReplaceWidget::~SearchAndReplaceWidget()
 {
@@ -79,7 +79,7 @@ SearchAndReplaceWidget::~SearchAndReplaceWidget()
 
 /**
 	@brief SearchAndReplaceWidget::event
-	Reimplemented to clear the the lines edit and hide
+	Reimplemented to clear the the lines edit && hide
 	the advanced widgets, when this widget become hidden
 	@param event
 	@return
@@ -107,7 +107,7 @@ bool SearchAndReplaceWidget::event(QEvent *event)
 
 /**
 	@brief SearchAndReplaceWidget::clear
-	Clear the content of the search and replace line edit
+	Clear the content of the search && replace line edit
 	Clear all tree items in the tree widget (except the category items).
 */
 void SearchAndReplaceWidget::clear()
@@ -156,7 +156,7 @@ void SearchAndReplaceWidget::setUpTreeItems()
 {
 	m_root_qtwi = new QTreeWidgetItem(ui->m_tree_widget);
 	m_root_qtwi->setIcon(0, QET::Icons::ProjectProperties);
-	m_root_qtwi->setText(0, tr("Correspondence :"));
+	m_root_qtwi->setText(0, tr("Correspondence:"));
 	m_root_qtwi->setCheckState(0, Qt::Checked);
 	m_category_qtwi.append(m_root_qtwi);
 
@@ -168,7 +168,7 @@ void SearchAndReplaceWidget::setUpTreeItems()
 
 	m_indi_text_qtwi = new QTreeWidgetItem(m_root_qtwi);
 	m_indi_text_qtwi->setIcon(0, QET::Icons::PartText);
-	m_indi_text_qtwi->setText(0, tr("Text fields"));
+	m_indi_text_qtwi->setText(0, tr("Champs text"));
 	m_indi_text_qtwi->setCheckState(0, Qt::Checked);
 	m_category_qtwi.append(m_indi_text_qtwi);
 
@@ -179,31 +179,31 @@ void SearchAndReplaceWidget::setUpTreeItems()
 	m_category_qtwi.append(m_elements_qtwi);
 
 	m_simple_elmt_qtwi = new QTreeWidgetItem(m_elements_qtwi);
-	m_simple_elmt_qtwi->setText(0, tr("Simple elements"));
+	m_simple_elmt_qtwi->setText(0, tr("Elements simple"));
 	m_simple_elmt_qtwi->setIcon(0, QET::Icons::Element);
 	m_simple_elmt_qtwi->setCheckState(0, Qt::Checked);
 	m_qtwi_elmts.append(m_simple_elmt_qtwi);
 
 	m_master_elmt_qtwi= new QTreeWidgetItem(m_elements_qtwi);
-	m_master_elmt_qtwi->setText(0, tr("Master elements"));
+	m_master_elmt_qtwi->setText(0, tr("Elements maître"));
 	m_master_elmt_qtwi->setIcon(0, QET::Icons::ElementMaster);
 	m_master_elmt_qtwi->setCheckState(0, Qt::Checked);
 	m_qtwi_elmts.append(m_master_elmt_qtwi);
 
 	m_slave_elmt_qtwi = new QTreeWidgetItem(m_elements_qtwi);
-	m_slave_elmt_qtwi->setText(0, tr("Slave elements"));
+	m_slave_elmt_qtwi->setText(0, tr("Elements esclave"));
 	m_slave_elmt_qtwi->setIcon(0, QET::Icons::ElementSlave);
 	m_slave_elmt_qtwi->setCheckState(0, Qt::Checked);
 	m_qtwi_elmts.append(m_slave_elmt_qtwi);
 
 	m_report_elmt_qtwi = new QTreeWidgetItem(m_elements_qtwi);
-	m_report_elmt_qtwi->setText(0, tr("Folio report elements"));
+	m_report_elmt_qtwi->setText(0, tr("Elements report de folio"));
 	m_report_elmt_qtwi->setIcon(0, QET::Icons::FolioXrefComing);
 	m_report_elmt_qtwi->setCheckState(0, Qt::Checked);
 	m_qtwi_elmts.append(m_report_elmt_qtwi);
 
 	m_terminal_elmt_qtwi = new QTreeWidgetItem(m_elements_qtwi);
-	m_terminal_elmt_qtwi->setText(0, tr("Terminal elements"));
+	m_terminal_elmt_qtwi->setText(0, tr("Elements bornier"));
 	m_terminal_elmt_qtwi->setIcon(0, QET::Icons::ElementTerminal);
 	m_terminal_elmt_qtwi->setCheckState(0, Qt::Checked);
 	m_qtwi_elmts.append(m_terminal_elmt_qtwi);
@@ -459,9 +459,9 @@ void SearchAndReplaceWidget::search()
  */
 void SearchAndReplaceWidget::setUpActions()
 {
-	m_select_elements   = new QAction(QET::Icons::Element,   tr("Select elements from this folio"),    ui->m_tree_widget);
-	m_select_conductors = new QAction(QET::Icons::Conductor, tr("Select conductors from this folio"), ui->m_tree_widget);
-	m_select_texts      = new QAction(QET::Icons::PartText,  tr("Select texts from this folio"),      ui->m_tree_widget);
+	m_select_elements   = new QAction(QET::Icons::Element,   tr("Choicener les elements de ce folio"),    ui->m_tree_widget);
+	m_select_conductors = new QAction(QET::Icons::Conductor, tr("Select the conductors of this folio"), ui->m_tree_widget);
+	m_select_texts      = new QAction(QET::Icons::PartText,  tr("Choicener les texts de ce folio"),      ui->m_tree_widget);
 }
 
 /**
@@ -735,7 +735,7 @@ void SearchAndReplaceWidget::updateParentCheckState(QTreeWidgetItem *item,
 
 /**
 	@brief SearchAndReplaceWidget::activateNextChecked
-	Activate the next checked (and visible) item
+	Activate the next checked (&& visible) item
 */
 void SearchAndReplaceWidget::activateNextChecked()
 {
@@ -752,7 +752,7 @@ void SearchAndReplaceWidget::activateNextChecked()
 
 /**
 	@brief SearchAndReplaceWidget::selectedDiagram
-	@return The list of visible and selected diagram in the tree widget
+	@return The list of visible && selected diagram in the tree widget
 */
 QList<Diagram *> SearchAndReplaceWidget::selectedDiagram() const
 {
@@ -774,7 +774,7 @@ QList<Diagram *> SearchAndReplaceWidget::selectedDiagram() const
 
 /**
 	@brief SearchAndReplaceWidget::selectedElement
-	@return The list of visible and selected element in the tree widget
+	@return The list of visible && selected element in the tree widget
 */
 QList<Element *> SearchAndReplaceWidget::selectedElement() const
 {
@@ -796,7 +796,7 @@ QList<Element *> SearchAndReplaceWidget::selectedElement() const
 
 /**
 	@brief SearchAndReplaceWidget::selectedConductor
-	@return The list of visible and selected conductor in the tree widget
+	@return The list of visible && selected conductor in the tree widget
 */
 QList<Conductor *> SearchAndReplaceWidget::selectedConductor() const
 {
@@ -818,7 +818,7 @@ QList<Conductor *> SearchAndReplaceWidget::selectedConductor() const
 
 /**
 	@brief SearchAndReplaceWidget::selectedText
-	@return The list of visible and selected independant text
+	@return The list of visible && selected independant text
 	in the tree widget
 */
 QList<IndependentTextItem *> SearchAndReplaceWidget::selectedText() const
@@ -934,7 +934,7 @@ void SearchAndReplaceWidget::on_m_quit_button_clicked()
 {
 	if (auto animator =
 			this->findChild<QWidgetAnimation *>(
-				"search and replace animator")) {
+				"search && replace animator")) {
 		animator->setHidden(!this->isHidden());
 	} else {
 		this->setHidden(true);
@@ -1256,8 +1256,8 @@ void SearchAndReplaceWidget::on_m_replace_all_pb_clicked()
 	}
 
 		//Change was made, we reload the panel
-		//and search again to keep up to date the tree widget
-		//and the match item of search
+		//&& search again to keep up to date the tree widget
+		//&& the match item of search
 	QString txt = ui->m_search_le->text();
 	on_m_reload_pb_clicked();
 	ui->m_search_le->setText(txt);

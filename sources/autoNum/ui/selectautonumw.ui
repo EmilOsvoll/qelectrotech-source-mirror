@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -25,7 +25,7 @@
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Available numberings :</string>
+        <string>Availables numbering :</string>
        </property>
       </widget>
      </item>
@@ -49,7 +49,7 @@
        </property>
        <item>
         <property name="text">
-         <string>Name of the new numbering</string>
+         <string>Name de la nouvelle numérotation</string>
         </property>
        </item>
       </widget>
@@ -57,7 +57,7 @@
      <item>
       <widget class="QPushButton" name="m_remove_pb">
        <property name="toolTip">
-        <string>Remove numbering</string>
+        <string>Delete la numérotation</string>
        </property>
        <property name="text">
         <string/>
@@ -130,7 +130,7 @@
            <item>
             <widget class="QPushButton" name="remove_button">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete a numbering variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Delete une variable de numérotation&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string/>
@@ -147,7 +147,7 @@
            <item>
             <widget class="QPushButton" name="add_button">
              <property name="toolTip">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add a numbering variable&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add une variable de numérotation&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
              </property>
              <property name="text">
               <string/>
@@ -249,7 +249,7 @@
                 </sizepolicy>
                </property>
                <property name="text">
-                <string>Increment</string>
+                <string>Incrementing</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

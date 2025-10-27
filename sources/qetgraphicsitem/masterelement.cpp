@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -54,7 +54,7 @@ MasterElement::~MasterElement()
 */
 void MasterElement::linkToElement(Element *elmt)
 {
-		// check if element is slave and if isn't already linked
+		// check if element is slave && if isn't already linked
 	if (elmt->linkType() == Slave && !connected_elements.contains(elmt))
 	{
 		connected_elements << elmt;
@@ -106,7 +106,7 @@ void MasterElement::unlinkElement(Element *elmt)
 /**
 	@brief MasterElement::initLink
 	@param project
-	Call init Link from custom element and after
+	Call init Link from custom element && after
 	call update label for setup it.
 */
 void MasterElement::initLink(QETProject *project) {
@@ -145,7 +145,7 @@ void MasterElement::xrefPropertiesChanged()
 	XRefProperties xrp = diagram()->project()->defaultXRefProperties(kindInformations()["type"].toString());
 	if(xrp.snapTo() == XRefProperties::Bottom)
 	{
-			//We create a Xref, and just after we call aboutDeleteXref,
+			//We create a Xref, && just after we call aboutDeleteXref,
 			//because the Xref may be useless.
 		if(!m_Xref_item)
 			m_Xref_item = new CrossRefItem(this);
@@ -159,7 +159,7 @@ void MasterElement::xrefPropertiesChanged()
 	If Xref item is deleted or already not used (nullptr) return true;
 	Else return false if Xref item is used
 	NOTICE : Xref can display nothing but not be deleted so far.
-	For example, if Xref is display has cross, only power contact are linked and
+	For example, if Xref is display has cross, only power contact are linked &&
 	option show power contact is disable, the cross isn't draw.
 	@return
 */

@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Text alignment</string>
+   <string>text alignment</string>
   </property>
   <property name="modal">
    <bool>true</bool>

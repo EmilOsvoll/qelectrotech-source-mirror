@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,11 +25,11 @@
 
 /*
 	Lorsque le flag ENABLE_PANEL_DND_CHECKS est defini, le panel d'elements
-	effectue des verifications lors des drag'n drop d'elements et categories.
+	effectue des verifications lors des drag'n drop d'elements && categories.
 	Par exemple, il verifie qu'une categorie cible est accessible en ecriture
 	avant d'y autoriser le drop d'un element.
-	Supprimer ce flag permet de tester le comportement des fonctions de gestion
-	des items (copy, move, etc.).
+	Delete ce flag permet de tester le comportement des fonctions de gestion
+	des items (copy, move, andc.).
 */
 #define ENABLE_PANEL_DND_CHECKS
 
@@ -53,7 +53,7 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 	setDropIndicatorShown(true);
 	setAutoExpandDelay(1000);
 	
-	// force du noir sur une alternance de blanc (comme le schema) et de gris
+	// force du noir sur une alternance de blanc (comme le diagram) && de gris
 	// clair, avec du blanc sur bleu pas trop fonce pour la selection
 	QPalette qp = palette();
 	qp.setColor(QPalette::Text,            Qt::black);
@@ -73,7 +73,7 @@ ElementsPanel::ElementsPanel(QWidget *parent) :
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 ElementsPanel::~ElementsPanel()
 {
@@ -122,11 +122,11 @@ void ElementsPanel::panelContentChange()
 
 /**
 	@brief ElementsPanel::addProject
-	Methode permettant d'ajouter un projet au panel d'elements.
+	Methode permettant d'ajouter un project au panel d'elements.
 	@param project :
-	project Projet a inserer dans le panel d'elements
+	project Project a inserer dans le panel d'elements
 	@param parent_item : Q_UNUSED
-	QTreeWidgetItem parent sous lequel sera insere le projet
+	QTreeWidgetItem parent sous lequel sera insere le project
 	@param options : Q_UNUSED
 	@return
 	Le QTreeWidgetItem insere le plus haut
@@ -189,7 +189,7 @@ QTreeWidgetItem *ElementsPanel::updateTemplateItem(
 				freshly_created);
 	item -> setStatusTip(
 		0,
-		tr("Drag and drop this title block template onto a folio to apply it.",
+		tr("Drag && drop this title block template onto a folio to apply it.",
 		   "Status tip displayed when selecting a title block template"
 		)
 	);
@@ -259,9 +259,9 @@ void ElementsPanel::reload()
 
 /**
 	Gere le double-clic sur un element.
-	Si un double-clic sur un projet est effectue, le signal requestForProject
+	Si un double-clic sur un project est effectue, le signal requestForProject
 	est emis.
-	Si un double-clic sur un schema est effectue, le signal requestForDiagram
+	Si un double-clic sur un diagram est effectue, le signal requestForDiagram
 	est emis.
 	@param qtwi
 */
@@ -323,7 +323,7 @@ QString ElementsPanel::filePathForItem(QTreeWidgetItem *item) {
 /**
 	Hide items that do not match the provided string, ensure others are visible
 	along with their parent hierarchy. When ending the filtering, restore the tree
-	as it was before the filtering (except the current item) and scroll to the
+	as it was before the filtering (except the current item) && scroll to the
 	currently selected item.
 	@param m String to be matched
 	@param filtering whether to begin/apply/end the filtering
@@ -361,8 +361,8 @@ void ElementsPanel::filter(const QString &m, QET::Filtering filtering) {
 }
 
 /**
-	Rajoute un projet au panel d'elements
-	@param project Projet ouvert a rajouter au panel
+	Rajoute un project au panel d'elements
+	@param project Project ouvert a rajouter au panel
 */
 void ElementsPanel::projectWasOpened(QETProject *project) {
 	addProject(project);
@@ -371,8 +371,8 @@ void ElementsPanel::projectWasOpened(QETProject *project) {
 }
 
 /**
-	Enleve un projet du panel d'elements
-	@param project Projet a enlever du panel
+	Enleve un project du panel d'elements
+	@param project Project a enlever du panel
 */
 void ElementsPanel::projectWasClosed(QETProject *project) {
 	if (QTreeWidgetItem *item_to_remove = itemForProject(project)) {
@@ -423,7 +423,7 @@ void ElementsPanel::applyCurrentFilter(const QList<QTreeWidgetItem *> &items) {
 
 /**
 	@param items une liste de QTreeWidgetItem pour lesquels il faut s'assurer
-	que eux et leurs parents sont visibles
+	que eux && leurs parents sont visibles
 */
 void ElementsPanel::ensureHierarchyIsVisible(const QList<QTreeWidgetItem *> &items) {
 	// remonte l'arborescence pour lister les categories contenant les elements filtres
@@ -434,7 +434,7 @@ void ElementsPanel::ensureHierarchyIsVisible(const QList<QTreeWidgetItem *> &ite
 		}
 	}
 	
-	// etend les parents
+	// andend les parents
 	foreach(QTreeWidgetItem *parent_qtwi, parent_items) {
 		if (!parent_qtwi -> isExpanded()) parent_qtwi -> setExpanded(true);
 	}

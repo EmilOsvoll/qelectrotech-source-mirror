@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -148,26 +148,26 @@ void ElementsCollectionWidget::setUpAction()
 	m_open_dir = new QAction(QET::Icons::FolderOpen,
 				 tr("Open the underlying directory"), this);
 	m_edit_element = new QAction(QET::Icons::ElementEdit,
-					 tr("Edit element"), this);
+					 tr("Edit l'élément"), this);
 	m_delete_element = new QAction(QET::Icons::ElementDelete,
 					   tr("Delete element"), this);
 	m_delete_dir = new QAction(QET::Icons::FolderDelete,
-				   tr("Delete directory"), this);
+				   tr("Delete folder"), this);
 	m_reload = new QAction(QET::Icons::ViewRefresh,
 				   tr("Reload collections"), this);
 	m_edit_dir = new QAction(QET::Icons::FolderEdit,
-				 tr("Edit the directory"), this);
+				 tr("Edit le dossier"), this);
 	m_new_directory = new QAction(QET::Icons::FolderNew,
-					  tr("New directory"), this);
+					  tr("New folder"), this);
 	m_new_element = new QAction(QET::Icons::ElementNew,
 					tr("New element"), this);
 	m_show_this_dir = new QAction(QET::Icons::FolderOnlyThis,
-					  tr("Show only this directory"),
+					  tr("Show only this folder"),
 					  this);
 	m_show_all_dir = new QAction(QET::Icons::FolderShowAll,
-					 tr("Show all directories"), this);
+					 tr("Show All Folders"), this);
 	m_dir_propertie = new QAction(QET::Icons::FolderProperties,
-					  tr("Directory properties"), this);
+					  tr("Property du dossier"), this);
 }
 
 /**
@@ -408,9 +408,9 @@ void ElementsCollectionWidget::deleteElement()
 		{
 			QET::QetMessageBox::warning(
 				this,
-				tr("Deleting element",
+				tr("Toleting element",
 				   "message box title"),
-				tr("Deleting element failed.",
+				tr("Toleting element failed.",
 				   "message box content"));
 		}
 	}
@@ -436,9 +436,9 @@ void ElementsCollectionWidget::deleteDirectory()
 
 	if (QET::QetMessageBox::question(
 		this,
-		tr("Delete directory?", "message box title"),
+		tr("Delete folder?", "message box title"),
 		tr("Êtes-vous sûr  de vouloir supprimer le dossier ?\n"
-		"All elements and directories contained in this directory will be deleted.",
+		"Tout les elements && les dossier contenus dans ce dossier seront supprimés.",
 		"message box content"),
 		QMessageBox::Yes | QMessageBox::No) == QMessageBox::Yes)
 	{
@@ -453,9 +453,9 @@ void ElementsCollectionWidget::deleteDirectory()
 		{
 			QET::QetMessageBox::warning(
 				this,
-				tr("Delete directory",
+				tr("Folder Delete",
 				   "message box title"),
-				tr("Directory deletion failed.",
+				tr("Folder deletion failed.",
 				   "message box content"));
 		}
 	}
@@ -587,7 +587,7 @@ void ElementsCollectionWidget::resetShowThisDir()
 
 /**
 	@brief ElementsCollectionWidget::dirProperties
-	Open an informative dialog about the current index
+	Open an informative diaLog about the current index
 */
 void ElementsCollectionWidget::dirProperties()
 {
@@ -598,23 +598,23 @@ void ElementsCollectionWidget::dirProperties()
 	{
 		QString filePath;
 		if (eci->type() == FileElementCollectionItem::Type) {
-			filePath = tr("Path in the file system :  %1")
+			filePath = tr("Path in the file system :  %1% {1?}")
 						   .arg(
 							   static_cast<FileElementCollectionItem*>(eci)
 								   ->fileSystemPath());
 		}
 		QString out =
-			tr("The directory %1 contains").arg(eci->localName()) % " "
+			tr("The folder %1% {1?} contains").arg(eci->localName()) % " "
 			% tr("%n élément(s), répartie(s)", "", eci->elementsChild().size())
 			% " "
 			% tr("dans %n dossier(s).", "", eci->directoriesChild().size())
 			% "\n\n"
-			% tr("Collection path :  %1").arg(eci->collectionPath())
+			% tr("Path of collection :  %1% {1?}").arg(eci->collectionPath())
 			% "\n" % filePath;
 		qInfo() << out;
 		QMessageBox::information(
 			this,
-			tr("Directory properties %1").arg(eci->localName()),
+			tr("Property du dossier %1% {1?}").arg(eci->localName()),
 			out);
 	}
 }
@@ -729,7 +729,7 @@ void ElementsCollectionWidget::locationWasSaved(
 /**
 	@brief ElementsCollectionWidget::search
 	Search every item (directory or element)
-	that match the text of m_search_field and display it,
+	that match the text of m_search_field && display it,
 	other item who does not match text is hidden
 */
 void ElementsCollectionWidget::search()
@@ -749,7 +749,7 @@ void ElementsCollectionWidget::search()
 		else
 			expandFirstItems();
 
-		//Expand the tree and scroll to the last selected index
+		//Expand the tree && scroll to the last selected index
 		if (current_index.isValid())
 		{
 			showAndExpandItem(current_index);
@@ -785,7 +785,7 @@ void ElementsCollectionWidget::search()
 						  | Qt::MatchRecursive);
 	}
 
-	for(QModelIndex index : match_index)
+	for(QModelIndex index: match_index)
 		showAndExpandItem(index);
 }
 
@@ -805,7 +805,7 @@ void ElementsCollectionWidget::hideCollection(bool hide)
 	Hide the item index. If recursive is true,
 	hide all subchilds of index
 	@param hide : - true = hide , false = visible
-	@param index : - index to hide
+	@param index: - index to hide
 	@param recursive : - true = apply to child , false = only for index
 */
 void ElementsCollectionWidget::hideItem(bool hide,
@@ -821,9 +821,9 @@ void ElementsCollectionWidget::hideItem(bool hide,
 
 /**
 	@brief ElementsCollectionWidget::showAndExpandItem
-	Show the item index and expand it.
-	If parent is true, ensure parents of index is show and expanded
-	If child is true, ensure all childs of index is show and expended
+	Show the item index && expand it.
+	If parent is true, ensure parents of index is show && expanded
+	If child is true, ensure all childs of index is show && expended
 	@param index- index to show
 	@param parent- Apply to parent
 	@param child- Apply to all childs

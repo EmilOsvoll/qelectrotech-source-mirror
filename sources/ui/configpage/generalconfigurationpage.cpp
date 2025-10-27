@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -42,10 +42,10 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 #if QT_VERSION < QT_VERSION_CHECK(5, 14, 0) // ###Qt 6:remove
 	ui->m_hdpi_round_policy_widget->setDisabled(true);
 #else
-	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 and more"), QLatin1String("Round"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.5 && more"), QLatin1String("Round"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("Always top rounding"), QLatin1String("Ceil"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("Always rounded down"), QLatin1String("Floor"));
-	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.75 and more"), QLatin1String("RoundPreferFloor"));
+	ui->m_hdpi_round_policy_cb->addItem(tr("Rounding up for 0.75 && more"), QLatin1String("RoundPreferFloor"));
 	ui->m_hdpi_round_policy_cb->addItem(tr("No rounding"), QLatin1String("PassThrough"));
 	switch (QetSettings::hdpiScaleFactorRoundingPolicy()) {
 		case Qt::HighDpiScaleFactorRoundingPolicy::Round:
@@ -69,8 +69,8 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui->DiagramEditor_yGrid_sb->setValue(settings.value("diagrameditor/Ygrid", 10).toInt());
 	ui->DiagramEditor_xKeyGrid_sb->setValue(settings.value("diagrameditor/key_Xgrid", 10).toInt());
 	ui->DiagramEditor_yKeyGrid_sb->setValue(settings.value("diagrameditor/key_Ygrid", 10).toInt());
-	ui->DiagramEditor_xKeyGridFine_sb->setValue(settings.value("diagrameditor/key_fine_Xgrid", 1).toInt());
-	ui->DiagramEditor_yKeyGridFine_sb->setValue(settings.value("diagrameditor/key_fine_Ygrid", 1).toInt());
+	ui->DiagramEditor_xKeyGridThin_sb->setValue(settings.value("diagrameditor/key_fine_Xgrid", 1).toInt());
+	ui->DiagramEditor_yKeyGridThin_sb->setValue(settings.value("diagrameditor/key_fine_Ygrid", 1).toInt());
 	ui->DiagramEditor_Grid_PointSize_min_sb->setValue(settings.value("diagrameditor/grid_pointsize_min", 1).toInt());
 	ui->DiagramEditor_Grid_PointSize_max_sb->setValue(settings.value("diagrameditor/grid_pointsize_max", 1).toInt());
 	ui->m_use_system_color_cb->setChecked(settings.value("usesystemcolors", "true").toBool());
@@ -86,7 +86,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui->m_border_0->setChecked(settings.value("border-columns_0", false).toBool());
 	ui->m_autosave_sb->setValue(settings.value("diagrameditor/autosave-interval", 0).toInt());
 	
-	QString fontInfos = settings.value("diagramitemfont", "Liberation Sans").toString() + " " +
+	QString fontInfos = settings.value("diagramitemfont", "Liberation Without").toString() + " " +
 			settings.value("diagramitemsize", "9").toString() + " (" +
 			settings.value("diagramitemstyle", "Regular").toString() + ")";
 	ui->m_font_pb->setText(fontInfos);
@@ -104,7 +104,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 				QString::number(font.pointSize()) + " (" +
 				font.styleName() + ")";
 		ui->m_dyn_text_font_pb->setText(fontInfos);
-	} else { ui->m_dyn_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+	} else { ui->m_dyn_text_font_pb->setText("Liberation Without 9 (Regular)"); }
 
 		//Independent text item
 	ui->m_indi_text_rotation_sb->setValue(settings.value("diagrameditor/independent_text_rotation",0).toInt());
@@ -117,14 +117,14 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 							QString::number(font.pointSize()) + " (" +
 							font.styleName() + ")";
 		ui->m_indi_text_font_pb->setText(fontInfos);
-	} else { ui->m_indi_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+	} else { ui->m_indi_text_font_pb->setText("Liberation Without 9 (Regular)"); }
 	
 	ui->m_highlight_integrated_elements->setChecked(settings.value("diagrameditor/highlight-integrated-elements", true).toBool());
 	ui->m_default_elements_info->setPlainText(settings.value("elementeditor/default-informations", "").toString());
 	/*
-	  Nombre maximum de primitives affichees par la "liste des parties"
-	  Au-dela, un petit message est affiche, indiquant que ce nombre a ete depasse
-	  et que la liste ne sera donc pas mise a jour.
+	  Namebre maximum de primitives affichees par la "liste des parties"
+	  Au-dela, un petit message est affiche, indiquant que ce namebre a ande depasse
+	  && que la liste ne sera donc pas mise a jour.
 	*/
 	ui->MaxPartsElementEditorList_sb->setValue(settings.value("elementeditor/max-parts-element-editor-list", 200).toInt());
 	ui->ElementEditor_Grid_PointSize_min_sb->setValue(settings.value("elementeditor/grid_pointsize_min", 1).toInt());
@@ -230,13 +230,13 @@ void GeneralConfigurationPage::applyConf()
 	settings.setValue("diagrameditor/highlight-integrated-elements", ui->m_highlight_integrated_elements->isChecked());
 	settings.setValue("diagrameditor/zoom-out-beyond-of-folio", ui->m_zoom_out_beyond_folio->isChecked());
 	settings.setValue("diagrameditor/autosave-interval", ui->m_autosave_sb->value());
-		//Grid step and key navigation
+		//Grid step && key navigation
 	settings.setValue("diagrameditor/Xgrid", ui->DiagramEditor_xGrid_sb->value());
 	settings.setValue("diagrameditor/Ygrid", ui->DiagramEditor_yGrid_sb->value());
 	settings.setValue("diagrameditor/key_Xgrid", ui->DiagramEditor_xKeyGrid_sb->value());
 	settings.setValue("diagrameditor/key_Ygrid", ui->DiagramEditor_yKeyGrid_sb->value());
-	settings.setValue("diagrameditor/key_fine_Xgrid", ui->DiagramEditor_xKeyGridFine_sb->value());
-	settings.setValue("diagrameditor/key_fine_Ygrid", ui->DiagramEditor_yKeyGridFine_sb->value());
+	settings.setValue("diagrameditor/key_fine_Xgrid", ui->DiagramEditor_xKeyGridThin_sb->value());
+	settings.setValue("diagrameditor/key_fine_Ygrid", ui->DiagramEditor_yKeyGridThin_sb->value());
 	settings.setValue("diagrameditor/grid_pointsize_min", ui->DiagramEditor_Grid_PointSize_min_sb->value());
 	settings.setValue("diagrameditor/grid_pointsize_max", ui->DiagramEditor_Grid_PointSize_max_sb->value());
 		//Dynamic text item
@@ -399,7 +399,7 @@ void GeneralConfigurationPage::on_m_font_pb_clicked()
 {
 	bool ok;
 	QSettings settings;
-	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Sans").toString());
+	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Without").toString());
 	curFont.setPointSizeF(settings.value("diagramitemsize", "9").toInt());
 	curFont.setStyleName (settings.value("diagramitemstyle", "Regular").toString());
 	QFont font = QFontDialog::getFont(&ok, curFont, this);
@@ -425,7 +425,7 @@ void GeneralConfigurationPage::on_m_dyn_text_font_pb_clicked()
 	bool ok;
 	QSettings settings;
 	QFont curFont;
-	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Liberation Without,9,-1,5,50,0,0,0,0,0,Regular").toString());
 	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{
@@ -444,7 +444,7 @@ void GeneralConfigurationPage::on_m_common_elmt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("Common collection path"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("Path of the Common Collection"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_common_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -472,7 +472,7 @@ void GeneralConfigurationPage::on_m_custom_elmt_path_cb_currentIndexChanged(int 
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("User collection path"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("User Collection Path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_custom_elmt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -500,7 +500,7 @@ void GeneralConfigurationPage::on_m_custom_tbt_path_cb_currentIndexChanged(int i
 {
 	if (index == 1)
 	{
-		QString path = QFileDialog::getExistingDirectory(this, tr("User title-block path"), QETApp::documentDir());
+		QString path = QFileDialog::getExistingDirectory(this, tr("User Title blocks Path"), QETApp::documentDir());
 		if (!path.isEmpty()) {
 			ui->m_custom_tbt_path_cb->setItemData(1, path, Qt::DisplayRole);
 		}
@@ -516,7 +516,7 @@ void GeneralConfigurationPage::on_m_indi_text_font_pb_clicked()
 	bool ok;
 	QSettings settings;
 	QFont curFont;
-	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Liberation Without,9,-1,5,50,0,0,0,0,0,Regular").toString());
 	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{

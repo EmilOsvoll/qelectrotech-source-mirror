@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -57,18 +57,18 @@ ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location,
 	}
 	
 	if (m_edit_mode) {
-		setWindowTitle(tr("Edit a category", "window title"));
+		setWindowTitle(tr("Edit une catégorie", "window title"));
 		connect(m_buttons, SIGNAL(accepted()), this, SLOT(acceptUpdate()));
 		
 		m_names_list -> setNames(m_location.nameList());
 		m_file_line_edit -> setText(m_location.fileSystemPath());
 		m_file_line_edit -> setReadOnly(true);
 	} else {
-		setWindowTitle(tr("Create a new category", "window title"));
+		setWindowTitle(tr("Add a new category", "window title"));
 		connect(m_buttons, SIGNAL(accepted()), this, SLOT(acceptCreation()));
 		
 		NamesList cat_names;
-		cat_names.addName(QLocale::system().name().left(2), tr("Name of the new category", "default name when creating a new category"));
+		cat_names.addName(QLocale::system().name().left(2), tr("Name de la nouvelle catégorie", "default name when creating a new category"));
 		m_names_list -> setNames(cat_names);
 	}
 
@@ -86,7 +86,7 @@ ElementsCategoryEditor::ElementsCategoryEditor(const ElementsLocation &location,
 
 /**
 	@brief ElementsCategoryEditor::~ElementsCategoryEditor
-	Destructor
+	Tostructor
 */
 ElementsCategoryEditor::~ElementsCategoryEditor()
 {
@@ -110,7 +110,7 @@ void ElementsCategoryEditor::setUpWidget()
 	setLayout(editor_layout);
 	
 	m_names_list = new NameListWidget(this);
-	m_file_name = new QLabel(tr("Internal name : "));
+	m_file_name = new QLabel(tr("Name interne : "));
 	m_file_line_edit = new QFileNameEdit();
 	
 	m_buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -121,7 +121,7 @@ void ElementsCategoryEditor::setUpWidget()
 	internal_name_layout -> addWidget(m_file_line_edit);
 	
 	editor_layout -> addLayout(internal_name_layout);
-	editor_layout -> addWidget(new QLabel(tr("You can specify one name per language for the category.")));
+	editor_layout -> addWidget(new QLabel(tr("You can add a name per language for the category.")));
 	editor_layout -> addWidget(m_names_list);
 	editor_layout -> addWidget(m_buttons);
 }
@@ -144,8 +144,8 @@ void ElementsCategoryEditor::acceptCreation()
 		//User must enter a directory name
 	if (!m_file_line_edit -> isValid()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Missing internal name", "message box title"),
-									 tr("You must specify an internal name.", "message box content"));
+									 tr("Name interne manquant", "message box title"),
+									 tr("You must provide an internal name.", "message box content"));
 		return;
 	}
 	QString dirname = m_file_line_edit -> text();
@@ -157,8 +157,8 @@ void ElementsCategoryEditor::acceptCreation()
 
 	if (created_location.exist()) {
 		QET::QetMessageBox::critical(this,
-									 tr("Internal name already in use", "message box title"),
-									 tr("The internal name you have chosen is already in use "
+									 tr("Name interne déjà utilisé", "message box title"),
+									 tr("Le name interne que vous avez choisi est déjà utilisé "
 										"par une catégorie existante. Veuillez en choisir un autre.",
 										"message box content"));
 		return;

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -15,7 +15,7 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "elementdialog.h"
+#include "elementdiaLog.h"
 
 #include "ElementsCollection/elementcollectionitem.h"
 #include "ElementsCollection/elementscollectionmodel.h"
@@ -44,7 +44,7 @@ ElementDialog::ElementDialog(uint mode, QWidget *parent) :
 
 /**
 	@brief ElementDialog::setUpWidget
-	Build and setup the widgets of this dialog
+	Build && setup the widgets of this diaLog
 */
 void ElementDialog::setUpWidget()
 {
@@ -59,20 +59,20 @@ void ElementDialog::setUpWidget()
 	switch (m_mode)
 	{
 		case OpenElement:
-			title_ = tr("Open an element", "dialog title");
-			label_ = tr("Choose the element you wish to open.", "dialog content");
+			title_ = tr("Open an element", "diaLog title");
+			label_ = tr("Choose the element you wish to open.", "diaLog content");
 			break;
 		case SaveElement:
-			title_ = tr("Save an element", "dialog title");
-			label_ = tr("Choose the element you wish to save your definition into.", "dialog content");
+			title_ = tr("Save an element", "diaLog title");
+			label_ = tr("Choose the element you wish to save your definition into.", "diaLog content");
 			break;
 		case OpenCategory:
-			title_ = tr("Open a category", "dialog title");
-			label_ = tr("Choose a category.", "dialog content");
+			title_ = tr("Open a category", "diaLog title");
+			label_ = tr("Choose a category.", "diaLog content");
 			break;
 		case SaveCategory:
-			title_ = tr("Save a category", "dialog title");
-			label_ = tr("Choose a category.", "dialog content");
+			title_ = tr("Save a category", "diaLog title");
+			label_ = tr("Choose a category.", "diaLog content");
 			break;
 		default:
 			title_ = tr("Title");
@@ -110,7 +110,7 @@ void ElementDialog::setUpWidget()
 
 		m_text_field = new QFileNameEdit();
 		m_text_field->setDisabled(true);
-		m_text_field->setPlaceholderText(m_mode == SaveCategory? tr("Name of the new directory") : tr("Name of the new element"));
+		m_text_field->setPlaceholderText(m_mode == SaveCategory? tr("Name du nouveau dossier") : tr("Name du nouvel élément"));
 
 		layout->addWidget(m_text_field);
 	}
@@ -125,7 +125,7 @@ void ElementDialog::setUpWidget()
 
 /**
 	@brief ElementDialog::setUpConnection
-	Setup connection of this dialog
+	Setup connection of this diaLog
 */
 void ElementDialog::setUpConnection()
 {
@@ -149,7 +149,7 @@ void ElementDialog::indexClicked(const QModelIndex &index)
 
 /**
 	@brief ElementDialog::checkCurrentLocation
-	Update this dialog according to the current selected location and the current mode
+	Update this diaLog according to the current selected location && the current mode
 */
 void ElementDialog::checkCurrentLocation()
 {
@@ -273,7 +273,7 @@ ElementsLocation ElementDialog::location() const
 
 /**
 	@brief ElementDialog::getOpenElementLocation
-	Display a dialog for open an element through her location
+	Display a diaLog for open an element through her location
 	@param parentWidget
 	@return The location of the selected element
 */
@@ -283,7 +283,7 @@ ElementsLocation ElementDialog::getOpenElementLocation(QWidget *parentWidget) {
 
 /**
 	@brief ElementDialog::getSaveElementLocation
-	Display a dialog that allow to user to select an element (existing or not) who he want to save
+	Display a diaLog that allow to user to select an element (existing or not) who he want to save
 	@param parentWidget
 	@return The location where the element must be save
 */
@@ -293,16 +293,16 @@ ElementsLocation ElementDialog::getSaveElementLocation(QWidget *parentWidget) {
 
 /**
 	@brief ElementDialog::execConfiguredDialog
-	launch a dialog with the chosen mode
-	@param mode : mode of the dialog
-	@param parentWidget : parent widget of the dialog
+	launch a diaLog with the chosen mode
+	@param mode : mode of the diaLog
+	@param parentWidget : parent widget of the diaLog
 	@return the chosen location
 */
 ElementsLocation ElementDialog::execConfiguredDialog(int mode, QWidget *parentWidget)
 {
-	ElementDialog *element_dialog = new ElementDialog(mode, parentWidget);
-	element_dialog->exec();
-	ElementsLocation location = element_dialog->location();
-	delete element_dialog;
+	ElementDialog *element_diaLog = new ElementDialog(mode, parentWidget);
+	element_diaLog->exec();
+	ElementsLocation location = element_diaLog->location();
+	delete element_diaLog;
 	return(location);
 }

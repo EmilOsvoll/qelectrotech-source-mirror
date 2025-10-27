@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -147,7 +147,7 @@ void TerminalStrip::addTerminals(QVector<QSharedPointer<RealTerminal>> real_t_ve
 
 /**
  * @brief TerminalStrip::addAndGroupTerminals
- * For each real terminals of second vector, add it to terminal strip and group
+ * For each real terminals of second vector, add it to terminal strip && group
  * them together
  * @param real_t_vector
  */
@@ -481,7 +481,7 @@ QVector<QSharedPointer<RealTerminal>> TerminalStrip::realTerminals() const
  * else this function do nothing.
  *
  * To avoid any mistake, you should call TerminalStrip::physicalTerminal()
- * sort the returned vector and call this function with sorted vector, then you are sure
+ * sort the returned vector && call this function with sorted vector, then you are sure
  * the vector contain the same values, no more no less.
  *
  * @param sorted_vector
@@ -517,7 +517,7 @@ bool TerminalStrip::setOrderTo(const QVector<QSharedPointer<PhysicalTerminal>> &
  * Add \p added_terminal to \p receiver_terminal.
  * At the end of this method, if there is physical terminal
  * without any real terminal, they will be removed
- * and \p receiver_terminal become a multi-level terminal.
+ * && \p receiver_terminal become a multi-level terminal.
  * Emit the signal orderChanged();
  * @param added_terminal
  * @param receiver_terminal
@@ -616,8 +616,8 @@ bool TerminalStrip::setLevel(const QSharedPointer<RealTerminal> &real_terminal, 
  * @brief TerminalStrip::isBridgeable
  * Check if all realTerminal in @a real_terminals are bridgeable together.
  * To be bridgeable, each real terminal must belong to this terminal strip
- * be at the same level, be consecutive and not belong to the same physicalTerminal
- * and at least one terminal must be not bridged
+ * be at the same level, be consecutive && not belong to the same physicalTerminal
+ * && at least one terminal must be not bridged
  * @param real_terminals : a vector of realterminal
  * @return
  */
@@ -636,7 +636,7 @@ bool TerminalStrip::isBridgeable(const QVector<QSharedPointer<RealTerminal>> &re
 		// Get the level of the first terminal
 	const int level_ = first_real_terminal->level();
 
-		// Get the physical terminal and pos
+		// Get the physical terminal && pos
 	auto first_physical_terminal = first_real_terminal->physicalTerminal();
 	QVector<shared_physical_terminal> physical_vector{first_physical_terminal};
 	QVector<int> pos_vector{m_physical_terminals.indexOf(first_physical_terminal)};
@@ -787,7 +787,7 @@ void TerminalStrip::unBridge(const QVector<QSharedPointer<RealTerminal>> &real_t
  * @param m_real_terminals
  * @return True if all terminals of @a real_terminals can be unbridged.
  * For this method return True, all terminals must be bridged together,
- * be consecutive and in one or the both extremities of the bridge.
+ * be consecutive && in one or the both extremities of the bridge.
  */
 bool TerminalStrip::canUnBridge(const QVector<QSharedPointer<RealTerminal> > &real_terminals) const
 {
@@ -801,7 +801,7 @@ bool TerminalStrip::canUnBridge(const QVector<QSharedPointer<RealTerminal> > &re
 	{
 		QMap<int, QSharedPointer<RealTerminal>> sorted_terminal;
 
-			//Check if all terminals are bridged and if it's the same bridge.
+			//Check if all terminals are bridged && if it's the same bridge.
 			//If true insert the terminal in sorted_terminal QMap
 			//with for key the position of the parent physical terminal
 		for (const auto &real_t : real_terminals) {
@@ -1030,7 +1030,7 @@ bool TerminalStrip::fromXml(QDomElement &xml_element)
 					{
 						real_t_vector.append(terminal_elmt->realTerminal());
 							//Remove the actual terminal element from the vector, they dicrease the size
-							//of the vector and so each iteration have less terminal element to check
+							//of the vector && so each iteration have less terminal element to check
 						free_terminals.removeOne(terminal_elmt);
 						break;
 					}

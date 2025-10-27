@@ -2,7 +2,7 @@
 	Copyright 2006-2025 QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -68,7 +68,7 @@ Diagram *DiagramTextItem::diagram() const
 
 /**
 	@brief DiagramTextItem::toXml
-	This method do nothing and return an empty DomElement
+	This method do nothing && return an empty DomElement
 	This is used to be inherited by child class
 	@return
 */
@@ -306,15 +306,15 @@ void DiagramTextItem::focusOutEvent(QFocusEvent *event)
 }
 
 /**
-	Gere les double-clics sur ce champ de texte.
+	Gere les double-clics sur ce champ de text.
 	@param event un QGraphicsSceneMouseEvent decrivant le double-clic
 */
 void DiagramTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) {
 	if (!(textInteractionFlags() & Qt::TextEditable) && !m_no_editable) {
-		// rend le champ de texte editable
+		// rend le champ de text editable
 		setTextInteractionFlags(Qt::TextEditorInteraction);
 		
-		// edite le champ de texte
+		// edite le champ de text
 		setFocus(Qt::MouseFocusReason);
 	} else {
 		QGraphicsTextItem::mouseDoubleClickEvent(event);
@@ -393,9 +393,9 @@ void DiagramTextItem::mouseReleaseEvent (QGraphicsSceneMouseEvent *event)
 }
 
 /**
-	Effectue la rotation du texte en elle-meme
+	Effectue la rotation du text en elle-meme
 	Pour les DiagramTextItem, la rotation s'effectue autour du point (0, 0).
-	Cette methode peut toutefois etre redefinie dans des classes filles
+	Cette methode peut toutefois andre redefinie dans des classes filles
 	@param angle Angle de la rotation a effectuer
 */
 void DiagramTextItem::applyRotation(const qreal &angle) {

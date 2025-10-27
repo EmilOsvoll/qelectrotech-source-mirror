@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,7 +24,7 @@ ChangeTerminalStripData::ChangeTerminalStripData(TerminalStrip *strip,
 	m_strip(strip),
 	m_new_data(data)
 {
-	setText(QObject::tr("Modify the properties of a terminal group"));
+	setText(QObject::tr("Edit les proriétés of a group of terminals"));
 	m_old_data = strip->data();
 }
 

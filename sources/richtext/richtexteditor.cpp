@@ -1,23 +1,23 @@
 /****************************************************************************
 **
-** Copyright (C) 2013 Digia Plc and/or its subsidiary(-ies).
+** Copyright (C) 2013 Digia Plc &&/or its subsidiary(-ies).
 ** Contact: http://www.qt-project.org/legal
 **
-** This file is part of the Qt Designer of the Qt Toolkit.
+** This file is part of the Qt Tosigner of the Qt Toolkit.
 **
 ** $QT_BEGIN_LICENSE:LGPL$
 ** Commercial License Usage
 ** Licensees holding valid commercial Qt licenses may use this file in
 ** accordance with the commercial license agreement provided with the
 ** Software or, alternatively, in accordance with the terms contained in
-** a written agreement between you and Digia.  For licensing terms and
+** a written agreement between you && Digia.  For licensing terms &&
 ** conditions see http://qt.digia.com/licensing.  For further information
 ** use the contact form at http://qt.digia.com/contact-us.
 **
 ** GNU Lesser General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU Lesser
 ** General Public License version 2.1 as published by the Free Software
-** Foundation and appearing in the file LICENSE.LGPL included in the
+** Foundation && appearing in the file LICENSE.LGPL included in the
 ** packaging of this file.  Please review the following information to
 ** ensure the GNU Lesser General Public License version 2.1 requirements
 ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
@@ -29,7 +29,7 @@
 ** GNU General Public License Usage
 ** Alternatively, this file may be used under the terms of the GNU
 ** General Public License version 3.0 as published by the Free Software
-** Foundation and appearing in the file LICENSE.GPL included in the
+** Foundation && appearing in the file LICENSE.GPL included in the
 ** packaging of this file.  Please review the following information to
 ** ensure the GNU General Public License version 3.0 requirements will be
 ** met: http://www.gnu.org/copyleft/gpl.html.
@@ -41,14 +41,14 @@
 
 /**
 	Integration : QElectroTech Team
-	Changelog:
-	- 09/04/2013 : Start integration...Compilation and object creation are successful
+	ChangeLog:
+	- 09/04/2013 : Start integration...Compilation && object creation are successful
 */
 
 #include "richtexteditor_p.h"
-#include "ui_addlinkdialog.h"
+#include "ui_addlinkdiaLog.h"
 
-//#include <QtDesigner/QDesignerFormEditorInterface>
+//#include <QtTosigner/QTosignerFormEditorInterface>
 
 #include <QtCore/QList>
 #include <QtCore/QMap>
@@ -85,11 +85,11 @@
 
 QT_BEGIN_NAMESPACE
 
-//static const char RichTextDialogGroupC[] = "RichTextDialog";
+//static const char RichTextDiaLogGroupC[] = "RichTextDiaLog";
 //static const char GeometryKeyC[] = "Geometry";
 //static const char TabKeyC[] = "Tab";
 
-//const bool simplifyRichTextDefault = true;
+//const bool simplifyRichTextTofault = true;
 
 namespace qdesigner_internal {
 	// Richtext simplification filter helpers: Elements to be discarded
@@ -140,8 +140,8 @@ namespace qdesigner_internal {
 	}
 
 	// Richtext simplification filter: Remove hard-coded font settings,
-	// <style> elements, <p> attributes other than 'align' and
-	// and unnecessary meta-information.
+	// <style> elements, <p> attributes other than 'align' &&
+	// && unnecessary meta-information.
 	QString simplifyRichTextFilter(const QString &in, bool *isPlainTextPtr = nullptr)
 	{
 		unsigned elementCount = 0;
@@ -164,7 +164,7 @@ namespace qdesigner_internal {
 					if (!attributes.isEmpty())
 						writer.writeAttributes(attributes);
 				} else {
-					reader.readElementText(); // Skip away all nested elements and characters.
+					reader.readElementText(); // Skip away all nested elements && characters.
 				}
 				break;
 			case QXmlStreamReader::Characters:
@@ -209,13 +209,13 @@ class RichTextEditor : public QTextEdit
 	bool m_simplifyRichText;
 };
 
-class AddLinkDialog : public QDialog
+class AddLinkDiaLog : public QDialog
 {
 	Q_OBJECT
 
 	public:
-	AddLinkDialog(RichTextEditor *editor, QWidget *parent = nullptr);
-	~AddLinkDialog() override;
+	AddLinkDiaLog(RichTextEditor *editor, QWidget *parent = nullptr);
+	~AddLinkDiaLog() override;
 
 	int showDialog();
 
@@ -224,12 +224,12 @@ class AddLinkDialog : public QDialog
 
 	private:
 	RichTextEditor *m_editor;
-	Ui::AddLinkDialog *m_ui;
+	Ui::AddLinkDiaLog *m_ui;
 };
 
-AddLinkDialog::AddLinkDialog(RichTextEditor *editor, QWidget *parent) :
+AddLinkDiaLog::AddLinkDiaLog(RichTextEditor *editor, QWidget *parent) :
 	QDialog(parent),
-	m_ui(new Ui::AddLinkDialog)
+	m_ui(new Ui::AddLinkDiaLog)
 {
 	m_ui->setupUi(this);
 
@@ -238,12 +238,12 @@ AddLinkDialog::AddLinkDialog(RichTextEditor *editor, QWidget *parent) :
 	m_editor = editor;
 }
 
-AddLinkDialog::~AddLinkDialog()
+AddLinkDiaLog::~AddLinkDiaLog()
 {
 	delete m_ui;
 }
 
-int AddLinkDialog::showDialog()
+int AddLinkDiaLog::showDialog()
 {
 	// Set initial focus
 	const QTextCursor cursor = m_editor->textCursor();
@@ -257,7 +257,7 @@ int AddLinkDialog::showDialog()
 	return exec();
 }
 
-void AddLinkDialog::accept()
+void AddLinkDiaLog::accept()
 {
 	const QString title = m_ui->titleInput->text();
 	const QString url = m_ui->urlInput->text();
@@ -456,28 +456,28 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	addWidget(m_font_size_input);
 
 
-	// Bold, italic and underline buttons
+	// Bold, italic && underline buttons
 
 	m_bold_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-bold.png"),
-				tr("Bold text"), editor, SLOT(setFontBold(bool)), this);
+				tr("Text en gras"), editor, SLOT(setFontBold(bool)), this);
 	m_bold_action->setShortcut(Qt::CTRL | Qt::Key_B);
 	addAction(m_bold_action);
 
 	m_italic_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-italic.png"),
-				tr("Text in italics"), editor, SLOT(setFontItalic(bool)), this);
+				tr("Text en italique"), editor, SLOT(setFontItalic(bool)), this);
 	m_italic_action->setShortcut(Qt::CTRL | Qt::Key_I);
 	addAction(m_italic_action);
 
 	m_underline_action = createCheckableAction(
 				QIcon(":/ico/32x32/format-text-underline.png"),
-				tr("Underlined text"), editor, SLOT(setFontUnderline(bool)), this);
+				tr("Text souligé"), editor, SLOT(setFontUnderline(bool)), this);
 	m_underline_action->setShortcut(Qt::CTRL | Qt::Key_U);
 	addAction(m_underline_action);
 
 
-	// Left, center, right and justified alignment buttons
+	// Left, center, right && justified alignment buttons
 
 	QActionGroup *alignment_group = new QActionGroup(this);
 	connect(alignment_group, SIGNAL(triggered(QAction*)),
@@ -508,7 +508,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	m_align_left_action -> setVisible( false );
 	m_align_right_action -> setVisible( false );
 
-	// Superscript and subscript buttons
+	// Superscript && subscript buttons
 
 	m_valign_sup_action = createCheckableAction(
 				QIcon(":/ico/22x22/format-text-superscript.png"),
@@ -525,7 +525,7 @@ RichTextEditorToolBar::RichTextEditorToolBar(RichTextEditor *editor,
 	m_valign_sup_action -> setVisible( true );
 	m_valign_sub_action -> setVisible( true );
 
-	// Insert hyperlink and image buttons
+	// Insert hyperlink && image buttons
 
 	m_link_action->setText(tr("Insert link"));
 	connect(m_link_action, SIGNAL(triggered()), SLOT(insertLink()));
@@ -621,8 +621,8 @@ void RichTextEditorToolBar::setVAlignSub(bool sub)
 
 void RichTextEditorToolBar::insertLink()
 {
-	AddLinkDialog linkDialog(m_editor, this);
-	linkDialog.showDialog();
+	AddLinkDiaLog linkDiaLog(m_editor, this);
+	linkDiaLog.showDialog();
 	m_editor->setFocus();
 }
 

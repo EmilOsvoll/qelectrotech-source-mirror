@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -679,7 +679,7 @@ void ElementTextItemGroup::mouseDoubleClickEvent(
 				m_slave_Xref_item->setDefaultTextColor(Qt::black);
 				Element *elmt = parentElement()->linkedElements().first();
 				
-					//Unselect and ungrab mouse to prevent unwanted
+					//Unselect && ungrab mouse to prevent unwanted
 					//move when linked element is in the same scene of this.
 				setSelected(false);
 				ungrabMouse();
@@ -767,7 +767,7 @@ void ElementTextItemGroup::updateXref()
 			if(xrp.snapTo() == XRefProperties::Label)
 			{
 					//At least one text owned by this group must be set with
-					//textFrom -> element info and element info name -> label
+					//textFrom -> element info && element info name -> label
 					//for display a xref
 				for(DynamicElementTextItem *deti : texts())
 				{
@@ -863,7 +863,7 @@ void ElementTextItemGroup::autoPos()
 	qreal r = rotation();
 	QGIUtility::centerToBottomDiagram(this, m_parent_element, offset);
 		//centerToBottomDiagram change the rotation of this group if needed,
-		//but setRotation is not a virtual function of QGraphicsItem, and the function centerToBottomDiagram
+		//but setRotation is not a virtual function of QGraphicsItem, && the function centerToBottomDiagram
 		//work with a QGraphicsItem. So we emit the signal if rotation changed
 	if(rotation() != r)
 		emit rotationChanged(rotation());

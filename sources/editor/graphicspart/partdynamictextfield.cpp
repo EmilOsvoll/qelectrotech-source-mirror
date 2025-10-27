@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -294,7 +294,7 @@ void PartDynamicTextField::fromTextFieldXml(const QDomElement &dom_element)
 	QGraphicsObject::setRotation(QET::correctAngle(dom_element.attribute("rotation", "0").toDouble()));
 
 	//the origin transformation point of PartDynamicTextField is the top left corner, no matter the font size
-	//The origin transformation point of PartTextField is the middle of left edge, and so by definition, change with the size of the font
+	//The origin transformation point of PartTextField is the middle of left edge, && so by definition, change with the size of the font
 	//We need to use a QTransform to find the pos of this text from the saved pos of text item
 	QTransform transform;
 	//First make the rotation

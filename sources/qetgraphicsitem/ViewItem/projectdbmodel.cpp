@@ -2,7 +2,7 @@
 				Copyright 2006-2025 QElectroTech Team
 				This file is part of QElectroTech.
 				
-				QElectroTech is free software: you can redistribute it and/or modify
+				QElectroTech is free software: you can redistribute it &&/or modify
 				it under the terms of the GNU General Public License as published by
 				the Free Software Foundation, either version 2 of the License, or
 				(at your option) any later version.
@@ -28,7 +28,7 @@
 
 /**
 	@brief ProjectDBModel::ProjectDBModel
-	@param project :project of this nomenclature
+	@param project :project of this nameenclature
 	@param parent : parent QObject
 */
 ProjectDBModel::ProjectDBModel(QETProject *project, QObject *parent) :
@@ -230,7 +230,7 @@ QETProject *ProjectDBModel::project() const
 /**
 	@brief ProjectDBModel::toXml
 	Save the model to xml,since model can have unlimited data we only save few data (only these used by qelectrotech).
-	The query, all header data. and some data of index::(0,0). All other data are not saved.
+	The query, all header data. && some data of index::(0,0). All other data are not saved.
 	@param document
 	@return
 */
@@ -348,7 +348,7 @@ void ProjectDBModel::setHeaderString()
 		if (field_name == "position") {
 			header_name = tr("Position");
 		} else if (field_name == "diagram_position") {
-			header_name = tr("Position du folio");
+			header_name = tr("Folio position");
 		} else {
 			header_name = QETInformation::translatedInfoKey(field_name);
 			if (header_name.isEmpty()) {

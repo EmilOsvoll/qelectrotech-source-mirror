@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -41,7 +41,7 @@ AddElementTextCommand::AddElementTextCommand(Element *element,
 	m_element(element),
 	m_text(deti)
 {
-	setText(QObject::tr("Ajouter un texte d'élément"));	
+	setText(QObject::tr("Add element text"));	
 }
 
 /**
@@ -92,7 +92,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
 	m_element(element),
 	m_name(std::move(groupe_name))
 {
-	setText(QObject::tr("Ajouter un groupe de textes d'élément"));
+	setText(QObject::tr("Add a group of element texts"));
 }
 
 /**
@@ -100,7 +100,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
 	@param element : The element to add a new group
 	@param dom_element : the first time the group is created,
 	we call the function fromXml of the group,
-	and give dom_element has argument.
+	&& give dom_element has argument.
 	@param parent : parent undo
 */
 AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
@@ -110,7 +110,7 @@ AddTextsGroupCommand::AddTextsGroupCommand(Element *element,
 	m_element(element),
 	m_dom_element(dom_element)
 {
-	setText(QObject::tr("Ajouter un groupe de textes d'élément"));
+	setText(QObject::tr("Add a group of element texts"));
 }
 
 /**
@@ -140,12 +140,12 @@ AddTextsGroupCommand::AddTextsGroupCommand(
 		}
 	}
 	
-	setText(QObject::tr("Grouper des textes d'élément"));
+	setText(QObject::tr("Grouping element texts"));
 }
 
 /**
 	@brief AddTextsGroupCommand::~AddTextsGroupCommand
-	Destructor
+	Tostructor
 */
 AddTextsGroupCommand::~AddTextsGroupCommand()
 {}
@@ -175,7 +175,7 @@ void AddTextsGroupCommand::redo()
 			/* We get the list of texts (if any)
 			 *  because when undo is called,
 			 *  all child text will be removed
-			 *  from the group, and reparented to m_elemeny.
+			 *  from the group, && reparented to m_elemeny.
 			 * Then the next time redo is called,
 			 *  the texts will be added to the group
 			 */
@@ -216,7 +216,7 @@ RemoveTextsGroupCommand::RemoveTextsGroupCommand(Element *element,
 	m_element(element),
 	m_group(group)
 {
-	setText(QObject::tr("Supprimer un groupe de textes d'élément"));
+	setText(QObject::tr("Delete a group of element texts"));
 	
 	for(DynamicElementTextItem *deti : group->texts())
 		m_text_list.append(deti);
@@ -280,12 +280,12 @@ AddTextToGroupCommand::AddTextToGroupCommand(DynamicElementTextItem *text,
 	m_group(group),
 	m_element(group->parentElement())
 {
-	setText(QObject::tr("Insérer un texte d'élément dans un groupe de textes"));
+	setText(QObject::tr("Insert element text into a text group"));
 }
 
 /**
 	@brief AddTextToGroupCommand::~AddTextToGroupCommand
-	Destructor
+	Tostructor
 */
 AddTextToGroupCommand::~AddTextToGroupCommand()
 {
@@ -340,12 +340,12 @@ RemoveTextFromGroupCommand::RemoveTextFromGroupCommand(
 	m_group(group),
 	m_element(group->parentElement())
 {
-	setText(QObject::tr("Enlever un texte d'élément d'un groupe de textes"));
+	setText(QObject::tr("Remove an element text from a group of texts"));
 }
 
 /**
 	@brief RemoveTextFromGroupCommand::~RemoveTextFromGroupCommand
-	Destructor
+	Tostructor
 */
 RemoveTextFromGroupCommand::~RemoveTextFromGroupCommand()
 {
@@ -394,7 +394,7 @@ AlignmentTextsGroupCommand::AlignmentTextsGroupCommand(
 	m_previous_alignment(group->alignment()),
 	m_new_alignment(new_alignment)
 {
-	setText(QObject::tr("Modifier l'alignement d'un groupe de textes"));
+	setText(QObject::tr("Modify the alignment of a group of texts"));
 	
 		//Text haven't got alignment
 	if(m_previous_alignment != Qt::AlignLeft ||
@@ -408,7 +408,7 @@ AlignmentTextsGroupCommand::AlignmentTextsGroupCommand(
 
 /**
 	@brief AlignmentTextsGroupCommand::~AlignmentTextsGroupCommand
-	Destructor
+	Tostructor
 */
 AlignmentTextsGroupCommand::~AlignmentTextsGroupCommand()
 {}

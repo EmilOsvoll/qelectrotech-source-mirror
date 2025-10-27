@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="1">
@@ -57,7 +57,7 @@
    <item row="2" column="1">
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Type :</string>
+      <string>Type:</string>
      </property>
     </widget>
    </item>
@@ -78,14 +78,14 @@
    <item row="0" column="3">
     <widget class="QPushButton" name="m_move_pb">
      <property name="toolTip">
-      <string>Appliquer le déplacement</string>
+      <string>Apply displacement</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="icon">
       <iconset resource="../../../qelectrotech.qrc">
-       <normaloff>:/ico/22x22/dialog-ok.png</normaloff>:/ico/22x22/dialog-ok.png</iconset>
+       <normaloff>:/ico/22x22/diaLog-ok.png</normaloff>:/ico/22x22/diaLog-ok.png</iconset>
      </property>
     </widget>
    </item>

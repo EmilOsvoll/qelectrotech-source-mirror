@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -140,21 +140,21 @@ QString ElementTextsMover::undoText() const
 	QString undo_text;
 	
 	if(m_text_count == 1)
-		undo_text.append(QObject::tr("Move an element text"));
+		undo_text.append(QObject::tr("Move an item text"));
 	else if(m_text_count > 1)
-		undo_text.append(QObject::tr("Move %1 element texts").arg(m_items_hash.size()));
+		undo_text.append(QObject::tr("Move %1% {1?} texts d'élément").arg(m_items_hash.size()));
 	
 	if(m_group_count >= 1)
 	{
 		if(undo_text.isEmpty())
 			undo_text.append(QObject::tr("Move"));
 		else
-			undo_text.append(QObject::tr(" and"));
+			undo_text.append(QObject::tr(" &&"));
 		
 		if(m_group_count == 1)
-			undo_text.append(QObject::tr(" a group of text"));
+			undo_text.append(QObject::tr(" un groupe de text"));
 		else
-			undo_text.append(QObject::tr((" %1 text groups")).arg(m_group_count));
+			undo_text.append(QObject::tr((" %1 groups of texts")).arg(m_group_count));
 	}
 	
 	return undo_text;

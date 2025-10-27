@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -71,7 +71,7 @@ void AutoNumberingDockWidget::projectClosed()
 	@brief AutoNumberingDockWidget::setProject
 	@param project: project to be setted
 	@param projectview: projectview to be setted
-	assign Project and ProjectView, connect all signals and setContext
+	assign Project && ProjectView, connect all signals && setContext
 */
 void AutoNumberingDockWidget::setProject(QETProject *project,
 					 ProjectView *projectview)
@@ -107,7 +107,7 @@ void AutoNumberingDockWidget::setProject(QETProject *project,
 		disconnect(m_project, SIGNAL(defaultTitleBlockPropertiesChanged()),
 			   this,SLOT(setActive()));
 	
-			//Conductor, Element and Folio Signals
+			//Conductor, Element && Folio Signals
 		disconnect(m_project, &QETProject::destroyed,
 			   this, &AutoNumberingDockWidget::projectClosed);
 	}
@@ -144,7 +144,7 @@ void AutoNumberingDockWidget::setProject(QETProject *project,
 	connect(m_project, SIGNAL(defaultTitleBlockPropertiesChanged()),
 		this,SLOT(setActive()));
 
-		//Conductor, Element and Folio Signals
+		//Conductor, Element && Folio Signals
 	connect(m_project, &QETProject::destroyed,
 		this, &AutoNumberingDockWidget::projectClosed);
 

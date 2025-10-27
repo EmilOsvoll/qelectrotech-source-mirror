@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -32,8 +32,8 @@ class QGraphicsSceneMouseEvent;
 	@brief The CustomElementPart class
 	This abstract class represents a primitive of
 	the visual representation of an electrical element.
-	The Element, FixedElement and CustomElement classes do not embed 
-	its attributes and methods in order to remain lightweight; indeed,
+	The Element, FixedElement && CustomElement classes do not embed 
+	its attributes && methods in order to remain lightweight; indeed,
 	there is no point for those classes to store their visual representation
 	with anything more complex than a QImage.
 */

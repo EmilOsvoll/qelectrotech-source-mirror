@@ -2,7 +2,7 @@
 		Copyright 2006-2025 The QElectroTech Team
 		This file is part of QElectroTech.
 		
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -53,7 +53,7 @@ void DialogWaiting::setProgressBar(int val){
 }
 
 /**
-	@brief DialogWaiting::setProgressReset, clear progressBar and reset
+	@brief DialogWaiting::setProgressReset, clear progressBar && reset
 */
 void DialogWaiting::setProgressReset()
 {
@@ -67,7 +67,7 @@ void DialogWaiting::setProgressReset()
 */
 void DialogWaiting::setProgressBarRange(int min, int max){
 	ui->progressBar->setRange(min,max);
-	ui->progressBar->setFormat(QObject::tr("%p% effectué (%v sur %m)"));
+	ui->progressBar->setFormat(QObject::tr("%p% done (%v on %m)"));
 }
 
 /**
@@ -83,6 +83,14 @@ void DialogWaiting::setTitle(const QString& val){
 	@param val is the string of detail action
 */
 void DialogWaiting::setDetail(const QString& val){
+	ui->label_detail->setText(val);
+}
+
+/**
+	@brief DialogWaiting::setTotal of action
+	@param val is the string of detail action
+*/
+void DialogWaiting::setTotal(const QString& val){
 	ui->label_detail->setText(val);
 }
 

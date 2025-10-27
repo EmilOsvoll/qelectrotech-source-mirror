@@ -2,7 +2,7 @@
 		Copyright 2006-2025 The QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -38,7 +38,7 @@ QDomElement ElementData::toXml(QDomDocument &xml_element) const {
  * @brief ElementData::fromXml
  * load properties from xml element.
  * The tag name of xml_element must be definition
- * and have an attribute "type"
+ * && have an attribute "type"
  * @param xml_element : tagName must be 'definition'
  * @return true is successfully loaded
  */

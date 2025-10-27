@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ TitleBlockTemplateLocationSaver::TitleBlockTemplateLocationSaver(
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockTemplateLocationSaver::~TitleBlockTemplateLocationSaver()
 {
@@ -81,7 +81,7 @@ void TitleBlockTemplateLocationSaver::init()
 {
 	new_name_ = new QLineEdit();
 	connect(templates_, SIGNAL(currentIndexChanged(int)), this, SLOT(updateNewName()));
-	form_layout_ -> addRow(tr("or new name", "used in save as form"), new_name_);
+	form_layout_ -> addRow(tr("ou nouveau name", "used in save as form"), new_name_);
 	updateTemplates();
 }
 
@@ -94,7 +94,7 @@ void TitleBlockTemplateLocationSaver::updateTemplates()
 	if (!current_collection) return;
 	
 	TitleBlockTemplateLocationChooser::updateTemplates();
-	templates_ -> insertItem(0, tr("New template (enter its name)", "combox box entry"), QVariant(false));
+	templates_ -> insertItem(0, tr("New template (entrez son name)", "combox box entry"), QVariant(false));
 	templates_ -> insertSeparator(1);
 	
 	updateNewName();

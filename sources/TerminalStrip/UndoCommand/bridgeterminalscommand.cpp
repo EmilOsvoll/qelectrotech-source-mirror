@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -54,7 +54,7 @@ UnBridgeTerminalsCommand::UnBridgeTerminalsCommand(TerminalStrip *strip,
 	QUndoCommand(parent),
 	m_strip(strip)
 {
-	setText(QObject::tr("Remove terminal bridges"));
+	setText(QObject::tr("Delete des ponts de bornes"));
 
 	if (strip->canUnBridge(real_terminal))
 	{
@@ -63,8 +63,8 @@ UnBridgeTerminalsCommand::UnBridgeTerminalsCommand(TerminalStrip *strip,
 			//If bridge have one more terminals than @real_terminal
 			//that mean every terminals of the bridge must be unbridged by this undo command,
 			//else the single terminal who's not umbridged by this undo command
-			//continue to have a bridge (to nothing) and this nowhere bridge is visible
-			//in the terminal strip graphic item and terminal strip editor dialog.
+			//continue to have a bridge (to nothing) && this nowhere bridge is visible
+			//in the terminal strip graphic item && terminal strip editor diaLog.
 		if (m_bridge->realTerminals().size() == real_terminal.size() + 1) {
 			m_terminals = m_bridge->realTerminals();
 		} else {

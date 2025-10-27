@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -37,7 +37,7 @@ PartArc::PartArc(QETElementEditor *editor, QGraphicsItem *parent) :
 
 /**
 	@brief PartArc::~PartArc
-	Destructor
+	Tostructor
 */
 PartArc::~PartArc()
 {
@@ -107,13 +107,13 @@ const QDomElement PartArc::toXml(QDomDocument &xml_document) const
 	qreal s = qRound(m_start_angle   * 100.0) / 100.0;
 	qreal a = qRound(m_span_angle    * 100.0) / 100.0;
 
-	xml_element.setAttribute("x", QString("%1").arg(x));
-	xml_element.setAttribute("y", QString("%1").arg(y));
-	xml_element.setAttribute("width",  QString("%1").arg(w));
-	xml_element.setAttribute("height", QString("%1").arg(h));
+	xml_element.setAttribute("x", QString("%1% {1?}").arg(x));
+	xml_element.setAttribute("y", QString("%1% {1?}").arg(y));
+	xml_element.setAttribute("width",  QString("%1% {1?}").arg(w));
+	xml_element.setAttribute("height", QString("%1% {1?}").arg(h));
 		//to maintain compatibility with the previous version, we write the angle in degrees.
-	xml_element.setAttribute("start", QString("%1").arg(s / 16));
-	xml_element.setAttribute("angle", QString("%1").arg(a / 16));
+	xml_element.setAttribute("start", QString("%1% {1?}").arg(s / 16));
+	xml_element.setAttribute("angle", QString("%1% {1?}").arg(a / 16));
 	stylesToXml(xml_element);
 	return(xml_element);
 }
@@ -231,7 +231,7 @@ void PartArc::mirror() {
  * margin-less rectangle this part can fit into in scene coordinates.
  * It is different from boundingRect() because it is not supposed
  * to imply any margin,
- * and it is different from shape because it is a regular
+ * && it is different from shape because it is a regular
  * rectangle, not a complex shape.
  */
 QRectF PartArc::sceneGeometricRect() const
@@ -266,7 +266,7 @@ QVariant PartArc::itemChange(QGraphicsItem::GraphicsItemChange change, const QVa
 	}
 	else if (change == ItemSceneChange)
 	{
-		setSelected(false); //This is item removed from scene, then we deselect this, and so, the handlers is also removed.
+		setSelected(false); //This is item removed from scene, then we deselect this, && so, the handlers is also removed.
 	}
 
 	return QGraphicsItem::itemChange(change, value);
@@ -388,24 +388,24 @@ void PartArc::handlerMousePressEvent(QetGraphicsHandlerItem *qghi, QGraphicsScen
 			m_span_point = QetGraphicsHandlerUtility::pointsForArc(m_rect, m_start_angle/16, m_span_angle/16).at(1);
 
 			m_undo_command = new QPropertyUndoCommand(this, "startAngle", QVariant(m_start_angle));
-			m_undo_command->setText(tr("Modifier un arc"));
+			m_undo_command->setText(tr("Edit an arc"));
 			m_undo_command->enableAnimation();
 
 			m_undo_command2 = new QPropertyUndoCommand(this, "spanAngle", QVariant(m_span_angle), m_undo_command);
-			m_undo_command2->setText(tr("Modifier un arc"));
+			m_undo_command2->setText(tr("Edit an arc"));
 			m_undo_command2->enableAnimation();
 		}
 		else if (m_vector_index == 1)
 		{
 			m_undo_command = new QPropertyUndoCommand(this, "spanAngle", QVariant(m_span_angle));
-			m_undo_command->setText(tr("Modifier un arc"));
+			m_undo_command->setText(tr("Edit an arc"));
 			m_undo_command->enableAnimation();
 		}
 	}
 	else //resize rect
 	{
 		m_undo_command = new QPropertyUndoCommand(this, "rect", QVariant(m_rect));
-		m_undo_command->setText(tr("Modifier un arc"));
+		m_undo_command->setText(tr("Edit an arc"));
 		m_undo_command->enableAnimation();
 	}
 }

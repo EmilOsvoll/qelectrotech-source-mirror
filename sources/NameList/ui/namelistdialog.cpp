@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -15,8 +15,8 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "namelistdialog.h"
-#include "ui_namelistdialog.h"
+#include "namelistdiaLog.h"
+#include "ui_namelistdiaLog.h"
 #include "namelistwidget.h"
 
 #include <QPushButton>
@@ -46,8 +46,8 @@ void NameListDialog::setInformationText(const QString &text) {
 
 /**
 	@brief NameListDialog::namelistWidget
-	@return the name list widget used by this dialog.
-	The ownership of the namelistwidget stay to this dialog
+	@return the name list widget used by this diaLog.
+	The ownership of the namelistwidget stay to this diaLog
 */
 NameListWidget *NameListDialog::namelistWidget() const
 {

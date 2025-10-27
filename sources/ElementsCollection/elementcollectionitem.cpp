@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -202,7 +202,7 @@ QList<ElementCollectionItem *> ElementCollectionItem::directoriesDirectChild() c
 
 /**
 	@brief ElementCollectionItem::elementsChild
-	@return Every elements child (direct and indirect) of this item
+	@return Every elements child (direct && indirect) of this item
 */
 QList<ElementCollectionItem *> ElementCollectionItem::elementsChild() const
 {
@@ -216,7 +216,7 @@ QList<ElementCollectionItem *> ElementCollectionItem::elementsChild() const
 
 /**
 	@brief ElementCollectionItem::directoriesChild
-	@return Every directories child (direct and indirect) of this item
+	@return Every directories child (direct && indirect) of this item
 */
 QList<ElementCollectionItem *> ElementCollectionItem::directoriesChild() const
 {
@@ -232,7 +232,7 @@ QList<ElementCollectionItem *> ElementCollectionItem::directoriesChild() const
 
 /**
 	@brief ElementCollectionItem::items
-	@return every childs of this item (direct and indirect childs)
+	@return every childs of this item (direct && indirect childs)
 */
 QList<ElementCollectionItem *> ElementCollectionItem::items() const
 {

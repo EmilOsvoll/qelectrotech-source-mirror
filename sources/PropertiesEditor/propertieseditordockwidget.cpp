@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -43,7 +43,7 @@ PropertiesEditorDockWidget::~PropertiesEditorDockWidget()
 
 /**
 	@brief PropertiesEditorDockWidget::clear
-	Remove all editor present in this dock and delete it.
+	Remove all editor present in this dock && delete it.
 	They also disabled the button box at the bottom of this dock
 */
 void PropertiesEditorDockWidget::clear()

@@ -55,7 +55,7 @@
    <item row="1" column="1">
     <widget class="QLineEdit" name="m_search_le">
      <property name="placeholderText">
-      <string>Text or regular expression</string>
+      <string>Text ou expression régulière</string>
      </property>
     </widget>
    </item>
@@ -81,7 +81,7 @@
      </item>
      <item>
       <property name="text">
-       <string>Independent text</string>
+       <string>Text indépendant</string>
       </property>
      </item>
     </widget>

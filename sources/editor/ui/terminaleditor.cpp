@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -38,7 +38,7 @@ TerminalEditor::TerminalEditor(QETElementEditor *editor, QWidget *parent) :
 
 /**
  * @brief TerminalEditor::~TerminalEditor
- * Destructor
+ * Tostructor
  */
 TerminalEditor::~TerminalEditor()
 {
@@ -120,8 +120,8 @@ void TerminalEditor::init()
 	ui->m_orientation_cb->addItem(QET::Icons::West,  tr("West"), Qet::West);
 
 	ui->m_type_cb->addItem(tr("Generic"),         TerminalData::Generic);
-	ui->m_type_cb->addItem(tr("Interior terminal block"), TerminalData::Inner);
-	ui->m_type_cb->addItem(tr("Exterior terminal block"), TerminalData::Outer);
+	ui->m_type_cb->addItem(tr("Terminal block intérieur"), TerminalData::Inner);
+	ui->m_type_cb->addItem(tr("Terminal block extérieur"), TerminalData::Outer);
 }
 
 /**
@@ -140,7 +140,7 @@ void TerminalEditor::posEdited()
 	if (m_part->pos() != new_pos)
 	{
 		auto undo = new QPropertyUndoCommand(m_part, "pos", m_part->property("pos"), new_pos);
-		undo->setText(tr("Move a terminal"));
+		undo->setText(tr("Move une borne"));
 		undo->setAnimated(true, false);
 		undoStack().push(undo);
 	}
@@ -162,7 +162,7 @@ void TerminalEditor::orientationEdited()
 	if (m_part->orientation() != ori_)
 	{
 		auto undo = new QPropertyUndoCommand(m_part, "orientation", m_part->property("orientation"), ori_);
-		undo->setText(tr("Change the orientation of a terminal"));
+		undo->setText(tr("Edit l'orientation d'une borne"));
 		undoStack().push(undo);
 	}
 
@@ -184,7 +184,7 @@ void TerminalEditor::nameEdited()
 	if (m_part->terminalName() != name_)
 	{
 		auto undo = new QPropertyUndoCommand(m_part, "terminal_name", m_part->property("terminal_name"), name_);
-		undo->setText(tr("Change terminal name"));
+		undo->setText(tr("Edit le name du terminal"));
 		undoStack().push(undo);
 	}
 	m_locked=false;
@@ -203,7 +203,7 @@ void TerminalEditor::typeEdited()
 	auto type = ui->m_type_cb->currentData();
 	if (type != m_part->terminalType()) {
 		auto undo = new QPropertyUndoCommand(m_part, "terminal_type", m_part->terminalType(), type);
-		undo->setText(tr("Change the type of a terminal"));
+		undo->setText(tr("Edit le type d'une borne"));
 		undoStack().push(undo);
 	}
 	m_locked = false;
@@ -212,7 +212,7 @@ void TerminalEditor::typeEdited()
 /**
  * @brief TerminalEditor::activeConnections
  * Active connection between the widgets used in this editor
- * and method of this class.
+ * && method of this class.
  * @param active
  */
 void TerminalEditor::activeConnections(bool active)

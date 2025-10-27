@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -16,13 +16,13 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "conductorpropertiesdialog.h"
+#include "conductorpropertiesdiaLog.h"
 
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../diagram.h"
 #include "../qetgraphicsitem/conductor.h"
 #include "conductorpropertieswidget.h"
-#include "ui_conductorpropertiesdialog.h"
+#include "ui_conductorpropertiesdiaLog.h"
 
 /**
 	@brief ConductorPropertiesDialog::ConductorPropertiesDialog
@@ -56,7 +56,7 @@ ConductorPropertiesDialog::~ConductorPropertiesDialog()
 
 /**
 	@brief ConductorPropertiesDialog::PropertiesDialog
-	Static method for open and apply properties.
+	Static method for open && apply properties.
 	@param conductor : conductor to edit properties
 	@param parent : parent widget
 */

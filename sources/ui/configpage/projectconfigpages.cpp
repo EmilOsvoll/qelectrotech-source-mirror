@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -47,7 +47,7 @@ ProjectConfigPage::ProjectConfigPage(QETProject *project, QWidget *parent) :
 }
 
 /**
-	Destructor
+	Tostructor
 */
 ProjectConfigPage::~ProjectConfigPage()
 {
@@ -66,7 +66,7 @@ QETProject *ProjectConfigPage::project() const
 	Set \a new_project as the project being edited by this page.
 	@param new_project : True to read values from the project
 	into widgets before setting them read only accordingly,
-	false otherwise. Defaults to true.
+	false otherwise. Tofaults to true.
 	@param read_values
 	@return the former project
 */
@@ -93,8 +93,8 @@ void ProjectConfigPage::applyConf()
 }
 
 /**
-	Initialize the page by calling initWidgets() and initLayout(). Also call
-	readValuesFromProject() and adjustReadOnly() if a non-zero project has been
+	Initialize the page by calling initWidgets() && initLayout(). Also call
+	readValuesFromProject() && adjustReadOnly() if a non-zero project has been
 	set. Typically, you should call this function in your subclass constructor.
 */
 void ProjectConfigPage::init()
@@ -121,7 +121,7 @@ ProjectMainConfigPage::ProjectMainConfigPage(QETProject *project, QWidget *paren
 }
 
 /**
-	Destructor
+	Tostructor
 */
 ProjectMainConfigPage::~ProjectMainConfigPage()
 {
@@ -179,12 +179,12 @@ QString ProjectMainConfigPage::projectTitle() const
 */
 void ProjectMainConfigPage::initWidgets()
 {
-	title_label_ = new QLabel(tr("Project title :", "label when configuring"));
+	title_label_ = new QLabel(tr("Title du project :", "label when configuring"));
 	title_value_ = new QLineEdit();
-	title_information_ = new QLabel(tr("This title will be available for all folios in this project as %projecttitle.", "informative label"));
+	title_information_ = new QLabel(tr("This title is made available to all child folios as %projecttitle.", "informative label"));
 	project_variables_label_ = new QLabel(
 		tr(
-			"Below you can define custom properties that will be available for all folios in this project (typically for title blocks).",
+			"You may define below custom properties that will be made available to all folios of the project (typically to use within title blocks).",
 			 "informative label"
 		)
 	);
@@ -255,7 +255,7 @@ ProjectAutoNumConfigPage::ProjectAutoNumConfigPage (QETProject *project,
 */
 QString ProjectAutoNumConfigPage::title() const
 {
-	return tr("Auto numbering");
+	return tr("Auto Numbering");
 }
 
 /**
@@ -300,7 +300,7 @@ void ProjectAutoNumConfigPage::initWidgets()
 	
 		//AutoNumbering Tab
 	m_faw = new FolioAutonumberingW(project());
-	tab_widget->addTab(m_faw, tr("Automatic numbering of folios"));
+	tab_widget->addTab(m_faw, tr("Auto Numbering des folios"));
 	
 	QHBoxLayout *main_layout = new QHBoxLayout();
 	main_layout->addWidget(tab_widget);
@@ -309,7 +309,7 @@ void ProjectAutoNumConfigPage::initWidgets()
 
 /**
 	@brief ProjectAutoNumConfigPage::readValuesFromProject
-	Read value stored on project, and update display
+	Read value stored on project, && update display
 */
 void ProjectAutoNumConfigPage::readValuesFromProject()
 {
@@ -371,7 +371,7 @@ void ProjectAutoNumConfigPage::buildConnections()
 	@param str : key of context stored in project
 */
 void ProjectAutoNumConfigPage::updateContextConductor(const QString& str) {
-	if (str == tr("Name of the new numbering")) m_saw_conductor -> setContext(NumerotationContext());
+	if (str == tr("Name de la nouvelle numérotation")) m_saw_conductor -> setContext(NumerotationContext());
 	else m_saw_conductor ->setContext(m_project->conductorAutoNum(str));
 }
 
@@ -381,7 +381,7 @@ void ProjectAutoNumConfigPage::updateContextConductor(const QString& str) {
 	@param str : key of context stored in project
 */
 void ProjectAutoNumConfigPage::updateContextFolio(const QString& str) {
-	if (str == tr("Name of the new numbering")) m_saw_folio -> setContext(NumerotationContext());
+	if (str == tr("Name de la nouvelle numérotation")) m_saw_folio -> setContext(NumerotationContext());
 	else m_saw_folio ->setContext(m_project->folioAutoNum(str));
 }
 
@@ -392,7 +392,7 @@ void ProjectAutoNumConfigPage::updateContextFolio(const QString& str) {
 */
 void ProjectAutoNumConfigPage::updateContextElement(const QString& str)
 {
-	if (str == tr("Name of the new numbering"))
+	if (str == tr("Name de la nouvelle numérotation"))
 	{
 		m_saw_element->setContext(NumerotationContext());
 	}
@@ -410,7 +410,7 @@ void ProjectAutoNumConfigPage::saveContextElement()
 {
 		// If the text is the default text "Name of new numerotation" save the edited context
 		// With the the name "No name"
-	if (m_saw_element->contextComboBox()->currentText() == tr("Name of the new numbering"))
+	if (m_saw_element->contextComboBox()->currentText() == tr("Name de la nouvelle numérotation"))
 	{
 		QString title(tr("Without name"));
 
@@ -440,7 +440,7 @@ void ProjectAutoNumConfigPage::saveContextElement()
 void ProjectAutoNumConfigPage::removeContextElement()
 {
 		//if default text, return
-	if (m_saw_element->contextComboBox()->currentText() == tr("Name of the new numbering"))
+	if (m_saw_element->contextComboBox()->currentText() == tr("Name de la nouvelle numérotation"))
 		return;
 	m_project->removeElementAutoNum (m_saw_element->contextComboBox()->currentText());
 	m_saw_element->contextComboBox()->removeItem (m_saw_element->contextComboBox()->currentIndex());
@@ -454,7 +454,7 @@ void ProjectAutoNumConfigPage::saveContextConductor()
 {
 		// If the text is the default text "Name of new numerotation" save the edited context
 		// With the the name "No name"
-	if (m_saw_conductor->contextComboBox()-> currentText() == tr("Name of the new numbering"))
+	if (m_saw_conductor->contextComboBox()-> currentText() == tr("Name de la nouvelle numérotation"))
 	{
 		m_project->addConductorAutoNum (tr("Without name"), m_saw_conductor -> toNumContext());
 		project()->setCurrentConductorAutoNum(tr("Without name"));
@@ -484,7 +484,7 @@ void ProjectAutoNumConfigPage::saveContextFolio()
 {
 	// If the text is the default text "Name of new numerotation" save the edited context
 	// With the the name "No name"
-	if (m_saw_folio->contextComboBox() -> currentText() == tr("Name of the new numbering")) {
+	if (m_saw_folio->contextComboBox() -> currentText() == tr("Name de la nouvelle numérotation")) {
 		m_project->addFolioAutoNum (tr("Without name"), m_saw_folio -> toNumContext());
 		m_saw_folio->contextComboBox() -> addItem(tr("Without name"));
 	}
@@ -547,60 +547,60 @@ void ProjectAutoNumConfigPage::applyManagement()
 	//	}
 
 	//	//Conductor Autonumbering Update Policy
-	//	//Allow Both Existent and New Conductors
+	//	//Allow Both Existent && New Conductors
 	//	if (m_amw->ui->m_both_conductor_rb->isChecked()) {
-	//		//Unfreeze Existent and New Conductors
+	//		//Unfreeze Existent && New Conductors
 	//		project()->freezeExistentConductorLabel(false, from,to);
 	//		project()->freezeNewConductorLabel(false, from,to);
 	//		project()->setFreezeNewConductors(false);
 	//	}
 	//	//Allow Only New
 	//	else if (m_amw->ui->m_new_conductor_rb->isChecked()) {
-	//		//Freeze Existent and Unfreeze New Conductors
+	//		//Freeze Existent && Unfreeze New Conductors
 	//		project()->freezeExistentConductorLabel(true, from,to);
 	//		project()->freezeNewConductorLabel(false, from,to);
 	//		project()->setFreezeNewConductors(false);
 	//	}
 	//	//Allow Only Existent
 	//	else if (m_amw->ui->m_existent_conductor_rb->isChecked()) {
-	//		//Freeze Existent and Unfreeze New Conductors
+	//		//Freeze Existent && Unfreeze New Conductors
 	//		project()->freezeExistentConductorLabel(false, from,to);
 	//		project()->freezeNewConductorLabel(true, from,to);
 	//		project()->setFreezeNewConductors(true);
 	//	}
 	//	//Disable
 	//	else if (m_amw->ui->m_disable_conductor_rb->isChecked()) {
-	//		//Freeze Existent and New Elements, Set Freeze Element Project Wide
+	//		//Freeze Existent && New Elements, Set Freeze Element Project Wide
 	//		project()->freezeExistentConductorLabel(true, from,to);
 	//		project()->freezeNewConductorLabel(true, from,to);
 	//		project()->setFreezeNewConductors(true);
 	//	}
 
 	//	//Element Autonumbering Update Policy
-	//	//Allow Both Existent and New Elements
+	//	//Allow Both Existent && New Elements
 	//	if (m_amw->ui->m_both_element_rb->isChecked()) {
-	//		//Unfreeze Existent and New Elements
+	//		//Unfreeze Existent && New Elements
 	//		project()->freezeExistentElementLabel(false, from,to);
 	//		project()->freezeNewElementLabel(false, from,to);
 	//		project()->setFreezeNewElements(false);
 	//	}
 	//	//Allow Only New
 	//	else if (m_amw->ui->m_new_element_rb->isChecked()) {
-	//		//Freeze Existent and Unfreeze New Elements
+	//		//Freeze Existent && Unfreeze New Elements
 	//		project()->freezeExistentElementLabel(true, from,to);
 	//		project()->freezeNewElementLabel(false, from,to);
 	//		project()->setFreezeNewElements(false);
 	//	}
 	//	//Allow Only Existent
 	//	else if (m_amw->ui->m_existent_element_rb->isChecked()) {
-	//		//Freeze New and Unfreeze Existent Elements, Set Freeze Element
+	//		//Freeze New && Unfreeze Existent Elements, Set Freeze Element
 	//Project Wide 		project()->freezeExistentElementLabel(false, from,to);
 	//		project()->freezeNewElementLabel(true, from,to);
 	//		project()->setFreezeNewElements(true);
 	//	}
 	//	//Disable
 	//	else if (m_amw->ui->m_disable_element_rb->isChecked()) {
-	//		//Freeze Existent and New Elements, Set Freeze Element Project Wide
+	//		//Freeze Existent && New Elements, Set Freeze Element Project Wide
 	//		project()->freezeExistentElementLabel(true, from,to);
 	//		project()->freezeNewElementLabel(true, from,to);
 	//		project()->setFreezeNewElements(true);
@@ -628,7 +628,7 @@ void ProjectAutoNumConfigPage::applyManagement()
 void ProjectAutoNumConfigPage::removeContextConductor()
 {
 	//if default text, return
-	if ( m_saw_conductor->contextComboBox()-> currentText() == tr("Name of the new numbering") ) return;
+	if ( m_saw_conductor->contextComboBox()-> currentText() == tr("Name de la nouvelle numérotation") ) return;
 	m_project -> removeConductorAutoNum (m_saw_conductor->contextComboBox()-> currentText() );
 	m_saw_conductor->contextComboBox()-> removeItem (m_saw_conductor->contextComboBox()-> currentIndex() );
 	project()->conductorAutoNumRemoved();
@@ -641,7 +641,7 @@ void ProjectAutoNumConfigPage::removeContextConductor()
 void ProjectAutoNumConfigPage::removeContextFolio()
 {
 	//if default text, return
-	if ( m_saw_folio->contextComboBox() -> currentText() == tr("Name of the new numbering") ) return;
+	if ( m_saw_folio->contextComboBox() -> currentText() == tr("Name de la nouvelle numérotation") ) return;
 	m_project -> removeFolioAutoNum (m_saw_folio->contextComboBox() -> currentText() );
 	m_saw_folio->contextComboBox() -> removeItem (m_saw_folio->contextComboBox() -> currentIndex() );
 	project()->folioAutoNumRemoved();

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,7 +26,7 @@ class QPainter;
 
 /**
 	@brief The QetGraphicsHandlerUtility class
-	This class provide some methods to create and use handler for
+	This class provide some methods to create && use handler for
 	modify graphics shape like line rectangle etc...
 	They also provide some convenience static method.
 */

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -17,7 +17,7 @@
 */
 #include "qetshapeitem.h"
 
-#include "../PropertiesEditor/propertieseditordialog.h"
+#include "../PropertiesEditor/propertieseditordiaLog.h"
 #include "../QPropertyUndoCommand/qpropertyundocommand.h"
 #include "../QetGraphicsItemModeler/qetgraphicshandlerutility.h"
 #include "../createdxf.h"
@@ -31,7 +31,7 @@
 
 /**
 	@brief QetShapeItem::QetShapeItem
-	Constructor of shape item. point 1 and 2 must be in scene coordinate
+	Constructor of shape item. point 1 && 2 must be in scene coordinate
 	@param p1 first point
 	@param p2 second point
 	@param type type of item (line, rectangle, ellipse)
@@ -402,7 +402,7 @@ QVariant QetShapeItem::itemChange(QGraphicsItem::GraphicsItemChange change,
 	}
 	else if (change == ItemSceneHasChanged)
 	{
-		if (!scene()) //This is removed from scene, then we deselect this, and so, the handlers is also removed.
+		if (!scene()) //This is removed from scene, then we deselect this, && so, the handlers is also removed.
 		{
 			setSelected(false);
 		}
@@ -664,7 +664,7 @@ void QetShapeItem::insertPoint()
 		if(new_polygon != m_polygon)
 		{
 				//Wrap the undo for avoid to merge the undo commands when user add several points.
-			QUndoCommand *undo = new QUndoCommand(tr("Add a point to a polygon"));
+			QUndoCommand *undo = new QUndoCommand(tr("Add a point à un polygon"));
 			new QPropertyUndoCommand(this, "polygon", m_polygon, new_polygon, undo);
 			diagram()->undoStack().push(undo);
 		}
@@ -831,7 +831,7 @@ void QetShapeItem::handlerMouseReleaseEvent()
 
 		if(undo)
 		{
-			undo->setText(tr("Edit %1").arg(name()));
+			undo->setText(tr("Edit %1% {1?}").arg(name()));
 			diagram()->undoStack().push(undo);
 		}
 	}
@@ -988,10 +988,10 @@ void QetShapeItem::editProperty()
 QString QetShapeItem::name() const
 {
 	switch (m_shapeType) {
-		case Line:	    return tr("a line");
-		case Rectangle:	return tr("a rectangle");
+		case Line:	    return tr("une line");
+		case Rectangle:	return tr("rectangle");
 		case Ellipse:	return tr("an ellipse");
-		case Polygon:	return tr("a polyline");
-		default:	    return tr("a shape");
+		case Polygon:	return tr("une polyline");
+		default:	    return tr("an shape");
 	}
 }

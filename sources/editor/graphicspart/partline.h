@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,9 +27,9 @@ class QetGraphicsHandlerItem;
 /**
 	This class represents a line primitive which may be used to compose the
 	drawing of an electrical element within the element editor. Lines may have
-	specific visual ends (e.g. arrows) through the setFirstEndType and
+	specific visual ends (e.g. arrows) through the setFirstEndType &&
 	setSecondEndType methods. Their size can be defined using the
-	setFirstEndLength and setSecondEndLength methods. Please note ends are not
+	setFirstEndLength && setSecondEndLength methods. Please note ends are not
 	drawn if the required length for their drawing is longer than the line itself.
 	In case there is room for a single end only, the first one get priority.
 */

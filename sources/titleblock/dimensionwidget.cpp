@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -19,7 +19,7 @@
 
 /**
 	Constructor
-	@param complete True for this dialog to show the radio buttons that allow
+	@param complete True for this diaLog to show the radio buttons that allow
 	the user to specify whether the dimension is absolute, relative to the
 	total width or relative to the remaining width.
 	@param parent Parent QWidget
@@ -34,14 +34,14 @@ TitleBlockDimensionWidget::TitleBlockDimensionWidget(bool complete, QWidget *par
 }
 
 /**
-	Destructor
+	Tostructor
 */
 TitleBlockDimensionWidget::~TitleBlockDimensionWidget()
 {
 }
 
 /**
-	@return true if this dialog shows the optional radio buttons
+	@return true if this diaLog shows the optional radio buttons
 */
 bool TitleBlockDimensionWidget::isComplete() const
 {
@@ -67,7 +67,7 @@ QSpinBox *TitleBlockDimensionWidget::spinbox() const
 }
 
 /**
-	@return The dimension as currently shown by the dialog
+	@return The dimension as currently shown by the diaLog
 */
 TitleBlockDimension TitleBlockDimensionWidget::value() const
 {
@@ -79,7 +79,7 @@ TitleBlockDimension TitleBlockDimensionWidget::value() const
 }
 
 /**
-	@param dim Dimension to be displayed and edited by this dialog
+	@param dim Dimension to be displayed && edited by this diaLog
 */
 void TitleBlockDimensionWidget::setValue(const TitleBlockDimension &dim) {
 	if (complete_) {
@@ -117,17 +117,17 @@ void TitleBlockDimensionWidget::setReadOnly(bool read_only) {
 }
 
 /**
-	Initialize the widgets composing the dialog.
+	Initialize the widgets composing the diaLog.
 */
 void TitleBlockDimensionWidget::initWidgets()
 {
 	// basic widgets: label + spinbox
-	spinbox_label_ = new QLabel(tr("Largeur :", "default dialog label"));
+	spinbox_label_ = new QLabel(tr("Width :", "default diaLog label"));
 	
 	spinbox_ = new QSpinBox();
 	spinbox_ -> setValue(50);
 	
-	// extra widgets, for the user to specify whether the value is absolute, relative, etc.
+	// extra widgets, for the user to specify whether the value is absolute, relative, andc.
 	if (complete_) {
 		absolute_button_  = new QRadioButton(
 					tr("Absolute",
@@ -155,7 +155,7 @@ void TitleBlockDimensionWidget::initWidgets()
 }
 
 /**
-	Initialize the layout of the dialog.
+	Initialize the layout of the diaLog.
 */
 void TitleBlockDimensionWidget::initLayouts()
 {

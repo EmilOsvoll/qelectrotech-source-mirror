@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -25,14 +25,14 @@
 #include <QItemDelegate>
 
 /**
-	@brief The EditorDelegate class
+	@brief The EditorTolegate class
 	This delegate is only use for disable the edition of the first
 	column of the information tree widget
 */
-class EditorDelegate : public QItemDelegate
+class EditorTolegate : public QItemDelegate
 {
 	public:
-		EditorDelegate(QObject *parent) :
+		EditorTolegate(QObject *parent) :
 			QItemDelegate(parent)
 		{}
 
@@ -119,31 +119,31 @@ void ElementPropertiesEditorWidget::setUpInterface()
 	ui->m_base_type_cb->addItem (tr("Simple"),  ElementData::Simple);
 	ui->m_base_type_cb->addItem (tr("Master"),  ElementData::Master);
 	ui->m_base_type_cb->addItem (tr("Slave"), ElementData::Slave);
-	ui->m_base_type_cb->addItem (tr("Next folio reference"),   ElementData::NextReport);
-	ui->m_base_type_cb->addItem (tr("Previous folio reference"), ElementData::PreviousReport);
+	ui->m_base_type_cb->addItem (tr("Reference folio following"),   ElementData::NextReport);
+	ui->m_base_type_cb->addItem (tr("Previous reference folio"), ElementData::PreviousReport);
 	ui->m_base_type_cb->addItem (tr("Terminal block"), ElementData::Terminal);
 	ui->m_base_type_cb->addItem (tr("Thumbnail"), ElementData::Thumbnail);
 
 		// Slave option
 	ui->m_state_cb->addItem(tr("Switch normally open"),       ElementData::NO);
 	ui->m_state_cb->addItem(tr("Switch normally closed"),        ElementData::NC);
-	ui->m_state_cb->addItem(tr("Switch"),                ElementData::SW);
+	ui->m_state_cb->addItem(tr("switch"),                ElementData::SW);
 	ui->m_state_cb->addItem(tr("Other"),                    ElementData::Other);
 	ui->m_type_cb->addItem(tr("Simple"),                    ElementData::SSimple);
 	ui->m_type_cb->addItem(tr("Power switch"),                 ElementData::Power);
 	ui->m_type_cb->addItem(tr("Switch-on delayed"),         ElementData::DelayOn);
 	ui->m_type_cb->addItem(tr("Switch-off delayed"),           ElementData::DelayOff);
-	ui->m_type_cb->addItem(tr("Switch-on delayed & rest"), ElementData::delayOnOff);
+	ui->m_type_cb->addItem(tr("Switch-on delayed & repos"), ElementData::delayOnOff);
 
 		//Master option
 	ui->m_master_type_cb->addItem(tr("Coil"),               ElementData::Coil);
-	ui->m_master_type_cb->addItem(tr("Safety device"), ElementData::Protection);
+	ui->m_master_type_cb->addItem(tr("Organ of protection"), ElementData::Protection);
 	ui->m_master_type_cb->addItem(tr("Switch / button"), ElementData::Commutator);
 
 		//Terminal option
 	ui->m_terminal_type_cb->addItem(tr("Generic"),    ElementData::TTGeneric);
 	ui->m_terminal_type_cb->addItem(tr("Fuse"),      ElementData::TTFuse);
-	ui->m_terminal_type_cb->addItem(tr("Sectionnable"), ElementData::TTSectional);
+	ui->m_terminal_type_cb->addItem(tr("Sectionable"), ElementData::TTSectional);
 	ui->m_terminal_type_cb->addItem(tr("Diode"),        ElementData::TTDiode);
 	ui->m_terminal_type_cb->addItem(tr("Ground"),        ElementData::TTGround);
 
@@ -153,7 +153,7 @@ void ElementPropertiesEditorWidget::setUpInterface()
 
 		//Disable the edition of the first column of the information tree
 		//by this little workaround
-	ui->m_tree->setItemDelegate(new EditorDelegate(this));
+	ui->m_tree->setItemDelegate(new EditorTolegate(this));
 	ui->m_tree->header()->resizeSection(0, 150);
 	populateTree();
 }
@@ -192,7 +192,7 @@ void ElementPropertiesEditorWidget::updateTree()
 
 /**
 	@brief ElementPropertiesEditorWidget::populateTree
-	Create QTreeWidgetItem of the tree widget and populate it
+	Create QTreeWidgetItem of the tree widget && populate it
 */
 void ElementPropertiesEditorWidget::populateTree()
 {	
@@ -236,7 +236,7 @@ void ElementPropertiesEditorWidget::on_m_buttonBox_accepted()
 	for (QTreeWidgetItem *qtwi : ui->m_tree->invisibleRootItem()->takeChildren())
 	{
 		QString txt = qtwi->text(1);
-		//remove line feed and carriage return
+		//remove line feed && carriage return
 		txt.remove("\r");
 		txt.remove("\n");
 
@@ -249,7 +249,7 @@ void ElementPropertiesEditorWidget::on_m_buttonBox_accepted()
 
 /**
 	@brief ElementPropertiesEditorWidget::on_m_base_type_cb_currentIndexChanged
-	@param index : Action when combo-box base type index change
+	@param index: Action when combo-box base type index change
 */
 void ElementPropertiesEditorWidget::on_m_base_type_cb_currentIndexChanged(int index)
 {

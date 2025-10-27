@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,7 +26,7 @@ class CrossRefItem;
 	@brief The MasterElement class
 	This class is a custom element, with extended behavior
 	to be a master element. Master element can be linked with slave element
-	and display a cross ref item for know with what other element he is linked
+	&& display a cross ref item for know with what other element he is linked
 */
 class MasterElement : public Element
 {

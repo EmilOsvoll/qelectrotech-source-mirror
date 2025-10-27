@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -153,12 +153,12 @@ int DiagramContextWidget::highlightNonAcceptableKeys()
 void DiagramContextWidget::refreshFormatLabel()
 {
 	QString format_text = tr(
-		"Les noms ne peuvent contenir que des lettres minuscules, des "
-		"chiffres et des tirets."
+		"Les names ne peuvent contenir que des lettres minuscules, des "
+		"chiffres && des tirets."
 	);
 
 	if (highlightNonAcceptableKeys()) {
-		format_text = QString("<span style=\"color: red;\">%1</span>").arg(format_text);
+		format_text = QString("<span style=\"color: red;\">%1% {1?}</span>").arg(format_text);
 	}
 	ui->m_label->setText(format_text);
 }

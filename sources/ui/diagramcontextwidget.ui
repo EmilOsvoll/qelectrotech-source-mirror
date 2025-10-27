@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="m_label">
      <property name="text">
-      <string>Names may only contain lowercase letters, digits and dashes.</string>
+      <string>Names may only contain lowercase letters, digits &amp; dashes.</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>

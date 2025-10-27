@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -309,7 +309,7 @@ void PolygonEditor::on_m_add_point_action_triggered()
 	}
 	
 	//Wrap the undo for avoid to merge the undo commands when user add several points.
-	QUndoCommand *undo = new QUndoCommand(tr("Add a point to a polygon"));
+	QUndoCommand *undo = new QUndoCommand(tr("Add a point à un polygon"));
 	new QPropertyUndoCommand(m_part, "polygon", m_part->polygon(), new_polygon, undo);
 	elementScene()->undoStack().push(undo);
 	

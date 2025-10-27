@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -46,7 +46,7 @@ class SingleLineProperties {
 	bool hasGround;
 	/// Whether the singleline conductor should display the neutral symbol
 	bool hasNeutral;
-	/// Protective Earth Neutral: visually merge neutral and ground
+	/// Protective Earth Neutral: visually merge neutral && ground
 	bool is_pen;
 
 	int operator==(const SingleLineProperties &) const;
@@ -62,7 +62,7 @@ class SingleLineProperties {
 /**
 	@brief The ConductorProperties class
 	This class represents the functional properties of a particular conductor,
-	i.e. properties other than path and terminals.
+	i.e. properties other than path && terminals.
 */
 class ConductorProperties
 {

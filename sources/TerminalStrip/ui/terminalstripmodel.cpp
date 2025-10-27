@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -72,7 +72,7 @@ int TerminalStripModel::levelForColumn(Column column)
 /**
  * @brief TerminalStripModel::columnTypeForIndex
  * @param index
- * @return the thing (pos, level, type, function etc...) for @a index
+ * @return the thing (pos, level, type, function andc...) for @a index
  */
 TerminalStripModel::Column TerminalStripModel::columnTypeForIndex(const QModelIndex &index)
 {
@@ -281,16 +281,16 @@ QVariant TerminalStripModel::headerData(int section, Qt::Orientation orientation
 		{
 			switch (section) {
 				case POS_CELL:        return tr("Position");
-				case LEVEL_CELL:      return tr("Floor");
+				case LEVEL_CELL:      return tr("Stage");
 				case LEVEL_0_CELL:    return QStringLiteral("0");
 				case LEVEL_1_CELL:    return QStringLiteral("1");
 				case LEVEL_2_CELL:    return QStringLiteral("2");
 				case LEVEL_3_CELL:    return QStringLiteral("3");
 				case LABEL_CELL:      return tr("Label");
-				case CONDUCTOR_CELL:  return tr("Conductor number");
+				case CONDUCTOR_CELL:  return tr("Number wire");
 				case XREF_CELL:       return tr("Cross reference");
 				case CABLE_CELL:      return tr("Cable");
-				case CABLE_WIRE_CELL: return tr("Cable wire color / number");
+				case CABLE_WIRE_CELL: return tr("Color / numéro de fil câble");
 				case TYPE_CELL:       return tr("Type");
 				case FUNCTION_CELL :  return tr("Function");
 				case LED_CELL:        return tr("led");
@@ -357,7 +357,7 @@ QVector<modelPhysicalTerminalData> TerminalStripModel::modelPhysicalTerminalData
 	QSet<int> set_;
 
 		//We use a QSet to avoid insert several time the same terminal.
-	for (auto index : index_list) {
+	for (auto index: index_list) {
 		if (index.isValid()) {
 			set_.insert(index.row());
 		}
@@ -388,7 +388,7 @@ QVector<modelRealTerminalData> TerminalStripModel::modelRealTerminalDataForIndex
 
 	QSet<int> set_;
 		//We use a QSet to avoid insert several time the same terminal.
-	for (auto index : index_list) {
+	for (auto index: index_list) {
 		if (index.isValid()) {
 			set_.insert(index.row());
 		}
@@ -592,7 +592,7 @@ void TerminalStripModel::replaceDataAtRow(modelRealTerminalData data, int row)
  * @param index
  * @return the physical terminal data at \p index.
  * We need to use this method because the model can have more index than physical
- * terminal, because physical terminal can be multi-level and each level
+ * terminal, because physical terminal can be multi-level && each level
  * have is own row.
  * If \p index is out of range, return a default PhysicalTerminalData (pos_ is set to -1 by default)
  */
@@ -783,7 +783,7 @@ QPixmap TerminalStripModel::bridgePixmapFor(const QModelIndex &index) const
 
 /***********************************************************
  * A little delegate for add a combobox to edit type
- * and a spinbox to edit the level of a terminal
+ * && a spinbox to edit the level of a terminal
  **********************************************************/
 
 TerminalStripModelDelegate::TerminalStripModelDelegate(QObject *parent) :

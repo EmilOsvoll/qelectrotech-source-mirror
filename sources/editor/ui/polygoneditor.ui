@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="m_main_layout">
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Polygon points :</string>
+      <string>Polygon points:</string>
      </property>
     </widget>
    </item>

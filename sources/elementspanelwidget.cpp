@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,18 +27,18 @@
 
 /*
 	When the ENABLE_PANEL_WIDGET_DND_CHECKS flag is set, the panel
-	performs checks during drag'n drop of items and categories.
+	performs checks during drag'n drop of items && categories.
 	For example, it checks that a target category is writable
 	before authorizing the drop of an element.
 	Removing this flag allows you to test the behavior of management functions
-	items (copy, move, etc.).
+	items (copy, move, andc.).
 
 	Lorsque le flag ENABLE_PANEL_WIDGET_DND_CHECKS est defini, le panel
-	effectue des verifications lors des drag'n drop d'elements et categories.
+	effectue des verifications lors des drag'n drop d'elements && categories.
 	Par exemple, il verifie qu'une categorie cible est accessible en ecriture
 	avant d'y autoriser le drop d'un element.
-	Supprimer ce flag permet de tester le comportement des fonctions de gestion
-	des items (copy, move, etc.).
+	Delete ce flag permet de tester le comportement des fonctions de gestion
+	des items (copy, move, andc.).
 */
 #define ENABLE_PANEL_WIDGET_DND_CHECKS
 
@@ -59,15 +59,15 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Folio properties"),       this);
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);
-	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this folio up"),               this);
-	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move this folio down"),               this);
-	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move this folio up x10"),           this);
-	prj_move_diagram_upx100  = new QAction(QET::Icons::GoUpDouble,             tr("Move this folio up x100"),           this);
-	prj_move_diagram_top     = new QAction(QET::Icons::GoTop,                  tr("Move this folio to the start"),               this);
-	prj_move_diagram_downx10 = new QAction(QET::Icons::GoDownDouble,           tr("Move this folio down x10"),           this);
-	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Move this folio down x100"),           this);
+	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move up  this folio"),               this);
+	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move down this folio"),               this);
+	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move up  this folio x10"),           this);
+	prj_move_diagram_upx100  = new QAction(QET::Icons::GoUpDouble,             tr("Move up  this folio x100"),           this);
+	prj_move_diagram_top     = new QAction(QET::Icons::GoTop,                  tr("Move up  this folio au debut"),               this);
+	prj_move_diagram_downx10 = new QAction(QET::Icons::GoDownDouble,           tr("Move down this folio x10"),           this);
+	prj_move_diagram_downx100 = new QAction(QET::Icons::GoDownDouble,           tr("Move down this folio x100"),           this);
 	tbt_add               = new QAction(QET::Icons::TitleBlock,                tr("New template"),                   this);
-	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Edit this template"),              this);
+	tbt_edit              = new QAction(QET::Icons::TitleBlock,                tr("Edit ce modèle"),              this);
 	tbt_remove            = new QAction(QET::Icons::TitleBlock,                tr("Delete this template"),              this);
 
 
@@ -82,7 +82,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 
 
 
-	// initialise le champ de texte pour filtrer avec une disposition horizontale
+	// initialise le champ de text pour filtrer avec une disposition horizontale
 	filter_textfield = new QLineEdit(this);
 	filter_textfield -> setClearButtonEnabled(true);
 	filter_textfield -> setPlaceholderText(tr("Filter"));
@@ -131,7 +131,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 ElementsPanelWidget::~ElementsPanelWidget()
 {
@@ -190,7 +190,7 @@ void ElementsPanelWidget::activateProject()
 }
 
 /**
-	Emet le signal requestForProjectClosing avec le projet selectionne
+	Emet le signal requestForProjectClosing avec le project selectionne
 */
 void ElementsPanelWidget::closeProject()
 {
@@ -200,7 +200,7 @@ void ElementsPanelWidget::closeProject()
 }
 
 /**
-	Emet le signal requestForProjectPropertiesEdition avec le projet selectionne
+	Emet le signal requestForProjectPropertiesEdition avec le project selectionne
 */
 void ElementsPanelWidget::editProjectProperties()
 {
@@ -210,7 +210,7 @@ void ElementsPanelWidget::editProjectProperties()
 }
 
 /**
-	Emet le signal requestForDiagramPropertiesEdition avec le schema selectionne
+	Emet le signal requestForDiagramPropertiesEdition avec le diagram selectionne
 */
 void ElementsPanelWidget::editDiagramProperties()
 {
@@ -220,7 +220,7 @@ void ElementsPanelWidget::editDiagramProperties()
 }
 
 /**
-	Emet le signal requestForNewDiagram avec le projet selectionne
+	Emet le signal requestForNewDiagram avec le project selectionne
 */
 void ElementsPanelWidget::newDiagram()
 {
@@ -230,7 +230,7 @@ void ElementsPanelWidget::newDiagram()
 }
 
 /**
-	Emet le signal requestForDiagramDeletion avec le schema selectionne
+	Emet le signal requestForDiagramDeletion avec le diagram selectionne
 */
 void ElementsPanelWidget::deleteDiagram()
 {
@@ -240,7 +240,7 @@ void ElementsPanelWidget::deleteDiagram()
 }
 
 /**
-	Emet le signal requestForDiagramMoveUpTop avec le schema selectionne
+	Emet le signal requestForDiagramMoveUpTop avec le diagram selectionne
 +*/
 void ElementsPanelWidget::moveDiagramUpTop()
 {
@@ -252,7 +252,7 @@ void ElementsPanelWidget::moveDiagramUpTop()
 
 
 /**
-	Emet le signal requestForDiagramMoveUp avec le schema selectionne
+	Emet le signal requestForDiagramMoveUp avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramUp()
 {
@@ -262,7 +262,7 @@ void ElementsPanelWidget::moveDiagramUp()
 }
 
 /**
-	Emet le signal requestForDiagramMoveDown avec le schema selectionne
+	Emet le signal requestForDiagramMoveDown avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramDown()
 {
@@ -272,7 +272,7 @@ void ElementsPanelWidget::moveDiagramDown()
 }
 
 /**
-	Emet le signal requestForDiagramMoveUpx10 avec le schema selectionne
+	Emet le signal requestForDiagramMoveUpx10 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramUpx10()
 {
@@ -282,7 +282,7 @@ void ElementsPanelWidget::moveDiagramUpx10()
 }
 
 /**
-	Emet le signal requestForDiagramMoveUpx100 avec le schema selectionne
+	Emet le signal requestForDiagramMoveUpx100 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramUpx100()
 {
@@ -292,7 +292,7 @@ void ElementsPanelWidget::moveDiagramUpx100()
 }
 
 /**
-	Emet le signal requestForDiagramMoveDownx10 avec le schema selectionne
+	Emet le signal requestForDiagramMoveDownx10 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramDownx10()
 {
@@ -302,7 +302,7 @@ void ElementsPanelWidget::moveDiagramDownx10()
 }
 
 /**
-	Emet le signal requestForDiagramMoveDownx100 avec le schema selectionne
+	Emet le signal requestForDiagramMoveDownx100 avec le diagram selectionne
 */
 void ElementsPanelWidget::moveDiagramDownx100()
 {
@@ -397,7 +397,7 @@ void ElementsPanelWidget::updateButtons()
 
 /**
 	Gere le menu contextuel du panel d'elements
-	@param pos Position ou le menu contextuel a ete demande
+	@param pos Position ou le menu contextuel a ande demande
 */
 void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 	// recupere l'item concerne par l'evenement ainsi que son chemin

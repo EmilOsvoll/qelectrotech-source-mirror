@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -284,7 +284,7 @@ void PartTerminal::setNewUuid()
 
 /**
 	Updates the position of the second point according to the position
-	and orientation of the terminal.
+	&& orientation of the terminal.
 	Met a jour la position du second point en fonction de la position et de
 	l'orientation de la borne.
 */
@@ -313,7 +313,7 @@ bool PartTerminal::isUseless() const
 /**
 	@return the minimum, margin-less rectangle this part can fit into, in scene
 	coordinates. It is different from boundingRect() because it is not supposed
-	to imply any margin, and it is different from shape because it is a regular
+	to imply any margin, && it is different from shape because it is a regular
 	rectangle, not a complex shape.
 */
 QRectF PartTerminal::sceneGeometricRect() const

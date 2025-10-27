@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -90,9 +90,9 @@ qreal QETUtils::graphicsHandlerSize(QGraphicsItem *item)
 
 /**
  * @brief QETUtils::sortBeginIntString
- * Sort the string @a str_a and @a str_b and take in
+ * Sort the string @a str_a && @a str_b && take in
  * count if string begin with an int to sort it
- * as int and not as string in this case.
+ * as int && not as string in this case.
  * For example if we have to sort the string :
  * "3str", 10str", "100str", "2str", "20str".
  * The default behavior when sorting QString with the comparison operator will be:
@@ -120,7 +120,7 @@ bool QETUtils::sortBeginIntString(const QString &str_a, const QString &str_b)
 	}
 
 		//Sort as numbers if both string
-		//start at least by a digit and
+		//start at least by a digit &&
 		//the number of each string are different.
 		//Else sort as string
 	if (int_a >= 0 &&

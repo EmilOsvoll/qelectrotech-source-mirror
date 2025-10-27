@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -64,7 +64,7 @@
          <item row="4" column="1">
           <widget class="QLabel" name="label_5">
            <property name="text">
-            <string>File :</string>
+            <string>File:</string>
            </property>
           </widget>
          </item>
@@ -84,21 +84,21 @@
             <string>Available as variable %author for title blocks</string>
            </property>
            <property name="placeholderText">
-            <string>Not modifiable</string>
+            <string>Do not change</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
           <widget class="QLabel" name="label_3">
            <property name="text">
-            <string>Author :</string>
+            <string>Author:</string>
            </property>
           </widget>
          </item>
          <item row="3" column="1">
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Date :</string>
+            <string>Date:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -108,7 +108,7 @@
          <item row="6" column="1">
           <widget class="QLabel" name="label_10">
            <property name="text">
-            <string>Plant :</string>
+            <string>Plant:</string>
            </property>
           </widget>
          </item>
@@ -118,7 +118,7 @@
             <string>Available as variable %indexrev for title blocks</string>
            </property>
            <property name="placeholderText">
-            <string>Not modifiable</string>
+            <string>Do not change</string>
            </property>
           </widget>
          </item>
@@ -128,7 +128,7 @@
             <string>Available as variable %filename for title blocks</string>
            </property>
            <property name="placeholderText">
-            <string>Not modifiable</string>
+            <string>Do not change</string>
            </property>
           </widget>
          </item>
@@ -138,7 +138,7 @@
          <item row="5" column="1">
           <widget class="QLabel" name="label_6">
            <property name="text">
-            <string>Folio :</string>
+            <string>Folio:</string>
            </property>
           </widget>
          </item>
@@ -167,7 +167,7 @@
            <item row="2" column="0">
             <widget class="QRadioButton" name="m_fixed_date_rb">
              <property name="text">
-              <string>Fixed date :</string>
+              <string>Fixed date:</string>
              </property>
             </widget>
            </item>
@@ -188,7 +188,7 @@
            <item row="0" column="0">
             <widget class="QRadioButton" name="m_unchanged_date">
              <property name="text">
-              <string>Not modifiable</string>
+              <string>Do not change</string>
              </property>
             </widget>
            </item>
@@ -199,8 +199,8 @@
            <property name="toolTip">
             <string>Disponible en tant que %folio pour les modèles de cartouches
 Les variables suivantes sont utilisables :
-- %id : numéro du folio courant dans le project
-- %total : namebre total de folios dans le project
+- %id : numéro du folio courant dans le project 
+- %total : namebre total de folios dans le project 
 - %autonum : Folio Auto Numeration</string>
            </property>
            <property name="placeholderText">
@@ -214,7 +214,7 @@ Les variables suivantes sont utilisables :
             <string>Available as variable %locmach for title blocks</string>
            </property>
            <property name="placeholderText">
-            <string>Not modifiable</string>
+            <string>Do not change</string>
            </property>
           </widget>
          </item>
@@ -224,14 +224,14 @@ Les variables suivantes sont utilisables :
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Available as% plant for title block templates&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="placeholderText">
-            <string>Not modifiable</string>
+            <string>Do not change</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Title :</string>
+            <string>Title:</string>
            </property>
           </widget>
          </item>
@@ -332,8 +332,8 @@ Les variables suivantes sont utilisables :
          <item>
           <widget class="QLabel" name="label_8">
            <property name="text">
-            <string>You can define your own name/value associations here so that the title block can take them into account. For example:
--associating the name &quot;volta&quot; and the value &quot;1745&quot; will replace %{volta} with 1745 in the title block.</string>
+            <string>Vous pouvez définir ici vos propres associations names/valeurs pour que le cartouche en tienne compte. Exemple :
+associer le name &quot;volta&quot; &amp; la valeur &quot;1745&quot; remplacera %{volta} par 1745 dans le cartouche.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>

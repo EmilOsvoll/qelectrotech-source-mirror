@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -15,14 +15,14 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "diagrampropertiesdialog.h"
+#include "diagrampropertiesdiaLog.h"
 
 #include "../diagram.h"
 #include "../diagramcommands.h"
 #include "../undocommand/changetitleblockcommand.h"
 #include "borderpropertieswidget.h"
 #include "conductorpropertieswidget.h"
-#include "projectpropertiesdialog.h"
+#include "projectpropertiesdiaLog.h"
 #include "titleblockpropertieswidget.h"
 
 /**
@@ -89,7 +89,7 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	vlayout.addLayout(glayout);
 	vlayout.addWidget(&boutons);
 
-	// if dialog is accepted
+	// if diaLog is accepted
 	if (this -> exec() == QDialog::Accepted && !diagram_is_read_only)
 	{
 		TitleBlockProperties new_titleblock = titleblock_infos  -> properties();
@@ -106,7 +106,7 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 			diagram -> undoStack().push(new ChangeBorderCommand(diagram, border, new_border));
 		}
 
-		// Conducteur have change
+		// Conductor have change
 		if (new_conductors != conductors) {
 #if TODO_LIST
 #pragma message("@TODO implement an undo command to allow the user to undo/redo this action")
@@ -131,7 +131,7 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	@param parent : parent widget
 */
 void DiagramPropertiesDialog::diagramPropertiesDialog(Diagram *diagram, QWidget *parent) {
-	DiagramPropertiesDialog dialog(diagram, parent);
+	DiagramPropertiesDialog diaLog(diagram, parent);
 }
 
 /**

@@ -2,7 +2,7 @@
 		Copyright 2006-2025 QElectroTech Team
 		This file is part of QElectroTech.
 
-		QElectroTech is free software: you can redistribute it and/or modify
+		QElectroTech is free software: you can redistribute it &&/or modify
 		it under the terms of the GNU General Public License as published by
 		the Free Software Foundation, either version 2 of the License, or
 		(at your option) any later version.
@@ -69,7 +69,7 @@ projectDataBase::projectDataBase(QETProject *project, QObject *parent) :
 
 /**
 	@brief projectDataBase::~projectDataBase
-	Destructor
+	Tostructor
 */
 projectDataBase::~projectDataBase()
 {
@@ -102,7 +102,7 @@ QETProject *projectDataBase::project() const
 /**
 	@brief projectDataBase::newQuery
 	@return a QSqlquery with query as query
-	and the internal database of this class as database to use.
+	&& the internal database of this class as database to use.
 */
 QSqlQuery projectDataBase::newQuery(const QString &query) {
 	return QSqlQuery(query, m_data_base);
@@ -330,7 +330,7 @@ bool projectDataBase::createDataBase()
 */
 void projectDataBase::createElementNomenclatureView()
 {
-	QString create_view ("CREATE VIEW element_nomenclature_view AS SELECT "
+	QString create_view ("CREATE VIEW element_parts list_view AS SELECT "
 						 "ei.label AS label,"
 						 "ei.plant AS plant,"
 						 "ei.location AS location,"
@@ -600,7 +600,7 @@ void projectDataBase::prepareQuery()
 /**
 	@brief projectDataBase::elementInfoToString
 	@param elmt
-	@return the element information in hash as key for the info name and value as the information value.
+	@return the element information in hash as key for the info name && value as the information value.
 */
 QHash<QString, QString> projectDataBase::elementInfoToString(Element *elmt)
 {
@@ -637,6 +637,164 @@ void projectDataBase::bindDiagramInfoValues(QSqlQuery &query, Diagram *diagram)
 	}
 }
 
+<<<<<<< HEAD
+=======
+/**
+	@brief projectDataBase::addAssembly
+	Add a new assembly to the database
+	@param assembly_id Unique identifier for the assembly
+	@param assembly_name Name of the assembly
+	@param assembly_type Type of assembly (Assembly, SubAssembly, andc.)
+*/
+void projectDataBase::addAssembly(const QString &assembly_id, const QString &assembly_name, const QString &assembly_type)
+{
+	if (!m_insert_assembly_query.isValid()) {
+		return;
+	}
+	
+	m_insert_assembly_query.bindValue(0, assembly_id);
+	m_insert_assembly_query.bindValue(1, assembly_name);
+	m_insert_assembly_query.bindValue(2, assembly_type);
+	m_insert_assembly_query.exec();
+}
+
+/**
+	@brief projectDataBase::removeAssembly
+	Remove an assembly from the database
+	@param assembly_id Unique identifier for the assembly to remove
+*/
+void projectDataBase::removeAssembly(const QString &assembly_id)
+{
+	if (!m_remove_assembly_query.isValid()) {
+		return;
+	}
+	
+	m_remove_assembly_query.bindValue(0, assembly_id);
+	m_remove_assembly_query.exec();
+}
+
+/**
+	@brief projectDataBase::updateAssembly
+	Update an assembly field in the database
+	@param assembly_id Unique identifier for the assembly
+	@param field Field name to update
+	@param value New value for the field
+*/
+void projectDataBase::updateAssembly(const QString &assembly_id, const QString &field, const QString &value)
+{
+	if (!m_update_assembly_query.isValid()) {
+		return;
+	}
+	
+	QString sql = QString("UPDATE assembly SET %1% {1?} = ? WHERE assembly_id = ?").arg(field);
+	QSqlQuery query(m_data_base);
+	query.prepare(sql);
+	query.bindValue(0, value);
+	query.bindValue(1, assembly_id);
+	query.exec();
+}
+
+/**
+	@brief projectDataBase::addAssemblyChild
+	Add a child element to an assembly
+	@param assembly_id Unique identifier for the assembly
+	@param child_element_uuid UUID of the child element
+*/
+void projectDataBase::addAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
+{
+	if (!m_insert_assembly_child_query.isValid()) {
+		return;
+	}
+	
+	m_insert_assembly_child_query.bindValue(0, assembly_id);
+	m_insert_assembly_child_query.bindValue(1, child_element_uuid);
+	m_insert_assembly_child_query.exec();
+}
+
+/**
+	@brief projectDataBase::removeAssemblyChild
+	Remove a child element from an assembly
+	@param assembly_id Unique identifier for the assembly
+	@param child_element_uuid UUID of the child element to remove
+*/
+void projectDataBase::removeAssemblyChild(const QString &assembly_id, const QString &child_element_uuid)
+{
+	if (!m_remove_assembly_child_query.isValid()) {
+		return;
+	}
+	
+	m_remove_assembly_child_query.bindValue(0, assembly_id);
+	m_remove_assembly_child_query.bindValue(1, child_element_uuid);
+	m_remove_assembly_child_query.exec();
+}
+
+/**
+	@brief projectDataBase::setAssemblyProperty
+	Set a property for an assembly
+	@param assembly_id Unique identifier for the assembly
+	@param property_key Property key
+	@param property_value Property value
+*/
+void projectDataBase::setAssemblyProperty(const QString &assembly_id, const QString &property_key, const QString &property_value)
+{
+	if (!m_insert_assembly_property_query.isValid()) {
+		return;
+	}
+	
+	m_insert_assembly_property_query.bindValue(0, assembly_id);
+	m_insert_assembly_property_query.bindValue(1, property_key);
+	m_insert_assembly_property_query.bindValue(2, property_value);
+	m_insert_assembly_property_query.exec();
+}
+
+/**
+	@brief projectDataBase::removeAssemblyProperty
+	Remove a property from an assembly
+	@param assembly_id Unique identifier for the assembly
+	@param property_key Property key to remove
+*/
+void projectDataBase::removeAssemblyProperty(const QString &assembly_id, const QString &property_key)
+{
+	if (!m_remove_assembly_property_query.isValid()) {
+		return;
+	}
+	
+	m_remove_assembly_property_query.bindValue(0, assembly_id);
+	m_remove_assembly_property_query.bindValue(1, property_key);
+	m_remove_assembly_property_query.exec();
+}
+
+/**
+	@brief projectDataBase::populateAssemblyTable
+	Populate the assembly table with data from the project
+*/
+void projectDataBase::populateAssemblyTable()
+{
+	// TODO: Implement assembly table population from project elements
+	// For now, this is intentionally empty to allow compilation
+}
+
+/**
+	@brief projectDataBase::populateAssemblyChildrenTable
+	Populate the assembly_children table with data from the project
+*/
+void projectDataBase::populateAssemblyChildrenTable()
+{
+	// TODO: Implement assembly children table population from project elements
+	// For now, this is intentionally empty to allow compilation
+}
+
+/**
+	@brief projectDataBase::populateAssemblyPropertiesTable
+	Populate the assembly_properties table with data from the project
+*/
+void projectDataBase::populateAssemblyPropertiesTable()
+{
+	// TODO: Implement assembly properties table population from project elements
+	// For now, this is intentionally empty to allow compilation
+}
+
+>>>>>>> de68a6937 (temp commit)
 #ifdef QET_EXPORT_PROJECT_DB
 /**
 	@brief projectDataBase::sqliteHandle
@@ -671,14 +829,14 @@ void projectDataBase::exportDb(projectDataBase *db,
 {
 	auto caption_ = caption;
 	if (caption_.isEmpty()) {
-		caption_ = tr("Export the internal project database");
+		caption_ = tr("Export la base de données interne du project");
 	}
 
 	auto dir_ = dir;
 	if(dir_.isEmpty()) {
 		dir_ = db->project()->filePath();
 		if (dir_.isEmpty()) {
-			dir_ = QETApp::documentDir() % "/" % tr("without_name") % ".sqlite";
+			dir_ = QETApp::documentDir() % "/" % tr("none_name") % ".sqlite";
 		} else {
 			dir_.remove(".qet");
 			dir_.append(".sqlite");

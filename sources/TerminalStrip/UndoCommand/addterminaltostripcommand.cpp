@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -35,11 +35,11 @@ AddTerminalToStripCommand::AddTerminalToStripCommand(QSharedPointer<RealTerminal
 	const auto t_label = terminal->label();
 	const auto ts_name = strip->name();
 
-	const auto str_1 = t_label.isEmpty() ? QObject::tr("Add a terminal") :
-									 QObject::tr("Add the terminal %1").arg(t_label);
+	const auto str_1 = t_label.isEmpty() ? QObject::tr("Add une borne") :
+									 QObject::tr("Add la borne %1% {1?}").arg(t_label);
 
 	const auto str_2 = ts_name.isEmpty() ? QObject::tr("to a group of terminals") :
-									 QObject::tr("to terminal group %1").arg(ts_name);
+									 QObject::tr("to terminal group %1% {1?}").arg(ts_name);
 
 	setText(str_1 % " " % str_2);
 }
@@ -51,11 +51,11 @@ AddTerminalToStripCommand::AddTerminalToStripCommand(QVector<QSharedPointer<Real
 {
 	const auto ts_name = strip->name();
 
-	const auto str_1 = m_terminal.size() > 1 ? QObject::tr("insert %1 terminals").arg(m_terminal.size()) :
-											   QObject::tr("Add a terminal");
+	const auto str_1 = m_terminal.size() > 1 ? QObject::tr("insert %1% {1?} bornes").arg(m_terminal.size()) :
+											   QObject::tr("Add une borne");
 
 	const auto str_2 = ts_name.isEmpty() ? QObject::tr("to a group of terminals") :
-										  QObject::tr("to terminal group %1").arg(ts_name);
+										  QObject::tr("to terminal group %1% {1?}").arg(ts_name);
 
 	setText(str_1 % " " % str_2);
 }
@@ -138,11 +138,11 @@ void RemoveTerminalFromStripCommand::setCommandTitle()
 {
 	const auto strip_name = m_strip->name();
 
-	const auto str_1 = m_terminals.size()>1 ? QObject::tr("Remove %1 terminals").arg(m_terminals.size()):
+	const auto str_1 = m_terminals.size()>1 ? QObject::tr("Enlever %1% {1?} bornes").arg(m_terminals.size()):
 											  QObject::tr("Remove a terminal");
 
 	const auto str_2 = strip_name.isEmpty() ? QObject::tr("a group of terminals") :
-											  QObject::tr("of terminal group %1").arg(strip_name);
+											  QObject::tr("of terminal group %1% {1?}").arg(strip_name);
 	setText(str_1 % " " % str_2);
 }
 
@@ -170,14 +170,14 @@ MoveTerminalCommand::MoveTerminalCommand(QSharedPointer<PhysicalTerminal> termin
 	auto strip_name = old_strip->name();
 	auto new_strip_name = new_strip->name();
 
-	auto str_1 = t_label.isEmpty() ? QObject::tr("Move a terminal") :
-									 QObject::tr("Move the terminal %1").arg(t_label);
+	auto str_1 = t_label.isEmpty() ? QObject::tr("Move une borne") :
+									 QObject::tr("Move la borne %1% {1?}").arg(t_label);
 
 	auto str_2 = strip_name.isEmpty() ? QObject::tr(" of a group of terminals") :
-										QObject::tr(" of terminal group %1").arg(strip_name);
+										QObject::tr(" of terminal group %1% {1?}").arg(strip_name);
 
 	auto str_3 = new_strip_name.isEmpty() ? QObject::tr("to a group of terminals") :
-											QObject::tr("to terminal group %1").arg(new_strip_name);
+											QObject::tr("to terminal group %1% {1?}").arg(new_strip_name);
 	setText(str_1 % " " % str_2 % " " % str_3);
 }
 
@@ -192,14 +192,14 @@ MoveTerminalCommand::MoveTerminalCommand(QVector<QSharedPointer<PhysicalTerminal
 	const auto strip_name = old_strip->name();
 	const auto new_strip_name = new_strip->name();
 
-	const auto str_1 = m_terminal.size() > 1 ? QObject::tr("Move the terminals") :
-											   QObject::tr("Move a terminal");
+	const auto str_1 = m_terminal.size() > 1 ? QObject::tr("Move des bornes") :
+											   QObject::tr("Move une borne");
 
 	const auto str_2 = strip_name.isEmpty() ? QObject::tr(" of a group of terminals") :
-											  QObject::tr(" of terminal group %1").arg(strip_name);
+											  QObject::tr(" of terminal group %1% {1?}").arg(strip_name);
 
 	const auto str_3 = new_strip_name.isEmpty() ? QObject::tr("to a group of terminals") :
-												  QObject::tr("to terminal group %1").arg(new_strip_name);
+												  QObject::tr("to terminal group %1% {1?}").arg(new_strip_name);
 
 	setText(str_1 % " " % str_2 % " " % str_3);
 }

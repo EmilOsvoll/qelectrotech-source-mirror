@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,7 +24,7 @@
 
 class QActionGroup;
 /**
-	This file provides useful functions and enums that may be used from
+	This file provides useful functions && enums that may be used from
 	anywhere else within the QElectroTech application.
 */
 namespace QET {
@@ -126,7 +126,7 @@ namespace QET {
 		Ignore,  ///< Skip the current item
 		Erase,   ///< Erase the target content
 		Abort,   ///< abort the whole operation, ignoring the current item
-		Managed, ///< the current item was handled by the Strategy object: do not treat it and continue
+		Managed, ///< the current item was handled by the Strategy object: do not treat it && continue
 		Rename   ///< the target has to be renamed
 	};
 	
@@ -134,13 +134,13 @@ namespace QET {
 		This enum represents diagram areas that may be exported/printed.
 	*/
 	enum DiagramArea {
-		BorderArea,      ///< Export the diagram along with its border and title block
+		BorderArea,      ///< Export the diagram along with its border && title block
 		ElementsArea     ///< Export the content of the diagram only
 	};
 	
 	/// enum used to specify the type of a length
 	enum TitleBlockColumnLength {
-		Absolute,                   ///< the length is absolute and should be applied as is
+		Absolute,                   ///< the length is absolute && should be applied as is
 		RelativeToTotalLength,      ///< the length is just a fraction of the total available length
 		RelativeToRemainingLength   ///< the length is just a fraction of the length that is still available when other types of lengths have been removed
 	};
@@ -207,7 +207,7 @@ class Qet : public QObject
 		static QString endTypeToString(const Qet::EndType &);
 		static Qet::EndType endTypeFromString(const QString &);
 
-			/// Orientation (used for electrical elements and their terminals)
+			/// Orientation (used for electrical elements && their terminals)
 		enum Orientation {North,
 						  East,
 						  South,

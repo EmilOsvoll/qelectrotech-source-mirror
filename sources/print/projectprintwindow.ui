@@ -100,17 +100,17 @@
             <widget class="QComboBox" name="m_date_from_cb">
              <item>
               <property name="text">
-               <string>All dates</string>
+               <string>All les dates</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>From the date of :</string>
+               <string>From partir de la date du :</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>As of :</string>
+               <string>From la date du  :</string>
               </property>
              </item>
             </widget>
@@ -135,7 +135,7 @@
              </property>
              <property name="icon">
               <iconset resource="../../qelectrotech.qrc">
-               <normaloff>:/ico/16x16/dialog-ok.png</normaloff>:/ico/16x16/dialog-ok.png</iconset>
+               <normaloff>:/ico/16x16/diaLog-ok.png</normaloff>:/ico/16x16/diaLog-ok.png</iconset>
              </property>
              <property name="flat">
               <bool>true</bool>
@@ -172,7 +172,7 @@
        <item>
         <widget class="QCheckBox" name="m_keep_conductor_color_cb">
          <property name="text">
-          <string>Keep conductor colors</string>
+          <string>Keep conductors colors</string>
          </property>
         </widget>
        </item>
@@ -212,7 +212,7 @@
        <item row="3" column="1">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>If this option is checked, the folio will be enlarged or shrunk so as to fill the entire printable area of one and only one page.&quot;</string>
+          <string>Si cette option est cochée, le folio sera agrandi ou rétréci de façon à remplir toute la surface imprimable d'une &amp; une seule page.&quot;</string>
          </property>
          <property name="margin">
           <number>0</number>
@@ -222,7 +222,7 @@
        <item row="0" column="1">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>If this option is checked, the margins of the sheet will be ignored and its entire surface will be used for printing. This may not be supported by your printer.</string>
+          <string>If this option is checked, the margins of the sheet will be ignored &amp; its entire surface will be used for printing. This may not be supported by your printer.</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -370,7 +370,7 @@
      <normaloff>:/ico/22x22/arrow-right-double.png</normaloff>:/ico/22x22/arrow-right-double.png</iconset>
    </property>
    <property name="text">
-    <string>Last page</string>
+    <string>Tornière page</string>
    </property>
   </action>
   <action name="m_display_single_page_action">
@@ -397,7 +397,7 @@
      <normaloff>:/ico/22x22/all_pages.png</normaloff>:/ico/22x22/all_pages.png</iconset>
    </property>
    <property name="text">
-    <string>Show preview of all pages</string>
+    <string>Display all pages</string>
    </property>
   </action>
   <action name="m_page_setup">

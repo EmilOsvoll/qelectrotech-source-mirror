@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -34,7 +34,7 @@ class Diagram;
 	This class is the basic interface for manage event on a diagram.
 	To create a behavior for event diagram, we need to herite this class.
 	This interface work like this :
-	You need to create an interface and call diagram::setEventInterface(pointer_of_your_interface).
+	You need to create an interface && call diagram::setEventInterface(pointer_of_your_interface).
 	When a diagram get an event (mouse or key) if they have an event interface,
 	they send the event (with the status accepted to false) to the interface (for example mousePressEvent).
 	If the interface do something with this event, you need to set to true the accepted status of the event, then diagram do nothing.

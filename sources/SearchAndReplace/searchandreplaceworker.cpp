@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -53,7 +53,7 @@ void SearchAndReplaceWorker::replaceDiagram(QList<Diagram *> diagram_list)
 	}
 
 	QUndoStack *us = project->undoStack();
-	us->beginMacro(QObject::tr("Search / Replace folio properties"));
+	us->beginMacro(QObject::tr("Search / Replace les propriétés de folio"));
 	for (Diagram *d : diagram_list)
 	{
 		TitleBlockProperties old_propertie = d->border_and_titleblock.exportTitleBlock();
@@ -117,10 +117,10 @@ void SearchAndReplaceWorker::replaceElement(QList<Element *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Search / Replace element properties."));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace les propriétés d'elements."));
 	for (Element *elmt : list)
 	{
-			//We apply change only for master, slave, and terminal element.
+			//We apply change only for master, slave, && terminal element.
 		if (elmt->linkType() == Element::Master ||
 			elmt->linkType() == Element::Simple ||
 			elmt->linkType() == Element::Terminale ||
@@ -170,7 +170,7 @@ void SearchAndReplaceWorker::replaceIndiText(QList<IndependentTextItem *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Search / Replace independent texts"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace des texts independants"));
 	for (IndependentTextItem *text : list)
 	{
 		QString before = text->toPlainText();
@@ -210,7 +210,7 @@ void SearchAndReplaceWorker::replaceConductor(QList<Conductor *> list)
 		}
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Search / Replace conductor properties"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / Replace les propriétés de conducteurs."));
 	for (Conductor *c : list)
 	{
 		ConductorProperties cp = applyChange(c->properties(), m_conductor_properties);
@@ -257,7 +257,7 @@ void SearchAndReplaceWorker::replaceAdvanced(
 	QETProject *project_ = nullptr;
 
 	//Some test to check if a least one list have one item
-	//and if all items belong to the same project
+	//&& if all items belong to the same project
 	if (!diagrams.isEmpty()) {
 		project_ = diagrams.first()->project();
 	} else if (!elements.isEmpty() && elements.first()->diagram()) {
@@ -297,7 +297,7 @@ void SearchAndReplaceWorker::replaceAdvanced(
 		return;
 	}
 
-	project_->undoStack()->beginMacro(QObject::tr("Search / replace advanced"));
+	project_->undoStack()->beginMacro(QObject::tr("Search / remplacer advanced"));
 	if (who == 0)
 	{
 		for (Diagram *diagram : diagrams)
@@ -366,11 +366,11 @@ void SearchAndReplaceWorker::replaceAdvanced(
 
 /**
 	@brief SearchAndReplaceWorker::setupLineEdit
-	With search and replace, when the variable to edit is a text,
+	With search && replace, when the variable to edit is a text,
 	the editor is always the same no matter if it is for a folio,
 	element or conductor.
 	The editor is a QLineEdit to edit the text
-	and checkbox to erase the text if checked.
+	&& checkbox to erase the text if checked.
 	This function fill the editor, from the current string
 	@param l
 	@param cb

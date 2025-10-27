@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -106,7 +106,7 @@ void TerminalStripEditor::setCurrentStrip(TerminalStrip *strip_)
 		ui->m_name_le         ->setText(strip_->name());
 		ui->m_comment_le      ->setText(strip_->comment());
 		ui->m_description_te  ->setPlainText(strip_->description());
-		ui->m_move_to_cb->addItem(tr("Independent terminals"), QUuid());
+		ui->m_move_to_cb->addItem(tr("Terminals indépendantes"), QUuid());
 
 		const auto project_{strip_->project()};
 		if (project_)
@@ -147,7 +147,7 @@ void TerminalStripEditor::setCurrentStrip(TerminalStrip *strip_)
 
 /**
  * @brief TerminalStripEditor::reload
- * Reload this editor and and reset all
+ * Reload this editor && && reset all
  * unapplied change.
  */
 void TerminalStripEditor::reload()
@@ -176,7 +176,7 @@ void TerminalStripEditor::apply()
 
 	if (m_current_strip)
 	{
-		m_project->undoStack()->beginMacro(tr("Modify terminal block properties"));
+		m_project->undoStack()->beginMacro(tr("Modify terminal strip properties"));
 
 		TerminalStripData data;
 		data.m_installation = ui->m_installation_le->text();
@@ -314,12 +314,12 @@ void TerminalStripEditor::selectionChanged()
 	}
 	ui->m_level_sb->setEnabled(enable_);
 
-		//Enable/disable bridge and unbridge
+		//Enable/disable bridge && unbridge
 	bool enable_bridge = false;
 	bool enable_unbridge = false;
 	bool enable_bridge_color = false;
 
-		//One column must be selected and the column must be a level column
+		//One column must be selected && the column must be a level column
 	int level_ = TerminalStripModel::levelForColumn(isSingleColumnSelected());
 	if (level_ >= 0 && m_current_strip)
 	{
@@ -395,7 +395,7 @@ TerminalStripModel::Column TerminalStripEditor::isSingleColumnSelected() const
 		}
 
 		auto column_ = index_list.first().column();
-		for (const auto &index : index_list) {
+		for (const auto &index: index_list) {
 			if (index.column() != column_) {
 				return TerminalStripModel::Invalid;
 			}
@@ -409,7 +409,7 @@ TerminalStripModel::Column TerminalStripEditor::isSingleColumnSelected() const
 
 /**
  * @brief TerminalStripEditor::singleColumnData
- * @return a QPair with for first value the column and for second value the data
+ * @return a QPair with for first value the column && for second value the data
  * of selected cell of the table widget, only if the selected cells are
  * in the same column. If selected cells are not in the same column the first value
  * of the QPair is TerminalStripModel::Invalid.
@@ -510,7 +510,7 @@ void TerminalStripEditor::on_m_level_sb_valueChanged(int arg1)
 	{
 		const auto index_list = ui->m_table_widget->selectionModel()->selectedIndexes();
 
-		for (auto index : index_list)
+		for (auto index: index_list)
 		{
 			auto level_index = m_model->index(index.row(), TerminalStripModel::Level, index.parent());
 			if (level_index.isValid())
@@ -527,7 +527,7 @@ void TerminalStripEditor::on_m_type_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_widget->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto type_index = m_model->index(model_index.row(), TerminalStripModel::Type, model_index.parent());
 			if (type_index.isValid())
@@ -560,7 +560,7 @@ void TerminalStripEditor::on_m_function_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_widget->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto function_index = m_model->index(model_index.row(), TerminalStripModel::Function, model_index.parent());
 			if (function_index.isValid())
@@ -589,7 +589,7 @@ void TerminalStripEditor::on_m_led_cb_activated(int index)
 	{
 		const auto index_list = ui->m_table_widget->selectionModel()->selectedIndexes();
 
-		for (auto model_index : index_list)
+		for (auto model_index: index_list)
 		{
 			auto led_index = m_model->index(model_index.row(), TerminalStripModel::Led, model_index.parent());
 
@@ -698,7 +698,7 @@ void TerminalStripEditor::on_m_move_to_pb_clicked()
 		//Get selected physical terminal
 	const auto index_vector = m_model->modelPhysicalTerminalDataForIndex(ui->m_table_widget->selectionModel()->selectedIndexes());
 	QVector<QSharedPointer<PhysicalTerminal>> phy_vector;
-	for (const auto &index : index_vector)
+	for (const auto &index: index_vector)
 	{
 		const auto shared_{m_current_strip->physicalTerminal(index.uuid_)};
 		if (shared_)

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -56,7 +56,7 @@ ElementPropertiesWidget::ElementPropertiesWidget(Element *elmt,
 	is the parent element of text.
 	The only difference with default constructor,
 	is that the current tab is the tab for dynamic texts,
-	and the item in the tree that represent text is expanded and selected.
+	&& the item in the tree that represent text is expanded && selected.
 	@param text
 	@param parent
 */
@@ -80,7 +80,7 @@ ElementPropertiesWidget::ElementPropertiesWidget(DynamicElementTextItem *text,
 	is the parent element of group.
 	The only difference with default constructor,
 	is that the current tab is the tab for dynamic texts,
-	and the item in the tree that represent group is expanded and selected.
+	&& the item in the tree that represent group is expanded && selected.
 	@param group
 	@param parent
 */
@@ -132,7 +132,7 @@ void ElementPropertiesWidget::setElement(Element *element)
 	same as call : ElementPropertiesWidget::setElement,
 	with parameter the parent element of text.
 	Set the dynamics text tab as current tab,
-	expand and select the item that represent text
+	expand && select the item that represent text
 	@param text
 */
 void ElementPropertiesWidget::setDynamicText(DynamicElementTextItem *text)
@@ -158,7 +158,7 @@ void ElementPropertiesWidget::setDynamicText(DynamicElementTextItem *text)
 	same as call : ElementPropertiesWidget::setElement,
 	with parameter the parent element of group.
 	Set the dynamics text tab as current tab,
-	expand and select the item that represent group
+	expand && select the item that represent group
 	@param group
 */
 void ElementPropertiesWidget::setTextsGroup(ElementTextItemGroup *group)
@@ -240,7 +240,7 @@ void ElementPropertiesWidget::findInPanel()
 
 /**
 	@brief ElementPropertiesWidget::editElement
-	If m_element is a custom element, emit findElementRequired and editElementRequired
+	If m_element is a custom element, emit findElementRequired && editElementRequired
 */
 void ElementPropertiesWidget::editElement()
 {
@@ -275,7 +275,7 @@ void ElementPropertiesWidget::updateUi()
 	QString tab_text;
 	tab_text = m_tab->tabText(m_tab->currentIndex());
 
-		//Purge the tab widget and delete all widget
+		//Purge the tab widget && delete all widget
 	m_tab->clear();
 	qDeleteAll(m_list_editor);
 	m_list_editor.clear();
@@ -348,31 +348,31 @@ void ElementPropertiesWidget::addGeneralWidget()
 		delete m_general_widget;
 	}
 	m_general_widget = generalWidget();
-	m_tab -> addTab(m_general_widget, tr("Général"));
+	m_tab -> addTab(m_general_widget, tr("General"));
 	m_tab->setCurrentIndex(index);
 }
 
 /**
 	@brief ElementPropertiesWidget::generalWidget
-	@return build and return the "general" widget
+	@return build && return the "general" widget
 */
 QWidget *ElementPropertiesWidget::generalWidget()
 {
 	QString description_string(tr("Élement\n"));
 
 		// some element characteristic
-	description_string += QString(tr("Nom : %1\n")).arg(m_element -> name());
+	description_string += QString(tr("Name : %1% {1?}\n")).arg(m_element -> name());
 	int folio_index = m_diagram -> folioIndex();
 	if (folio_index != -1) {
-		description_string += QString(tr("Folio : %1\n")).arg(folio_index + 1);
+		description_string += QString(tr("Folio: %1% {1?}\n")).arg(folio_index + 1);
 	}
-	description_string += QString(tr("Type : %1\n")).arg(m_element->elementData().typeToString());
-	description_string += QString(tr("Sous-type : %1\n")).arg(m_element ->kindInformations()["type"].toString());
-	description_string += QString(tr("Position : %1\n")).arg(m_diagram -> convertPosition(m_element -> scenePos()).toString());
-	description_string += QString(tr("Rotation : %1°\n")).arg(m_element.data()->rotation());
-	description_string += QString(tr("Dimensions : %1*%2\n")).arg(m_element -> size().width()).arg(m_element -> size().height());
-	description_string += QString(tr("Bornes : %1\n")).arg(m_element -> terminals().count());
-	description_string += QString(tr("Emplacement : %1\n")).arg(m_element.data()->location().toString());
+	description_string += QString(tr("Type: %1% {1?}\n")).arg(m_element->elementData().typeToString());
+	description_string += QString(tr("Sous-type : %1% {1?}\n")).arg(m_element ->kindInformations()["type"].toString());
+	description_string += QString(tr("Position : %1% {1?}\n")).arg(m_diagram -> convertPosition(m_element -> scenePos()).toString());
+	description_string += QString(tr("Rotation : %1% {1?}°\n")).arg(m_element.data()->rotation());
+	description_string += QString(tr("Dimensions : %1% {1?}*%2\n")).arg(m_element -> size().width()).arg(m_element -> size().height());
+	description_string += QString(tr("Terminals : %1% {1?}\n")).arg(m_element -> terminals().count());
+	description_string += QString(tr("Emplacement : %1% {1?}\n")).arg(m_element.data()->location().toString());
 
 		// widget himself
 	QWidget *general_widget = new QWidget (m_tab);
@@ -391,9 +391,9 @@ QWidget *ElementPropertiesWidget::generalWidget()
 	vlayout_ -> addStretch();
 
 		//button widget
-	QPushButton *find_in_panel = new QPushButton(QET::Icons::ZoomDraw, tr("Retrouver dans le panel"), general_widget);
+	QPushButton *find_in_panel = new QPushButton(QET::Icons::ZoomDraw, tr("Find in the panel"), general_widget);
 	connect(find_in_panel, SIGNAL(clicked()), this, SLOT(findInPanel()));
-	QPushButton *edit_element = new QPushButton(QET::Icons::ElementEdit, tr("Éditer l'élément"), general_widget);
+	QPushButton *edit_element = new QPushButton(QET::Icons::ElementEdit, tr("Edit l'élément"), general_widget);
 	connect(edit_element, SIGNAL(clicked()), this, SLOT(editElement()));
 	QHBoxLayout *hlayout_ = new QHBoxLayout;
 	hlayout_->addWidget(find_in_panel);

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -283,7 +283,7 @@ QPolygonF QetGraphicsHandlerUtility::polygonForInsertPoint(
 	@param mode :
 	absolute or relative size: NOTE this argument is not used,
 	this function always compute with relative size.
-	@return the points of x and y radius of a rounded rect.
+	@return the points of x && y radius of a rounded rect.
 	The points are always based on the top right corner of the rect.
 	the first point of vector is X the second Y
 */

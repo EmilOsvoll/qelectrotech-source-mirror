@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -52,7 +52,7 @@ DynamicElementTextItem::DynamicElementTextItem(Element *parent_element) :
 		if(this->m_parent_element && this->m_parent_element->diagram())
 		{
 			QUndoCommand *undo = new QPropertyUndoCommand(this, "text", old_str, new_str);
-			undo->setText(tr("Edit element text"));
+			undo->setText(tr("Edit un text d'élément"));
 			this->m_parent_element->diagram()->undoStack().push(undo);
 		}
 	});
@@ -475,10 +475,10 @@ void DynamicElementTextItem::setCompositeText(const QString &text)
 	if (m_parent_element && (m_parent_element.data()->linkType() & Element::AllReport)) //special treatment for report
 	{
 			/*
-			 * May be in some case the old and new composite text both have the var %{label},
-			 * and so we don't have to remove connection and after set connection,
-			 * but for that we must do several checks and because I'm lazy,
-			 * in every case I remove connection and set it after ;)
+			 * May be in some case the old && new composite text both have the var %{label},
+			 * && so we don't have to remove connection && after set connection,
+			 * but for that we must do several checks && because I'm lazy,
+			 * in every case I remove connection && set it after ;)
 			 */
 		if(old_composite_text.contains("%{label}"))
 			removeConnectionForReportFormula(m_report_formula);
@@ -624,8 +624,8 @@ void DynamicElementTextItem::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 /**
 	@brief DynamicElementTextItem::mouseDoubleClickEvent
 	Reimplemented functions, for add extra feature when this text is owned by a slave.
-	In this case if the parent slave element is linked to a master, and this text display the label of the master
-	(both if the 'text from' is 'element info' or 'composite text') the QGraphicsView go to master and select it.
+	In this case if the parent slave element is linked to a master, && this text display the label of the master
+	(both if the 'text from' is 'element info' or 'composite text') the QGraphicsView go to master && select it.
 	@param event
 */
 void DynamicElementTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
@@ -637,7 +637,7 @@ void DynamicElementTextItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *eve
 /**
 	@brief DynamicElementTextItem::hoverEnterEvent
 	If the parent element of this text is a folio report or a slave element, the element is linked
-	and the text display the variable "label" we set the text blue for signal the user that the text act like
+	&& the text display the variable "label" we set the text blue for signal the user that the text act like
 	a link when we double click on.
 	@param event
 */
@@ -711,7 +711,7 @@ void DynamicElementTextItem::paint(QPainter *painter, const QStyleOptionGraphics
 
 QVariant DynamicElementTextItem::itemChange(QGraphicsItem::GraphicsItemChange change, const QVariant &value)
 {
-		//The first time this text is added to a scene, we make several checking and connection
+		//The first time this text is added to a scene, we make several checking && connection
 		//according to the link type of the parent element
 	if(change == QGraphicsItem::ItemSceneHasChanged && m_first_scene_change)
 	{
@@ -728,7 +728,7 @@ QVariant DynamicElementTextItem::itemChange(QGraphicsItem::GraphicsItemChange ch
 		}
 		else if(m_parent_element.data()->linkType() & Element::AllReport)
 		{
-				//Get the report formula, and add connection to keep up to date the formula.
+				//Get the report formula, && add connection to keep up to date the formula.
 			if (m_parent_element.data()->diagram() && m_parent_element.data()->diagram()->project())
 			{
 				m_report_formula = m_parent_element.data()->diagram()->project()->defaultReportProperties();
@@ -878,7 +878,7 @@ void DynamicElementTextItem::reportChanged()
 		 */
 	if(!m_report_formula_con)
 	{
-			//Get the report formula, and add connection to keep up to date the formula.
+			//Get the report formula, && add connection to keep up to date the formula.
 		if (parentElement()->diagram() && parentElement()->diagram()->project())
 		{
 			m_report_formula = parentElement()->diagram()->project()->defaultReportProperties();
@@ -1037,7 +1037,7 @@ void DynamicElementTextItem::updateReportFormulaConnection()
 
 /**
 	@brief DynamicElementTextItem::updateReportText
-	This function is only use when this text is owned by a report, and this text have for info the Label.
+	This function is only use when this text is owned by a report, && this text have for info the Label.
 */
 void DynamicElementTextItem::updateReportText()
 {
@@ -1132,7 +1132,7 @@ void DynamicElementTextItem::setPotentialConductor()
 		 * #First case, if m_watched_conductor is a conductor of the parent report, everything is ok
 		 * #Second case, if the conductors list of parent report element is not empty,
 		 * we set one of these conductor as m_watched_conductor, even if m_watched_conductor is already set,
-		 * because that mean the conductor is a conductor of the linked report, and we prefer to set a conductor
+		 * because that mean the conductor is a conductor of the linked report, && we prefer to set a conductor
 		 * owned by the parent report element of this text.
 		 * #third case, if m_watched_conductor is null, we set a conductor of the linked report, if any.
 		 */
@@ -1249,7 +1249,7 @@ QString DynamicElementTextItem::reportReplacedCompositeText() const
 /**
 	@brief DynamicElementTextItem::zoomToLinkedElement
 	If the parent element is a folio report or a slave element,
-	and is linked, zoom to the linked element
+	&& is linked, zoom to the linked element
 */
 void DynamicElementTextItem::zoomToLinkedElement()
 {
@@ -1273,7 +1273,7 @@ void DynamicElementTextItem::zoomToLinkedElement()
 	
 	if(zoomed_element)
 	{
-			//Unselect and ungrab mouse to prevent unwanted
+			//Unselect && ungrab mouse to prevent unwanted
 			//move when linked element is in the same scene of this.
 		setSelected(false);
 		ungrabMouse();
@@ -1301,7 +1301,7 @@ void DynamicElementTextItem::parentElementRotationChanged()
 /**
  * @brief DynamicElementTextItem::thisRotationChanged
  * This function is called when user change the rotation of the text
- * and "keep visual rotation" is to true
+ * && "keep visual rotation" is to true
  * to keep in memory the visual rotation wanted by the user.
  */
 void DynamicElementTextItem::thisRotationChanged() {
@@ -1459,7 +1459,7 @@ void DynamicElementTextItem::setXref_item(Qt::AlignmentFlag m_exHrefPos)
 	{
 		pos = QPointF(r.right() ,r.center().y() - m_slave_Xref_item->boundingRect().height()/2);
 	}
-	else if (m_exHrefPos == Qt::AlignBaseline)  //
+	else if (m_exHrefPos == Qt::AlignBottom)  //
 	{
 		if(this->alignment() &Qt::AlignBottom)
 		{

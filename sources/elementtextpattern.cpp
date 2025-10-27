@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,7 +23,7 @@
 #include "qetgraphicsitem/dynamicelementtextitem.h"
 #include "qetgraphicsitem/element.h"
 #include "qetgraphicsitem/elementtextitemgroup.h"
-#include "ui/importelementtextpatterndialog.h"
+#include "ui/importelementtextpatterndiaLog.h"
 #include "undocommand/addelementtextcommand.h"
 #include "undocommand/deleteqgraphicsitemcommand.h"
 
@@ -62,8 +62,8 @@ ExportElementTextPattern::ExportElementTextPattern(Element *elmt) :
 	if (QFileInfo::exists(dir.absoluteFilePath(m_name % ".xml")))
 	{
 		bool r = QMessageBox::question(parentWidget(),
-									   QObject::tr("Text configuration"),
-									   QObject::tr("A text configuration named << %1 >> already exists."
+									   QObject::tr("Configuration de texts"),
+									   QObject::tr("Une configuration de texts namemée << %1% {1?} >> existe déjà.\n"
 												   "Voulez-vous la remplacer ?").arg(m_name));
 		
 		if(r == false)
@@ -76,14 +76,14 @@ ExportElementTextPattern::ExportElementTextPattern(Element *elmt) :
 
 /**
 	@brief ExportElementTextConf::getName
-	Open a dialog to let user set the name of the conf and return it
+	Open a diaLog to let user set the name of the conf && return it
 	@return 
 */
 QString ExportElementTextPattern::getName(bool &ok) const
 {	
 	QString text = QInputDialog::getText(parentWidget(),
-										 QObject::tr("Configuration name"),
-										 QObject::tr("Enter the name of the configuration to create"),
+										 QObject::tr("Name de la configuration"),
+										 QObject::tr("Entrer le name de la configuration à créer"),
 										 QLineEdit::Normal,
 										 QString(),
 										 &ok);
@@ -143,8 +143,8 @@ ImportElementTextPattern::ImportElementTextPattern(Element *elmt):
 	{
 		QMessageBox::information(
 					parentWidget(),
-					QObject::tr("Text configuration"),
-					QObject::tr("No existing text configuration."));
+					QObject::tr("Configuration de texts"),
+					QObject::tr("Nonee configuration de texts existante."));
 		return;
 	}
 	
@@ -162,7 +162,7 @@ ImportElementTextPattern::ImportElementTextPattern(Element *elmt):
 
 /**
 	@brief ImportElementTextPattern::getName
-	Open a dialog to let user select a conf
+	Open a diaLog to let user select a conf
 	@param list
 	@param ok
 	@param erase
@@ -174,8 +174,8 @@ QString ImportElementTextPattern::getName(const QStringList& list,
 {
 	return ImportElementTextPatternDialog::getItem(
 				parentWidget(),
-				QObject::tr("Select a text configuration"),
-				QObject::tr("Select the text configuration to add to the element"),
+				QObject::tr("Choicener une configuration de texts"),
+				QObject::tr("Choicener la configuration de texts à ajouter à l'élément"),
 				list,
 				ok,
 				erase);
@@ -195,7 +195,7 @@ QWidget *ImportElementTextPattern::parentWidget() const
 	@brief ImportElementTextPattern::apply
 	Apply the user choice
 	@param name : the name of the selected pattern
-	@param erase : erase the existing texts and groups of element.
+	@param erase : erase the existing texts && groups of element.
 */
 void ImportElementTextPattern::apply(QString name, bool erase) const
 {
@@ -243,9 +243,9 @@ void ImportElementTextPattern::apply(QString name, bool erase) const
 	}
 	
 	QUndoStack &undo_stack = m_element->diagram()->undoStack();
-	undo_stack.beginMacro(QObject::tr("Import text configuration: %1").arg(name.remove(".xml")));
+	undo_stack.beginMacro(QObject::tr("Importer la configuration de text : %1% {1?}").arg(name.remove(".xml")));
 	
-		//erase existing texts and groups
+		//erase existing texts && groups
 	if (erase)
 	{
 		for (ElementTextItemGroup *group : m_element->textGroups()) {

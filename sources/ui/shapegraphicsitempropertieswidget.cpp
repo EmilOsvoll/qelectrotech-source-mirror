@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -50,7 +50,7 @@ ShapeGraphicsItemPropertiesWidget::ShapeGraphicsItemPropertiesWidget(QList<QetSh
 
 /**
 	@brief ShapeGraphicsItemPropertiesWidget::~ShapeGraphicsItemPropertiesWidget
-	Destructor
+	Tostructor
 */
 ShapeGraphicsItemPropertiesWidget::~ShapeGraphicsItemPropertiesWidget()
 {
@@ -179,7 +179,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 			if (new_pen != old_pen)
 			{
 				undo = new QPropertyUndoCommand(m_shape, "pen", old_pen, new_pen);
-				undo->setText(tr("Modifier le trait d'une forme"));
+				undo->setText(tr("Edit le trait d'une forme"));
 			}
 
 			QBrush old_brush = m_shape->brush();
@@ -194,7 +194,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 				else
 				{
 					undo = new QPropertyUndoCommand(m_shape, "brush", old_brush, new_brush);
-					undo->setText(tr("Modifier le remplissage d'une forme"));
+					undo->setText(tr("Edit le remplissage d'une forme"));
 				}
 			}
 
@@ -205,7 +205,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 				else
 				{
 					undo = new QPropertyUndoCommand(m_shape, "close", m_shape->isClosed(), ui->m_close_polygon->isChecked(), undo);
-					undo->setText(tr("Fermer le polygone"));
+					undo->setText(tr("Fermer le polygon"));
 				}
 			}
 
@@ -261,7 +261,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 			for (QPointer<QetShapeItem> qsi : pen_H.keys())
 			{
 				if (!parent_undo) {
-					parent_undo = new QUndoCommand(tr("Modifier une forme simple"));
+					parent_undo = new QUndoCommand(tr("Edit une forme simple"));
 				}
 				new QPropertyUndoCommand(qsi, "pen", qsi->pen(), pen_H.value(qsi), parent_undo);
 			}
@@ -293,7 +293,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 			for (QPointer<QetShapeItem> qsi : brush_H.keys())
 			{
 				if (!parent_undo) {
-					parent_undo = new QUndoCommand(tr("Modifier une forme simple"));
+					parent_undo = new QUndoCommand(tr("Edit une forme simple"));
 				}
 
 				new QPropertyUndoCommand(qsi, "brush", qsi->brush(), brush_H.value(qsi), parent_undo);
@@ -305,7 +305,7 @@ QUndoCommand* ShapeGraphicsItemPropertiesWidget::associatedUndo() const
 		//In mode not live edit, only one shape can be edited
 	else if (m_shapes_list.isEmpty())
 	{
-		QUndoCommand *undo = new QUndoCommand(tr("Modifier les propriétés d'une forme simple"));
+		QUndoCommand *undo = new QUndoCommand(tr("Edit les propriétés d'une forme simple"));
 		QPen old_pen = m_shape->pen();
 		QPen new_pen = old_pen;
 
@@ -463,8 +463,8 @@ bool ShapeGraphicsItemPropertiesWidget::setLiveEdit(bool live_edit)
 
 /**
  * @brief ShapeGraphicsItemPropertiesWidget::setUpEditConnection
- * Disconnect the previous connection, and reconnect the connection between
- * the editors widgets and void ShapeGraphicsItemPropertiesWidget::apply function
+ * Disconnect the previous connection, && reconnect the connection between
+ * the editors widgets && void ShapeGraphicsItemPropertiesWidget::apply function
 */
 void ShapeGraphicsItemPropertiesWidget::setUpEditConnection()
 {

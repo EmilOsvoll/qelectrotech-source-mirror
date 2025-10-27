@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -28,7 +28,7 @@ class QUndoStack;
 /**
 	This is the base class for primitives editors within the element editor. It
 	provides methods to access the editor itself, the undo stack, the edition
-	scene and even a method to easily take a ChangePartCommand into account.
+	scene && even a method to easily take a ChangePartCommand into account.
 */
 class ElementItemEditor : public QWidget
 {

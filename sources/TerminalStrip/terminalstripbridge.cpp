@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -73,7 +73,7 @@ QVector<QSharedPointer<RealTerminal> > TerminalStripBridge::realTerminals() cons
 
 /**
  * @brief TerminalStripBridge::toXml
- * Save this bridge into a QDomElement and return it.
+ * Save this bridge into a QDomElement && return it.
  * @param parent_document
  * @return
  */
@@ -134,7 +134,7 @@ QUuid TerminalStripBridge::uuid() const noexcept {
  * @return Add terminals of @a real_terminals to this bridge.
  * If a terminal is already bridged by this bridge, the terminal is ignored.
  * If at least one terminal doesn't belong to the same strip of this bridge
- * this function do nothing and return false.
+ * this function do nothing && return false.
  */
 bool TerminalStripBridge::addTerminals(const QVector<QSharedPointer<RealTerminal> > &real_terminals)
 {

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -35,7 +35,7 @@ AddTerminalStripCommand::AddTerminalStripCommand(TerminalStrip *strip,
 	m_strip(strip),
 	m_project(project)
 {
-	setText(QObject::tr("Add a terminal group"));
+	setText(QObject::tr("Add un groupe de bornes"));
 }
 
 AddTerminalStripCommand::~AddTerminalStripCommand()
@@ -65,7 +65,7 @@ RemoveTerminalStripCommand::RemoveTerminalStripCommand(TerminalStrip *strip,
 		if (real_t->element())
 			m_elements.append(real_t->element());
 	}
-	setText(QObject::tr("Delete a terminal group"));
+	setText(QObject::tr("Delete un groupe de bornes"));
 }
 
 RemoveTerminalStripCommand::~RemoveTerminalStripCommand()

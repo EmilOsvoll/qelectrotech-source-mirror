@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -45,26 +45,26 @@ MasterPropertiesWidget::MasterPropertiesWidget(Element *elmt, QWidget *parent) :
 	QStringList list;
 	QSettings settings;
 	if (settings.value("genericpanel/folio", false).toBool()) {
-		list << tr("Vignette")
-		     << tr("Label de folio")
-		     << tr("Titre de folio")
+		list << tr("Thumbnail")
+		     << tr("Label folio")
+		     << tr("Title de folio")
 		     << tr("Position");
 	}
 	else {
-		list << tr("Vignette")
-		     << tr("N° de folio")
-		     << tr("Titre de folio")
+		list << tr("Thumbnail")
+		     << tr("N° of folio")
+		     << tr("Title de folio")
 		     << tr("Position");
 	}
 	ui->m_free_tree_widget->setHeaderLabels(list);
 	ui->m_link_tree_widget->setHeaderLabels(list);
 	
 	m_context_menu  = new QMenu(this);
-	m_link_action   = new QAction(tr("Lier l'élément"), this);
-	m_unlink_action = new QAction(tr("Délier l'élément"), this);
-	m_show_qtwi     = new QAction(tr("Montrer l'élément"), this);
-	m_show_element  = new QAction(tr("Montrer l'élément maître"), this);
-	m_save_header_state = new QAction(tr("Enregistrer la disposition"), this);
+	m_link_action   = new QAction(tr("Link the item"), this);
+	m_unlink_action = new QAction(tr("Unlink l'élément"), this);
+	m_show_qtwi     = new QAction(tr("Show item"), this);
+	m_show_element  = new QAction(tr("Show item maître"), this);
+	m_save_header_state = new QAction(tr("Save the layout"), this);
 	
 	connect(ui->m_free_tree_widget, &QTreeWidget::itemDoubleClicked,
 		this, &MasterPropertiesWidget::showElementFromTWI);
@@ -107,7 +107,7 @@ MasterPropertiesWidget::MasterPropertiesWidget(Element *elmt, QWidget *parent) :
 
 /**
 	@brief MasterPropertiesWidget::~MasterPropertiesWidget
-	Destructor
+	Tostructor
 */
 MasterPropertiesWidget::~MasterPropertiesWidget()
 {
@@ -165,7 +165,7 @@ void MasterPropertiesWidget::setElement(Element *element)
 
 /**
 	@brief MasterPropertiesWidget::apply
-	If link between edited element and other change,
+	If link between edited element && other change,
 	apply the change with a QUndoCommand (got with method associatedUndo)
 	pushed to the stack of element project.
 	Return true if link change, else false
@@ -179,7 +179,7 @@ void MasterPropertiesWidget::apply()
 
 /**
 	@brief MasterPropertiesWidget::reset
-	Reset current widget, clear eveything and rebuild widget.
+	Reset current widget, clear eveything && rebuild widget.
 */
 void MasterPropertiesWidget::reset()
 {
@@ -192,7 +192,7 @@ void MasterPropertiesWidget::reset()
 
 /**
 	@brief MasterPropertiesWidget::associatedUndo
-	If link between the edited element and other change,
+	If link between the edited element && other change,
 	return a QUndoCommand with this change.
 	If no change return nullptr.
 	@return
@@ -350,7 +350,7 @@ void MasterPropertiesWidget::headerCustomContextMenuRequested(const QPoint &pos)
 */
 void MasterPropertiesWidget::on_link_button_clicked()
 {
-		//take the current item from free_list and push it to linked_list
+		//take the current item from free_list && push it to linked_list
 	QTreeWidgetItem *qtwi = ui->m_free_tree_widget->currentItem();
 	if (qtwi)
 	{
@@ -369,7 +369,7 @@ void MasterPropertiesWidget::on_link_button_clicked()
 */
 void MasterPropertiesWidget::on_unlink_button_clicked()
 {
-		//take the current item from linked_list and push it to free_list
+		//take the current item from linked_list && push it to free_list
 	QTreeWidgetItem *qtwi = ui->m_link_tree_widget->currentItem();
 	if(qtwi)
 	{

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -30,8 +30,8 @@
 
 /**
 	Constructeur
-	@param parent QWidget parent de ce dialogue
-	@param f flags pour le dialogue
+	@param parent QWidget parent de ce diaLogue
+	@param f flags pour le diaLogue
 */
 NewElementWizard::NewElementWizard(QWidget *parent, Qt::WindowFlags f) :
 	QWizard(parent, f)
@@ -45,15 +45,15 @@ NewElementWizard::NewElementWizard(QWidget *parent, Qt::WindowFlags f) :
 #endif
 
 	setPixmap(LogoPixmap, QPixmap(":/ico/256x256/qelectrotech.png").scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-	setWindowTitle(tr("Créer un nouvel élément : Assistant", "window title"));
-	setButtonText(QWizard::NextButton, tr("&Suivant >"));
+	setWindowTitle(tr("Create a new element: wizard", "window title"));
+	setButtonText(QWizard::NextButton, tr("&Next >"));
 	addPage(buildStep1());
 	addPage(buildStep2());
 	addPage(buildStep3());
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 NewElementWizard::~NewElementWizard()
 {
@@ -109,13 +109,13 @@ QWizardPage *NewElementWizard::buildStep2()
 {
 	QWizardPage *page = new QWizardPage();
 	page -> setProperty("WizardState", Filename);
-	page -> setTitle(tr("Step 2/3: File name", "wizard page title"));
-	page -> setSubTitle(tr("Specify the name of the file in which to save the new item.", "wizard page subtitle"));
+	page -> setTitle(tr("Étape 2/3 : Name du fichier", "wizard page title"));
+	page -> setSubTitle(tr("Enter the name of the file for the new element.", "wizard page subtitle"));
 	QVBoxLayout *layout = new QVBoxLayout();
 	
 	m_qle_filename = new QFileNameEdit(tr("new_element"));
 	m_qle_filename -> selectAll();
-	QLabel *explication2 = new QLabel(tr("You do not need to specify the *.elmt extension. It will be added automatically."));
+	QLabel *explication2 = new QLabel(tr("You don't have to specify the *.elmt extension. It will be added automatically."));
 	explication2 -> setAlignment(Qt::AlignJustify | Qt::AlignVCenter);
 	explication2 -> setWordWrap(true);
 	layout -> addWidget(m_qle_filename);
@@ -134,13 +134,13 @@ QWizardPage *NewElementWizard::buildStep3()
 {
 	QWizardPage *page = new QWizardPage();
 	page -> setProperty("WizardState", Names);
-	page -> setTitle(tr("Step 3/3: Element Names", "wizard page title"));
-	page -> setSubTitle(tr("Indicate the name(s) of the element.", "wizard page subtitle"));
+	page -> setTitle(tr("Étape 3/3 : Names de l'élément", "wizard page title"));
+	page -> setSubTitle(tr("Enter one or more names for the element.", "wizard page subtitle"));
 	QVBoxLayout *layout = new QVBoxLayout();
 	
 	m_names_list = new NameListWidget(this);
 	NamesList hash_name;
-	hash_name.addName(QLocale::system().name().left(2), tr("Name of the new element", "default name when creating a new element"));
+	hash_name.addName(QLocale::system().name().left(2), tr("Name du nouvel élément", "default name when creating a new element"));
 	m_names_list -> setNames(hash_name);
 	layout -> addWidget(m_names_list);
 	

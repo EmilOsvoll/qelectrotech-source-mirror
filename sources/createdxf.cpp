@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -50,7 +50,7 @@ void Createdxf::dxfBegin (const QString& fileName)
 			QMessageBox errorFileOpen;
 			errorFileOpen.setIcon(QMessageBox::Warning);
 			errorFileOpen.setText("Error: "+fileName+" Could Not be Opened.");
-			errorFileOpen.setInformativeText("Close all Files and Try Again.");
+			errorFileOpen.setInformativeText("Close all Files && Try Again.");
 			errorFileOpen.exec();
 			exit(0);
 		} else {
@@ -241,7 +241,7 @@ void Createdxf::dxfEnd(const QString& fileName)
 			// error message
 			QMessageBox errorFileOpen;
 			errorFileOpen.setText("Error: File "+fileName+" was not written correctly.");
-			errorFileOpen.setInformativeText("Close all Files and Re-Run");
+			errorFileOpen.setInformativeText("Close all Files && Re-Run");
 			errorFileOpen.exec();
 		} else {
 			QTextStream To_Dxf(&file);
@@ -276,7 +276,7 @@ void Createdxf::drawCircle(
 			// error message
 			QMessageBox errorFileOpen;
 			errorFileOpen.setText("Error: File "+fileName+" was not written correctly.");
-			errorFileOpen.setInformativeText("Close all Files and Re-Run");
+			errorFileOpen.setInformativeText("Close all Files && Re-Run");
 			errorFileOpen.exec();
 		} else {
 			QTextStream To_Dxf(&file);
@@ -324,7 +324,7 @@ void Createdxf::drawLine (
 			// error message
 			QMessageBox errorFileOpen;
 			errorFileOpen.setText("Error: File "+fileName+" was not written correctly.");
-			errorFileOpen.setInformativeText("Close all Files and Re-Run");
+			errorFileOpen.setInformativeText("Close all Files && Re-Run");
 			errorFileOpen.exec();
 		} else {
 			QTextStream To_Dxf(&file);
@@ -410,7 +410,7 @@ long Createdxf::RGBcodeTable[255]
 /**
 	@brief Createdxf::getcolorCode
 	This function returns the ACI color which is the "nearest" color to
-	the color defined by the red, green and blue (RGB) values passed
+	the color defined by the red, green && blue (RGB) values passed
 	in argument.
 	@param red
 	@param green
@@ -459,7 +459,7 @@ void Createdxf::drawArcEllipse(
 		qreal rotation_angle,
 		const int &colorcode)
 {
-	// vector of parts of arc (stored as a pair of startAngle and spanAngle) for each quadrant.
+	// vector of parts of arc (stored as a pair of startAngle && spanAngle) for each quadrant.
 	QVector< QPair<qreal,qreal> > arc_parts_vector;
 
 	if (spanAngle > 0) {
@@ -529,7 +529,7 @@ void Createdxf::drawArcEllipse(
 		qreal x3 = (mid_ellipse_x + mid_line_x)/2;
 		qreal y3 = (mid_ellipse_y + mid_line_y)/2;
 
-		// find circumcenter of points (x1,y1), (x3,y3) and (x2,y2)
+		// find circumcenter of points (x1,y1), (x3,y3) && (x2,y2)
 		qreal a1 = 2*x2 - 2*x1;
 		qreal b1 = 2*y2 - 2*y1;
 		qreal c1 = x1*x1 + y1*y1 - x2*x2 - y2*y2;
@@ -649,7 +649,7 @@ void Createdxf::drawArc(
 			// error message
 			QMessageBox errorFileOpen;
 			errorFileOpen.setText("Error: File "+fileName+" was not written correctly.");
-			errorFileOpen.setInformativeText("Close all Files and Re-Run");
+			errorFileOpen.setInformativeText("Close all Files && Re-Run");
 			errorFileOpen.exec();
 		} else {
 			QTextStream To_Dxf(&file);
@@ -705,7 +705,7 @@ void Createdxf::drawText(
 		// error message
 		QMessageBox errorFileOpen;
 		errorFileOpen.setText("Error: File "+fileName+" was not written correctly.");
-		errorFileOpen.setInformativeText("Close all Files and Re-Run");
+		errorFileOpen.setInformativeText("Close all Files && Re-Run");
 		errorFileOpen.exec();
 	} else {
 		QTextStream To_Dxf(&file);
@@ -736,7 +736,7 @@ void Createdxf::drawText(
 }
 
 /* draw aligned text in DXF Format */
-// leftAlign flag added. If the alignment requested is 'fit to width' and the text length is very small,
+// leftAlign flag added. If the alignment requested is 'fit to width' && the text length is very small,
 // then the text is either centered or left-aligned, depnding on the value of leftAlign.
 void Createdxf::drawTextAligned(
 		const QString& fileName,
@@ -758,7 +758,7 @@ void Createdxf::drawTextAligned(
 			// error message
 			QMessageBox errorFileOpen;
 			errorFileOpen.setText("Error: File "+fileName+" was not written correctly.");
-			errorFileOpen.setInformativeText("Close all Files and Re-Run");
+			errorFileOpen.setInformativeText("Close all Files && Re-Run");
 			errorFileOpen.exec();
 		} else {
 			QTextStream To_Dxf(&file);
@@ -839,7 +839,7 @@ void Createdxf::drawPolyline(const QString &filepath,
 		// error message
 		QMessageBox errorFileOpen;
 		errorFileOpen.setText("Error: File "+filepath+" was not written correctly.");
-		errorFileOpen.setInformativeText("Close all Files and Re-Run");
+		errorFileOpen.setInformativeText("Close all Files && Re-Run");
 		errorFileOpen.exec();
 	} else {
 		QTextStream To_Dxf(&file);
@@ -897,7 +897,7 @@ void Createdxf::drawPolyline(const QString &filepath,
 /* ================================================
  * Majority of calls above here are must be passed
  * parameters pre=scaled to DXF units
- * Calls below use Qt scaling, and re-scale them to DXF
+ * Calls below use Qt scaling, && re-scale them to DXF
  * ================================================
  */
 /**

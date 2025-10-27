@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -43,7 +43,7 @@ ExportPropertiesWidget::ExportPropertiesWidget(const ExportProperties &export_pr
 
 /**
 	@brief ExportPropertiesWidget::~ExportPropertiesWidget
-	Destructeur
+	Tostructeur
 */
 ExportPropertiesWidget::~ExportPropertiesWidget()
 {
@@ -100,7 +100,7 @@ void ExportPropertiesWidget::setExportProperties(const ExportProperties &export_
 	Puts the widget in Print or Export mode. Print mode
 	does not display as many options as Export mode.
 	/
-	Passe le widget en mode Impression ou en mode Export. Le mode Impression
+	Passe le widget en mode Printing ou en mode Export. Le mode Printing
 	n'affiche pas autant d'options que le mode Export.
 	@param mode
 	true to use the widget in print mode,
@@ -129,7 +129,7 @@ void ExportPropertiesWidget::slot_chooseADirectory()
 {
 	QString user_dir = QFileDialog::getExistingDirectory(
 		this,
-		tr("Export to directory", "dialog title"),
+		tr("Export dans le dossier", "diaLog title"),
 		dirpath -> text()
 	);
 	if (!user_dir.isEmpty()) {
@@ -144,11 +144,11 @@ void ExportPropertiesWidget::slot_chooseADirectory()
 */
 void ExportPropertiesWidget::build()
 {
-	// le dialogue est un empilement vertical d'elements
+	// le diaLogue est un empilement vertical d'elements
 	QVBoxLayout *vboxLayout = new QVBoxLayout();
 	vboxLayout -> setContentsMargins(0, 0, 0, 0);
 	
-	/* le dialogue comprend une ligne permettant d'indiquer un chemin de dossier (hboxLayout) */
+	/* le diaLogue comprend une line permettant d'indiquer un chemin de dossier (hboxLayout) */
 	QHBoxLayout *hboxLayout = new QHBoxLayout();
 	dirpath_label = new QLabel(tr("Target directory:"), this);
 	dirpath = new QLineEdit(this);
@@ -163,9 +163,9 @@ void ExportPropertiesWidget::build()
 	
 	vboxLayout -> addLayout(hboxLayout);
 	
-	/* une ligne permettant de choisir le format (hboxLayout1) */
+	/* une line permettant de choisir le format (hboxLayout1) */
 	QHBoxLayout *hboxLayout1 = new QHBoxLayout();
-	format_label = new QLabel(tr("Format :"), this);
+	format_label = new QLabel(tr("Format:"), this);
 	hboxLayout1 -> addWidget(format_label);
 	hboxLayout1 -> addWidget(format = new QComboBox(this));
 	format -> addItem(tr("PNG (*.png)"),    "PNG");
@@ -181,12 +181,12 @@ void ExportPropertiesWidget::build()
 	QGroupBox *groupbox_options = new QGroupBox(tr("Rendering options", "groupbox title"));
 	QGridLayout *optionshlayout = new QGridLayout(groupbox_options);
 	
-	// Choix de la zone du schema a exporter
+	// Choix de la zone du diagram a exporter
 	exported_content_choices = new QButtonGroup(groupbox_options);
-	export_border = new QRadioButton(tr("Export the entire folio"), groupbox_options);
+	export_border = new QRadioButton(tr("Export entièrement le folio"), groupbox_options);
 	optionshlayout -> addWidget(export_border, 0, 0);
 	exported_content_choices -> addButton(export_border);
-	export_elements = new QRadioButton(tr("Export only elements"), groupbox_options);
+	export_elements = new QRadioButton(tr("Export seulement les elements"), groupbox_options);
 	optionshlayout -> addWidget(export_elements, 0, 1);
 	exported_content_choices -> addButton(export_elements);
 	
@@ -232,7 +232,7 @@ void ExportPropertiesWidget::build()
 	// connexion du bouton permettant le choix du repertoire
 	connect(button_browse, SIGNAL(released()), this, SLOT(slot_chooseADirectory()));
 	
-	// emission de signaux lors du changement de format et lors du changement de zone exportee
+	// emission de signaux lors du changement de format && lors du changement de zone exportee
 	connect(format,                   SIGNAL(currentIndexChanged(int)),         this, SIGNAL(formatChanged()));
 	connect(exported_content_choices, SIGNAL(buttonClicked(QAbstractButton *)), this, SIGNAL(exportedAreaChanged()));
 	connect(draw_grid,                SIGNAL(stateChanged(int)),                   this, SIGNAL(optionChanged()));

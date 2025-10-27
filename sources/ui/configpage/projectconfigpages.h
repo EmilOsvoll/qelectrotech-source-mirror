@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -53,8 +53,8 @@ class ProjectConfigPage : public ConfigPage {
 	void applyConf() override;
 	/**
 		Apply configuration to the project after user input. This method is
-		automatically called when the ConfigDialog is validated, and only if the
-		project is both non-zero and not read-only.
+		automatically called when the ConfigDialog is validated, && only if the
+		project is both non-zero && not read-only.
 	*/
 	virtual void applyProjectConf() = 0;
 	

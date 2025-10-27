@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QGridLayout" name="m_main_grid_layout">
    <item row="6" column="0">
@@ -51,7 +51,7 @@
     <widget class="QComboBox" name="m_text_from_cb">
      <item>
       <property name="text">
-       <string>User text</string>
+       <string>Text utilisateur</string>
       </property>
      </item>
      <item>

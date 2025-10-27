@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -39,7 +39,7 @@ static int no_model_width = 40;
 	@brief QetGraphicsTableItem::adjustTableToFolio
 	Adjust the table to fit at best the folio
 	@param table : table to adjust
-	@param margins : margins between table and folio.
+	@param margins : margins between table && folio.
 */
 void QetGraphicsTableItem::adjustTableToFolio(
 		QetGraphicsTableItem *table,
@@ -64,7 +64,7 @@ void QetGraphicsTableItem::adjustTableToFolio(
 	}
 	table->setSize(size_);
 
-		//Calculate the maximum row to display to fit the nomenclature into diagram
+		//Calculate the maximum row to display to fit the nameenclature into diagram
 	auto available_height = drawable_rect.height() - table->pos().y();
 	auto min_row_height = table->minimumRowHeight();
 	table->setDisplayNRow(int(floor(available_height/min_row_height))); //Convert a double to int, but max_row_to_display is already rounded an integer so we assume everything is ok
@@ -74,7 +74,7 @@ void QetGraphicsTableItem::adjustTableToFolio(
 	@brief QetGraphicsTableItem::checkInsufficientRowsCount
 	Check if the number of rows of table + linked table is enough
 	to display all content of the model,
-	if not open a dialog to advise user what to do.
+	if not open a diaLog to advise user what to do.
 	@param table
 */
 void QetGraphicsTableItem::checkInsufficientRowsCount(
@@ -425,7 +425,7 @@ int QetGraphicsTableItem::displayNRow() const
 	The table uses the model of the new previous table.
 	Since the table does not take ownership of the model,
 	it is your responsibility to manage the old model.
-	Linked tables (table with next and/or previous table)
+	Linked tables (table with next &&/or previous table)
 	share the same model, a table always take the model of the previous table.
 	When remove a previous table (set to nullptr) from a table,
 	the model is also removed, you need to set a new model
@@ -440,7 +440,7 @@ void QetGraphicsTableItem::setPreviousTable(QetGraphicsTableItem *table)
 
 	auto old_previous_table = m_previous_table;
 	m_previous_table = table;
-	if (m_previous_table) //set previous table and get her model
+	if (m_previous_table) //set previous table && get her model
 	{
 		m_previous_table->setNextTable(this);
 		setModel(m_previous_table->m_model);
@@ -859,7 +859,7 @@ void QetGraphicsTableItem::modelReseted()
 
 /**
 	@brief QetGraphicsTableItem::setUpColumnAndRowMinimumSize
-	Calculate the minimum row height and the minimum column width for each columns
+	Calculate the minimum row height && the minimum column width for each columns
 	this function doesn't change the geometry of the table.
 */
 void QetGraphicsTableItem::setUpColumnAndRowMinimumSize()
@@ -1042,7 +1042,7 @@ void QetGraphicsTableItem::dataChanged(
 
 /**
 	@brief QetGraphicsTableItem::adjustSize
-	If needed, this function resize the current height and width of table and/or the size of columns.
+	If needed, this function resize the current height && width of table &&/or the size of columns.
 	according to there minimum
 */
 void QetGraphicsTableItem::adjustSize()
@@ -1084,7 +1084,7 @@ void QetGraphicsTableItem::previousTableDisplayRowChanged()
 /**
  * @brief QetGraphicsTableItem::removeUselessNextTable
  * Remove next table if useless, an useless table with 0 row displayed.
- * If \p recursive is true check and remove for all sub next table.
+ * If \p recursive is true check && remove for all sub next table.
  * @param recursive
  */
 void QetGraphicsTableItem::removeUselessNextTable(bool recursive)

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -26,10 +26,10 @@
 /**
 	@brief The PropertiesEditorDialog class
 	Create a dialog to edit some properties of a thing.
-	Only create a instance of this class and call exec,
+	Only create a instance of this class && call exec,
 	all is done for you in this class.
 	The first argument (a template) must be a subclass
-	of QWidget and provide the 3 methods below :
+	of QWidget && provide the 3 methods below :
 	QString::title()
 	void::apply()
 	void::reset()
@@ -62,7 +62,7 @@ class PropertiesEditorDialog : public QDialog
 						this);
 			vlayout->addWidget(button_box);
 
-			//Setup connection between button box and the editor
+			//Setup connection between button box && the editor
 			connect(button_box,
 				&QDialogButtonBox::clicked,
 				[editor, button_box, this]

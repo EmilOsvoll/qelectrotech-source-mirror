@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -27,7 +27,7 @@ class QETProject;
 /**
 	@brief The ProjectDBModel class
 	This model is intended to be use with the class projectDataBase
-	and is designed to be displayed by the class QetGraphicsTableItem
+	&& is designed to be displayed by the class QetGraphicsTableItem
 	(but can be use by other view class since it inherit from QAbstractTableModel).
 	This class should be sufficient to display the content of
 	the project data base from a query set by the method

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -93,7 +93,7 @@ NumPartEditorW::NumPartEditorW (NumerotationContext &context,
 }
 
 /**
-	Destructor
+	Tostructor
 */
 NumPartEditorW::~NumPartEditorW()
 {
@@ -107,36 +107,36 @@ void NumPartEditorW::setVisibleItems()
 	QStringList items;
 	if (m_edited_type == 2)
 	{
-		items	<< tr("Number format 1")
-			<< tr("Number format 01")
-			<< tr("Number format 001")
+		items	<< tr("number format 1")
+			<< tr("number format 01")
+			<< tr("number format 001")
 			<< tr("Text");
 	}
 	else if (m_edited_type == 1)
 	{
-		items	<< tr("Number format 1")
-			<< tr("Number format 1 - Folio")
-			<< tr("Number format 01")
-			<< tr("Number format 01 - Folio")
-			<< tr("Number format 001")
-			<< tr("Number format 001 - Folio")
+		items	<< tr("number format 1")
+			<< tr("number format 1 - Folio")
+			<< tr("number format 01")
+			<< tr("number format 01 - Folio")
+			<< tr("number format 001")
+			<< tr("number format 001 - Folio")
 			<< tr("Text")
 			<< tr("N° scheme")
 			<< tr("Folio")
-			<< tr("Facility")
+			<< tr("Plant")
 			<< tr("Location");
 	}
 	else
-		items << tr("Number format 1")
-		      << tr("Number format 1 - Folio")
-		      << tr("Number format 01")
-		      << tr("Number format 01 - Folio")
-		      << tr("Number format 001")
-		      << tr("Number format 001 - Folio")
+		items << tr("number format 1")
+		      << tr("number format 1 - Folio")
+		      << tr("number format 01")
+		      << tr("number format 01 - Folio")
+		      << tr("number format 001")
+		      << tr("number format 001 - Folio")
 		      << tr("Text")
 		      << tr("N° scheme")
 		      << tr("Folio")
-		      << tr("Facility")
+		      << tr("Plant")
 		      << tr("Location")
 		      << tr("Element Line")
 		      << tr("Element Column")
@@ -232,17 +232,17 @@ bool NumPartEditorW::isValid()
 	Action when user change the type comboBox
 */
 void NumPartEditorW::on_type_cb_activated(int) {
-	if (ui->type_cb->currentText() == tr("Number format 1"))
+	if (ui->type_cb->currentText() == tr("number format 1"))
 		setType(unit);
-	else if (ui->type_cb->currentText() == tr("Number format 1 - Folio"))
+	else if (ui->type_cb->currentText() == tr("number format 1 - Folio"))
 		setType(unitfolio);
-	else if (ui->type_cb->currentText() ==  tr("Number format 01"))
+	else if (ui->type_cb->currentText() ==  tr("number format 01"))
 		setType(ten);
-	else if (ui->type_cb->currentText() == tr("Number format 01 - Folio"))
+	else if (ui->type_cb->currentText() == tr("number format 01 - Folio"))
 		setType(tenfolio);
-	else if (ui->type_cb->currentText() == tr("Number format 001"))
+	else if (ui->type_cb->currentText() == tr("number format 001"))
 		setType(hundred);
-	else if (ui->type_cb->currentText() == tr("Number format 001 - Folio"))
+	else if (ui->type_cb->currentText() == tr("number format 001 - Folio"))
 		setType(hundredfolio);
 	else if (ui->type_cb->currentText() == tr("Text"))
 		setType(string);
@@ -250,7 +250,7 @@ void NumPartEditorW::on_type_cb_activated(int) {
 		setType(idfolio);
 	else if (ui->type_cb->currentText() == tr("Folio"))
 		setType(folio);
-	else if (ui->type_cb->currentText() == tr("Facility"))
+	else if (ui->type_cb->currentText() == tr("Plant"))
 		setType(plant);
 	else if (ui->type_cb->currentText() == tr("Location"))
 		setType(locmach);
@@ -289,7 +289,7 @@ void NumPartEditorW::on_increase_spinBox_valueChanged(int) {
 void NumPartEditorW::setType(NumPartEditorW::type t, bool fnum) {
 	setCurrentIndex(t);
 
-	//if @t is a numeric type and preview type @type_ isn't a numeric type
+	//if @t is a numeric type && preview type @type_ isn't a numeric type
 	//or @fnum is true, we set numeric behavior
 	if (
 			(
@@ -373,17 +373,17 @@ void NumPartEditorW::setType(NumPartEditorW::type t, bool fnum) {
 void NumPartEditorW::setCurrentIndex(NumPartEditorW::type t) {
 	int i=-1;
 	if (t == unit)
-		i = ui->type_cb->findText(tr("Number format 1"));
+		i = ui->type_cb->findText(tr("number format 1"));
 	else if (t == unitfolio)
-		i = ui->type_cb->findText(tr("Number format 1 - Folio"));
+		i = ui->type_cb->findText(tr("number format 1 - Folio"));
 	else if (t == ten)
-		i = ui->type_cb->findText(tr("Number format 01"));
+		i = ui->type_cb->findText(tr("number format 01"));
 	else if (t == tenfolio)
-		i = ui->type_cb->findText(tr("Number format 01 - Folio"));
+		i = ui->type_cb->findText(tr("number format 01 - Folio"));
 	else if (t == hundred)
-		i = ui->type_cb->findText(tr("Number format 001"));
+		i = ui->type_cb->findText(tr("number format 001"));
 	else if (t == hundredfolio)
-		i = ui->type_cb->findText(tr("Number format 001 - Folio"));
+		i = ui->type_cb->findText(tr("number format 001 - Folio"));
 	else if (t == string)
 		i = ui->type_cb->findText(tr("Text"));
 	else if (t == idfolio)
@@ -391,7 +391,7 @@ void NumPartEditorW::setCurrentIndex(NumPartEditorW::type t) {
 	else if (t == folio)
 		i = ui->type_cb->findText(tr("Folio"));
 	else if (t == plant)
-		i = ui->type_cb->findText(tr("Facility"));
+		i = ui->type_cb->findText(tr("Plant"));
 	else if (t == locmach)
 		i = ui->type_cb->findText(tr("Location"));
 	else if (t == elementline)

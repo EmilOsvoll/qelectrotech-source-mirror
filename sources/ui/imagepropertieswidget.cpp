@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -40,7 +40,7 @@ ImagePropertiesWidget::ImagePropertiesWidget(DiagramImageItem *image, QWidget *p
 
 /**
 	@brief ImagePropertiesWidget::~ImagePropertiesWidget
-	Destructor
+	Tostructor
 */
 ImagePropertiesWidget::~ImagePropertiesWidget()
 {
@@ -140,7 +140,7 @@ QUndoCommand* ImagePropertiesWidget::associatedUndo() const
 	if (m_scale == value) return nullptr;
 	QPropertyUndoCommand *undo = new QPropertyUndoCommand(m_image, "scale", m_scale, value);
 	undo->enableAnimation();
-	undo->setText(tr("Modifier la taille d'une image"));
+	undo->setText(tr("Edit la taille d'image"));
 	return undo;
 }
 

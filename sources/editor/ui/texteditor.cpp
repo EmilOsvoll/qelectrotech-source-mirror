@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -170,7 +170,7 @@ QList<CustomElementPart*> TextEditor::currentParts() const
 
 /**
 	@brief TextEditor::setUpEditConnection
-	Setup the connection between the widgets of this editor and the undo command
+	Setup the connection between the widgets of this editor && the undo command
 	use to apply the change to the edited text.
 */
 void TextEditor::setUpEditConnection()
@@ -183,7 +183,7 @@ void TextEditor::setUpEditConnection()
 			PartText* partText = m_parts[i];
 			if (text_ != partText -> toPlainText()) {
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "text", partText -> toPlainText(), text_);
-				undo -> setText(tr("Edit the contents of a text field"));
+				undo -> setText(tr("Edit le contenu d'a text field"));
 				undoStack().push(undo);
 			}
 		}
@@ -240,7 +240,7 @@ void TextEditor::setUpEditConnection()
 				QFont font_ = partText -> font();
 				font_.setPointSize(m_size_sb -> value());
 				QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "font", partText -> font(), font_);
-				undo -> setText(tr("Change the font of a text"));
+				undo -> setText(tr("Edit la police d'un text"));
 				undoStack().push(undo);
 			}
 		}
@@ -268,7 +268,7 @@ void TextEditor::on_m_font_pb_clicked()
 		PartText* partText = m_parts[i];
 		if (ok && font_ != partText -> font()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(partText, "font", partText -> font(), font_);
-			undo -> setText(tr("Change the font of a text"));
+			undo -> setText(tr("Edit la police d'un text"));
 			undoStack().push(undo);
 		}
 	}
@@ -284,7 +284,7 @@ void TextEditor::on_m_color_pb_changed(const QColor &newColor) {
 		if (newColor != partText -> defaultTextColor()) {
 			QPropertyUndoCommand *undo = new QPropertyUndoCommand(
 				partText, "color", partText -> defaultTextColor(), newColor);
-			undo -> setText(tr("Change the color of a text"));
+			undo -> setText(tr("Edit la couleur d'un text"));
 			undoStack().push(undo);
 		}
 	  }
@@ -307,7 +307,7 @@ void TextEditor::setUpWidget(QWidget *parent)
 
 	gridLayout->addWidget(label_2, 1, 2, 1, 1);
 
-	QLabel*label_4 = new QLabel(tr("Font :"),parent);
+	QLabel*label_4 = new QLabel(tr("Font:"),parent);
 
 	gridLayout->addWidget(label_4, 2, 0, 1, 1);
 
@@ -341,7 +341,7 @@ void TextEditor::setUpWidget(QWidget *parent)
 	m_line_edit = new QLineEdit(parent);
 	m_line_edit->setObjectName(QString::fromUtf8("m_line_edit"));
 	m_line_edit->setClearButtonEnabled(true);
-	m_line_edit->setPlaceholderText(tr("Enter your text here"));
+	m_line_edit->setPlaceholderText(tr("Entrer votre text ici"));
 
 	gridLayout->addWidget(m_line_edit, 0, 0, 1, 6);
 #ifdef BUILD_WITHOUT_KF5

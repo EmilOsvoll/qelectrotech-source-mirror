@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -24,7 +24,7 @@
 #include "templatecellwidget.h"
 #include "templatecommands.h"
 #include "templatelocationsaver.h"
-#include "templatelogomanager.h"
+#include "templateLogomanager.h"
 #include "templateview.h"
 
 /**
@@ -49,7 +49,7 @@ QETTitleBlockTemplateEditor::QETTitleBlockTemplateEditor(QWidget *parent) :
 }
 
 /**
-	Destructor
+	Tostructor
 */
 QETTitleBlockTemplateEditor::~QETTitleBlockTemplateEditor()
 {}
@@ -114,11 +114,11 @@ bool QETTitleBlockTemplateEditor::canClose()
 	// ask the user whether he wants to save the current template
 	QMessageBox::StandardButton answer = QET::QetMessageBox::question(
 		this,
-		tr("Save current template?", "dialog title"),
+		tr("Save current template?", "diaLog title"),
 		QString(
 			tr(
-				"Do you want to save the model %1 ?",
-				"dialog content - %1 is a title block template name"
+				"Voulez-vous enregistrer le modèle %1% {1?} ?",
+				"diaLog content - %1% {1?} is a title block template name"
 			)
 		).arg(location_.name()),
 		QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
@@ -126,7 +126,7 @@ bool QETTitleBlockTemplateEditor::canClose()
 	);
 	bool result;
 	switch(answer) {
-		case QMessageBox::Cancel: result = false;  break; // the user hits Cancel or closes the dialog: abort the closing
+		case QMessageBox::Cancel: result = false;  break; // the user hits Cancel or closes the diaLog: abort the closing
 		case QMessageBox::Yes:    result = save(); break; // the user hits Yes: la reussite depend de l'enregistrement
 		default:                  result = true;          // the user hits no: the editor can be closed
 	}
@@ -172,15 +172,15 @@ void QETTitleBlockTemplateEditor::duplicateCurrentLocation()
 		proposed_name = tr("new_template",
 				   "template name suggestion when duplicating the default one");
 	} else {
-		proposed_name = QString("%1_copy").arg(location_.name());
+		proposed_name = QString("%1% {1?}_copy").arg(location_.name());
 	}
 
 	bool accepted = false;
 	QString new_template_name = QInputDialog::getText(
 		this,
-		tr("Duplicate a title block template", "input dialog title"),
+		tr("Duplicate a title block template", "input diaLog title"),
 		tr("In order to duplicate this template, please enter a name for its copy",
-		   "input dialog text"),
+		   "input diaLog text"),
 		QLineEdit::Normal,
 		proposed_name,
 		&accepted
@@ -321,8 +321,8 @@ bool QETTitleBlockTemplateEditor::edit(TitleBlockTemplate *tbt)
 }
 
 /**
-	Launches the logo manager widget, which allows the user to manage the
-	logos embedded within the edited template.
+	Launches the Logo manager widget, which allows the user to manage the
+	Logos embedded within the edited template.
 */
 void QETTitleBlockTemplateEditor::editLogos()
 {
@@ -344,7 +344,7 @@ void QETTitleBlockTemplateEditor::editLogos()
 		connect(buttons, SIGNAL(rejected()), &d, SLOT(reject()));
 		d.exec();
 
-		// prevent the logo manager from being deleted along with the dialog
+		// prevent the Logo manager from being deleted along with the diaLog
 		logo_manager_ -> setParent(this);
 	}
 }
@@ -506,7 +506,7 @@ void QETTitleBlockTemplateEditor::initToolbars()
 }
 
 /**
-	Initialize layouts and widgets
+	Initialize layouts && widgets
 */
 void QETTitleBlockTemplateEditor::initWidgets()
 {
@@ -515,7 +515,7 @@ void QETTitleBlockTemplateEditor::initWidgets()
 	// undo list on the right
 	undo_stack_ = new QUndoStack(this);
 	undo_view_ = new QUndoView(undo_stack_);
-	undo_view_ -> setEmptyLabel(tr("No changes", "label displayed in the undo list when empty"));
+	undo_view_ -> setEmptyLabel(tr("Nonee modification", "label displayed in the undo list when empty"));
 
 	undo_dock_widget_ = new QDockWidget(tr("Undo", "dock title"));
 	undo_dock_widget_ -> setObjectName("tbt_undo_dock");
@@ -539,7 +539,7 @@ void QETTitleBlockTemplateEditor::initWidgets()
 
 	// cell edition widget at the bottom
 	template_cell_editor_widget_ = new TitleBlockTemplateCellWidget(tb_template_);
-	template_cell_editor_dock_widget_ = new QDockWidget(tr("Cell properties", "dock title"), this);
+	template_cell_editor_dock_widget_ = new QDockWidget(tr("Propertys de la cellule", "dock title"), this);
 	template_cell_editor_dock_widget_ -> setObjectName("tbt_celleditor_dock");
 	template_cell_editor_dock_widget_ -> setFeatures(
 				QDockWidget::DockWidgetClosable
@@ -557,7 +557,7 @@ void QETTitleBlockTemplateEditor::initWidgets()
 		this,
 		SLOT(selectedCellsChanged(QList<TitleBlockCell *>))
 	);
-	connect(template_cell_editor_widget_, SIGNAL(logoEditionRequested()),
+	connect(template_cell_editor_widget_, SIGNAL(LogoEditionRequested()),
 		this, SLOT(editLogos()));
 	connect(
 		template_cell_editor_widget_,
@@ -584,7 +584,7 @@ void QETTitleBlockTemplateEditor::initWidgets()
 }
 
 /**
-	Initialize the logo manager
+	Initialize the Logo manager
 */
 void QETTitleBlockTemplateEditor::initLogoManager()
 {
@@ -615,15 +615,15 @@ QString QETTitleBlockTemplateEditor::currentlyEditedTitle() const
 	if (!titleblock_title.isEmpty()) {
 		QString tag;
 		if (!undo_stack_ -> isClean()) {
-			tag = tr("[Edited]", "window title tag");
+			tag = tr("[Changed]", "window title tag");
 		}
 		if (read_only_) {
 			tag = tr("[Read only]", "window title tag");
 		}
 		titleblock_title = QString(
 			tr(
-				"%1 %2",
-				"part of the window title - %1 is the filepath or template name, %2 is the [Changed] or [Read only] tag"
+				"%1% {1?} %2",
+				"part of the window title - %1% {1?} is the filepath or template name, %2 is the [Changed] or [Read only] tag"
 			)
 		).arg(titleblock_title).arg(tag);
 	}
@@ -639,7 +639,7 @@ void QETTitleBlockTemplateEditor::readSettings()
 {
 	QSettings settings;
 
-	// window size and position
+	// window size && position
 	QVariant geometry = settings.value("titleblocktemplateeditor/geometry");
 	if (geometry.isValid()) restoreGeometry(geometry.toByteArray());
 
@@ -712,7 +712,7 @@ void QETTitleBlockTemplateEditor::updateEditorTitle()
 	// base title
 	QString min_title(
 		tr(
-			"QElectroTech - Éditeur de modèle de cartouche",
+			"QElectroTech - Title block template editor",
 			"titleblock template editor: base window title"
 		)
 	);
@@ -727,8 +727,8 @@ void QETTitleBlockTemplateEditor::updateEditorTitle()
 	} else {
 		title = QString(
 			tr(
-				"%1 - %2",
-				"window title: %1 is the base window title, %2 is a template name"
+				"%1% {1?} - %2",
+				"window title: %1% {1?} is the base window title, %2 is a template name"
 			)
 		).arg(min_title).arg(titleblock_title);
 	}
@@ -805,7 +805,7 @@ bool QETTitleBlockTemplateEditor::saveAs(const QString &filepath) {
 void QETTitleBlockTemplateEditor::open()
 {
 	TitleBlockTemplateLocation location = getTitleBlockTemplateLocationFromUser(
-		tr("Open a title block template", "File > open dialog window title"),
+		tr("Open a title block template", "File > open diaLog window title"),
 		true
 	);
 	if (location.isValid()) {
@@ -827,14 +827,14 @@ void QETTitleBlockTemplateEditor::openFromFile()
 	// ask the user to choose a filepath
 	QString user_filepath = QFileDialog::getOpenFileName(
 		this,
-		tr("Open a file", "dialog title"),
+		tr("Open a file", "diaLog title"),
 		initial_dir,
 		tr(
-			"QElectroTech title block templates (*%1);;"
-			"XML files (*.xml);;"
-			"All files (*)",
+			"Title block templatess QElectroTech (*%1% {1?});;"
+			"Files XML (*.xml);;"
+			"all les fichiers (*)",
 			"filetypes allowed when opening a title block template file"
-			" - %1 is the .titleblock extension"
+			" - %1% {1?} is the .titleblock extension"
 		).arg(QString(TITLEBLOCKS_FILE_EXTENSION))
 	);
 
@@ -871,7 +871,7 @@ bool QETTitleBlockTemplateEditor::save()
 bool QETTitleBlockTemplateEditor::saveAs()
 {
 	TitleBlockTemplateLocation location = getTitleBlockTemplateLocationFromUser(
-		tr("Save template as", "dialog window title"),
+		tr("Save template as", "diaLog window title"),
 		false
 	);
 	if (location.isValid()) {
@@ -893,11 +893,11 @@ bool QETTitleBlockTemplateEditor::saveAsFile()
 	// ask the user to choose a target file
 	QString filepath = QFileDialog::getSaveFileName(
 		this,
-		tr("Save as", "dialog title"),
+		tr("Save as", "diaLog title"),
 		initial_dir,
 		tr(
-			"QElectroTech title block templates (*%1)",
-			"filetypes allowed when saving a title block template file - %1 is the .titleblock extension"
+			"Title block templatess QElectroTech (*%1% {1?})",
+			"filetypes allowed when saving a title block template file - %1% {1?} is the .titleblock extension"
 		).arg(QString(TITLEBLOCKS_FILE_EXTENSION))
 	);
 
@@ -933,11 +933,11 @@ void QETTitleBlockTemplateEditor::setReadOnly(bool read_only) {
 
 /**
 	Ask the user for a title block template location
-	@param title Title displayed by the dialog window
+	@param title Title displayed by the diaLog window
 	@param existing_only True for the user to be forced to choose an existing
 	template, false if he may specify the template name
 	@return The location chosen by the user, or an empty
-	TitleBlockTemplateLocation if the user cancelled the dialog
+	TitleBlockTemplateLocation if the user cancelled the diaLog
 */
 TitleBlockTemplateLocation QETTitleBlockTemplateEditor::getTitleBlockTemplateLocationFromUser(
 		const QString &title, bool existing_only)
@@ -951,18 +951,18 @@ TitleBlockTemplateLocation QETTitleBlockTemplateEditor::getTitleBlockTemplateLoc
 	QDialogButtonBox *buttons = new QDialogButtonBox(
 				QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
-	QVBoxLayout *dialog_layout = new QVBoxLayout();
-	dialog_layout -> addWidget(widget);
-	dialog_layout -> addWidget(buttons);
+	QVBoxLayout *diaLog_layout = new QVBoxLayout();
+	diaLog_layout -> addWidget(widget);
+	diaLog_layout -> addWidget(buttons);
 
-	QDialog dialog;
-	dialog.setWindowTitle(title);
-	dialog.setLayout(dialog_layout);
+	QDialog diaLog;
+	diaLog.setWindowTitle(title);
+	diaLog.setLayout(diaLog_layout);
 
-	connect(buttons, SIGNAL(accepted()), &dialog, SLOT(accept()));
-	connect(buttons, SIGNAL(rejected()), &dialog, SLOT(reject()));
+	connect(buttons, SIGNAL(accepted()), &diaLog, SLOT(accept()));
+	connect(buttons, SIGNAL(rejected()), &diaLog, SLOT(reject()));
 
-	if (dialog.exec() == QDialog::Accepted) {
+	if (diaLog.exec() == QDialog::Accepted) {
 		return(widget -> location());
 	}
 	return TitleBlockTemplateLocation();
@@ -997,42 +997,42 @@ void QETTitleBlockTemplateEditor::editTemplateInformation()
 {
 	if (!tb_template_) return;
 
-	QDialog dialog_author(this);
-	dialog_author.setModal(true);
+	QDialog diaLog_author(this);
+	diaLog_author.setModal(true);
 #ifdef Q_OS_MACOS
-	dialog_author.setWindowFlags(Qt::Sheet);
+	diaLog_author.setWindowFlags(Qt::Sheet);
 #endif
-	dialog_author.setMinimumSize(400, 260);
-	dialog_author.setWindowTitle(tr("Éditer les informations complémentaires", "window title"));
-	QVBoxLayout *dialog_layout = new QVBoxLayout(&dialog_author);
+	diaLog_author.setMinimumSize(400, 260);
+	diaLog_author.setWindowTitle(tr("Edit les informations complémentaires", "window title"));
+	QVBoxLayout *diaLog_layout = new QVBoxLayout(&diaLog_author);
 
 	// explanation label
-	QLabel *information_label = new QLabel(tr("Vous pouvez utiliser ce champ libre pour mentionner les auteurs du cartouche, sa licence, ou tout autre renseignement que vous jugerez utile."));
+	QLabel *information_label = new QLabel(tr("You can use this field to specify the authors of this template, its license, or any other information you may find useful."));
 	information_label -> setAlignment(Qt::AlignJustify | Qt::AlignVCenter);
 	information_label -> setWordWrap(true);
-	dialog_layout -> addWidget(information_label);
+	diaLog_layout -> addWidget(information_label);
 
-	// add a QTextEdit to the dialog
+	// add a QTextEdit to the diaLog
 	QTextEdit *text_field = new QTextEdit();
 	text_field -> setAcceptRichText(false);
 	text_field -> setPlainText(tb_template_ -> information());
 	text_field -> setReadOnly(read_only_);
-	dialog_layout -> addWidget(text_field);
+	diaLog_layout -> addWidget(text_field);
 
-	// add two buttons to the dialog
-	QDialogButtonBox *dialog_buttons = new QDialogButtonBox(
+	// add two buttons to the diaLog
+	QDialogButtonBox *diaLog_buttons = new QDialogButtonBox(
 				read_only_
 				? QDialogButtonBox::Ok
 				: QDialogButtonBox::Ok
 				  | QDialogButtonBox::Cancel);
-	dialog_layout -> addWidget(dialog_buttons);
-	connect(dialog_buttons, SIGNAL(accepted()),
-		&dialog_author, SLOT(accept()));
-	connect(dialog_buttons, SIGNAL(rejected()),
-		&dialog_author, SLOT(reject()));
+	diaLog_layout -> addWidget(diaLog_buttons);
+	connect(diaLog_buttons, SIGNAL(accepted()),
+		&diaLog_author, SLOT(accept()));
+	connect(diaLog_buttons, SIGNAL(rejected()),
+		&diaLog_author, SLOT(reject()));
 
-	// run the dialog
-	if (dialog_author.exec() == QDialog::Accepted && !read_only_) {
+	// run the diaLog
+	if (diaLog_author.exec() == QDialog::Accepted && !read_only_) {
 		QString new_info = text_field -> toPlainText().remove(QChar(13)); // CR-less text
 		if (new_info != tb_template_ -> information()) {
 			pushUndoCommand(new ChangeTemplateInformationsCommand(

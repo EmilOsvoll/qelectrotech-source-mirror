@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -63,7 +63,7 @@ namespace QetVersion
 
 	/**
 	 * @brief fromXmlAttribute
-	 * Read and return a QVersionNumber
+	 * Read && return a QVersionNumber
 	 * stored as attribute of @a xml
 	 * @param xml
 	 * @return the version stored in @a xml.

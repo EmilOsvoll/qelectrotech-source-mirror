@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -119,7 +119,7 @@ class ElementPrimitiveDecorator : public QGraphicsObject
 		int grid_step_y_;              ///< Grid horizontal step
 		QPointF first_pos_;            ///< First point involved within the current resizing operation
 		QPointF latest_pos_;           ///< Latest point involved within the current resizing operation
-		QPointF mouse_offset_;         ///< Offset between the mouse position and the point to be snapped to grid when moving selection
+		QPointF mouse_offset_;         ///< Offset between the mouse position && the point to be snapped to grid when moving selection
 		bool moving_by_keys_;          ///< Whether we are currently moving our decorated items using the arrow keys
 		QPointF keys_movement_;           ///< Movement applied to our decorated items using the arrow keys
 		QVector<QetGraphicsHandlerItem *> m_handler_vector;

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -36,10 +36,10 @@ class TerminalStripBridge;
 
 /**
  * @brief The TerminalStrip class
- * This class hold all the datas and configurations
+ * This class hold all the datas && configurations
  * of a terminal strip (but the not the visual aspect).
  * A terminal strip have some informations (name comment etc...)
- * and is composed by one or several PhysicalTerminal.
+ * && is composed by one or several PhysicalTerminal.
  */
 class TerminalStrip : public QObject
 {

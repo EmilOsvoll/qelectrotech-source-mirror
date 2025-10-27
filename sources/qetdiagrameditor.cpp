@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -35,7 +35,7 @@
 #include "qeticons.h"
 #include "qetmessagebox.h"
 #include "recentfiles.h"
-#include "ui/bomexportdialog.h"
+#include "ui/bomexportdiaLog.h"
 #include "ui/diagrampropertieseditordockwidget.h"
 #include "ui/dialogwaiting.h"
 #include "undocommand/addelementtextcommand.h"
@@ -44,7 +44,7 @@
 #include "diagram.h"
 #include "TerminalStrip/ui/terminalstripeditorwindow.h"
 #include "ui/diagrameditorhandlersizewidget.h"
-#include "TerminalStrip/ui/addterminalstripitemdialog.h"
+#include "TerminalStrip/ui/addterminalstripitemdiaLog.h"
 
 #ifdef BUILD_WITHOUT_KF5
 #else
@@ -82,10 +82,10 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 
 	QList<int> s;
 	s << m_workspace.maximumHeight() << m_search_and_replace_widget.minimumSizeHint().height();
-	splitter_->setSizes(s); //Force the size of the search and replace widget, force have a good animation the first time he is showed
+	splitter_->setSizes(s); //Force the size of the search && replace widget, force have a good animation the first time he is showed
 
 	auto anim = new QWidgetAnimation(&m_search_and_replace_widget, Qt::Vertical, QWidgetAnimation::lastSize, 250);
-	anim->setObjectName("search and replace animator");
+	anim->setObjectName("search && replace animator");
 	m_search_and_replace_widget.setHidden(true);
 	anim->setLastShowSize(m_search_and_replace_widget.minimumSizeHint().height());
 
@@ -143,7 +143,7 @@ QETDiagramEditor::QETDiagramEditor(const QStringList &files, QWidget *parent) :
 }
 
 /**
-	Destructeur
+	Tostructeur
 */
 QETDiagramEditor::~QETDiagramEditor()
 {
@@ -151,7 +151,7 @@ QETDiagramEditor::~QETDiagramEditor()
 
 /**
 	@brief QETDiagramEditor::setUpElementsPanel
-	Setup the element panel and element panel widget
+	Setup the element panel && element panel widget
 */
 void QETDiagramEditor::setUpElementsPanel()
 {
@@ -174,7 +174,7 @@ void QETDiagramEditor::setUpElementsPanel()
 	connect(pa, SIGNAL(requestForProjectPropertiesEdition (QETProject *)), this, SLOT(editProjectProperties(QETProject *)));
 	connect(pa, SIGNAL(requestForNewDiagram               (QETProject *)), this, SLOT(addDiagramToProject(QETProject *)));
 	connect(pa, SIGNAL(requestForDiagramPropertiesEdition (Diagram *)), this, SLOT(editDiagramProperties(Diagram *)));
-	connect(pa, SIGNAL(requestForDiagramDeletion          (Diagram *)), this, SLOT(removeDiagram(Diagram *)));
+	connect(pa, SIGNAL(requestForDiagramToletion          (Diagram *)), this, SLOT(removeDiagram(Diagram *)));
 	connect(pa, SIGNAL(requestForDiagramMoveUp            (Diagram *)), this, SLOT(moveDiagramUp(Diagram *)));
 	connect(pa, SIGNAL(requestForDiagramMoveDown          (Diagram *)), this, SLOT(moveDiagramDown(Diagram *)));
 	connect(pa, SIGNAL(requestForDiagramMoveUpTop         (Diagram *)), this, SLOT(moveDiagramUpTop(Diagram *)));
@@ -205,16 +205,16 @@ void QETDiagramEditor::setUpElementsCollectionWidget()
 
 /**
 	@brief QETDiagramEditor::setUpUndoStack
-	Setup the undostack and undo stack widget
+	Setup the undostack && undo stack widget
 */
 void QETDiagramEditor::setUpUndoStack()
 {
 
 	QUndoView *undo_view = new QUndoView(&undo_group, this);
 
-	undo_view -> setEmptyLabel (tr("No changes"));
-	undo_view -> setStatusTip  (tr("Click on an action to go back to editing your diagram", "Status tip"));
-	undo_view -> setWhatsThis  (tr("This panel lists the various actions performed on the current folio. Clicking on an action allows you to return to the state of the diagram immediately after its application.", "\"What's this\" tip"));
+	undo_view -> setEmptyLabel (tr("Nonee modification"));
+	undo_view -> setStatusTip  (tr("Click an action to get back in the changes you made to your diagram", "Status tip"));
+	undo_view -> setWhatsThis  (tr("This panel lists the various changes applied to the current folio. Clicking a change gets the folio back to its state right after it was applied.", "\"What's this\" tip"));
 
 	qdw_undo  = new QDockWidget(tr("Undo", "dock title"), this);
 	qdw_undo -> setObjectName("diagram_undo");
@@ -257,12 +257,61 @@ void QETDiagramEditor::setUpAutonumberingWidget()
 }
 
 /**
+<<<<<<< HEAD
+=======
+	@brief QETDiagramEditor::setUpAssemblyWidget
+	Setup the dock for Assembly Management
+*/
+void QETDiagramEditor::setUpAssemblyWidget()
+{
+	m_assembly_dock = new AssemblyDockWidget(nullptr, this);
+	m_assembly_dock->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+	m_assembly_dock->setFeatures(
+				QDockWidget::DockWidgetClosable
+				|QDockWidget::DockWidgetMovable
+				|QDockWidget::DockWidgetFloatable);
+	m_assembly_dock->setMinimumWidth(300);
+	addDockWidget(Qt::RightDockWidgetArea, m_assembly_dock);
+	
+	// Connect assembly dock signals
+	connect(m_assembly_dock, &AssemblyDockWidget::requestCreateAssembly, this, [this]() {
+		// TODO: Implement assembly creation diaLog
+		QMessageBox::information(this, tr("Assembly Management", "diaLog title"), tr("Assembly creation diaLog will be implemented here", "placeholder message"));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestEditAssembly, this, [this](const QString &assembly_id) {
+		// TODO: Implement assembly editing diaLog
+		QMessageBox::information(this, tr("Assembly Management", "diaLog title"), 
+								 tr("Assembly editing diaLog will be implemented here for: %1% {1?}", "placeholder message").arg(assembly_id));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestDeleteAssembly, this, [this](const QString &assembly_id) {
+		// TODO: Implement assembly deletion confirmation
+		QMessageBox::information(this, tr("Assembly Management", "diaLog title"), 
+								 tr("Assembly deletion confirmation will be implemented here for: %1% {1?}", "placeholder message").arg(assembly_id));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestAddChildToAssembly, this, [this](const QString &assembly_id) {
+		// TODO: Implement child element addition
+		QMessageBox::information(this, tr("Assembly Management", "diaLog title"), 
+								 tr("Child element addition will be implemented here for assembly: %1% {1?}", "placeholder message").arg(assembly_id));
+	});
+	
+	connect(m_assembly_dock, &AssemblyDockWidget::requestRemoveChildFromAssembly, this, [this](const QString &assembly_id, const QString &child_uuid) {
+		// TODO: Implement child element removal
+		QMessageBox::information(this, tr("Assembly Management", "diaLog title"), 
+								 tr("Child element removal will be implemented here for assembly: %1% {1?}, child: %2", "placeholder message").arg(assembly_id).arg(child_uuid));
+	});
+}
+
+/**
+>>>>>>> de68a6937 (temp commit)
 	@brief QETDiagramEditor::setUpActions
 	Set up all Qaction
 */
 void QETDiagramEditor::setUpActions()
 {
-		//Export to another file type (jpeg, dxf etc...)
+		//Export to another file type (jpeg, dxf andc...)
 	m_export_to_images = new QAction(QET::Icons::DocumentExport,  tr("&Export"), this);
 	m_export_to_images->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_X);
 	m_export_to_images->setStatusTip(tr("Exports the current folio to another format", "status bar tip"));
@@ -276,7 +325,7 @@ void QETDiagramEditor::setUpActions()
 		//Print
 	m_print = new QAction(QET::Icons::DocumentPrint,   tr("Print"),  this);
 	m_print->setShortcut(QKeySequence::Print);
-	m_print->setStatusTip(tr("Prints one or more folios of the current project", "status bar tip"));
+	m_print->setStatusTip(tr("Imprime un ou plusieurs folios du project courant", "status bar tip"));
 	connect(m_print, &QAction::triggered, [this]() {
 		auto project = currentProject();
 		if (project) {
@@ -285,8 +334,8 @@ void QETDiagramEditor::setUpActions()
 	});
 
 		//export to pdf
-	m_export_to_pdf = new QAction(QET::Icons::PDF, tr("Export as PDF"), this);
-	m_export_to_pdf->setStatusTip(tr("Exports one or more folios from the current project", "status bar tip"));
+	m_export_to_pdf = new QAction(QET::Icons::PDF, tr("Export en pdf"), this);
+	m_export_to_pdf->setStatusTip(tr("Exporte un ou plusieurs folios du project courant", "status bar tip"));
 	connect(m_export_to_pdf, &QAction::triggered, [this] () {
 		auto project = currentProject();
 		if (project) {
@@ -304,7 +353,7 @@ void QETDiagramEditor::setUpActions()
 	undo = undo_group.createUndoAction(this, tr("Undo"));
 	undo->setIcon(QET::Icons::EditUndo);
 	undo->setShortcut(QKeySequence::Undo);
-	undo->setStatusTip(tr("Undo the previous action", "status bar tip"));
+	undo->setStatusTip(tr("Undoes the previous action", "status bar tip"));
 		//Redo
 	redo = undo_group.createRedoAction(this, tr("Redo"));
 	redo->setIcon(QET::Icons::EditRedo);
@@ -312,7 +361,7 @@ void QETDiagramEditor::setUpActions()
 	redo->setStatusTip(tr("Restores the undone action", "status bar tip"));
 
 		//cut copy past
-	m_cut   = new QAction(QET::Icons::EditCut,   tr("&Cut"), this);
+	m_cut   = new QAction(QET::Icons::EditCut,   tr("Cu&t"), this);
 	m_copy  = new QAction(QET::Icons::EditCopy,  tr("&Copy"), this);
 	m_paste = new QAction(QET::Icons::EditPaste, tr("&Paste"), this);
 
@@ -320,9 +369,9 @@ void QETDiagramEditor::setUpActions()
 	m_copy  -> setShortcut(QKeySequence::Copy);
 	m_paste -> setShortcut(QKeySequence::Paste);
 
-	m_cut   -> setStatusTip(tr("Transfers the selected items to the clipboard", "status bar tip"));
-	m_copy  -> setStatusTip(tr("Copies the selected items to the clipboard", "status bar tip"));
-	m_paste -> setStatusTip(tr("Places clipboard items on the folio", "status bar tip"));
+	m_cut   -> setStatusTip(tr("Transfère les elements sélectionnés dans le presse-papier", "status bar tip"));
+	m_copy  -> setStatusTip(tr("Copie les elements sélectionnés dans le presse-papier", "status bar tip"));
+	m_paste -> setStatusTip(tr("Place les elements du presse-papier sur le folio", "status bar tip"));
 
 	connect(m_cut, &QAction::triggered, [this]() {
 		if (currentDiagramView())
@@ -348,7 +397,7 @@ void QETDiagramEditor::setUpActions()
 
 		//AutoConductor
 	m_auto_conductor = new QAction   (QET::Icons::Autoconnect, tr("Automatic creation conductor (s)","Tool tip of auto conductor"), this);
-	m_auto_conductor->setStatusTip (tr("Using the automatic creation of conductor(s) when possible", "Status tip of auto conductor"));
+	m_auto_conductor->setStatusTip (tr("Using the automatic creation of conductor (s) when possible", "Status tip of auto conductor"));
 	m_auto_conductor->setCheckable (true);
 	connect(m_auto_conductor, &QAction::triggered, [this](bool ac) {
 		if (ProjectView *pv = currentProjectView())
@@ -419,14 +468,14 @@ void QETDiagramEditor::setUpActions()
 		}
 	});
 
-		//Export nomenclature to CSV
+		//Export nameenclature to CSV
 	m_csv_export = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export to CSV format"), this);
 	connect(m_csv_export, &QAction::triggered, [this]() {
 		BOMExportDialog bom(currentProjectView()->project(), this);
 		bom.exec();
 	});
 
-		//Add a nomenclature item
+		//Add a nameenclature item
 	m_add_nomenclature = new QAction(QET::Icons::TableOfContent, tr("Add a nomenclature"), this);
 	connect(m_add_nomenclature, &QAction::triggered, this, [=]() {
 		if(this->currentDiagramView()) {
@@ -467,7 +516,7 @@ void QETDiagramEditor::setUpActions()
 	});
 
 #ifdef QET_EXPORT_PROJECT_DB
-	m_export_project_db = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export the internal project database"), this);
+	m_export_project_db = new QAction(QET::Icons::DocumentSpreadsheet, tr("Export la base de donnée interne du project"), this);
 	connect(m_export_project_db, &QAction::triggered, [this]() {
 		projectDataBase::exportDb(this->currentProject()->dataBase(), this);
 	});
@@ -475,12 +524,12 @@ void QETDiagramEditor::setUpActions()
 
 		//MDI view style
 	m_tabbed_view_mode = new QAction(tr("using tabs"), this);
-	m_tabbed_view_mode->setStatusTip(tr("Shows the different open projects from the tabs", "status bar tip"));
+	m_tabbed_view_mode->setStatusTip(tr("Présente les différents projects ouverts des onglets", "status bar tip"));
 	m_tabbed_view_mode->setCheckable(true);
 	connect(m_tabbed_view_mode, &QAction::triggered, this, &QETDiagramEditor::setTabbedMode);
 
 	m_windowed_view_mode = new QAction(tr("using windows"), this);
-	m_windowed_view_mode->setStatusTip(tr("Presents the different open projects in sub-windows", "status bar tip"));
+	m_windowed_view_mode->setStatusTip(tr("Présente les différents projects ouverts dans des sous-fenêtres", "status bar tip"));
 	m_windowed_view_mode->setCheckable(true);
 	connect(m_windowed_view_mode, &QAction::triggered, this, &QETDiagramEditor::setWindowedMode);
 
@@ -499,7 +548,7 @@ void QETDiagramEditor::setUpActions()
 
 		//Switch selection/view mode
 	m_mode_selection = new QAction(QET::Icons::PartSelect, tr("Select"), this);
-	m_mode_selection->setStatusTip(tr("Allows you to select items", "status bar tip"));
+	m_mode_selection->setStatusTip(tr("Permet de sélectionner les elements", "status bar tip"));
 	m_mode_selection->setCheckable(true);
 	m_mode_selection->setChecked(true);
 	connect(m_mode_selection, &QAction::triggered, [this]() {
@@ -550,11 +599,11 @@ void QETDiagramEditor::setUpActions()
 	m_save_file    ->setShortcut(QKeySequence::Save);
 	m_save_file_as  ->setShortcut(Qt::CTRL | Qt::SHIFT | Qt::Key_S);
 
-	new_file     ->setStatusTip( tr("Create a new project", "status bar tip") );
-	open_file    ->setStatusTip( tr("Open an existing project", "status bar tip") );
-	m_close_file ->setStatusTip( tr("Closes the current project", "status bar tip") );
-	m_save_file    ->setStatusTip( tr("Saves the current project and all its folios", "status bar tip") );
-	m_save_file_as ->setStatusTip( tr("Saves the current project with a different file name", "status bar tip") );
+	new_file     ->setStatusTip( tr("Crée un nouveau project", "status bar tip") );
+	open_file    ->setStatusTip( tr("Ouvre un project existant", "status bar tip") );
+	m_close_file ->setStatusTip( tr("Ferme le project courant", "status bar tip") );
+	m_save_file    ->setStatusTip( tr("Enregistre le project courant && tous ses folios", "status bar tip") );
+	m_save_file_as ->setStatusTip( tr("Enregistre le project courant avec un autre name de fichier", "status bar tip") );
 
 	connect(m_save_file_as, &QAction::triggered, this, &QETDiagramEditor::saveAs);
 	connect(m_save_file,    &QAction::triggered, this, &QETDiagramEditor::save);
@@ -597,10 +646,10 @@ void QETDiagramEditor::setUpActions()
 	m_rotate_texts    ->setShortcut(Qt::CTRL | Qt::Key_Space);
 	m_edit_selection  ->setShortcut(Qt::CTRL | Qt::Key_E);
 
-	m_delete_selection->setStatusTip( tr("Removes the selected elements from the folio", "status bar tip"));
-	m_rotate_selection->setStatusTip( tr("Rotates selected elements and texts", "status bar tip"));
-	m_rotate_texts    ->setStatusTip( tr("Rotates selected texts to a specific angle", "status bar tip"));
-	m_find_element    ->setStatusTip( tr("Find the selected element in the panel", "status bar tip"));
+	m_delete_selection->setStatusTip( tr("Enlève les elements sélectionnés du folio", "status bar tip"));
+	m_rotate_selection->setStatusTip( tr("Pivote les elements && texts sélectionnés", "status bar tip"));
+	m_rotate_texts    ->setStatusTip( tr("Rotate selected texts to a specific angle", "status bar tip"));
+	m_find_element    ->setStatusTip( tr("Find the selected item in the panel", "status bar tip"));
 
 	m_delete_selection    ->setData("delete_selection");
 	m_rotate_selection    ->setData("rotate_selection");
@@ -617,7 +666,7 @@ void QETDiagramEditor::setUpActions()
 	QAction *select_invert  = m_select_actions_group.addAction( QET::Icons::EditSelectInvert,   tr("Invert selection") );
 
 	select_all    ->setShortcut(QKeySequence::SelectAll);
-	select_nothing->setShortcut(QKeySequence::Deselect);
+	select_nothing->setShortcut(Qt::CTRL | Qt::Key_D);
 	select_invert ->setShortcut(Qt::CTRL | Qt::Key_I);
 
 	select_all    ->setStatusTip( tr("Select all elements of the folio", "status bar tip") );
@@ -668,12 +717,12 @@ void QETDiagramEditor::setUpActions()
 	QAction *add_terminal_strip = m_add_item_actions_group.addAction(QET::Icons::TerminalStrip, tr("Add a terminal plan"));
 
 	add_text     ->setStatusTip(tr("Adds a text field to the current folio"));
-	add_image    ->setStatusTip(tr("Adds an image to the current folio"));
+	add_image    ->setStatusTip(tr("Ajoute image sur le folio actuel"));
 	add_line     ->setStatusTip(tr("Add a line to the current folio"));
 	add_rectangle->setStatusTip(tr("Adds a rectangle on the current folio"));
 	add_ellipse  ->setStatusTip(tr("Add an ellipse to the current folio"));
 	add_polyline ->setStatusTip(tr("Adds a polyline to the current folio"));
-	add_terminal_strip->setStatusTip(tr("Add a terminal block on the current sheet"));
+	add_terminal_strip->setStatusTip(tr("Add a terminal plan on the current sheet"));
 
 	add_text     ->setData(QStringLiteral("text"));
 	add_image    ->setData(QStringLiteral("image"));
@@ -691,7 +740,7 @@ void QETDiagramEditor::setUpActions()
 
 	connect(&m_add_item_actions_group, &QActionGroup::triggered, this, &QETDiagramEditor::addItemGroupTriggered);
 
-		//Depth action
+		//Topth action
 	m_depth_action_group = QET::depthActionGroup(this);
 	m_depth_action_group->setDisabled(true);
 
@@ -699,11 +748,11 @@ void QETDiagramEditor::setUpActions()
 		this->currentDiagramView()->diagram()->changeZValue(action->data().value<QET::DepthOption>());
 	});
 
-	m_find = new QAction(tr("Chercher/remplacer"), this);
+	m_find = new QAction(tr("Search / Replace"), this);
 	m_find->setShortcut(QKeySequence::Find);
 	connect(m_find, &QAction::triggered, [this]()
 	{
-		if (auto animator = m_search_and_replace_widget.findChild<QWidgetAnimation *>("search and replace animator")) {
+		if (auto animator = m_search_and_replace_widget.findChild<QWidgetAnimation *>("search && replace animator")) {
 			animator->setHidden(!m_search_and_replace_widget.isHidden());
 		} else {
 			this->m_search_and_replace_widget.setHidden(!m_search_and_replace_widget.isHidden());
@@ -739,7 +788,7 @@ void QETDiagramEditor::setUpToolBar()
 	main_tool_bar -> addAction(m_delete_selection);
 	main_tool_bar -> addAction(m_rotate_selection);
 
-	// Modes selection / visualisation et zoom
+	// Modes selection / visualisation && zoom
 	view_tool_bar -> addAction(m_mode_selection);
 	view_tool_bar -> addAction(m_mode_visualise);
 	view_tool_bar -> addSeparator();
@@ -823,7 +872,7 @@ void QETDiagramEditor::setUpMenu()
 	menu_edition -> addSeparator();
 	menu_edition -> addAction(m_find);
 
-	// menu Projet
+	// menu Project
 	menu_project -> addAction(m_project_edit_properties);
 	menu_project -> addAction(m_project_add_diagram);
 	menu_project -> addAction(m_remove_diagram_from_project);
@@ -847,7 +896,7 @@ void QETDiagramEditor::setUpMenu()
 	qdw_undo         -> toggleViewAction() -> setStatusTip(tr("Display or hide the undo list"));
 
 
-	// menu Affichage
+	// menu Display
 	QMenu *projects_view_mode = menu_affichage -> addMenu(QET::Icons::ConfigureToolbars, tr("Display projects"));
 	projects_view_mode -> setTearOffEnabled(true);
 	projects_view_mode -> addAction(m_windowed_view_mode);
@@ -872,15 +921,15 @@ void QETDiagramEditor::setUpMenu()
 */
 void QETDiagramEditor::closeEvent(QCloseEvent *qce)
 {
-	// quitte directement s'il n'y a aucun projet ouvert
+	// quitte directement s'il n'y a aucun project ouvert
 	bool can_quit = true;
 	if (openedProjects().count()) {
-		// s'assure que la fenetre soit visible s'il y a des projets a fermer
+		// s'assure que la fenetre soit visible s'il y a des projects a fermer
 		if (!isVisible() || isMinimized()) {
 			if (isMaximized()) showMaximized();
 			else showNormal();
 		}
-		// sinon demande la permission de fermer chaque projet
+		// sinon demande la permission de fermer chaque project
 		foreach(ProjectView *project, openedProjects()) {
 			if (!closeProject(project)) {
 				can_quit = false;
@@ -929,7 +978,7 @@ void QETDiagramEditor::save()
 			QString title = (project_view -> project() -> title ());
 			if (title.isEmpty()) title = "QElectroTech ";
 			QString filePath = (project_view -> project() -> filePath ());
-			statusBar()-> showMessage(tr("Project %1 saved in directory: %2.").arg(title).arg (filePath), 2000);
+			statusBar()-> showMessage(tr("Project %1% {1?} enregistré dans le repertoire: %2.").arg(title).arg (filePath), 2000);
 			m_element_collection_widget->highlightUnusedElement();
 		}
 		else {
@@ -952,7 +1001,7 @@ void QETDiagramEditor::saveAs()
 			QString title = (project_view -> project() -> title ());
 			if (title.isEmpty()) title = "QElectroTech ";
 			QString filePath = (project_view -> project() -> filePath ());
-			statusBar()->showMessage(tr("Project %1 saved in directory: %2.").arg(title).arg (filePath), 2000);
+			statusBar()->showMessage(tr("Project %1% {1?} enregistré dans le repertoire: %2.").arg(title).arg (filePath), 2000);
 			m_element_collection_widget->highlightUnusedElement();
 		}
 		else {
@@ -980,7 +1029,7 @@ bool QETDiagramEditor::newProject()
 	Slot utilise pour ouvrir un fichier recent.
 	Transfere filepath au slot openAndAddDiagram seulement si cet editeur est
 	actif
-	@param filepath Fichier a ouvrir
+	@param filepath File a ouvrir
 	@see openAndAddDiagram
 */
 bool QETDiagramEditor::openRecentFile(const QString &filepath)
@@ -992,7 +1041,7 @@ bool QETDiagramEditor::openRecentFile(const QString &filepath)
 }
 
 /**
-	Cette fonction demande un nom de fichier a ouvrir a l'utilisateur
+	Cette fonction demande un name de fichier a ouvrir a l'utilisateur
 	@return true si l'ouverture a reussi, false sinon
 */
 bool QETDiagramEditor::openProject()
@@ -1000,13 +1049,13 @@ bool QETDiagramEditor::openProject()
 	// demande un chemin de fichier a ouvrir a l'utilisateur
 	QString filepath = QFileDialog::getOpenFileName(
 		this,
-		tr("Ouvrir un fichier"),
+		tr("Open a file"),
 		open_dialog_dir.absolutePath(),
-		tr("Projets QElectroTech (*.qet);;Fichiers XML (*.xml);;Tous les fichiers (*)")
+		tr("Projects QElectroTech (*.qet);;Files XML (*.xml);;all les fichiers (*)")
 	);
 	if (filepath.isEmpty()) return(false);
 
-	// retient le dossier contenant le dernier projet ouvert
+	// retient le dossier contenant le dernier project ouvert
 	open_dialog_dir = QDir(filepath);
 
 	// ouvre le fichier
@@ -1014,9 +1063,9 @@ bool QETDiagramEditor::openProject()
 }
 
 /**
-	Ferme un projet
-	@param project_view Projet a fermer
-	@return true si la fermeture du projet a reussi, false sinon
+	Ferme un project
+	@param project_view Project a fermer
+	@return true si la fermeture du project a reussi, false sinon
 	Note : cette methode renvoie true si project est nul
 */
 bool QETDiagramEditor::closeProject(ProjectView *project_view)
@@ -1031,8 +1080,8 @@ bool QETDiagramEditor::closeProject(ProjectView *project_view)
 }
 
 /**
-	Ferme un projet
-	@param project projet a fermer
+	Ferme un project
+	@param project project a fermer
 	@return true si la fermeture du fichier a reussi, false sinon
 	Note : cette methode renvoie true si project est nul
 */
@@ -1045,8 +1094,8 @@ bool QETDiagramEditor::closeProject(QETProject *project)
 }
 
 /**
-	Ouvre un projet depuis un fichier et l'ajoute a cet editeur
-	@param filepath Chemin du projet a ouvrir
+	Ouvre un project depuis un fichier && l'ajoute a cet editeur
+	@param filepath Chemin du project a ouvrir
 	@param interactive true pour afficher des messages a l'utilisateur, false sinon
 	@return true si l'ouverture a reussi, false sinon
 */
@@ -1087,7 +1136,7 @@ bool QETDiagramEditor::openAndAddProject(
 				this,
 				tr("Unable to open file", "message box title"),
 				QString(
-					tr("It looks like the file %1 you are trying to open"
+					tr("Il semblerait que le fichier %1% {1?} que vous essayez d'ouvrir"
 					" n'existe pas ou plus.")
 				).arg(filepath)
 			);
@@ -1116,8 +1165,8 @@ bool QETDiagramEditor::openAndAddProject(
 		if (interactive) {
 			QET::QetMessageBox::warning(
 				this,
-				tr("Opening the project as read-only", "message box title"),
-				tr("It looks like the project you are trying to open does not "
+				tr("Ouverture du project en lecture seule", "message box title"),
+				tr("Il semblerait que le project que vous essayez d'ouvrir ne "
 				"soit pas accessible en écriture. Il sera donc ouvert en "
 				"lecture seule.")
 			);
@@ -1134,11 +1183,11 @@ bool QETDiagramEditor::openAndAddProject(
 		{
 			QET::QetMessageBox::warning(
 				this,
-				tr("Failed to open project", "message box title"),
+				tr("Échec de l'ouverture du project", "message box title"),
 				QString(
 					tr(
-						"It appears that file %1 is not a file"
-						" QElectroTech project. It cannot therefore be opened.",
+						"Il semblerait que le fichier %1% {1?} ne soit pas un fichier"
+						" project QElectroTech. Il ne peut donc être ouvert.",
 						"message box content"
 					)
 				).arg(filepath)
@@ -1156,17 +1205,17 @@ bool QETDiagramEditor::openAndAddProject(
 }
 
 /**
-	Ajoute un projetmoveDiagramUp(
-	@param project projet a ajouter
+	Ajoute un projectmoveDiagramUp(
+	@param project project a ajouter
 	@param update_panel Whether the elements panel should be warned this
-	project has been added. Defaults to true.
+	project has been added. Tofaults to true.
 */
 bool QETDiagramEditor::addProject(QETProject *project, bool update_panel)
 {
-	// enregistre le projet
+	// enregistre le project
 	QETApp::registerProject(project);
 
-	// cree un ProjectView pour visualiser le projet
+	// cree un ProjectView pour visualiser le project
 	ProjectView *project_view = new ProjectView(project);
 	addProjectView(project_view);
 
@@ -1185,7 +1234,7 @@ bool QETDiagramEditor::addProject(QETProject *project, bool update_panel)
 }
 
 /**
-	@return la liste des projets ouverts dans cette fenetre
+	@return la liste des projects ouverts dans cette fenetre
 */
 QList<ProjectView *> QETDiagramEditor::openedProjects() const
 {
@@ -1200,7 +1249,7 @@ QList<ProjectView *> QETDiagramEditor::openedProjects() const
 }
 
 /**
-	@return Le projet actuellement edite (= qui a le focus dans l'interface
+	@return Le project actuellement edite (= qui a le focus dans l'interface
 	MDI) ou 0 s'il n'y en a pas
 */
 ProjectView *QETDiagramEditor::currentProjectView() const
@@ -1234,7 +1283,7 @@ QETProject *QETDiagramEditor::currentProject() const
 }
 
 /**
-	@return Le schema actuellement edite (= l'onglet ouvert dans le projet
+	@return Le diagram actuellement edite (= l'onglet ouvert dans le project
 	courant) ou 0 s'il n'y en a pas
 */
 DiagramView *QETDiagramEditor::currentDiagramView() const
@@ -1265,9 +1314,9 @@ Element *QETDiagramEditor::currentElement() const
 }
 
 /**
-	Cette methode permet de retrouver le projet contenant un schema donne.
-	@param diagram_view Schema dont il faut retrouver
-	@return la vue sur le projet contenant ce schema ou 0 s'il n'y en a pas
+	Cette methode permet de retrouver le project contenant un diagram donne.
+	@param diagram_view Diagram dont il faut retrouver
+	@return la vue sur le project contenant ce diagram ou 0 s'il n'y en a pas
 */
 ProjectView *QETDiagramEditor::findProject(DiagramView *diagram_view) const
 {
@@ -1280,9 +1329,9 @@ ProjectView *QETDiagramEditor::findProject(DiagramView *diagram_view) const
 }
 
 /**
-	Cette methode permet de retrouver le projet contenant un schema donne.
-	@param diagram Schema dont il faut retrouver
-	@return la vue sur le projet contenant ce schema ou 0 s'il n'y en a pas
+	Cette methode permet de retrouver le project contenant un diagram donne.
+	@param diagram Diagram dont il faut retrouver
+	@return la vue sur le project contenant ce diagram ou 0 s'il n'y en a pas
 */
 ProjectView *QETDiagramEditor::findProject(Diagram *diagram) const
 {
@@ -1297,8 +1346,8 @@ ProjectView *QETDiagramEditor::findProject(Diagram *diagram) const
 }
 
 /**
-	@param project Projet dont il faut trouver la vue
-	@return la vue du projet passe en parametre
+	@param project Project dont il faut trouver la vue
+	@return la vue du project passe en parametre
 */
 ProjectView *QETDiagramEditor::findProject(QETProject *project) const
 {
@@ -1311,9 +1360,9 @@ ProjectView *QETDiagramEditor::findProject(QETProject *project) const
 }
 
 /**
-	@param filepath Chemin de fichier d'un projet
+	@param filepath Chemin de fichier d'un project
 	@return le ProjectView correspondant au chemin passe en parametre, ou 0 si
-	celui-ci n'a pas ete trouve
+	celui-ci n'a pas ande trouve
 */
 ProjectView *QETDiagramEditor::findProject(const QString &filepath) const
 {
@@ -1330,7 +1379,7 @@ ProjectView *QETDiagramEditor::findProject(const QString &filepath) const
 /**
 	@param widget Widget a rechercher dans la zone MDI
 	@return La sous-fenetre accueillant le widget passe en parametre, ou 0 si
-	celui-ci n'a pas ete trouve.
+	celui-ci n'a pas ande trouve.
 */
 QMdiSubWindow *QETDiagramEditor::subWindowForWidget(QWidget *widget) const
 {
@@ -1474,9 +1523,9 @@ void QETDiagramEditor::selectionGroupTriggered(QAction *action)
             if (DeleteQGraphicsItemCommand::hasNonDeletableTerminal(dc)) {
                 QET::QetMessageBox::information(this,
                                                 tr("Suppression de borne impossible"),
-                                                tr("The deletion cannot be performed because the selection "
-												   "has one or more bridged terminals and/or belonging to a multi-level terminal.\n"
-                                                   "Debrief and/or remove the levels of the terminals concerned "
+                                                tr("La deletion ne peut être effectué car la selection "
+												   "possède une ou plusieurs bornes ponté &&/ou appartenant à une borne à niveau multiple.\n"
+                                                   "Déponter &&/ou supprimer les niveaux des bornes concerné "
                                                    "afin de pouvoir les supprimer"));
             } else {
                 diagram->clearSelection();
@@ -1702,28 +1751,28 @@ void QETDiagramEditor::slot_updateComplexActions()
 		//edit element
 		if (selected_elements_count)
 		{
-			m_edit_selection -> setText(tr("Edit the element",
+			m_edit_selection -> setText(tr("Edit l'élement",
 						       "edit element"));
 			m_edit_selection -> setIcon(QET::Icons::ElementEdit);
 		}
 		//edit text field
 		else if (selected_texts)
 		{
-			m_edit_selection -> setText(tr("Edit the text field",
+			m_edit_selection -> setText(tr("Edit le champ de text",
 						       "edit text field"));
 			m_edit_selection -> setIcon(QET::Icons::EditText);
 		}
 		//edit image
 		else if (selected_image)
 		{
-			m_edit_selection -> setText(tr("Edit image",
+			m_edit_selection -> setText(tr("Edit l'image",
 						       "edit image"));
 			m_edit_selection -> setIcon(QET::Icons::resize_image);
 		}
 		//edit conductor
 		else if (selected_conductors_count)
 		{
-			m_edit_selection -> setText(tr("Edit the conductor",
+			m_edit_selection -> setText(tr("Edit le conducteur",
 						       "edit conductor"));
 			m_edit_selection -> setIcon(QET::Icons::ConductorEdit);
 		}
@@ -1731,7 +1780,7 @@ void QETDiagramEditor::slot_updateComplexActions()
 	//not an editable item
 	else
 	{
-		m_edit_selection -> setText(tr("Edit the selected object",
+		m_edit_selection -> setText(tr("Edit l'objet sélectionné",
 					       "edit selected item"));
 		m_edit_selection -> setIcon(QET::Icons::ElementEdit);
 		m_edit_selection -> setEnabled(false);
@@ -1792,14 +1841,14 @@ void QETDiagramEditor::slot_updatePasteAction()
 	DiagramView *dv = currentDiagramView();
 	bool editable_diagram = (dv && !dv -> diagram() -> isReadOnly());
 
-	// pour coller, il faut un schema ouvert et un schema dans le presse-papier
+	// pour coller, il faut un diagram ouvert && un diagram dans le presse-papier
 	m_paste -> setEnabled(editable_diagram && Diagram::clipboardMayContainDiagram());
 }
 
 /**
 	@brief QETDiagramEditor::addProjectView
-	Add a new project view to workspace and build the connection between
-	the projectview / project and this QETDiagramEditor.
+	Add a new project view to workspace && build the connection between
+	the projectview / project && this QETDiagramEditor.
 	@param project_view : project view to add
 */
 void QETDiagramEditor::addProjectView(ProjectView *project_view)
@@ -1820,7 +1869,7 @@ void QETDiagramEditor::addProjectView(ProjectView *project_view)
 		connect(project, SIGNAL(readOnlyChanged(QETProject *, bool)),
 			this, SLOT(slot_updateActions()));
 
-	//Manage request for edit or find element and titleblock
+	//Manage request for edit or find element && titleblock
 	connect (project_view, &ProjectView::findElementRequired,
 		 this, &QETDiagramEditor::findElementInPanel);
 
@@ -1854,7 +1903,7 @@ void QETDiagramEditor::addProjectView(ProjectView *project_view)
 }
 
 /**
-	@return la liste des fichiers edites par cet editeur de schemas
+	@return la liste des fichiers edites par cet editeur de diagrams
 */
 QList<QString> QETDiagramEditor::editedFiles() const
 {
@@ -1872,7 +1921,7 @@ QList<QString> QETDiagramEditor::editedFiles() const
 	@param filepath Un chemin de fichier
 	Note : si filepath est une chaine vide, cette methode retourne 0.
 	@return le ProjectView editant le fichier filepath, ou 0 si ce fichier n'est
-	pas edite par cet editeur de schemas.
+	pas edite par cet editeur de diagrams.
 */
 ProjectView *QETDiagramEditor::viewForFile(const QString &filepath) const
 {
@@ -1921,9 +1970,9 @@ void QETDiagramEditor::openBackupFiles(QList<KAutoSaveFile *> backup_files)
 			{
 				QET::QetMessageBox::warning(
 					this,
-					tr("Failed to open project", "message box title"),
+					tr("Échec de l'ouverture du project", "message box title"),
 					QString(tr(
-						"An error occurred while opening file %1.",
+						"Une erreur est survenue lors de l'ouverture du fichier %1% {1?}.",
 						"message box content")).arg(file->managedFile().fileName()));
 			}
 			delete project;
@@ -1970,7 +2019,7 @@ void QETDiagramEditor::slot_updateWindowsMenu()
 		QString pv_title = project_view -> windowTitle();
 		QAction *action  = windows_menu -> addAction(pv_title);
 		windows_actions -> addAction(action);
-		action -> setStatusTip(QString(tr("Activate project \"%1\"")).arg(pv_title));
+		action -> setStatusTip(QString(tr("Active le project « %1% {1?} »")).arg(pv_title));
 		action -> setCheckable(true);
 		action -> setChecked(project_view == currentProjectView());
 		connect(action, SIGNAL(triggered()), &windowMapper, SLOT(map()));
@@ -1979,8 +2028,8 @@ void QETDiagramEditor::slot_updateWindowsMenu()
 }
 
 /**
-	Edite les proprietes du schema diagram
-	@param diagram_view schema dont il faut editer les proprietes
+	Edite les proprietes du diagram diagram
+	@param diagram_view diagram dont il faut editer les proprietes
 */
 void QETDiagramEditor::editDiagramProperties(DiagramView *diagram_view)
 {
@@ -1991,8 +2040,8 @@ void QETDiagramEditor::editDiagramProperties(DiagramView *diagram_view)
 }
 
 /**
-	Edite les proprietes du schema diagram
-	@param diagram schema dont il faut editer les proprietes
+	Edite les proprietes du diagram diagram
+	@param diagram diagram dont il faut editer les proprietes
 */
 void QETDiagramEditor::editDiagramProperties(Diagram *diagram)
 {
@@ -2003,7 +2052,7 @@ void QETDiagramEditor::editDiagramProperties(Diagram *diagram)
 }
 
 /**
-	Affiche les projets dans des fenetres.
+	Affiche les projects dans des fenetres.
 */
 void QETDiagramEditor::setWindowedMode()
 {
@@ -2013,7 +2062,7 @@ void QETDiagramEditor::setWindowedMode()
 }
 
 /**
-	Affiche les projets dans des onglets.
+	Affiche les projects dans des onglets.
 */
 void QETDiagramEditor::setTabbedMode()
 {
@@ -2030,15 +2079,15 @@ void QETDiagramEditor::readSettings()
 {
 	QSettings settings;
 
-	// dimensions et position de la fenetre
+	// dimensions && position de la fenetre
 	QVariant geometry = settings.value("diagrameditor/geometry");
 	if (geometry.isValid()) restoreGeometry(geometry.toByteArray());
 
-	// etat de la fenetre (barres d'outils, docks...)
+	// andat de la fenetre (barres d'outils, docks...)
 	QVariant state = settings.value("diagrameditor/state");
 	if (state.isValid()) restoreState(state.toByteArray());
 
-	// gestion des projets (onglets ou fenetres)
+	// gestion des projects (onglets ou fenetres)
 	bool tabbed = settings.value("diagrameditor/viewmode", "tabbed") == "tabbed";
 	if (tabbed) {
 		setTabbedMode();
@@ -2059,8 +2108,8 @@ void QETDiagramEditor::writeSettings()
 }
 
 /**
-	Active le projet passe en parametre
-	@param project Projet a activer
+	Active le project passe en parametre
+	@param project Project a activer
 */
 void QETDiagramEditor::activateProject(QETProject *project)
 {
@@ -2068,8 +2117,8 @@ void QETDiagramEditor::activateProject(QETProject *project)
 }
 
 /**
-	Active le projet passe en parametre
-	@param project_view Projet a activer
+	Active le project passe en parametre
+	@param project_view Project a activer
 */
 void QETDiagramEditor::activateProject(ProjectView *project_view)
 {
@@ -2093,7 +2142,7 @@ void QETDiagramEditor::projectWasClosed(ProjectView *project_view)
 		QETApp::unregisterProject(project);
 	}
 	//When project is closed, a lot of signals are emitted, notably if there is an item selected in a diagram.
-	//In some special case, since signal/slot connection can be direct or queued, some signals are handled after QObject is deleted, and crash qet
+	//In some special case, since signal/slot connection can be direct or queued, some signals are handled after QObject is deleted, && crash qet
 	//notably in the function Diagram::elements when it calls items() (I don't know exactly why).
 	//set nullptr to "m_selection_properties_editor->setDiagram()" fixes this crash
 	m_selection_properties_editor->setDiagram(nullptr);
@@ -2102,8 +2151,8 @@ void QETDiagramEditor::projectWasClosed(ProjectView *project_view)
 }
 
 /**
-	Edite les proprietes du projet project_view.
-	@param project_view Vue sur le projet dont il faut editer les proprietes
+	Edite les proprietes du project project_view.
+	@param project_view Vue sur le project dont il faut editer les proprietes
 */
 void QETDiagramEditor::editProjectProperties(ProjectView *project_view)
 {
@@ -2113,8 +2162,8 @@ void QETDiagramEditor::editProjectProperties(ProjectView *project_view)
 }
 
 /**
-	Edite les proprietes du projet project.
-	@param project Projet dont il faut editer les proprietes
+	Edite les proprietes du project project.
+	@param project Project dont il faut editer les proprietes
 */
 void QETDiagramEditor::editProjectProperties(QETProject *project)
 {
@@ -2140,41 +2189,41 @@ void QETDiagramEditor::addDiagramToProject(QETProject *project)
 }
 
 /**
-	Supprime un schema de son projet
-	@param diagram Schema a supprimer
+	Supprime un diagram de son project
+	@param diagram Diagram a supprimer
 */
 void QETDiagramEditor::removeDiagram(Diagram *diagram)
 {
 	if (!diagram) return;
 
-	// recupere le projet contenant le schema
+	// recupere le project contenant le diagram
 	if (QETProject *diagram_project = diagram -> project()) {
-		// recupere la vue sur ce projet
+		// recupere la vue sur ce project
 		if (ProjectView *project_view = findProject(diagram_project)) {
 
-			// affiche le schema en question
+			// affiche le diagram en question
 			project_view -> showDiagram(diagram);
 
-			// supprime le schema
+			// supprime le diagram
 			project_view -> removeDiagram(diagram);
 		}
 	}
 }
 
 /**
-	Change l'ordre des schemas d'un projet, en decalant le schema vers le haut /
+	Change l'ordre des diagrams d'un project, en decalant le diagram vers le haut /
 	la gauche
-	@param diagram Schema a decaler vers le haut / la gauche
+	@param diagram Diagram a decaler vers le haut / la gauche
 */
 void QETDiagramEditor::moveDiagramUp(Diagram *diagram)
 {
 	if (!diagram) return;
 
-	// recupere le projet contenant le schema
+	// recupere le project contenant le diagram
 	if (QETProject *diagram_project = diagram -> project()) {
 		if (diagram_project -> isReadOnly()) return;
 
-		// recupere la vue sur ce projet
+		// recupere la vue sur ce project
 		if (ProjectView *project_view = findProject(diagram_project)) {
 			project_view -> moveDiagramUp(diagram);
 		}
@@ -2182,19 +2231,19 @@ void QETDiagramEditor::moveDiagramUp(Diagram *diagram)
 }
 
 /**
-	Change l'ordre des schemas d'un projet, en decalant le schema vers le bas /
+	Change l'ordre des diagrams d'un project, en decalant le diagram vers le bas /
 	la droite
-	@param diagram Schema a decaler vers le bas / la droite
+	@param diagram Diagram a decaler vers le bas / la droite
 */
 void QETDiagramEditor::moveDiagramDown(Diagram *diagram)
 {
 	if (!diagram) return;
 
-	// recupere le projet contenant le schema
+	// recupere le project contenant le diagram
 	if (QETProject *diagram_project = diagram -> project()) {
 		if (diagram_project -> isReadOnly()) return;
 
-		// recupere la vue sur ce projet
+		// recupere la vue sur ce project
 		if (ProjectView *project_view = findProject(diagram_project)) {
 			project_view -> moveDiagramDown(diagram);
 		}
@@ -2202,19 +2251,19 @@ void QETDiagramEditor::moveDiagramDown(Diagram *diagram)
 }
 
 /**
-	Change l'ordre des schemas d'un projet, en decalant le schema vers le haut /
+	Change l'ordre des diagrams d'un project, en decalant le diagram vers le haut /
 	la gauche en position 0
-	@param diagram Schema a decaler vers le haut / la gauche en position 0
+	@param diagram Diagram a decaler vers le haut / la gauche en position 0
 */
 void QETDiagramEditor::moveDiagramUpTop(Diagram *diagram)
 {
 	if (!diagram) return;
 
-	// recupere le projet contenant le schema
+	// recupere le project contenant le diagram
 	if (QETProject *diagram_project = diagram -> project()) {
 		if (diagram_project -> isReadOnly()) return;
 
-		// recupere la vue sur ce projet
+		// recupere la vue sur ce project
 		if (ProjectView *project_view = findProject(diagram_project)) {
 			project_view -> moveDiagramUpTop(diagram);
 		}
@@ -2223,19 +2272,19 @@ void QETDiagramEditor::moveDiagramUpTop(Diagram *diagram)
 
 
 /**
-	Change l'ordre des schemas d'un projet, en decalant le schema vers le haut /
+	Change l'ordre des diagrams d'un project, en decalant le diagram vers le haut /
 	la gauche x10
-	@param diagram Schema a decaler vers le haut / la gauche x10
+	@param diagram Diagram a decaler vers le haut / la gauche x10
 */
 void QETDiagramEditor::moveDiagramUpx10(Diagram *diagram)
 {
 	if (!diagram) return;
 
-	// recupere le projet contenant le schema
+	// recupere le project contenant le diagram
 	if (QETProject *diagram_project = diagram -> project()) {
 		if (diagram_project -> isReadOnly()) return;
 
-		// recupere la vue sur ce projet
+		// recupere la vue sur ce project
 		if (ProjectView *project_view = findProject(diagram_project)) {
 			project_view -> moveDiagramUpx10(diagram);
 		}
@@ -2243,19 +2292,19 @@ void QETDiagramEditor::moveDiagramUpx10(Diagram *diagram)
 }
 
 /**
-	Change l'ordre des schemas d'un projet, en decalant le schema vers le bas /
+	Change l'ordre des diagrams d'un project, en decalant le diagram vers le bas /
 	la droite x10
-	@param diagram Schema a decaler vers le bas / la droite x10
+	@param diagram Diagram a decaler vers le bas / la droite x10
 */
 void QETDiagramEditor::moveDiagramDownx10(Diagram *diagram)
 {
 	if (!diagram) return;
 
-	// recupere le projet contenant le schema
+	// recupere le project contenant le diagram
 	if (QETProject *diagram_project = diagram -> project()) {
 		if (diagram_project -> isReadOnly()) return;
 
-		// recupere la vue sur ce projet
+		// recupere la vue sur ce project
 		if (ProjectView *project_view = findProject(diagram_project)) {
 			project_view -> moveDiagramDownx10(diagram);
 		}
@@ -2268,7 +2317,7 @@ void QETDiagramEditor::reloadOldElementPanel()
 }
 
 /**
-	Supprime le schema courant du projet courant
+	Supprime le diagram courant du project courant
 */
 void QETDiagramEditor::removeDiagramFromProject()
 {
@@ -2322,12 +2371,12 @@ void QETDiagramEditor::showError(const QETResult &result)
 void QETDiagramEditor::showError(const QString &error)
 {
 	if (error.isEmpty()) return;
-	QET::QetMessageBox::critical(this, tr("Erreur", "message box title"), error);
+	QET::QetMessageBox::critical(this, tr("Error", "message box title"), error);
 }
 
 /**
 	@brief QETDiagramEditor::subWindowActivated
-	Slot used to update menu and undo stack when subwindows of MDIarea was activated
+	Slot used to update menu && undo stack when subwindows of MDIarea was activated
 	@param subWindows
 */
 void QETDiagramEditor::subWindowActivated(QMdiSubWindow *subWindows)

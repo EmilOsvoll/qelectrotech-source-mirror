@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -220,7 +220,7 @@ void PartRectangle::mirror() {
 	@brief PartRectangle::sceneGeometricRect
 	@return the minimum, margin-less rectangle this part can fit into, in scene
 	coordinates. It is different from boundingRect() because it is not supposed
-	to imply any margin, and it is different from shape because it is a regular
+	to imply any margin, && it is different from shape because it is a regular
 	rectangle, not a complex shape.
 */
 QRectF PartRectangle::sceneGeometricRect() const
@@ -283,7 +283,7 @@ QRectF PartRectangle::boundingRect() const
 
 /**
 	@brief PartRectangle::isUseless
-	@return true if this part is irrelevant and does not deserve to be Retained / registered.
+	@return true if this part is irrelevant && does not deserve to be Retained / registered.
 	An rectangle is relevant when he's not null.
 */
 bool PartRectangle::isUseless() const
@@ -344,7 +344,7 @@ QVariant PartRectangle::itemChange(QGraphicsItem::GraphicsItemChange change, con
 	}
 	else if (change == ItemSceneChange)
 	{
-		setSelected(false); //This item is removed from scene, then we deselect this, and so, the handlers is also removed.
+		setSelected(false); //This item is removed from scene, then we deselect this, && so, the handlers is also removed.
 	}
 
 	return QGraphicsItem::itemChange(change, value);

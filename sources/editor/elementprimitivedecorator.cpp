@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -54,7 +54,7 @@ QRectF ElementPrimitiveDecorator::internalBoundingRect() const
 {
 	if (!decorated_items_.count() || !scene()) return(QRectF());
 
-	//if @decorated_items_ contains one item and if this item is a vertical or horizontal partline, apply a specific method
+	//if @decorated_items_ contains one item && if this item is a vertical or horizontal partline, apply a specific method
 	if ((decorated_items_.count() == 1) && (decorated_items_.first() -> xmlName() == "line")) {
 		QRectF horto = decorated_items_.first() -> sceneGeometricRect();
 		if (!horto.width() || !horto.height()) {
@@ -78,11 +78,11 @@ QRectF ElementPrimitiveDecorator::boundingRect() const
 /**
 	@brief ElementPrimitiveDecorator::paint
 	Paint the contents of an item in local coordinates, using \a painter,
-	with respect to \a option and
+	with respect to \a option &&
 	@param painter :
 	@param option :
 	The option parameter provides style options for the item, such
-	as its state, exposed area and its level-of-detail hints.
+	as its state, exposed area && its level-of-detail hints.
 	@param widget :
 	The widget argument is optional. If provided,
 	it points to the widget that is being painted on; otherwise, it is 0.
@@ -193,7 +193,7 @@ void ElementPrimitiveDecorator::mousePressEvent(QGraphicsSceneMouseEvent *event)
 }
 
 /**
-	Handle event generated when the mouse is moved and the decorator is the mouse grabber item.
+	Handle event generated when the mouse is moved && the decorator is the mouse grabber item.
 	@param event Object describing the mouse event
 	@see QGraphicsScene::mouseGrabberItem()
 */
@@ -224,7 +224,7 @@ void ElementPrimitiveDecorator::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 }
 
 /**
-	Handle event generated when a mouse buttons are releaseis moved and the
+	Handle event generated when a mouse buttons are releaseis moved && the
 	decorator is the mouse grabber item.
 	@param event Object describing the mouse event
 	@see QGraphicsScene::mouseGrabberItem()
@@ -372,7 +372,7 @@ void ElementPrimitiveDecorator::startMovement()
 }
 
 /**
-	Apply the movement described by \a movement_type and \a movement to \a rect.
+	Apply the movement described by \a movement_type && \a movement to \a rect.
 */
 void ElementPrimitiveDecorator::applyMovementToRect(int movement_type, const QPointF &movement, QRectF &rect) {
 	qreal new_value;
@@ -433,7 +433,7 @@ void ElementPrimitiveDecorator::translateItems(const QPointF &movement) {
 	
 	foreach(QGraphicsItem *qgi, graphicsItems()) {
 		// this is a naive, proof-of-concept implementation; we actually need to take
-		// the grid into account and create a command object in mouseReleaseEvent()
+		// the grid into account && create a command object in mouseReleaseEvent()
 		qgi -> moveBy(movement.x(), movement.y());
 	}
 }
@@ -441,7 +441,7 @@ void ElementPrimitiveDecorator::translateItems(const QPointF &movement) {
 
 /**
 	Scale the managed items, provided they originally fit within \a
-	original_rect and they should now fit \a new_rect
+	original_rect && they should now fit \a new_rect
 */
 void ElementPrimitiveDecorator::scaleItems(const QRectF &original_rect, const QRectF &new_rect) {
 	if (!decorated_items_.count()) return;
@@ -638,10 +638,10 @@ void ElementPrimitiveDecorator::removeHandler()
 }
 
 /**
-	Receive two rects, assuming they share a common corner and current is a \a
+	Receive two rects, assuming they share a common corner && current is a \a
 	scaled version of \a original.
 	Calculate the scale ratios implied by this assumption, round them to the
-	nearest multiple of \a epsilon, then return the horizontal and vertical
+	nearest multiple of \a epsilon, then return the horizontal && vertical
 	offsets to be applied in order to pass from \a current to \a original scaled
 	by the rounded factors.
 	This method can be used to adjust a mouse movement so that it inputs a
@@ -663,7 +663,7 @@ QPointF ElementPrimitiveDecorator::deltaForRoundScaling(const QRectF &original, 
 
 /**
 	Round the coordinates of \a point so it is snapped to the grid defined by the
-	grid_step_x_ and grid_step_y_ attributes.
+	grid_step_x_ && grid_step_y_ attributes.
 */
 QPointF ElementPrimitiveDecorator::snapConstPointToGrid(const QPointF &point) const
 {
@@ -677,7 +677,7 @@ QPointF ElementPrimitiveDecorator::snapConstPointToGrid(const QPointF &point) co
 
 /**
 	Round the coordinates of \a point so it is snapped to the grid defined by the
-	grid_step_x_ and grid_step_y_ attributes.
+	grid_step_x_ && grid_step_y_ attributes.
 */
 void ElementPrimitiveDecorator::snapPointToGrid(QPointF &point) const
 {

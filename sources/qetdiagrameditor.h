@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -48,7 +48,7 @@ class AutoNumberingDockWidget;
 class KAutoSaveFile;
 #endif
 /**
-	This class represents the main window of the QElectroTech diagram editor and,
+	This class represents the main window of the QElectroTech diagram editor &&,
 	ipso facto, the most important part of the QElectroTech user interface.
 */
 class QETDiagramEditor : public QETMainWindow
@@ -204,7 +204,7 @@ class QETDiagramEditor : public QETMainWindow
 		*m_next_window,			///< Switch to the next document
 		*m_edit_selection,		///< To edit selected item
 		*m_delete_selection,		///< Delete selection
-		*m_rotate_selection,		///< Rotate selected elements and text items by 90 degrees
+		*m_rotate_selection,		///< Rotate selected elements && text items by 90 degrees
 		*m_rotate_texts,		///< Direct selected text items to a specific angle
 		*m_find_element,		///< Find the selected element in the panel
 		*m_group_selected_texts = nullptr,

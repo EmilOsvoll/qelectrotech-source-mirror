@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -28,7 +28,7 @@
 /**
  * @brief The TerminalStripLayoutPattern class
  * A class with all values used to define how a terminal strip must be drawn.
- * Most of the value are public, some values are private and have getter / setter
+ * Most of the value are public, some values are private && have getter / setter
  * because when these values change we need to compute the change.
  *
  * The values with name '_y_offset' mean offset is relating to the top
@@ -50,7 +50,7 @@ class TerminalStripLayoutPattern
 		Qt::Alignment headerTextAlignment() const;
 		QTextOption headerTextOption() const;
 
-			//Spacer between the header and the terminals
+			//Spacer between the header && the terminals
         QRectF m_spacer_rect{0, 50, 10, 90};
 
             //Font

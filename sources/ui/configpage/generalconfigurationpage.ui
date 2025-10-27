@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Properties cross references</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_6">
    <item>
@@ -41,14 +41,14 @@
        <item>
         <widget class="QCheckBox" name="m_use_gesture_trackpad">
          <property name="text">
-          <string>Use touchpad gestures</string>
+          <string>Use gestures touchpad</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QCheckBox" name="m_zoom_out_beyond_folio">
          <property name="text">
-          <string>Allow zooming out beyond the folio</string>
+          <string>Allow unzoom beyond the folio</string>
          </property>
         </widget>
        </item>
@@ -138,7 +138,7 @@
        <item row="3" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Automatic project saving (applied on next QElectroTech launch)</string>
+          <string>Automatic backup of projects (applied at the next launch of QElectroTech)</string>
          </property>
         </widget>
        </item>
@@ -167,7 +167,7 @@
        <item row="0" column="0">
         <widget class="QCheckBox" name="m_save_label_paste">
          <property name="text">
-          <string>Do not keep element labels when copying and pasting</string>
+          <string>Ne pas conserver les labels des elements lors des copier coller</string>
          </property>
         </widget>
        </item>
@@ -200,7 +200,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="m_border_0">
          <property name="text">
-          <string extracomment="Choice of starting increment 1 or 0">Number the cartridge columns starting from 0 (1 otherwise)</string>
+          <string extracomment="Choix de l'increment de depart 1 ou 0">Number the title block columns from 0 (1 otherwise)</string>
          </property>
         </widget>
        </item>
@@ -214,7 +214,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_5">
          <property name="title">
-          <string>Access to the collections</string>
+          <string>Access the collections</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -268,7 +268,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_17">
             <property name="text">
-             <string>Company title block directory</string>
+             <string>Company title-block directory</string>
             </property>
            </widget>
           </item>
@@ -331,7 +331,7 @@
           <item row="6" column="1">
            <widget class="QLabel" name="label_9">
             <property name="text">
-             <string>(Reload element collections to apply changes)</string>
+             <string>(Reload collections d'elements pour appliquer les changements)</string>
             </property>
            </widget>
           </item>
@@ -341,7 +341,7 @@
        <item>
         <widget class="QGroupBox" name="groupBox_3">
          <property name="title">
-          <string>Element management</string>
+          <string>Gestion des elements</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -350,7 +350,7 @@
           <item>
            <widget class="QCheckBox" name="m_highlight_integrated_elements">
             <property name="text">
-             <string>Highlight newly integrated elements in the panel</string>
+             <string>Mettre en valeur dans le panel les elements fraîchement intégrés</string>
             </property>
            </widget>
           </item>
@@ -358,7 +358,7 @@
            <widget class="QLabel" name="label_4">
             <property name="text">
              <string>Chaque élément embarque des informations sur ses auteurs, sa licence, ou tout autre renseignement que vous jugerez utile dans un champ libre.
-Here you can specify the default value of this field for the elements you will create :</string>
+Vous pouvez spécifier ici la valeur par défaut de ce champ pour les elements que vous créerez :</string>
             </property>
             <property name="scaledContents">
              <bool>false</bool>
@@ -448,7 +448,7 @@ Here you can specify the default value of this field for the elements you will c
        <item>
         <widget class="QGroupBox" name="groupBox_6">
          <property name="title">
-          <string>Element texts</string>
+          <string>Texts d'elements</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="2" column="2">
@@ -461,7 +461,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="0" column="0">
            <widget class="QLabel" name="label_12">
             <property name="text">
-             <string>Font :</string>
+             <string>Font:</string>
             </property>
            </widget>
           </item>
@@ -481,7 +481,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="2" column="0">
            <widget class="QLabel" name="label_5">
             <property name="text">
-             <string>Length :</string>
+             <string>Length:</string>
             </property>
            </widget>
           </item>
@@ -514,7 +514,7 @@ Here you can specify the default value of this field for the elements you will c
        <item>
         <widget class="QGroupBox" name="groupBox_7">
          <property name="title">
-          <string>Independent texts</string>
+          <string>Texts indépendants</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <item row="1" column="0">
@@ -527,7 +527,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="0" column="0">
            <widget class="QLabel" name="label_13">
             <property name="text">
-             <string>Font :</string>
+             <string>Font:</string>
             </property>
            </widget>
           </item>
@@ -573,7 +573,7 @@ Here you can specify the default value of this field for the elements you will c
           <item>
            <widget class="QLabel" name="label_3">
             <property name="text">
-             <string>Font :</string>
+             <string>Font:</string>
             </property>
            </widget>
           </item>
@@ -623,7 +623,7 @@ Here you can specify the default value of this field for the elements you will c
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="title">
-          <string>Grid : 1 - 30</string>
+          <string>Grid: 1 - 30</string>
          </property>
          <property name="flat">
           <bool>false</bool>
@@ -664,7 +664,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="2" column="0">
            <widget class="QLabel" name="Label_Grid_Tip">
             <property name="text">
-             <string>The grid must be active to see the changes.</string>
+             <string>The Grid must be active to see the changes.</string>
             </property>
            </widget>
           </item>
@@ -713,7 +713,7 @@ Here you can specify the default value of this field for the elements you will c
        <item>
         <widget class="QGroupBox" name="groupBox_2">
          <property name="title">
-          <string>Keyboard movement : 1 - 30</string>
+          <string>Keyboard movement: 1 - 30</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_10">
           <item row="0" column="2">
@@ -804,7 +804,7 @@ Here you can specify the default value of this field for the elements you will c
            </widget>
           </item>
           <item row="1" column="3">
-           <widget class="QSpinBox" name="DiagramEditor_yKeyGridFine_sb">
+           <widget class="QSpinBox" name="DiagramEditor_yKeyGridThin_sb">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -833,7 +833,7 @@ Here you can specify the default value of this field for the elements you will c
            </widget>
           </item>
           <item row="0" column="3">
-           <widget class="QSpinBox" name="DiagramEditor_xKeyGridFine_sb">
+           <widget class="QSpinBox" name="DiagramEditor_xKeyGridThin_sb">
             <property name="minimumSize">
              <size>
               <width>80</width>
@@ -873,7 +873,7 @@ Here you can specify the default value of this field for the elements you will c
        <item>
         <widget class="QGroupBox" name="groupBox_8">
          <property name="title">
-          <string>Grid Display</string>
+          <string>Display Grille</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
           <item row="0" column="1">
@@ -899,7 +899,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="0" column="0">
            <widget class="QLabel" name="Label_Diagram_Grid_PointSize">
             <property name="text">
-             <string>Diagram-Editor grid point size: 1 - 5</string>
+             <string>Size des points de la grille de Diagram-Editor : 1 - 5</string>
             </property>
            </widget>
           </item>
@@ -945,7 +945,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="1" column="0">
            <widget class="QLabel" name="label_20">
             <property name="text">
-             <string>Element editor grid point size: 1 - 5</string>
+             <string>Size des points de la grille de l'éditeur d'elements : 1 - 5</string>
             </property>
            </widget>
           </item>
@@ -1101,8 +1101,8 @@ Here you can specify the default value of this field for the elements you will c
   <tabstop>DiagramEditor_yGrid_sb</tabstop>
   <tabstop>DiagramEditor_xKeyGrid_sb</tabstop>
   <tabstop>DiagramEditor_yKeyGrid_sb</tabstop>
-  <tabstop>DiagramEditor_xKeyGridFine_sb</tabstop>
-  <tabstop>DiagramEditor_yKeyGridFine_sb</tabstop>
+  <tabstop>DiagramEditor_xKeyGridThin_sb</tabstop>
+  <tabstop>DiagramEditor_yKeyGridThin_sb</tabstop>
  </tabstops>
  <resources/>
  <connections/>

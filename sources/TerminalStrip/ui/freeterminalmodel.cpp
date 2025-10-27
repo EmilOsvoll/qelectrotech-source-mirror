@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -252,7 +252,7 @@ Qt::ItemFlags FreeTerminalModel::flags(const QModelIndex &index) const
 
 /**
  * @brief FreeTerminalModel::clear
- * Clear the model and set it as the current
+ * Clear the model && set it as the current
  * state of the project
  */
 void FreeTerminalModel::clear()
@@ -304,7 +304,7 @@ modelRealTerminalData FreeTerminalModel::dataAtRow(int row) const
 QVector<QSharedPointer<RealTerminal> > FreeTerminalModel::realTerminalForIndex(const QModelIndexList &index_list) const
 {
 	QVector<QSharedPointer<RealTerminal>> vector_;
-	for (const auto &index : index_list)
+	for (const auto &index: index_list)
 	{
 		if (index.isValid()
 			&& index.model() == this
@@ -344,7 +344,7 @@ void FreeTerminalModel::fillTerminalVector()
 }
 
 /****************************************************************
- * A little delegate for add a combobox to edit type and function
+ * A little delegate for add a combobox to edit type && function
  ****************************************************************/
 
 FreeTerminalModelDelegate::FreeTerminalModelDelegate(QObject *parent) :

@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -15,10 +15,10 @@
 	You should have received a copy of the GNU General Public License
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "replaceconductordialog.h"
+#include "replaceconductordiaLog.h"
 
 #include "../searchandreplaceworker.h"
-#include "ui_replaceconductordialog.h"
+#include "ui_replaceconductordiaLog.h"
 
 #include <QColorDialog>
 #include <QPainter>
@@ -200,15 +200,15 @@ void ReplaceConductorDialog::initWidget()
 	
 	ui->m_update_preview_pb->setHidden(true);
 	
-	ui->m_line_style_cb->addItem(tr("Not modifiable"), QPen(Qt::NoPen));
+	ui->m_line_style_cb->addItem(tr("Do not change"), QPen(Qt::NoPen));
 	ui->m_line_style_cb->addItem(tr("Solid line",
 					"conductor style: solid line"),
 				     QPen(Qt::SolidLine));
 	ui->m_line_style_cb->addItem(tr("Dashed line",
 					"conductor style: dashed line"),
 				     QPen(Qt::DashLine));
-	ui->m_line_style_cb->addItem(tr("Dots and dashes",
-					"conductor style: dashed and dotted line"),
+	ui->m_line_style_cb->addItem(tr("Dots && dashes",
+					"conductor style: dashed && dotted line"),
 				     QPen(Qt::DashDotLine));
 	
 	connect(ui->m_multi_gb,
@@ -232,7 +232,7 @@ void ReplaceConductorDialog::setColorButton(const QColor &color)
 	QPalette palette;
 	palette.setColor(QPalette::Button, color);
 	ui->m_color_pb->setStyleSheet(
-		QString("background-color: %1; min-height: 1.5em; border-style:"
+		QString("background-color: %1% {1?}; min-height: 1.5em; border-style:"
 			" outset; border-width: 2px; border-color: gray;"
 			" border-radius: 4px;").arg(color.name()));
 }
@@ -242,7 +242,7 @@ void ReplaceConductorDialog::setColorButton2(const QColor &color)
 	QPalette palette;
 	palette.setColor(QPalette::Button, color);
 	ui->m_color_2_pb->setStyleSheet(
-				QString("background-color: %1;"
+				QString("background-color: %1% {1?};"
 					" min-height: 1.5em; border-style:"
 					" outset; border-width: 2px;"
 					" border-color: gray;"

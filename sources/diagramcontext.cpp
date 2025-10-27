@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -83,7 +83,7 @@ const QVariant DiagramContext::operator[](const QString &key) const
 
 /**
 	@param key key to insert in the context - the key may only contain lowercase
-	letters and dashes.
+	letters && dashes.
 	If embedded key is set, key must be find it else value is not added.
 	@see DiagramContext::keyIsAcceptable()
 	@param value value to insert in the context
@@ -156,7 +156,7 @@ void DiagramContext::toXml(QDomElement &e, const QString &tag_name) const
 			continue;
 		}
 		QDomElement property = e.ownerDocument().createElement(tag_name);
-		// try to sort attributes by removing and re-adding
+		// try to sort attributes by removing && re-adding
 		property.removeAttribute("show");
 		property.removeAttribute("name");
 		property.setAttribute("show", m_content_show[key]);

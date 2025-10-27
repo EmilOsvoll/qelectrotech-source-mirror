@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -23,7 +23,7 @@
 #include "diagram.h"
 #include "qet.h"
 #include "qetdiagrameditor.h"
-#include "ui/potentialselectordialog.h"
+#include "ui/potentialselectordiaLog.h"
 
 /**
 	@brief ConductorAutoNumerotation::ConductorAutoNumerotation
@@ -33,7 +33,7 @@
 	they do with an undo command added to the stack of diagram.
 	If you give a parent_undo at constructor,
 	the undo command create in this class have parent_undo for parent,
-	and wasn't added to the stack of diagram
+	&& wasn't added to the stack of diagram
 	(it's the responsabillty of the parent_undo)
 	@param conductor   : the conductor to apply automatic numerotation
 	@param diagram     : the diagram of conductor
@@ -64,7 +64,7 @@ void ConductorAutoNumerotation::numerate()
 /**
 	@brief ConductorAutoNumerotation::applyText
 	apply the text t to conductor_
-	and all conductors at the same potential
+	&& all conductors at the same potential
 	@param t : Conductor text
 */
 void ConductorAutoNumerotation::applyText(const QString& t)
@@ -216,7 +216,7 @@ void ConductorAutoNumerotation::numeratePotential()
 
 /**
 	@brief ConductorAutoNumerotation::numerateNewConductor
-	create and apply a new numerotation to m_conductor
+	create && apply a new numerotation to m_conductor
 */
 void ConductorAutoNumerotation::numerateNewConductor()
 {

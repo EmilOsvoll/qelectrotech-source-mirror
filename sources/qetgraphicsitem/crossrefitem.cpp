@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -105,9 +105,9 @@ void CrossRefItem::setUpConnection()
 	QETProject *project = m_element->diagram()->project();
 	bool set=false;
 		
-	if(m_properties.snapTo() == XRefProperties::Label && (m_text || m_group)) //Snap to label and parent is a text or a group
+	if(m_properties.snapTo() == XRefProperties::Label && (m_text || m_group)) //Snap to label && parent is a text or a group
 		set=true;
-	else if(m_properties.snapTo() == XRefProperties::Bottom && !m_text && !m_group) //Snap to bottom of element and parent is the element itself
+	else if(m_properties.snapTo() == XRefProperties::Bottom && !m_text && !m_group) //Snap to bottom of element && parent is the element itself
 	{
 		m_update_connection << connect(m_element, SIGNAL(yChanged()),
 					       this, SLOT(autoPos()));
@@ -165,7 +165,7 @@ QPainterPath CrossRefItem::shape() const{
 	@param add_prefix
 	@return the string corresponding to the position of elmt in the diagram.
 	if add_prefix is true,
-	prefix (for power and delay contact) is added to the position text.
+	prefix (for power && delay contact) is added to the position text.
 */
 QString CrossRefItem::elementPositionText(
 		const Element *elmt, const bool &add_prefix) const
@@ -200,7 +200,7 @@ void CrossRefItem::updateProperties()
 	{
 		m_properties = xrp;
 		hide();
-		if(m_properties.snapTo() == XRefProperties::Label && (m_text || m_group)) //Snap to label and parent is text or group
+		if(m_properties.snapTo() == XRefProperties::Label && (m_text || m_group)) //Snap to label && parent is text or group
 			show();
 		else if((m_properties.snapTo() == XRefProperties::Bottom && !m_text && !m_group)) //Snap to bottom of element is the parent
 			show();
@@ -216,7 +216,7 @@ void CrossRefItem::updateProperties()
 */
 void CrossRefItem::updateLabel()
 {
-		//init the shape and bounding rect
+		//init the shape && bounding rect
 	m_shape_path    = QPainterPath();
 	prepareGeometryChange();
 	m_bounding_rect = QRectF();
@@ -247,7 +247,7 @@ void CrossRefItem::updateLabel()
 
 /**
 	@brief CrossRefItem::autoPos
-	Calculate and set position automatically.
+	Calculate && set position automatically.
 */
 void CrossRefItem::autoPos()
 {
@@ -432,7 +432,7 @@ void CrossRefItem::linkedChanged()
 
 /**
 	@brief CrossRefItem::buildHeaderContact
-	Draw the QPicture of m_hdr_no_ctc and m_hdr_nc_ctc
+	Draw the QPicture of m_hdr_no_ctc && m_hdr_nc_ctc
 */
 void CrossRefItem::buildHeaderContact()
 {
@@ -566,7 +566,7 @@ void CrossRefItem::drawAsCross(QPainter &painter)
 	p.setX((m_bounding_rect.width() * 3/4) - (m_hdr_nc_ctc.width()/2));
 	painter.drawPicture (p, m_hdr_nc_ctc);
 
-	//and fill it
+	//&& fill it
 	fillCrossRef(painter);
 }
 
@@ -972,7 +972,7 @@ void CrossRefItem::AddExtraInfo(QPainter &painter, const QString& type)
 	@return The linked elements of m_element which are open or switch contact.
 	If linked element is a power contact,
 	xref property is set to not show power contact
-	and this cross item must be drawn as a cross,
+	&& this cross item must be drawn as a cross,
 	the element is not appended in the list.
 */
 QList<Element *> CrossRefItem::NOElements() const
@@ -981,7 +981,7 @@ QList<Element *> CrossRefItem::NOElements() const
 
 	foreach (Element *elmt, m_element->linkedElements())
 	{
-		//We continue if element is a power contact and xref property
+		//We continue if element is a power contact && xref property
 		//is set to not show power contact
 		if (m_properties.displayHas() == XRefProperties::Cross &&
 			!m_properties.showPowerContact() &&
@@ -1005,7 +1005,7 @@ QList<Element *> CrossRefItem::NOElements() const
 	or switch contact
 	If linked element is a power contact,
 	xref property is set to not show power contact
-	and this cross item must be drawn as a cross,
+	&& this cross item must be drawn as a cross,
 	the element is not appended in the list.
 */
 QList<Element *> CrossRefItem::NCElements() const
@@ -1014,7 +1014,7 @@ QList<Element *> CrossRefItem::NCElements() const
 
 	foreach (Element *elmt, m_element->linkedElements())
 	{
-		//We continue if element is a power contact and xref property
+		//We continue if element is a power contact && xref property
 		//is set to not show power contact
 		if (m_properties.displayHas() == XRefProperties::Cross &&
 			!m_properties.showPowerContact() &&

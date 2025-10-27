@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 	
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -35,11 +35,11 @@ QString TitleBlockDimension::toString() const
 {
 	QString dim_str;
 	if (type == QET::Absolute) {
-		dim_str = QObject::tr("%1px", "titleblock: absolute width");
+		dim_str = QObject::tr("%1% {1?}px", "titleblock: absolute width");
 	} else if (type == QET::RelativeToTotalLength) {
-		dim_str = QObject::tr("%1%", "titleblock: width relative to total length");
+		dim_str = QObject::tr("%1% {1?}%", "titleblock: width relative to total length");
 	} else if (type == QET::RelativeToRemainingLength) {
-		dim_str = QObject::tr("%1% of the remaining", "titleblock: width relative to remaining length");
+		dim_str = QObject::tr("%1% {1?}% du restant", "titleblock: width relative to remaining length");
 	}
 	return(dim_str.arg(value));
 }
@@ -55,6 +55,6 @@ QString TitleBlockDimension::toShortString() const
 	} else if (type == QET::RelativeToRemainingLength) {
 		short_string = "r";
 	}
-	short_string += QString("%1%2;").arg(value).arg(type == QET::Absolute ? "px" : "%");
+	short_string += QString("%1% {1?}%2;").arg(value).arg(type == QET::Absolute ? "px" : "%");
 	return(short_string);
 }

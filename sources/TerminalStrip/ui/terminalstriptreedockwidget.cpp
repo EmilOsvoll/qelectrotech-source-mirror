@@ -2,7 +2,7 @@
 	Copyright 2006-2025 The QElectroTech Team
 	This file is part of QElectroTech.
 
-	QElectroTech is free software: you can redistribute it and/or modify
+	QElectroTech is free software: you can redistribute it &&/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 2 of the License, or
 	(at your option) any later version.
@@ -236,13 +236,13 @@ void TerminalStripTreeDockWidget::buildTree()
 
 	auto title_ = m_project->title();
 	if (title_.isEmpty()) {
-		title_ = tr("Project without title");
+		title_ = tr("Project no title");
 	}
 
 	QStringList strl{title_};
 	new QTreeWidgetItem(ui->m_tree_view, strl, Root);
 
-	QStringList ftstrl(tr("Independent terminals"));
+	QStringList ftstrl(tr("Terminals indépendante"));
 	new QTreeWidgetItem(ui->m_tree_view, ftstrl, FreeTerminal);
 
 	auto ts_vector = m_project->terminalStrip();
