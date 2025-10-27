@@ -224,7 +224,7 @@ void DeleteQGraphicsItemCommand::setPotentialsOfRemovedElements()
 
 				if (exist_ == false)
 				{
-					m_connected_terminals.append(std::make_pair<Terminal *, Terminal *>((Terminal *)hub_terminal, (Terminal *)t));
+					m_connected_terminals.append(std::make_pair((Terminal *)hub_terminal, (Terminal *)t));
 					qInfo() << "m_connected_terminals" << m_connected_terminals;
 					Conductor *new_cond = new Conductor(hub_terminal, t);
 					new_cond->setProperties(properties);

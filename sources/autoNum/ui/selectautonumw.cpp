@@ -202,7 +202,7 @@ void SelectAutonumW::on_buttonBox_clicked(QAbstractButton *button)
 		case QDialogButtonBox::ResetRole:
 			setContext(m_context);
 			break;
-			//help diaLog
+			//help dialog
 		case QDialogButtonBox::HelpRole:
 			if (m_edited_type == 2)
 			{
@@ -221,7 +221,7 @@ void SelectAutonumW::on_buttonBox_clicked(QAbstractButton *button)
 							   "If the digit defined in the Value field has fewer digits than the chosen type,"
 							   "celui-ci sera précédé par un ou deux 0 afin de respecter son type.\n"
 
-							   "The "Text" type represents fixed text. The "Increment" field is not used.
+							   "The \"Text\" type represents fixed text. The \"Increment\" field is not used.\n"
 							   "help dialog about the folio autonumbering"
 							   ));
 				break;
@@ -247,7 +247,7 @@ void SelectAutonumW::on_buttonBox_clicked(QAbstractButton *button)
 
 							   "\n-The type \"Folio No.\" represents the number of the current folio.\nThe other fields are not used.\n"
 
-							   "The "Folio" type represents the name of the current folio. The other fields are not used."
+							   "The \"Folio\" type represents the name of the current folio. The other fields are not used.\n"
 							   "help dialog about the conductor autonumerotation"
 							   ));
 				break;
@@ -273,7 +273,7 @@ void SelectAutonumW::on_buttonBox_clicked(QAbstractButton *button)
 
 							   "\n-The type \"Folio No.\" represents the number of the current folio.\nThe other fields are not used.\n"
 
-							   "The "Folio" type represents the name of the current folio. The other fields are not used."
+							   "The \"Folio\" type represents the name of the current folio. The other fields are not used."
 							   "help dialog about the element autonumbering"
 							   ));
 				break;

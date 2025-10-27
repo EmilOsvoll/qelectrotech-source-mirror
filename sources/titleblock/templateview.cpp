@@ -376,8 +376,8 @@ void TitleBlockTemplateView::editRow(HelperCell *cell) {
 	TitleBlockDimension dimension_before = TitleBlockDimension(tbtemplate_ -> rowDimension(index));
 	TitleBlockDimensionWidget dialog(false, this);
 	dialog.setReadOnly(read_only_);
-	diaLog.setWindowTitle(tr("Change line height", "window title when changing a row height"));
-	diaLog.label() -> setText(tr("Height:", "text before the spinbox to change a row height"));
+	dialog.setWindowTitle(tr("Change line height", "window title when changing a row height"));
+	dialog.label() -> setText(tr("Height:", "text before the spinbox to change a row height"));
 	dialog.setValue(dimension_before);
 	int user_answer = dialog.exec();
 	if (!read_only_ && user_answer == QDialog::Accepted) {
@@ -834,8 +834,8 @@ void TitleBlockTemplateView::refresh()
 void TitleBlockTemplateView::changePreviewWidth()
 {
 	TitleBlockDimensionWidget dialog(false, this);
-	diaLog.setWindowTitle(tr("Change preview width"));
-	diaLog.label() -> setText(tr("Preview width :"));
+	dialog.setWindowTitle(tr("Change preview width"));
+	dialog.label() -> setText(tr("Preview width :"));
 	dialog.setValue(TitleBlockDimension(preview_width_));
 	if (dialog.exec() == QDialog::Accepted) {
 		setPreviewWidth(dialog.value().value);

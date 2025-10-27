@@ -198,7 +198,7 @@ void FolioAutonumberingW::on_buttonBox_clicked(QAbstractButton *button)
 						   "If the digit defined in the Value field has fewer digits than the chosen type,"
 						   "celui-ci sera précédé par un ou deux 0 afin de respecter son type.\n"
 
-						   "The "Text" type represents fixed text. The "Increment" field is not used.
+						   "The \"Text\" type represents fixed text. The \"Increment\" field is not used."
 						   "help dialog about the folio autonumbering"
 						   ));
 			break;

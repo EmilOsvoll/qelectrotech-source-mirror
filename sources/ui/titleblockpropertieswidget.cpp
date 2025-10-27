@@ -311,7 +311,7 @@ void TitleBlockPropertiesWidget::addCollection(
 
 /**
 	@brief TitleBlockPropertiesWidget::initDialog
-	Init this diaLog
+	Init this dialog
 	@param current_date : true for display current date radio button
 	@param project
 */
