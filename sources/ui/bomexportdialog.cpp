@@ -65,8 +65,8 @@ int BOMExportDialog::exec()
 			//save in csv file in same directory as project by default
 		QString dir = m_project->currentDir();
 		if (dir.isEmpty()) dir = QETApp::documentDir();
-		QString file_name = dir % "/" % tr("nomenclature_") % QString(m_project ->title() % ".csv");
-		QString file_path = QFileDialog::getSaveFileName(this, tr("Enregister sous... "), file_name, tr("Fichiers csv (*.csv)"));
+		QString file_name = dir % "/" % tr("parts list_") % QString(m_project ->title() % ".csv");
+		QString file_path = QFileDialog::getSaveFileName(this, tr("Save As... "), file_name, tr("CSV files (*.csv)"));
 		QFile file(file_path);
 		if (!file_path.isEmpty())
 		{
@@ -75,7 +75,7 @@ int BOMExportDialog::exec()
 				// if file already exist -> delete it
 				if (!QFile::remove(file_path) )
 				{
-					QMessageBox::critical(this, tr("Erreur"),
+					QMessageBox::critical(this, tr("Error"),
 										  tr("Impossible de remplacer le fichier!\n\n")+
 										  "Destination : "+file_path+"\n");
 				}
@@ -121,9 +121,9 @@ QString BOMExportDialog::getBom()
 				if (field_name == "position") {
 					header_name << tr("Position");
 				} else if (field_name == "diagram_position") {
-					header_name << tr("Position du folio");
+					header_name << tr("Folio position");
 				} else if (field_name == "designation_qty") {
-					header_name << tr("Quantité numéro d'article", "Special field with name : designation quantity");
+					header_name << tr("Designation quantity", "Special field with name : designation quantity");
 				} else {
 					header_name << QETInformation::translatedInfoKey(field_name);
 					if (header_name.isEmpty()) {
