@@ -87,16 +87,39 @@ BorderTitleBlock::~BorderTitleBlock()
 */
 QRectF BorderTitleBlock::titleBlockRect() const
 {
-	if (m_edge == Qt::BottomEdge)
-		return QRectF(diagram_rect_.bottomLeft(),
-			      QSize(diagram_rect_.width(),
-				    m_titleblock_template_renderer -> height()
-				    ));
-	else
-		return QRectF(diagram_rect_.topRight(),
-			      QSize(m_titleblock_template_renderer -> height(),
-				    diagram_rect_.height()
-				    ));
+	QRectF rect;
+	
+	if (border_all_sides_) {
+		// When drawing borders on all sides, title block is inside the diagram
+		if (m_edge == Qt::BottomEdge) {
+			// Position at bottom, inside the diagram
+			rect = QRectF(diagram_rect_.bottomLeft() + QPointF(0, -m_titleblock_template_renderer->height()),
+				      QSize(diagram_rect_.width(),
+					    m_titleblock_template_renderer -> height()
+					    ));
+		} else {
+			// Position at right, inside the diagram (will be rotated)
+			rect = QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height(), 0),
+				      QSize(m_titleblock_template_renderer -> height(),
+					    diagram_rect_.height()
+					    ));
+		}
+	} else {
+		// Original behavior: title block extends outside the diagram
+		if (m_edge == Qt::BottomEdge) {
+			rect = QRectF(diagram_rect_.bottomLeft(),
+				      QSize(diagram_rect_.width(),
+					    m_titleblock_template_renderer -> height()
+					    ));
+		} else {
+			rect = QRectF(diagram_rect_.topRight(),
+				      QSize(m_titleblock_template_renderer -> height(),
+					    diagram_rect_.height()
+					    ));
+		}
+	}
+	
+	return rect;
 }
 
 /**
@@ -355,6 +378,7 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.rows_height = rowsHeight();
 	bp.rows_header_width = rowsHeaderWidth();
 	bp.display_rows = rowsAreDisplayed();
+	bp.border_all_sides = border_all_sides_;
 	return(bp);
 }
 
@@ -372,6 +396,7 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
 	setRowsCount(bp.rows_count);
 	setRowsHeight(bp.rows_height);
 	displayRows(bp.display_rows);
+	border_all_sides_ = bp.border_all_sides;
 }
 
 /**
@@ -519,8 +544,28 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 	QSettings settings;
 
-	//Draw the borer
-	if (display_border_) painter -> drawRect(diagram_rect_);
+	//Draw the border
+	if (display_border_) {
+		if (border_all_sides_) {
+			// Draw all 4 sides explicitly
+			QPointF topLeft = diagram_rect_.topLeft();
+			QPointF topRight = diagram_rect_.topRight();
+			QPointF bottomLeft = diagram_rect_.bottomLeft();
+			QPointF bottomRight = diagram_rect_.bottomRight();
+			
+			// Top edge
+			painter -> drawLine(topLeft, topRight);
+			// Right edge
+			painter -> drawLine(topRight, bottomRight);
+			// Bottom edge
+			painter -> drawLine(bottomRight, bottomLeft);
+			// Left edge
+			painter -> drawLine(bottomLeft, topLeft);
+		} else {
+			// Original behavior: draw only left and top
+			painter -> drawRect(diagram_rect_);
+		}
+	}
 
 	painter -> setFont(QETApp::diagramTextsFont());
 

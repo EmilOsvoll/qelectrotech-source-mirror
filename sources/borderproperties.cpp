@@ -40,7 +40,8 @@ BorderProperties::BorderProperties() :
 	rows_count(8),
 	rows_height(80.0),
 	rows_header_width(20.0),
-	display_rows(true)
+	display_rows(true),
+	border_all_sides(false)
 {
 }
 
@@ -69,7 +70,8 @@ bool BorderProperties::operator==(const BorderProperties &bp) {
 		bp.rows_count == rows_count &&\
 		bp.rows_height == rows_height &&\
 		bp.rows_header_width == rows_header_width &&\
-		bp.display_rows == display_rows
+		bp.display_rows == display_rows &&\
+		bp.border_all_sides == border_all_sides
 	);
 }
 
@@ -104,6 +106,7 @@ void BorderProperties::toXml(QDomElement &e) const
 	e.setAttribute("rowsize",     QString("%1").arg(rows_height));
 	e.setAttribute("displaycols", display_columns ? "true" : "false");
 	e.setAttribute("displayrows", display_rows    ? "true" : "false");
+	e.setAttribute("borderallsides", border_all_sides ? "true" : "false");
 }
 
 /**
@@ -122,6 +125,7 @@ void BorderProperties::fromXml(QDomElement &e) {
 	if (e.hasAttribute("rowsize"))     rows_height     = e.attribute("rowsize").toInt();
 	if (e.hasAttribute("displaycols")) display_columns = e.attribute("displaycols") == "true";
 	if (e.hasAttribute("displayrows")) display_rows    = e.attribute("displayrows") == "true";
+	if (e.hasAttribute("borderallsides")) border_all_sides = e.attribute("borderallsides") == "true";
 }
 
 /**
@@ -144,6 +148,7 @@ void BorderProperties::toSettings(QSettings &settings, const QString &prefix) co
 	settings.setValue(prefix % "rows",        rows_count);
 	settings.setValue(prefix % "rowsize",     rows_height);
 	settings.setValue(prefix % "displayrows", display_rows);
+	settings.setValue(prefix % "borderallsides", border_all_sides);
 }
 
 /**
@@ -163,6 +168,8 @@ void BorderProperties::fromSettings(QSettings &settings, const QString &prefix) 
 	rows_count      = settings.value(prefix % "rows",            rows_count).toInt();
 	rows_height     = qRound(settings.value(prefix % "rowsize",  rows_height).toDouble());
 	display_rows    = settings.value(prefix % "displayrows",     display_rows).toBool();
+	border_all_sides = settings.value(prefix % "borderallsides", 
+		settings.value("diagrameditor/default-borderallsides", border_all_sides)).toBool();
 }
 
 /**

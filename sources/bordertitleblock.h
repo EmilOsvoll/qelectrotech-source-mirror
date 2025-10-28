@@ -281,6 +281,7 @@ class BorderTitleBlock : public QObject
 		bool display_columns_;
 		bool display_rows_;
 		bool display_border_;
+		bool border_all_sides_;     ///< Whether to draw border on all sides
 		TitleBlockTemplateRenderer *m_titleblock_template_renderer;
 };
 #endif

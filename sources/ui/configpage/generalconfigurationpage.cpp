@@ -84,6 +84,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui->m_save_label_paste->setChecked(settings.value("diagramcommands/erase-label-on-copy", true).toBool());
 	ui->m_use_folio_label->setChecked(settings.value("genericpanel/folio", true).toBool());
 	ui->m_border_0->setChecked(settings.value("border-columns_0", false).toBool());
+	ui->m_border_all_sides->setChecked(settings.value("diagrameditor/default-borderallsides", false).toBool());
 	ui->m_autosave_sb->setValue(settings.value("diagrameditor/autosave-interval", 0).toInt());
 	
 	QString fontInfos = settings.value("diagramitemfont", "Liberation Sans").toString() + " " +
@@ -200,6 +201,7 @@ void GeneralConfigurationPage::applyConf()
 		QETApp::instance()->useSystemPalette(must_use_system_colors);
 	}
 	settings.setValue("border-columns_0",ui->m_border_0->isChecked());
+	settings.setValue("diagrameditor/default-borderallsides", ui->m_border_all_sides->isChecked());
 	settings.setValue("lang", ui->m_lang_cb->itemData(ui->m_lang_cb->currentIndex()).toString());
 
 		//hdpi

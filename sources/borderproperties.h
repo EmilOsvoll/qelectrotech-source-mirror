@@ -42,15 +42,16 @@ class BorderProperties {
 
 		static BorderProperties defaultProperties();
 	
-		// attributes
-		int columns_count;            ///< Columns count
-		qreal columns_width;          ///< Columns width
-		qreal columns_header_height;  ///< Column headers height
-		bool display_columns;         ///< Whether to display column headers
+	// attributes
+	int columns_count;            ///< Columns count
+	qreal columns_width;          ///< Columns width
+	qreal columns_header_height;  ///< Column headers height
+	bool display_columns;         ///< Whether to display column headers
 	
-		int rows_count;               ///< Rows count
-		qreal rows_height;            ///< Rows height
-		qreal rows_header_width;      ///< Row headers width
-		bool display_rows;            ///< Whether to display row headers
+	int rows_count;               ///< Rows count
+	qreal rows_height;            ///< Rows height
+	qreal rows_header_width;      ///< Row headers width
+	bool display_rows;            ///< Whether to display row headers
+	bool border_all_sides;        ///< Whether to draw border on all sides (false = only left/top)
 };
 #endif

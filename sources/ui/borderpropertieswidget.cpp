@@ -57,6 +57,7 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	ui -> m_rows_count_sp      ->setValue   (m_properties.rows_count);
 	ui -> m_rows_height_sp     ->setValue   (m_properties.rows_height);
 	ui -> m_display_rows_cb    ->setChecked (m_properties.display_rows);
+	ui -> m_border_all_sides_cb ->setChecked(m_properties.border_all_sides);
 }
 
 /**
@@ -71,6 +72,7 @@ const BorderProperties &BorderPropertiesWidget::properties ()
 	m_properties.rows_count      = ui -> m_rows_count_sp      -> value();
 	m_properties.rows_height     = ui -> m_rows_height_sp     -> value();
 	m_properties.display_rows    = ui -> m_display_rows_cb    -> isChecked();
+	m_properties.border_all_sides = ui -> m_border_all_sides_cb -> isChecked();
 	return m_properties;
 }
 
