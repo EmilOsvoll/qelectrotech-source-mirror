@@ -200,7 +200,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="m_border_0">
          <property name="text">
-          <string extracomment="Choice of starting increment 1 or 0">Number the cartridge columns starting from 0 (1 otherwise)</string>
+          <string extracomment="Choice of starting increment 1 or 0">Number the title block columns starting from 0 (1 otherwise)</string>
          </property>
         </widget>
        </item>
@@ -763,14 +763,14 @@ Here you can specify the default value of this field for the elements you will c
           <item row="0" column="0">
            <widget class="QLabel" name="Label_Diagram_Key_xGrid">
             <property name="text">
-             <string>DiagramEditor (key: left / right) xGrid</string>
+             <string>Diagram editor (key: left / right) xGrid</string>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="Label_Diagram_Key_yGrid">
             <property name="text">
-             <string>DiagramEditor (key: up / down) yGrid</string>
+             <string>Diagram editor (key: up / down) yGrid</string>
             </property>
            </widget>
           </item>
@@ -793,13 +793,13 @@ Here you can specify the default value of this field for the elements you will c
        <item>
         <widget class="QGroupBox" name="groupBox_4">
          <property name="title">
-          <string>Keyboard movement with the ALT key: 1 - 9</string>
+          <string>Keyboard movement with the ALT key : 1 - 9</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="0" column="1">
            <widget class="QLabel" name="Label_Diagram_Key_xGrid_ALT">
             <property name="text">
-             <string>DiagramEditor (key: left / right) xGrid</string>
+             <string>Diagram editor (key: left / right) xGrid</string>
             </property>
            </widget>
           </item>
@@ -828,7 +828,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="1" column="1">
            <widget class="QLabel" name="Label_Diagram_Key_yGrid_ALT">
             <property name="text">
-             <string>DiagramEditor (key: up / down) yGrid</string>
+             <string>Diagram editor (key: up / down) yGrid</string>
             </property>
            </widget>
           </item>
@@ -899,7 +899,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="0" column="0">
            <widget class="QLabel" name="Label_Diagram_Grid_PointSize">
             <property name="text">
-             <string>Diagram-Editor grid point size: 1 - 5</string>
+             <string>Diagram-Editor grid point size : 1 - 5</string>
             </property>
            </widget>
           </item>
@@ -945,7 +945,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="1" column="0">
            <widget class="QLabel" name="label_20">
             <property name="text">
-             <string>Element editor grid point size: 1 - 5</string>
+             <string>Element editor grid point size : 1 - 5</string>
             </property>
            </widget>
           </item>

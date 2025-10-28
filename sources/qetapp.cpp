@@ -460,7 +460,7 @@ TitleBlockTemplatesFilesCollection *QETApp::companyTitleBlockTemplatesCollection
 				new TitleBlockTemplatesFilesCollection(
 					QETApp::companyTitleBlockTemplatesDir());
 		m_company_tbt_collection -> setTitle(
-					tr("Company title-blocks",
+					tr("Company title blocks",
 					   "title of the company's \
 					title block templates collection"));
 		m_company_tbt_collection -> setProtocol(QETAPP_COMPANY_TBT_PROTOCOL);

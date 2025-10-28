@@ -27,7 +27,7 @@
           <bool>true</bool>
          </property>
          <property name="title">
-          <string>&amp;Multifilaire</string>
+          <string>&amp;Multi-wire</string>
          </property>
          <property name="checkable">
           <bool>true</bool>

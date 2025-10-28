@@ -29,9 +29,9 @@
          <property name="currentIndex">
           <number>0</number>
          </property>
-         <widget class="QWidget" name="Multifilaire">
+         <widget class="QWidget" name="Multi-wire">
           <attribute name="title">
-           <string>&amp;Multifilaire</string>
+           <string>&amp;Multi-wire</string>
           </attribute>
           <layout class="QGridLayout" name="gridLayout_7">
            <item row="0" column="0">
@@ -43,7 +43,7 @@
               </size>
              </property>
              <property name="title">
-              <string>&amp;Multifilaire</string>
+              <string>&amp;Multi-wire</string>
              </property>
              <property name="checkable">
               <bool>true</bool>

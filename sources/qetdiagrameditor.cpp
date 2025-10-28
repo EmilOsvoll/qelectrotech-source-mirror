@@ -699,7 +699,7 @@ void QETDiagramEditor::setUpActions()
 		this->currentDiagramView()->diagram()->changeZValue(action->data().value<QET::DepthOption>());
 	});
 
-	m_find = new QAction(tr("Chercher/remplacer"), this);
+	m_find = new QAction(tr("Find/replace"), this);
 	m_find->setShortcut(QKeySequence::Find);
 	connect(m_find, &QAction::triggered, [this]()
 	{
