@@ -24,6 +24,11 @@ project(qelectrotech
   HOMEPAGE_URL "https://qelectrotech.org/"
   LANGUAGES CXX)
 
+# Add /FS flag for MSVC to allow parallel builds without PDB conflicts
+if(MSVC)
+  add_compile_options(/FS)
+endif()
+
 include(cmake/copyright_message.cmake)
 
 set(QET_DIR ${PROJECT_SOURCE_DIR})
