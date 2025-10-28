@@ -407,7 +407,7 @@ QString QETProject::pathNameTitle() const
 	} else {
 		final_title = QString(
 			tr(
-				"Project without title",
+				"Untitled title",
 				"displayed title for a project-less, file-less project"
 			)
 		);

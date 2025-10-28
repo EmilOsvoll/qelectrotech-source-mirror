@@ -62,14 +62,14 @@
        <item>
         <widget class="QRadioButton" name="m_use_windows_mode_rb">
          <property name="text">
-          <string>Utiliser des fen&amp;êtres (appliqué au prochain lancement de QElectroTech)</string>
+          <string>Use windows (applied to the next launch of QElectroTech)</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QRadioButton" name="m_use_tab_mode_rb">
          <property name="text">
-          <string>Utiliser des onglets (appliqué au prochain lance&amp;ment de QElectroTech)</string>
+          <string>Use tabs (applied to the next QElectroTech launch)</string>
          </property>
         </widget>
        </item>
@@ -899,7 +899,7 @@ Here you can specify the default value of this field for the elements you will c
           <item row="0" column="0">
            <widget class="QLabel" name="Label_Diagram_Grid_PointSize">
             <property name="text">
-             <string>Diagram-Editor grid point size : 1 - 5</string>
+             <string>Diagram editor grid point size : 1 - 5</string>
             </property>
            </widget>
           </item>
