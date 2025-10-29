@@ -62,7 +62,7 @@ BorderTitleBlock::BorderTitleBlock(QObject *parent) :
 #endif
 
 	// dimensions par defaut du schema
-	importBorder(BorderProperties());
+	importBorder(BorderProperties::defaultProperties());
 
 	// contenu par defaut du cartouche
 	importTitleBlock(TitleBlockProperties());
@@ -148,12 +148,22 @@ QRectF BorderTitleBlock::titleBlockRectForQPainter() const
 	//Rect at bottom have same position and dimension of displayed rect
 	if (m_edge == Qt::BottomEdge)
 		return titleBlockRect();
-	else
-		return QRectF (diagram_rect_.bottomRight(),
-			       QSize(diagram_rect_.height(),
-				     m_titleblock_template_renderer -> height()
-				     ));
-
+	else {
+		// For right edge, need to handle border_all_sides_ flag
+		if (border_all_sides_) {
+			// Title block should be inside the diagram
+			return QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height(), 0),
+				      QSize(m_titleblock_template_renderer -> height(),
+					    diagram_rect_.height()
+					    ));
+		} else {
+			// Original behavior: title block extends outside
+			return QRectF (diagram_rect_.bottomRight(),
+				       QSize(diagram_rect_.height(),
+					     m_titleblock_template_renderer -> height()
+					     ));
+		}
+	}
 }
 
 /**
@@ -548,30 +558,34 @@ void BorderTitleBlock::draw(QPainter *painter)
 	if (display_border_) {
 		if (border_all_sides_) {
 			// Draw all 4 sides explicitly
-			QPointF topLeft = diagram_rect_.topLeft();
-			QPointF topRight = diagram_rect_.topRight();
-			QPointF bottomLeft = diagram_rect_.bottomLeft();
-			QPointF bottomRight = diagram_rect_.bottomRight();
+			qreal x = diagram_rect_.x();
+			qreal y = diagram_rect_.y();
+			qreal w = diagram_rect_.width();
+			qreal h = diagram_rect_.height();
 			
-			// Top edge
-			painter -> drawLine(topLeft, topRight);
-			// Right edge
-			painter -> drawLine(topRight, bottomRight);
-			// Bottom edge
-			painter -> drawLine(bottomRight, bottomLeft);
-			// Left edge
-			painter -> drawLine(bottomLeft, topLeft);
+			// Draw all 4 sides to form a complete border
+			painter -> drawLine(x, y, x + w, y);          // Top edge
+			painter -> drawLine(x + w, y, x + w, y + h); // Right edge
+			painter -> drawLine(x + w, y + h, x, y + h); // Bottom edge
+			painter -> drawLine(x, y + h, x, y);          // Left edge
 		} else {
 			// Original behavior: draw only left and top
-			painter -> drawRect(diagram_rect_);
+			qreal x = diagram_rect_.x();
+			qreal y = diagram_rect_.y();
+			qreal w = diagram_rect_.width();
+			qreal h = diagram_rect_.height();
+			
+			painter -> drawLine(x, y, x + w, y);  // Top edge only
+			painter -> drawLine(x, y, x, y + h);  // Left edge only
 		}
 	}
 
 	painter -> setFont(QETApp::diagramTextsFont());
 
-	//Draw the empty case at the top left of diagram when there is header
+	//Draw the empty case at the corners of diagram when there is header
 	if (display_border_ && (display_columns_ || display_rows_))
 	{
+		// Top-left corner
 		QRectF first_rectangle(
 			diagram_rect_.topLeft().x(),
 			diagram_rect_.topLeft().y(),
@@ -579,11 +593,42 @@ void BorderTitleBlock::draw(QPainter *painter)
 			columns_header_height_
 		);
 		painter -> drawRect(first_rectangle);
+		
+		// Draw corner rectangles at all four corners when border on all sides
+		if (border_all_sides_) {
+			// Bottom-left corner
+			QRectF bottom_left_rectangle(
+				diagram_rect_.bottomLeft().x(),
+				diagram_rect_.bottomLeft().y() - columns_header_height_,
+				rows_header_width_,
+				columns_header_height_
+			);
+			painter -> drawRect(bottom_left_rectangle);
+			
+			// Top-right corner
+			QRectF top_right_rectangle(
+				diagram_rect_.topRight().x() - rows_header_width_,
+				diagram_rect_.topRight().y(),
+				rows_header_width_,
+				columns_header_height_
+			);
+			painter -> drawRect(top_right_rectangle);
+			
+			// Bottom-right corner
+			QRectF bottom_right_rectangle(
+				diagram_rect_.bottomRight().x() - rows_header_width_,
+				diagram_rect_.bottomRight().y() - columns_header_height_,
+				rows_header_width_,
+				columns_header_height_
+			);
+			painter -> drawRect(bottom_right_rectangle);
+		}
 	}
 
-		//Draw the nums of columns
+		//Draw the nums of columns (top and bottom)
 	if (display_border_ && display_columns_) {
 		for (int i = 1 ; i <= columns_count_ ; ++ i) {
+			// Top columns
 			QRectF numbered_rectangle = QRectF(
 				diagram_rect_.topLeft().x()
 					+ (rows_header_width_
@@ -604,13 +649,38 @@ void BorderTitleBlock::draw(QPainter *painter)
 					    | Qt::AlignCenter,
 					    QString("%1").arg(i));
 			}
+			
+			// Bottom columns (when border on all sides)
+			if (border_all_sides_) {
+				QRectF bottom_numbered_rectangle = QRectF(
+					diagram_rect_.topLeft().x()
+						+ (rows_header_width_
+						   + ((i - 1) * columns_width_)),
+					diagram_rect_.bottomLeft().y() - columns_header_height_,
+					columns_width_,
+					columns_header_height_
+				);
+				painter -> drawRect(bottom_numbered_rectangle);
+				if (settings.value("border-columns_0", true).toBool()){
+				painter -> drawText(bottom_numbered_rectangle,
+						    Qt::AlignVCenter
+						    | Qt::AlignCenter,
+						    QString("%1").arg(i - 1));
+				}else{
+				painter -> drawText(bottom_numbered_rectangle,
+						    Qt::AlignVCenter
+						    | Qt::AlignCenter,
+						    QString("%1").arg(i));
+				}
+			}
 		}
 	}
 
-		//Draw the nums of rows
+		//Draw the nums of rows (left and right)
 	if (display_border_ && display_rows_) {
 		QString row_string("A");
 		for (int i = 1 ; i <= rows_count_ ; ++ i) {
+			// Left rows
 			QRectF lettered_rectangle = QRectF(
 				diagram_rect_.topLeft().x(),
 				diagram_rect_.topLeft().y()
@@ -626,6 +696,26 @@ void BorderTitleBlock::draw(QPainter *painter)
 					    Qt::AlignVCenter
 					    | Qt::AlignCenter,
 					    row_string);
+			
+			// Right rows (when border on all sides)
+			if (border_all_sides_) {
+				QRectF right_lettered_rectangle = QRectF(
+					diagram_rect_.topRight().x() - rows_header_width_,
+					diagram_rect_.topLeft().y()
+						+ (
+							columns_header_height_
+							+ ((i - 1)* rows_height_)
+							),
+					rows_header_width_,
+					rows_height_
+				);
+				painter -> drawRect(right_lettered_rectangle);
+				painter -> drawText(right_lettered_rectangle,
+						    Qt::AlignVCenter
+						    | Qt::AlignCenter,
+						    row_string);
+			}
+			
 			row_string = incrementLetters(row_string);
 		}
 	}
