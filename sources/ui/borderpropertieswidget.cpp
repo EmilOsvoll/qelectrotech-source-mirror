@@ -19,6 +19,7 @@
 
 #include "../diagram.h"
 #include "ui_borderpropertieswidget.h"
+#include <QtCore/QtGlobal>
 
 /**
 	@brief BorderPropertiesWidget::BorderPropertiesWidget
@@ -31,6 +32,34 @@ BorderPropertiesWidget::BorderPropertiesWidget(const BorderProperties &bp, QWidg
 	ui(new Ui::BorderPropertiesWidget)
 {
 	ui->setupUi(this);
+	
+	// Connect signals to update calculated dimensions when inputs change
+	connect(ui->m_use_calculated_dimensions_cb, &QCheckBox::toggled,
+		this, &BorderPropertiesWidget::onCalculateDimensionsToggled);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
+	connect(ui->m_aspect_ratio_sp, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_base_area_sp, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_scale_sp, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_colums_count_sp, QOverload<int>::of(&QSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_rows_count_sp, QOverload<int>::of(&QSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+#else
+	connect(ui->m_aspect_ratio_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_base_area_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_scale_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_colums_count_sp, static_cast<void(QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+	connect(ui->m_rows_count_sp, static_cast<void(QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+#endif
+	
 	setProperties(bp);
 }
 
@@ -58,6 +87,15 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	ui -> m_rows_height_sp     ->setValue   (m_properties.rows_height);
 	ui -> m_display_rows_cb    ->setChecked (m_properties.display_rows);
 	ui -> m_border_all_sides_cb ->setChecked(m_properties.border_all_sides);
+	
+	// Set new calculated dimension properties
+	ui -> m_use_calculated_dimensions_cb ->setChecked(m_properties.use_calculated_dimensions);
+	ui -> m_aspect_ratio_sp ->setValue(m_properties.aspect_ratio);
+	ui -> m_base_area_sp ->setValue(m_properties.base_area);
+	ui -> m_scale_sp ->setValue(m_properties.scale);
+	
+	// Update UI state based on calculated dimensions
+	onCalculateDimensionsToggled(m_properties.use_calculated_dimensions);
 }
 
 /**
@@ -67,12 +105,26 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 const BorderProperties &BorderPropertiesWidget::properties ()
 {
 	m_properties.columns_count   = ui -> m_colums_count_sp    -> value();
-	m_properties.columns_width   = ui -> m_columns_width_sp   -> value();
 	m_properties.display_columns = ui -> m_display_columns_cb -> isChecked();
 	m_properties.rows_count      = ui -> m_rows_count_sp      -> value();
-	m_properties.rows_height     = ui -> m_rows_height_sp     -> value();
 	m_properties.display_rows    = ui -> m_display_rows_cb    -> isChecked();
 	m_properties.border_all_sides = ui -> m_border_all_sides_cb -> isChecked();
+	
+	// Get calculated dimension properties
+	m_properties.use_calculated_dimensions = ui -> m_use_calculated_dimensions_cb -> isChecked();
+	m_properties.aspect_ratio = ui -> m_aspect_ratio_sp -> value();
+	m_properties.base_area = ui -> m_base_area_sp -> value();
+	m_properties.scale = ui -> m_scale_sp -> value();
+	
+	if (m_properties.use_calculated_dimensions) {
+		// Calculate dimensions based on new settings
+		m_properties.calculateDimensions();
+	} else {
+		// Use manual values
+		m_properties.columns_width = ui -> m_columns_width_sp -> value();
+		m_properties.rows_height = ui -> m_rows_height_sp -> value();
+	}
+	
 	return m_properties;
 }
 
@@ -84,4 +136,51 @@ const BorderProperties &BorderPropertiesWidget::properties ()
 void BorderPropertiesWidget::setReadOnly(const bool &ro)
 {
 	ui->border_gb->setDisabled(ro);
+}
+
+void BorderPropertiesWidget::onCalculateDimensionsToggled(bool enabled)
+{
+	// Enable/disable calculated dimension controls
+	ui->m_aspect_ratio_sp->setEnabled(enabled);
+	ui->m_base_area_sp->setEnabled(enabled);
+	ui->m_scale_sp->setEnabled(enabled);
+	
+	// Make column width and row height read-only when using calculated dimensions
+	ui->m_columns_width_sp->setReadOnly(enabled);
+	ui->m_rows_height_sp->setReadOnly(enabled);
+	
+	if (enabled) {
+		// Update properties and recalculate
+		m_properties.use_calculated_dimensions = true;
+		m_properties.aspect_ratio = ui->m_aspect_ratio_sp->value();
+		m_properties.base_area = ui->m_base_area_sp->value();
+		m_properties.scale = ui->m_scale_sp->value();
+		m_properties.columns_count = ui->m_colums_count_sp->value();
+		m_properties.rows_count = ui->m_rows_count_sp->value();
+		m_properties.calculateDimensions();
+		
+		// Update the displayed values
+		ui->m_columns_width_sp->setValue(m_properties.columns_width);
+		ui->m_rows_height_sp->setValue(m_properties.rows_height);
+	}
+}
+
+void BorderPropertiesWidget::onCalculateDimensionsChanged()
+{
+	if (ui->m_use_calculated_dimensions_cb->isChecked()) {
+		// Update properties
+		m_properties.aspect_ratio = ui->m_aspect_ratio_sp->value();
+		m_properties.base_area = ui->m_base_area_sp->value();
+		m_properties.scale = ui->m_scale_sp->value();
+		m_properties.columns_count = ui->m_colums_count_sp->value();
+		m_properties.rows_count = ui->m_rows_count_sp->value();
+		m_properties.use_calculated_dimensions = true;
+		
+		// Recalculate dimensions
+		m_properties.calculateDimensions();
+		
+		// Update the displayed values
+		ui->m_columns_width_sp->setValue(m_properties.columns_width);
+		ui->m_rows_height_sp->setValue(m_properties.rows_height);
+	}
 }

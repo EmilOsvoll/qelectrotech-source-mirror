@@ -402,15 +402,23 @@ BorderProperties BorderTitleBlock::exportBorder()
 	\~French les nouvelles proprietes de la bordure
 */
 void BorderTitleBlock::importBorder(const BorderProperties &bp) {
-	setColumnsHeaderHeight(bp.columns_header_height);
-	setColumnsCount(bp.columns_count);
-	setColumnsWidth(bp.columns_width);
-	displayColumns(bp.display_columns);
-	setRowsHeaderWidth(bp.rows_header_width);
-	setRowsCount(bp.rows_count);
-	setRowsHeight(bp.rows_height);
-	displayRows(bp.display_rows);
-	border_all_sides_ = bp.border_all_sides;
+	// Store a copy to work with
+	BorderProperties working_bp = bp;
+	
+	// If using calculated dimensions, calculate them first
+	if (working_bp.use_calculated_dimensions) {
+		working_bp.calculateDimensions();
+	}
+	
+	setColumnsHeaderHeight(working_bp.columns_header_height);
+	setColumnsCount(working_bp.columns_count);
+	setColumnsWidth(working_bp.columns_width);
+	displayColumns(working_bp.display_columns);
+	setRowsHeaderWidth(working_bp.rows_header_width);
+	setRowsCount(working_bp.rows_count);
+	setRowsHeight(working_bp.rows_height);
+	displayRows(working_bp.display_rows);
+	border_all_sides_ = working_bp.border_all_sides;
 }
 
 /**

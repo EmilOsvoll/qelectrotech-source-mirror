@@ -43,6 +43,8 @@ class BorderPropertiesWidget : public QWidget
 		void setReadOnly (const bool &ro);
 
 	private slots:
+		void onCalculateDimensionsToggled(bool enabled);
+		void onCalculateDimensionsChanged();
 
 	private:
 		Ui::BorderPropertiesWidget *ui;
