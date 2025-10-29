@@ -90,18 +90,21 @@ QRectF BorderTitleBlock::titleBlockRect() const
 	QRectF rect;
 	
 	if (border_all_sides_) {
-		// When drawing borders on all sides, title block is inside the diagram
+		// When drawing borders on all sides, title block is INSIDE the border.
+		// Position it above/before the border edge so there's no overlap.
+		// Use the diagram margin as inset to maintain consistent spacing with the border.
 		if (m_edge == Qt::BottomEdge) {
-			// Position at bottom, inside the diagram
-			rect = QRectF(diagram_rect_.bottomLeft() + QPointF(0, -m_titleblock_template_renderer->height()),
-				      QSize(diagram_rect_.width(),
+			// Position title block inside, starting from bottom edge minus height and margin
+			// This ensures the title block border doesn't overlap the diagram border
+			rect = QRectF(diagram_rect_.bottomLeft() - QPointF(0, m_titleblock_template_renderer->height() + Diagram::margin),
+				      QSize(diagram_rect_.width() - 2 * Diagram::margin,
 					    m_titleblock_template_renderer -> height()
 					    ));
 		} else {
-			// Position at right, inside the diagram (will be rotated)
-			rect = QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height(), 0),
+			// Position title block inside, starting from right edge minus width (height when rotated) and margin
+			rect = QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height() + Diagram::margin, Diagram::margin),
 				      QSize(m_titleblock_template_renderer -> height(),
-					    diagram_rect_.height()
+					    diagram_rect_.height() - 2 * Diagram::margin
 					    ));
 		}
 	} else {
@@ -149,15 +152,16 @@ QRectF BorderTitleBlock::titleBlockRectForQPainter() const
 	if (m_edge == Qt::BottomEdge)
 		return titleBlockRect();
 	else {
-		// For right edge, need to handle border_all_sides_ flag
+		// For right edge, need to convert the vertical rect from titleBlockRect()
+		// to a horizontal rect suitable for rotation
+		QRectF rect = titleBlockRect();
 		if (border_all_sides_) {
-			// Title block should be inside the diagram
-			return QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height(), 0),
-				      QSize(m_titleblock_template_renderer -> height(),
-					    diagram_rect_.height()
-					    ));
+			// When inside, rect is already positioned correctly at topRight
+			// After -90 rotation, it will align along the right edge
+			return rect;
 		} else {
-			// Original behavior: title block extends outside
+			// Original behavior: position at bottomRight for outside placement
+			// After -90 rotation, it extends outside along the right edge
 			return QRectF (diagram_rect_.bottomRight(),
 				       QSize(diagram_rect_.height(),
 					     m_titleblock_template_renderer -> height()
@@ -557,7 +561,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 	//Draw the border
 	if (display_border_) {
 		if (border_all_sides_) {
-			// Draw all 4 sides explicitly
+			// Draw all 4 sides around the diagram rect
+			// Title block is positioned inside, so border is drawn around diagram_rect_ only
 			qreal x = diagram_rect_.x();
 			qreal y = diagram_rect_.y();
 			qreal w = diagram_rect_.width();
