@@ -104,9 +104,9 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 
 	// Force calculated dimension properties
 	ui -> m_use_calculated_dimensions_cb ->setChecked(true);
-	// Set default aspect ratio parts to 293:210
-	ui->m_aspect_ratio_width_sp->setValue(293);
-	ui->m_aspect_ratio_height_sp->setValue(210);
+	// Set default aspect ratio parts to 100:63
+	ui->m_aspect_ratio_width_sp->setValue(100);
+	ui->m_aspect_ratio_height_sp->setValue(63);
 	ui -> m_base_area_sp ->setValue(652800.0);
 	ui -> m_scale_sp ->setValue(m_properties.scale);
 
