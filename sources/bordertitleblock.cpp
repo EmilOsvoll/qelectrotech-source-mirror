@@ -566,9 +566,11 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 	QSettings settings;
 
-	// Shared separator X between the last column header and the right row header
+	// Shared separators to avoid overlaps at grid edges
 	qreal separatorX = diagram_rect_.topLeft().x() + rows_header_width_ + (columns_count_ * columns_width_);
 	separatorX = qRound(separatorX);
+	qreal separatorY = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_);
+	separatorY = qRound(separatorY);
 
 	//Draw the border
 	if (display_border_) {
@@ -616,12 +618,12 @@ void BorderTitleBlock::draw(QPainter *painter)
 		// Draw corner rectangles at all four corners when border on all sides
 		if (border_all_sides_) {
 			// Bottom-left corner
-			QRectF bottom_left_rectangle(
-				diagram_rect_.bottomLeft().x(),
-				diagram_rect_.bottomLeft().y() - columns_header_height_,
-				rows_header_width_,
-				columns_header_height_
-			);
+				QRectF bottom_left_rectangle(
+					diagram_rect_.bottomLeft().x(),
+					separatorY,
+					rows_header_width_,
+					columns_header_height_
+				);
 			painter -> drawRect(bottom_left_rectangle);
 			
 			// Top-right corner aligned with separatorX
@@ -634,12 +636,12 @@ void BorderTitleBlock::draw(QPainter *painter)
 			painter -> drawRect(top_right_rectangle);
 			
 			// Bottom-right corner
-			QRectF bottom_right_rectangle(
-				separatorX,
-				diagram_rect_.bottomRight().y() - columns_header_height_,
-				rows_header_width_,
-				columns_header_height_
-			);
+				QRectF bottom_right_rectangle(
+					separatorX,
+					separatorY,
+					rows_header_width_,
+					columns_header_height_
+				);
 			painter -> drawRect(bottom_right_rectangle);
 		}
 	}
@@ -684,7 +686,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 					diagram_rect_.topLeft().x()
 						+ (rows_header_width_
 						   + ((i - 1) * columns_width_)),
-					diagram_rect_.bottomLeft().y() - columns_header_height_,
+					separatorY,
 					columns_width_,
 					columns_header_height_
 				);
