@@ -34,7 +34,11 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QSpinBox" name="m_colums_count_sp"/>
+       <widget class="QSpinBox" name="m_colums_count_sp">
+        <property name="minimum">
+         <number>3</number>
+        </property>
+       </widget>
       </item>
       <item row="0" column="2">
        <widget class="QSpinBox" name="m_columns_width_sp">
@@ -64,7 +68,11 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="m_rows_count_sp"/>
+       <widget class="QSpinBox" name="m_rows_count_sp">
+        <property name="minimum">
+         <number>3</number>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0">
        <widget class="QLabel" name="label_2">
@@ -98,6 +106,12 @@
         <property name="toolTip">
          <string>When enabled, column width and row height are automatically calculated based on aspect ratio, base area, and scale. The drawing area remains constant when changing aspect ratio.</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="visible">
+         <bool>false</bool>
+        </property>
        </widget>
       </item>
       <item row="4" column="0">
@@ -108,21 +122,35 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QDoubleSpinBox" name="m_aspect_ratio_sp">
-        <property name="decimals">
-         <number>3</number>
-        </property>
+       <widget class="QSpinBox" name="m_aspect_ratio_width_sp">
         <property name="minimum">
-         <double>0.100000000000000</double>
+         <number>1</number>
         </property>
         <property name="maximum">
-         <double>100.000000000000000</double>
-        </property>
-        <property name="singleStep">
-         <double>0.100000000000000</double>
+         <number>10000</number>
         </property>
         <property name="value">
-         <double>1.275000000000000</double>
+         <number>293</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="QLabel" name="label_ratio_colon">
+        <property name="text">
+         <string>:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QSpinBox" name="m_aspect_ratio_height_sp">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="value">
+         <number>210</number>
         </property>
        </widget>
       </item>
@@ -130,6 +158,9 @@
        <widget class="QLabel" name="label_base_area">
         <property name="text">
          <string>Base area (px²):</string>
+        </property>
+        <property name="visible">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -146,6 +177,12 @@
         </property>
         <property name="singleStep">
          <double>1000.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>652800.000000000000000</double>
+        </property>
+        <property name="visible">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -201,9 +238,8 @@
   <tabstop>m_display_columns_cb</tabstop>
   <tabstop>m_display_rows_cb</tabstop>
   <tabstop>m_border_all_sides_cb</tabstop>
-  <tabstop>m_use_calculated_dimensions_cb</tabstop>
-  <tabstop>m_aspect_ratio_sp</tabstop>
-  <tabstop>m_base_area_sp</tabstop>
+  <tabstop>m_aspect_ratio_width_sp</tabstop>
+  <tabstop>m_aspect_ratio_height_sp</tabstop>
   <tabstop>m_scale_sp</tabstop>
  </tabstops>
  <resources/>

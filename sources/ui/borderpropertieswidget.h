@@ -45,10 +45,13 @@ class BorderPropertiesWidget : public QWidget
 	private slots:
 		void onCalculateDimensionsToggled(bool enabled);
 		void onCalculateDimensionsChanged();
+		void onAspectRatioPartsChanged();
 
 	private:
 		Ui::BorderPropertiesWidget *ui;
 		BorderProperties m_properties;
+		int m_pendingColumnsCount = 1;
+		int m_pendingRowsCount = 1;
 };
 
 #endif // BORDERPROPERTIESWIDGET_H
