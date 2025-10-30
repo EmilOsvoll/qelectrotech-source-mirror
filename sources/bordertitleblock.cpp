@@ -183,7 +183,19 @@ QRectF BorderTitleBlock::titleBlockRectForQPainter() const
 */
 QRectF BorderTitleBlock::borderAndTitleBlockRect() const
 {
-	return diagram_rect_ | titleBlockRect();
+	// Compute full extent including both left/right and top/bottom header bands
+	qreal w = (columns_width_ * columns_count_);
+	qreal h = (rows_height_ * rows_count_);
+	if (display_rows_) {
+		w += rows_header_width_; // left header
+		w += rows_header_width_; // right header
+	}
+	if (display_columns_) {
+		h += columns_header_height_; // top header
+		h += columns_header_height_; // bottom header
+	}
+	QRectF full = QRectF(Diagram::margin, Diagram::margin, w, h);
+	return full | titleBlockRect();
 }
 
 /**
