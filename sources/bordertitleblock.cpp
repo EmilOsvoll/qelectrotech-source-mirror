@@ -398,6 +398,8 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.rows_header_width = rowsHeaderWidth();
 	bp.display_rows = rowsAreDisplayed();
 	bp.border_all_sides = border_all_sides_;
+	bp.header_line_thickness = header_line_thickness_;
+	bp.header_thickness = rowsHeaderWidth();
 	return(bp);
 }
 
@@ -424,6 +426,12 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
 	setRowsHeight(working_bp.rows_height);
 	displayRows(working_bp.display_rows);
 	border_all_sides_ = working_bp.border_all_sides;
+	header_line_thickness_ = working_bp.header_line_thickness;
+	// Apply unified header thickness (if provided)
+	if (working_bp.header_thickness > 0.0) {
+		setRowsHeaderWidth(working_bp.header_thickness);
+		setColumnsHeaderHeight(working_bp.header_thickness);
+	}
 }
 
 /**
@@ -565,8 +573,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 {
 	//Set the QPainter
 	painter -> save();
-	QPen pen(Qt::black);
-	painter -> setPen(pen);
+	QPen borderPen(Qt::black);
+	painter -> setPen(borderPen);
 	painter -> setBrush(Qt::NoBrush);
 
 	QSettings settings;
@@ -589,7 +597,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 			
 			// Draw all 4 sides to form a complete border
 			// Offset right and bottom edges outward by half the pen width (use 0.5px for cosmetic pens)
-			qreal halfPen = (pen.widthF() > 0.0) ? pen.widthF() / 2.0 : 0.5;
+			qreal halfPen = (borderPen.widthF() > 0.0) ? borderPen.widthF() / 2.0 : 0.5;
 			painter -> drawLine(x, y, x + w, y);                                  // Top edge (inside)
 			painter -> drawLine(x + w + halfPen, y, x + w + halfPen, y + h);      // Right edge (outside)
 			painter -> drawLine(x + w + halfPen, y + h + halfPen, x, y + h + halfPen); // Bottom edge (outside)
@@ -608,9 +616,14 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 	painter -> setFont(QETApp::diagramTextsFont());
 
+	// Prepare header pen for header cells/corners
+	QPen headerPen(Qt::black);
+	headerPen.setWidthF(header_line_thickness_);
+
 	//Draw the empty case at the corners of diagram when there is header
 	if (display_border_ && (display_columns_ || display_rows_))
 	{
+		painter->setPen(headerPen);
 		// Top-left corner
 		QRectF first_rectangle(
 			diagram_rect_.topLeft().x(),
@@ -649,10 +662,13 @@ void BorderTitleBlock::draw(QPainter *painter)
 				);
 			painter -> drawRect(bottom_right_rectangle);
 		}
+		// Restore border pen for non-header drawing if needed later
+		painter->setPen(borderPen);
 	}
 
 		//Draw the nums of columns (top and bottom)
 	if (display_border_ && display_columns_) {
+		painter->setPen(headerPen);
 		// Shared separator X between last column and right row header
 		qreal separatorX = qRound(diagram_rect_.topLeft().x() + rows_header_width_ + (columns_count_ * columns_width_));
 		for (int i = 1 ; i <= columns_count_ ; ++ i) {
@@ -716,10 +732,12 @@ void BorderTitleBlock::draw(QPainter *painter)
 				}
 			}
 		}
+		painter->setPen(borderPen);
 	}
 
 		//Draw the nums of rows (left and right)
 	if (display_border_ && display_rows_) {
+		painter->setPen(headerPen);
 		QString row_string("A");
 		for (int i = 1 ; i <= rows_count_ ; ++ i) {
 			// Left rows
@@ -774,6 +792,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 			
 			row_string = incrementLetters(row_string);
 		}
+		painter->setPen(borderPen);
 	}
 
 		// render the titleblock, using the TitleBlockTemplate object

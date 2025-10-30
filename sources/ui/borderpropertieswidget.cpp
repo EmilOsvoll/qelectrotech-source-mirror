@@ -50,6 +50,8 @@ BorderPropertiesWidget::BorderPropertiesWidget(const BorderProperties &bp, QWidg
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
 	connect(ui->m_scale_sp, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+    connect(ui->m_header_thickness_sp, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+        this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
 	connect(ui->m_colums_count_sp, QOverload<int>::of(&QSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
 	connect(ui->m_rows_count_sp, QOverload<int>::of(&QSpinBox::valueChanged),
@@ -63,6 +65,8 @@ BorderPropertiesWidget::BorderPropertiesWidget(const BorderProperties &bp, QWidg
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
 	connect(ui->m_scale_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
+    connect(ui->m_header_thickness_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+        this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
 	connect(ui->m_colums_count_sp, static_cast<void(QSpinBox::*)(int)>(&QSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
 	connect(ui->m_rows_count_sp, static_cast<void(QSpinBox::*)(int)>(&QSpinBox::valueChanged),
@@ -109,6 +113,7 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	ui->m_aspect_ratio_height_sp->setValue(63);
 	ui -> m_base_area_sp ->setValue(652800.0);
 	ui -> m_scale_sp ->setValue(m_properties.scale);
+	ui -> m_header_thickness_sp->setValue(m_properties.header_thickness);
 
 	// Initialize intermediary counts used for calculations
 	m_pendingColumnsCount = m_properties.columns_count;
@@ -137,6 +142,7 @@ const BorderProperties &BorderPropertiesWidget::properties ()
 	m_properties.aspect_ratio = static_cast<double>(rw_prop) / static_cast<double>(rh_prop);
 	m_properties.base_area = 652800.0;
 	m_properties.scale = ui -> m_scale_sp -> value();
+	m_properties.header_thickness = ui->m_header_thickness_sp->value();
 	m_properties.calculateDimensions();
 	
 	return m_properties;
@@ -203,6 +209,9 @@ void BorderPropertiesWidget::onCalculateDimensionsChanged()
 	m_properties.scale = ui->m_scale_sp->value();
 	m_properties.columns_count = m_pendingColumnsCount;
 	m_properties.rows_count = m_pendingRowsCount;
+	// Apply header thickness to both header dimensions for preview calculations
+	m_properties.rows_header_width = ui->m_header_thickness_sp->value();
+	m_properties.columns_header_height = ui->m_header_thickness_sp->value();
 	m_properties.use_calculated_dimensions = true;
 
 	// Recalculate dimensions

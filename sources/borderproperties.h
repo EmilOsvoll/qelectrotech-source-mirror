@@ -66,5 +66,7 @@ class BorderProperties {
 	qreal aspect_ratio;              ///< Width to height ratio of the drawing area (width/height)
 	qreal base_area;                 ///< Base drawing area in square pixels (columns_total_width * rows_total_height)
 	qreal scale;                     ///< Scale multiplier for base_area (actual area = base_area * scale)
+		qreal header_line_thickness;     ///< Line thickness for header cell borders (px)
+		qreal header_thickness;          ///< Thickness of header bands (row width and column height)
 };
 #endif

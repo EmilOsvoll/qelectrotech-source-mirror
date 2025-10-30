@@ -269,6 +269,7 @@ class BorderTitleBlock : public QObject
 		int rows_count_;          ///< rows count
 		qreal rows_height_;       ///< rows height
 		qreal rows_header_width_; ///< rows header width
+		qreal header_line_thickness_ = 1.0; ///< header cells line thickness
 	
 		// title block dimensions
 		qreal titleblock_height_;
