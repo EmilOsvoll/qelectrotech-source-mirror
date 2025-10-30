@@ -280,8 +280,19 @@ class BorderTitleBlock : public QObject
 		bool display_titleblock_;
 		bool display_columns_;
 		bool display_rows_;
+		bool display_columns_top_;
+		bool display_columns_bottom_;
+		bool display_rows_left_;
+		bool display_rows_right_;
 		bool display_border_;
 		bool border_all_sides_;     ///< Whether to draw border on all sides
+		
+		// Calculated dimension properties
+		bool use_calculated_dimensions_;  ///< Whether to use calculated dimensions
+		qreal aspect_ratio_;              ///< Aspect ratio (width/height)
+		qreal base_area_;                 ///< Base area in square pixels
+		qreal scale_;                     ///< Scale multiplier
+		
 		TitleBlockTemplateRenderer *m_titleblock_template_renderer;
 };
 #endif

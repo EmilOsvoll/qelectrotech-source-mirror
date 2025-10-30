@@ -33,23 +33,26 @@
 	- 8    lignes affichees de 80.0 px de haut pour 20.0px de large
 */
 BorderProperties::BorderProperties() :
-	columns_count(17),
-	columns_width(60.0),
-	columns_header_height(20.0),
-	display_columns(true),
-	rows_count(8),
-	rows_height(80.0),
-	rows_header_width(20.0),
-	display_rows(true),
-	border_all_sides(false),
-	use_calculated_dimensions(false),
-	aspect_ratio(1.275),  // Default: 17*60 / (8*80) = 1020/640 ≈ 1.594, but let's use a more standard ratio
-	base_area(816000.0),  // Default: 17*60 * 8*80 = 1020 * 640 = 652800, let's preserve this
-	scale(1.0)
+    columns_count(8),
+    columns_width(60.0),
+    columns_header_height(20.0),
+    display_columns(true),
+    display_columns_top(true),
+    display_columns_bottom(false),
+    rows_count(5),
+    rows_height(80.0),
+    rows_header_width(20.0),
+    display_rows(true),
+    display_rows_left(true),
+    display_rows_right(false),
+    border_all_sides(false),
+    use_calculated_dimensions(true),
+    aspect_ratio(297.0/210.0),
+    aspect_ratio_w(297.0),
+    aspect_ratio_h(210.0),
+    base_area(652800.0),
+    scale(1.0)
 {
-	// Calculate initial area from default dimensions
-	base_area = (columns_count * columns_width) * (rows_count * rows_height);
-	aspect_ratio = (columns_count * columns_width) / (rows_count * rows_height);
 }
 
 /**
@@ -74,10 +77,14 @@ bool BorderProperties::operator==(const BorderProperties &bp) {
 		bp.columns_width == columns_width &&\
 		bp.columns_header_height == columns_header_height &&\
 		bp.display_columns == display_columns &&\
+		bp.display_columns_top == display_columns_top &&\
+		bp.display_columns_bottom == display_columns_bottom &&\
 		bp.rows_count == rows_count &&\
 		bp.rows_height == rows_height &&\
 		bp.rows_header_width == rows_header_width &&\
 		bp.display_rows == display_rows &&\
+		bp.display_rows_left == display_rows_left &&\
+		bp.display_rows_right == display_rows_right &&\
 		bp.border_all_sides == border_all_sides &&\
 		bp.use_calculated_dimensions == use_calculated_dimensions &&\
 		bp.aspect_ratio == aspect_ratio &&\
@@ -118,11 +125,18 @@ void BorderProperties::toXml(QDomElement &e) const
 	e.setAttribute("displaycols", display_columns ? "true" : "false");
 	e.setAttribute("displayrows", display_rows    ? "true" : "false");
 	e.setAttribute("borderallsides", border_all_sides ? "true" : "false");
+	// New header sides
+	e.setAttribute("displaycols_top", display_columns_top ? "true" : "false");
+	e.setAttribute("displaycols_bottom", display_columns_bottom ? "true" : "false");
+	e.setAttribute("displayrows_left", display_rows_left ? "true" : "false");
+	e.setAttribute("displayrows_right", display_rows_right ? "true" : "false");
 	
 	// Save new calculated dimension properties
 	if (use_calculated_dimensions) {
 		e.setAttribute("use_calculated_dimensions", "true");
 		e.setAttribute("aspect_ratio", QString("%1").arg(aspect_ratio));
+		e.setAttribute("aspect_ratio_w", QString("%1").arg(aspect_ratio_w));
+		e.setAttribute("aspect_ratio_h", QString("%1").arg(aspect_ratio_h));
 		e.setAttribute("base_area", QString("%1").arg(base_area));
 		e.setAttribute("scale", QString("%1").arg(scale));
 	}
@@ -138,65 +152,94 @@ void BorderProperties::toXml(QDomElement &e) const
 	\~French Element XML dont les attributs seront lus
 */
 void BorderProperties::fromXml(QDomElement &e) {
-	if (e.hasAttribute("cols"))        columns_count   = e.attribute("cols").toInt();
-	if (e.hasAttribute("colsize"))     columns_width   = e.attribute("colsize").toDouble();
-	if (e.hasAttribute("rows"))        rows_count      = e.attribute("rows").toInt();
-	if (e.hasAttribute("rowsize"))     rows_height     = e.attribute("rowsize").toDouble();
-	if (e.hasAttribute("displaycols")) display_columns = e.attribute("displaycols") == "true";
-	if (e.hasAttribute("displayrows")) display_rows    = e.attribute("displayrows") == "true";
-	if (e.hasAttribute("borderallsides")) border_all_sides = e.attribute("borderallsides") == "true";
+	// Only update values if attributes exist, preserving defaults otherwise
+	if (e.hasAttribute("cols")) {
+		columns_count = e.attribute("cols").toInt();
+	}
+	if (e.hasAttribute("colsize")) {
+		columns_width = e.attribute("colsize").toDouble();
+	}
+	if (e.hasAttribute("rows")) {
+		rows_count = e.attribute("rows").toInt();
+	}
+	if (e.hasAttribute("rowsize")) {
+		rows_height = e.attribute("rowsize").toDouble();
+	}
+	if (e.hasAttribute("displaycols")) {
+		display_columns = e.attribute("displaycols") == "true";
+	}
+	if (e.hasAttribute("displayrows")) {
+		display_rows = e.attribute("displayrows") == "true";
+	}
+	if (e.hasAttribute("borderallsides")) {
+		border_all_sides = e.attribute("borderallsides") == "true";
+	}
 	
-	// Load new calculated dimension properties
-	if (e.hasAttribute("use_calculated_dimensions")) {
-		use_calculated_dimensions = e.attribute("use_calculated_dimensions") == "true";
-		if (use_calculated_dimensions) {
-			if (e.hasAttribute("aspect_ratio")) {
-				aspect_ratio = e.attribute("aspect_ratio").toDouble();
-				// Validate aspect ratio
-				if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) {
-					aspect_ratio = 1.0; // Default to square
-				}
-			}
-			if (e.hasAttribute("base_area")) {
-				base_area = e.attribute("base_area").toDouble();
-				// Validate base area
-				if (base_area <= 0.0) {
-					base_area = (columns_count * columns_width) * (rows_count * rows_height);
-				}
-			}
-			if (e.hasAttribute("scale")) {
-				scale = e.attribute("scale").toDouble();
-				// Validate scale
-				if (scale <= 0.0 || scale > 100.0) {
-					scale = 1.0;
-				}
-			}
-			calculateDimensions();
-		} else {
-			// Legacy mode: calculate aspect_ratio and base_area from current dimensions for future use
+	// Enforce sane minima for counts
+	if (columns_count <= 0) columns_count = 8;
+	if (rows_count <= 0) rows_count = 5;
+	
+	// New header sides with fallback
+    display_columns_top = e.hasAttribute("displaycols_top") ? (e.attribute("displaycols_top") == "true") : display_columns;
+    display_columns_bottom = e.hasAttribute("displaycols_bottom") ? (e.attribute("displaycols_bottom") == "true") : false;
+    display_rows_left = e.hasAttribute("displayrows_left") ? (e.attribute("displayrows_left") == "true") : display_rows;
+    display_rows_right = e.hasAttribute("displayrows_right") ? (e.attribute("displayrows_right") == "true") : false;
+	
+	// Load calculated dimension properties
+	// Always use calculated dimensions - counts take precedence, dimensions are calculated from them
+	use_calculated_dimensions = true;
+	
+    // Prefer explicit width/height components if available
+    if (e.hasAttribute("aspect_ratio_w")) aspect_ratio_w = e.attribute("aspect_ratio_w").toDouble();
+    if (e.hasAttribute("aspect_ratio_h")) aspect_ratio_h = e.attribute("aspect_ratio_h").toDouble();
+    if (!(e.hasAttribute("aspect_ratio_w") && e.hasAttribute("aspect_ratio_h"))) {
+        if (e.hasAttribute("aspect_ratio")) {
+            aspect_ratio = e.attribute("aspect_ratio").toDouble();
+            if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) aspect_ratio = 297.0/210.0;
+            aspect_ratio_h = 210.0;
+            aspect_ratio_w = aspect_ratio * aspect_ratio_h;
+        } else {
+            aspect_ratio_w = 297.0;
+            aspect_ratio_h = 210.0;
+            aspect_ratio = aspect_ratio_w / aspect_ratio_h;
+        }
+    } else {
+        if (aspect_ratio_h <= 0.0) aspect_ratio_h = 1.0;
+        aspect_ratio = aspect_ratio_w / aspect_ratio_h;
+    }
+	if (e.hasAttribute("base_area")) {
+		base_area = e.attribute("base_area").toDouble();
+		// Validate base area
+		if (base_area <= 0.0) {
+			base_area = 652800.0; // Default base area
+		}
+	} else {
+		// If base_area not in XML, calculate from current dimensions to preserve them
+		// This handles legacy files that don't have base_area
+		if (columns_count > 0 && rows_count > 0 && columns_width > 0 && rows_height > 0) {
 			qreal drawing_width = columns_count * columns_width;
 			qreal drawing_height = rows_count * rows_height;
 			base_area = drawing_width * drawing_height;
 			if (drawing_height > 0.0) {
 				aspect_ratio = drawing_width / drawing_height;
 			} else {
-				aspect_ratio = 1.0;
+				aspect_ratio = 297.0/210.0;
 			}
+		} else {
+			base_area = 652800.0;
+		}
+	}
+	if (e.hasAttribute("scale")) {
+		scale = e.attribute("scale").toDouble();
+		// Validate scale
+		if (scale <= 0.0 || scale > 100.0) {
 			scale = 1.0;
 		}
-	} else {
-		// Legacy file: not using calculated dimensions, but compute aspect_ratio and base_area for compatibility
-		use_calculated_dimensions = false;
-		qreal drawing_width = columns_count * columns_width;
-		qreal drawing_height = rows_count * rows_height;
-		base_area = drawing_width * drawing_height;
-		if (drawing_height > 0.0) {
-			aspect_ratio = drawing_width / drawing_height;
-		} else {
-			aspect_ratio = 1.0;
-		}
-		scale = 1.0;
 	}
+	
+	// Now calculate dimensions based on the preserved counts and loaded aspect_ratio/base_area/scale
+	// This will compute columns_width and rows_height from the user-selected counts
+	calculateDimensions();
 }
 
 /**
@@ -220,11 +263,17 @@ void BorderProperties::toSettings(QSettings &settings, const QString &prefix) co
 	settings.setValue(prefix % "rowsize",     rows_height);
 	settings.setValue(prefix % "displayrows", display_rows);
 	settings.setValue(prefix % "borderallsides", border_all_sides);
+	settings.setValue(prefix % "displaycols_top", display_columns_top);
+	settings.setValue(prefix % "displaycols_bottom", display_columns_bottom);
+	settings.setValue(prefix % "displayrows_left", display_rows_left);
+	settings.setValue(prefix % "displayrows_right", display_rows_right);
 	
 	// Save new calculated dimension properties
 	settings.setValue(prefix % "use_calculated_dimensions", use_calculated_dimensions);
 	if (use_calculated_dimensions) {
 		settings.setValue(prefix % "aspect_ratio", aspect_ratio);
+		settings.setValue(prefix % "aspect_ratio_w", aspect_ratio_w);
+		settings.setValue(prefix % "aspect_ratio_h", aspect_ratio_h);
 		settings.setValue(prefix % "base_area", base_area);
 		settings.setValue(prefix % "scale", scale);
 	}
@@ -240,40 +289,64 @@ void BorderProperties::toSettings(QSettings &settings, const QString &prefix) co
 	\~French prefixe a ajouter devant les noms des parametres
 */
 void BorderProperties::fromSettings(QSettings &settings, const QString &prefix) {
-	columns_count   = settings.value(prefix % "cols",            columns_count).toInt();
+    columns_count   = settings.value(prefix % "cols",            columns_count).toInt();
 	columns_width   = settings.value(prefix % "colsize",         columns_width).toDouble();
 	display_columns = settings.value(prefix % "displaycols",     display_columns).toBool();
 	
-	rows_count      = settings.value(prefix % "rows",            rows_count).toInt();
+    rows_count      = settings.value(prefix % "rows",            rows_count).toInt();
 	rows_height     = settings.value(prefix % "rowsize",         rows_height).toDouble();
 	display_rows    = settings.value(prefix % "displayrows",     display_rows).toBool();
 	border_all_sides = settings.value(prefix % "borderallsides", 
 		settings.value("diagrameditor/default-borderallsides", border_all_sides)).toBool();
+	// New header sides with fallback
+	display_columns_top = settings.value(prefix % "displaycols_top", display_columns).toBool();
+    display_columns_bottom = settings.value(prefix % "displaycols_bottom", false).toBool();
+	display_rows_left = settings.value(prefix % "displayrows_left", display_rows).toBool();
+    display_rows_right = settings.value(prefix % "displayrows_right", false).toBool();
 	
-	// Load new calculated dimension properties
-	use_calculated_dimensions = settings.value(prefix % "use_calculated_dimensions", false).toBool();
-	if (use_calculated_dimensions) {
-		aspect_ratio = settings.value(prefix % "aspect_ratio", aspect_ratio).toDouble();
-		base_area = settings.value(prefix % "base_area", base_area).toDouble();
-		scale = settings.value(prefix % "scale", scale).toDouble();
+    // Enforce sane minima for counts
+    if (columns_count <= 0) columns_count = 8;
+    if (rows_count <= 0) rows_count = 5;
+
+    // Load new calculated dimension properties
+    // Default to true since we always use calculated dimensions now
+    use_calculated_dimensions = settings.value(prefix % "use_calculated_dimensions", use_calculated_dimensions).toBool();
+    if (use_calculated_dimensions) {
+        // Load explicit components if available
+        aspect_ratio_w = settings.value(prefix % "aspect_ratio_w", aspect_ratio_w).toDouble();
+        aspect_ratio_h = settings.value(prefix % "aspect_ratio_h", aspect_ratio_h).toDouble();
+        if (aspect_ratio_w <= 0.0 || aspect_ratio_h <= 0.0) {
+            aspect_ratio = settings.value(prefix % "aspect_ratio", aspect_ratio).toDouble();
+            if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) aspect_ratio = 297.0/210.0;
+            aspect_ratio_h = 210.0;
+            aspect_ratio_w = aspect_ratio * aspect_ratio_h;
+        } else {
+            if (aspect_ratio_h <= 0.0) aspect_ratio_h = 1.0;
+            aspect_ratio = aspect_ratio_w / aspect_ratio_h;
+        }
+        base_area = settings.value(prefix % "base_area", base_area).toDouble();
+        scale = settings.value(prefix % "scale", scale).toDouble();
 		
 		// Validate values
-		if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) aspect_ratio = 1.0;
+        if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) aspect_ratio = 1.0;
 		if (base_area <= 0.0) base_area = (columns_count * columns_width) * (rows_count * rows_height);
 		if (scale <= 0.0 || scale > 100.0) scale = 1.0;
 		
 		calculateDimensions();
 	} else {
-		// Legacy mode: calculate aspect_ratio and base_area from current dimensions
+		// Legacy mode: calculate aspect_ratio and base_area from current dimensions and migrate to calculated mode
 		qreal drawing_width = columns_count * columns_width;
 		qreal drawing_height = rows_count * rows_height;
 		base_area = drawing_width * drawing_height;
 		if (drawing_height > 0.0) {
 			aspect_ratio = drawing_width / drawing_height;
 		} else {
-			aspect_ratio = 1.0;
+			aspect_ratio = 297.0/210.0; // Default to A4 ratio
 		}
 		scale = 1.0;
+		use_calculated_dimensions = true;
+		// Recalculate dimensions now that we're using calculated mode
+		calculateDimensions();
 	}
 }
 
@@ -318,9 +391,22 @@ void BorderProperties::calculateDimensions()
 		return; // Keep current dimensions if invalid counts
 	}
 	
-	if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) {
-		aspect_ratio = 1.0; // Default to square
-	}
+    // Use explicit ratio components if present; keep composed ratio synced
+    qreal ratio_w = aspect_ratio_w;
+    qreal ratio_h = aspect_ratio_h;
+    if (ratio_w <= 0.0 || ratio_h <= 0.0) {
+        if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) {
+            // Default to A4
+            ratio_w = 297.0;
+            ratio_h = 210.0;
+            aspect_ratio = ratio_w / ratio_h;
+        } else {
+            ratio_h = 210.0;
+            ratio_w = aspect_ratio * ratio_h;
+        }
+    } else {
+        aspect_ratio = ratio_w / ratio_h;
+    }
 	
 	if (base_area <= 0.0) {
 		return; // Keep current dimensions if invalid area
@@ -333,44 +419,23 @@ void BorderProperties::calculateDimensions()
 	// Calculate total drawing area (excluding headers)
 	qreal total_area = base_area * scale;
 	
-	// Calculate total width and height of drawing area
-	// area = width * height
-	// aspect_ratio = width / height
-	// From these: width = sqrt(area * aspect_ratio), height = sqrt(area / aspect_ratio)
-	qreal total_width = qSqrt(total_area * aspect_ratio);
-	qreal total_height = qSqrt(total_area / aspect_ratio);
+    // Calculate total width and height of drawing area using explicit ratio
+    // area = width * height
+    // width / height = ratio_w / ratio_h
+    // width = sqrt(area * ratio_w / ratio_h)
+    // height = sqrt(area * ratio_h / ratio_w)
+    qreal total_width = qSqrt(total_area * (ratio_w / ratio_h));
+    qreal total_height = qSqrt(total_area * (ratio_h / ratio_w));
 	
-	// Calculate individual column width and row height
-	columns_width = total_width / columns_count;
-	rows_height = total_height / rows_count;
-	
-	// Ensure minimum sizes to prevent too small dimensions
-	const qreal MIN_COLUMN_WIDTH = 5.0;
-	const qreal MIN_ROW_HEIGHT = 5.0;
-	
-	if (columns_width < MIN_COLUMN_WIDTH) {
-		columns_width = MIN_COLUMN_WIDTH;
-		// Recalculate total_width and adjust rows_height to maintain area
-		total_width = columns_width * columns_count;
-		if (total_width > 0.0) {
-			total_height = total_area / total_width;
-			rows_height = total_height / rows_count;
-			if (rows_height < MIN_ROW_HEIGHT) {
-				rows_height = MIN_ROW_HEIGHT;
-			}
-		}
-	}
-	
-	if (rows_height < MIN_ROW_HEIGHT) {
-		rows_height = MIN_ROW_HEIGHT;
-		// Recalculate total_height and adjust columns_width to maintain area
-		total_height = rows_height * rows_count;
-		if (total_height > 0.0) {
-			total_width = total_area / total_height;
-			columns_width = total_width / columns_count;
-			if (columns_width < MIN_COLUMN_WIDTH) {
-				columns_width = MIN_COLUMN_WIDTH;
-			}
-		}
-	}
+    // Calculate individual column width and row height
+    columns_width = total_width / columns_count;
+    rows_height = total_height / rows_count;
+
+    // Enforce minimum per-cell sizes without changing the target page size.
+    // If a clamp triggers, the effective drawn page may exceed the base area,
+    // but total page size (from base area and aspect ratio) remains constant.
+    const qreal MIN_COLUMN_WIDTH = 5.0;
+    const qreal MIN_ROW_HEIGHT = 5.0;
+    if (columns_width < MIN_COLUMN_WIDTH) columns_width = MIN_COLUMN_WIDTH;
+    if (rows_height < MIN_ROW_HEIGHT) rows_height = MIN_ROW_HEIGHT;
 }

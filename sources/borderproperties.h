@@ -53,18 +53,25 @@ class BorderProperties {
 	int columns_count;            ///< Columns count
 	qreal columns_width;          ///< Columns width (calculated if use_calculated_dimensions is true)
 	qreal columns_header_height;  ///< Column headers height
-	bool display_columns;         ///< Whether to display column headers
+	bool display_columns;         ///< Backward-compat: whether to display column headers (top)
+	bool display_columns_top;     ///< Whether to display column headers on top
+	bool display_columns_bottom;  ///< Whether to display column headers on bottom
 	
 	int rows_count;               ///< Rows count
 	qreal rows_height;            ///< Rows height (calculated if use_calculated_dimensions is true)
 	qreal rows_header_width;      ///< Row headers width
-	bool display_rows;            ///< Whether to display row headers
-	bool border_all_sides;        ///< Whether to draw border on all sides (false = only left/top)
+	bool display_rows;            ///< Backward-compat: whether to display row headers (left)
+	bool display_rows_left;       ///< Whether to display row headers on left
+	bool display_rows_right;      ///< Whether to display row headers on right
+	bool border_all_sides;        ///< Deprecated: Whether to draw border on all sides
 	
-	// New calculated dimension system
-	bool use_calculated_dimensions;  ///< If true, calculate dimensions from aspect_ratio and area
-	qreal aspect_ratio;              ///< Width to height ratio of the drawing area (width/height)
-	qreal base_area;                 ///< Base drawing area in square pixels (columns_total_width * rows_total_height)
-	qreal scale;                     ///< Scale multiplier for base_area (actual area = base_area * scale)
+
+		// New calculated dimension system
+		bool use_calculated_dimensions;  ///< If true, calculate dimensions from aspect ratio and area
+		qreal aspect_ratio;              ///< Backward-compat: width/height ratio
+		qreal aspect_ratio_w;            ///< Aspect ratio width component (e.g., 297)
+		qreal aspect_ratio_h;            ///< Aspect ratio height component (e.g., 210)
+		qreal base_area;                 ///< Base drawing area in square pixels (columns_total_width * rows_total_height)
+		qreal scale;                     ///< Scale multiplier for base_area (actual area = base_area * scale)
 };
 #endif

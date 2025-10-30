@@ -267,14 +267,10 @@ void BorderTitleBlock::titleBlockFromXml(const QDomElement &xml_elmt) {
 	@param xml_elmt the XML element attributes will be added to
 */
 void BorderTitleBlock::borderToXml(QDomElement &xml_elmt) {
-	xml_elmt.setAttribute("cols",        columnsCount());
-	xml_elmt.setAttribute("colsize",     QString("%1").arg(columnsWidth()));
-	xml_elmt.setAttribute("displaycols", columnsAreDisplayed() ? "true" : "false");
-
-	xml_elmt.setAttribute("rows",        rowsCount());
-	xml_elmt.setAttribute("rowsize",     QString("%1").arg(rowsHeight()));
-	xml_elmt.setAttribute("displayrows", rowsAreDisplayed() ? "true" : "false");
-
+	// Use BorderProperties to export all properties including new calculated dimension fields
+	BorderProperties bp = exportBorder();
+	bp.toXml(xml_elmt);
+	
 	// attribut datant de la version 0.1 - laisse pour retrocompatibilite
 	xml_elmt.setAttribute("height", QString("%1").arg(diagramHeight()));
 }
@@ -285,35 +281,14 @@ void BorderTitleBlock::borderToXml(QDomElement &xml_elmt) {
 	@param xml_elmt the XML element values will be read from
 */
 void BorderTitleBlock::borderFromXml(const QDomElement &xml_elmt) {
-	bool ok;
-	// columns count
-	int cols_count = xml_elmt.attribute("cols").toInt(&ok);
-	if (ok) setColumnsCount(cols_count);
-
-	// columns width
-	double cols_width = xml_elmt.attribute("colsize").toDouble(&ok);
-	if (ok) setColumnsWidth(cols_width);
-
-	// backward compatibility:
-	//	diagrams saved with 0.1 version have a "height" attribute
-	if (xml_elmt.hasAttribute("rows") && xml_elmt.hasAttribute("rowsize")) {
-		// rows counts
-		int rows_count = xml_elmt.attribute("rows").toInt(&ok);
-		if (ok) setRowsCount(rows_count);
-
-		// taille des lignes
-		double rows_size = xml_elmt.attribute("rowsize").toDouble(&ok);
-		if (ok) setRowsHeight(rows_size);
-	} else {
-		// hauteur du schema
-		double height = xml_elmt.attribute("height").toDouble(&ok);
-		if (ok) setDiagramHeight(height);
-	}
-
-	// rows and columns display
-	displayColumns(xml_elmt.attribute("displaycols") != "false");
-	displayRows(xml_elmt.attribute("displayrows") != "false");
-
+	// Load all properties using BorderProperties::fromXml
+	// This preserves user-selected counts and calculates dimensions from them
+	BorderProperties bp;
+	// const_cast is safe here - we're only reading attributes, not modifying the DOM
+	bp.fromXml(const_cast<QDomElement&>(xml_elmt));
+	
+	// Import the loaded properties - counts are preserved, dimensions are calculated
+	importBorder(bp);
 	updateRectangles();
 }
 
@@ -388,11 +363,20 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.columns_width = columnsWidth();
 	bp.columns_header_height = columnsHeaderHeight();
 	bp.display_columns = columnsAreDisplayed();
+	bp.display_columns_top = display_columns_top_;
+	bp.display_columns_bottom = display_columns_bottom_;
 	bp.rows_count = rowsCount();
 	bp.rows_height = rowsHeight();
 	bp.rows_header_width = rowsHeaderWidth();
 	bp.display_rows = rowsAreDisplayed();
+	bp.display_rows_left = display_rows_left_;
+	bp.display_rows_right = display_rows_right_;
 	bp.border_all_sides = border_all_sides_;
+	bp.use_calculated_dimensions = use_calculated_dimensions_;
+	bp.aspect_ratio = aspect_ratio_;
+	bp.base_area = base_area_;
+	bp.scale = scale_;
+	
 	return(bp);
 }
 
@@ -405,20 +389,37 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
 	// Store a copy to work with
 	BorderProperties working_bp = bp;
 	
+	// Ensure valid minimum values before processing
+	// Default rows should be 5, not just above 0
+	// IMPORTANT: Only validate invalid values - preserve user-set values >= MIN_ROW_COUNT
+	if (working_bp.columns_count <= 0) working_bp.columns_count = 8;
+	if (working_bp.rows_count <= 0) working_bp.rows_count = 5;
+	
 	// If using calculated dimensions, calculate them first
+	// Counts are already validated and preserved from XML/user input
 	if (working_bp.use_calculated_dimensions) {
 		working_bp.calculateDimensions();
 	}
 	
-	setColumnsHeaderHeight(working_bp.columns_header_height);
-	setColumnsCount(working_bp.columns_count);
-	setColumnsWidth(working_bp.columns_width);
-	displayColumns(working_bp.display_columns);
-	setRowsHeaderWidth(working_bp.rows_header_width);
-	setRowsCount(working_bp.rows_count);
-	setRowsHeight(working_bp.rows_height);
-	displayRows(working_bp.display_rows);
-	border_all_sides_ = working_bp.border_all_sides;
+    setColumnsHeaderHeight(working_bp.columns_header_height);
+    setColumnsCount(working_bp.columns_count);
+    setColumnsWidth(working_bp.columns_width);
+    displayColumns(working_bp.display_columns_top || working_bp.display_columns_bottom);
+    setRowsHeaderWidth(working_bp.rows_header_width);
+    setRowsCount(working_bp.rows_count);
+    setRowsHeight(working_bp.rows_height);
+    displayRows(working_bp.display_rows_left || working_bp.display_rows_right);
+    display_columns_top_ = working_bp.display_columns_top;
+    display_columns_bottom_ = working_bp.display_columns_bottom;
+    display_rows_left_ = working_bp.display_rows_left;
+    display_rows_right_ = working_bp.display_rows_right;
+    border_all_sides_ = true;
+    
+    // Store calculated dimension properties (already validated by fromXml())
+    use_calculated_dimensions_ = working_bp.use_calculated_dimensions;
+    aspect_ratio_ = working_bp.aspect_ratio;
+    base_area_ = working_bp.base_area;
+    scale_ = working_bp.scale;
 }
 
 /**
@@ -566,37 +567,22 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 	QSettings settings;
 
-	//Draw the border
-	if (display_border_) {
-		if (border_all_sides_) {
-			// Draw all 4 sides around the diagram rect
-			// Title block is positioned inside, so border is drawn around diagram_rect_ only
-			qreal x = diagram_rect_.x();
-			qreal y = diagram_rect_.y();
-			qreal w = diagram_rect_.width();
-			qreal h = diagram_rect_.height();
-			
-			// Draw all 4 sides to form a complete border
-			painter -> drawLine(x, y, x + w, y);          // Top edge
-			painter -> drawLine(x + w, y, x + w, y + h); // Right edge
-			painter -> drawLine(x + w, y + h, x, y + h); // Bottom edge
-			painter -> drawLine(x, y + h, x, y);          // Left edge
-		} else {
-			// Original behavior: draw only left and top
-			qreal x = diagram_rect_.x();
-			qreal y = diagram_rect_.y();
-			qreal w = diagram_rect_.width();
-			qreal h = diagram_rect_.height();
-			
-			painter -> drawLine(x, y, x + w, y);  // Top edge only
-			painter -> drawLine(x, y, x, y + h);  // Left edge only
-		}
-	}
+    // Draw full border on all 4 sides (simplify UI: no toggle)
+    if (display_border_) {
+        qreal x = diagram_rect_.x();
+        qreal y = diagram_rect_.y();
+        qreal w = diagram_rect_.width();
+        qreal h = diagram_rect_.height();
+        painter -> drawLine(x, y, x + w, y);          // Top edge
+        painter -> drawLine(x + w, y, x + w, y + h);  // Right edge
+        painter -> drawLine(x + w, y + h, x, y + h);  // Bottom edge
+        painter -> drawLine(x, y + h, x, y);          // Left edge
+    }
 
 	painter -> setFont(QETApp::diagramTextsFont());
 
-	//Draw the empty case at the corners of diagram when there is header
-	if (display_border_ && (display_columns_ || display_rows_))
+    //Draw the empty case at the corners of diagram when there is header
+    if (display_border_ && (display_columns_ || display_rows_))
 	{
 		// Top-left corner
 		QRectF first_rectangle(
@@ -638,11 +624,12 @@ void BorderTitleBlock::draw(QPainter *painter)
 		}
 	}
 
-		//Draw the nums of columns (top and bottom)
-	if (display_border_ && display_columns_) {
-		for (int i = 1 ; i <= columns_count_ ; ++ i) {
-			// Top columns
-			QRectF numbered_rectangle = QRectF(
+    //Draw the nums of columns (top and/or bottom)
+    if (display_border_) {
+        for (int i = 1 ; i <= columns_count_ ; ++ i) {
+            // Top columns
+            if (display_columns_top_) {
+            QRectF numbered_rectangle = QRectF(
 				diagram_rect_.topLeft().x()
 					+ (rows_header_width_
 					   + ((i - 1) * columns_width_)),
@@ -662,9 +649,9 @@ void BorderTitleBlock::draw(QPainter *painter)
 					    | Qt::AlignCenter,
 					    QString("%1").arg(i));
 			}
-			
-			// Bottom columns (when border on all sides)
-			if (border_all_sides_) {
+            }
+            // Bottom columns
+            if (display_columns_bottom_) {
 				QRectF bottom_numbered_rectangle = QRectF(
 					diagram_rect_.topLeft().x()
 						+ (rows_header_width_
@@ -689,12 +676,13 @@ void BorderTitleBlock::draw(QPainter *painter)
 		}
 	}
 
-		//Draw the nums of rows (left and right)
-	if (display_border_ && display_rows_) {
+    //Draw the nums of rows (left and/or right)
+    if (display_border_) {
 		QString row_string("A");
 		for (int i = 1 ; i <= rows_count_ ; ++ i) {
-			// Left rows
-			QRectF lettered_rectangle = QRectF(
+            // Left rows
+            if (display_rows_left_) {
+            QRectF lettered_rectangle = QRectF(
 				diagram_rect_.topLeft().x(),
 				diagram_rect_.topLeft().y()
 					+ (
@@ -709,9 +697,9 @@ void BorderTitleBlock::draw(QPainter *painter)
 					    Qt::AlignVCenter
 					    | Qt::AlignCenter,
 					    row_string);
-			
-			// Right rows (when border on all sides)
-			if (border_all_sides_) {
+            }
+            // Right rows
+            if (display_rows_right_) {
 				QRectF right_lettered_rectangle = QRectF(
 					diagram_rect_.topRight().x() - rows_header_width_,
 					diagram_rect_.topLeft().y()

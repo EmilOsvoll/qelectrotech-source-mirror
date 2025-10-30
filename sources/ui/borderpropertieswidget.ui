@@ -20,35 +20,11 @@
       <string>Folio dimensions</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="2">
-       <widget class="QSpinBox" name="m_rows_height_sp">
-        <property name="suffix">
-         <string comment="pixel" extracomment="pixel">px</string>
-        </property>
-        <property name="prefix">
-         <string>x</string>
-        </property>
-        <property name="maximum">
-         <number>1000</number>
-        </property>
-       </widget>
-      </item>
+      <!-- removed editable rows height -->
       <item row="0" column="1">
        <widget class="QSpinBox" name="m_colums_count_sp"/>
       </item>
-      <item row="0" column="2">
-       <widget class="QSpinBox" name="m_columns_width_sp">
-        <property name="suffix">
-         <string comment="pixel" extracomment="pixel">px</string>
-        </property>
-        <property name="prefix">
-         <string>x</string>
-        </property>
-        <property name="maximum">
-         <number>1000</number>
-        </property>
-       </widget>
-      </item>
+      <!-- removed editable columns width -->
       <item row="1" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
@@ -57,11 +33,22 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QCheckBox" name="m_display_rows_cb">
-        <property name="text">
-         <string>Display headers</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="layout_rows_headers">
+        <item>
+         <widget class="QCheckBox" name="m_display_rows_left_cb">
+          <property name="text">
+           <string>Left</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="m_display_rows_right_cb">
+          <property name="text">
+           <string>Right</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item row="1" column="1">
        <widget class="QSpinBox" name="m_rows_count_sp"/>
@@ -74,89 +61,103 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QCheckBox" name="m_display_columns_cb">
-        <property name="text">
-         <string>Display headers</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="layout_cols_headers">
+        <item>
+         <widget class="QCheckBox" name="m_display_columns_top_cb">
+          <property name="text">
+           <string>Top</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="m_display_columns_bottom_cb">
+          <property name="text">
+           <string>Bottom</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-      <item row="2" column="0" colspan="4">
-       <widget class="QCheckBox" name="m_border_all_sides_cb">
-        <property name="text">
-         <string>Draw border on all sides</string>
-        </property>
-        <property name="toolTip">
-         <string>When enabled, the border will be drawn on all four sides. The title block will be positioned inside the border.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="4">
-       <widget class="QCheckBox" name="m_use_calculated_dimensions_cb">
-        <property name="text">
-         <string>Use calculated dimensions</string>
-        </property>
-        <property name="toolTip">
-         <string>When enabled, column width and row height are automatically calculated based on aspect ratio, base area, and scale. The drawing area remains constant when changing aspect ratio.</string>
-        </property>
-       </widget>
-      </item>
+      <!-- move checkboxes below read-only fields -->
       <item row="4" column="0">
        <widget class="QLabel" name="label_aspect_ratio">
         <property name="text">
-         <string>Aspect ratio (width:height):</string>
+         <string>Aspect ratio:</string>
         </property>
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QDoubleSpinBox" name="m_aspect_ratio_sp">
-        <property name="decimals">
-         <number>3</number>
-        </property>
-        <property name="minimum">
-         <double>0.100000000000000</double>
-        </property>
-        <property name="maximum">
-         <double>100.000000000000000</double>
-        </property>
-        <property name="singleStep">
-         <double>0.100000000000000</double>
-        </property>
-        <property name="value">
-         <double>1.275000000000000</double>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_ratio">
+        <item>
+         <widget class="QLabel" name="label_ratio_w">
+          <property name="text">
+           <string>Width</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="m_aspect_ratio_w_sp">
+          <property name="decimals">
+           <number>3</number>
+          </property>
+          <property name="minimum">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="value">
+           <double>297.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_ratio_sep">
+          <property name="text">
+           <string> : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_ratio_h">
+          <property name="text">
+           <string>Height</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="m_aspect_ratio_h_sp">
+          <property name="decimals">
+           <number>3</number>
+          </property>
+          <property name="minimum">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="maximum">
+           <double>1000.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+          <property name="value">
+           <double>210.000000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
+      <!-- put Scale right below Aspect ratio -->
       <item row="5" column="0">
-       <widget class="QLabel" name="label_base_area">
-        <property name="text">
-         <string>Base area (px²):</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QDoubleSpinBox" name="m_base_area_sp">
-        <property name="decimals">
-         <number>0</number>
-        </property>
-        <property name="minimum">
-         <double>100.000000000000000</double>
-        </property>
-        <property name="maximum">
-         <double>100000000.000000000000000</double>
-        </property>
-        <property name="singleStep">
-         <double>1000.000000000000000</double>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
        <widget class="QLabel" name="label_scale">
         <property name="text">
          <string>Scale:</string>
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item row="5" column="1">
        <widget class="QDoubleSpinBox" name="m_scale_sp">
         <property name="decimals">
          <number>2</number>
@@ -175,7 +176,80 @@
         </property>
        </widget>
       </item>
+      <!-- Base area below Scale -->
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_base_area">
+        <property name="text">
+         <string>Base area (px²):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QDoubleSpinBox" name="m_base_area_sp">
+        <property name="decimals">
+         <number>0</number>
+        </property>
+        <property name="minimum">
+         <double>100.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100000000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>1000.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>652800.000000000000000</double>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_col_width_ro">
+        <property name="text">
+         <string>Column width (px):</string>
+        </property>
+       </widget>
+      </item>
       <item row="7" column="1">
+       <widget class="QDoubleSpinBox" name="m_columns_width_ro">
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_rows_height_ro">
+        <property name="text">
+         <string>Row height (px):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QDoubleSpinBox" name="m_rows_height_ro">
+        <property name="decimals">
+         <number>2</number>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -195,16 +269,17 @@
  </widget>
  <tabstops>
   <tabstop>m_colums_count_sp</tabstop>
-  <tabstop>m_columns_width_sp</tabstop>
   <tabstop>m_rows_count_sp</tabstop>
-  <tabstop>m_rows_height_sp</tabstop>
-  <tabstop>m_display_columns_cb</tabstop>
-  <tabstop>m_display_rows_cb</tabstop>
-  <tabstop>m_border_all_sides_cb</tabstop>
-  <tabstop>m_use_calculated_dimensions_cb</tabstop>
-  <tabstop>m_aspect_ratio_sp</tabstop>
-  <tabstop>m_base_area_sp</tabstop>
+  <tabstop>m_aspect_ratio_w_sp</tabstop>
+  <tabstop>m_aspect_ratio_h_sp</tabstop>
   <tabstop>m_scale_sp</tabstop>
+  <tabstop>m_base_area_sp</tabstop>
+  <tabstop>m_columns_width_ro</tabstop>
+  <tabstop>m_rows_height_ro</tabstop>
+  <tabstop>m_display_columns_top_cb</tabstop>
+  <tabstop>m_display_columns_bottom_cb</tabstop>
+  <tabstop>m_display_rows_left_cb</tabstop>
+  <tabstop>m_display_rows_right_cb</tabstop>
  </tabstops>
  <resources/>
  <connections/>
