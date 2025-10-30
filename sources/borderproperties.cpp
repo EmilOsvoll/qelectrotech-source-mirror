@@ -47,7 +47,7 @@ BorderProperties::BorderProperties() :
 	base_area(816000.0),  // Default: 17*60 * 8*80 = 1020 * 640 = 652800, let's preserve this
 	scale(1.0),
 	header_line_thickness(1.0),
-	header_thickness(20.0)
+	header_thickness(12.0)
 {
 	// Calculate initial area from default dimensions
 	base_area = (columns_count * columns_width) * (rows_count * rows_height);
