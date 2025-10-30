@@ -94,12 +94,17 @@ QRectF BorderTitleBlock::titleBlockRect() const
 		// Position it above/before the border edge so there's no overlap.
 		// Use the diagram margin as inset to maintain consistent spacing with the border.
 		if (m_edge == Qt::BottomEdge) {
-			// Position title block inside, starting from bottom edge minus height and margin
-			// This ensures the title block border doesn't overlap the diagram border
-			rect = QRectF(diagram_rect_.bottomLeft() - QPointF(0, m_titleblock_template_renderer->height() + Diagram::margin),
-				      QSize(diagram_rect_.width() - 2 * Diagram::margin,
-					    m_titleblock_template_renderer -> height()
-					    ));
+			// Compute content band (between left/right headers) and place the title block
+			qreal content_left   = diagram_rect_.topLeft().x() + rows_header_width_;
+			qreal separatorX     = qRound(content_left + (columns_count_ * columns_width_));
+			qreal content_width  = separatorX - content_left; // align right edge with headers split
+			qreal band_top       = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_);
+			qreal tbt_height     = m_titleblock_template_renderer->height();
+			qreal tbt_top        = band_top - tbt_height; // directly above the bottom header band
+			rect = QRectF(content_left,
+				      tbt_top,
+				      content_width,
+				      tbt_height);
 		} else {
 			// Position title block inside, starting from right edge minus width (height when rotated) and margin
 			rect = QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height() + Diagram::margin, Diagram::margin),
