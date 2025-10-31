@@ -114,16 +114,26 @@ QRectF BorderTitleBlock::titleBlockRect() const
 					    ));
 		}
 	} else {
-		// Original behavior: title block extends outside the diagram
+		// When border_all_sides is false, position title block at same location as when true
+		// to maintain consistent aspect ratio - title block extends outside but starts at same position
 		if (m_edge == Qt::BottomEdge) {
-			rect = QRectF(diagram_rect_.bottomLeft(),
-				      QSize(diagram_rect_.width(),
-					    m_titleblock_template_renderer -> height()
-					    ));
+			// Compute content band (between left/right headers) and place the title block
+			// at the same vertical position as when border_all_sides is true
+			qreal content_left   = diagram_rect_.topLeft().x() + rows_header_width_;
+			qreal separatorX     = qRound(content_left + (columns_count_ * columns_width_));
+			qreal content_width  = separatorX - content_left; // align right edge with headers split
+			qreal band_top       = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_);
+			qreal tbt_height     = m_titleblock_template_renderer->height();
+			qreal tbt_top        = band_top - tbt_height; // same position as when border_all_sides is true
+			rect = QRectF(content_left,
+				      tbt_top,
+				      content_width,
+				      tbt_height);
 		} else {
-			rect = QRectF(diagram_rect_.topRight(),
+			// For right edge, use same positioning as when border_all_sides is true
+			rect = QRectF(diagram_rect_.topRight() - QPointF(m_titleblock_template_renderer->height() + Diagram::margin, Diagram::margin),
 				      QSize(m_titleblock_template_renderer -> height(),
-					    diagram_rect_.height()
+					    diagram_rect_.height() - 2 * Diagram::margin
 					    ));
 		}
 	}
@@ -190,10 +200,20 @@ QRectF BorderTitleBlock::borderAndTitleBlockRect() const
 	if (display_rows_) {
 		w += rows_header_width_; // left header
 		w += rows_header_width_; // right header
+		// When not drawing border on all sides, add one more row header width
+		// to account for the extra space needed
+		if (!border_all_sides_) {
+			w -= rows_header_width_;
+		}
 	}
 	if (display_columns_) {
 		h += columns_header_height_; // top header
 		h += columns_header_height_; // bottom header
+		// When not drawing border on all sides, add one more column header height
+		// to account for the extra space needed
+		if (!border_all_sides_) {
+			h -= columns_header_height_;
+		}
 	}
 	QRectF full = QRectF(Diagram::margin, Diagram::margin, w, h);
 	return full | titleBlockRect();
@@ -647,14 +667,18 @@ void BorderTitleBlock::draw(QPainter *painter)
 			painter -> drawLine(x + w + halfPen, y + h + halfPen, x, y + h + halfPen); // Bottom edge (outside)
 			painter -> drawLine(x, y + h + halfPen, x, y);                        // Left edge (inside)
 		} else {
-			// Original behavior: draw only left and top
+			// Draw left, top, and right edges (but not bottom to allow title block to extend outside)
 			qreal x = diagram_rect_.x();
 			qreal y = diagram_rect_.y();
 			qreal w = diagram_rect_.width();
 			qreal h = diagram_rect_.height();
 			
-			painter -> drawLine(x, y, x + w, y);  // Top edge only
-			painter -> drawLine(x, y, x, y + h);  // Left edge only
+			// Offset right edge outward by half the pen width (use 0.5px for cosmetic pens)
+			qreal halfPen = (borderPen.widthF() > 0.0) ? borderPen.widthF() / 2.0 : 0.5;
+			
+			painter -> drawLine(x, y, x + w, y);                      // Top edge
+			painter -> drawLine(x, y, x, y + h);                      // Left edge
+			painter -> drawLine(x + w + halfPen, y, x + w + halfPen, y + h);  // Right edge (outside)
 		}
 	}
 
