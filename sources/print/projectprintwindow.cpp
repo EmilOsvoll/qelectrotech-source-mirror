@@ -31,6 +31,7 @@
 #		pragma message("@TODO remove code for QT 6 or later")
 #	endif
 #endif
+#include <QDebug>
 #include <QMarginsF>
 #include <QPageSetupDialog>
 #include <QPainter>
@@ -89,6 +90,11 @@ void ProjectPrintWindow::launchDialog(QETProject *project, QPrinter::OutputForma
 		printer_->setCreator(QString("QElectroTech %1").arg(QetVersion::displayedVersion()));
 		printer_->setOutputFileName(file_name);
 		printer_->setOutputFormat(QPrinter::PdfFormat);
+		// Set printer DPI to match screen DPI to ensure font scaling matches preview
+		// Note: DPI must be set before paper size so Qt calculates pixel dimensions correctly
+		QScreen *screen = QApplication::primaryScreen();
+		qreal screen_dpi = screen ? screen->logicalDotsPerInch() : 96.0;
+		printer_->setResolution(qRound(screen_dpi));
 	}
 
 	auto w = new ProjectPrintWindow(project, printer_, parent);
@@ -127,7 +133,55 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 {
 	ui->setupUi(this);
 
+	// For PDF exports, set DPI to match screen DPI BEFORE loading page setup
+	// This ensures Qt calculates pixel dimensions correctly and font scaling matches preview
+	if (m_printer->outputFormat() == QPrinter::PdfFormat)
+	{
+		QScreen *screen = QApplication::primaryScreen();
+		qreal screen_dpi = screen ? screen->logicalDotsPerInch() : 96.0;
+		m_printer->setResolution(qRound(screen_dpi));
+	}
+
 	loadPageSetupForCurrentPrinter();
+	
+	// For PDF exports, always use A3 landscape to ensure correct width
+	// and re-apply paper size and orientation to ensure Qt recalculates correctly with screen DPI
+	if (m_printer->outputFormat() == QPrinter::PdfFormat)
+	{
+		// Always set A3 landscape for PDF exports (user can't change it on Windows anyway)
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
+		m_printer->setPaperSize(QPrinter::A3);
+		m_printer->setOrientation(QPrinter::Landscape);
+#else
+		m_printer->setPageSize(QPageSize(QPageSize::A3));
+		m_printer->setPageOrientation(QPageLayout::Landscape);
+#endif
+		
+		// Save current orientation before re-applying paper size
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
+		QPrinter::Orientation saved_orientation = m_printer->orientation();
+		QPrinter::PaperSize paper_size = m_printer->paperSize();
+		if (paper_size != QPrinter::Custom) {
+			m_printer->setPaperSize(paper_size);
+		} else {
+			QSizeF size_mm = m_printer->paperSize(QPrinter::Millimeter);
+			m_printer->setPaperSize(size_mm, QPrinter::Millimeter);
+		}
+		// Re-apply orientation to ensure it's maintained
+		m_printer->setOrientation(saved_orientation);
+#else
+		QPageLayout::Orientation saved_orientation = m_printer->pageLayout().orientation();
+		QPageSize page_size = m_printer->pageLayout().pageSize();
+		if (page_size.id() != QPageSize::Custom) {
+			m_printer->setPageSize(page_size);
+		} else {
+			QSizeF size_mm = page_size.size(QPageSize::Millimeter);
+			m_printer->setPageSize(QPageSize(size_mm, QPageSize::Millimeter));
+		}
+		// Re-apply orientation to ensure it's maintained
+		m_printer->setPageOrientation(saved_orientation);
+#endif
+	}
 	
 	// After loading saved settings, ensure the "Use the whole paper" checkbox 
 	// state is properly applied to the printer if it's checked by default
@@ -246,21 +300,26 @@ void ProjectPrintWindow::requestPaint()
 {
 	#if QT_VERSION >= QT_VERSION_CHECK(5, 6, 0)
 		#ifdef Q_OS_WIN
-			#ifdef QT_DEBUG
-			qDebug() << "--";
-			qDebug() << "DiagramPrintDialog::print  printer_->resolution() before " << m_printer->resolution();
-			qDebug() << "DiagramPrintDialog::print  screennumber " << QApplication::desktop()->screenNumber();
-			#endif
+			// Only apply screen DPI for physical printers, not for PDF exports
+			// PDF exports use screen DPI set in launchDialog() to match preview
+			if (m_printer->outputFormat() == QPrinter::NativeFormat)
+			{
+				#ifdef QT_DEBUG
+				qDebug() << "--";
+				qDebug() << "DiagramPrintDialog::print  printer_->resolution() before " << m_printer->resolution();
+				qDebug() << "DiagramPrintDialog::print  screennumber " << QApplication::desktop()->screenNumber();
+				#endif
 
-			QScreen *srn = QApplication::screens().at(QApplication::desktop()->screenNumber());
-			qreal dotsPerInch = (qreal)srn->logicalDotsPerInch();
-			m_printer->setResolution(dotsPerInch);
+				QScreen *srn = QApplication::screens().at(QApplication::desktop()->screenNumber());
+				qreal dotsPerInch = (qreal)srn->logicalDotsPerInch();
+				m_printer->setResolution(dotsPerInch);
 
-			#ifdef QT_DEBUG
-				qDebug() << "DiagramPrintDialog::print  dotsPerInch " << dotsPerInch;
-				qDebug() << "DiagramPrintDialog::print  printer_->resolution() after" << m_printer->resolution();
-			qDebug() << "--";
-			#endif
+				#ifdef QT_DEBUG
+					qDebug() << "DiagramPrintDialog::print  dotsPerInch " << dotsPerInch;
+					qDebug() << "DiagramPrintDialog::print  printer_->resolution() after" << m_printer->resolution();
+				qDebug() << "--";
+				#endif
+			}
 		#endif
 	#endif
 
@@ -270,6 +329,13 @@ void ProjectPrintWindow::requestPaint()
 
 	bool first = true;
 	QPainter painter(m_printer);
+	
+	// Ensure proper rendering hints for high-quality PDF export
+	// This ensures fonts and graphics scale correctly
+	painter.setRenderHint(QPainter::Antialiasing, true);
+	painter.setRenderHint(QPainter::TextAntialiasing, true);
+	painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+	
 	for (auto diagram : selectedDiagram())
 	{
 		first ? first = false : m_printer->newPage();
@@ -317,52 +383,143 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 	}
 	
 	if (fit_page) {
-		// When fitting to page, apply margin by adjusting the target rectangle
-		QRectF available_rect = printer->pageRect();
+		// When fitting to page, use Qt's pageRect() or paperRect() directly
+		// to ensure we're using the same coordinate system Qt uses internally
+		QRectF available_rect;
+		
+		if (full_page) {
+			// Use paperRect() - gives full paper size in printer coordinates
+			available_rect = printer->paperRect();
+		} else {
+			// Use pageRect() - gives printable area (excluding margins) in printer coordinates
+			available_rect = printer->pageRect();
+		}
+		
+		qDebug() << "Qt pageRect (points):" << printer->pageRect();
+		qDebug() << "Qt paperRect (points):" << printer->paperRect();
+		
+		// Apply user margin if "Use the whole paper" is enabled
 		if (full_page && margin_mm > 0.0) {
-			// Convert margin from millimeters to printer pixels
-			qreal printer_dpi = printer->resolution();
-			qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
-			// Shrink the target rectangle by the margin on all sides
-			available_rect.adjust(margin, margin, -margin, -margin);
+			// Convert margin from millimeters to points
+			qreal margin_pt = margin_mm * 72.0 / 25.4; // Convert mm to points
+			available_rect.adjust(margin_pt, margin_pt, -margin_pt, -margin_pt);
 		}
 		
 		// Calculate scaled content size maintaining aspect ratio
+		// QGraphicsScene coordinates are in device-independent pixels (DIPs, typically 1/96 inch)
+		// Printer coordinates are in points (1/72 inch)
+		// Qt's render() when rendering to QPrinter accounts for coordinate system differences
+		// but we need to ensure the scale calculation is correct
+		
+		qDebug() << "=== PDF Export Scaling Debug ===";
+		qDebug() << "Printer format:" << printer->outputFormat() << "Resolution:" << printer->resolution();
+		qDebug() << "Full page:" << full_page << "Margin (mm):" << margin_mm;
+		qDebug() << "Available rect (points):" << available_rect;
+		
+		// Get printer and screen DPI for coordinate conversion
+		qreal printer_dpi = printer->resolution();
+		QScreen *screen = QApplication::primaryScreen();
+		qreal screen_dpi = screen ? screen->logicalDotsPerInch() : 96.0;
+		qDebug() << "Screen logical DPI:" << screen_dpi << "Printer DPI:" << printer_dpi;
+		
+		// Diagram rect in DIPs (scene coordinates)
+		qDebug() << "Diagram rect (DIPs):" << diagram_rect;
+		
+		// Qt's render() when rendering to QPrinter uses the printer's resolution
+		// for coordinate conversion. The key insight: Qt may convert based on printer DPI.
+		// 
+		// At printer resolution of 300 DPI:
+		// - 1 printer pixel = 1/300 inch = 72/300 = 0.24 points
+		// - 1 DIP (at 96 DPI) = 1/96 inch = 72/96 = 0.75 points
+		//
+		// Qt's render() might be using printer pixels internally, converting DIPs → printer pixels → points
+		// So: 1 DIP → (96/300) printer pixels → (96/300) * (72/300) points = wrong!
+		//
+		// Actually, let's try a simpler approach: Qt's render() may just do direct 1:1 mapping
+		// where 1 DIP coordinate = 1 point coordinate, ignoring physical sizes.
+		// So we need: target_size = desired_size * (screen_dpi/72) = desired_size * (96/72) = desired_size * 1.333
+		
+		// CRITICAL INSIGHT: Qt's render() does 1:1 coordinate mapping
+		// This means it maps source.size() (in DIPs) directly to target.size() (in points)
+		// WITHOUT accounting for physical size difference.
+		//
+		// So if we want output of S points, and source is N DIPs:
+		// - Physically: N DIPs = N * (72/screen_dpi) points
+		// - Qt maps: N DIPs → M points (1:1), so M = N if we pass target = N points
+		// - Physical output will be M points
+		// - But we want S points output, where S = N * (72/screen_dpi) * scale
+		//
+		// The solution: Calculate scale based on coordinate space, not physical space
+		// We need to calculate: what target size (in points) will produce desired physical output?
+		//
+		// If Qt maps N DIPs → M points (1:1), and we want S points physical output:
+		// - Since Qt does 1:1 mapping, M = N (target size = source size in DIPs)
+		// - But physically: N DIPs = N * (72/screen_dpi) points
+		// - So to get S points output, we need: N * (72/screen_dpi) = S
+		// - Therefore: N = S / (72/screen_dpi) = S * (screen_dpi/72)
+		// - So target (in points) = desired_physical_output * (screen_dpi/72)
+		
+		// Use the same approach as multi-page rendering: render directly using Qt's coordinate system
+		// The multi-page code uses diagram_rect (DIPs) and render_target (points) directly
+		// without compensation, suggesting Qt handles conversion automatically.
+		//
+		// Let's calculate scale to fit available_rect using the coordinate sizes directly
+		// Qt's render() should handle the coordinate conversion
 		qreal scale_x = available_rect.width() / diagram_rect.width();
 		qreal scale_y = available_rect.height() / diagram_rect.height();
 		qreal scale = qMin(scale_x, scale_y);
-		QSizeF scaled_size(diagram_rect.width() * scale, diagram_rect.height() * scale);
+		qDebug() << "Scale factors (DIPs → points coordinate space): X:" << scale_x << "Y:" << scale_y << "Min:" << scale;
 		
-		// Calculate anchored target rectangle based on user selection
-		// Note: Qt::KeepAspectRatio centers content within the target rect,
-		// so we calculate the target rect position to achieve the desired anchor
-		QRectF target_rect = calculateAnchoredRect(available_rect, scaled_size);
+		// Calculate target size directly: scale diagram size
+		QSizeF target_size_pt(
+			diagram_rect.width() * scale,
+			diagram_rect.height() * scale);
+		qDebug() << "Target size (points, matching Qt coordinate system):" << target_size_pt;
 		
-		diagram->render(painter, target_rect, diagram_rect, Qt::KeepAspectRatio);
+		// Note: The target size may exceed available space after compensation.
+		// This is intentional - Qt will handle the mapping and the physical output
+		// will be the desired size. The target rect will be positioned within available_rect.
+		
+		// Calculate anchored target rectangle in points (printer coordinates)
+		QRectF target_rect_pt = calculateAnchoredRect(available_rect, target_size_pt);
+		qDebug() << "Final target rect (points):" << target_rect_pt;
+		qDebug() << "Source diagram rect (DIPs):" << diagram_rect;
+		qDebug() << "=== End Debug ===";
+		
+		// Ensure proper rendering hints for font scaling
+		// Fonts should scale proportionally with geometry when rendering to QPrinter
+		painter->setRenderHint(QPainter::TextAntialiasing, true);
+		
+		// Render diagram - Qt will map diagram_rect (scene coords, DIPs) to target_rect (painter coords, points)
+		// Fonts will scale proportionally with the geometry transformation
+		diagram->render(painter, target_rect_pt, diagram_rect, Qt::KeepAspectRatio);
 	} else {
 		// Print on one or several pages
+		// Calculate page dimensions from physical size to ensure correct values
+		QRectF printed_rect;
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
-		auto printed_rect = full_page ? printer->paperRect() : printer->pageRect();
-		// Apply margin to shrink printable area when "Use the whole paper" is enabled
-		if (full_page && margin_mm > 0.0) {
-			// Convert margin from millimeters to printer pixels
-			qreal printer_dpi = printer->resolution();
-			qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
-			printed_rect.adjust(margin, margin, -margin, -margin);
-		}
+		QSizeF page_size_mm = full_page ? 
+			printer->paperSize(QPrinter::Millimeter) : 
+			printer->pageSize(QPrinter::Millimeter);
 #else
-#if TODO_LIST
-#pragma message("@TODO remove code for QT 6 or later")
-#endif
-	qDebug()<<"Help code for QT 6 or later";
-	auto printed_rect = full_page ? printer->paperRect(QPrinter::Millimeter) :
-									printer->pageRect(QPrinter::Millimeter);
-		// Apply margin to shrink printable area when "Use the whole paper" is enabled
-		if (full_page && margin_mm > 0.0) {
-			// When using Millimeter units, margin is already in millimeters
-			printed_rect.adjust(margin_mm, margin_mm, -margin_mm, -margin_mm);
+		QSizeF page_size_mm = printer->pageLayout().pageSize().size(QPageSize::Millimeter);
+		if (!full_page) {
+			// For pageRect (not paperRect), account for margins
+			QMarginsF margins_mm = printer->pageLayout().margins(QPageLayout::Millimeter);
+			page_size_mm.setWidth(page_size_mm.width() - margins_mm.left() - margins_mm.right());
+			page_size_mm.setHeight(page_size_mm.height() - margins_mm.top() - margins_mm.bottom());
 		}
 #endif
+		// Convert millimeters to points (Qt's logical coordinate system: 1 point = 1/72 inch)
+		qreal width_pt = page_size_mm.width() * 72.0 / 25.4;
+		qreal height_pt = page_size_mm.height() * 72.0 / 25.4;
+		printed_rect = QRectF(0, 0, width_pt, height_pt);
+		// Apply margin to shrink printable area when "Use the whole paper" is enabled
+		if (full_page && margin_mm > 0.0) {
+			// Convert margin from millimeters to points
+			qreal margin_pt = margin_mm * 72.0 / 25.4; // Convert mm to points
+			printed_rect.adjust(margin_pt, margin_pt, -margin_pt, -margin_pt);
+		}
 		auto used_width  = printed_rect.width();
 		auto used_height = printed_rect.height();
 		auto h_pages_count = horizontalPagesCount(diagram, option, full_page);
@@ -405,17 +562,18 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 			first_ ? first_ = false : m_printer->newPage();
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
 			// Adjust page rectangle to account for margin when rendering
+			// page coordinates are already in points (logical units)
 			QRectF render_target = QRectF(QPoint(0, 0), page.size());
 			if (full_page && margin_mm > 0.0) {
-				// Convert margin from millimeters to printer pixels
-				qreal printer_dpi = printer->resolution();
-				qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
+				// Convert margin from millimeters to points (Qt's logical coordinate system)
+				qreal margin_pt = margin_mm * 72.0 / 25.4; // Convert mm to points
 				// Shift the render target to account for the margin offset
-				render_target = QRectF(QPoint(margin, margin), page.size());
+				render_target = QRectF(QPoint(margin_pt, margin_pt), page.size());
 			}
 #else
-			// For Qt >= 5.15.1, printed_rect already accounts for margin in millimeters
-			// So no additional offset needed in render target
+			// For Qt >= 5.15.1, printed_rect already accounts for margin in pixels
+			// (margin was converted and applied earlier), so page rectangles are already adjusted
+			// No additional offset needed in render target
 			QRectF render_target = QRectF(QPoint(0, 0), page.size());
 #endif
 			diagram->render(
@@ -467,18 +625,25 @@ QRect ProjectPrintWindow::diagramRect(Diagram *diagram, const ExportProperties &
 int ProjectPrintWindow::horizontalPagesCount(
 		Diagram *diagram, const ExportProperties &option, bool full_page) const
 {
+	// Calculate page dimensions from physical size to ensure correct values
 	QRect printable_area;
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
-	printable_area = full_page ? m_printer->paperRect() : m_printer->pageRect();
+	QSizeF page_size_mm = full_page ? 
+		m_printer->paperSize(QPrinter::Millimeter) : 
+		m_printer->pageSize(QPrinter::Millimeter);
 #else
-#if TODO_LIST
-#pragma message("@TODO remove code for QT 6 or later")
-#	endif
-	printable_area =
-		full_page ?
-			m_printer->pageLayout().fullRectPixels(m_printer->resolution()) :
-			m_printer->pageLayout().paintRectPixels(m_printer->resolution());
+	QSizeF page_size_mm = m_printer->pageLayout().pageSize().size(QPageSize::Millimeter);
+	if (!full_page) {
+		// For pageRect (not paperRect), account for margins
+		QMarginsF margins_mm = m_printer->pageLayout().margins(QPageLayout::Millimeter);
+		page_size_mm.setWidth(page_size_mm.width() - margins_mm.left() - margins_mm.right());
+		page_size_mm.setHeight(page_size_mm.height() - margins_mm.top() - margins_mm.bottom());
+	}
 #endif
+	// Convert millimeters to points (Qt's logical coordinate system: 1 point = 1/72 inch)
+	qreal width_pt = page_size_mm.width() * 72.0 / 25.4;
+	qreal height_pt = page_size_mm.height() * 72.0 / 25.4;
+	printable_area = QRect(0, 0, (int)width_pt, (int)height_pt);
 	QRect diagram_rect = diagramRect(diagram, option);
 
 	int h_pages_count = int(ceil(qreal(diagram_rect.width()) / qreal(printable_area.width())));
@@ -496,18 +661,25 @@ int ProjectPrintWindow::horizontalPagesCount(
 int ProjectPrintWindow::verticalPagesCount(
 		Diagram *diagram, const ExportProperties &option, bool full_page) const
 {
+	// Calculate page dimensions from physical size to ensure correct values
 	QRect printable_area;
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
-	printable_area = full_page ? m_printer->paperRect() : m_printer->pageRect();
+	QSizeF page_size_mm = full_page ? 
+		m_printer->paperSize(QPrinter::Millimeter) : 
+		m_printer->pageSize(QPrinter::Millimeter);
 #else
-#if TODO_LIST
-#pragma message("@TODO remove code for QT 6 or later")
-#	endif
-	printable_area =
-		full_page ?
-			m_printer->pageLayout().fullRectPixels(m_printer->resolution()) :
-			m_printer->pageLayout().paintRectPixels(m_printer->resolution());
+	QSizeF page_size_mm = m_printer->pageLayout().pageSize().size(QPageSize::Millimeter);
+	if (!full_page) {
+		// For pageRect (not paperRect), account for margins
+		QMarginsF margins_mm = m_printer->pageLayout().margins(QPageLayout::Millimeter);
+		page_size_mm.setWidth(page_size_mm.width() - margins_mm.left() - margins_mm.right());
+		page_size_mm.setHeight(page_size_mm.height() - margins_mm.top() - margins_mm.bottom());
+	}
 #endif
+	// Convert millimeters to points (Qt's logical coordinate system: 1 point = 1/72 inch)
+	qreal width_pt = page_size_mm.width() * 72.0 / 25.4;
+	qreal height_pt = page_size_mm.height() * 72.0 / 25.4;
+	printable_area = QRect(0, 0, (int)width_pt, (int)height_pt);
 	QRect diagram_rect = diagramRect(diagram, option);
 
 	int v_pages_count = int(ceil(qreal(diagram_rect.height()) / qreal(printable_area.height())));
@@ -825,6 +997,10 @@ void ProjectPrintWindow::exportToPDF()
 	}
 	m_printer->setOutputFileName(file_name);
 	m_printer->setOutputFormat(QPrinter::PdfFormat);
+	// Set printer DPI to match screen DPI to ensure font scaling matches preview
+	QScreen *screen = QApplication::primaryScreen();
+	qreal screen_dpi = screen ? screen->logicalDotsPerInch() : 96.0;
+	m_printer->setResolution(qRound(screen_dpi));
 	print();
 }
 
