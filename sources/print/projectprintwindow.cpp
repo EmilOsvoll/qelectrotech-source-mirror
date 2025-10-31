@@ -128,6 +128,13 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 	ui->setupUi(this);
 
 	loadPageSetupForCurrentPrinter();
+	
+	// After loading saved settings, ensure the "Use the whole paper" checkbox 
+	// state is properly applied to the printer if it's checked by default
+	// This handles the case where the checkbox is checked in UI but saved settings had it unchecked
+	if (ui->m_use_full_page_cb->isChecked() && !m_printer->fullPage()) {
+		m_printer->setFullPage(true);
+	}
 
 	m_preview = new QPrintPreviewWidget(m_printer);
 	connect(m_preview, &QPrintPreviewWidget::paintRequested, this, &ProjectPrintWindow::requestPaint);
@@ -172,6 +179,40 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 
 	m_backup_diagram_background_color = Diagram::background_color;
 	Diagram::background_color = Qt::white;
+	
+	// Connect "Use the whole paper" checkbox to enable/disable margin input
+	connect(ui->m_use_full_page_cb, &QCheckBox::toggled, this, [this](bool checked) {
+		ui->m_margin_label->setEnabled(checked);
+		ui->m_margin_sp->setEnabled(checked);
+	});
+	
+	// Connect margin value change to update preview
+#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
+	connect(ui->m_margin_sp, QOverload<double>::of(&QDoubleSpinBox::valueChanged),
+		this, [this](double) {
+			if (ui->m_use_full_page_cb->isChecked()) {
+				m_preview->updatePreview();
+			}
+		});
+#else
+	connect(ui->m_margin_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
+		this, [this](double) {
+			if (ui->m_use_full_page_cb->isChecked()) {
+				m_preview->updatePreview();
+			}
+		});
+#endif
+	
+	// Initially disable margin input if "Use the whole paper" is not checked
+	ui->m_margin_label->setEnabled(ui->m_use_full_page_cb->isChecked());
+	ui->m_margin_sp->setEnabled(ui->m_use_full_page_cb->isChecked());
+	
+	// Ensure the printer's fullPage setting matches the checkbox state
+	// This is important when the checkbox is checked by default in the UI
+	m_printer->setFullPage(ui->m_use_full_page_cb->isChecked());
+	
+	// Force preview update to apply all settings
+	m_preview->updatePreview();
 }
 
 /**
@@ -255,12 +296,35 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 
 	auto full_page = printer->fullPage();
 	auto diagram_rect = QRectF(diagramRect(diagram, option));
+	
+	// Apply printer margin when "Use the whole paper" is enabled
+	qreal margin_mm = 0.0;
+	if (full_page && ui->m_use_full_page_cb->isChecked()) {
+		margin_mm = ui->m_margin_sp->value();
+	}
+	
 	if (fit_page) {
-		diagram->render(painter, QRectF(), diagram_rect, Qt::KeepAspectRatio);
+		// When fitting to page, apply margin by adjusting the target rectangle
+		QRectF target_rect = printer->pageRect();
+		if (full_page && margin_mm > 0.0) {
+			// Convert margin from millimeters to printer pixels
+			qreal printer_dpi = printer->resolution();
+			qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
+			// Shrink the target rectangle by the margin on all sides
+			target_rect.adjust(margin, margin, -margin, -margin);
+		}
+		diagram->render(painter, target_rect, diagram_rect, Qt::KeepAspectRatio);
 	} else {
 		// Print on one or several pages
 #if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
 		auto printed_rect = full_page ? printer->paperRect() : printer->pageRect();
+		// Apply margin to shrink printable area when "Use the whole paper" is enabled
+		if (full_page && margin_mm > 0.0) {
+			// Convert margin from millimeters to printer pixels
+			qreal printer_dpi = printer->resolution();
+			qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
+			printed_rect.adjust(margin, margin, -margin, -margin);
+		}
 #else
 #if TODO_LIST
 #pragma message("@TODO remove code for QT 6 or later")
@@ -268,6 +332,11 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 	qDebug()<<"Help code for QT 6 or later";
 	auto printed_rect = full_page ? printer->paperRect(QPrinter::Millimeter) :
 									printer->pageRect(QPrinter::Millimeter);
+		// Apply margin to shrink printable area when "Use the whole paper" is enabled
+		if (full_page && margin_mm > 0.0) {
+			// When using Millimeter units, margin is already in millimeters
+			printed_rect.adjust(margin_mm, margin_mm, -margin_mm, -margin_mm);
+		}
 #endif
 		auto used_width  = printed_rect.width();
 		auto used_height = printed_rect.height();
@@ -309,9 +378,24 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 		for (auto& page : page_to_print)
 		{
 			first_ ? first_ = false : m_printer->newPage();
+#if QT_VERSION < QT_VERSION_CHECK(5, 15, 1) // ### Qt 6: remove
+			// Adjust page rectangle to account for margin when rendering
+			QRectF render_target = QRectF(QPoint(0, 0), page.size());
+			if (full_page && margin_mm > 0.0) {
+				// Convert margin from millimeters to printer pixels
+				qreal printer_dpi = printer->resolution();
+				qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
+				// Shift the render target to account for the margin offset
+				render_target = QRectF(QPoint(margin, margin), page.size());
+			}
+#else
+			// For Qt >= 5.15.1, printed_rect already accounts for margin in millimeters
+			// So no additional offset needed in render target
+			QRectF render_target = QRectF(QPoint(0, 0), page.size());
+#endif
 			diagram->render(
 				painter,
-				QRectF(QPoint(0, 0), page.size()),
+				render_target,
 				page.translated(diagram_rect.topLeft()),
 				Qt::KeepAspectRatio);
 		}
@@ -686,7 +770,13 @@ void ProjectPrintWindow::on_m_draw_terminal_cb_clicked()        { m_preview->upd
 void ProjectPrintWindow::on_m_fit_in_page_cb_clicked()          { m_preview->updatePreview(); }
 void ProjectPrintWindow::on_m_use_full_page_cb_clicked()
 {
-	m_printer->setFullPage(ui->m_use_full_page_cb->isChecked());
+	bool checked = ui->m_use_full_page_cb->isChecked();
+	m_printer->setFullPage(checked);
+	
+	// Enable/disable margin input based on checkbox state
+	ui->m_margin_label->setEnabled(checked);
+	ui->m_margin_sp->setEnabled(checked);
+	
 	m_preview->updatePreview();
 }
 

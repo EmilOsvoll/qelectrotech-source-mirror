@@ -207,6 +207,9 @@
          <property name="text">
           <string>Use the whole paper</string>
          </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item row="3" column="1">
@@ -232,6 +235,41 @@
          </property>
          <property name="openExternalLinks">
           <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="m_margin_label">
+         <property name="text">
+          <string>Printer margin (mm):</string>
+         </property>
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="m_margin_sp">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="suffix">
+          <string> mm</string>
+         </property>
+         <property name="decimals">
+          <number>1</number>
+         </property>
+         <property name="minimum">
+          <double>0.00000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>50.00000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>1.00000000000000000</double>
+         </property>
+         <property name="value">
+          <double>5.00000000000000000</double>
          </property>
         </widget>
        </item>
