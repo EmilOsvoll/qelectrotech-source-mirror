@@ -474,6 +474,10 @@ void QETProject::setTitle(const QString &title) {
 */
 BorderProperties QETProject::defaultBorderProperties() const
 {
+	qDebug() << "[QETProject::defaultBorderProperties] Returning default_border_properties_:"
+	         << "base_area=" << default_border_properties_.base_area
+	         << "aspect_ratio=" << default_border_properties_.aspect_ratio
+	         << "use_calc=" << default_border_properties_.use_calculated_dimensions;
 	return(default_border_properties_);
 }
 
@@ -491,9 +495,10 @@ void QETProject::setDefaultBorderProperties(const BorderProperties &border) {
         qreal dh = default_border_properties_.rows_count * default_border_properties_.rows_height;
         default_border_properties_.aspect_ratio = (dh > 0.0) ? dw / dh : 1.0;
     }
-    if (default_border_properties_.base_area <= 0.0) {
-        default_border_properties_.base_area = (default_border_properties_.columns_count * default_border_properties_.columns_width) *
-                                               (default_border_properties_.rows_count * default_border_properties_.rows_height);
+    // Use default base_area (1,500,000) if invalid or too small
+    // Only calculate from dimensions as a last resort for legacy files
+    if (default_border_properties_.base_area <= 0.0 || default_border_properties_.base_area < 100000.0) {
+        default_border_properties_.base_area = 1500000.0;  // Default base_area for new projects
     }
     if (default_border_properties_.scale <= 0.0 || default_border_properties_.scale > 100.0) {
         default_border_properties_.scale = 1.0;
@@ -1294,27 +1299,48 @@ Diagram *QETProject::addNewDiagram(int pos)
 
     // Ensure calculated-dimensions defaults are applied when creating a new folio
     // Prefer inheriting from the most recent diagram, falling back to project defaults
+    qDebug() << "[QETProject::addNewDiagram] START - Creating new diagram";
     BorderProperties bp = defaultBorderProperties();
+    qDebug() << "[QETProject::addNewDiagram] After defaultBorderProperties():"
+             << "base_area=" << bp.base_area
+             << "aspect_ratio=" << bp.aspect_ratio
+             << "cols=" << bp.columns_count << "rows=" << bp.rows_count
+             << "use_calc=" << bp.use_calculated_dimensions;
     if (!diagrams().isEmpty()) {
-        bp = diagrams().last()->border_and_titleblock.exportBorder();
+        BorderProperties last_bp = diagrams().last()->border_and_titleblock.exportBorder();
+        qDebug() << "[QETProject::addNewDiagram] Inheriting from last diagram:"
+                 << "base_area=" << last_bp.base_area
+                 << "aspect_ratio=" << last_bp.aspect_ratio;
+        bp = last_bp;
     }
-    qDebug() << "[QETProject::addNewDiagram] defaults:" 
+    qDebug() << "[QETProject::addNewDiagram] Before validation:" 
              << "cols" << bp.columns_count << "rows" << bp.rows_count 
-             << "aspect" << bp.aspect_ratio << "base" << bp.base_area << "scale" << bp.scale 
+             << "aspect" << bp.aspect_ratio << "base_area" << bp.base_area << "scale" << bp.scale 
              << "use_calc" << bp.use_calculated_dimensions;
     // Always derive widths/heights from aspect/base/scale on creation to match dialog behavior
     bp.use_calculated_dimensions = true;
     if (bp.aspect_ratio <= 0.0 || bp.aspect_ratio > 100.0) {
         qreal drawing_width = bp.columns_count * bp.columns_width;
         qreal drawing_height = bp.rows_count * bp.rows_height;
-        bp.aspect_ratio = (drawing_height > 0.0) ? drawing_width / drawing_height : 1.0;
+        qreal new_aspect = (drawing_height > 0.0) ? drawing_width / drawing_height : (100.0 / 64.0);
+        qDebug() << "[QETProject::addNewDiagram] Invalid aspect_ratio" << bp.aspect_ratio
+                 << ", recalculating from dimensions:" << drawing_width << "/" << drawing_height << "=" << new_aspect;
+        bp.aspect_ratio = new_aspect;
     }
-    if (bp.base_area <= 0.0) {
-        bp.base_area = (bp.columns_count * bp.columns_width) * (bp.rows_count * bp.rows_height);
+    // Use default base_area (1,500,000) if invalid or not properly set
+    // Only fall back to calculating from dimensions if absolutely necessary (e.g., legacy files)
+    if (bp.base_area <= 0.0 || bp.base_area < 100000.0) {  // If base_area is too small, use default
+        qDebug() << "[QETProject::addNewDiagram] base_area too small/invalid:" << bp.base_area
+                 << ", setting to default 1,500,000";
+        bp.base_area = 1500000.0;  // Use default base_area for new folios
+    } else {
+        qDebug() << "[QETProject::addNewDiagram] base_area is valid:" << bp.base_area << "(keeping it)";
     }
     if (bp.scale <= 0.0 || bp.scale > 100.0) {
+        qDebug() << "[QETProject::addNewDiagram] Invalid scale, resetting to 1.0";
         bp.scale = 1.0;
     }
+    qDebug() << "[QETProject::addNewDiagram] Before calculateDimensions(): base_area=" << bp.base_area;
     bp.calculateDimensions();
     qDebug() << "[QETProject::addNewDiagram] after calc:" 
              << "columns_width" << bp.columns_width << "rows_height" << bp.rows_height;
@@ -1619,7 +1645,9 @@ void QETProject::readDefaultPropertiesXml(QDomDocument &xml_project)
 	QDomElement newdiagrams_elmt = newdiagrams_nodes.at(0).toElement();
 
 		// By default, use value find in the global conf of QElectroTech
+	qDebug() << "[QETProject::readDefaultPropertiesXml] Loading default properties from global config";
 	default_border_properties_	   = BorderProperties::    defaultProperties();
+	qDebug() << "[QETProject::readDefaultPropertiesXml] After defaultProperties(): base_area=" << default_border_properties_.base_area;
 	default_titleblock_properties_ = TitleBlockProperties::defaultProperties();
 	default_conductor_properties_  = ConductorProperties:: defaultProperties();
 	m_default_report_properties	   = ReportProperties::    defaultProperties();
@@ -1653,22 +1681,35 @@ void QETProject::readDefaultPropertiesXml(QDomDocument &xml_project)
 
 		// size, titleblock, conductor, report, conductor autonum, folio autonum, element autonum
 	if (!border_elmt.isNull()) {
+		qDebug() << "[QETProject::readDefaultPropertiesXml] Found border XML element, loading...";
+		qDebug() << "[QETProject::readDefaultPropertiesXml] Before fromXml: base_area=" << default_border_properties_.base_area;
 		default_border_properties_.fromXml(border_elmt);
+		qDebug() << "[QETProject::readDefaultPropertiesXml] After fromXml: base_area=" << default_border_properties_.base_area;
 		// Enforce calculated defaults and precompute sizes
 		default_border_properties_.use_calculated_dimensions = true;
 		if (default_border_properties_.aspect_ratio <= 0.0 || default_border_properties_.aspect_ratio > 100.0) {
 			qreal dw = default_border_properties_.columns_count * default_border_properties_.columns_width;
 			qreal dh = default_border_properties_.rows_count * default_border_properties_.rows_height;
-			default_border_properties_.aspect_ratio = (dh > 0.0) ? dw / dh : 1.0;
+			qreal new_aspect = (dh > 0.0) ? dw / dh : 1.0;
+			qDebug() << "[QETProject::readDefaultPropertiesXml] Invalid aspect_ratio, recalculating to" << new_aspect;
+			default_border_properties_.aspect_ratio = new_aspect;
 		}
-		if (default_border_properties_.base_area <= 0.0) {
-			default_border_properties_.base_area = (default_border_properties_.columns_count * default_border_properties_.columns_width) *
-											   (default_border_properties_.rows_count * default_border_properties_.rows_height);
+		// Use default base_area (1,500,000) if invalid or too small
+		// Only calculate from dimensions as a last resort for legacy files
+		if (default_border_properties_.base_area <= 0.0 || default_border_properties_.base_area < 100000.0) {
+			qDebug() << "[QETProject::readDefaultPropertiesXml] base_area too small:" << default_border_properties_.base_area
+			         << ", setting to 1,500,000";
+			default_border_properties_.base_area = 1500000.0;  // Default base_area for new projects
+		} else {
+			qDebug() << "[QETProject::readDefaultPropertiesXml] base_area is valid:" << default_border_properties_.base_area;
 		}
 		if (default_border_properties_.scale <= 0.0 || default_border_properties_.scale > 100.0) {
+			qDebug() << "[QETProject::readDefaultPropertiesXml] Invalid scale, resetting to 1.0";
 			default_border_properties_.scale = 1.0;
 		}
+		qDebug() << "[QETProject::readDefaultPropertiesXml] Before calculateDimensions: base_area=" << default_border_properties_.base_area;
 		default_border_properties_.calculateDimensions();
+		qDebug() << "[QETProject::readDefaultPropertiesXml] After calculateDimensions: base_area=" << default_border_properties_.base_area;
 	}
 	if (!titleblock_elmt.isNull()) default_titleblock_properties_.fromXml(titleblock_elmt);
 	if (!conductors_elmt.isNull()) default_conductor_properties_.fromXml(conductors_elmt);

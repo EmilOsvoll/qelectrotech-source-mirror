@@ -39,7 +39,7 @@ BorderPropertiesWidget::BorderPropertiesWidget(const BorderProperties &bp, QWidg
 	ui->m_use_calculated_dimensions_cb->setChecked(true);
 	ui->m_use_calculated_dimensions_cb->setVisible(false);
 	ui->label_base_area->setVisible(false);
-	ui->m_base_area_sp->setValue(652800.0);
+	ui->m_base_area_sp->setValue(1500000.0);
 	ui->m_base_area_sp->setVisible(false);
 	// Old numeric aspect ratio control removed from UI; no action needed
 
@@ -141,7 +141,7 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	// Use a reasonable default ratio if aspect_ratio is invalid
 	// Convert to a simple integer ratio by finding a common approximation
 	int width_part = 100;
-	int height_part = 69;
+	int height_part = 64;
 	if (aspect_ratio > 0.0 && aspect_ratio <= 100.0) {
 		// Convert decimal aspect ratio to integer parts
 		// Find the simplest ratio that approximates the aspect ratio

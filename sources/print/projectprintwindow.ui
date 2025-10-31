@@ -291,6 +291,9 @@
         <layout class="QHBoxLayout" name="anchor_layout">
          <item>
           <widget class="QComboBox" name="m_anchor_horizontal_cb">
+           <property name="currentIndex">
+            <number>1</number>
+           </property>
            <item>
             <property name="text">
              <string>Left</string>
@@ -310,6 +313,9 @@
          </item>
          <item>
           <widget class="QComboBox" name="m_anchor_vertical_cb">
+           <property name="currentIndex">
+            <number>2</number>
+           </property>
            <item>
             <property name="text">
              <string>Top</string>

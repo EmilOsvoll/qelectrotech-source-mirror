@@ -412,7 +412,10 @@ BorderProperties BorderTitleBlock::exportBorder()
 	// so they can be saved to XML and used for future dimension calculations
 	qreal drawing_width = bp.columns_count * bp.columns_width;
 	qreal drawing_height = bp.rows_count * bp.rows_height;
-	bp.base_area = drawing_width * drawing_height;
+	qreal calc_base_area = drawing_width * drawing_height;
+	qDebug() << "[BorderTitleBlock::exportBorder] Recalculating base_area from dimensions:"
+	         << "(" << drawing_width << "x" << drawing_height << "=" << calc_base_area << ")";
+	bp.base_area = calc_base_area;
 	if (drawing_height > 0.0) {
 		bp.aspect_ratio = drawing_width / drawing_height;
 	} else {

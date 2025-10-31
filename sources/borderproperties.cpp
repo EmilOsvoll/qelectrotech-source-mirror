@@ -44,15 +44,26 @@ BorderProperties::BorderProperties() :
 	display_rows(true),
 	border_all_sides(false),
 	use_calculated_dimensions(false),
-	aspect_ratio(1.275),  // Default: 17*60 / (8*80) = 1020/640 ≈ 1.594, but let's use a more standard ratio
-	base_area(816000.0),  // Default: 17*60 * 8*80 = 1020 * 640 = 652800, let's preserve this
+	aspect_ratio(100.0 / 64.0),  // Default: 100:64 = 1.5625
+	base_area(1500000.0),  // Default: 1,500,000 px²
 	scale(1.0),
 	header_line_thickness(1.0),
 	header_thickness(12.0)
 {
-	// Calculate initial area from default dimensions
-	base_area = (columns_count * columns_width) * (rows_count * rows_height);
-	aspect_ratio = (columns_count * columns_width) / (rows_count * rows_height);
+	qDebug() << "[BorderProperties::Constructor] Initializing with:"
+	         << "base_area=" << base_area
+	         << "aspect_ratio=" << aspect_ratio
+	         << "columns_count=" << columns_count
+	         << "columns_width=" << columns_width
+	         << "rows_count=" << rows_count
+	         << "rows_height=" << rows_height
+	         << "use_calculated_dimensions=" << use_calculated_dimensions;
+	// Don't override base_area and aspect_ratio defaults here
+	// When use_calculated_dimensions is false (legacy mode), these will be recalculated from
+	// dimensions when needed (e.g., in fromSettings or fromXml with legacy files)
+	// When use_calculated_dimensions is true, these defaults are preserved and calculateDimensions()
+	// should be called to compute columns_width and rows_height from base_area and aspect_ratio
+	qDebug() << "[BorderProperties::Constructor] After init - base_area=" << base_area;
 }
 
 /**
@@ -145,6 +156,9 @@ void BorderProperties::toXml(QDomElement &e) const
 	\~French Element XML dont les attributs seront lus
 */
 void BorderProperties::fromXml(QDomElement &e) {
+	qDebug() << "[BorderProperties::fromXml] START - Loading from XML";
+	qDebug() << "[BorderProperties::fromXml] Initial state: base_area=" << base_area << "aspect_ratio=" << aspect_ratio;
+	
 	if (e.hasAttribute("cols"))        columns_count   = e.attribute("cols").toInt();
 	if (e.hasAttribute("colsize"))     columns_width   = e.attribute("colsize").toDouble();
 	if (e.hasAttribute("rows"))        rows_count      = e.attribute("rows").toInt();
@@ -153,37 +167,60 @@ void BorderProperties::fromXml(QDomElement &e) {
 	if (e.hasAttribute("displayrows")) display_rows    = e.attribute("displayrows") == "true";
 	if (e.hasAttribute("borderallsides")) border_all_sides = e.attribute("borderallsides") == "true";
 	
+	qDebug() << "[BorderProperties::fromXml] After loading dimensions:"
+	         << "cols=" << columns_count << "colsize=" << columns_width
+	         << "rows=" << rows_count << "rowsize=" << rows_height;
+	
 	// Load new calculated dimension properties
 	if (e.hasAttribute("use_calculated_dimensions")) {
 		use_calculated_dimensions = e.attribute("use_calculated_dimensions") == "true";
+		qDebug() << "[BorderProperties::fromXml] use_calculated_dimensions attribute found:" << use_calculated_dimensions;
 		if (use_calculated_dimensions) {
 			if (e.hasAttribute("aspect_ratio")) {
+				qreal old_aspect = aspect_ratio;
 				aspect_ratio = e.attribute("aspect_ratio").toDouble();
+				qDebug() << "[BorderProperties::fromXml] Loaded aspect_ratio from XML:" << aspect_ratio << "(was" << old_aspect << ")";
 				// Validate aspect ratio
 				if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) {
+					qDebug() << "[BorderProperties::fromXml] Invalid aspect_ratio, resetting to 1.0";
 					aspect_ratio = 1.0; // Default to square
 				}
+			} else {
+				qDebug() << "[BorderProperties::fromXml] No aspect_ratio attribute, keeping default:" << aspect_ratio;
 			}
 			if (e.hasAttribute("base_area")) {
+				qreal old_base = base_area;
 				base_area = e.attribute("base_area").toDouble();
+				qDebug() << "[BorderProperties::fromXml] Loaded base_area from XML:" << base_area << "(was" << old_base << ")";
 				// Validate base area
 				if (base_area <= 0.0) {
-					base_area = (columns_count * columns_width) * (rows_count * rows_height);
+					qreal calc_base = (columns_count * columns_width) * (rows_count * rows_height);
+					qDebug() << "[BorderProperties::fromXml] Invalid base_area, recalculating from dimensions to" << calc_base;
+					base_area = calc_base;
 				}
+			} else {
+				qDebug() << "[BorderProperties::fromXml] No base_area attribute, keeping default:" << base_area;
 			}
 			if (e.hasAttribute("scale")) {
 				scale = e.attribute("scale").toDouble();
+				qDebug() << "[BorderProperties::fromXml] Loaded scale from XML:" << scale;
 				// Validate scale
 				if (scale <= 0.0 || scale > 100.0) {
+					qDebug() << "[BorderProperties::fromXml] Invalid scale, resetting to 1.0";
 					scale = 1.0;
 				}
 			}
+			qDebug() << "[BorderProperties::fromXml] Before calculateDimensions: base_area=" << base_area;
 			calculateDimensions();
+			qDebug() << "[BorderProperties::fromXml] After calculateDimensions: base_area=" << base_area;
 		} else {
 			// Legacy mode: calculate aspect_ratio and base_area from current dimensions for future use
 			qreal drawing_width = columns_count * columns_width;
 			qreal drawing_height = rows_count * rows_height;
-			base_area = drawing_width * drawing_height;
+			qreal calc_base_area = drawing_width * drawing_height;
+			qDebug() << "[BorderProperties::fromXml] Legacy mode: recalculating base_area from dimensions"
+			         << "(" << drawing_width << "x" << drawing_height << "=" << calc_base_area << ")";
+			base_area = calc_base_area;
 			if (drawing_height > 0.0) {
 				aspect_ratio = drawing_width / drawing_height;
 			} else {
@@ -191,6 +228,7 @@ void BorderProperties::fromXml(QDomElement &e) {
 			}
 			scale = 1.0;
 		}
+		qDebug() << "[BorderProperties::fromXml] After calculated_dimensions branch: base_area=" << base_area;
 	} else {
 		// Legacy file: not using calculated dimensions, but compute aspect_ratio and base_area for compatibility
 		use_calculated_dimensions = false;
@@ -203,7 +241,9 @@ void BorderProperties::fromXml(QDomElement &e) {
 			aspect_ratio = 1.0;
 		}
 		scale = 1.0;
+		qDebug() << "[BorderProperties::fromXml] Legacy file (no use_calculated_dimensions): recalculated base_area=" << base_area;
 	}
+	qDebug() << "[BorderProperties::fromXml] FINAL: base_area=" << base_area << "aspect_ratio=" << aspect_ratio;
 
 	// Load header customization
 	if (e.hasAttribute("header_thickness")) {
@@ -270,30 +310,74 @@ void BorderProperties::fromSettings(QSettings &settings, const QString &prefix) 
 		settings.value("diagrameditor/default-borderallsides", border_all_sides)).toBool();
 	
 	// Load new calculated dimension properties
-	use_calculated_dimensions = settings.value(prefix % "use_calculated_dimensions", false).toBool();
+	// Check if use_calculated_dimensions is explicitly set in settings
+	bool has_calc_dims_setting = settings.contains(prefix % "use_calculated_dimensions");
+	qDebug() << "[BorderProperties::fromSettings] Loading with prefix:" << prefix
+	         << "has_calc_dims_setting=" << has_calc_dims_setting
+	         << "Initial base_area=" << base_area
+	         << "Initial aspect_ratio=" << aspect_ratio;
+	
+	use_calculated_dimensions = settings.value(prefix % "use_calculated_dimensions", true).toBool();  // Default to true for new projects
+	qDebug() << "[BorderProperties::fromSettings] use_calculated_dimensions=" << use_calculated_dimensions;
+	
 	if (use_calculated_dimensions) {
+		qreal old_base_area = base_area;
 		aspect_ratio = settings.value(prefix % "aspect_ratio", aspect_ratio).toDouble();
 		base_area = settings.value(prefix % "base_area", base_area).toDouble();
 		scale = settings.value(prefix % "scale", scale).toDouble();
+		qDebug() << "[BorderProperties::fromSettings] Loaded from settings:"
+		         << "aspect_ratio=" << aspect_ratio
+		         << "base_area=" << base_area << "(was" << old_base_area << ")"
+		         << "scale=" << scale;
 		
 		// Validate values
-		if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) aspect_ratio = 1.0;
-		if (base_area <= 0.0) base_area = (columns_count * columns_width) * (rows_count * rows_height);
-		if (scale <= 0.0 || scale > 100.0) scale = 1.0;
-		
-		calculateDimensions();
-	} else {
-		// Legacy mode: calculate aspect_ratio and base_area from current dimensions
-		qreal drawing_width = columns_count * columns_width;
-		qreal drawing_height = rows_count * rows_height;
-		base_area = drawing_width * drawing_height;
-		if (drawing_height > 0.0) {
-			aspect_ratio = drawing_width / drawing_height;
-		} else {
+		if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) {
+			qDebug() << "[BorderProperties::fromSettings] Invalid aspect_ratio, resetting to 1.0";
 			aspect_ratio = 1.0;
 		}
-		scale = 1.0;
+		// If base_area is invalid, too small (old default), or matches old default (~652800), use new default
+		if (base_area <= 0.0) {
+			qreal calc_base = (columns_count * columns_width) * (rows_count * rows_height);
+			qDebug() << "[BorderProperties::fromSettings] Invalid base_area=" << base_area
+			         << ", recalculating from dimensions to" << calc_base;
+			base_area = calc_base;
+		} else if (base_area < 100000.0 || (base_area >= 640000.0 && base_area <= 660000.0)) {
+			// Old default was around 652800 (17*60 * 8*80 = 1020 * 640)
+			// Replace old defaults with new default (1,500,000)
+			qDebug() << "[BorderProperties::fromSettings] base_area=" << base_area
+			         << "is old default value, replacing with new default 1,500,000";
+			base_area = 1500000.0;
+		}
+		if (scale <= 0.0 || scale > 100.0) {
+			qDebug() << "[BorderProperties::fromSettings] Invalid scale, resetting to 1.0";
+			scale = 1.0;
+		}
+		qDebug() << "[BorderProperties::fromSettings] After validation: base_area=" << base_area;
+		calculateDimensions();
+	} else {
+		// Legacy mode: only recalculate if explicitly using legacy mode (from old files/settings)
+		// If use_calculated_dimensions is not set, we default to calculated mode and preserve defaults
+		if (has_calc_dims_setting) {
+			// Explicitly legacy mode: calculate aspect_ratio and base_area from current dimensions
+			qreal drawing_width = columns_count * columns_width;
+			qreal drawing_height = rows_count * rows_height;
+			qreal calc_base_area = drawing_width * drawing_height;
+			qDebug() << "[BorderProperties::fromSettings] Legacy mode: recalculating base_area from dimensions"
+			         << "(" << drawing_width << "x" << drawing_height << "=" << calc_base_area << ")";
+			base_area = calc_base_area;
+			if (drawing_height > 0.0) {
+				aspect_ratio = drawing_width / drawing_height;
+			} else {
+				aspect_ratio = 1.0;
+			}
+			scale = 1.0;
+		} else {
+			qDebug() << "[BorderProperties::fromSettings] use_calculated_dimensions not set, preserving defaults: base_area=" << base_area;
+		}
+		// If use_calculated_dimensions is not set, preserve the constructor defaults
+		// and calculateDimensions() will be called later
 	}
+	qDebug() << "[BorderProperties::fromSettings] Final base_area=" << base_area;
 
 	// Header customization
 	header_thickness = settings.value(prefix % "header_thickness", header_thickness).toDouble();
