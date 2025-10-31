@@ -17,6 +17,7 @@
 */
 
 #include "qetproject.h"
+#include <QDebug>
 
 #include "ElementsCollection/xmlelementcollection.h"
 #include "autoNum/assignvariables.h"
@@ -482,7 +483,23 @@ BorderProperties QETProject::defaultBorderProperties() const
 	@param border dimensions d'un schema
 */
 void QETProject::setDefaultBorderProperties(const BorderProperties &border) {
-	default_border_properties_ = border;
+    // Persist defaults in calculated mode so new folios reproduce project settings exactly
+    default_border_properties_ = border;
+    default_border_properties_.use_calculated_dimensions = true;
+    if (default_border_properties_.aspect_ratio <= 0.0 || default_border_properties_.aspect_ratio > 100.0) {
+        qreal dw = default_border_properties_.columns_count * default_border_properties_.columns_width;
+        qreal dh = default_border_properties_.rows_count * default_border_properties_.rows_height;
+        default_border_properties_.aspect_ratio = (dh > 0.0) ? dw / dh : 1.0;
+    }
+    if (default_border_properties_.base_area <= 0.0) {
+        default_border_properties_.base_area = (default_border_properties_.columns_count * default_border_properties_.columns_width) *
+                                               (default_border_properties_.rows_count * default_border_properties_.rows_height);
+    }
+    if (default_border_properties_.scale <= 0.0 || default_border_properties_.scale > 100.0) {
+        default_border_properties_.scale = 1.0;
+    }
+    // Calculate and store consistent widths/heights for the defaults themselves
+    default_border_properties_.calculateDimensions();
 }
 
 /**
@@ -1273,10 +1290,52 @@ Diagram *QETProject::addNewDiagram(int pos)
 		return(nullptr);
 	}
 
-	Diagram *diagram = new Diagram(this);
+    Diagram *diagram = new Diagram(this);
 
-	diagram->border_and_titleblock.importBorder(defaultBorderProperties());
-	diagram->border_and_titleblock.importTitleBlock(defaultTitleBlockProperties());
+    // Ensure calculated-dimensions defaults are applied when creating a new folio
+    // Prefer inheriting from the most recent diagram, falling back to project defaults
+    BorderProperties bp = defaultBorderProperties();
+    if (!diagrams().isEmpty()) {
+        bp = diagrams().last()->border_and_titleblock.exportBorder();
+    }
+    qDebug() << "[QETProject::addNewDiagram] defaults:" 
+             << "cols" << bp.columns_count << "rows" << bp.rows_count 
+             << "aspect" << bp.aspect_ratio << "base" << bp.base_area << "scale" << bp.scale 
+             << "use_calc" << bp.use_calculated_dimensions;
+    // Always derive widths/heights from aspect/base/scale on creation to match dialog behavior
+    bp.use_calculated_dimensions = true;
+    if (bp.aspect_ratio <= 0.0 || bp.aspect_ratio > 100.0) {
+        qreal drawing_width = bp.columns_count * bp.columns_width;
+        qreal drawing_height = bp.rows_count * bp.rows_height;
+        bp.aspect_ratio = (drawing_height > 0.0) ? drawing_width / drawing_height : 1.0;
+    }
+    if (bp.base_area <= 0.0) {
+        bp.base_area = (bp.columns_count * bp.columns_width) * (bp.rows_count * bp.rows_height);
+    }
+    if (bp.scale <= 0.0 || bp.scale > 100.0) {
+        bp.scale = 1.0;
+    }
+    bp.calculateDimensions();
+    qDebug() << "[QETProject::addNewDiagram] after calc:" 
+             << "columns_width" << bp.columns_width << "rows_height" << bp.rows_height;
+    diagram->border_and_titleblock.importBorder(bp);
+    diagram->border_and_titleblock.importTitleBlock(defaultTitleBlockProperties());
+    // Re-apply border after title block import to ensure final layout uses calculated sizes
+    diagram->border_and_titleblock.importBorder(bp);
+    // Final guard: recalc once more using current counts
+    BorderProperties verify = diagram->border_and_titleblock.exportBorder();
+    verify.use_calculated_dimensions = true;
+    if (verify.aspect_ratio <= 0.0 || verify.aspect_ratio > 100.0) {
+        qreal drawing_width = verify.columns_count * verify.columns_width;
+        qreal drawing_height = verify.rows_count * verify.rows_height;
+        verify.aspect_ratio = (drawing_height > 0.0) ? drawing_width / drawing_height : 1.0;
+    }
+    if (verify.base_area <= 0.0) {
+        verify.base_area = (verify.columns_count * verify.columns_width) * (verify.rows_count * verify.rows_height);
+    }
+    if (verify.scale <= 0.0 || verify.scale > 100.0) verify.scale = 1.0;
+    verify.calculateDimensions();
+    diagram->border_and_titleblock.importBorder(verify);
 	diagram->defaultConductorProperties = defaultConductorProperties();
 
 	addDiagram(diagram, pos);
@@ -1593,7 +1652,24 @@ void QETProject::readDefaultPropertiesXml(QDomDocument &xml_project)
 	}
 
 		// size, titleblock, conductor, report, conductor autonum, folio autonum, element autonum
-	if (!border_elmt.isNull())	   default_border_properties_.fromXml(border_elmt);
+	if (!border_elmt.isNull()) {
+		default_border_properties_.fromXml(border_elmt);
+		// Enforce calculated defaults and precompute sizes
+		default_border_properties_.use_calculated_dimensions = true;
+		if (default_border_properties_.aspect_ratio <= 0.0 || default_border_properties_.aspect_ratio > 100.0) {
+			qreal dw = default_border_properties_.columns_count * default_border_properties_.columns_width;
+			qreal dh = default_border_properties_.rows_count * default_border_properties_.rows_height;
+			default_border_properties_.aspect_ratio = (dh > 0.0) ? dw / dh : 1.0;
+		}
+		if (default_border_properties_.base_area <= 0.0) {
+			default_border_properties_.base_area = (default_border_properties_.columns_count * default_border_properties_.columns_width) *
+											   (default_border_properties_.rows_count * default_border_properties_.rows_height);
+		}
+		if (default_border_properties_.scale <= 0.0 || default_border_properties_.scale > 100.0) {
+			default_border_properties_.scale = 1.0;
+		}
+		default_border_properties_.calculateDimensions();
+	}
 	if (!titleblock_elmt.isNull()) default_titleblock_properties_.fromXml(titleblock_elmt);
 	if (!conductors_elmt.isNull()) default_conductor_properties_.fromXml(conductors_elmt);
 	if (!report_elmt.isNull())	   setDefaultReportProperties(report_elmt.attribute(QStringLiteral("label")));

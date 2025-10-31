@@ -20,6 +20,7 @@
 #include "../diagram.h"
 #include "ui_borderpropertieswidget.h"
 #include <QtCore/QtGlobal>
+#include <cmath>
 #include <numeric>
 
 /**
@@ -108,10 +109,53 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 
 	// Force calculated dimension properties
 	ui -> m_use_calculated_dimensions_cb ->setChecked(true);
-	// Set default aspect ratio parts to 100:69
-	ui->m_aspect_ratio_width_sp->setValue(100);
-	ui->m_aspect_ratio_height_sp->setValue(69);
-	ui -> m_base_area_sp ->setValue(652800.0);
+	
+	// Preserve existing aspect_ratio and base_area from the folio being edited
+	// If aspect_ratio is invalid, calculate it from dimensions
+	qreal aspect_ratio = m_properties.aspect_ratio;
+	if (aspect_ratio <= 0.0 || aspect_ratio > 100.0) {
+		qreal drawing_width = m_properties.columns_count * m_properties.columns_width;
+		qreal drawing_height = m_properties.rows_count * m_properties.rows_height;
+		aspect_ratio = (drawing_height > 0.0) ? drawing_width / drawing_height : 1.0;
+	}
+	
+	// Convert aspect_ratio (decimal) to width:height parts for UI display
+	// Use a reasonable default ratio if aspect_ratio is invalid
+	// Convert to a simple integer ratio by finding a common approximation
+	int width_part = 100;
+	int height_part = 69;
+	if (aspect_ratio > 0.0 && aspect_ratio <= 100.0) {
+		// Convert decimal aspect ratio to integer parts
+		// Find the simplest ratio that approximates the aspect ratio
+		// Using continued fraction approximation for better precision
+		const int max_denom = 1000;
+		double best_diff = 1.0;
+		for (int h = 1; h <= max_denom; ++h) {
+			int w = qRound(aspect_ratio * h);
+			if (w >= 1 && w <= max_denom) {
+				double ratio = static_cast<double>(w) / static_cast<double>(h);
+				double diff = std::abs(ratio - aspect_ratio);
+				if (diff < best_diff) {
+					best_diff = diff;
+					width_part = w;
+					height_part = h;
+					if (diff < 0.001) break; // Close enough
+				}
+			}
+		}
+	}
+	
+	ui->m_aspect_ratio_width_sp->setValue(width_part);
+	ui->m_aspect_ratio_height_sp->setValue(height_part);
+	
+	// Preserve existing base_area, or calculate from dimensions if invalid
+	qreal base_area = m_properties.base_area;
+	if (base_area <= 0.0) {
+		base_area = (m_properties.columns_count * m_properties.columns_width) *
+		            (m_properties.rows_count * m_properties.rows_height);
+	}
+	ui -> m_base_area_sp ->setValue(base_area);
+	
 	ui -> m_scale_sp ->setValue(m_properties.scale);
 	ui -> m_header_thickness_sp->setValue(m_properties.header_thickness);
 
@@ -135,12 +179,12 @@ const BorderProperties &BorderPropertiesWidget::properties ()
 	m_properties.display_rows    = ui -> m_display_rows_cb    -> isChecked();
 	m_properties.border_all_sides = ui -> m_border_all_sides_cb -> isChecked();
 	
-	// Always use calculated dimensions with fixed base area
+	// Always use calculated dimensions, preserving base_area from UI
 	m_properties.use_calculated_dimensions = true;
 	int rw_prop = std::max(1, ui->m_aspect_ratio_width_sp->value());
 	int rh_prop = std::max(1, ui->m_aspect_ratio_height_sp->value());
 	m_properties.aspect_ratio = static_cast<double>(rw_prop) / static_cast<double>(rh_prop);
-	m_properties.base_area = 652800.0;
+	m_properties.base_area = ui->m_base_area_sp->value();  // Use actual base_area from UI
 	m_properties.scale = ui -> m_scale_sp -> value();
 	m_properties.header_thickness = ui->m_header_thickness_sp->value();
 	m_properties.calculateDimensions();
@@ -182,7 +226,7 @@ void BorderPropertiesWidget::onCalculateDimensionsToggled(bool enabled)
 	int rw = std::max(1, ui->m_aspect_ratio_width_sp->value());
 	int rh = std::max(1, ui->m_aspect_ratio_height_sp->value());
 	m_properties.aspect_ratio = static_cast<double>(rw) / static_cast<double>(rh);
-	m_properties.base_area = 652800.0;
+	m_properties.base_area = ui->m_base_area_sp->value();  // Use actual base_area from UI
 	m_properties.scale = ui->m_scale_sp->value();
 	m_properties.columns_count = m_pendingColumnsCount;
 	m_properties.rows_count = m_pendingRowsCount;
@@ -201,11 +245,11 @@ void BorderPropertiesWidget::onCalculateDimensionsChanged()
 	if (cols > 0) m_pendingColumnsCount = cols;
 	if (rows > 0) m_pendingRowsCount = rows;
 
-	// Always update using calculated mode and fixed base area
+	// Always update using calculated mode, preserving base_area from UI
 	int rw = std::max(1, ui->m_aspect_ratio_width_sp->value());
 	int rh = std::max(1, ui->m_aspect_ratio_height_sp->value());
 	m_properties.aspect_ratio = static_cast<double>(rw) / static_cast<double>(rh);
-	m_properties.base_area = 652800.0;
+	m_properties.base_area = ui->m_base_area_sp->value();  // Use actual base_area from UI
 	m_properties.scale = ui->m_scale_sp->value();
 	m_properties.columns_count = m_pendingColumnsCount;
 	m_properties.rows_count = m_pendingRowsCount;

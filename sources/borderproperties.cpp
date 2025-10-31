@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "borderproperties.h"
+#include <QDebug>
 
 /**
 	@brief BorderProperties::BorderProperties
@@ -128,6 +129,10 @@ void BorderProperties::toXml(QDomElement &e) const
 		e.setAttribute("base_area", QString("%1").arg(base_area));
 		e.setAttribute("scale", QString("%1").arg(scale));
 	}
+
+	// Save header customization
+	e.setAttribute("header_thickness", QString("%1").arg(header_thickness));
+	e.setAttribute("header_line_thickness", QString("%1").arg(header_line_thickness));
 }
 
 /**
@@ -199,6 +204,16 @@ void BorderProperties::fromXml(QDomElement &e) {
 		}
 		scale = 1.0;
 	}
+
+	// Load header customization
+	if (e.hasAttribute("header_thickness")) {
+		header_thickness = e.attribute("header_thickness").toDouble();
+		if (header_thickness <= 0.0) header_thickness = 12.0;
+	}
+	if (e.hasAttribute("header_line_thickness")) {
+		header_line_thickness = e.attribute("header_line_thickness").toDouble();
+		if (header_line_thickness <= 0.0) header_line_thickness = 1.0;
+	}
 }
 
 /**
@@ -230,6 +245,8 @@ void BorderProperties::toSettings(QSettings &settings, const QString &prefix) co
 		settings.setValue(prefix % "base_area", base_area);
 		settings.setValue(prefix % "scale", scale);
 	}
+	settings.setValue(prefix % "header_thickness", header_thickness);
+	settings.setValue(prefix % "header_line_thickness", header_line_thickness);
 }
 
 /**
@@ -277,6 +294,12 @@ void BorderProperties::fromSettings(QSettings &settings, const QString &prefix) 
 		}
 		scale = 1.0;
 	}
+
+	// Header customization
+	header_thickness = settings.value(prefix % "header_thickness", header_thickness).toDouble();
+	if (header_thickness <= 0.0) header_thickness = 12.0;
+	header_line_thickness = settings.value(prefix % "header_line_thickness", header_line_thickness).toDouble();
+	if (header_line_thickness <= 0.0) header_line_thickness = 1.0;
 }
 
 /**
@@ -332,7 +355,13 @@ void BorderProperties::calculateDimensions()
 		scale = 1.0; // Default scale
 	}
 	
-	// Calculate total drawing area (excluding headers)
+    // Calculate total drawing area (excluding headers)
+    qDebug() << "[BorderProperties::calculateDimensions] inputs:" 
+             << "cols" << columns_count 
+             << "rows" << rows_count 
+             << "aspect" << aspect_ratio 
+             << "base" << base_area 
+             << "scale" << scale;
 	qreal total_area = base_area * scale;
 	
 	// Calculate total width and height of drawing area
@@ -346,7 +375,7 @@ void BorderProperties::calculateDimensions()
 	columns_width = total_width / columns_count;
 	rows_height = total_height / rows_count;
 	
-	// Ensure minimum sizes to prevent too small dimensions
+    // Ensure minimum sizes to prevent too small dimensions
 	const qreal MIN_COLUMN_WIDTH = 5.0;
 	const qreal MIN_ROW_HEIGHT = 5.0;
 	
@@ -375,4 +404,7 @@ void BorderProperties::calculateDimensions()
 			}
 		}
 	}
+    qDebug() << "[BorderProperties::calculateDimensions] outputs:" 
+             << "columns_width" << columns_width 
+             << "rows_height" << rows_height;
 }

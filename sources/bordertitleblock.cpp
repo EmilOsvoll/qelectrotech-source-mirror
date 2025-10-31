@@ -16,6 +16,7 @@
 	along with QElectroTech.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "bordertitleblock.h"
+#include <QDebug>
 
 #include "createdxf.h"
 #include "diagram.h"
@@ -284,14 +285,10 @@ void BorderTitleBlock::titleBlockFromXml(const QDomElement &xml_elmt) {
 	@param xml_elmt the XML element attributes will be added to
 */
 void BorderTitleBlock::borderToXml(QDomElement &xml_elmt) {
-	xml_elmt.setAttribute("cols",        columnsCount());
-	xml_elmt.setAttribute("colsize",     QString("%1").arg(columnsWidth()));
-	xml_elmt.setAttribute("displaycols", columnsAreDisplayed() ? "true" : "false");
-
-	xml_elmt.setAttribute("rows",        rowsCount());
-	xml_elmt.setAttribute("rowsize",     QString("%1").arg(rowsHeight()));
-	xml_elmt.setAttribute("displayrows", rowsAreDisplayed() ? "true" : "false");
-
+	// Use BorderProperties::toXml to save all properties including calculated dimensions
+	BorderProperties bp = exportBorder();
+	bp.toXml(xml_elmt);
+	
 	// attribut datant de la version 0.1 - laisse pour retrocompatibilite
 	xml_elmt.setAttribute("height", QString("%1").arg(diagramHeight()));
 }
@@ -302,36 +299,34 @@ void BorderTitleBlock::borderToXml(QDomElement &xml_elmt) {
 	@param xml_elmt the XML element values will be read from
 */
 void BorderTitleBlock::borderFromXml(const QDomElement &xml_elmt) {
-	bool ok;
-	// columns count
-	int cols_count = xml_elmt.attribute("cols").toInt(&ok);
-	if (ok) setColumnsCount(cols_count);
+	// Handle backward compatibility for old files that only have "height" attribute
+	if (!xml_elmt.hasAttribute("rows") && !xml_elmt.hasAttribute("rowsize") && xml_elmt.hasAttribute("height")) {
+		// Legacy file format (0.1 version) - use old method
+		bool ok;
+		int cols_count = xml_elmt.attribute("cols").toInt(&ok);
+		if (ok) setColumnsCount(cols_count);
 
-	// columns width
-	double cols_width = xml_elmt.attribute("colsize").toDouble(&ok);
-	if (ok) setColumnsWidth(cols_width);
+		double cols_width = xml_elmt.attribute("colsize").toDouble(&ok);
+		if (ok) setColumnsWidth(cols_width);
 
-	// backward compatibility:
-	//	diagrams saved with 0.1 version have a "height" attribute
-	if (xml_elmt.hasAttribute("rows") && xml_elmt.hasAttribute("rowsize")) {
-		// rows counts
-		int rows_count = xml_elmt.attribute("rows").toInt(&ok);
-		if (ok) setRowsCount(rows_count);
-
-		// taille des lignes
-		double rows_size = xml_elmt.attribute("rowsize").toDouble(&ok);
-		if (ok) setRowsHeight(rows_size);
-	} else {
-		// hauteur du schema
 		double height = xml_elmt.attribute("height").toDouble(&ok);
 		if (ok) setDiagramHeight(height);
+
+		displayColumns(xml_elmt.attribute("displaycols") != "false");
+		displayRows(xml_elmt.attribute("displayrows") != "false");
+
+		updateRectangles();
+		return;
 	}
-
-	// rows and columns display
-	displayColumns(xml_elmt.attribute("displaycols") != "false");
-	displayRows(xml_elmt.attribute("displayrows") != "false");
-
-	updateRectangles();
+	
+	// Modern file format - use BorderProperties::fromXml to load all properties including calculated dimensions
+	// Make a non-const copy since fromXml requires a non-const reference
+	QDomElement xml_copy = xml_elmt;  // QDomElement assignment creates a copy
+	BorderProperties bp;
+	bp.fromXml(xml_copy);
+	
+	// Import the full BorderProperties
+	importBorder(bp);
 }
 
 /**
@@ -412,6 +407,20 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.border_all_sides = border_all_sides_;
 	bp.header_line_thickness = header_line_thickness_;
 	bp.header_thickness = rowsHeaderWidth();
+	
+	// Calculate and preserve aspect_ratio and base_area from current dimensions
+	// so they can be saved to XML and used for future dimension calculations
+	qreal drawing_width = bp.columns_count * bp.columns_width;
+	qreal drawing_height = bp.rows_count * bp.rows_height;
+	bp.base_area = drawing_width * drawing_height;
+	if (drawing_height > 0.0) {
+		bp.aspect_ratio = drawing_width / drawing_height;
+	} else {
+		bp.aspect_ratio = 1.0;
+	}
+	bp.scale = 1.0;  // Default scale, can be adjusted if needed
+	bp.use_calculated_dimensions = true;  // Enable calculated dimensions mode
+	
 	return(bp);
 }
 
@@ -423,27 +432,47 @@ BorderProperties BorderTitleBlock::exportBorder()
 void BorderTitleBlock::importBorder(const BorderProperties &bp) {
 	// Store a copy to work with
 	BorderProperties working_bp = bp;
-	
-	// If using calculated dimensions, calculate them first
-	if (working_bp.use_calculated_dimensions) {
-		working_bp.calculateDimensions();
-	}
-	
-	setColumnsHeaderHeight(working_bp.columns_header_height);
-	setColumnsCount(working_bp.columns_count);
-	setColumnsWidth(working_bp.columns_width);
-	displayColumns(working_bp.display_columns);
-	setRowsHeaderWidth(working_bp.rows_header_width);
-	setRowsCount(working_bp.rows_count);
-	setRowsHeight(working_bp.rows_height);
-	displayRows(working_bp.display_rows);
-	border_all_sides_ = working_bp.border_all_sides;
-	header_line_thickness_ = working_bp.header_line_thickness;
-	// Apply unified header thickness (if provided)
-	if (working_bp.header_thickness > 0.0) {
-		setRowsHeaderWidth(working_bp.header_thickness);
-		setColumnsHeaderHeight(working_bp.header_thickness);
-	}
+    qDebug() << "[BorderTitleBlock::importBorder] incoming:" 
+             << "cols" << working_bp.columns_count 
+             << "rows" << working_bp.rows_count 
+             << "use_calc" << working_bp.use_calculated_dimensions 
+             << "aspect" << working_bp.aspect_ratio 
+             << "base" << working_bp.base_area 
+             << "scale" << working_bp.scale 
+             << "hdr" << working_bp.rows_header_width << working_bp.columns_header_height;
+    
+    // Apply header thickness immediately (affects layout bounds)
+    if (working_bp.header_thickness > 0.0) {
+        setRowsHeaderWidth(working_bp.header_thickness);
+        setColumnsHeaderHeight(working_bp.header_thickness);
+    } else {
+        setColumnsHeaderHeight(working_bp.columns_header_height);
+        setRowsHeaderWidth(working_bp.rows_header_width);
+    }
+    
+    // Apply counts first
+    setColumnsCount(working_bp.columns_count);
+    setRowsCount(working_bp.rows_count);
+
+    // If using calculated dimensions, (re)calculate based on aspect/base/scale and counts
+    if (working_bp.use_calculated_dimensions) {
+        working_bp.calculateDimensions();
+        setColumnsWidth(working_bp.columns_width);
+        setRowsHeight(working_bp.rows_height);
+    } else {
+        setColumnsWidth(working_bp.columns_width);
+        setRowsHeight(working_bp.rows_height);
+    }
+    
+    displayColumns(working_bp.display_columns);
+    displayRows(working_bp.display_rows);
+    border_all_sides_ = working_bp.border_all_sides;
+    header_line_thickness_ = working_bp.header_line_thickness;
+    qDebug() << "[BorderTitleBlock::importBorder] applied:" 
+             << "columns_width_" << columns_width_ 
+             << "rows_height_" << rows_height_ 
+             << "rows_header_width_" << rows_header_width_ 
+             << "columns_header_height_" << columns_header_height_;
 }
 
 /**
