@@ -99,6 +99,20 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 {
 	m_properties = bp;
 
+	// Block signals to prevent interference while setting values
+	ui->m_colums_count_sp->blockSignals(true);
+	ui->m_rows_count_sp->blockSignals(true);
+	ui->m_aspect_ratio_width_sp->blockSignals(true);
+	ui->m_aspect_ratio_height_sp->blockSignals(true);
+	ui->m_base_area_sp->blockSignals(true);
+	ui->m_scale_sp->blockSignals(true);
+
+	// Temporarily set minimum to allow any valid value (BorderProperties may have values < 3)
+	int old_rows_min = ui->m_rows_count_sp->minimum();
+	int old_cols_min = ui->m_colums_count_sp->minimum();
+	ui->m_rows_count_sp->setMinimum(1);  // Allow any positive value during initialization
+	ui->m_colums_count_sp->setMinimum(1);  // Allow any positive value during initialization
+
 	ui -> m_colums_count_sp    ->setValue   (m_properties.columns_count);
 	ui -> m_columns_width_sp   ->setValue   (m_properties.columns_width);
 	ui -> m_display_columns_cb ->setChecked (m_properties.display_columns);
@@ -106,6 +120,10 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	ui -> m_rows_height_sp     ->setValue   (m_properties.rows_height);
 	ui -> m_display_rows_cb    ->setChecked (m_properties.display_rows);
 	ui -> m_border_all_sides_cb ->setChecked(m_properties.border_all_sides);
+	
+	// Restore minimum values after setting (to enforce constraints during editing)
+	ui->m_rows_count_sp->setMinimum(old_rows_min);
+	ui->m_colums_count_sp->setMinimum(old_cols_min);
 
 	// Force calculated dimension properties
 	ui -> m_use_calculated_dimensions_cb ->setChecked(true);
@@ -159,9 +177,17 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	ui -> m_scale_sp ->setValue(m_properties.scale);
 	ui -> m_header_thickness_sp->setValue(m_properties.header_thickness);
 
-	// Initialize intermediary counts used for calculations
+	// Initialize intermediary counts used for calculations - use actual values from properties
 	m_pendingColumnsCount = m_properties.columns_count;
 	m_pendingRowsCount = m_properties.rows_count;
+
+	// Unblock signals before calling onCalculateDimensionsToggled
+	ui->m_colums_count_sp->blockSignals(false);
+	ui->m_rows_count_sp->blockSignals(false);
+	ui->m_aspect_ratio_width_sp->blockSignals(false);
+	ui->m_aspect_ratio_height_sp->blockSignals(false);
+	ui->m_base_area_sp->blockSignals(false);
+	ui->m_scale_sp->blockSignals(false);
 
 	// Now recalc once with the finalized values
 	onCalculateDimensionsToggled(true);
@@ -214,11 +240,16 @@ void BorderPropertiesWidget::onCalculateDimensionsToggled(bool enabled)
 	ui->m_columns_width_sp->setReadOnly(true);
 	ui->m_rows_height_sp->setReadOnly(true);
 
-	// Sync intermediaries from UI if valid
+	// Sync intermediaries from UI if valid (but don't override pending values if they're already set)
 	int cols = ui->m_colums_count_sp->value();
 	int rows = ui->m_rows_count_sp->value();
-	if (cols > 0) m_pendingColumnsCount = cols;
-	if (rows > 0) m_pendingRowsCount = rows;
+	if (cols > 0 && (m_pendingColumnsCount <= 0 || m_pendingColumnsCount != cols)) {
+		m_pendingColumnsCount = cols;
+	}
+	if (rows > 0 && (m_pendingRowsCount <= 0 || m_pendingRowsCount != rows)) {
+		m_pendingRowsCount = rows;
+	}
+	// Only update if we have valid UI values and they differ from pending values
 
 	// Update properties and recalculate using intermediaries
 	m_properties.use_calculated_dimensions = true;
