@@ -81,6 +81,14 @@ class ProjectPrintWindow : public QMainWindow
 		void requestPaint();
 		void printDiagram(Diagram *diagram, bool fit_page, QPainter *painter, QPrinter *printer);
 		QRect diagramRect(Diagram *diagram, const ExportProperties &option) const;
+		/**
+		 * @brief Calculate anchored target rectangle for rendering
+		 * Calculates the target rectangle with content anchored according to user selection
+		 * @param available_rect The available area (after margins)
+		 * @param content_size The size of content to render
+		 * @return Anchored target rectangle
+		 */
+		QRectF calculateAnchoredRect(const QRectF &available_rect, const QSizeF &content_size) const;
 		int horizontalPagesCount(Diagram *diagram, const ExportProperties &option, bool full_page) const;
 		int verticalPagesCount(Diagram *diagram, const ExportProperties &option, bool full_page) const;
 		ExportProperties exportProperties() const;

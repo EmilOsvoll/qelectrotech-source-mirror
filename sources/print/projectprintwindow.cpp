@@ -203,6 +203,19 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 		});
 #endif
 	
+	// Connect anchor combo boxes to update preview
+#if QT_VERSION >= QT_VERSION_CHECK(5, 7, 0)
+	connect(ui->m_anchor_horizontal_cb, QOverload<int>::of(&QComboBox::currentIndexChanged),
+		this, [this](int) { m_preview->updatePreview(); });
+	connect(ui->m_anchor_vertical_cb, QOverload<int>::of(&QComboBox::currentIndexChanged),
+		this, [this](int) { m_preview->updatePreview(); });
+#else
+	connect(ui->m_anchor_horizontal_cb, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+		this, [this](int) { m_preview->updatePreview(); });
+	connect(ui->m_anchor_vertical_cb, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+		this, [this](int) { m_preview->updatePreview(); });
+#endif
+	
 	// Initially disable margin input if "Use the whole paper" is not checked
 	ui->m_margin_label->setEnabled(ui->m_use_full_page_cb->isChecked());
 	ui->m_margin_sp->setEnabled(ui->m_use_full_page_cb->isChecked());
@@ -305,14 +318,26 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 	
 	if (fit_page) {
 		// When fitting to page, apply margin by adjusting the target rectangle
-		QRectF target_rect = printer->pageRect();
+		QRectF available_rect = printer->pageRect();
 		if (full_page && margin_mm > 0.0) {
 			// Convert margin from millimeters to printer pixels
 			qreal printer_dpi = printer->resolution();
 			qreal margin = margin_mm * printer_dpi / 25.4; // Convert mm to inches, then to pixels
 			// Shrink the target rectangle by the margin on all sides
-			target_rect.adjust(margin, margin, -margin, -margin);
+			available_rect.adjust(margin, margin, -margin, -margin);
 		}
+		
+		// Calculate scaled content size maintaining aspect ratio
+		qreal scale_x = available_rect.width() / diagram_rect.width();
+		qreal scale_y = available_rect.height() / diagram_rect.height();
+		qreal scale = qMin(scale_x, scale_y);
+		QSizeF scaled_size(diagram_rect.width() * scale, diagram_rect.height() * scale);
+		
+		// Calculate anchored target rectangle based on user selection
+		// Note: Qt::KeepAspectRatio centers content within the target rect,
+		// so we calculate the target rect position to achieve the desired anchor
+		QRectF target_rect = calculateAnchoredRect(available_rect, scaled_size);
+		
 		diagram->render(painter, target_rect, diagram_rect, Qt::KeepAspectRatio);
 	} else {
 		// Print on one or several pages
@@ -487,6 +512,46 @@ int ProjectPrintWindow::verticalPagesCount(
 
 	int v_pages_count = int(ceil(qreal(diagram_rect.height()) / qreal(printable_area.height())));
 	return(v_pages_count);
+}
+
+/**
+ * @brief ProjectPrintWindow::calculateAnchoredRect
+ * Calculate the anchored target rectangle for rendering content.
+ * When Qt::KeepAspectRatio is used, Qt centers the content within the target rect.
+ * So we need to calculate where to position the target rect to achieve the desired anchor.
+ * @param available_rect The available area (after margins)
+ * @param content_size The size of content to render (after scaling with aspect ratio)
+ * @return Anchored target rectangle positioned to achieve desired anchor point
+ */
+QRectF ProjectPrintWindow::calculateAnchoredRect(const QRectF &available_rect, const QSizeF &content_size) const
+{
+	// Get anchor selections from UI (0=Left/Top, 1=Center, 2=Right/Bottom)
+	int h_anchor = ui->m_anchor_horizontal_cb->currentIndex();
+	int v_anchor = ui->m_anchor_vertical_cb->currentIndex();
+	
+	// Calculate horizontal position
+	qreal x = available_rect.left();
+	if (h_anchor == 1) { // Center
+		x = available_rect.left() + (available_rect.width() - content_size.width()) / 2.0;
+	} else if (h_anchor == 2) { // Right
+		x = available_rect.right() - content_size.width();
+	}
+	// else h_anchor == 0 (Left) - x already set to left
+	
+	// Calculate vertical position
+	qreal y = available_rect.top();
+	if (v_anchor == 1) { // Center
+		y = available_rect.top() + (available_rect.height() - content_size.height()) / 2.0;
+	} else if (v_anchor == 2) { // Bottom
+		y = available_rect.bottom() - content_size.height();
+	}
+	// else v_anchor == 0 (Top) - y already set to top
+	
+	// Return target rectangle at calculated position with content size
+	// Qt::KeepAspectRatio will center the rendered content within this rect,
+	// but since we've calculated the rect size to match the scaled content size,
+	// the content will be positioned at our desired anchor point
+	return QRectF(QPointF(x, y), content_size);
 }
 
 ExportProperties ProjectPrintWindow::exportProperties() const
