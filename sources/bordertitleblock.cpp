@@ -692,43 +692,48 @@ void BorderTitleBlock::draw(QPainter *painter)
 	if (display_border_ && (display_columns_ || display_rows_))
 	{
 		painter->setPen(headerPen);
-		// Top-left corner
-		QRectF first_rectangle(
-			diagram_rect_.topLeft().x(),
-			diagram_rect_.topLeft().y(),
-			rows_header_width_,
-			columns_header_height_
-		);
-		painter -> drawRect(first_rectangle);
+		// Top-left corner - only draw outer borders (top and left), skip internal borders
+		qreal corner_x = diagram_rect_.topLeft().x();
+		qreal corner_y = diagram_rect_.topLeft().y();
+		qreal corner_w = rows_header_width_;
+		qreal corner_h = columns_header_height_;
+		
+		// Draw only top and left borders (outer borders)
+		// Bottom and right borders will be drawn by adjacent header cells
+		painter->drawLine(corner_x, corner_y, corner_x + corner_w, corner_y); // Top
+		painter->drawLine(corner_x, corner_y, corner_x, corner_y + corner_h); // Left
 		
 		// Draw corner rectangles at all four corners when border on all sides
 		if (border_all_sides_) {
-			// Bottom-left corner
-				QRectF bottom_left_rectangle(
-					diagram_rect_.bottomLeft().x(),
-					separatorY,
-					rows_header_width_,
-					columns_header_height_
-				);
-			painter -> drawRect(bottom_left_rectangle);
+			// Bottom-left corner - only draw outer borders
+			qreal bl_x = diagram_rect_.bottomLeft().x();
+			qreal bl_y = separatorY;
+			qreal bl_w = rows_header_width_;
+			qreal bl_h = columns_header_height_;
 			
-			// Top-right corner aligned with separatorX
-			QRectF top_right_rectangle(
-				separatorX,
-				diagram_rect_.topRight().y(),
-				rows_header_width_,
-				columns_header_height_
-			);
-			painter -> drawRect(top_right_rectangle);
+			// Draw only top and left borders (outer borders)
+			painter->drawLine(bl_x, bl_y, bl_x + bl_w, bl_y); // Top
+			painter->drawLine(bl_x, bl_y, bl_x, bl_y + bl_h); // Left
 			
-			// Bottom-right corner
-				QRectF bottom_right_rectangle(
-					separatorX,
-					separatorY,
-					rows_header_width_,
-					columns_header_height_
-				);
-			painter -> drawRect(bottom_right_rectangle);
+			// Top-right corner - only draw outer borders
+			qreal tr_x = separatorX;
+			qreal tr_y = diagram_rect_.topRight().y();
+			qreal tr_w = rows_header_width_;
+			qreal tr_h = columns_header_height_;
+			
+			// Draw only top and right borders (outer borders)
+			painter->drawLine(tr_x, tr_y, tr_x + tr_w, tr_y); // Top
+			painter->drawLine(tr_x + tr_w, tr_y, tr_x + tr_w, tr_y + tr_h); // Right
+			
+			// Bottom-right corner - only draw outer borders
+			qreal br_x = separatorX;
+			qreal br_y = separatorY;
+			qreal br_w = rows_header_width_;
+			qreal br_h = columns_header_height_;
+			
+			// Draw only top and right borders (outer borders)
+			painter->drawLine(br_x, br_y, br_x + br_w, br_y); // Top
+			painter->drawLine(br_x + br_w, br_y, br_x + br_w, br_y + br_h); // Right
 		}
 		// Restore border pen for non-header drawing if needed later
 		painter->setPen(borderPen);
@@ -741,22 +746,36 @@ void BorderTitleBlock::draw(QPainter *painter)
 		qreal separatorX = qRound(diagram_rect_.topLeft().x() + rows_header_width_ + (columns_count_ * columns_width_));
 		for (int i = 1 ; i <= columns_count_ ; ++ i) {
 			// Top columns
-			QRectF numbered_rectangle = QRectF(
-				diagram_rect_.topLeft().x()
+			qreal cell_x = diagram_rect_.topLeft().x()
 					+ (rows_header_width_
-					   + ((i - 1) * columns_width_)),
-				diagram_rect_.topLeft().y(),
-				columns_width_,
-				columns_header_height_
-			);
+					   + ((i - 1) * columns_width_));
+			qreal cell_y = diagram_rect_.topLeft().y();
+			qreal cell_w = columns_width_;
+			qreal cell_h = columns_header_height_;
 			// Clamp last column header width to remaining space to avoid overlap
 			if (i == columns_count_) {
 				qreal startX = diagram_rect_.topLeft().x() + rows_header_width_ + ((i - 1) * columns_width_);
-				numbered_rectangle.setLeft(startX);
-				numbered_rectangle.setRight(separatorX);
+				cell_x = startX;
+				cell_w = separatorX - startX;
 			}
-			// Keep full width; border line is shifted outward by half pen width
-			painter -> drawRect(numbered_rectangle);
+			
+			// Draw borders individually to avoid overlapping shared lines
+			QRectF numbered_rectangle(cell_x, cell_y, cell_w, cell_h);
+			qreal x = numbered_rectangle.x();
+			qreal y = numbered_rectangle.y();
+			qreal w = numbered_rectangle.width();
+			qreal h = numbered_rectangle.height();
+			
+			// Draw top border for all cells
+			painter->drawLine(x, y, x + w, y);
+			// Draw bottom border for all cells
+			painter->drawLine(x, y + h, x + w, y + h);
+			// Draw right border for all cells (shared vertical lines are only drawn once as right border)
+			painter->drawLine(x + w, y, x + w, y + h);
+			// Draw left border only for first column (others are the right border of previous cell)
+			if (i == 1) {
+				painter->drawLine(x, y, x, y + h);
+			}
 			if (settings.value("border-columns_0", true).toBool()){
 			painter -> drawText(numbered_rectangle,
 					    Qt::AlignVCenter
@@ -771,22 +790,37 @@ void BorderTitleBlock::draw(QPainter *painter)
 			
 			// Bottom columns (when border on all sides)
 			if (border_all_sides_) {
-				QRectF bottom_numbered_rectangle = QRectF(
-					diagram_rect_.topLeft().x()
+				qreal bottom_cell_x = diagram_rect_.topLeft().x()
 						+ (rows_header_width_
-						   + ((i - 1) * columns_width_)),
-					separatorY,
-					columns_width_,
-					columns_header_height_
-				);
+						   + ((i - 1) * columns_width_));
+				qreal bottom_cell_y = separatorY;
+				qreal bottom_cell_w = columns_width_;
+				qreal bottom_cell_h = columns_header_height_;
 				// Clamp last column header width to remaining space to avoid overlap
 				if (i == columns_count_) {
 					qreal startX = diagram_rect_.topLeft().x() + rows_header_width_ + ((i - 1) * columns_width_);
-					bottom_numbered_rectangle.setLeft(startX);
-					bottom_numbered_rectangle.setRight(separatorX);
+					bottom_cell_x = startX;
+					bottom_cell_w = separatorX - startX;
 				}
-				// Keep full width; border line is shifted outward by half pen width
-				painter -> drawRect(bottom_numbered_rectangle);
+				
+				// Draw borders individually to avoid overlapping shared lines
+				qreal bx = bottom_cell_x;
+				qreal by = bottom_cell_y;
+				qreal bw = bottom_cell_w;
+				qreal bh = bottom_cell_h;
+				
+				QRectF bottom_numbered_rectangle(bx, by, bw, bh);
+				
+				// Draw top border for all cells
+				painter->drawLine(bx, by, bx + bw, by);
+				// Draw bottom border for all cells
+				painter->drawLine(bx, by + bh, bx + bw, by + bh);
+				// Draw right border for all cells (shared vertical lines are only drawn once as right border)
+				painter->drawLine(bx + bw, by, bx + bw, by + bh);
+				// Draw left border only for first column (others are the right border of previous cell)
+				if (i == 1) {
+					painter->drawLine(bx, by, bx, by + bh);
+				}
 				if (settings.value("border-columns_0", true).toBool()){
 				painter -> drawText(bottom_numbered_rectangle,
 						    Qt::AlignVCenter
@@ -809,24 +843,39 @@ void BorderTitleBlock::draw(QPainter *painter)
 		QString row_string("A");
 		for (int i = 1 ; i <= rows_count_ ; ++ i) {
 			// Left rows
-			QRectF lettered_rectangle = QRectF(
-				diagram_rect_.topLeft().x(),
-				diagram_rect_.topLeft().y()
+			qreal cell_x = diagram_rect_.topLeft().x();
+			qreal cell_y = diagram_rect_.topLeft().y()
 					+ (
 						columns_header_height_
 						+ ((i - 1)* rows_height_)
-						),
-					rows_header_width_,
-				rows_height_
-			);
+						);
+			qreal cell_w = rows_header_width_;
+			qreal cell_h = rows_height_;
 			// Clamp last row header height to remaining space to avoid overlap
 			if (i == rows_count_) {
 				qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * rows_height_);
 				qreal endY = diagram_rect_.bottomLeft().y();
-				lettered_rectangle.setBottom(endY);
-				lettered_rectangle.setTop(startY);
+				cell_y = startY;
+				cell_h = endY - startY;
 			}
-			painter -> drawRect(lettered_rectangle);
+			
+			// Draw borders individually to avoid overlapping shared lines
+			QRectF lettered_rectangle(cell_x, cell_y, cell_w, cell_h);
+			qreal x = lettered_rectangle.x();
+			qreal y = lettered_rectangle.y();
+			qreal w = lettered_rectangle.width();
+			qreal h = lettered_rectangle.height();
+			
+			// Draw left border for all cells
+			painter->drawLine(x, y, x, y + h);
+			// Draw right border for all cells
+			painter->drawLine(x + w, y, x + w, y + h);
+			// Draw bottom border for all cells (shared horizontal lines are only drawn once as bottom border)
+			painter->drawLine(x, y + h, x + w, y + h);
+			// Draw top border only for first row (others are the bottom border of previous row)
+			if (i == 1) {
+				painter->drawLine(x, y, x + w, y);
+			}
 			painter -> drawText(lettered_rectangle,
 					    Qt::AlignVCenter
 					    | Qt::AlignCenter,
@@ -834,24 +883,40 @@ void BorderTitleBlock::draw(QPainter *painter)
 			
 			// Right rows (when border on all sides)
 			if (border_all_sides_) {
-			QRectF right_lettered_rectangle = QRectF(
-					separatorX,
-					diagram_rect_.topLeft().y()
+				qreal right_cell_x = separatorX;
+				qreal right_cell_y = diagram_rect_.topLeft().y()
 						+ (
 							columns_header_height_
 							+ ((i - 1)* rows_height_)
-							),
-					rows_header_width_,
-					rows_height_
-				);
-			// Clamp last row header height to remaining space to avoid overlap
-			if (i == rows_count_) {
-				qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * rows_height_);
-				qreal endY = diagram_rect_.bottomLeft().y();
-				right_lettered_rectangle.setBottom(endY);
-				right_lettered_rectangle.setTop(startY);
-			}
-				painter -> drawRect(right_lettered_rectangle);
+							);
+				qreal right_cell_w = rows_header_width_;
+				qreal right_cell_h = rows_height_;
+				// Clamp last row header height to remaining space to avoid overlap
+				if (i == rows_count_) {
+					qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * rows_height_);
+					qreal endY = diagram_rect_.bottomLeft().y();
+					right_cell_y = startY;
+					right_cell_h = endY - startY;
+				}
+				
+				// Draw borders individually to avoid overlapping shared lines
+				qreal rx = right_cell_x;
+				qreal ry = right_cell_y;
+				qreal rw = right_cell_w;
+				qreal rh = right_cell_h;
+				
+				QRectF right_lettered_rectangle(rx, ry, rw, rh);
+				
+				// Draw left border for all cells
+				painter->drawLine(rx, ry, rx, ry + rh);
+				// Draw right border for all cells
+				painter->drawLine(rx + rw, ry, rx + rw, ry + rh);
+				// Draw bottom border for all cells (shared horizontal lines are only drawn once as bottom border)
+				painter->drawLine(rx, ry + rh, rx + rw, ry + rh);
+				// Draw top border only for first row (others are the bottom border of previous row)
+				if (i == 1) {
+					painter->drawLine(rx, ry, rx + rw, ry);
+				}
 				painter -> drawText(right_lettered_rectangle,
 						    Qt::AlignVCenter
 						    | Qt::AlignCenter,
