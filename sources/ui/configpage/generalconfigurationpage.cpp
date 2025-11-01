@@ -87,7 +87,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 	ui->m_border_all_sides->setChecked(settings.value("diagrameditor/default-borderallsides", false).toBool());
 	ui->m_autosave_sb->setValue(settings.value("diagrameditor/autosave-interval", 0).toInt());
 	
-	QString fontInfos = settings.value("diagramitemfont", "Liberation Sans").toString() + " " +
+	QString fontInfos = settings.value("diagramitemfont", "Arial Narrow").toString() + " " +
 			settings.value("diagramitemsize", "9").toString() + " (" +
 			settings.value("diagramitemstyle", "Regular").toString() + ")";
 	ui->m_font_pb->setText(fontInfos);
@@ -105,7 +105,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 				QString::number(font.pointSize()) + " (" +
 				font.styleName() + ")";
 		ui->m_dyn_text_font_pb->setText(fontInfos);
-	} else { ui->m_dyn_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+	} else { ui->m_dyn_text_font_pb->setText("Arial Narrow 9 (Regular)"); }
 
 		//Independent text item
 	ui->m_indi_text_rotation_sb->setValue(settings.value("diagrameditor/independent_text_rotation",0).toInt());
@@ -118,7 +118,7 @@ GeneralConfigurationPage::GeneralConfigurationPage(QWidget *parent) :
 							QString::number(font.pointSize()) + " (" +
 							font.styleName() + ")";
 		ui->m_indi_text_font_pb->setText(fontInfos);
-	} else { ui->m_indi_text_font_pb->setText("Liberation Sans 9 (Regular)"); }
+	} else { ui->m_indi_text_font_pb->setText("Arial Narrow 9 (Regular)"); }
 	
 	ui->m_highlight_integrated_elements->setChecked(settings.value("diagrameditor/highlight-integrated-elements", true).toBool());
 	ui->m_default_elements_info->setPlainText(settings.value("elementeditor/default-informations", "").toString());
@@ -401,7 +401,7 @@ void GeneralConfigurationPage::on_m_font_pb_clicked()
 {
 	bool ok;
 	QSettings settings;
-	QFont curFont = QFont(settings.value("diagramitemfont", "Liberation Sans").toString());
+	QFont curFont = QFont(settings.value("diagramitemfont", "Arial Narrow").toString());
 	curFont.setPointSizeF(settings.value("diagramitemsize", "9").toInt());
 	curFont.setStyleName (settings.value("diagramitemstyle", "Regular").toString());
 	QFont font = QFontDialog::getFont(&ok, curFont, this);
@@ -427,7 +427,7 @@ void GeneralConfigurationPage::on_m_dyn_text_font_pb_clicked()
 	bool ok;
 	QSettings settings;
 	QFont curFont;
-	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	curFont.fromString(settings.value("diagrameditor/dynamic_text_font", "Arial Narrow,9,-1,5,50,0,0,0,0,0,Regular").toString());
 	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{
@@ -518,7 +518,7 @@ void GeneralConfigurationPage::on_m_indi_text_font_pb_clicked()
 	bool ok;
 	QSettings settings;
 	QFont curFont;
-	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Liberation Sans,9,-1,5,50,0,0,0,0,0,Regular").toString());
+	curFont.fromString(settings.value("diagrameditor/independent_text_font", "Arial Narrow,9,-1,5,50,0,0,0,0,0,Regular").toString());
 	QFont font = QFontDialog::getFont(&ok, curFont, this);
 	if (ok)
 	{

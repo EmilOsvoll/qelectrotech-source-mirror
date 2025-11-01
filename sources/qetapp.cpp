@@ -1236,7 +1236,7 @@ bool QETApp::closeEveryEditor()
 /**
 	@brief QETApp::diagramTextsFont
 	The font to use
-	By default the font is "Liberation Sans" and size 9.
+	By default the font is "Arial Narrow" and size 9.
 	@param size : the size of font
 	@return the font to use
 */
@@ -1246,7 +1246,7 @@ QFont QETApp::diagramTextsFont(qreal size)
 
 	//Font to use
 	QString diagram_texts_family = settings.value("diagramitemfont",
-							  "Liberation Sans").toString();
+							  "Arial Narrow").toString();
 	qreal diagram_texts_size     = settings.value("diagramitemsize",
 							  9.0).toDouble();
 	auto diagram_texts_item_weight =
@@ -1279,7 +1279,7 @@ QFont QETApp::diagramTextsItemFont(qreal size)
 
 	//Font to use
 	QString diagram_texts_item_family = settings.value("diagramitemfont",
-							   "Liberation Sans").toString();
+							   "Arial Narrow").toString();
 	qreal diagram_texts_item_size     = settings.value("diagramitemsize",
 							   9.0).toDouble();
 	auto diagram_texts_item_weight =
