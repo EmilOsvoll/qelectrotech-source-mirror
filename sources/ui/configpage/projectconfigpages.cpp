@@ -218,7 +218,24 @@ void ProjectMainConfigPage::initLayout()
 void ProjectMainConfigPage::readValuesFromProject()
 {
 	title_value_ -> setText(m_project -> title());
-	project_variables_ -> setContext(m_project -> projectProperties());
+	DiagramContext context = m_project -> projectProperties();
+	
+	// Ensure required custom attributes are always present in the general section
+	QStringList required_attributes = {"customer", "filename", "projectno", "projectrev"};
+	bool context_modified = false;
+	for (const QString &attr : required_attributes) {
+		if (!context.contains(attr)) {
+			context.addValue(attr, QString(""));
+			context_modified = true;
+		}
+	}
+	
+	// If we added required attributes, save them back to the project
+	if (context_modified && !m_project -> isReadOnly()) {
+		m_project -> setProjectProperties(context);
+	}
+	
+	project_variables_ -> setContext(context);
 }
 
 /**
