@@ -18,6 +18,7 @@
 #ifndef TITLEBLOCK_CELL_H
 #define TITLEBLOCK_CELL_H
 #include "NameList/nameslist.h"
+#include <QColor>
 
 /**
 	This class is a container for the various parameters of a titleblock cell
@@ -73,6 +74,14 @@ class TitleBlockCell {
 	int alignment;                     ///< Where the label+text should be displayed within the visual cell
 	int font_size;                     ///< Font size the text should be rendered with
 	bool hadjust;                      ///< Whether to reduce the font size if the text does not fit in the cell
+	bool bold;                         ///< Whether the text should be rendered in bold
+	int padding_left;                  ///< Left padding inside the cell (default: 0)
+	int padding_right;                 ///< Right padding inside the cell (default: 0)
+	int padding_top;                   ///< Top padding inside the cell (default: 0)
+	int padding_bottom;                ///< Bottom padding inside the cell (default: 0)
+	QColor text_color;                 ///< Text color for the cell (default: black)
+	qreal line_height;                 ///< Line height multiplier (default: 1.0 = normal, 1.5 = 150%, etc.)
+	QString noborders;                ///< Comma-separated list of borders to hide: "right", "left", "top", "bottom"
 	QString logo_reference;            ///< Logo displayed by this cell, it it is a logo cell
 };
 #endif

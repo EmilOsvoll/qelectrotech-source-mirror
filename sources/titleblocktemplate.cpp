@@ -26,6 +26,14 @@
 
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
+#include <QFontDatabase>
+#include <QFontInfo>
+#include <QPrinter>
+#include <QTextDocument>
+#include <QTextOption>
+#include <QTextCharFormat>
+#include <QTextCursor>
+#include <QTextBlockFormat>
 /**
 	@brief TitleBlockTemplate::TitleBlockTemplate
 	Constructor
@@ -82,7 +90,58 @@ QList<TitleBlockCell *> TitleBlockTemplate::createCellsList(int count) {
 	according to its properties.
 */
 QFont TitleBlockTemplate::fontForCell(const TitleBlockCell &cell) {
-	return(QETApp::diagramTextsFont(cell.font_size));
+	QFont font = QETApp::diagramTextsFont(cell.font_size);
+	if (cell.bold) {
+		// For PDF export, Qt needs the actual bold font variant, not synthesized bold
+		// Construct font explicitly with bold weight and ensure it's properly resolved
+		QFontDatabase fontDb;
+		QString family = font.family();
+		
+		// Try to find an explicit bold style
+		QStringList styles = fontDb.styles(family);
+		QString boldStyle;
+		for (const QString &style : styles) {
+			QString styleLower = style.toLower();
+			if (styleLower.contains("bold")) {
+				boldStyle = style;
+				break;
+			}
+		}
+		
+		// Construct font explicitly with bold configuration
+		font.setWeight(QFont::Bold);
+		font.setBold(true);
+		if (!boldStyle.isEmpty()) {
+			font.setStyleName(boldStyle);
+		}
+		
+		// Force font resolution using QFontInfo to ensure PDF renderer gets correct font
+		// This is critical for PDF export - QFontInfo resolves the font to the actual font file
+		QFontInfo fontInfo(font);
+		// If fontInfo shows it's not bold, try to get the bold font family directly
+		if (!fontInfo.bold()) {
+			// Font didn't resolve to bold, try constructing from scratch with bold family
+			QFontDatabase db;
+			QStringList families = db.families();
+			// Look for bold variant of the font family name
+			QString boldFamily = family;
+			for (const QString &fam : families) {
+				if (fam.toLower().contains(family.toLower()) && fam.toLower().contains("bold")) {
+					boldFamily = fam;
+					break;
+				}
+			}
+			// If we found a bold family, use it; otherwise use weight-based approach
+			if (boldFamily != family) {
+				font = QFont(boldFamily, static_cast<int>(cell.font_size), QFont::Bold);
+			} else {
+				// Force bold using weight - this should work if the font has bold support
+				font.setWeight(QFont::Bold);
+				font.setBold(true);
+			}
+		}
+	}
+	return font;
 }
 
 /**
@@ -1659,13 +1718,56 @@ void TitleBlockTemplate::renderCell(QPainter &painter,
 					const DiagramContext &diagram_context,
 					const QRect &cell_rect) const
 {
-	// draw the border rect of the current cell
+	// Parse noborders parameter - split by comma and trim spaces
+	QStringList noborders_list;
+	if (!cell.noborders.isEmpty()) {
+		QStringList parts = cell.noborders.split(',');
+		for (QString &part : parts) {
+			QString trimmed = part.trimmed().toLower();
+			if (!trimmed.isEmpty()) {
+				noborders_list << trimmed;
+			}
+		}
+	}
+	
+	// Determine which borders to draw
+	bool draw_top = !noborders_list.contains("top");
+	bool draw_bottom = !noborders_list.contains("bottom");
+	bool draw_left = !noborders_list.contains("left");
+	bool draw_right = !noborders_list.contains("right");
+	
+	// draw the border lines of the current cell (conditionally)
 	QPen pen(QBrush(), 1, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin);
 	pen.setColor(Qt::black);
 	painter.setPen(pen);
-	painter.drawRect(cell_rect);
+	
+	qreal x = cell_rect.x();
+	qreal y = cell_rect.y();
+	qreal w = cell_rect.width();
+	qreal h = cell_rect.height();
+	
+	// Draw borders only if not in noborders list
+	if (draw_top) {
+		painter.drawLine(x, y, x + w, y);
+	}
+	if (draw_bottom) {
+		painter.drawLine(x, y + h, x + w, y + h);
+	}
+	if (draw_left) {
+		painter.drawLine(x, y, x, y + h);
+	}
+	if (draw_right) {
+		painter.drawLine(x + w, y, x + w, y + h);
+	}
 
 	painter.save();
+	// Apply padding to cell rectangle - adjust for left, right, top, and bottom padding
+	QRectF padded_cell_rect = cell_rect;
+	padded_cell_rect.setLeft(cell_rect.left() + cell.padding_left);
+	padded_cell_rect.setTop(cell_rect.top() + cell.padding_top);
+	padded_cell_rect.setWidth(cell_rect.width() - cell.padding_left - cell.padding_right);
+	padded_cell_rect.setHeight(cell_rect.height() - cell.padding_top - cell.padding_bottom);
+	
 	// render the inner content of the current cell
 	if (cell.type() == TitleBlockCell::LogoCell) {
 		if (!cell.logo_reference.isEmpty()) {
@@ -1678,9 +1780,9 @@ void TitleBlockTemplate::renderCell(QPainter &painter,
 			if (vector_logos_.contains(cell.logo_reference)) {
 				vector_logos_[cell.logo_reference] -> render(
 							&painter,
-							cell_rect);
+							padded_cell_rect.toRect());
 			} else if (bitmap_logos_.contains(cell.logo_reference)) {
-				painter.drawPixmap(cell_rect,
+				painter.drawPixmap(padded_cell_rect.toRect(),
 						   bitmap_logos_[cell.logo_reference]);
 			}
 		}
@@ -1689,10 +1791,6 @@ void TitleBlockTemplate::renderCell(QPainter &painter,
 		renderTextCell(painter, final_text, cell, cell_rect);
 	}
 	painter.restore();
-
-	// draw again the border rect of the current cell, without the brush this time
-	painter.setBrush(Qt::NoBrush);
-	painter.drawRect(cell_rect);
 }
 
 
@@ -1796,7 +1894,252 @@ void TitleBlockTemplate::renderTextCell(QPainter &painter,
 {
 	if (text.isEmpty()) return;
 	QFont text_font = TitleBlockTemplate::fontForCell(cell);
+	
+	// Apply padding to cell rectangle - adjust for left, right, top, and bottom padding
+	QRectF padded_cell_rect = cell_rect;
+	padded_cell_rect.setLeft(cell_rect.left() + cell.padding_left);
+	padded_cell_rect.setTop(cell_rect.top() + cell.padding_top);
+	padded_cell_rect.setWidth(cell_rect.width() - cell.padding_left - cell.padding_right);
+	padded_cell_rect.setHeight(cell_rect.height() - cell.padding_top - cell.padding_bottom);
+	
+	// For PDF export, use QTextDocument with HTML formatting for bold text
+	// Qt's PDF renderer handles HTML bold better than synthesized fonts
+	QPaintDevice *device = painter.device();
+	bool is_pdf_export = false;
+	if (device) {
+		QPrinter *printer = dynamic_cast<QPrinter*>(device);
+		is_pdf_export = (printer && printer->outputFormat() == QPrinter::PdfFormat);
+	}
+	
+	if (is_pdf_export && cell.bold) {
+		// For PDF export, always use QTextDocument with QTextCharFormat for bold text
+		// This ensures the bold font is properly embedded in the PDF
+		QFont base_font = QETApp::diagramTextsFont(cell.font_size);
+		QFontDatabase db;
+		QString family = base_font.family();
+		
+		// Find bold style - for Arial Narrow, this should be "Bold"
+		QStringList styles = db.styles(family);
+		QString boldStyle;
+		for (const QString &style : styles) {
+			if (style.toLower().contains("bold")) {
+				boldStyle = style;
+				break;
+			}
+		}
+		
+		// Construct bold font explicitly with all properties set
+		QFont bold_font;
+		if (!boldStyle.isEmpty()) {
+			// Use explicit style name - this is the most reliable for PDF embedding
+			// Construct font directly with style name
+			bold_font = QFont(family, static_cast<int>(cell.font_size), QFont::Bold);
+			bold_font.setPointSizeF(cell.font_size);
+			bold_font.setStyleName(boldStyle);
+			bold_font.setWeight(QFont::Bold);
+			bold_font.setBold(true);
+		} else {
+			// No explicit bold style found - use weight-based approach
+			bold_font = QFont(family, static_cast<int>(cell.font_size), QFont::Bold);
+			bold_font.setPointSizeF(cell.font_size);
+			bold_font.setWeight(QFont::Bold);
+			bold_font.setBold(true);
+		}
+		
+		// Force font resolution - critical for PDF embedding
+		QFontInfo bold_info(bold_font);
+		QFontMetricsF bold_metrics(bold_font);
+		
+		// If font didn't resolve to bold, it means the bold variant isn't available
+		// In this case, Qt might synthesize bold which won't work in PDF
+		// We'll still proceed, but the result may not be truly bold in PDF
+		
+		painter.save();
+		
+		// Use QTextDocument with QTextCharFormat for direct font control
+		// This is more reliable than HTML for PDF font embedding
+		QTextDocument text_document;
+		text_document.setDocumentMargin(0.0);
+		// Set default font to bold font to ensure PDF renderer uses it
+		text_document.setDefaultFont(bold_font);
+		
+		// Create text cursor and format to directly set the bold font
+		// The font object already has all bold properties set, including style name
+		QTextCursor cursor(&text_document);
+		QTextCharFormat char_format;
+		// Set the complete bold font - this includes family, style name, weight, etc.
+		char_format.setFont(bold_font);
+		// Explicitly set weight as well to ensure PDF renderer recognizes it
+		char_format.setFontWeight(QFont::Bold);
+		
+		// Set block format BEFORE inserting text to ensure consistent formatting
+		QTextBlockFormat block_format = cursor.blockFormat();
+		// Remove any indentation/margin from all blocks to ensure consistent alignment
+		block_format.setLeftMargin(0.0);
+		block_format.setRightMargin(0.0);
+		block_format.setTextIndent(0.0);
+		// Set line height if not default (1.0)
+		if (qAbs(cell.line_height - 1.0) > 0.001) {
+			// line_height is a multiplier (e.g., 0.8 = 80%, 1.5 = 150%), convert to percentage
+			block_format.setLineHeight(cell.line_height * 100.0, QTextBlockFormat::ProportionalHeight);
+		}
+		cursor.setBlockFormat(block_format);
+		
+		cursor.setCharFormat(char_format);
+		cursor.insertText(text);
+		
+		// Apply format to all blocks in case text contains multiple lines
+		// This ensures consistent indentation and line height across all lines
+		QTextBlock block = text_document.begin();
+		while (block.isValid()) {
+			QTextCursor block_cursor(block);
+			QTextBlockFormat block_format_all = block_cursor.blockFormat();
+			// Remove any indentation/margin to ensure consistent alignment
+			block_format_all.setLeftMargin(0.0);
+			block_format_all.setRightMargin(0.0);
+			block_format_all.setTextIndent(0.0);
+			// Set line height if not default (1.0)
+			if (qAbs(cell.line_height - 1.0) > 0.001) {
+				block_format_all.setLineHeight(cell.line_height * 100.0, QTextBlockFormat::ProportionalHeight);
+			}
+			block_cursor.setBlockFormat(block_format_all);
+			block = block.next();
+		}
+		
+		// Set alignment
+		QTextOption text_option;
+		text_option.setAlignment(static_cast<Qt::Alignment>(cell.alignment));
+		text_document.setDefaultTextOption(text_option);
+		
+		// Position and render - use padded cell rect
+		QRectF text_rect = padded_cell_rect;
+		if (cell.hadjust) {
+			QRectF font_rect = bold_metrics.boundingRect(
+						QRect(-10000, -10000, 10000, 10000),
+						static_cast<Qt::Alignment>(cell.alignment),
+						text);
+			if (font_rect.width() > padded_cell_rect.width()) {
+				qreal ratio = padded_cell_rect.width() / font_rect.width();
+				painter.translate(padded_cell_rect.topLeft());
+				painter.scale(ratio, ratio);
+				text_rect = QRectF(0, 0, padded_cell_rect.width() / ratio, padded_cell_rect.height() / ratio);
+			}
+		}
+		
+		// Calculate vertical alignment offset
+		QSizeF doc_size = text_document.size();
+		qreal y_offset = 0;
+		if (cell.alignment & Qt::AlignBottom) {
+			y_offset = text_rect.height() - doc_size.height();
+		} else if (cell.alignment & Qt::AlignVCenter) {
+			y_offset = (text_rect.height() - doc_size.height()) / 2.0;
+		}
+		
+		painter.translate(text_rect.x(), text_rect.y() + y_offset);
+		QAbstractTextDocumentLayout::PaintContext ctx;
+		ctx.palette.setColor(QPalette::Text, cell.text_color);
+		text_document.documentLayout()->draw(&painter, ctx);
+		painter.restore();
+		return;
+	}
+	
+	// Regular rendering for preview and non-PDF export
+	// If line_height is not default (1.0), use QTextDocument for proper line spacing
+	if (qAbs(cell.line_height - 1.0) > 0.001) {
+		// Use QTextDocument to support line height
+		painter.save();
+		
+		QTextDocument text_document;
+		text_document.setDocumentMargin(0.0);
+		text_document.setDefaultFont(text_font);
+		
+		QTextCursor cursor(&text_document);
+		QTextCharFormat char_format;
+		char_format.setFont(text_font);
+		if (cell.bold) {
+			char_format.setFontWeight(QFont::Bold);
+		}
+		char_format.setForeground(QBrush(cell.text_color));
+		
+		// Set block format BEFORE inserting text to ensure consistent formatting
+		QTextBlockFormat block_format = cursor.blockFormat();
+		// Remove any indentation/margin from all blocks to ensure consistent alignment
+		block_format.setLeftMargin(0.0);
+		block_format.setRightMargin(0.0);
+		block_format.setTextIndent(0.0);
+		// Set line height if not default (1.0)
+		if (qAbs(cell.line_height - 1.0) > 0.001) {
+			// line_height is a multiplier (e.g., 0.8 = 80%, 1.5 = 150%), convert to percentage
+			block_format.setLineHeight(cell.line_height * 100.0, QTextBlockFormat::ProportionalHeight);
+		}
+		cursor.setBlockFormat(block_format);
+		
+		cursor.setCharFormat(char_format);
+		cursor.insertText(text);
+		
+		// Apply format to all blocks in case text contains multiple lines
+		// This ensures consistent indentation and line height across all lines
+		QTextBlock block = text_document.begin();
+		while (block.isValid()) {
+			QTextCursor block_cursor(block);
+			QTextBlockFormat block_format_all = block_cursor.blockFormat();
+			// Remove any indentation/margin to ensure consistent alignment
+			block_format_all.setLeftMargin(0.0);
+			block_format_all.setRightMargin(0.0);
+			block_format_all.setTextIndent(0.0);
+			// Set line height if not default (1.0)
+			if (qAbs(cell.line_height - 1.0) > 0.001) {
+				block_format_all.setLineHeight(cell.line_height * 100.0, QTextBlockFormat::ProportionalHeight);
+			}
+			block_cursor.setBlockFormat(block_format_all);
+			block = block.next();
+		}
+		
+		// Set alignment
+		QTextOption text_option;
+		text_option.setAlignment(static_cast<Qt::Alignment>(cell.alignment));
+		text_document.setDefaultTextOption(text_option);
+		
+		// Position and render
+		QRectF text_rect = padded_cell_rect;
+		if (cell.hadjust) {
+			QFontMetricsF font_metrics(text_font);
+			QRectF font_rect = font_metrics.boundingRect(
+						QRect(-10000, -10000, 10000, 10000),
+						static_cast<Qt::Alignment>(cell.alignment),
+						text);
+			if (font_rect.width() > padded_cell_rect.width()) {
+				qreal ratio = padded_cell_rect.width() / font_rect.width();
+				painter.translate(padded_cell_rect.topLeft());
+				painter.scale(ratio, ratio);
+				text_rect = QRectF(0, 0, padded_cell_rect.width() / ratio, padded_cell_rect.height() / ratio);
+			}
+		}
+		
+		// Calculate vertical alignment offset
+		QSizeF doc_size = text_document.size();
+		qreal y_offset = 0;
+		if (cell.alignment & Qt::AlignBottom) {
+			y_offset = text_rect.height() - doc_size.height();
+		} else if (cell.alignment & Qt::AlignVCenter) {
+			y_offset = (text_rect.height() - doc_size.height()) / 2.0;
+		}
+		
+		painter.translate(text_rect.x(), text_rect.y() + y_offset);
+		QAbstractTextDocumentLayout::PaintContext ctx;
+		ctx.palette.setColor(QPalette::Text, cell.text_color);
+		text_document.documentLayout()->draw(&painter, ctx);
+		painter.restore();
+		return;
+	}
+	
+	// Regular rendering for preview and non-PDF export (default line height)
 	painter.setFont(text_font);
+	
+	// Set text color
+	QPen text_pen = painter.pen();
+	text_pen.setColor(cell.text_color);
+	painter.setPen(text_pen);
 
 	if (cell.hadjust) {
 		QFontMetricsF font_metrics(text_font);
@@ -1805,18 +2148,18 @@ void TitleBlockTemplate::renderTextCell(QPainter &painter,
 					cell.alignment,
 					text);
 
-		if (font_rect.width() > cell_rect.width()) {
-			qreal ratio = qreal(cell_rect.width())
+		if (font_rect.width() > padded_cell_rect.width()) {
+			qreal ratio = qreal(padded_cell_rect.width())
 					/ qreal(font_rect.width());
 			painter.save();
 
-			painter.translate(cell_rect.topLeft());
+			painter.translate(padded_cell_rect.topLeft());
 			qreal vertical_adjustment =
-					cell_rect.height() * (1 - ratio) / 2.0;
+					padded_cell_rect.height() * (1 - ratio) / 2.0;
 			painter.translate(0.0, vertical_adjustment);
 			painter.scale(ratio, ratio);
 
-			QRectF new_world_cell_rect(cell_rect);
+			QRectF new_world_cell_rect(padded_cell_rect);
 			new_world_cell_rect.moveTo(0, 0.0);
 			new_world_cell_rect.setWidth(new_world_cell_rect.width()
 							 / ratio);
@@ -1829,8 +2172,8 @@ void TitleBlockTemplate::renderTextCell(QPainter &painter,
 		}
 	}
 
-	// Still here? Let's draw the text normally
-	painter.drawText(cell_rect, cell.alignment, text);
+	// Still here? Let's draw the text normally - use padded cell rect
+	painter.drawText(padded_cell_rect, cell.alignment, text);
 }
 
 /**

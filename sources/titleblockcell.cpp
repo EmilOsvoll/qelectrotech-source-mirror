@@ -15,6 +15,14 @@ TitleBlockCell::TitleBlockCell()
 	alignment = Qt::AlignCenter | Qt::AlignVCenter;
 	font_size = 9;
 	hadjust = false;
+	bold = false;
+	padding_left = 0;
+	padding_right = 0;
+	padding_top = 0;
+	padding_bottom = 0;
+	text_color = Qt::black;
+	line_height = 1.0;
+	noborders = QString("");
 	logo_reference = QString("");
 }
 
@@ -76,6 +84,36 @@ void TitleBlockCell::setAttribute(const QString &attribute, const QVariant &attr
 		font_size = attr_value.toInt();
 	} else if (attribute == "horizontal_adjust") {
 		hadjust = attr_value.toBool();
+	} else if (attribute == "bold") {
+		bold = attr_value.toBool();
+	} else if (attribute == "paddingleft") {
+		padding_left = attr_value.toInt();
+	} else if (attribute == "paddingright") {
+		padding_right = attr_value.toInt();
+	} else if (attribute == "paddingtop") {
+		padding_top = attr_value.toInt();
+	} else if (attribute == "paddingbottom") {
+		padding_bottom = attr_value.toInt();
+	} else if (attribute == "text_color") {
+		if (attr_value.type() == QVariant::String) {
+			text_color = QColor(attr_value.toString());
+		} else if (attr_value.canConvert<QColor>()) {
+			text_color = attr_value.value<QColor>();
+		}
+		// If color is invalid, keep default black
+		if (!text_color.isValid()) {
+			text_color = Qt::black;
+		}
+	} else if (attribute == "line_height") {
+		bool ok;
+		qreal height = attr_value.toDouble(&ok);
+		if (ok && height > 0.0) {
+			line_height = height;
+		} else {
+			line_height = 1.0;
+		}
+	} else if (attribute == "noborders") {
+		noborders = attr_value.toString();
 	}
 }
 
@@ -102,6 +140,22 @@ QVariant TitleBlockCell::attribute(const QString &attribute) {
 		return(TitleBlockTemplate::fontForCell(*this).pointSizeF());
 	} else if (attribute == "horizontal_adjust") {
 		return(hadjust);
+	} else if (attribute == "bold") {
+		return(bold);
+	} else if (attribute == "paddingleft") {
+		return(padding_left);
+	} else if (attribute == "paddingright") {
+		return(padding_right);
+	} else if (attribute == "paddingtop") {
+		return(padding_top);
+	} else if (attribute == "paddingbottom") {
+		return(padding_bottom);
+	} else if (attribute == "text_color") {
+		return(text_color.name());
+	} else if (attribute == "line_height") {
+		return(line_height);
+	} else if (attribute == "noborders") {
+		return(noborders);
 	}
 	return(QVariant());
 }
@@ -129,6 +183,22 @@ QString TitleBlockCell::attributeName(const QString &attribute) {
 		return(QObject::tr("taille du texte", "title block cell property human name"));
 	} else if (attribute == "horizontal_adjust") {
 		return(QObject::tr("ajustement horizontal", "title block cell property human name"));
+	} else if (attribute == "bold") {
+		return(QObject::tr("bold", "title block cell property human name"));
+	} else if (attribute == "paddingleft") {
+		return(QObject::tr("left padding", "title block cell property human name"));
+	} else if (attribute == "paddingright") {
+		return(QObject::tr("right padding", "title block cell property human name"));
+	} else if (attribute == "paddingtop") {
+		return(QObject::tr("top padding", "title block cell property human name"));
+	} else if (attribute == "paddingbottom") {
+		return(QObject::tr("bottom padding", "title block cell property human name"));
+	} else if (attribute == "text_color") {
+		return(QObject::tr("text color", "title block cell property human name"));
+	} else if (attribute == "line_height") {
+		return(QObject::tr("line height", "title block cell property human name"));
+	} else if (attribute == "noborders") {
+		return(QObject::tr("no borders", "title block cell property human name"));
 	}
 	return(QString());
 }
@@ -155,6 +225,14 @@ void TitleBlockCell::loadContentFromCell(const TitleBlockCell &other_cell) {
 	font_size = other_cell.font_size;
 	alignment = other_cell.alignment;
 	hadjust = other_cell.hadjust;
+	bold = other_cell.bold;
+	padding_left = other_cell.padding_left;
+	padding_right = other_cell.padding_right;
+	padding_top = other_cell.padding_top;
+	padding_bottom = other_cell.padding_bottom;
+	text_color = other_cell.text_color;
+	line_height = other_cell.line_height;
+	noborders = other_cell.noborders;
 }
 
 /**
@@ -171,6 +249,42 @@ void TitleBlockCell::loadContentFromXml(const QDomElement &cell_element) {
 		if (cell_element.hasAttribute("resource") && !cell_element.attribute("resource").isEmpty()) {
 			cell_type = TitleBlockCell::LogoCell;
 			logo_reference = cell_element.attribute("resource");
+		}
+		
+		// Load padding attributes for logo cells
+		int padding_left_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingleft", &padding_left_val)) {
+			padding_left = padding_left_val;
+		} else {
+			padding_left = 0;
+		}
+		
+		int padding_right_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingright", &padding_right_val)) {
+			padding_right = padding_right_val;
+		} else {
+			padding_right = 0;
+		}
+		
+		int padding_top_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingtop", &padding_top_val)) {
+			padding_top = padding_top_val;
+		} else {
+			padding_top = 0;
+		}
+		
+		int padding_bottom_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingbottom", &padding_bottom_val)) {
+			padding_bottom = padding_bottom_val;
+		} else {
+			padding_bottom = 0;
+		}
+		
+		// Load noborders attribute for logo cells
+		if (cell_element.hasAttribute("noborders")) {
+			noborders = cell_element.attribute("noborders");
+		} else {
+			noborders = QString("");
 		}
 	} else if (cell_element.tagName() == "field") {
 		cell_type = TitleBlockCell::TextCell;
@@ -219,6 +333,67 @@ void TitleBlockCell::loadContentFromXml(const QDomElement &cell_element) {
 		
 		// horizontal text adjustment
 		hadjust = cell_element.attribute("hadjust", "true") == "true";
+		
+		// bold text
+		bold = cell_element.attribute("bold", "false").compare("true", Qt::CaseInsensitive) == 0;
+		
+		// padding - left and right padding inside the cell
+		int padding_left_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingleft", &padding_left_val)) {
+			padding_left = padding_left_val;
+		} else {
+			padding_left = 0;
+		}
+		
+		int padding_right_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingright", &padding_right_val)) {
+			padding_right = padding_right_val;
+		} else {
+			padding_right = 0;
+		}
+		
+		int padding_top_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingtop", &padding_top_val)) {
+			padding_top = padding_top_val;
+		} else {
+			padding_top = 0;
+		}
+		
+		int padding_bottom_val;
+		if (QET::attributeIsAnInteger(cell_element, "paddingbottom", &padding_bottom_val)) {
+			padding_bottom = padding_bottom_val;
+		} else {
+			padding_bottom = 0;
+		}
+		
+		// text color
+		if (cell_element.hasAttribute("text_color")) {
+			QString color_str = cell_element.attribute("text_color");
+			QColor color(color_str);
+			if (color.isValid()) {
+				text_color = color;
+			} else {
+				text_color = Qt::black;
+			}
+		} else {
+			text_color = Qt::black;
+		}
+		
+		// line height - multiplier (1.0 = normal)
+		bool ok;
+		qreal line_height_val = cell_element.attribute("line_height", "1.0").toDouble(&ok);
+		if (ok && line_height_val > 0.0) {
+			line_height = line_height_val;
+		} else {
+			line_height = 1.0;
+		}
+		
+		// noborders - comma-separated list of borders to hide
+		if (cell_element.hasAttribute("noborders")) {
+			noborders = cell_element.attribute("noborders");
+		} else {
+			noborders = QString("");
+		}
 	}
 }
 
@@ -234,6 +409,25 @@ void TitleBlockCell::saveContentToXml(QDomElement &cell_elmt) {
 	} else if (type() == TitleBlockCell::LogoCell) {
 		cell_elmt.setTagName("logo");
 		cell_elmt.setAttribute("resource", logo_reference);
+		
+		// Save padding attributes for logo cells
+		if (padding_left != 0) {
+			cell_elmt.setAttribute("paddingleft", padding_left);
+		}
+		if (padding_right != 0) {
+			cell_elmt.setAttribute("paddingright", padding_right);
+		}
+		if (padding_top != 0) {
+			cell_elmt.setAttribute("paddingtop", padding_top);
+		}
+		if (padding_bottom != 0) {
+			cell_elmt.setAttribute("paddingbottom", padding_bottom);
+		}
+		
+		// Save noborders attribute for logo cells
+		if (!noborders.isEmpty()) {
+			cell_elmt.setAttribute("noborders", noborders);
+		}
 	} else {
 		cell_elmt.setTagName("field");
 		
@@ -268,5 +462,37 @@ void TitleBlockCell::saveContentToXml(QDomElement &cell_elmt) {
 		}
 		
 		if (hadjust) cell_elmt.setAttribute("hadjust", "true");
+		
+		// bold text
+		if (bold) cell_elmt.setAttribute("bold", "true");
+		
+		// padding - left, right, top, and bottom padding
+		if (padding_left != 0) {
+			cell_elmt.setAttribute("paddingleft", padding_left);
+		}
+		if (padding_right != 0) {
+			cell_elmt.setAttribute("paddingright", padding_right);
+		}
+		if (padding_top != 0) {
+			cell_elmt.setAttribute("paddingtop", padding_top);
+		}
+		if (padding_bottom != 0) {
+			cell_elmt.setAttribute("paddingbottom", padding_bottom);
+		}
+		
+		// text color - save only if not black (default)
+		if (text_color != Qt::black) {
+			cell_elmt.setAttribute("text_color", text_color.name());
+		}
+		
+		// line height - save only if not 1.0 (default)
+		if (qAbs(line_height - 1.0) > 0.001) {
+			cell_elmt.setAttribute("line_height", QString::number(line_height));
+		}
+		
+		// noborders
+		if (!noborders.isEmpty()) {
+			cell_elmt.setAttribute("noborders", noborders);
+		}
 	}
 }
