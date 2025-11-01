@@ -39,7 +39,7 @@ class TitleBlockTemplateRenderer : public QObject
 		DiagramContext context()const;
 		
 		int height() const;
-		void render(QPainter *, int);
+		void render(QPainter *, int, bool hide_left_border = false);
 		void renderDxf(QRectF &, int, QString &, int);
 		void invalidateRenderedTemplate();
 		void setUseCache(bool);

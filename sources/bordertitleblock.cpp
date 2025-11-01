@@ -866,21 +866,27 @@ void BorderTitleBlock::draw(QPainter *painter)
 		// render the titleblock, using the TitleBlockTemplate object
 	if (display_titleblock_) {
 		QRectF tbt_rect = titleBlockRectForQPainter();
+		// When display_rows_ is true, hide the leftmost border of the title block
+		bool hide_left_border = display_rows_;
 		if (m_edge == Qt::BottomEdge)
 		{
 			painter -> translate(tbt_rect.topLeft());
 			m_titleblock_template_renderer -> render(
 						painter,
-						tbt_rect.width());
+						tbt_rect.width(),
+						hide_left_border);
 			painter -> translate(-tbt_rect.topLeft());
 		}
 		else
 		{
 			painter->translate(tbt_rect.topLeft());
 			painter->rotate(-90);
+			// For rotated title blocks, the concept of "leftmost" depends on rotation
+			// For now, we apply the same logic
 			m_titleblock_template_renderer -> render(
 						painter,
-						tbt_rect.width());
+						tbt_rect.width(),
+						hide_left_border);
 			painter->rotate(90);
 			painter -> translate(-tbt_rect.topLeft());
 		}

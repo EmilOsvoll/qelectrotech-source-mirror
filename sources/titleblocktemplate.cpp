@@ -1566,7 +1566,8 @@ QPixmap TitleBlockTemplate::bitmapLogo(const QString &logo_name) const
 */
 void TitleBlockTemplate::render(QPainter &painter,
 				const DiagramContext &diagram_context,
-				int titleblock_width) const
+				int titleblock_width,
+				bool hide_left_border) const
 {
 	QList<int> widths = columnsWidth(titleblock_width);
 	int titleblock_height = height();
@@ -1577,7 +1578,24 @@ void TitleBlockTemplate::render(QPainter &painter,
 	painter.setPen(pen);
 
 	// draw the titleblock border
-	painter.drawRect(QRect(0, 0, titleblock_width, titleblock_height));
+	// Never draw the rightmost border
+	qreal x = 0;
+	qreal y = 0;
+	qreal w = titleblock_width;
+	qreal h = titleblock_height;
+	
+	// Draw top border
+	painter.drawLine(x, y, x + w, y);
+	// Draw bottom border
+	painter.drawLine(x, y + h, x + w, y + h);
+	
+	if (hide_left_border) {
+		// Skip leftmost border when display_rows_ is true
+		// Only top and bottom borders are drawn
+	} else {
+		// Draw left border (rightmost border is never drawn)
+		painter.drawLine(x, y, x, y + h);
+	}
 
 	// run through each individual cell
 	for (int j = 0 ; j < rows_heights_.count() ; ++ j) {

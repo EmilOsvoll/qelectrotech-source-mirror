@@ -79,12 +79,15 @@ int TitleBlockTemplateRenderer::height() const
 	Render the titleblock.
 	@param provided_painter : QPainter to use to render the titleblock.
 	@param titleblock_width : The total width of the titleblock to render
+	@param hide_left_border : Whether to hide the leftmost border of the title block
 */
 void TitleBlockTemplateRenderer::render(QPainter *provided_painter,
-					int titleblock_width) {
+					int titleblock_width,
+					bool hide_left_border) {
 	if (!m_titleblock_template) return;
 	
-	if (m_use_cache) {
+	if (m_use_cache && !hide_left_border) {
+		// Use cache only when hide_left_border is false
 		// Do we really need to calculate all this again?
 		if (titleblock_width != m_last_known_titleblock_width
 				|| m_rendered_template.isNull()) {
@@ -95,9 +98,11 @@ void TitleBlockTemplateRenderer::render(QPainter *provided_painter,
 		m_rendered_template.play(provided_painter);
 		provided_painter -> restore();
 	} else {
+		// Render directly without cache (when cache is disabled or hide_left_border is true)
 		m_titleblock_template -> render(*provided_painter,
 						m_context,
-						titleblock_width);
+						titleblock_width,
+						hide_left_border);
 	}
 }
 
@@ -130,7 +135,7 @@ void TitleBlockTemplateRenderer::renderToQPicture(int titleblock_width) {
 	// we render the template on our internal QPicture
 	QPainter painter(&m_rendered_template);
 	
-	m_titleblock_template -> render(painter, m_context, titleblock_width);
+	m_titleblock_template -> render(painter, m_context, titleblock_width, false);
 	
 	// memorize the last known width
 	m_last_known_titleblock_width = titleblock_width;

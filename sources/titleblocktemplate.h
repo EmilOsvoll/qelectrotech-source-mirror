@@ -105,7 +105,7 @@ class TitleBlockTemplate : public QObject {
 	QSvgRenderer *vectorLogo(const QString &) const;
 	QPixmap bitmapLogo(const QString &) const;
 	
-	void render(QPainter &, const DiagramContext &, int) const;
+	void render(QPainter &, const DiagramContext &, int, bool hide_left_border = false) const;
 	void renderDxf(
 			QRectF &,
 			const DiagramContext &,
