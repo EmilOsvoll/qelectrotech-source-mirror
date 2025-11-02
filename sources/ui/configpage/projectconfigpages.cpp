@@ -33,6 +33,7 @@
 
 //#include "ui_autonumberingmanagementw.h"
 
+#include <QDebug>
 #include <QtWidgets>
 
 /**

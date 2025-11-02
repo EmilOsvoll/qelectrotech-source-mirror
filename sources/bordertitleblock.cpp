@@ -23,6 +23,7 @@
 #include "diagramposition.h"
 #include "math.h"
 #include "qetapp.h"
+#include "qetproject.h"
 #include "qetversion.h"
 #include "titleblocktemplate.h"
 #include "titleblocktemplaterenderer.h"
@@ -952,6 +953,50 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 		// render the titleblock, using the TitleBlockTemplate object
 	if (display_titleblock_) {
+		// Ensure we have the latest project properties in the context before rendering
+		QETProject *project = nullptr;
+		
+		// Try to get Diagram from sender if this was called via a signal
+		Diagram *diagram = qobject_cast<Diagram *>(sender());
+		
+		// If not found, try parent chain (might work if parent was set)
+		if (!diagram && parent()) {
+			QObject *current = parent();
+			while (current && !diagram) {
+				diagram = qobject_cast<Diagram *>(current);
+				if (!diagram) {
+					current = current->parent();
+				}
+			}
+		}
+		
+		if (diagram) {
+			project = diagram->project();
+		} else if (parent()) {
+			// Try direct parent as QETProject
+			project = qobject_cast<QETProject *>(parent());
+		}
+		
+		if (project) {
+			DiagramContext project_wide_properties = project->projectProperties();
+			QString project_title = project->title();
+			QString project_path = project->filePath();
+			QString project_filename = QFileInfo(project->filePath()).baseName();
+			
+			project_wide_properties.addValue("projecttitle", project_title);
+			project_wide_properties.addValue("projectpath", project_path);
+			project_wide_properties.addValue("projectfilename", project_filename);
+			// Also add projectfile as an alias for projectfilename for backward compatibility
+			// Only overwrite if project_filename is non-empty (file has been saved), or if projectfile doesn't exist
+			// This preserves user-set values when the file hasn't been saved yet
+			if (!project_filename.isEmpty() || !project->projectProperties().contains("projectfile")) {
+				project_wide_properties.addValue("projectfile", project_filename);
+			}
+			
+			// Refresh context with latest project properties
+			updateDiagramContextForTitleBlock(project_wide_properties);
+		}
+		
 		QRectF tbt_rect = titleBlockRectForQPainter();
 		// When display_rows_ is true, hide the leftmost border of the title block
 		bool hide_left_border = display_rows_;
@@ -1271,7 +1316,12 @@ void BorderTitleBlock::updateDiagramContextForTitleBlock(
 	// project-wide properties), overridden by the "additional fields" one...
 	DiagramContext context = initial_context;
 	foreach (QString key, additional_fields_.keys()) {
-		context.addValue(key, additional_fields_[key]);
+		// Only add if value is non-empty, or if key doesn't exist yet
+		// This prevents overwriting project-wide properties with empty strings
+		QVariant additional_value = additional_fields_[key];
+		if (!additional_value.toString().isEmpty() || !context.contains(key)) {
+			context.addValue(key, additional_value);
+		}
 	}
 
 	// ... overridden by the historical and/or dynamically generated fields
@@ -1344,7 +1394,9 @@ void BorderTitleBlock::setFolioData(
 		int total,
 		const QString& autonum,
 		const DiagramContext &project_properties) {
-	if (index < 1 || total < 1 || index > total) return;
+	if (index < 1 || total < 1 || index > total) {
+		return;
+	}
 
 	// memorize information
 	// memorise les informations

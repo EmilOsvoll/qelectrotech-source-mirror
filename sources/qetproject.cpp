@@ -2032,9 +2032,19 @@ void QETProject::updateDiagramsFolioData()
 	int total_folio = m_diagrams_list.count();
 
 	DiagramContext project_wide_properties = m_project_properties;
-	project_wide_properties.addValue("projecttitle", title());
-	project_wide_properties.addValue("projectpath", filePath());
-	project_wide_properties.addValue("projectfilename", QFileInfo(filePath()).baseName());
+	QString proj_title = title();
+	QString proj_path = filePath();
+	QString proj_filename = QFileInfo(filePath()).baseName();
+	
+	project_wide_properties.addValue("projecttitle", proj_title);
+	project_wide_properties.addValue("projectpath", proj_path);
+	project_wide_properties.addValue("projectfilename", proj_filename);
+	// Also add projectfile as an alias for projectfilename for backward compatibility
+	// Only overwrite if proj_filename is non-empty (file has been saved), or if projectfile doesn't exist
+	// This preserves user-set values when the file hasn't been saved yet
+	if (!proj_filename.isEmpty() || !m_project_properties.contains("projectfile")) {
+		project_wide_properties.addValue("projectfile", proj_filename);
+	}
 
 	for (int i = 0 ; i < total_folio ; ++ i)
 	{
@@ -2046,10 +2056,6 @@ void QETProject::updateDiagramsFolioData()
 			(!autopagenum.isNull()))
 		{
 			m_diagrams_list[i] -> border_and_titleblock.setFolioData(i + 1, total_folio, nCC.toRepresentedString(), project_wide_properties);
-			m_diagrams_list[i]->project()->addFolioAutoNum(autopagenum,nCC.next());
-		}
-		else {
-			m_diagrams_list[i] -> border_and_titleblock.setFolioData(i + 1, total_folio, nullptr, project_wide_properties);
 		}
 
 		if (i > 0)

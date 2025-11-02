@@ -65,6 +65,7 @@ QColor		Diagram::background_color = Qt::white;
 Diagram::Diagram(QETProject *project) :
 	QGraphicsScene           (project),
 	m_project                (project),
+	border_and_titleblock    (this),
 	draw_grid_               (true),
 	use_border_              (true),
 	draw_terminals_          (true),
