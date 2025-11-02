@@ -654,9 +654,9 @@ void BorderTitleBlock::draw(QPainter *painter)
 	separatorY = qRound(separatorY);
 
 	//Draw the border
-	qreal halfPen = 0.0; // Initialize halfPen for use in header positioning
-	qreal borderPenWidth = 1.0; // Default border pen width for header positioning
-	qreal borderBottomY = 0.0; // Store bottom border Y coordinate for header alignment
+	qreal halfPen = 0.0;
+	qreal borderPenWidth = 1.0;
+	qreal borderBottomY = 0.0;
 	if (display_border_) {
 		if (border_all_sides_) {
 			// Draw all 4 sides around the diagram rect
@@ -672,8 +672,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 			halfPen = borderPenWidth / 2.0;
 			borderBottomY = y + h - halfPen; // Store exact Y coordinate of bottom border (centered on pen)
 			painter -> drawLine(x, y, x + w, y);                                  // Top edge (inside)
-			painter -> drawLine(x + w + halfPen, y, x + w + halfPen, y + h);      // Right edge (outside)
-			painter -> drawLine(x + w + halfPen, borderBottomY, x, borderBottomY); // Bottom edge (outside)
+			// Right edge is drawn by right row headers and corners, so skip here to avoid duplicate
 			painter -> drawLine(x, borderBottomY, x, y);                        // Left edge (inside)
 		} else {
 			// Draw left, top, and right edges (but not bottom to allow title block to extend outside)
@@ -805,9 +804,6 @@ void BorderTitleBlock::draw(QPainter *painter)
 				qreal bottom_cell_x = diagram_rect_.topLeft().x()
 						+ (rows_header_width_
 						   + ((i - 1) * columns_width_));
-				// Position header so its top border line aligns with the title block's bottom border
-				// Title block bottom is at: separatorY - header_line_thickness_
-				// The title block's bottom border line is drawn at that position
 				// Position header so its top border aligns with the title block's bottom border
 				qreal bottom_cell_y = separatorY - header_line_thickness_;
 				qreal bottom_cell_w = columns_width_;
@@ -827,10 +823,20 @@ void BorderTitleBlock::draw(QPainter *painter)
 				
 				QRectF bottom_numbered_rectangle(bx, by, bw, bh);
 				
-				// Draw top border for all cells
-				painter->drawLine(bx, by, bx + bw, by);
-				// Draw bottom border for all cells
-				painter->drawLine(bx, by + bh, bx + bw, by + bh);
+				// Draw top border for all cells - span only the column header area (not row headers)
+				// Only draw once for the first cell, from first column start to last column end
+				if (i == 1) {
+					qreal firstColumnLeft = diagram_rect_.topLeft().x() + rows_header_width_; // Start after left row header
+					qreal lastColumnRight = separatorX; // End before right row header
+					painter->drawLine(firstColumnLeft, by, lastColumnRight, by);
+				}
+				// Draw bottom border for all cells - extend to full width from far left to far right
+				qreal fullLeftX = diagram_rect_.topLeft().x(); // Start from far left (including left row header)
+				qreal fullRightX = separatorX + (display_rows_ ? rows_header_width_ : 0.0); // Extend to far right (including right row header)
+				// Only draw once for the first cell to avoid duplicates
+				if (i == 1) {
+					painter->drawLine(fullLeftX, by + bh, fullRightX, by + bh);
+				}
 				// Draw right border for all cells (shared vertical lines are only drawn once as right border)
 				painter->drawLine(bx + bw, by, bx + bw, by + bh);
 				// Draw left border only for first column (others are the right border of previous cell)
