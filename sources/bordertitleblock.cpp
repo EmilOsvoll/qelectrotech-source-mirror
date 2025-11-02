@@ -654,6 +654,9 @@ void BorderTitleBlock::draw(QPainter *painter)
 	separatorY = qRound(separatorY);
 
 	//Draw the border
+	qreal halfPen = 0.0; // Initialize halfPen for use in header positioning
+	qreal borderPenWidth = 1.0; // Default border pen width for header positioning
+	qreal borderBottomY = 0.0; // Store bottom border Y coordinate for header alignment
 	if (display_border_) {
 		if (border_all_sides_) {
 			// Draw all 4 sides around the diagram rect
@@ -665,11 +668,13 @@ void BorderTitleBlock::draw(QPainter *painter)
 			
 			// Draw all 4 sides to form a complete border
 			// Offset right and bottom edges outward by half the pen width (use 0.5px for cosmetic pens)
-			qreal halfPen = (borderPen.widthF() > 0.0) ? borderPen.widthF() / 2.0 : 0.5;
+			borderPenWidth = (borderPen.widthF() > 0.0) ? borderPen.widthF() : 1.0;
+			halfPen = borderPenWidth / 2.0;
+			borderBottomY = y + h - halfPen; // Store exact Y coordinate of bottom border (centered on pen)
 			painter -> drawLine(x, y, x + w, y);                                  // Top edge (inside)
 			painter -> drawLine(x + w + halfPen, y, x + w + halfPen, y + h);      // Right edge (outside)
-			painter -> drawLine(x + w + halfPen, y + h + halfPen, x, y + h + halfPen); // Bottom edge (outside)
-			painter -> drawLine(x, y + h + halfPen, x, y);                        // Left edge (inside)
+			painter -> drawLine(x + w + halfPen, borderBottomY, x, borderBottomY); // Bottom edge (outside)
+			painter -> drawLine(x, borderBottomY, x, y);                        // Left edge (inside)
 		} else {
 			// Draw left, top, and right edges (but not bottom to allow title block to extend outside)
 			qreal x = diagram_rect_.x();
@@ -678,7 +683,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 			qreal h = diagram_rect_.height();
 			
 			// Offset right edge outward by half the pen width (use 0.5px for cosmetic pens)
-			qreal halfPen = (borderPen.widthF() > 0.0) ? borderPen.widthF() / 2.0 : 0.5;
+			borderPenWidth = (borderPen.widthF() > 0.0) ? borderPen.widthF() : 1.0;
+			halfPen = borderPenWidth / 2.0;
 			
 			painter -> drawLine(x, y, x + w, y);                      // Top edge
 			painter -> drawLine(x, y, x, y + h);                      // Left edge
@@ -711,7 +717,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 		if (border_all_sides_) {
 			// Bottom-left corner - only draw outer borders
 			qreal bl_x = diagram_rect_.bottomLeft().x();
-			qreal bl_y = separatorY;
+			// Position corner to align with the title block's bottom border
+			qreal bl_y = separatorY - header_line_thickness_;
 			qreal bl_w = rows_header_width_;
 			qreal bl_h = columns_header_height_;
 			
@@ -731,7 +738,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 			
 			// Bottom-right corner - only draw outer borders
 			qreal br_x = separatorX;
-			qreal br_y = separatorY;
+			// Position corner to align with the title block's bottom border
+			qreal br_y = separatorY - header_line_thickness_;
 			qreal br_w = rows_header_width_;
 			qreal br_h = columns_header_height_;
 			
@@ -797,7 +805,11 @@ void BorderTitleBlock::draw(QPainter *painter)
 				qreal bottom_cell_x = diagram_rect_.topLeft().x()
 						+ (rows_header_width_
 						   + ((i - 1) * columns_width_));
-				qreal bottom_cell_y = separatorY;
+				// Position header so its top border line aligns with the title block's bottom border
+				// Title block bottom is at: separatorY - header_line_thickness_
+				// The title block's bottom border line is drawn at that position
+				// Position header so its top border aligns with the title block's bottom border
+				qreal bottom_cell_y = separatorY - header_line_thickness_;
 				qreal bottom_cell_w = columns_width_;
 				qreal bottom_cell_h = columns_header_height_;
 				// Clamp last column header width to remaining space to avoid overlap
