@@ -68,5 +68,9 @@ class BorderProperties {
 	qreal scale;                     ///< Scale multiplier for base_area (actual area = base_area * scale)
 		qreal header_line_thickness;     ///< Line thickness for header cell borders (px)
 		qreal header_thickness;          ///< Thickness of header bands (row width and column height)
+	
+	// Column header spacers
+	bool enable_column_header_spacers;      ///< Whether to show spacer columns before first and after last column
+	qreal column_header_spacer_percentage;  ///< Percentage of total width each spacer column should take (0-100)
 };
 #endif

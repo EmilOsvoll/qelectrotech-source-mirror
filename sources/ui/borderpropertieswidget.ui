@@ -238,7 +238,49 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
+      <item row="8" column="0" colspan="4">
+       <widget class="QCheckBox" name="m_enable_column_header_spacers_cb">
+        <property name="text">
+         <string>Enable column header spacers</string>
+        </property>
+        <property name="toolTip">
+         <string>When enabled, spacer columns will be shown before the first column and after the last column header.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_spacer_percentage">
+        <property name="text">
+         <string>Spacer width (%):</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QDoubleSpinBox" name="m_column_header_spacer_percentage_sp">
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="suffix">
+         <string>%</string>
+        </property>
+        <property name="toolTip">
+         <string>Percentage of total width each spacer column should take (0-100%).</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -268,6 +310,8 @@
   <tabstop>m_aspect_ratio_height_sp</tabstop>
   <tabstop>m_scale_sp</tabstop>
   <tabstop>m_header_thickness_sp</tabstop>
+  <tabstop>m_enable_column_header_spacers_cb</tabstop>
+  <tabstop>m_column_header_spacer_percentage_sp</tabstop>
  </tabstops>
  <resources/>
  <connections/>

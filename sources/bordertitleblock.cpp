@@ -449,6 +449,10 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.scale = 1.0;  // Default scale, can be adjusted if needed
 	bp.use_calculated_dimensions = true;  // Enable calculated dimensions mode
 	
+	// Export column header spacer settings
+	bp.enable_column_header_spacers = enable_column_header_spacers_;
+	bp.column_header_spacer_percentage = column_header_spacer_percentage_;
+	
 	return(bp);
 }
 
@@ -496,6 +500,11 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
     displayRows(working_bp.display_rows);
     border_all_sides_ = working_bp.border_all_sides;
     header_line_thickness_ = working_bp.header_line_thickness;
+    
+    // Import column header spacer settings
+    enable_column_header_spacers_ = working_bp.enable_column_header_spacers;
+    column_header_spacer_percentage_ = working_bp.column_header_spacer_percentage;
+    
     qDebug() << "[BorderTitleBlock::importBorder] applied:" 
              << "columns_width_" << columns_width_ 
              << "rows_height_" << rows_height_ 
@@ -754,19 +763,90 @@ void BorderTitleBlock::draw(QPainter *painter)
 		//Draw the nums of columns (top and bottom)
 	if (display_border_ && display_columns_) {
 		painter->setPen(headerPen);
-		// Shared separator X between last column and right row header
-		qreal separatorX = qRound(diagram_rect_.topLeft().x() + rows_header_width_ + (columns_count_ * columns_width_));
+		
+		// Calculate total drawing width (columns area excluding row headers)
+		qreal total_columns_width = columns_count_ * columns_width_;
+		qreal columns_area_start_x = diagram_rect_.topLeft().x() + rows_header_width_;
+		
+		// Calculate spacer width and adjust column width if enabled
+		qreal spacer_width = 0.0;
+		qreal adjusted_column_width = columns_width_;
+		qreal column_start_x = columns_area_start_x;
+		
+		if (enable_column_header_spacers_) {
+			// Spacer width as percentage of total columns width
+			spacer_width = total_columns_width * (column_header_spacer_percentage_ / 100.0);
+			// Calculate remaining width after subtracting both spacers
+			qreal remaining_width = total_columns_width - (2.0 * spacer_width);
+			// Adjust column width to fit in remaining space
+			if (columns_count_ > 0 && remaining_width > 0.0) {
+				adjusted_column_width = remaining_width / columns_count_;
+			}
+			// Columns start after the left spacer (which occupies the first part of the columns area)
+			column_start_x = columns_area_start_x + spacer_width;
+		}
+		
+		// Shared separator X between last column and right row header (or right spacer)
+		qreal separatorX;
+		if (enable_column_header_spacers_ && spacer_width > 0.0) {
+			separatorX = qRound(column_start_x + (columns_count_ * adjusted_column_width));
+		} else {
+			separatorX = qRound(diagram_rect_.topLeft().x() + rows_header_width_ + total_columns_width);
+		}
+		
+		// Draw spacer column before the first column (if enabled)
+		if (enable_column_header_spacers_ && spacer_width > 0.0) {
+			// Left spacer occupies the first part of the columns area
+			qreal spacer_x = columns_area_start_x;
+			qreal spacer_y = diagram_rect_.topLeft().y();
+			qreal spacer_w = spacer_width;
+			qreal spacer_h = columns_header_height_;
+			
+			// Draw borders for left spacer
+			QRectF left_spacer_rect(spacer_x, spacer_y, spacer_w, spacer_h);
+			qreal lx = left_spacer_rect.x();
+			qreal ly = left_spacer_rect.y();
+			qreal lw = left_spacer_rect.width();
+			qreal lh = left_spacer_rect.height();
+			
+			// Draw top border
+			painter->drawLine(lx, ly, lx + lw, ly);
+			// Draw bottom border
+			painter->drawLine(lx, ly + lh, lx + lw, ly + lh);
+			// Draw right border (shared with first column)
+			painter->drawLine(lx + lw, ly, lx + lw, ly + lh);
+			// Draw left border
+			painter->drawLine(lx, ly, lx, ly + lh);
+			
+			// Draw spacer column at bottom (when border on all sides)
+			if (border_all_sides_) {
+				qreal bottom_spacer_y = separatorY - header_line_thickness_;
+				QRectF bottom_left_spacer_rect(lx, bottom_spacer_y, lw, lh);
+				qreal blx = bottom_left_spacer_rect.x();
+				qreal bly = bottom_left_spacer_rect.y();
+				qreal blw = bottom_left_spacer_rect.width();
+				qreal blh = bottom_left_spacer_rect.height();
+				
+				// Draw top border
+				painter->drawLine(blx, bly, blx + blw, bly);
+				// Draw bottom border
+				painter->drawLine(blx, bly + blh, blx + blw, bly + blh);
+				// Draw right border
+				painter->drawLine(blx + blw, bly, blx + blw, bly + blh);
+				// Draw left border
+				painter->drawLine(blx, bly, blx, bly + blh);
+			}
+		}
+		
 		for (int i = 1 ; i <= columns_count_ ; ++ i) {
-			// Top columns
-			qreal cell_x = diagram_rect_.topLeft().x()
-					+ (rows_header_width_
-					   + ((i - 1) * columns_width_));
+			// Top columns - use adjusted positions and widths
+			qreal cell_x = column_start_x + ((i - 1) * adjusted_column_width);
 			qreal cell_y = diagram_rect_.topLeft().y();
-			qreal cell_w = columns_width_;
+			qreal cell_w = adjusted_column_width;
 			qreal cell_h = columns_header_height_;
 			// Clamp last column header width to remaining space to avoid overlap
 			if (i == columns_count_) {
-				qreal startX = diagram_rect_.topLeft().x() + rows_header_width_ + ((i - 1) * columns_width_);
+				qreal startX = column_start_x + ((i - 1) * adjusted_column_width);
 				cell_x = startX;
 				cell_w = separatorX - startX;
 			}
@@ -785,7 +865,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 			// Draw right border for all cells (shared vertical lines are only drawn once as right border)
 			painter->drawLine(x + w, y, x + w, y + h);
 			// Draw left border only for first column (others are the right border of previous cell)
-			if (i == 1) {
+			// If spacer is enabled, the first column's left border is shared with the spacer
+			if (i == 1 && !enable_column_header_spacers_) {
 				painter->drawLine(x, y, x, y + h);
 			}
 			if (settings.value("border-columns_0", true).toBool()){
@@ -800,18 +881,16 @@ void BorderTitleBlock::draw(QPainter *painter)
 					    QString("%1").arg(i));
 			}
 			
-			// Bottom columns (when border on all sides)
+			// Bottom columns (when border on all sides) - use adjusted positions and widths
 			if (border_all_sides_) {
-				qreal bottom_cell_x = diagram_rect_.topLeft().x()
-						+ (rows_header_width_
-						   + ((i - 1) * columns_width_));
+				qreal bottom_cell_x = column_start_x + ((i - 1) * adjusted_column_width);
 				// Position header so its top border aligns with the title block's bottom border
 				qreal bottom_cell_y = separatorY - header_line_thickness_;
-				qreal bottom_cell_w = columns_width_;
+				qreal bottom_cell_w = adjusted_column_width;
 				qreal bottom_cell_h = columns_header_height_;
 				// Clamp last column header width to remaining space to avoid overlap
 				if (i == columns_count_) {
-					qreal startX = diagram_rect_.topLeft().x() + rows_header_width_ + ((i - 1) * columns_width_);
+					qreal startX = column_start_x + ((i - 1) * adjusted_column_width);
 					bottom_cell_x = startX;
 					bottom_cell_w = separatorX - startX;
 				}
@@ -826,14 +905,25 @@ void BorderTitleBlock::draw(QPainter *painter)
 				
 				// Draw top border for all cells - span only the column header area (not row headers)
 				// Only draw once for the first cell, from first column start to last column end
+				// If spacers are enabled, extend to include spacer columns
 				if (i == 1) {
-					qreal firstColumnLeft = diagram_rect_.topLeft().x() + rows_header_width_; // Start after left row header
-					qreal lastColumnRight = separatorX; // End before right row header
+					qreal firstColumnLeft = column_start_x; // Start at first column (after left spacer if enabled)
+					qreal lastColumnRight = separatorX; // End at last column (before right spacer if enabled)
+					// Extend to include spacers if enabled
+					if (enable_column_header_spacers_ && spacer_width > 0.0) {
+						firstColumnLeft -= spacer_width; // Extend left to include left spacer
+						lastColumnRight += spacer_width; // Extend right to include right spacer
+					}
 					painter->drawLine(firstColumnLeft, by, lastColumnRight, by);
 				}
 				// Draw bottom border for all cells - extend to full width from far left to far right
 				qreal fullLeftX = diagram_rect_.topLeft().x(); // Start from far left (including left row header)
-				qreal fullRightX = separatorX + (display_rows_ ? rows_header_width_ : 0.0); // Extend to far right (including right row header)
+				qreal fullRightX;
+				if (enable_column_header_spacers_ && spacer_width > 0.0) {
+					fullRightX = separatorX + spacer_width + (display_rows_ ? rows_header_width_ : 0.0); // Include right spacer
+				} else {
+					fullRightX = separatorX + (display_rows_ ? rows_header_width_ : 0.0); // Extend to far right (including right row header)
+				}
 				// Only draw once for the first cell to avoid duplicates
 				if (i == 1) {
 					painter->drawLine(fullLeftX, by + bh, fullRightX, by + bh);
@@ -841,7 +931,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 				// Draw right border for all cells (shared vertical lines are only drawn once as right border)
 				painter->drawLine(bx + bw, by, bx + bw, by + bh);
 				// Draw left border only for first column (others are the right border of previous cell)
-				if (i == 1) {
+				// If spacer is enabled, the first column's left border is shared with the spacer
+				if (i == 1 && !enable_column_header_spacers_) {
 					painter->drawLine(bx, by, bx, by + bh);
 				}
 				if (settings.value("border-columns_0", true).toBool()){
@@ -857,6 +948,50 @@ void BorderTitleBlock::draw(QPainter *painter)
 				}
 			}
 		}
+		
+		// Draw spacer column after the last column (if enabled)
+		if (enable_column_header_spacers_ && spacer_width > 0.0) {
+			qreal right_spacer_x = separatorX;
+			qreal right_spacer_y = diagram_rect_.topLeft().y();
+			qreal right_spacer_w = spacer_width;
+			qreal right_spacer_h = columns_header_height_;
+			
+			// Draw borders for right spacer
+			QRectF right_spacer_rect(right_spacer_x, right_spacer_y, right_spacer_w, right_spacer_h);
+			qreal rx = right_spacer_rect.x();
+			qreal ry = right_spacer_rect.y();
+			qreal rw = right_spacer_rect.width();
+			qreal rh = right_spacer_rect.height();
+			
+			// Draw top border
+			painter->drawLine(rx, ry, rx + rw, ry);
+			// Draw bottom border
+			painter->drawLine(rx, ry + rh, rx + rw, ry + rh);
+			// Draw right border
+			painter->drawLine(rx + rw, ry, rx + rw, ry + rh);
+			// Draw left border (shared with last column)
+			painter->drawLine(rx, ry, rx, ry + rh);
+			
+			// Draw spacer column at bottom (when border on all sides)
+			if (border_all_sides_) {
+				qreal bottom_right_spacer_y = separatorY - header_line_thickness_;
+				QRectF bottom_right_spacer_rect(rx, bottom_right_spacer_y, rw, rh);
+				qreal brx = bottom_right_spacer_rect.x();
+				qreal bry = bottom_right_spacer_rect.y();
+				qreal brw = bottom_right_spacer_rect.width();
+				qreal brh = bottom_right_spacer_rect.height();
+				
+				// Draw top border
+				painter->drawLine(brx, bry, brx + brw, bry);
+				// Draw bottom border
+				painter->drawLine(brx, bry + brh, brx + brw, bry + brh);
+				// Draw right border
+				painter->drawLine(brx + brw, bry, brx + brw, bry + brh);
+				// Draw left border
+				painter->drawLine(brx, bry, brx, bry + brh);
+			}
+		}
+		
 		painter->setPen(borderPen);
 	}
 

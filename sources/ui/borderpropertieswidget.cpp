@@ -61,6 +61,8 @@ BorderPropertiesWidget::BorderPropertiesWidget(const BorderProperties &bp, QWidg
 		this, &BorderPropertiesWidget::onAspectRatioPartsChanged);
 	connect(ui->m_aspect_ratio_height_sp, QOverload<int>::of(&QSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onAspectRatioPartsChanged);
+	connect(ui->m_enable_column_header_spacers_cb, &QCheckBox::toggled,
+		ui->m_column_header_spacer_percentage_sp, &QDoubleSpinBox::setEnabled);
 #else
 	connect(ui->m_base_area_sp, static_cast<void(QDoubleSpinBox::*)(double)>(&QDoubleSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onCalculateDimensionsChanged);
@@ -76,9 +78,14 @@ BorderPropertiesWidget::BorderPropertiesWidget(const BorderProperties &bp, QWidg
 		this, &BorderPropertiesWidget::onAspectRatioPartsChanged);
 	connect(ui->m_aspect_ratio_height_sp, static_cast<void(QSpinBox::*)(int)>(&QSpinBox::valueChanged),
 		this, &BorderPropertiesWidget::onAspectRatioPartsChanged);
+	connect(ui->m_enable_column_header_spacers_cb, &QCheckBox::toggled,
+		ui->m_column_header_spacer_percentage_sp, &QDoubleSpinBox::setEnabled);
 #endif
 	
 	setProperties(bp);
+	
+	// Initialize enabled state of percentage input based on checkbox
+	ui->m_column_header_spacer_percentage_sp->setEnabled(ui->m_enable_column_header_spacers_cb->isChecked());
 }
 
 /**
@@ -176,6 +183,8 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	
 	ui -> m_scale_sp ->setValue(m_properties.scale);
 	ui -> m_header_thickness_sp->setValue(m_properties.header_thickness);
+	ui -> m_enable_column_header_spacers_cb ->setChecked(m_properties.enable_column_header_spacers);
+	ui -> m_column_header_spacer_percentage_sp ->setValue(m_properties.column_header_spacer_percentage);
 
 	// Initialize intermediary counts used for calculations - use actual values from properties
 	m_pendingColumnsCount = m_properties.columns_count;
@@ -213,6 +222,8 @@ const BorderProperties &BorderPropertiesWidget::properties ()
 	m_properties.base_area = ui->m_base_area_sp->value();  // Use actual base_area from UI
 	m_properties.scale = ui -> m_scale_sp -> value();
 	m_properties.header_thickness = ui->m_header_thickness_sp->value();
+	m_properties.enable_column_header_spacers = ui->m_enable_column_header_spacers_cb->isChecked();
+	m_properties.column_header_spacer_percentage = ui->m_column_header_spacer_percentage_sp->value();
 	m_properties.calculateDimensions();
 	
 	return m_properties;

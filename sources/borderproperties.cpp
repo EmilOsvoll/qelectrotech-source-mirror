@@ -48,7 +48,9 @@ BorderProperties::BorderProperties() :
 	base_area(1500000.0),  // Default: 1,500,000 px²
 	scale(1.0),
 	header_line_thickness(1.0),
-	header_thickness(12.0)
+	header_thickness(12.0),
+	enable_column_header_spacers(false),
+	column_header_spacer_percentage(10.0)
 {
 	qDebug() << "[BorderProperties::Constructor] Initializing with:"
 	         << "base_area=" << base_area
@@ -96,7 +98,9 @@ bool BorderProperties::operator==(const BorderProperties &bp) {
 		bp.use_calculated_dimensions == use_calculated_dimensions &&\
 		bp.aspect_ratio == aspect_ratio &&\
 		bp.base_area == base_area &&\
-		bp.scale == scale
+		bp.scale == scale &&\
+		bp.enable_column_header_spacers == enable_column_header_spacers &&\
+		bp.column_header_spacer_percentage == column_header_spacer_percentage
 	);
 }
 
@@ -144,6 +148,10 @@ void BorderProperties::toXml(QDomElement &e) const
 	// Save header customization
 	e.setAttribute("header_thickness", QString("%1").arg(header_thickness));
 	e.setAttribute("header_line_thickness", QString("%1").arg(header_line_thickness));
+	
+	// Save column header spacer settings
+	e.setAttribute("enable_column_header_spacers", enable_column_header_spacers ? "true" : "false");
+	e.setAttribute("column_header_spacer_percentage", QString("%1").arg(column_header_spacer_percentage));
 }
 
 /**
@@ -254,6 +262,17 @@ void BorderProperties::fromXml(QDomElement &e) {
 		header_line_thickness = e.attribute("header_line_thickness").toDouble();
 		if (header_line_thickness <= 0.0) header_line_thickness = 1.0;
 	}
+	
+	// Load column header spacer settings
+	if (e.hasAttribute("enable_column_header_spacers")) {
+		enable_column_header_spacers = e.attribute("enable_column_header_spacers") == "true";
+	}
+	if (e.hasAttribute("column_header_spacer_percentage")) {
+		column_header_spacer_percentage = e.attribute("column_header_spacer_percentage").toDouble();
+		if (column_header_spacer_percentage < 0.0 || column_header_spacer_percentage > 100.0) {
+			column_header_spacer_percentage = 10.0;
+		}
+	}
 }
 
 /**
@@ -287,6 +306,10 @@ void BorderProperties::toSettings(QSettings &settings, const QString &prefix) co
 	}
 	settings.setValue(prefix % "header_thickness", header_thickness);
 	settings.setValue(prefix % "header_line_thickness", header_line_thickness);
+	
+	// Save column header spacer settings
+	settings.setValue(prefix % "enable_column_header_spacers", enable_column_header_spacers);
+	settings.setValue(prefix % "column_header_spacer_percentage", column_header_spacer_percentage);
 }
 
 /**
@@ -384,6 +407,13 @@ void BorderProperties::fromSettings(QSettings &settings, const QString &prefix) 
 	if (header_thickness <= 0.0) header_thickness = 12.0;
 	header_line_thickness = settings.value(prefix % "header_line_thickness", header_line_thickness).toDouble();
 	if (header_line_thickness <= 0.0) header_line_thickness = 1.0;
+	
+	// Load column header spacer settings
+	enable_column_header_spacers = settings.value(prefix % "enable_column_header_spacers", enable_column_header_spacers).toBool();
+	column_header_spacer_percentage = settings.value(prefix % "column_header_spacer_percentage", column_header_spacer_percentage).toDouble();
+	if (column_header_spacer_percentage < 0.0 || column_header_spacer_percentage > 100.0) {
+		column_header_spacer_percentage = 10.0;
+	}
 }
 
 /**
