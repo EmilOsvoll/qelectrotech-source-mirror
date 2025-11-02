@@ -47,8 +47,13 @@ include(cmake/git_update_submodules.cmake)
 include(cmake/git_last_commit_sha.cmake)
 include(cmake/fetch_kdeaddons.cmake)
 include(cmake/fetch_singleapplication.cmake)
-# Use system pugixml from vcpkg instead of fetching
-set(BUILD_PUGIXML OFF)
+# Use system pugixml from vcpkg instead of fetching (on Windows)
+# On macOS, build from source since system package may not be available
+if(WIN32)
+	set(BUILD_PUGIXML OFF)
+else()
+	set(BUILD_PUGIXML ON)
+endif()
 include(cmake/fetch_pugixml.cmake)
 include(cmake/qet_compilation_vars.cmake)
 

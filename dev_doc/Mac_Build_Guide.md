@@ -112,15 +112,14 @@ make -j$(sysctl -n hw.ncpu)
 
 **Error**: `Could not find a package configuration file provided by "pugixml"`
 
-**Solution**: The project should build pugixml from source. Ensure `BUILD_PUGIXML` is set to `ON` in `CMakeLists.txt`:
+**Solution**: This has been fixed in the codebase. The project now automatically builds pugixml from source on macOS. The `CMakeLists.txt` file conditionally sets `BUILD_PUGIXML ON` for non-Windows platforms.
 
-```cmake
-# In CMakeLists.txt, line 51 should be:
-set(BUILD_PUGIXML ON)
-include(cmake/fetch_pugixml.cmake)
-```
+If you still encounter this error, verify that:
+1. You have an internet connection (needed to fetch pugixml from GitHub)
+2. The `cmake/fetch_pugixml.cmake` file is present
+3. You're using the latest version of the codebase
 
-If it's set to `OFF`, change it to `ON` to automatically fetch and build pugixml from GitHub.
+The fix ensures pugixml is automatically fetched and built on macOS while using system packages on Windows (vcpkg).
 
 ### Issue 2: MOC Error - Undefined Interface
 
