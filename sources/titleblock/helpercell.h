@@ -27,7 +27,6 @@
 */
 class HelperCell : public QGraphicsObject, public QGraphicsLayoutItem {
 	Q_OBJECT
-	Q_INTERFACES(QGraphicsLayoutItem)
 	
 	// constructor, destructor
 	public:
