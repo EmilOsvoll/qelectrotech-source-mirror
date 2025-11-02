@@ -99,9 +99,11 @@ QRectF BorderTitleBlock::titleBlockRect() const
 			qreal content_left   = diagram_rect_.topLeft().x() + rows_header_width_;
 			qreal separatorX     = qRound(content_left + (columns_count_ * columns_width_));
 			qreal content_width  = separatorX - content_left; // align right edge with headers split
-			qreal band_top       = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_);
+			// Round band_top to match separatorY rounding in draw() method for consistent alignment
+			qreal band_top       = qRound(diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_));
 			qreal tbt_height     = m_titleblock_template_renderer->height();
-			qreal tbt_top        = band_top - tbt_height; // directly above the bottom header band
+			// Adjust upward by header_line_thickness_ to align title block bottom with row header bottom
+			qreal tbt_top        = band_top - tbt_height - header_line_thickness_;
 			rect = QRectF(content_left,
 				      tbt_top,
 				      content_width,
@@ -122,9 +124,11 @@ QRectF BorderTitleBlock::titleBlockRect() const
 			qreal content_left   = diagram_rect_.topLeft().x() + rows_header_width_;
 			qreal separatorX     = qRound(content_left + (columns_count_ * columns_width_));
 			qreal content_width  = separatorX - content_left; // align right edge with headers split
-			qreal band_top       = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_);
+			// Round band_top to match separatorY rounding in draw() method for consistent alignment
+			qreal band_top       = qRound(diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_));
 			qreal tbt_height     = m_titleblock_template_renderer->height();
-			qreal tbt_top        = band_top - tbt_height; // same position as when border_all_sides is true
+			// Adjust upward by header_line_thickness_ to align title block bottom with row header bottom
+			qreal tbt_top        = band_top - tbt_height - header_line_thickness_;
 			rect = QRectF(content_left,
 				      tbt_top,
 				      content_width,
