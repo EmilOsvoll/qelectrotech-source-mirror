@@ -1280,7 +1280,7 @@ void BorderTitleBlock::updateDiagramContextForTitleBlock(
 	context.addValue("author",      btb_author_);
 	context.addValue(
 		"date",
-		QLocale::system().toString(btb_date_, QLocale::ShortFormat));
+		btb_date_.toString("dd.MM.yyyy"));
 	context.addValue("title",       btb_title_);
 	context.addValue("filename",    btb_filename_);
 	context.addValue("plant",     btb_plant_);
