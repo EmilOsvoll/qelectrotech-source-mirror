@@ -1747,7 +1747,9 @@ qreal BorderTitleBlock::baseRowsHeight() const
 /**
  * @brief BorderTitleBlock::canvasScaleFactor
  * Returns the visual scale factor for canvas items relative to headers.
- * When scale < 1.0, canvas shrinks so items should appear larger (factor > 1.0).
+ * The scale value directly represents how much larger/smaller items appear:
+ * - scale = 2.0 → items appear 2x larger (200%)
+ * - scale = 0.5 → items appear 0.5x smaller (50%)
  */
 qreal BorderTitleBlock::canvasScaleFactor() const
 {
@@ -1755,10 +1757,10 @@ qreal BorderTitleBlock::canvasScaleFactor() const
 		return 1.0;
 	}
 	
-	// Scale factor = base_dimension / scaled_dimension
-	// When scale = 0.5, scaled dimensions are sqrt(0.5) ≈ 0.707 times smaller
-	// So scale factor = 1 / sqrt(scale) = 1 / sqrt(0.5) ≈ 1.414 (items appear 41% larger)
-	qreal scale_factor = 1.0 / qSqrt(scale_);
+	// Scale factor is directly proportional to the scale value
+	// scale = 2.0 → items appear 2x larger
+	// scale = 0.5 → items appear 0.5x (half) smaller
+	qreal scale_factor = scale_;
 	
 	qDebug() << "[BorderTitleBlock::canvasScaleFactor]"
 	         << "scale_=" << scale_

@@ -103,8 +103,10 @@ class BorderTitleBlock : public QObject
 		/**
 		 * @brief Get the canvas scale factor
 		 * Returns the factor by which canvas items should be visually scaled
-		 * relative to headers. When scale < 1.0, this factor > 1.0 (items appear larger).
-		 * @return scale factor (base_dimension / scaled_dimension), or 1.0 if not applicable
+		 * relative to headers. The scale value is directly proportional:
+		 * - scale = 2.0 → items appear 2x larger (200%)
+		 * - scale = 0.5 → items appear 0.5x smaller (50%)
+		 * @return scale factor (directly uses scale_), or 1.0 if not applicable
 		 */
 		qreal canvasScaleFactor() const;
 
