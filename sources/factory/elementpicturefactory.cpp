@@ -187,7 +187,14 @@ bool ElementPictureFactory::build(const ElementsLocation &location,
 	painter.setRenderHint(QPainter::Antialiasing,         true);
 	painter.setRenderHint(QPainter::TextAntialiasing,     true);
 	painter.setRenderHint(QPainter::SmoothPixmapTransform,true);
-
+	
+	// Apply base scale factor to correct element scaling
+	// At canvas scale 5, a 100mm element was measured as 92.35mm on paper
+	// This means the base element is drawn too small by a factor of (100 * 5) / 92.35 ≈ 5.414
+	// To achieve 1:1 scaling (scale = 1.0), where 100mm element = 100mm on paper,
+	// we need to scale the base element by this factor
+	const qreal BASE_SCALE_FACTOR = (100.0 * 5.0) / 92.35;
+	painter.scale(BASE_SCALE_FACTOR, BASE_SCALE_FACTOR);
 
 	QPainter low_painter;
 	QPicture low_pic;
@@ -200,6 +207,8 @@ bool ElementPictureFactory::build(const ElementsLocation &location,
 	low_painter.setRenderHint(QPainter::Antialiasing,         true);
 	low_painter.setRenderHint(QPainter::TextAntialiasing,     true);
 	low_painter.setRenderHint(QPainter::SmoothPixmapTransform,true);
+	// Apply the same base scale factor to low zoom picture
+	low_painter.scale(BASE_SCALE_FACTOR, BASE_SCALE_FACTOR);
 
 	QPen tmp;
 	tmp.setWidthF(1.0); //Vaudoo line to take into account the setCosmetic - don't remove
