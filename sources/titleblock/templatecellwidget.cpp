@@ -458,6 +458,7 @@ QString TitleBlockTemplateCellWidget::defaultVariablesString() const
 		"<li>%{folio-total} : nombre total de folios dans le projet</li>"
 		"<li>%{previous-folio-num} : numéro du folio précédent</li>"
 		"<li>%{next-folio-num} : numéro du folio suivant</li>"
+		"<li>%{scale} : scale of the folio in n:m format (e.g., 0.5 → 1:2, 2.0 → 2:1)</li>"
 		"<li>%{projecttitle} : titre du projet</li>"
 		"<li>%{projectpath} : chemin du projet</li>"
 		"<li>%{projectfilename} : nom du fichier</li>"

@@ -1612,8 +1612,128 @@ void BorderTitleBlock::updateDiagramContextForTitleBlock(
 	context.addValue("auto_page_num", btb_auto_page_num_);
 	context.addValue("previous-folio-num", m_previous_folio_num);
 	context.addValue("next-folio-num", m_next_folio_num);
+	
+	// Add scale variable formatted as n:m (e.g., scale 0.5 → "1:2", scale 2.0 → "2:1")
+	context.addValue("scale", formatScaleAsRatio(scale_));
 
 	m_titleblock_template_renderer -> setContext(context);
+}
+
+/**
+	@brief BorderTitleBlock::formatScaleAsRatio
+	Formats the scale value as a ratio in the form n:m
+	@param scale The scale value (e.g., 0.5, 1.0, 2.0)
+	@return A string in the format "n:m" (e.g., "1:2", "1:1", "2:1")
+	For scale < 1: returns "1:n" where n = 1/scale (e.g., 0.5 → "1:2")
+	For scale >= 1: returns "n:1" where n = scale (e.g., 2.0 → "2:1")
+*/
+QString BorderTitleBlock::formatScaleAsRatio(qreal scale) const
+{
+	if (scale <= 0.0) {
+		return QString("1:1");
+	}
+	
+	// Find the simplest integer ratio representation
+	// Use continued fractions to find the best approximation
+	const int max_denominator = 10000;
+	double target = scale;
+	
+	// Find the best rational approximation
+	double best_diff = 1.0;
+	int best_num = 1;
+	int best_den = 1;
+	
+	// Try denominators from 1 to max_denominator
+	for (int den = 1; den <= max_denominator; ++den) {
+		int num = qRound(target * den);
+		if (num < 1) num = 1;
+		if (num > max_denominator) continue;
+		
+		double ratio = static_cast<double>(num) / static_cast<double>(den);
+		double diff = qAbs(ratio - target);
+		if (diff < best_diff) {
+			best_diff = diff;
+			best_num = num;
+			best_den = den;
+			if (diff < 1e-9) break; // Exact match
+		}
+	}
+	
+	// Simplify the ratio by finding GCD
+	int a = best_num;
+	int b = best_den;
+	while (b != 0) {
+		int temp = b;
+		b = a % b;
+		a = temp;
+	}
+	int gcd = a;
+	best_num /= gcd;
+	best_den /= gcd;
+	
+	// Format according to user's requirement:
+	// For scale < 1: show as 1:n (e.g., 0.5 → 1:2)
+	// For scale >= 1: show as n:1 (e.g., 2.0 → 2:1)
+	if (scale < 1.0) {
+		// Invert: if we have n:m, we want 1:(m/n)
+		// But we need to ensure it's in simplest form
+		if (best_num == 1) {
+			return QString("1:%1").arg(best_den);
+		} else {
+			// We have n:m, but want 1:x format
+			// So we need to find the ratio where numerator is 1
+			// best_num:best_den = 1:x, so x = best_den/best_num
+			// But we need integers, so we multiply: 1:best_den = best_num:best_num*best_den
+			// Actually, simpler: if we have n:m, we want 1:(m/n) but as integers
+			// So we need to find the simplest form where numerator is 1
+			// This means: 1 / scale = best_den/best_num
+			double inv_scale = 1.0 / scale;
+			int inv_den = 1;
+			int inv_num = qRound(inv_scale);
+			if (inv_num < 1) inv_num = 1;
+			
+			// Find better approximation for inverse
+			double inv_best_diff = 1.0;
+			int inv_best_num = 1;
+			int inv_best_den = 1;
+			for (int d = 1; d <= max_denominator; ++d) {
+				int n = qRound(inv_scale * d);
+				if (n >= 1 && n <= max_denominator) {
+					double ratio = static_cast<double>(n) / static_cast<double>(d);
+					double diff = qAbs(ratio - inv_scale);
+					if (diff < inv_best_diff) {
+						inv_best_diff = diff;
+						inv_best_num = n;
+						inv_best_den = d;
+						if (diff < 1e-9) break;
+					}
+				}
+			}
+			// Simplify
+			int inv_a = inv_best_num;
+			int inv_b = inv_best_den;
+			while (inv_b != 0) {
+				int temp = inv_b;
+				inv_b = inv_a % inv_b;
+				inv_a = temp;
+			}
+			int inv_gcd = inv_a;
+			inv_best_num /= inv_gcd;
+			inv_best_den /= inv_gcd;
+			
+			return QString("1:%1").arg(inv_best_num);
+		}
+	} else {
+		// For scale >= 1, show as n:1
+		if (best_den == 1) {
+			return QString("%1:1").arg(best_num);
+		} else {
+			// We have n:m, but want x:1 format
+			// So we need to find the ratio where denominator is 1
+			// best_num:best_den = x:1, so x = best_num/best_den
+			return QString("%1:1").arg(best_num);
+		}
+	}
 }
 
 /**

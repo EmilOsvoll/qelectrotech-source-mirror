@@ -214,6 +214,7 @@ class BorderTitleBlock : public QObject
 		void updateDiagramContextForTitleBlock(
 				const DiagramContext & = DiagramContext());
 		QString incrementLetters(const QString &);
+		QString formatScaleAsRatio(qreal scale) const;
 		
 		/**
 		 * @brief Calculate base column width (with scale = 1.0)
