@@ -1622,9 +1622,19 @@ void Diagram::addItem(QGraphicsItem *item)
 	QGraphicsScene::addItem(item);
 
 	// Apply current canvas scale to newly added items
-	// (Items added after scale was applied need to get the scale transform)
+	// (Items added after scale was applied need to get the scale transform and position scaling)
 	qreal current_canvas_scale = border_and_titleblock.canvasScaleFactor();
 	if (qAbs(current_canvas_scale - 1.0) > 0.0001) {
+		// Scale position relative to canvas origin
+		QRectF canvas_rect = border_and_titleblock.insideBorderRect();
+		QPointF canvas_origin = canvas_rect.topLeft();
+		QPointF current_pos = item->pos();
+		QPointF pos_relative_to_canvas = current_pos - canvas_origin;
+		QPointF new_pos_relative = pos_relative_to_canvas * current_canvas_scale;
+		QPointF new_pos = canvas_origin + new_pos_relative;
+		item->setPos(new_pos);
+		
+		// Apply scale transform
 		QTransform current_transform = item->transform();
 		QPointF transform_origin = item->transformOriginPoint();
 		
@@ -1636,7 +1646,8 @@ void Diagram::addItem(QGraphicsItem *item)
 		item->setTransform(scale_transform * current_transform, false);
 		
 		qDebug() << "[Diagram::addItem] Applied canvas scale" << current_canvas_scale 
-		         << "to newly added item (type" << item->type() << ")";
+		         << "to newly added item (type" << item->type() << ")"
+		         << "position:" << current_pos << "->" << new_pos;
 	}
 
 	switch (item->type())
@@ -2397,7 +2408,11 @@ void Diagram::applyCanvasScaleToItems()
 	// If previous scale was 1.0, we're applying scale for the first time
 	bool first_time_application = (qAbs(m_previous_canvas_scale_ - 1.0) < 0.0001);
 	
-	// Iterate through all items and apply scale transform
+	// Get the canvas origin (top-left of the canvas area, excluding headers)
+	QRectF canvas_rect = border_and_titleblock.insideBorderRect();
+	QPointF canvas_origin = canvas_rect.topLeft();
+	
+	// Iterate through all items and apply scale transform + position scaling
 	int items_scaled = 0;
 	for (QGraphicsItem *item : items()) {
 		if (!item) continue;
@@ -2409,8 +2424,18 @@ void Diagram::applyCanvasScaleToItems()
 		// Default is (0, 0) which is top-left in item's local coordinates
 		QPointF transform_origin = item->transformOriginPoint();
 		
+		// Scale the item's position relative to canvas origin
+		QPointF current_pos = item->pos();
+		QPointF pos_relative_to_canvas = current_pos - canvas_origin;
+		
 		if (first_time_application) {
-			// First time: apply scale transform from transform origin
+			// First time: scale position and apply scale transform
+			// Scale position relative to canvas origin
+			QPointF new_pos_relative = pos_relative_to_canvas * new_canvas_scale;
+			QPointF new_pos = canvas_origin + new_pos_relative;
+			item->setPos(new_pos);
+			
+			// Apply scale transform from transform origin
 			QTransform scale_transform;
 			scale_transform.translate(transform_origin.x(), transform_origin.y());
 			scale_transform.scale(new_canvas_scale, new_canvas_scale);
@@ -2419,8 +2444,17 @@ void Diagram::applyCanvasScaleToItems()
 			// Combine with existing transform (preserves rotations, translations, etc.)
 			// The canvas scale should be applied first, then other transforms
 			item->setTransform(scale_transform * current_transform, false);
+			
+			qDebug() << "[Diagram::applyCanvasScaleToItems] Item" << items_scaled 
+			         << "position scaled:" << current_pos << "->" << new_pos
+			         << "(relative to canvas:" << pos_relative_to_canvas << "->" << new_pos_relative << ")";
 		} else {
-			// Update existing: apply incremental scale update
+			// Update existing: scale position by ratio and apply incremental scale update
+			// Scale position relative to canvas origin
+			QPointF new_pos_relative = pos_relative_to_canvas * scale_ratio;
+			QPointF new_pos = canvas_origin + new_pos_relative;
+			item->setPos(new_pos);
+			
 			// Build transform that scales by the ratio (new/old) from transform origin
 			QTransform update_transform;
 			update_transform.translate(transform_origin.x(), transform_origin.y());
@@ -2430,6 +2464,10 @@ void Diagram::applyCanvasScaleToItems()
 			// Apply the incremental update to existing transform
 			// This correctly handles items with rotations, etc.
 			item->setTransform(update_transform * current_transform, false);
+			
+			qDebug() << "[Diagram::applyCanvasScaleToItems] Item" << items_scaled 
+			         << "position updated:" << current_pos << "->" << new_pos
+			         << "(ratio=" << scale_ratio << ")";
 		}
 		
 		items_scaled++;
