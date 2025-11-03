@@ -1132,7 +1132,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 				qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * base_row_height);
 				qreal endY = separatorY;  // Use separatorY which is based on base dimensions
 				cell_y = startY;
-				cell_h = endY - startY;
+				// Adjust height by header_line_thickness_ so bottom border aligns with separatorY
+				cell_h = endY - startY - header_line_thickness_;
 			}
 			
 			// Draw borders individually to avoid overlapping shared lines
@@ -1172,7 +1173,8 @@ void BorderTitleBlock::draw(QPainter *painter)
 					qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * base_row_height);
 					qreal endY = separatorY;  // Use separatorY which is based on base dimensions
 					right_cell_y = startY;
-					right_cell_h = endY - startY;
+					// Adjust height by header_line_thickness_ so bottom border aligns with separatorY
+					right_cell_h = endY - startY - header_line_thickness_;
 				}
 				
 				// Draw borders individually to avoid overlapping shared lines
