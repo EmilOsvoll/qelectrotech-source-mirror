@@ -215,6 +215,7 @@ class BorderTitleBlock : public QObject
 				const DiagramContext & = DiagramContext());
 		QString incrementLetters(const QString &);
 		QString formatScaleAsRatio(qreal scale) const;
+		QString extractPageNumber(const QString &folio_string) const;
 		
 		/**
 		 * @brief Calculate base column width (with scale = 1.0)

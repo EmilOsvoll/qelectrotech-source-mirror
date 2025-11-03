@@ -2046,29 +2046,40 @@ void QETProject::updateDiagramsFolioData()
 		project_wide_properties.addValue("projectfile", proj_filename);
 	}
 
+	// First pass: Set folio data (index and total) for all diagrams
+	// This ensures folio-total and folio-id are correct for all pages
 	for (int i = 0 ; i < total_folio ; ++ i)
 	{
 		QString autopagenum = m_diagrams_list[i]->border_and_titleblock.autoPageNum();
 		NumerotationContext nC = folioAutoNum(autopagenum);
 		NumerotationContextCommands nCC = NumerotationContextCommands(nC);
 
+		QString autonum_string;
 		if ((m_diagrams_list[i]->border_and_titleblock.folio().contains("%autonum")) &&
 			(!autopagenum.isNull()))
 		{
-			m_diagrams_list[i] -> border_and_titleblock.setFolioData(i + 1, total_folio, nCC.toRepresentedString(), project_wide_properties);
+			autonum_string = nCC.toRepresentedString();
 		}
+		m_diagrams_list[i]->border_and_titleblock.setFolioData(i + 1, total_folio, autonum_string, project_wide_properties);
+	}
 
+	// Second pass: Set previous/next folio numbers after all folio data is updated
+	for (int i = 0 ; i < total_folio ; ++ i)
+	{
 		if (i > 0)
 		{
 			m_diagrams_list.at(i)->border_and_titleblock.setPreviousFolioNum(m_diagrams_list.at(i-1)->border_and_titleblock.finalfolio());
-			m_diagrams_list.at(i-1)->border_and_titleblock.setNextFolioNum(m_diagrams_list.at(i)->border_and_titleblock.finalfolio());
-
-			if (i == total_folio-1) {
-				m_diagrams_list.at(i)->border_and_titleblock.setNextFolioNum(QString());
-			}
 		}
 		else {
 			m_diagrams_list.at(i)->border_and_titleblock.setPreviousFolioNum(QString());
+		}
+
+		if (i < total_folio - 1)
+		{
+			m_diagrams_list.at(i)->border_and_titleblock.setNextFolioNum(m_diagrams_list.at(i+1)->border_and_titleblock.finalfolio());
+		}
+		else {
+			m_diagrams_list.at(i)->border_and_titleblock.setNextFolioNum(QString());
 		}
 	}
 

@@ -31,6 +31,7 @@
 
 #include <QLocale>
 #include <QPainter>
+#include <QRegularExpression>
 #include <utility>
 
 #define MIN_COLUMN_COUNT 3
@@ -1613,10 +1614,50 @@ void BorderTitleBlock::updateDiagramContextForTitleBlock(
 	context.addValue("previous-folio-num", m_previous_folio_num);
 	context.addValue("next-folio-num", m_next_folio_num);
 	
+	// Add page number only variables (extract page number from folio strings)
+	context.addValue("prev_page", extractPageNumber(m_previous_folio_num));
+	context.addValue("next_page", extractPageNumber(m_next_folio_num));
+	
 	// Add scale variable formatted as n:m (e.g., scale 0.5 → "1:2", scale 2.0 → "2:1")
 	context.addValue("scale", formatScaleAsRatio(scale_));
 
 	m_titleblock_template_renderer -> setContext(context);
+}
+
+/**
+	@brief BorderTitleBlock::extractPageNumber
+	Extracts the page number from a folio string
+	@param folio_string The folio string (e.g., "1/10", "2", "A-1")
+	@return The page number as a string, or empty string if not found
+*/
+QString BorderTitleBlock::extractPageNumber(const QString &folio_string) const
+{
+	if (folio_string.isEmpty()) {
+		return QString();
+	}
+	
+	// Try to extract the page number from common folio formats:
+	// - "1/10" → extract "1" (part before "/")
+	// - "2" → return "2"
+	// - "A-1" → extract "1" (last number)
+	
+	// First, try to split by "/" - common format is "page/total"
+	if (folio_string.contains("/")) {
+		QStringList parts = folio_string.split("/");
+		if (!parts.isEmpty()) {
+			return parts[0].trimmed();
+		}
+	}
+	
+	// Try to extract the first number from the string
+	QRegularExpression re("\\d+");
+	QRegularExpressionMatch match = re.match(folio_string);
+	if (match.hasMatch()) {
+		return match.captured(0);
+	}
+	
+	// If no number found, return the original string
+	return folio_string;
 }
 
 /**
@@ -1815,6 +1856,7 @@ void BorderTitleBlock::setPreviousFolioNum(const QString &previous)
 	m_previous_folio_num = previous;
 	DiagramContext context = m_titleblock_template_renderer->context();
 	context.addValue("previous-folio-num", m_previous_folio_num);
+	context.addValue("prev_page", extractPageNumber(m_previous_folio_num));
 	m_titleblock_template_renderer->setContext(context);
 }
 
@@ -1827,6 +1869,7 @@ void BorderTitleBlock::setNextFolioNum(const QString &next)
 	m_next_folio_num = next;
 	DiagramContext context = m_titleblock_template_renderer->context();
 	context.addValue("next-folio-num", m_next_folio_num);
+	context.addValue("next_page", extractPageNumber(m_next_folio_num));
 	m_titleblock_template_renderer->setContext(context);
 }
 
