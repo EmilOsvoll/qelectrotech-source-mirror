@@ -128,6 +128,9 @@ class Diagram : public QGraphicsScene
 		bool m_freeze_new_elements;
 		bool m_freeze_new_conductors_;
 		QUuid m_uuid = QUuid::createUuid();
+		
+		/// Previous canvas scale factor (to track changes and update transforms)
+		qreal m_previous_canvas_scale_;
 	
 	// METHODS
 	protected:
@@ -144,6 +147,13 @@ class Diagram : public QGraphicsScene
 		void keyReleaseEvent (QKeyEvent *) override;
 		void correctTextPos(Element* elmt);
 		void restoreText(Element* elmt);
+		
+		/**
+		 * @brief Apply canvas scale transform to all items
+		 * Applies the canvas scale factor from BorderTitleBlock to all QGraphicsItems
+		 * in the scene, so they scale relative to the fixed headers/titleblock.
+		 */
+		void applyCanvasScaleToItems();
 	
 	public:
 		QUuid uuid();

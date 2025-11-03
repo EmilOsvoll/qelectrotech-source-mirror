@@ -54,11 +54,14 @@ class BorderTitleBlock : public QObject
 		//COLUMNS
 		/// @return the number of columns
 		int   columnsCount() const { return(columns_count_); }
-		/// @return the columns width, in pixels
+		/// @return the columns width, in pixels (scaled, for canvas)
 		qreal columnsWidth() const { return(columns_width_); }
-		/// @return the total width of all columns, headers excluded
+		/// @return the total width of all columns, headers excluded (scaled, for canvas)
 		qreal columnsTotalWidth() const {
 			return(columns_count_ * columns_width_); }
+		/// @return the base total width of all columns (base dimensions, for viewport/headers)
+		qreal baseColumnsTotalWidth() const {
+			return(columns_count_ * baseColumnsWidth()); }
 		/// @return the column headers height, in pixels
 		qreal columnsHeaderHeight() const {
 			return(columns_header_height_); }
@@ -66,11 +69,14 @@ class BorderTitleBlock : public QObject
 		//ROWS
 		/// @return the number of rows
 		int rowsCount() const { return(rows_count_); }
-		/// @return the rows height, in pixels
+		/// @return the rows height, in pixels (scaled, for canvas)
 		qreal rowsHeight() const { return(rows_height_); }
-		/// @return the total height of all rows, headers excluded
+		/// @return the total height of all rows, headers excluded (scaled, for canvas)
 		qreal rowsTotalHeight() const {
 			return(rows_count_ * rows_height_); }
+		/// @return the base total height of all rows (base dimensions, for viewport/headers)
+		qreal baseRowsTotalHeight() const {
+			return(rows_count_ * baseRowsHeight()); }
 		/// @return la rows header width, in pixels
 		qreal rowsHeaderWidth() const { return(rows_header_width_); }
 	
@@ -79,18 +85,28 @@ class BorderTitleBlock : public QObject
 			@brief diagramWidth
 			@return the diagram width,
 			i.e. the width of the border without title block
+			Uses base dimensions to match header boundaries (viewport)
 		*/
 		qreal diagramWidth() const
 {
-			return(columnsTotalWidth() + rowsHeaderWidth()); }
+			return(baseColumnsTotalWidth() + rowsHeaderWidth()); }
 		/**
 			@brief diagramHeight
 			@return the diagram height,
 			i.e. the height of the border without title block
+			Uses base dimensions to match header boundaries (viewport)
 		*/
 		qreal diagramHeight() const
 {
-			return(rowsTotalHeight() + columnsHeaderHeight()); }
+			return(baseRowsTotalHeight() + columnsHeaderHeight()); }
+		
+		/**
+		 * @brief Get the canvas scale factor
+		 * Returns the factor by which canvas items should be visually scaled
+		 * relative to headers. When scale < 1.0, this factor > 1.0 (items appear larger).
+		 * @return scale factor (base_dimension / scaled_dimension), or 1.0 if not applicable
+		 */
+		qreal canvasScaleFactor() const;
 
 		QRectF titleBlockRect () const;
 
@@ -196,6 +212,18 @@ class BorderTitleBlock : public QObject
 		void updateDiagramContextForTitleBlock(
 				const DiagramContext & = DiagramContext());
 		QString incrementLetters(const QString &);
+		
+		/**
+		 * @brief Calculate base column width (with scale = 1.0)
+		 * Used for drawing headers and titleblock which should not be affected by scale
+		 */
+		qreal baseColumnsWidth() const;
+		
+	/**
+	 * @brief Calculate base row height (with scale = 1.0)
+	 * Used for drawing headers and titleblock which should not be affected by scale
+	 */
+	qreal baseRowsHeight() const;
 	
 		signals:
 		/**
@@ -270,6 +298,12 @@ class BorderTitleBlock : public QObject
 		qreal rows_height_;       ///< rows height
 		qreal rows_header_width_; ///< rows header width
 		qreal header_line_thickness_ = 1.0; ///< header cells line thickness
+	
+		// calculated dimensions properties (for base dimension calculations)
+		qreal base_area_;         ///< Base drawing area (for calculating base dimensions)
+		qreal aspect_ratio_;      ///< Aspect ratio (for calculating base dimensions)
+		qreal scale_;             ///< Scale multiplier (affects canvas, not headers/titleblock)
+		bool use_calculated_dimensions_; ///< Whether calculated dimensions are used
 	
 		// title block dimensions
 		qreal titleblock_height_;

@@ -72,6 +72,13 @@ BorderTitleBlock::BorderTitleBlock(QObject *parent) :
 	display_titleblock_ = true;
 	display_border_ = true;
 	setFolioData(1, 1);
+	
+	// Initialize calculated dimensions properties with defaults
+	base_area_ = 1500000.0;
+	aspect_ratio_ = 100.0 / 64.0;
+	scale_ = 1.0;
+	use_calculated_dimensions_ = false;
+	
 	updateRectangles();
 }
 
@@ -95,13 +102,16 @@ QRectF BorderTitleBlock::titleBlockRect() const
 		// When drawing borders on all sides, title block is INSIDE the border.
 		// Position it above/before the border edge so there's no overlap.
 		// Use the diagram margin as inset to maintain consistent spacing with the border.
+		// Use base dimensions for titleblock positioning (not affected by scale)
 		if (m_edge == Qt::BottomEdge) {
 			// Compute content band (between left/right headers) and place the title block
+			qreal base_col_width = baseColumnsWidth();
+			qreal base_row_height = baseRowsHeight();
 			qreal content_left   = diagram_rect_.topLeft().x() + rows_header_width_;
-			qreal separatorX     = qRound(content_left + (columns_count_ * columns_width_));
+			qreal separatorX     = qRound(content_left + (columns_count_ * base_col_width));  // Use base dimension
 			qreal content_width  = separatorX - content_left; // align right edge with headers split
 			// Round band_top to match separatorY rounding in draw() method for consistent alignment
-			qreal band_top       = qRound(diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_));
+			qreal band_top       = qRound(diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * base_row_height));  // Use base dimension
 			qreal tbt_height     = m_titleblock_template_renderer->height();
 			// Adjust upward by header_line_thickness_ to align title block bottom with row header bottom
 			qreal tbt_top        = band_top - tbt_height - header_line_thickness_;
@@ -119,14 +129,17 @@ QRectF BorderTitleBlock::titleBlockRect() const
 	} else {
 		// When border_all_sides is false, position title block at same location as when true
 		// to maintain consistent aspect ratio - title block extends outside but starts at same position
+		// Use base dimensions for titleblock positioning (not affected by scale)
 		if (m_edge == Qt::BottomEdge) {
 			// Compute content band (between left/right headers) and place the title block
 			// at the same vertical position as when border_all_sides is true
+			qreal base_col_width = baseColumnsWidth();
+			qreal base_row_height = baseRowsHeight();
 			qreal content_left   = diagram_rect_.topLeft().x() + rows_header_width_;
-			qreal separatorX     = qRound(content_left + (columns_count_ * columns_width_));
+			qreal separatorX     = qRound(content_left + (columns_count_ * base_col_width));  // Use base dimension
 			qreal content_width  = separatorX - content_left; // align right edge with headers split
 			// Round band_top to match separatorY rounding in draw() method for consistent alignment
-			qreal band_top       = qRound(diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_));
+			qreal band_top       = qRound(diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * base_row_height));  // Use base dimension
 			qreal tbt_height     = m_titleblock_template_renderer->height();
 			// Adjust upward by header_line_thickness_ to align title block bottom with row header bottom
 			qreal tbt_top        = band_top - tbt_height - header_line_thickness_;
@@ -200,8 +213,11 @@ QRectF BorderTitleBlock::titleBlockRectForQPainter() const
 QRectF BorderTitleBlock::borderAndTitleBlockRect() const
 {
 	// Compute full extent including both left/right and top/bottom header bands
-	qreal w = (columns_width_ * columns_count_);
-	qreal h = (rows_height_ * rows_count_);
+	// Use base dimensions to match header boundaries (viewport)
+	qreal base_col_width = baseColumnsWidth();
+	qreal base_row_height = baseRowsHeight();
+	qreal w = (base_col_width * columns_count_);
+	qreal h = (base_row_height * rows_count_);
 	if (display_rows_) {
 		w += rows_header_width_; // left header
 		w += rows_header_width_; // right header
@@ -228,13 +244,15 @@ QRectF BorderTitleBlock::borderAndTitleBlockRect() const
 	@brief BorderTitleBlock::columnsRect
 	@return The columns rect in scene coordinate.
 	If column is not displayed, return a null QRectF
+	Uses base dimensions to match header boundaries (viewport)
 */
 QRectF BorderTitleBlock::columnsRect() const
 {
 	if (!display_columns_) return QRectF();
+	qreal base_col_width = baseColumnsWidth();
 	return QRectF (Diagram::margin,
 		       Diagram::margin,
-		       (columns_count_*columns_width_) + rows_header_width_,
+		       (columns_count_*base_col_width) + rows_header_width_,  // Use base dimension
 		       columns_header_height_);
 }
 
@@ -242,41 +260,52 @@ QRectF BorderTitleBlock::columnsRect() const
 	@brief BorderTitleBlock::rowsRect
 	@return The rows rect in scene coordinate.
 	If row is not displayed, return a null QRectF
+	Uses base dimensions to match header boundaries (viewport)
 */
 QRectF BorderTitleBlock::rowsRect() const
 {
 	if (!display_rows_) return QRectF();
+	qreal base_row_height = baseRowsHeight();
 	return QRectF (Diagram::margin,
 		       Diagram::margin,
 		       rows_header_width_,
-		       (rows_count_*rows_height_) + columns_header_height_);
+		       (rows_count_*base_row_height) + columns_header_height_);  // Use base dimension
 }
 
 /**
 	@brief BorderTitleBlock::outsideBorderRect
 	@return The rect of outside border (diagram with columns and rows)
 	The rect is in scene coordinate
+	Uses base dimensions to match header boundaries (viewport)
 */
 QRectF BorderTitleBlock::outsideBorderRect() const
 {
+	qreal base_col_width = baseColumnsWidth();
+	qreal base_row_height = baseRowsHeight();
 	return QRectF (Diagram::margin,
 		       Diagram::margin,
-		       (columns_width_*columns_count_) + rows_header_width_,
-		       (rows_height_*rows_count_) + columns_header_height_);
+		       (base_col_width*columns_count_) + rows_header_width_,  // Use base dimension
+		       (base_row_height*rows_count_) + columns_header_height_);  // Use base dimension
 }
 
 /**
 	@brief BorderTitleBlock::insideBorderRect
 	@return The rect of the inside border, in other word, the drawing area.
 	This method take care about if rows or columns are displayed or not.
-	The rect is in scene coordinate
+	The rect is in scene coordinate.
+	
+	Note: This returns the viewport area defined by headers (base dimensions).
+	The canvas is infinite, but this defines the export/viewport area.
 */
 QRectF BorderTitleBlock::insideBorderRect() const
 {
 	qreal left = Diagram::margin;
 	qreal top  = Diagram::margin;
-	qreal width  = columns_width_*columns_count_;
-	qreal height = rows_height_*rows_count_;
+	// Use base dimensions to define the viewport (matches header boundaries)
+	qreal base_col_width = baseColumnsWidth();
+	qreal base_row_height = baseRowsHeight();
+	qreal width  = base_col_width * columns_count_;
+	qreal height = base_row_height * rows_count_;
 
 	display_rows_ ? left += rows_header_width_ : width += rows_header_width_;
 	display_columns_ ? top += columns_header_height_ : height += columns_header_height_;
@@ -433,21 +462,14 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.header_line_thickness = header_line_thickness_;
 	bp.header_thickness = rowsHeaderWidth();
 	
-	// Calculate and preserve aspect_ratio and base_area from current dimensions
-	// so they can be saved to XML and used for future dimension calculations
-	qreal drawing_width = bp.columns_count * bp.columns_width;
-	qreal drawing_height = bp.rows_count * bp.rows_height;
-	qreal calc_base_area = drawing_width * drawing_height;
-	qDebug() << "[BorderTitleBlock::exportBorder] Recalculating base_area from dimensions:"
-	         << "(" << drawing_width << "x" << drawing_height << "=" << calc_base_area << ")";
-	bp.base_area = calc_base_area;
-	if (drawing_height > 0.0) {
-		bp.aspect_ratio = drawing_width / drawing_height;
-	} else {
-		bp.aspect_ratio = 1.0;
-	}
-	bp.scale = 1.0;  // Default scale, can be adjusted if needed
-	bp.use_calculated_dimensions = true;  // Enable calculated dimensions mode
+	// Preserve the stored base_area, aspect_ratio, and scale - do NOT recalculate from scaled dimensions
+	// Headers and titleblock use base dimensions, so base_area must remain constant regardless of scale
+	bp.base_area = base_area_;
+	bp.aspect_ratio = aspect_ratio_;
+	bp.scale = scale_;
+	bp.use_calculated_dimensions = use_calculated_dimensions_;
+	qDebug() << "[BorderTitleBlock::exportBorder] Preserving base_area:" << bp.base_area
+	         << "aspect_ratio:" << bp.aspect_ratio << "scale:" << bp.scale;
 	
 	// Export column header spacer settings
 	bp.enable_column_header_spacers = enable_column_header_spacers_;
@@ -488,9 +510,21 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
 
     // If using calculated dimensions, (re)calculate based on aspect/base/scale and counts
     if (working_bp.use_calculated_dimensions) {
+        qDebug() << "[BorderTitleBlock::importBorder] BEFORE calculateDimensions:"
+                 << "scale=" << working_bp.scale
+                 << "base_area=" << working_bp.base_area
+                 << "aspect_ratio=" << working_bp.aspect_ratio
+                 << "cols=" << working_bp.columns_count
+                 << "rows=" << working_bp.rows_count;
         working_bp.calculateDimensions();
+        qDebug() << "[BorderTitleBlock::importBorder] AFTER calculateDimensions:"
+                 << "columns_width=" << working_bp.columns_width
+                 << "rows_height=" << working_bp.rows_height;
         setColumnsWidth(working_bp.columns_width);
         setRowsHeight(working_bp.rows_height);
+        qDebug() << "[BorderTitleBlock::importBorder] AFTER setColumnsWidth/setRowsHeight:"
+                 << "columns_width_=" << columns_width_
+                 << "rows_height_=" << rows_height_;
     } else {
         setColumnsWidth(working_bp.columns_width);
         setRowsHeight(working_bp.rows_height);
@@ -505,11 +539,20 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
     enable_column_header_spacers_ = working_bp.enable_column_header_spacers;
     column_header_spacer_percentage_ = working_bp.column_header_spacer_percentage;
     
+    // Store calculated dimensions properties for base dimension calculations
+    base_area_ = working_bp.base_area;
+    aspect_ratio_ = working_bp.aspect_ratio;
+    scale_ = working_bp.scale;
+    use_calculated_dimensions_ = working_bp.use_calculated_dimensions;
+    
     qDebug() << "[BorderTitleBlock::importBorder] applied:" 
              << "columns_width_" << columns_width_ 
              << "rows_height_" << rows_height_ 
              << "rows_header_width_" << rows_header_width_ 
-             << "columns_header_height_" << columns_header_height_;
+             << "columns_header_height_" << columns_header_height_
+             << "base_area_" << base_area_
+             << "aspect_ratio_" << aspect_ratio_
+             << "scale_" << scale_;
 }
 
 /**
@@ -634,12 +677,41 @@ void BorderTitleBlock::displayBorder(bool db) {
 void BorderTitleBlock::updateRectangles()
 {
 	QRectF previous_diagram = diagram_rect_;
+	qreal new_width = diagramWidth();
+	qreal new_height = diagramHeight();
+	qDebug() << "[BorderTitleBlock::updateRectangles] BEFORE:"
+	         << "previous_diagram=" << previous_diagram
+	         << "columns_width_=" << columns_width_
+	         << "rows_height_=" << rows_height_
+	         << "base_col_width=" << baseColumnsWidth()
+	         << "base_row_height=" << baseRowsHeight()
+	         << "scale_=" << scale_
+	         << "base_area_=" << base_area_;
 	diagram_rect_ = QRectF(Diagram::margin,
 			       Diagram::margin,
-			       diagramWidth(),
-			       diagramHeight());
-	if (diagram_rect_ != previous_diagram)
+			       new_width,
+			       new_height);
+	qDebug() << "[BorderTitleBlock::updateRectangles] AFTER:"
+	         << "new diagram_rect_=" << diagram_rect_
+	         << "new_width=" << new_width << "(using base dimensions)"
+	         << "new_height=" << new_height << "(using base dimensions)"
+	         << "changed=" << (diagram_rect_ != previous_diagram);
+	if (diagram_rect_ != previous_diagram) {
+		qDebug() << "[BorderTitleBlock::updateRectangles] Emitting borderChanged signal";
 		emit(borderChanged(previous_diagram, diagram_rect_));
+	} else {
+		qDebug() << "[BorderTitleBlock::updateRectangles] No change in diagram_rect_, NOT emitting borderChanged";
+		// Even if diagram_rect_ doesn't change (because it uses base dimensions),
+		// we should emit a signal to notify that canvas scaling changed
+	qDebug() << "[BorderTitleBlock::updateRectangles] Canvas scale changed, columns_width_=" 
+	         << columns_width_ << "rows_height_=" << rows_height_;
+		qDebug() << "[BorderTitleBlock::updateRectangles] Canvas scale factor =" << canvasScaleFactor()
+	         << "- items should be visually scaled by this factor relative to headers";
+		// Force update by emitting borderChanged even if rect is the same
+		// This tells the scene that canvas dimensions have changed
+		// TODO: Diagram should listen to this signal and apply canvasScaleFactor() transform to all items
+		emit(borderChanged(previous_diagram, diagram_rect_));
+	}
 }
 
 /**
@@ -657,11 +729,36 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 	QSettings settings;
 
-	// Shared separators to avoid overlaps at grid edges
-	qreal separatorX = diagram_rect_.topLeft().x() + rows_header_width_ + (columns_count_ * columns_width_);
+	// Calculate base dimensions for headers (not affected by scale)
+	qreal base_col_width = baseColumnsWidth();
+	qreal base_row_height = baseRowsHeight();
+	
+	qreal scale_ratio_width = (use_calculated_dimensions_ && base_col_width > 0 ? columns_width_ / base_col_width : 1.0);
+	qreal scale_ratio_height = (use_calculated_dimensions_ && base_row_height > 0 ? rows_height_ / base_row_height : 1.0);
+	qreal canvas_scale_factor = canvasScaleFactor();
+	
+	qDebug() << "[BorderTitleBlock::draw] Drawing with:"
+	         << "scale_=" << scale_
+	         << "base_area_=" << base_area_
+	         << "columns_width_=" << columns_width_ << "(scaled, for canvas coordinate system)"
+	         << "rows_height_=" << rows_height_ << "(scaled, for canvas coordinate system)"
+	         << "base_col_width=" << base_col_width << "(base, for headers/titleblock)"
+	         << "base_row_height=" << base_row_height << "(base, for headers/titleblock)"
+	         << "scale ratio (scaled/base) width=" << scale_ratio_width
+	         << "scale ratio (scaled/base) height=" << scale_ratio_height
+	         << "canvas_scale_factor=" << canvas_scale_factor
+	         << "*** CANVAS ITEMS SHOULD BE VISUALLY SCALED BY" << (canvas_scale_factor * 100.0) << "% RELATIVE TO HEADERS ***";
+	
+	// Shared separators - use base dimensions for header boundaries, scaled dimensions for canvas area
+	// Headers define fixed boundaries using base dimensions
+	qreal separatorX = diagram_rect_.topLeft().x() + rows_header_width_ + (columns_count_ * base_col_width);
 	separatorX = qRound(separatorX);
-	qreal separatorY = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * rows_height_);
+	qreal separatorY = diagram_rect_.topLeft().y() + columns_header_height_ + (rows_count_ * base_row_height);
 	separatorY = qRound(separatorY);
+	
+	qDebug() << "[BorderTitleBlock::draw] Separators:"
+	         << "separatorX=" << separatorX
+	         << "separatorY=" << separatorY;
 
 	//Draw the border
 	qreal halfPen = 0.0;
@@ -764,13 +861,14 @@ void BorderTitleBlock::draw(QPainter *painter)
 	if (display_border_ && display_columns_) {
 		painter->setPen(headerPen);
 		
-		// Calculate total drawing width (columns area excluding row headers)
-		qreal total_columns_width = columns_count_ * columns_width_;
+		// Use base dimensions for headers (not affected by scale)
+		// Calculate total drawing width using base column width
+		qreal total_columns_width = columns_count_ * base_col_width;
 		qreal columns_area_start_x = diagram_rect_.topLeft().x() + rows_header_width_;
 		
 		// Calculate spacer width and adjust column width if enabled
 		qreal spacer_width = 0.0;
-		qreal adjusted_column_width = columns_width_;
+		qreal adjusted_column_width = base_col_width;  // Use base dimension for headers
 		qreal column_start_x = columns_area_start_x;
 		
 		if (enable_column_header_spacers_) {
@@ -844,11 +942,19 @@ void BorderTitleBlock::draw(QPainter *painter)
 			qreal cell_y = diagram_rect_.topLeft().y();
 			qreal cell_w = adjusted_column_width;
 			qreal cell_h = columns_header_height_;
-			// Clamp last column header width to remaining space to avoid overlap
+			// For the last column, use exact calculated width to ensure proper alignment
+			// Only clamp if we're not using spacers (to avoid rounding issues)
 			if (i == columns_count_) {
 				qreal startX = column_start_x + ((i - 1) * adjusted_column_width);
 				cell_x = startX;
-				cell_w = separatorX - startX;
+				if (enable_column_header_spacers_ && spacer_width > 0.0) {
+					// Use exact calculated width to align perfectly with right spacer
+					cell_w = adjusted_column_width;
+				} else {
+					// Clamp to separatorX for non-spacer case
+					qreal calculated_width = separatorX - startX;
+					cell_w = (calculated_width > 0.0) ? calculated_width : adjusted_column_width;
+				}
 			}
 			
 			// Draw borders individually to avoid overlapping shared lines
@@ -888,11 +994,19 @@ void BorderTitleBlock::draw(QPainter *painter)
 				qreal bottom_cell_y = separatorY - header_line_thickness_;
 				qreal bottom_cell_w = adjusted_column_width;
 				qreal bottom_cell_h = columns_header_height_;
-				// Clamp last column header width to remaining space to avoid overlap
+				// For the last column, use exact calculated width to ensure proper alignment
+				// Only clamp if we're not using spacers (to avoid rounding issues)
 				if (i == columns_count_) {
 					qreal startX = column_start_x + ((i - 1) * adjusted_column_width);
 					bottom_cell_x = startX;
-					bottom_cell_w = separatorX - startX;
+					if (enable_column_header_spacers_ && spacer_width > 0.0) {
+						// Use exact calculated width to align perfectly with right spacer
+						bottom_cell_w = adjusted_column_width;
+					} else {
+						// Clamp to separatorX for non-spacer case
+						qreal calculated_width = separatorX - startX;
+						bottom_cell_w = (calculated_width > 0.0) ? calculated_width : adjusted_column_width;
+					}
 				}
 				
 				// Draw borders individually to avoid overlapping shared lines
@@ -912,7 +1026,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 					// Extend to include spacers if enabled
 					if (enable_column_header_spacers_ && spacer_width > 0.0) {
 						firstColumnLeft -= spacer_width; // Extend left to include left spacer
-						lastColumnRight += spacer_width; // Extend right to include right spacer
+						lastColumnRight -= spacer_width; // Extend right to include right spacer
 					}
 					painter->drawLine(firstColumnLeft, by, lastColumnRight, by);
 				}
@@ -951,7 +1065,11 @@ void BorderTitleBlock::draw(QPainter *painter)
 		
 		// Draw spacer column after the last column (if enabled)
 		if (enable_column_header_spacers_ && spacer_width > 0.0) {
-			qreal right_spacer_x = separatorX;
+			// Calculate exact position where last column ends to avoid gaps
+			// The last column ends at: column_start_x + (columns_count_ * adjusted_column_width)
+			// which should equal separatorX, but we use the exact calculated value to avoid rounding issues
+			qreal last_column_end_x = column_start_x + (columns_count_ * adjusted_column_width);
+			qreal right_spacer_x = last_column_end_x;
 			qreal right_spacer_y = diagram_rect_.topLeft().y();
 			qreal right_spacer_w = spacer_width;
 			qreal right_spacer_h = columns_header_height_;
@@ -1000,19 +1118,19 @@ void BorderTitleBlock::draw(QPainter *painter)
 		painter->setPen(headerPen);
 		QString row_string("A");
 		for (int i = 1 ; i <= rows_count_ ; ++ i) {
-			// Left rows
+			// Left rows - use base dimensions for headers (not affected by scale)
 			qreal cell_x = diagram_rect_.topLeft().x();
 			qreal cell_y = diagram_rect_.topLeft().y()
 					+ (
 						columns_header_height_
-						+ ((i - 1)* rows_height_)
+						+ ((i - 1)* base_row_height)  // Use base dimension
 						);
 			qreal cell_w = rows_header_width_;
-			qreal cell_h = rows_height_;
+			qreal cell_h = base_row_height;  // Use base dimension
 			// Clamp last row header height to remaining space to avoid overlap
 			if (i == rows_count_) {
-				qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * rows_height_);
-				qreal endY = diagram_rect_.bottomLeft().y();
+				qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * base_row_height);
+				qreal endY = separatorY;  // Use separatorY which is based on base dimensions
 				cell_y = startY;
 				cell_h = endY - startY;
 			}
@@ -1039,20 +1157,20 @@ void BorderTitleBlock::draw(QPainter *painter)
 					    | Qt::AlignCenter,
 					    row_string);
 			
-			// Right rows (when border on all sides)
+			// Right rows (when border on all sides) - use base dimensions
 			if (border_all_sides_) {
 				qreal right_cell_x = separatorX;
 				qreal right_cell_y = diagram_rect_.topLeft().y()
 						+ (
 							columns_header_height_
-							+ ((i - 1)* rows_height_)
+							+ ((i - 1)* base_row_height)  // Use base dimension
 							);
 				qreal right_cell_w = rows_header_width_;
-				qreal right_cell_h = rows_height_;
+				qreal right_cell_h = base_row_height;  // Use base dimension
 				// Clamp last row header height to remaining space to avoid overlap
 				if (i == rows_count_) {
-					qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * rows_height_);
-					qreal endY = diagram_rect_.bottomLeft().y();
+					qreal startY = diagram_rect_.topLeft().y() + columns_header_height_ + ((i - 1) * base_row_height);
+					qreal endY = separatorY;  // Use separatorY which is based on base dimensions
 					right_cell_y = startY;
 					right_cell_h = endY - startY;
 				}
@@ -1317,8 +1435,15 @@ void BorderTitleBlock::setColumnsCount(int nb_c) {
 	\~ @see minColumnsWidth()
 */
 void BorderTitleBlock::setColumnsWidth(const qreal &new_cw) {
-	if (new_cw == columnsWidth()) return;
+	qDebug() << "[BorderTitleBlock::setColumnsWidth] called with new_cw=" << new_cw
+	         << "current columns_width_=" << columns_width_;
+	if (new_cw == columnsWidth()) {
+		qDebug() << "[BorderTitleBlock::setColumnsWidth] No change, returning early";
+		return;
+	}
 	columns_width_ = qMax(MIN_COLUMN_WIDTH , new_cw);
+	qDebug() << "[BorderTitleBlock::setColumnsWidth] Updated columns_width_=" << columns_width_
+	         << "calling updateRectangles()";
 	updateRectangles();
 }
 
@@ -1370,8 +1495,15 @@ void BorderTitleBlock::setRowsCount(int nb_r) {
 	\~ @see minRowsHeight()
 */
 void BorderTitleBlock::setRowsHeight(const qreal &new_rh) {
-	if (new_rh == rowsHeight()) return;
+	qDebug() << "[BorderTitleBlock::setRowsHeight] called with new_rh=" << new_rh
+	         << "current rows_height_=" << rows_height_;
+	if (new_rh == rowsHeight()) {
+		qDebug() << "[BorderTitleBlock::setRowsHeight] No change, returning early";
+		return;
+	}
 	rows_height_ = qMax(MIN_ROW_HEIGHT, new_rh);
+	qDebug() << "[BorderTitleBlock::setRowsHeight] Updated rows_height_=" << rows_height_
+	         << "calling updateRectangles()";
 	updateRectangles();
 }
 
@@ -1574,4 +1706,64 @@ void BorderTitleBlock::setNextFolioNum(const QString &next)
 	DiagramContext context = m_titleblock_template_renderer->context();
 	context.addValue("next-folio-num", m_next_folio_num);
 	m_titleblock_template_renderer->setContext(context);
+}
+
+/**
+ * @brief BorderTitleBlock::baseColumnsWidth
+ * Calculate base column width (with scale = 1.0)
+ * Used for drawing headers and titleblock which should not be affected by scale
+ */
+qreal BorderTitleBlock::baseColumnsWidth() const
+{
+	if (!use_calculated_dimensions_ || base_area_ <= 0.0 || aspect_ratio_ <= 0.0 || columns_count_ <= 0) {
+		// Fallback to current columns_width_ if calculation not possible
+		return columns_width_;
+	}
+	
+	// Calculate base dimensions with scale = 1.0
+	qreal base_total_area = base_area_;  // scale = 1.0
+	qreal base_total_width = qSqrt(base_total_area * aspect_ratio_);
+	return base_total_width / columns_count_;
+}
+
+/**
+ * @brief BorderTitleBlock::baseRowsHeight
+ * Calculate base row height (with scale = 1.0)
+ * Used for drawing headers and titleblock which should not be affected by scale
+ */
+qreal BorderTitleBlock::baseRowsHeight() const
+{
+	if (!use_calculated_dimensions_ || base_area_ <= 0.0 || aspect_ratio_ <= 0.0 || rows_count_ <= 0) {
+		// Fallback to current rows_height_ if calculation not possible
+		return rows_height_;
+	}
+	
+	// Calculate base dimensions with scale = 1.0
+	qreal base_total_area = base_area_;  // scale = 1.0
+	qreal base_total_height = qSqrt(base_total_area / aspect_ratio_);
+	return base_total_height / rows_count_;
+}
+
+/**
+ * @brief BorderTitleBlock::canvasScaleFactor
+ * Returns the visual scale factor for canvas items relative to headers.
+ * When scale < 1.0, canvas shrinks so items should appear larger (factor > 1.0).
+ */
+qreal BorderTitleBlock::canvasScaleFactor() const
+{
+	if (!use_calculated_dimensions_ || scale_ <= 0.0) {
+		return 1.0;
+	}
+	
+	// Scale factor = base_dimension / scaled_dimension
+	// When scale = 0.5, scaled dimensions are sqrt(0.5) ≈ 0.707 times smaller
+	// So scale factor = 1 / sqrt(scale) = 1 / sqrt(0.5) ≈ 1.414 (items appear 41% larger)
+	qreal scale_factor = 1.0 / qSqrt(scale_);
+	
+	qDebug() << "[BorderTitleBlock::canvasScaleFactor]"
+	         << "scale_=" << scale_
+	         << "scale_factor=" << scale_factor
+	         << "(items should appear" << (scale_factor * 100.0) << "% of base size relative to headers)";
+	
+	return scale_factor;
 }

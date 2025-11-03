@@ -72,7 +72,8 @@ Diagram::Diagram(QETProject *project) :
 	draw_colored_conductors_ (true),
 	m_event_interface        (nullptr),
 	m_freeze_new_elements    (false),
-	m_freeze_new_conductors_ (false)
+	m_freeze_new_conductors_ (false),
+	m_previous_canvas_scale_ (1.0)
 {
 	setItemIndexMethod(QGraphicsScene::NoIndex);
 	/* Set to no index,
@@ -1620,6 +1621,24 @@ void Diagram::addItem(QGraphicsItem *item)
 	if (!item || isReadOnly() || item->scene() == this) return;
 	QGraphicsScene::addItem(item);
 
+	// Apply current canvas scale to newly added items
+	// (Items added after scale was applied need to get the scale transform)
+	qreal current_canvas_scale = border_and_titleblock.canvasScaleFactor();
+	if (qAbs(current_canvas_scale - 1.0) > 0.0001) {
+		QTransform current_transform = item->transform();
+		QPointF transform_origin = item->transformOriginPoint();
+		
+		QTransform scale_transform;
+		scale_transform.translate(transform_origin.x(), transform_origin.y());
+		scale_transform.scale(current_canvas_scale, current_canvas_scale);
+		scale_transform.translate(-transform_origin.x(), -transform_origin.y());
+		
+		item->setTransform(scale_transform * current_transform, false);
+		
+		qDebug() << "[Diagram::addItem] Applied canvas scale" << current_canvas_scale 
+		         << "to newly added item (type" << item->type() << ")";
+	}
+
 	switch (item->type())
 	{
 		case Element::Type:
@@ -2254,6 +2273,10 @@ void Diagram::adjustSceneRect()
 	QRectF old_rect = sceneRect();
 	setSceneRect(border_and_titleblock.borderAndTitleBlockRect().united(
 			     itemsBoundingRect()));
+	
+	// Apply canvas scale transform to items when border/scale changes
+	applyCanvasScaleToItems();
+	
 	update(old_rect.united(sceneRect()));
 }
 
@@ -2343,6 +2366,79 @@ QPointF Diagram::snapToGrid(const QPointF &p)
 	int p_x = qRound(p.x() / xGrid) * xGrid;
 	int p_y = qRound(p.y() / yGrid) * yGrid;
 	return (QPointF(p_x, p_y));
+}
+
+/**
+ * @brief Diagram::applyCanvasScaleToItems
+ * Applies the canvas scale factor from BorderTitleBlock to all QGraphicsItems
+ * in the scene, so they scale visually relative to the fixed headers/titleblock.
+ * 
+ * When canvas scale changes (e.g., scale = 0.5), items should appear larger
+ * relative to headers. This method updates all items' transforms accordingly.
+ */
+void Diagram::applyCanvasScaleToItems()
+{
+	qreal new_canvas_scale = border_and_titleblock.canvasScaleFactor();
+	
+	// Only update if scale actually changed
+	if (qAbs(new_canvas_scale - m_previous_canvas_scale_) < 0.0001) {
+		qDebug() << "[Diagram::applyCanvasScaleToItems] Scale unchanged:" << new_canvas_scale << "- skipping update";
+		return;
+	}
+	
+	qDebug() << "[Diagram::applyCanvasScaleToItems] Applying canvas scale:" 
+	         << "previous=" << m_previous_canvas_scale_
+	         << "new=" << new_canvas_scale
+	         << "to" << items().size() << "items";
+	
+	// Calculate the scale ratio to apply (new / old)
+	qreal scale_ratio = new_canvas_scale / m_previous_canvas_scale_;
+	
+	// If previous scale was 1.0, we're applying scale for the first time
+	bool first_time_application = (qAbs(m_previous_canvas_scale_ - 1.0) < 0.0001);
+	
+	// Iterate through all items and apply scale transform
+	int items_scaled = 0;
+	for (QGraphicsItem *item : items()) {
+		if (!item) continue;
+		
+		// Get current transform
+		QTransform current_transform = item->transform();
+		
+		// Get the item's transform origin point (where scaling happens from)
+		// Default is (0, 0) which is top-left in item's local coordinates
+		QPointF transform_origin = item->transformOriginPoint();
+		
+		if (first_time_application) {
+			// First time: apply scale transform from transform origin
+			QTransform scale_transform;
+			scale_transform.translate(transform_origin.x(), transform_origin.y());
+			scale_transform.scale(new_canvas_scale, new_canvas_scale);
+			scale_transform.translate(-transform_origin.x(), -transform_origin.y());
+			
+			// Combine with existing transform (preserves rotations, translations, etc.)
+			// The canvas scale should be applied first, then other transforms
+			item->setTransform(scale_transform * current_transform, false);
+		} else {
+			// Update existing: apply incremental scale update
+			// Build transform that scales by the ratio (new/old) from transform origin
+			QTransform update_transform;
+			update_transform.translate(transform_origin.x(), transform_origin.y());
+			update_transform.scale(scale_ratio, scale_ratio);  // Apply ratio: new/old
+			update_transform.translate(-transform_origin.x(), -transform_origin.y());
+			
+			// Apply the incremental update to existing transform
+			// This correctly handles items with rotations, etc.
+			item->setTransform(update_transform * current_transform, false);
+		}
+		
+		items_scaled++;
+	}
+	
+	// Update tracked scale
+	m_previous_canvas_scale_ = new_canvas_scale;
+	
+	qDebug() << "[Diagram::applyCanvasScaleToItems] Completed - scaled" << items_scaled << "items by factor" << new_canvas_scale;
 }
 
 
