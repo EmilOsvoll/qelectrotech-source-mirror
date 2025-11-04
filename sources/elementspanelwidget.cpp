@@ -593,8 +593,8 @@ void ElementsPanelWidget::itemChanged(QTreeWidgetItem *item, int column)
 */
 QString ElementsPanelWidget::extractProjectTitle(const QString &fullText) const
 {
-	// Format: "Project «title : path»" or "Project «title : path» [Edited]" or "Project «title : path» [Read only]"
-	int start_pos = fullText.indexOf("«");
+	// Format: "Project \"title : path\"" or "Project \"title : path\" [Edited]" or "Project \"title : path\" [Read only]"
+	int start_pos = fullText.indexOf('"');
 	int colon_pos = fullText.indexOf(" : ");
 	
 	if (start_pos >= 0 && colon_pos > start_pos) {
@@ -717,8 +717,8 @@ void DiagramTitleDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
 	
 	QString fullText = index.data(Qt::DisplayRole).toString();
 	
-	// Check if this is a project item (has « and : pattern)
-	if (fullText.contains("«") && fullText.contains(" : ")) {
+	// Check if this is a project item (has " and : pattern)
+	if (fullText.contains('"') && fullText.contains(" : ")) {
 		QString titleOnly = extractProjectTitle(fullText);
 		lineEdit->setText(titleOnly);
 		lineEdit->selectAll();
@@ -751,11 +751,13 @@ void DiagramTitleDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
 	
 	QString originalFullText = index.data(Qt::DisplayRole).toString();
 	
-	// Check if this is a project item (has « and : pattern)
-	if (originalFullText.contains("«") && originalFullText.contains(" : ")) {
+	// Check if this is a project item (has " and : pattern)
+	if (originalFullText.contains('"') && originalFullText.contains(" : ")) {
 		QString newTitle = lineEdit->text().trimmed();
-		QString newFullText = reconstructProjectFullText(newTitle, originalFullText);
-		model->setData(index, newFullText, Qt::DisplayRole);
+		// Temporarily set the text with the new title so itemChanged can extract it
+		// We'll reconstruct it properly there
+		QString tempText = reconstructProjectFullText(newTitle, originalFullText);
+		model->setData(index, tempText, Qt::DisplayRole);
 		return;
 	}
 	
@@ -800,12 +802,12 @@ QString DiagramTitleDelegate::reconstructFullText(const QString &title, const QS
 
 /**
 	@brief DiagramTitleDelegate::extractProjectTitle
-	Extract the project title from "Project «title : path» [Edited]" format
+	Extract the project title from "Project \"title : path\"" format
 */
 QString DiagramTitleDelegate::extractProjectTitle(const QString &fullText) const
 {
-	// Format: "Project «title : path»" or "Project «title : path» [Edited]" or "Project «title : path» [Read only]"
-	int start_pos = fullText.indexOf("«");
+	// Format: "Project \"title : path\"" or "Project \"title : path\" [Edited]" or "Project \"title : path\" [Read only]"
+	int start_pos = fullText.indexOf('"');
 	int colon_pos = fullText.indexOf(" : ");
 	
 	if (start_pos >= 0 && colon_pos > start_pos) {
@@ -828,29 +830,51 @@ QString DiagramTitleDelegate::extractProjectTitle(const QString &fullText) const
 /**
 	@brief DiagramTitleDelegate::reconstructProjectFullText
 	Reconstruct the project full text with new title
+	This is used to temporarily set the model data - the actual update will come from project->setTitle()
 */
 QString DiagramTitleDelegate::reconstructProjectFullText(const QString &title, const QString &originalFullText) const
 {
-	// Format: "Project «title : path»" or "Project «title : path» [Edited]" or "Project «title : path» [Read only]"
-	int start_pos = originalFullText.indexOf("«");
+	// Format: "Project \"title : path\"" or "Project \"title : path\" [Edited]" or "Project \"title : path\" [Read only]"
+	int start_pos = originalFullText.indexOf('"');
 	int colon_pos = originalFullText.indexOf(" : ");
-	int end_pos = originalFullText.indexOf("»");
+	int end_pos = originalFullText.lastIndexOf('"');
 	
-	if (start_pos >= 0 && colon_pos > start_pos && end_pos > colon_pos) {
-		QString prefix = originalFullText.left(start_pos + 1); // "Project «"
-		QString middle = originalFullText.mid(colon_pos, end_pos - colon_pos + 1); // " : path»"
-		QString suffix = originalFullText.mid(end_pos + 1); // " [Edited]" or " [Read only]" or ""
-		
-		return prefix + title + middle + suffix;
+	if (start_pos < 0 || colon_pos <= start_pos) {
+		// Invalid format, just return a basic format
+		QString suffix;
+		if (originalFullText.contains(" [Edited]")) {
+			suffix = " [Edited]";
+		} else if (originalFullText.contains(" [Read only]")) {
+			suffix = " [Read only]";
+		}
+		return QString("Project \"%1 : \"").arg(title) + suffix;
 	}
 	
-	// Fallback: try to preserve [Edited] or [Read only] suffixes
+	// Extract the path from the original text (between " : " and closing quote)
+	QString path;
+	if (end_pos > colon_pos && end_pos != start_pos) {
+		// Extract path between " : " and closing quote
+		path = originalFullText.mid(colon_pos + 3, end_pos - colon_pos - 3);
+	}
+	
+	// Extract any [Edited] or [Read only] suffixes (after the closing quote)
 	QString suffix;
-	if (originalFullText.contains(" [Edited]")) {
-		suffix = " [Edited]";
-	} else if (originalFullText.contains(" [Read only]")) {
-		suffix = " [Read only]";
+	if (end_pos > 0) {
+		QString after_quote = originalFullText.mid(end_pos + 1);
+		if (after_quote.contains(" [Edited]")) {
+			suffix = " [Edited]";
+		} else if (after_quote.contains(" [Read only]")) {
+			suffix = " [Read only]";
+		}
+	} else {
+		// No closing quote found, check the whole string
+		if (originalFullText.contains(" [Edited]")) {
+			suffix = " [Edited]";
+		} else if (originalFullText.contains(" [Read only]")) {
+			suffix = " [Read only]";
+		}
 	}
 	
-	return "Project " + title + suffix;
+	// Reconstruct using the same format as pathNameTitle() - use regular quotes
+	return QString("Project \"%1 : %2\"").arg(title).arg(path) + suffix;
 }

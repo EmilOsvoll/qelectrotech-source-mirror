@@ -394,7 +394,7 @@ QString QETProject::pathNameTitle() const
 	if (!project_title_.isEmpty()) {
 		final_title = QString(
 			tr(
-				"Project «%1 : %2»",
+				"Project \"%1 : %2\"",
 				"displayed title for a ProjectView - %1 is the project title, - %2 is the project path"
 			)
 		).arg(project_title_, m_file_path);
