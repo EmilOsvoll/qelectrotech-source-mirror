@@ -407,6 +407,10 @@ QTreeWidgetItem *GenericPanel::updateDiagramItem(QTreeWidgetItem *diagram_qtwi,
 		
 		connect(diagram, &Diagram::diagramTitleChanged,
 			this, &GenericPanel::diagramTitleChanged);
+		
+		// Make diagram items editable for inline renaming
+		Qt::ItemFlags flags = diagram_qtwi -> flags();
+		diagram_qtwi -> setFlags(flags | Qt::ItemIsEditable);
 	}
 	
 	return(updateItem(diagram_qtwi, options, freshly_created));

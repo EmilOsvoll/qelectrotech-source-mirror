@@ -24,6 +24,9 @@
 #include "qeticons.h"
 #include "qetproject.h"
 #include "titleblock/templatedeleter.h"
+#include "undocommand/changetitleblockcommand.h"
+#include "titleblockproperties.h"
+#include <QLineEdit>
 
 /*
 	When the ENABLE_PANEL_WIDGET_DND_CHECKS flag is set, the panel
@@ -60,6 +63,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
 	prj_add_title_page       = new QAction(QET::Icons::DiagramAdd,             tr("Add a title page folio"),       this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);
+	prj_rename_diagram       = new QAction(QET::Icons::EditRename,             tr("Rename"),                      this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this folio up"),               this);
 	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move this folio down"),               this);
 	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move this folio up x10"),           this);
@@ -73,6 +77,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 
 
 	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Delete));
+	prj_rename_diagram -> setShortcut(QKeySequence(Qt::Key_F2));
 	prj_move_diagram_up -> setShortcut(QKeySequence(Qt::Key_F3));
 	prj_move_diagram_down -> setShortcut(QKeySequence(Qt::Key_F4));
 	prj_move_diagram_top -> setShortcut(QKeySequence(Qt::Key_F5));
@@ -100,6 +105,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	connect(prj_add_diagram,       SIGNAL(triggered()), this,           SLOT(newDiagram()));
 	connect(prj_add_title_page,   SIGNAL(triggered()), this,           SLOT(newTitlePageFolio()));
 	connect(prj_del_diagram,       SIGNAL(triggered()), this,           SLOT(deleteDiagram()));
+	connect(prj_rename_diagram,    SIGNAL(triggered()), this,           SLOT(renameDiagram()));
 	connect(prj_move_diagram_up,   SIGNAL(triggered()), this,           SLOT(moveDiagramUp()));
 	connect(prj_move_diagram_down, SIGNAL(triggered()), this,           SLOT(moveDiagramDown()));
 	connect(prj_move_diagram_top,  SIGNAL(triggered()), this,           SLOT(moveDiagramUpTop()));
@@ -115,12 +121,16 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 
 	connect(elements_panel,        SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(updateButtons()));
 	connect(elements_panel,        SIGNAL(customContextMenuRequested(const QPoint &)),               this, SLOT(handleContextMenu(const QPoint &)));
+	connect(elements_panel,        SIGNAL(itemChanged(QTreeWidgetItem *, int)),                     this, SLOT(diagramItemChanged(QTreeWidgetItem *, int)));
 	connect(
 		elements_panel,
 		SIGNAL(requestForTitleBlockTemplate(const TitleBlockTemplateLocation &)),
 		QETApp::instance(),
 		SLOT(openTitleBlockTemplate(const TitleBlockTemplateLocation &))
 	);
+	
+	// Set custom delegate for diagram items to allow editing only the title part
+	elements_panel->setItemDelegate(new DiagramTitleDelegate(this));
 
 	// disposition verticale
 	QVBoxLayout *vlayout = new QVBoxLayout(this);
@@ -248,6 +258,24 @@ void ElementsPanelWidget::deleteDiagram()
 {
 	if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
 		emit(requestForDiagramDeletion(selected_diagram));
+	}
+}
+
+/**
+	Start inline editing of the selected diagram title
+*/
+void ElementsPanelWidget::renameDiagram()
+{
+	if (QTreeWidgetItem *item = elements_panel -> currentItem()) {
+		if (item -> type() == QET::Diagram) {
+			// Make item editable if not already
+			Qt::ItemFlags flags = item -> flags();
+			if (!(flags & Qt::ItemIsEditable)) {
+				item -> setFlags(flags | Qt::ItemIsEditable);
+			}
+			// Start editing
+			elements_panel -> editItem(item, 0);
+		}
 	}
 }
 
@@ -435,6 +463,7 @@ void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 			context_menu -> addAction(prj_close);
 			break;
 		case QET::Diagram:
+			context_menu -> addAction(prj_rename_diagram);
 			context_menu -> addAction(prj_prop_diagram);
 			context_menu -> addAction(prj_del_diagram);
 			context_menu -> addAction(prj_move_diagram_top);
@@ -475,6 +504,45 @@ void ElementsPanelWidget::filterEdited(const QString &next_text) {
 }
 
 /**
+	Handle itemChanged signal to update diagram title when user finishes editing
+*/
+void ElementsPanelWidget::diagramItemChanged(QTreeWidgetItem *item, int column)
+{
+	if (column != 0) return;
+	if (!item || item->type() != QET::Diagram) return;
+	
+	Diagram *diagram = qvariant_cast<Diagram *>(item->data(0, GenericPanel::Item));
+	if (!diagram || diagram->isReadOnly()) return;
+	
+	QString new_text = item->text(0);
+	
+	// Parse the text to extract the title part
+	// Format is: "1/2 - Title" or "1 - Title"
+	QString new_title;
+	int dash_pos = new_text.indexOf(" - ");
+	if (dash_pos >= 0) {
+		new_title = new_text.mid(dash_pos + 3).trimmed();
+	} else {
+		// No dash found, assume entire text is title
+		new_title = new_text.trimmed();
+	}
+	
+	// Get current titleblock properties
+	TitleBlockProperties old_props = diagram->border_and_titleblock.exportTitleBlock();
+	QString old_title = old_props.title;
+	if (old_title.isEmpty()) {
+		old_title = tr("Untitled folio", "Fallback label when a diagram has no title");
+	}
+	
+	// Update if title actually changed
+	if (old_title != new_title) {
+		TitleBlockProperties new_props = old_props;
+		new_props.title = new_title;
+		diagram->undoStack().push(new ChangeTitleBlockCommand(diagram, old_props, new_props));
+	}
+}
+
+/**
 	Treat key press event inside elements panel widget
 */
 void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
@@ -484,7 +552,10 @@ void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
 						emit(requestForDiagramDeletion(selected_diagram));
 					}
 					break;
-					case Qt::Key_F3:
+				case Qt::Key_F2: //rename diagram
+					renameDiagram();
+					break;
+				case Qt::Key_F3:
 					if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
 						emit(requestForDiagramMoveUp(selected_diagram));
 					}
@@ -526,4 +597,108 @@ void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
 					break;
 				}
 	return;
+}
+
+/**
+	@brief DiagramTitleDelegate::DiagramTitleDelegate
+	Constructor
+*/
+DiagramTitleDelegate::DiagramTitleDelegate(QObject *parent) :
+	QStyledItemDelegate(parent)
+{
+}
+
+/**
+	@brief DiagramTitleDelegate::createEditor
+	Create a line edit editor for editing the title
+*/
+QWidget *DiagramTitleDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+	Q_UNUSED(option);
+	// Check if this is a diagram item by checking the text pattern
+	// Diagram items always have format "X/Y - Title" or "X - Title"
+	QString fullText = index.data(Qt::DisplayRole).toString();
+	if (!fullText.contains(" - ")) {
+		// Not a diagram item, use default delegate
+		return QStyledItemDelegate::createEditor(parent, option, index);
+	}
+	
+	QLineEdit *editor = new QLineEdit(parent);
+	return editor;
+}
+
+/**
+	@brief DiagramTitleDelegate::setEditorData
+	Extract only the title part and set it in the editor
+*/
+void DiagramTitleDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const
+{
+	QLineEdit *lineEdit = qobject_cast<QLineEdit *>(editor);
+	if (!lineEdit) {
+		QStyledItemDelegate::setEditorData(editor, index);
+		return;
+	}
+	
+	QString fullText = index.data(Qt::DisplayRole).toString();
+	// Check if this is a diagram item (has " - " pattern)
+	if (!fullText.contains(" - ")) {
+		QStyledItemDelegate::setEditorData(editor, index);
+		return;
+	}
+	
+	QString titleOnly = extractTitle(fullText);
+	lineEdit->setText(titleOnly);
+	lineEdit->selectAll();
+}
+
+/**
+	@brief DiagramTitleDelegate::setModelData
+	Reconstruct the full text with page number prefix and set it in the model
+*/
+void DiagramTitleDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const
+{
+	QLineEdit *lineEdit = qobject_cast<QLineEdit *>(editor);
+	if (!lineEdit) {
+		QStyledItemDelegate::setModelData(editor, model, index);
+		return;
+	}
+	
+	QString originalFullText = index.data(Qt::DisplayRole).toString();
+	// Check if this is a diagram item (has " - " pattern)
+	if (!originalFullText.contains(" - ")) {
+		QStyledItemDelegate::setModelData(editor, model, index);
+		return;
+	}
+	
+	QString newTitle = lineEdit->text().trimmed();
+	QString newFullText = reconstructFullText(newTitle, originalFullText);
+	
+	model->setData(index, newFullText, Qt::DisplayRole);
+}
+
+/**
+	@brief DiagramTitleDelegate::extractTitle
+	Extract the title part from "1/2 - Title" format
+*/
+QString DiagramTitleDelegate::extractTitle(const QString &fullText) const
+{
+	int dash_pos = fullText.indexOf(" - ");
+	if (dash_pos >= 0) {
+		return fullText.mid(dash_pos + 3);
+	}
+	return fullText;
+}
+
+/**
+	@brief DiagramTitleDelegate::reconstructFullText
+	Reconstruct the full text with page number prefix
+*/
+QString DiagramTitleDelegate::reconstructFullText(const QString &title, const QString &originalFullText) const
+{
+	int dash_pos = originalFullText.indexOf(" - ");
+	if (dash_pos >= 0) {
+		QString prefix = originalFullText.left(dash_pos + 3);
+		return prefix + title;
+	}
+	return title;
 }

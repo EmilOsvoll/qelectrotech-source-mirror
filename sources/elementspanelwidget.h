@@ -19,6 +19,27 @@
 #define ELEMENTS_PANEL_WIDGET_H
 
 #include "elementspanel.h"
+#include <QStyledItemDelegate>
+#include <QLineEdit>
+
+/**
+	@brief DiagramTitleDelegate
+	Custom delegate for editing diagram titles.
+	Only allows editing the title part, not the page number prefix.
+*/
+class DiagramTitleDelegate : public QStyledItemDelegate {
+	Q_OBJECT
+	
+	public:
+		explicit DiagramTitleDelegate(QObject *parent = nullptr);
+		QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+		void setEditorData(QWidget *editor, const QModelIndex &index) const override;
+		void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const override;
+		
+	private:
+		QString extractTitle(const QString &fullText) const;
+		QString reconstructFullText(const QString &title, const QString &originalFullText) const;
+};
 
 /**
 	@brief The ElementsPanelWidget class
@@ -48,6 +69,7 @@ class ElementsPanelWidget : public QWidget {
 		*prj_add_diagram,
 		*prj_add_title_page,
 		*prj_del_diagram,
+		*prj_rename_diagram,
 		*prj_move_diagram_up,
 		*prj_move_diagram_top,
 		*prj_move_diagram_down,
@@ -90,6 +112,7 @@ class ElementsPanelWidget : public QWidget {
 	void newDiagram();
 	void newTitlePageFolio();
 	void deleteDiagram();
+	void renameDiagram();
 	void moveDiagramUp();
 	void moveDiagramDown();
 	void moveDiagramUpTop();
@@ -103,6 +126,7 @@ class ElementsPanelWidget : public QWidget {
 	void updateButtons();
 	void handleContextMenu(const QPoint &);
 	void filterEdited(const QString &);
+	void diagramItemChanged(QTreeWidgetItem *item, int column);
 
 	protected:
 	void keyPressEvent (QKeyEvent *e) override;
