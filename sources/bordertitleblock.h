@@ -26,6 +26,7 @@
 #include <QObject>
 #include <QRectF>
 class QPainter;
+class Diagram;
 class DiagramPosition;
 class TitleBlockTemplate;
 class TitleBlockTemplateRenderer;
@@ -213,6 +214,7 @@ class BorderTitleBlock : public QObject
 		void updateRectangles();
 		void updateDiagramContextForTitleBlock(
 				const DiagramContext & = DiagramContext());
+		void renderTitlePageContent(QPainter *painter, Diagram *diagram);
 		QString incrementLetters(const QString &);
 		QString formatScaleAsRatio(qreal scale) const;
 		QString extractPageNumber(const QString &folio_string) const;

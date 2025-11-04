@@ -65,15 +65,18 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	connect(titleblock_infos,SIGNAL(openAutoNumFolioEditor(QString)),this,SLOT(editAutoFolioNum()));
 	//titleblock_infos->setMinimumSize(590,480); //Minimum Size needed for correct display
 
-		//Conductor widget
-	m_cpw = new ConductorPropertiesWidget(conductors, this);
-	m_cpw -> setReadOnly(diagram_is_read_only);
+		//Conductor widget (only for regular folios, not title pages)
+	m_cpw_ptr = nullptr;
+	if (!diagram->isTitlePage()) {
+		m_cpw_ptr = new ConductorPropertiesWidget(conductors, this);
+		m_cpw_ptr -> setReadOnly(diagram_is_read_only);
 
-	QComboBox *autonum_combobox = m_cpw->autonumComboBox();
-	autonum_combobox->addItems(diagram->project()->conductorAutoNum().keys());
-	autonum_combobox->setCurrentIndex(autonum_combobox->findText(diagram->conductorsAutonumName()));
+		QComboBox *autonum_combobox = m_cpw_ptr->autonumComboBox();
+		autonum_combobox->addItems(diagram->project()->conductorAutoNum().keys());
+		autonum_combobox->setCurrentIndex(autonum_combobox->findText(diagram->conductorsAutonumName()));
 
-	connect(m_cpw->editAutonumPushButton(), &QPushButton::clicked, this, &DiagramPropertiesDialog::editAutonum);
+		connect(m_cpw_ptr->editAutonumPushButton(), &QPushButton::clicked, this, &DiagramPropertiesDialog::editAutonum);
+	}
 
 		// Buttons
 	QDialogButtonBox boutons(diagram_is_read_only ? QDialogButtonBox::Ok : QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -83,7 +86,9 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	QGridLayout *glayout = new QGridLayout;
 	glayout->addWidget(border_infos,0,0);
 	glayout->addWidget(titleblock_infos, 1, 0);
-	glayout->addWidget(m_cpw, 0, 1, 0, 1);
+	if (m_cpw_ptr) {
+		glayout->addWidget(m_cpw_ptr, 0, 1, 2, 1);
+	}
 
 	QVBoxLayout vlayout(this);
 	vlayout.addLayout(glayout);
@@ -94,7 +99,6 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	{
 		TitleBlockProperties new_titleblock = titleblock_infos  -> properties();
 		BorderProperties     new_border     = border_infos -> properties();
-		ConductorProperties  new_conductors = m_cpw -> properties();
 
 		// Title block have change
 		if (new_titleblock != titleblock) {
@@ -106,20 +110,24 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 			diagram -> undoStack().push(new ChangeBorderCommand(diagram, border, new_border));
 		}
 
-		// Conducteur have change
-		if (new_conductors != conductors) {
+		// Conducteur have change (only for regular folios)
+		if (!diagram->isTitlePage() && m_cpw_ptr) {
+			ConductorProperties new_conductors = m_cpw_ptr -> properties();
+			if (new_conductors != conductors) {
 #if TODO_LIST
 #pragma message("@TODO implement an undo command to allow the user to undo/redo this action")
 #endif
-			/// TODO implement an undo command to allow the user to undo/redo this action
-			diagram -> defaultConductorProperties = new_conductors;
-		}
+				/// TODO implement an undo command to allow the user to undo/redo this action
+				diagram -> defaultConductorProperties = new_conductors;
+			}
 
 			// Conductor autonum name
-		if (autonum_combobox->currentText() != diagram->conductorsAutonumName())
-		{
-			diagram->setConductorsAutonumName (autonum_combobox->currentText());
-			diagram->project()->conductorAutoNumChanged();
+			QComboBox *autonum_combobox = m_cpw_ptr->autonumComboBox();
+			if (autonum_combobox->currentText() != diagram->conductorsAutonumName())
+			{
+				diagram->setConductorsAutonumName (autonum_combobox->currentText());
+				diagram->project()->conductorAutoNumChanged();
+			}
 		}
 	}
 }
@@ -143,8 +151,10 @@ void DiagramPropertiesDialog::editAutonum()
 	ProjectPropertiesDialog ppd (m_diagram->project(), this);
 	ppd.setCurrentPage(ProjectPropertiesDialog::Autonum);
 	ppd.exec();
-	m_cpw->autonumComboBox()->clear();
-	m_cpw->autonumComboBox()->addItems(m_diagram->project()->conductorAutoNum().keys());
+	if (m_cpw_ptr) {
+		m_cpw_ptr->autonumComboBox()->clear();
+		m_cpw_ptr->autonumComboBox()->addItems(m_diagram->project()->conductorAutoNum().keys());
+	}
 }
 
 /**

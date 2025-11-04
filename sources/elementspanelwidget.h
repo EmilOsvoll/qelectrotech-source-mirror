@@ -46,6 +46,7 @@ class ElementsPanelWidget : public QWidget {
 		*prj_edit_prop,
 		*prj_prop_diagram,
 		*prj_add_diagram,
+		*prj_add_title_page,
 		*prj_del_diagram,
 		*prj_move_diagram_up,
 		*prj_move_diagram_top,
@@ -65,6 +66,7 @@ class ElementsPanelWidget : public QWidget {
 	signals:
 	void requestForProject(QETProject *);
 	void requestForNewDiagram(QETProject *);
+	void requestForTitlePageFolio(QETProject *);
 	void requestForProjectClosing(QETProject *);
 	void requestForProjectPropertiesEdition(QETProject *);
 	void requestForDiagramPropertiesEdition(Diagram *);
@@ -86,6 +88,7 @@ class ElementsPanelWidget : public QWidget {
 	void editProjectProperties();
 	void editDiagramProperties();
 	void newDiagram();
+	void newTitlePageFolio();
 	void deleteDiagram();
 	void moveDiagramUp();
 	void moveDiagramDown();

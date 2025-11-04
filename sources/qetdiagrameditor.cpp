@@ -173,6 +173,7 @@ void QETDiagramEditor::setUpElementsPanel()
 	connect(pa, SIGNAL(requestForProjectClosing           (QETProject *)), this, SLOT(closeProject(QETProject *)));
 	connect(pa, SIGNAL(requestForProjectPropertiesEdition (QETProject *)), this, SLOT(editProjectProperties(QETProject *)));
 	connect(pa, SIGNAL(requestForNewDiagram               (QETProject *)), this, SLOT(addDiagramToProject(QETProject *)));
+	connect(pa, SIGNAL(requestForTitlePageFolio           (QETProject *)), this, SLOT(addTitlePageFolioToProject(QETProject *)));
 	connect(pa, SIGNAL(requestForDiagramPropertiesEdition (Diagram *)), this, SLOT(editDiagramProperties(Diagram *)));
 	connect(pa, SIGNAL(requestForDiagramDeletion          (Diagram *)), this, SLOT(removeDiagram(Diagram *)));
 	connect(pa, SIGNAL(requestForDiagramMoveUp            (Diagram *)), this, SLOT(moveDiagramUp(Diagram *)));
@@ -2136,6 +2137,24 @@ void QETDiagramEditor::addDiagramToProject(QETProject *project)
 	{
 		activateProject(project);
 		project_view->project()->addNewDiagram();
+	}
+}
+
+/**
+	@brief QETDiagramEditor::addTitlePageFolioToProject
+	Add a title page folio to project
+	@param project
+*/
+void QETDiagramEditor::addTitlePageFolioToProject(QETProject *project)
+{
+	if (!project) {
+		return;
+	}
+
+	if (ProjectView *project_view = findProject(project))
+	{
+		activateProject(project);
+		project_view->project()->addTitlePageFolio();
 	}
 }
 

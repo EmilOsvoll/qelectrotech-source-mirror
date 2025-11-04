@@ -926,15 +926,36 @@ void ProjectView::updateTabTitle(DiagramView *diagram_view)
 		
 		if (settings.value("genericpanel/folio", false).toBool())
 		{
-			QString formula = diagram->border_and_titleblock.folio();
-			autonum::sequentialNumbers seq;
-			title = autonum::AssignVariables::formulaToLabel(
-						formula,
-						seq,
-						diagram);
+			QString displayed_label = diagram->border_and_titleblock.finalfolio();
+			// If finalfolio() is empty (e.g., for title pages), generate "current/total" format
+			if (displayed_label.isEmpty())
+			{
+				int diagram_folio_idx = diagram->folioIndex();
+				int folio_total = diagram->border_and_titleblock.folioTotal();
+				if (diagram_folio_idx != -1 && folio_total > 0)
+				{
+					displayed_label = QString("%1/%2").arg(diagram_folio_idx + 1).arg(folio_total);
+				}
+				else if (diagram_folio_idx != -1)
+				{
+					displayed_label = QString::number(diagram_folio_idx + 1);
+				}
+			}
+			title = displayed_label;
 		}
 		else
-			title = QString::number(diagram->folioIndex() + 1);
+		{
+			int diagram_folio_idx = diagram->folioIndex();
+			int folio_total = diagram->border_and_titleblock.folioTotal();
+			if (diagram_folio_idx != -1 && folio_total > 0)
+			{
+				title = QString("%1/%2").arg(diagram_folio_idx + 1).arg(folio_total);
+			}
+			else if (diagram_folio_idx != -1)
+			{
+				title = QString::number(diagram_folio_idx + 1);
+			}
+		}
 		
 		title += " - ";
 		title += diagram->title();

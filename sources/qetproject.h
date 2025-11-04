@@ -189,6 +189,7 @@ class QETProject : public QObject
 
 	public slots:
 		Diagram *addNewDiagram(int pos = -1);
+		Diagram *addTitlePageFolio(int pos = -1);
 		void removeDiagram(Diagram *);
 		void diagramOrderChanged(int, int);
 		void setModified(bool);

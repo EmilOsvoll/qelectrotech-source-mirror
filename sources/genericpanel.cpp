@@ -356,6 +356,19 @@ QTreeWidgetItem *GenericPanel::updateDiagramItem(QTreeWidgetItem *diagram_qtwi,
 		int diagram_folio_idx = diagram -> folioIndex();
 		if (diagram_folio_idx != -1)
 		{
+			// If finalfolio() is empty (e.g., for title pages), generate "current/total" format
+			if (displayed_label.isEmpty())
+			{
+				int folio_total = diagram ->border_and_titleblock.folioTotal();
+				if (folio_total > 0)
+				{
+					displayed_label = QString("%1/%2").arg(diagram_folio_idx + 1).arg(folio_total);
+				}
+				else
+				{
+					displayed_label = QString::number(diagram_folio_idx + 1);
+				}
+			}
 			displayed_label = QString(
 				tr(
 				   "%1 - %2",

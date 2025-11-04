@@ -58,6 +58,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_edit_prop            = new QAction(QET::Icons::DialogInformation,      tr("Project properties"),          this);
 	prj_prop_diagram         = new QAction(QET::Icons::DialogInformation,      tr("Folio properties"),       this);
 	prj_add_diagram          = new QAction(QET::Icons::DiagramAdd,             tr("Add a folio"),                this);
+	prj_add_title_page       = new QAction(QET::Icons::DiagramAdd,             tr("Add a title page folio"),       this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this folio up"),               this);
 	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move this folio down"),               this);
@@ -97,6 +98,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	connect(prj_edit_prop,         SIGNAL(triggered()), this,           SLOT(editProjectProperties()));
 	connect(prj_prop_diagram,      SIGNAL(triggered()), this,           SLOT(editDiagramProperties()));
 	connect(prj_add_diagram,       SIGNAL(triggered()), this,           SLOT(newDiagram()));
+	connect(prj_add_title_page,   SIGNAL(triggered()), this,           SLOT(newTitlePageFolio()));
 	connect(prj_del_diagram,       SIGNAL(triggered()), this,           SLOT(deleteDiagram()));
 	connect(prj_move_diagram_up,   SIGNAL(triggered()), this,           SLOT(moveDiagramUp()));
 	connect(prj_move_diagram_down, SIGNAL(triggered()), this,           SLOT(moveDiagramDown()));
@@ -226,6 +228,16 @@ void ElementsPanelWidget::newDiagram()
 {
 	if (QETProject *selected_project = elements_panel -> selectedProject()) {
 		emit(requestForNewDiagram(selected_project));
+	}
+}
+
+/**
+	Emet le signal requestForTitlePageFolio avec le projet selectionne
+*/
+void ElementsPanelWidget::newTitlePageFolio()
+{
+	if (QETProject *selected_project = elements_panel -> selectedProject()) {
+		emit(requestForTitlePageFolio(selected_project));
 	}
 }
 
@@ -419,6 +431,7 @@ void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 			context_menu -> addAction(prj_activate);
 			context_menu -> addAction(prj_edit_prop);
 			context_menu -> addAction(prj_add_diagram);
+			context_menu -> addAction(prj_add_title_page);
 			context_menu -> addAction(prj_close);
 			break;
 		case QET::Diagram:

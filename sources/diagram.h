@@ -121,6 +121,7 @@ class Diagram : public QGraphicsScene
 		bool use_border_;
 		bool draw_terminals_;
 		bool draw_colored_conductors_;
+		bool m_is_title_page_;
 
 		QString m_conductors_autonum_name;
 		DiagramEventInterface *m_event_interface;
@@ -216,6 +217,8 @@ class Diagram : public QGraphicsScene
 		ExportProperties applyProperties(const ExportProperties &);
 		void setDisplayGrid(bool);
 		bool displayGrid();
+		void setIsTitlePage(bool);
+		bool isTitlePage() const;
 		void setUseBorder(bool);
 		bool useBorder();
 		void setBorderOptions(BorderOptions);
@@ -348,6 +351,23 @@ inline void Diagram::setDisplayGrid(bool dg) {
 */
 inline bool Diagram::displayGrid() {
 	return(draw_grid_);
+}
+
+/**
+	@brief Diagram::setIsTitlePage
+	Set whether this diagram is a title page (no canvas, no grid, no items).
+	@param itp true to mark as title page, false otherwise.
+*/
+inline void Diagram::setIsTitlePage(bool itp) {
+	m_is_title_page_ = itp;
+}
+
+/**
+	@brief Diagram::isTitlePage
+	@return m_is_title_page_ true if this is a title page, false otherwise.
+*/
+inline bool Diagram::isTitlePage() const {
+	return(m_is_title_page_);
 }
 
 /**

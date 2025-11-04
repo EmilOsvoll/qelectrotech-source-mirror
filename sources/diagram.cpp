@@ -68,12 +68,13 @@ Diagram::Diagram(QETProject *project) :
 	border_and_titleblock    (this),
 	draw_grid_               (true),
 	use_border_              (true),
-	draw_terminals_          (true),
+	draw_terminals_           (true),
 	draw_colored_conductors_ (true),
 	m_event_interface        (nullptr),
 	m_freeze_new_elements    (false),
 	m_freeze_new_conductors_ (false),
-	m_previous_canvas_scale_ (1.0)
+	m_previous_canvas_scale_ (1.0),
+	m_is_title_page_         (false)
 {
 	setItemIndexMethod(QGraphicsScene::NoIndex);
 	/* Set to no index,
@@ -188,7 +189,7 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 	p -> setBrush(Diagram::background_color);
 	p -> drawRect(r);
 
-	if (draw_grid_) {
+	if (draw_grid_ && !m_is_title_page_) {
 			/* Draw the points of the grid
 			 * if background color is black,
 			 * then grid spots shall be white,
@@ -1618,7 +1619,7 @@ void Diagram::refreshContents()
 */
 void Diagram::addItem(QGraphicsItem *item)
 {
-	if (!item || isReadOnly() || item->scene() == this) return;
+	if (!item || isReadOnly() || item->scene() == this || m_is_title_page_) return;
 	QGraphicsScene::addItem(item);
 
 	// Apply current canvas scale to newly added items

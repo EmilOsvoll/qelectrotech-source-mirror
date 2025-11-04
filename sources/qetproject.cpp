@@ -1370,6 +1370,81 @@ Diagram *QETProject::addNewDiagram(int pos)
 }
 
 /**
+	@brief QETProject::addTitlePageFolio
+	Add a new title page folio (without titleblock and headers) in project at position pos.
+	The folio will have the same aspect ratio as the default aspect ratio.
+	@param pos
+	@return the new created diagram
+*/
+Diagram *QETProject::addTitlePageFolio(int pos)
+{
+	if (isReadOnly()) {
+		return(nullptr);
+	}
+
+    Diagram *diagram = new Diagram(this);
+
+    // Get default border properties with same aspect ratio
+    BorderProperties bp = defaultBorderProperties();
+    if (!diagrams().isEmpty()) {
+        // Inherit aspect ratio from the most recent diagram
+        BorderProperties last_bp = diagrams().last()->border_and_titleblock.exportBorder();
+        bp.aspect_ratio = last_bp.aspect_ratio;
+        bp.base_area = last_bp.base_area;
+        bp.scale = last_bp.scale;
+    }
+    
+    // Always derive widths/heights from aspect/base/scale on creation
+    bp.use_calculated_dimensions = true;
+    if (bp.aspect_ratio <= 0.0 || bp.aspect_ratio > 100.0) {
+        qreal drawing_width = bp.columns_count * bp.columns_width;
+        qreal drawing_height = bp.rows_count * bp.rows_height;
+        qreal new_aspect = (drawing_height > 0.0) ? drawing_width / drawing_height : (100.0 / 64.0);
+        bp.aspect_ratio = new_aspect;
+    }
+    if (bp.base_area <= 0.0 || bp.base_area < 100000.0) {
+        bp.base_area = 1500000.0;  // Default base_area
+    }
+    if (bp.scale <= 0.0 || bp.scale > 100.0) {
+        bp.scale = 1.0;
+    }
+    bp.calculateDimensions();
+    
+    // Import border properties
+    diagram->border_and_titleblock.importBorder(bp);
+    
+    // Disable headers for title page, but keep titleblock enabled
+    diagram->border_and_titleblock.displayColumns(false);
+    diagram->border_and_titleblock.displayRows(false);
+    // Enable titleblock display for title pages so the title and background color show
+    diagram->border_and_titleblock.displayTitleBlock(true);
+    
+    // Mark as title page and disable grid
+    diagram->setIsTitlePage(true);
+    diagram->setDisplayGrid(false);
+    
+    // Final guard: recalc once more using current counts
+    BorderProperties verify = diagram->border_and_titleblock.exportBorder();
+    verify.use_calculated_dimensions = true;
+    if (verify.aspect_ratio <= 0.0 || verify.aspect_ratio > 100.0) {
+        qreal drawing_width = verify.columns_count * verify.columns_width;
+        qreal drawing_height = verify.rows_count * verify.rows_height;
+        verify.aspect_ratio = (drawing_height > 0.0) ? drawing_width / drawing_height : 1.0;
+    }
+    if (verify.base_area <= 0.0) {
+        verify.base_area = (verify.columns_count * verify.columns_width) * (verify.rows_count * verify.rows_height);
+    }
+    if (verify.scale <= 0.0 || verify.scale > 100.0) verify.scale = 1.0;
+    verify.calculateDimensions();
+    diagram->border_and_titleblock.importBorder(verify);
+	diagram->defaultConductorProperties = defaultConductorProperties();
+
+	addDiagram(diagram, pos);
+	emit diagramAdded(this, diagram);
+	return(diagram);
+}
+
+/**
 	@brief QETProject::removeDiagram
 	Remove diagram from project
 	@param diagram

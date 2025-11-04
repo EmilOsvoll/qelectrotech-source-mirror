@@ -41,7 +41,7 @@ class DiagramPropertiesDialog : public QDialog {
 
 	private:
 		Diagram *m_diagram;
-		ConductorPropertiesWidget *m_cpw;
+		ConductorPropertiesWidget *m_cpw_ptr;
 };
 
 #endif // DIAGRAMPROPERTIESDIALOG_H

@@ -765,8 +765,25 @@ void BorderTitleBlock::draw(QPainter *painter)
 	qreal halfPen = 0.0;
 	qreal borderPenWidth = 1.0;
 	qreal borderBottomY = 0.0;
+	
+	// Check if this is a title page
+	Diagram *diagram = qobject_cast<Diagram *>(sender());
+	if (!diagram && parent()) {
+		QObject *current = parent();
+		while (current && !diagram) {
+			diagram = qobject_cast<Diagram *>(current);
+			if (!diagram) {
+				current = current->parent();
+			}
+		}
+	}
+	bool is_title_page = diagram && diagram->isTitlePage();
+	
 	if (display_border_) {
-		if (border_all_sides_) {
+		if (is_title_page) {
+			// For title pages, don't draw any borders
+			// Skip border drawing entirely
+		} else if (border_all_sides_) {
 			// Draw all 4 sides around the diagram rect
 			// Title block is positioned inside, so border is drawn around diagram_rect_ only
 			qreal x = diagram_rect_.x();
@@ -806,7 +823,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 	headerPen.setWidthF(header_line_thickness_);
 
 	//Draw the empty case at the corners of diagram when there is header
-	if (display_border_ && (display_columns_ || display_rows_))
+	if (display_border_ && (display_columns_ || display_rows_) && !is_title_page)
 	{
 		painter->setPen(headerPen);
 		// Top-left corner - only draw outer borders (top and left), skip internal borders
@@ -859,7 +876,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 	}
 
 		//Draw the nums of columns (top and bottom)
-	if (display_border_ && display_columns_) {
+	if (display_border_ && display_columns_ && !is_title_page) {
 		painter->setPen(headerPen);
 		
 		// Use base dimensions for headers (not affected by scale)
@@ -1115,7 +1132,7 @@ void BorderTitleBlock::draw(QPainter *painter)
 	}
 
 		//Draw the nums of rows (left and right)
-	if (display_border_ && display_rows_) {
+	if (display_border_ && display_rows_ && !is_title_page) {
 		painter->setPen(headerPen);
 		QString row_string("A");
 		for (int i = 1 ; i <= rows_count_ ; ++ i) {
@@ -1209,22 +1226,16 @@ void BorderTitleBlock::draw(QPainter *painter)
 
 		// render the titleblock, using the TitleBlockTemplate object
 	if (display_titleblock_) {
+		// For title pages, skip titleblock template rendering and render custom title page content instead
+		if (diagram && diagram->isTitlePage()) {
+			renderTitlePageContent(painter, diagram);
+			painter -> restore();
+			return;
+		}
+		
+		// For regular folios, render the titleblock template
 		// Ensure we have the latest project properties in the context before rendering
 		QETProject *project = nullptr;
-		
-		// Try to get Diagram from sender if this was called via a signal
-		Diagram *diagram = qobject_cast<Diagram *>(sender());
-		
-		// If not found, try parent chain (might work if parent was set)
-		if (!diagram && parent()) {
-			QObject *current = parent();
-			while (current && !diagram) {
-				diagram = qobject_cast<Diagram *>(current);
-				if (!diagram) {
-					current = current->parent();
-				}
-			}
-		}
 		
 		if (diagram) {
 			project = diagram->project();
@@ -1281,6 +1292,77 @@ void BorderTitleBlock::draw(QPainter *painter)
 	}
 
 	painter -> restore();
+}
+
+/**
+	@brief BorderTitleBlock::renderTitlePageContent
+	Render custom title page content (colored band with text at bottom).
+	This is separate from the titleblock template system.
+	@param painter : QPainter to use for drawing
+	@param diagram : The diagram (title page) to render
+*/
+void BorderTitleBlock::renderTitlePageContent(QPainter *painter, Diagram *diagram)
+{
+	if (!painter || !diagram) return;
+	
+	painter->save();
+	
+	// Get the page dimensions
+	QRectF page_rect = outsideBorderRect();
+	qreal page_width = page_rect.width();
+	qreal page_height = page_rect.height();
+	
+	// Band height - approximately 15% of page height, plus one column header height
+	qreal base_band_height = page_height * 0.15;
+	qreal band_height = base_band_height + 2 * columns_header_height_;
+	qreal band_y = page_height - band_height;
+	
+	// Band width - extend by one row header width on each side
+	qreal band_x = -rows_header_width_;
+	qreal band_w = page_width + (2 * rows_header_width_);
+	
+	// Band color - dark teal (from reference image)
+	QColor band_color = QColor(0, 102, 102); // Dark teal color
+	
+	// Draw the colored band at the bottom
+	painter->setPen(Qt::NoPen);
+	painter->setBrush(band_color);
+	painter->drawRect(QRectF(band_x, band_y, band_w, band_height));
+	
+	// Draw text in the band
+	painter->setPen(Qt::white);
+	QFont title_font = QETApp::diagramTextsFont();
+	title_font.setPointSizeF(24); // Much larger font for title
+	title_font.setBold(true);
+	painter->setFont(title_font);
+	
+	// Get title text from titleblock properties
+	QString title_text = btb_title_;
+	if (title_text.isEmpty()) {
+		title_text = tr("Title"); // Default if empty
+	}
+	
+	// Draw title text on the left side of the band (with padding)
+	QRectF title_rect(band_x + 20, band_y, band_w - 40, band_height);
+	painter->drawText(title_rect, Qt::AlignLeft | Qt::AlignVCenter, title_text);
+	
+	// Draw folio/page range text on the right side (smaller font)
+	QFont folio_font = QETApp::diagramTextsFont();
+	folio_font.setPointSizeF(10);
+	painter->setFont(folio_font);
+	
+	QString folio_text = btb_final_folio_;
+	if (folio_text.isEmpty()) {
+		folio_text = btb_folio_;
+	}
+	if (folio_text.isEmpty()) {
+		folio_text = tr("Page 1");
+	}
+	
+	QRectF folio_rect(band_x + 20, band_y, band_w - 40, band_height);
+	painter->drawText(folio_rect, Qt::AlignRight | Qt::AlignVCenter, folio_text);
+	
+	painter->restore();
 }
 
 /**
@@ -1388,7 +1470,24 @@ void BorderTitleBlock::drawDxf(
 
 	// render the titleblock, using the TitleBlockTemplate object
 	if (display_titleblock_) {
-		//qp -> translate(titleblock_rect_.topLeft());
+		// Skip titleblock rendering for title pages
+		// Get Diagram from parent to check if it's a title page
+		Diagram *diagram = nullptr;
+		if (parent()) {
+			QObject *current = parent();
+			while (current && !diagram) {
+				diagram = qobject_cast<Diagram *>(current);
+				if (!diagram) {
+					current = current->parent();
+				}
+			}
+		}
+		
+		// Don't render titleblock for title pages
+		if (diagram && diagram->isTitlePage()) {
+			return;
+		}
+		
 		QRectF rect = titleBlockRect();
 		m_titleblock_template_renderer -> renderDxf(rect,
 							    rect.width(),
