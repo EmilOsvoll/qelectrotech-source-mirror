@@ -204,6 +204,10 @@ QTreeWidgetItem *GenericPanel::updateProjectItem(QTreeWidgetItem *project_qtwi,
 		connect(
 			project,&QETProject::readOnlyChanged,
 			this,&GenericPanel::projectInformationsChanged);
+		
+		// Make project items editable for inline renaming
+		Qt::ItemFlags flags = project_qtwi -> flags();
+		project_qtwi -> setFlags(flags | Qt::ItemIsEditable);
 	}
 	
 	// text

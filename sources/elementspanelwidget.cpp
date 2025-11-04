@@ -27,6 +27,7 @@
 #include "undocommand/changetitleblockcommand.h"
 #include "titleblockproperties.h"
 #include <QLineEdit>
+#include <QTimer>
 
 /*
 	When the ENABLE_PANEL_WIDGET_DND_CHECKS flag is set, the panel
@@ -64,6 +65,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	prj_add_title_page       = new QAction(QET::Icons::DiagramAdd,             tr("Add a title page folio"),       this);
 	prj_del_diagram          = new QAction(QET::Icons::DiagramDelete,          tr("Delete this folio"),              this);
 	prj_rename_diagram       = new QAction(QET::Icons::EditRename,             tr("Rename"),                      this);
+	prj_rename_project       = new QAction(QET::Icons::EditRename,             tr("Rename"),                      this);
 	prj_move_diagram_up      = new QAction(QET::Icons::GoUp,                   tr("Move this folio up"),               this);
 	prj_move_diagram_down    = new QAction(QET::Icons::GoDown,                 tr("Move this folio down"),               this);
 	prj_move_diagram_upx10   = new QAction(QET::Icons::GoUpDouble,             tr("Move this folio up x10"),           this);
@@ -78,6 +80,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 
 	prj_del_diagram -> setShortcut(QKeySequence(Qt::Key_Delete));
 	prj_rename_diagram -> setShortcut(QKeySequence(Qt::Key_F2));
+	prj_rename_project -> setShortcut(QKeySequence(Qt::Key_F2));
 	prj_move_diagram_up -> setShortcut(QKeySequence(Qt::Key_F3));
 	prj_move_diagram_down -> setShortcut(QKeySequence(Qt::Key_F4));
 	prj_move_diagram_top -> setShortcut(QKeySequence(Qt::Key_F5));
@@ -106,6 +109,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	connect(prj_add_title_page,   SIGNAL(triggered()), this,           SLOT(newTitlePageFolio()));
 	connect(prj_del_diagram,       SIGNAL(triggered()), this,           SLOT(deleteDiagram()));
 	connect(prj_rename_diagram,    SIGNAL(triggered()), this,           SLOT(renameDiagram()));
+	connect(prj_rename_project,   SIGNAL(triggered()), this,           SLOT(renameProject()));
 	connect(prj_move_diagram_up,   SIGNAL(triggered()), this,           SLOT(moveDiagramUp()));
 	connect(prj_move_diagram_down, SIGNAL(triggered()), this,           SLOT(moveDiagramDown()));
 	connect(prj_move_diagram_top,  SIGNAL(triggered()), this,           SLOT(moveDiagramUpTop()));
@@ -121,7 +125,7 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 
 	connect(elements_panel,        SIGNAL(currentItemChanged(QTreeWidgetItem *, QTreeWidgetItem *)), this, SLOT(updateButtons()));
 	connect(elements_panel,        SIGNAL(customContextMenuRequested(const QPoint &)),               this, SLOT(handleContextMenu(const QPoint &)));
-	connect(elements_panel,        SIGNAL(itemChanged(QTreeWidgetItem *, int)),                     this, SLOT(diagramItemChanged(QTreeWidgetItem *, int)));
+	connect(elements_panel,        SIGNAL(itemChanged(QTreeWidgetItem *, int)),                     this, SLOT(itemChanged(QTreeWidgetItem *, int)));
 	connect(
 		elements_panel,
 		SIGNAL(requestForTitleBlockTemplate(const TitleBlockTemplateLocation &)),
@@ -140,6 +144,8 @@ ElementsPanelWidget::ElementsPanelWidget(QWidget *parent) : QWidget(parent) {
 	vlayout -> addWidget(elements_panel);
 	vlayout -> setStretchFactor(elements_panel, 75000);
 	setLayout(vlayout);
+	
+	m_updating_item_ = false;
 }
 
 /**
@@ -268,6 +274,24 @@ void ElementsPanelWidget::renameDiagram()
 {
 	if (QTreeWidgetItem *item = elements_panel -> currentItem()) {
 		if (item -> type() == QET::Diagram) {
+			// Make item editable if not already
+			Qt::ItemFlags flags = item -> flags();
+			if (!(flags & Qt::ItemIsEditable)) {
+				item -> setFlags(flags | Qt::ItemIsEditable);
+			}
+			// Start editing
+			elements_panel -> editItem(item, 0);
+		}
+	}
+}
+
+/**
+	Start inline editing of the selected project title
+*/
+void ElementsPanelWidget::renameProject()
+{
+	if (QTreeWidgetItem *item = elements_panel -> currentItem()) {
+		if (item -> type() == QET::Project) {
 			// Make item editable if not already
 			Qt::ItemFlags flags = item -> flags();
 			if (!(flags & Qt::ItemIsEditable)) {
@@ -456,6 +480,7 @@ void ElementsPanelWidget::handleContextMenu(const QPoint &pos) {
 
 	switch(item -> type()) {
 		case QET::Project:
+			context_menu -> addAction(prj_rename_project);
 			context_menu -> addAction(prj_activate);
 			context_menu -> addAction(prj_edit_prop);
 			context_menu -> addAction(prj_add_diagram);
@@ -504,42 +529,89 @@ void ElementsPanelWidget::filterEdited(const QString &next_text) {
 }
 
 /**
-	Handle itemChanged signal to update diagram title when user finishes editing
+	Handle itemChanged signal to update diagram title or project title when user finishes editing
 */
-void ElementsPanelWidget::diagramItemChanged(QTreeWidgetItem *item, int column)
+void ElementsPanelWidget::itemChanged(QTreeWidgetItem *item, int column)
 {
 	if (column != 0) return;
-	if (!item || item->type() != QET::Diagram) return;
+	if (!item) return;
 	
-	Diagram *diagram = qvariant_cast<Diagram *>(item->data(0, GenericPanel::Item));
-	if (!diagram || diagram->isReadOnly()) return;
+	// Prevent recursive updates
+	if (m_updating_item_) return;
 	
-	QString new_text = item->text(0);
+	if (item->type() == QET::Diagram) {
+		Diagram *diagram = qvariant_cast<Diagram *>(item->data(0, GenericPanel::Item));
+		if (!diagram || diagram->isReadOnly()) return;
+		
+		QString new_text = item->text(0);
+		
+		// Parse the text to extract the title part
+		// Format is: "1/2 - Title" or "1 - Title"
+		QString new_title;
+		int dash_pos = new_text.indexOf(" - ");
+		if (dash_pos >= 0) {
+			new_title = new_text.mid(dash_pos + 3).trimmed();
+		} else {
+			// No dash found, assume entire text is title
+			new_title = new_text.trimmed();
+		}
+		
+		// Get current titleblock properties
+		TitleBlockProperties old_props = diagram->border_and_titleblock.exportTitleBlock();
+		QString old_title = old_props.title;
+		if (old_title.isEmpty()) {
+			old_title = tr("Untitled folio", "Fallback label when a diagram has no title");
+		}
+		
+		// Update if title actually changed
+		if (old_title != new_title) {
+			m_updating_item_ = true;
+			TitleBlockProperties new_props = old_props;
+			new_props.title = new_title;
+			diagram->undoStack().push(new ChangeTitleBlockCommand(diagram, old_props, new_props));
+			m_updating_item_ = false;
+		}
+	} else if (item->type() == QET::Project) {
+		QETProject *project = qvariant_cast<QETProject *>(item->data(0, GenericPanel::Item));
+		if (!project || project->isReadOnly()) return;
+		
+		QString new_text = item->text(0);
+		QString new_title = extractProjectTitle(new_text);
+		
+		// Update if title actually changed
+		QString current_title = project->title();
+		if (current_title != new_title) {
+			m_updating_item_ = true;
+			project->setTitle(new_title);
+			m_updating_item_ = false;
+		}
+	}
+}
+
+/**
+	Extract project title from full display text
+*/
+QString ElementsPanelWidget::extractProjectTitle(const QString &fullText) const
+{
+	// Format: "Project «title : path»" or "Project «title : path» [Edited]" or "Project «title : path» [Read only]"
+	int start_pos = fullText.indexOf("«");
+	int colon_pos = fullText.indexOf(" : ");
 	
-	// Parse the text to extract the title part
-	// Format is: "1/2 - Title" or "1 - Title"
-	QString new_title;
-	int dash_pos = new_text.indexOf(" - ");
-	if (dash_pos >= 0) {
-		new_title = new_text.mid(dash_pos + 3).trimmed();
-	} else {
-		// No dash found, assume entire text is title
-		new_title = new_text.trimmed();
+	if (start_pos >= 0 && colon_pos > start_pos) {
+		return fullText.mid(start_pos + 1, colon_pos - start_pos - 1);
 	}
 	
-	// Get current titleblock properties
-	TitleBlockProperties old_props = diagram->border_and_titleblock.exportTitleBlock();
-	QString old_title = old_props.title;
-	if (old_title.isEmpty()) {
-		old_title = tr("Untitled folio", "Fallback label when a diagram has no title");
+	// Fallback: try to find "Project " prefix and extract what follows
+	int project_pos = fullText.indexOf("Project ");
+	if (project_pos >= 0) {
+		QString rest = fullText.mid(project_pos + 8);
+		// Remove [Edited] or [Read only] suffixes
+		rest = rest.replace(" [Edited]", "");
+		rest = rest.replace(" [Read only]", "");
+		return rest.trimmed();
 	}
 	
-	// Update if title actually changed
-	if (old_title != new_title) {
-		TitleBlockProperties new_props = old_props;
-		new_props.title = new_title;
-		diagram->undoStack().push(new ChangeTitleBlockCommand(diagram, old_props, new_props));
-	}
+	return fullText;
 }
 
 /**
@@ -552,8 +624,12 @@ void ElementsPanelWidget::keyPressEvent   (QKeyEvent *e) {
 						emit(requestForDiagramDeletion(selected_diagram));
 					}
 					break;
-				case Qt::Key_F2: //rename diagram
-					renameDiagram();
+				case Qt::Key_F2: //rename diagram or project
+					if (elements_panel -> currentItemType() == QET::Diagram) {
+						renameDiagram();
+					} else if (elements_panel -> currentItemType() == QET::Project) {
+						renameProject();
+					}
 					break;
 				case Qt::Key_F3:
 					if (Diagram *selected_diagram = elements_panel -> selectedDiagram()) {
@@ -640,15 +716,25 @@ void DiagramTitleDelegate::setEditorData(QWidget *editor, const QModelIndex &ind
 	}
 	
 	QString fullText = index.data(Qt::DisplayRole).toString();
-	// Check if this is a diagram item (has " - " pattern)
-	if (!fullText.contains(" - ")) {
-		QStyledItemDelegate::setEditorData(editor, index);
+	
+	// Check if this is a project item (has « and : pattern)
+	if (fullText.contains("«") && fullText.contains(" : ")) {
+		QString titleOnly = extractProjectTitle(fullText);
+		lineEdit->setText(titleOnly);
+		lineEdit->selectAll();
 		return;
 	}
 	
-	QString titleOnly = extractTitle(fullText);
-	lineEdit->setText(titleOnly);
-	lineEdit->selectAll();
+	// Check if this is a diagram item (has " - " pattern)
+	if (fullText.contains(" - ")) {
+		QString titleOnly = extractTitle(fullText);
+		lineEdit->setText(titleOnly);
+		lineEdit->selectAll();
+		return;
+	}
+	
+	// Default: use full text
+	QStyledItemDelegate::setEditorData(editor, index);
 }
 
 /**
@@ -664,16 +750,25 @@ void DiagramTitleDelegate::setModelData(QWidget *editor, QAbstractItemModel *mod
 	}
 	
 	QString originalFullText = index.data(Qt::DisplayRole).toString();
-	// Check if this is a diagram item (has " - " pattern)
-	if (!originalFullText.contains(" - ")) {
-		QStyledItemDelegate::setModelData(editor, model, index);
+	
+	// Check if this is a project item (has « and : pattern)
+	if (originalFullText.contains("«") && originalFullText.contains(" : ")) {
+		QString newTitle = lineEdit->text().trimmed();
+		QString newFullText = reconstructProjectFullText(newTitle, originalFullText);
+		model->setData(index, newFullText, Qt::DisplayRole);
 		return;
 	}
 	
-	QString newTitle = lineEdit->text().trimmed();
-	QString newFullText = reconstructFullText(newTitle, originalFullText);
+	// Check if this is a diagram item (has " - " pattern)
+	if (originalFullText.contains(" - ")) {
+		QString newTitle = lineEdit->text().trimmed();
+		QString newFullText = reconstructFullText(newTitle, originalFullText);
+		model->setData(index, newFullText, Qt::DisplayRole);
+		return;
+	}
 	
-	model->setData(index, newFullText, Qt::DisplayRole);
+	// Default: use full text
+	QStyledItemDelegate::setModelData(editor, model, index);
 }
 
 /**
@@ -701,4 +796,61 @@ QString DiagramTitleDelegate::reconstructFullText(const QString &title, const QS
 		return prefix + title;
 	}
 	return title;
+}
+
+/**
+	@brief DiagramTitleDelegate::extractProjectTitle
+	Extract the project title from "Project «title : path» [Edited]" format
+*/
+QString DiagramTitleDelegate::extractProjectTitle(const QString &fullText) const
+{
+	// Format: "Project «title : path»" or "Project «title : path» [Edited]" or "Project «title : path» [Read only]"
+	int start_pos = fullText.indexOf("«");
+	int colon_pos = fullText.indexOf(" : ");
+	
+	if (start_pos >= 0 && colon_pos > start_pos) {
+		return fullText.mid(start_pos + 1, colon_pos - start_pos - 1);
+	}
+	
+	// Fallback: try to find "Project " prefix and extract what follows
+	int project_pos = fullText.indexOf("Project ");
+	if (project_pos >= 0) {
+		QString rest = fullText.mid(project_pos + 8);
+		// Remove [Edited] or [Read only] suffixes
+		rest = rest.replace(" [Edited]", "");
+		rest = rest.replace(" [Read only]", "");
+		return rest.trimmed();
+	}
+	
+	return fullText;
+}
+
+/**
+	@brief DiagramTitleDelegate::reconstructProjectFullText
+	Reconstruct the project full text with new title
+*/
+QString DiagramTitleDelegate::reconstructProjectFullText(const QString &title, const QString &originalFullText) const
+{
+	// Format: "Project «title : path»" or "Project «title : path» [Edited]" or "Project «title : path» [Read only]"
+	int start_pos = originalFullText.indexOf("«");
+	int colon_pos = originalFullText.indexOf(" : ");
+	int end_pos = originalFullText.indexOf("»");
+	
+	if (start_pos >= 0 && colon_pos > start_pos && end_pos > colon_pos) {
+		QString prefix = originalFullText.left(start_pos + 1); // "Project «"
+		QString middle = originalFullText.mid(colon_pos, end_pos - colon_pos + 1); // " : path»"
+		QString suffix = originalFullText.mid(end_pos + 1); // " [Edited]" or " [Read only]" or ""
+		
+		return prefix + title + middle + suffix;
+	}
+	
+	// Fallback: try to preserve [Edited] or [Read only] suffixes
+	QString suffix;
+	if (originalFullText.contains(" [Edited]")) {
+		suffix = " [Edited]";
+	} else if (originalFullText.contains(" [Read only]")) {
+		suffix = " [Read only]";
+	}
+	
+	return "Project " + title + suffix;
 }

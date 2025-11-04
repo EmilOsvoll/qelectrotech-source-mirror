@@ -39,6 +39,8 @@ class DiagramTitleDelegate : public QStyledItemDelegate {
 	private:
 		QString extractTitle(const QString &fullText) const;
 		QString reconstructFullText(const QString &title, const QString &originalFullText) const;
+		QString extractProjectTitle(const QString &fullText) const;
+		QString reconstructProjectFullText(const QString &title, const QString &originalFullText) const;
 };
 
 /**
@@ -70,6 +72,7 @@ class ElementsPanelWidget : public QWidget {
 		*prj_add_title_page,
 		*prj_del_diagram,
 		*prj_rename_diagram,
+		*prj_rename_project,
 		*prj_move_diagram_up,
 		*prj_move_diagram_top,
 		*prj_move_diagram_down,
@@ -113,6 +116,7 @@ class ElementsPanelWidget : public QWidget {
 	void newTitlePageFolio();
 	void deleteDiagram();
 	void renameDiagram();
+	void renameProject();
 	void moveDiagramUp();
 	void moveDiagramDown();
 	void moveDiagramUpTop();
@@ -126,13 +130,15 @@ class ElementsPanelWidget : public QWidget {
 	void updateButtons();
 	void handleContextMenu(const QPoint &);
 	void filterEdited(const QString &);
-	void diagramItemChanged(QTreeWidgetItem *item, int column);
+	void itemChanged(QTreeWidgetItem *item, int column);
 
 	protected:
 	void keyPressEvent (QKeyEvent *e) override;
 	
 	private:
-	QString previous_filter_;
+		QString previous_filter_;
+		QString extractProjectTitle(const QString &fullText) const;
+		bool m_updating_item_;
 };
 
 /**
