@@ -31,6 +31,7 @@
 
 #include <QLocale>
 #include <QPainter>
+#include <QPrinter>
 #include <QRegularExpression>
 #include <utility>
 
@@ -476,6 +477,14 @@ BorderProperties BorderTitleBlock::exportBorder()
 	bp.enable_column_header_spacers = enable_column_header_spacers_;
 	bp.column_header_spacer_percentage = column_header_spacer_percentage_;
 	
+	// Export printer margin
+	bp.printer_margin = printer_margin_;
+	qDebug() << "[BorderTitleBlock::exportBorder] Exporting printer_margin:" << bp.printer_margin;
+	
+	// Export print anchors
+	bp.print_anchor_horizontal = print_anchor_horizontal_;
+	bp.print_anchor_vertical = print_anchor_vertical_;
+	
 	return(bp);
 }
 
@@ -494,7 +503,8 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
              << "aspect" << working_bp.aspect_ratio 
              << "base" << working_bp.base_area 
              << "scale" << working_bp.scale 
-             << "hdr" << working_bp.rows_header_width << working_bp.columns_header_height;
+             << "hdr" << working_bp.rows_header_width << working_bp.columns_header_height
+             << "printer_margin" << working_bp.printer_margin;
     
     // Apply header thickness immediately (affects layout bounds)
     if (working_bp.header_thickness > 0.0) {
@@ -540,6 +550,14 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
     enable_column_header_spacers_ = working_bp.enable_column_header_spacers;
     column_header_spacer_percentage_ = working_bp.column_header_spacer_percentage;
     
+    // Import printer margin
+    printer_margin_ = working_bp.printer_margin;
+    qDebug() << "[BorderTitleBlock::importBorder] Importing printer_margin:" << printer_margin_;
+    
+    // Import print anchors
+    print_anchor_horizontal_ = working_bp.print_anchor_horizontal;
+    print_anchor_vertical_ = working_bp.print_anchor_vertical;
+    
     // Store calculated dimensions properties for base dimension calculations
     base_area_ = working_bp.base_area;
     aspect_ratio_ = working_bp.aspect_ratio;
@@ -553,7 +571,10 @@ void BorderTitleBlock::importBorder(const BorderProperties &bp) {
              << "columns_header_height_" << columns_header_height_
              << "base_area_" << base_area_
              << "aspect_ratio_" << aspect_ratio_
-             << "scale_" << scale_;
+             << "scale_" << scale_
+             << "printer_margin_" << printer_margin_
+             << "print_anchor_horizontal_" << print_anchor_horizontal_
+             << "print_anchor_vertical_" << print_anchor_vertical_;
 }
 
 /**

@@ -460,18 +460,24 @@ ChangeBorderCommand::~ChangeBorderCommand()
 	@brief ChangeBorderCommand::undo
 	Annule les changements apportes au schema
 */
-void ChangeBorderCommand::undo()
-{
-	diagram -> showMe();
-	diagram -> border_and_titleblock.importBorder(old_properties);
-}
-
-/**
-	@brief ChangeBorderCommand::redo
-	Refait les changements apportes au schema
-*/
 void ChangeBorderCommand::redo()
 {
+	qDebug() << "[ChangeBorderCommand::redo] Applying new border properties";
+	qDebug() << "[ChangeBorderCommand::redo] New properties printer_margin:" << new_properties.printer_margin;
 	diagram -> showMe();
 	diagram -> border_and_titleblock.importBorder(new_properties);
+	qDebug() << "[ChangeBorderCommand::redo] After importBorder, checking exported properties...";
+	BorderProperties check = diagram->border_and_titleblock.exportBorder();
+	qDebug() << "[ChangeBorderCommand::redo] Exported printer_margin:" << check.printer_margin;
+}
+
+void ChangeBorderCommand::undo()
+{
+	qDebug() << "[ChangeBorderCommand::undo] Reverting to old border properties";
+	qDebug() << "[ChangeBorderCommand::undo] Old properties printer_margin:" << old_properties.printer_margin;
+	diagram -> showMe();
+	diagram -> border_and_titleblock.importBorder(old_properties);
+	qDebug() << "[ChangeBorderCommand::undo] After importBorder, checking exported properties...";
+	BorderProperties check = diagram->border_and_titleblock.exportBorder();
+	qDebug() << "[ChangeBorderCommand::undo] Exported printer_margin:" << check.printer_margin;
 }

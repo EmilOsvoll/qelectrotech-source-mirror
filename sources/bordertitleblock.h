@@ -325,6 +325,9 @@ class BorderTitleBlock : public QObject
 		bool border_all_sides_;     ///< Whether to draw border on all sides
 		bool enable_column_header_spacers_;      ///< Whether to show spacer columns before first and after last column
 		qreal column_header_spacer_percentage_;  ///< Percentage of total width each spacer column should take (0-100)
+		qreal printer_margin_;                  ///< Printer margin (mm), applied uniformly to all sides
+		int print_anchor_horizontal_;          ///< Print anchor horizontal: 0=Left, 1=Center, 2=Right
+		int print_anchor_vertical_;            ///< Print anchor vertical: 0=Top, 1=Center, 2=Bottom
 		TitleBlockTemplateRenderer *m_titleblock_template_renderer;
 };
 #endif

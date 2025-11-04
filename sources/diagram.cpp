@@ -39,7 +39,9 @@
 #include "qetxml.h"
 #include "undocommand/addelementtextcommand.h"
 #include "qetinformation.h"
+#include "borderproperties.h"
 
+#include <QPrinter>
 #include <cassert>
 #include <math.h>
 
@@ -182,12 +184,61 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 	p -> setRenderHint(QPainter::TextAntialiasing, true);
 	p -> setRenderHint(QPainter::SmoothPixmapTransform, false);
 
-	// draw a white background
-	// dessine un fond blanc
-	p -> setPen(Qt::NoPen);
-	//set brush color to present background color.
-	p -> setBrush(Diagram::background_color);
-	p -> drawRect(r);
+	// Calculate paper rectangle (same as in drawForeground)
+	// Only draw gray background outside paper area in editor view (not when printing/exporting)
+	QPaintDevice *device = p->device();
+	if (!device || !dynamic_cast<QPrinter *>(device)) {
+		// Get border properties to access margins
+		BorderProperties bp = border_and_titleblock.exportBorder();
+		
+		// Convert margin from millimeters to pixels (assuming 96 DPI: 1 mm = 96/25.4 pixels ≈ 3.779 pixels)
+		const qreal mm_to_px = 96.0 / 25.4;
+		qreal margin_px = bp.printer_margin * mm_to_px;
+		
+		QRectF paper_rect;
+		Diagram *diagram = qobject_cast<Diagram *>(border_and_titleblock.parent());
+		if (diagram && diagram->isTitlePage()) {
+			// For title pages, account for the custom title page band that extends beyond the border
+			QRectF base_rect = border_and_titleblock.outsideBorderRect();
+			qreal page_width = base_rect.width();
+			qreal page_height = base_rect.height();
+			qreal band_extension = border_and_titleblock.rowsHeaderWidth();
+			
+			paper_rect = QRectF(
+				base_rect.x() - band_extension - margin_px,
+				base_rect.y() - margin_px,
+				page_width + (2 * band_extension) + (2 * margin_px),
+				page_height + (2 * margin_px)
+			);
+		} else {
+			// For regular folios, use borderAndTitleBlockRect which includes the title block
+			QRectF base_rect = border_and_titleblock.borderAndTitleBlockRect();
+			paper_rect = QRectF(
+				base_rect.x() - margin_px,
+				base_rect.y() - margin_px,
+				base_rect.width() + (2 * margin_px),
+				base_rect.height() + (2 * margin_px)
+			);
+		}
+		
+		// Use a standard light gray color for the viewport background (outside paper area)
+		// This matches the typical Qt widget background color
+		QColor viewport_gray(240, 240, 240);
+		
+		// Draw gray background for the entire visible area
+		p -> setPen(Qt::NoPen);
+		p -> setBrush(viewport_gray);
+		p -> drawRect(r);
+		
+		// Draw white (or user-selected background color) for the paper area
+		p -> setBrush(Diagram::background_color);
+		p -> drawRect(paper_rect.intersected(r));
+	} else {
+		// When printing/exporting, just draw the normal background
+		p -> setPen(Qt::NoPen);
+		p -> setBrush(Diagram::background_color);
+		p -> drawRect(r);
+	}
 
 	if (draw_grid_ && !m_is_title_page_) {
 			/* Draw the points of the grid
@@ -257,6 +308,88 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 
 	if (use_border_) border_and_titleblock.draw(p);
 	p -> restore();
+}
+
+/**
+	@brief Diagram::drawForeground
+	Draw the foreground of the diagram, including the paper edge preview.
+	\~French Dessine l'avant-plan du schema, y compris la bordure de preview du papier.
+	\~ @param p :
+	The QPainter to use for drawing
+	\~French Le QPainter a utiliser pour dessiner
+	\~ @param r :
+	The rectangle of the area to be drawn
+	\~French Le rectangle de la zone a dessiner
+*/
+void Diagram::drawForeground(QPainter *p, const QRectF &r) {
+	Q_UNUSED(r);
+	
+	if (!use_border_) {
+		return;
+	}
+	
+	// Draw paper edge preview (thin gray border showing where the paper edge will be when printed)
+	// Only draw in editor view, not when exporting to PDF or printing
+	QPaintDevice *device = p->device();
+	if (!device || !dynamic_cast<QPrinter *>(device)) {
+		p->save();
+		QRectF paper_rect;
+		
+		// Get border properties to access margins
+		BorderProperties bp = border_and_titleblock.exportBorder();
+		qDebug() << "[Diagram::drawForeground] Border properties printer_margin:" << bp.printer_margin;
+		
+		// Convert margin from millimeters to pixels (assuming 96 DPI: 1 mm = 96/25.4 pixels ≈ 3.779 pixels)
+		const qreal mm_to_px = 96.0 / 25.4;
+		qreal margin_px = bp.printer_margin * mm_to_px;
+		qDebug() << "[Diagram::drawForeground] Margin in pixels:" << margin_px << "from margin in mm:" << bp.printer_margin;
+		
+		// For title pages, we need to account for the custom title page band that extends beyond the border
+		Diagram *diagram = qobject_cast<Diagram *>(border_and_titleblock.parent());
+		if (diagram && diagram->isTitlePage()) {
+			// Get the base border rectangle
+			QRectF base_rect = border_and_titleblock.outsideBorderRect();
+			qreal page_width = base_rect.width();
+			qreal page_height = base_rect.height();
+			
+			// Calculate the band dimensions (same as in renderTitlePageContent)
+			qreal base_band_height = page_height * 0.15;
+			qreal band_height = base_band_height + 2 * border_and_titleblock.columnsHeaderHeight();
+			
+			// The band extends beyond the border by rows_header_width_ on each side
+			qreal band_extension = border_and_titleblock.rowsHeaderWidth();
+			
+			// Calculate the full paper rectangle including the extended band and margins
+			paper_rect = QRectF(
+				base_rect.x() - band_extension - margin_px,
+				base_rect.y() - margin_px,
+				page_width + (2 * band_extension) + (2 * margin_px),
+				page_height + (2 * margin_px)
+			);
+		} else {
+			// For regular folios, use borderAndTitleBlockRect which includes the title block
+			QRectF base_rect = border_and_titleblock.borderAndTitleBlockRect();
+			
+			// Apply margins to expand the paper rectangle outward
+			paper_rect = QRectF(
+				base_rect.x() - margin_px,
+				base_rect.y() - margin_px,
+				base_rect.width() + (2 * margin_px),
+				base_rect.height() + (2 * margin_px)
+			);
+		}
+		
+		qDebug() << "[Diagram::drawForeground] Paper rect calculated:" << paper_rect;
+		
+		QPen paperEdgePen(QColor(128, 128, 128, 180)); // Light gray with some transparency
+		paperEdgePen.setWidthF(1.0);
+		paperEdgePen.setStyle(Qt::DashLine);
+		paperEdgePen.setCosmetic(true); // Make it scale-independent
+		p->setPen(paperEdgePen);
+		p->setBrush(Qt::NoBrush);
+		p->drawRect(paper_rect);
+		p->restore();
+	}
 }
 
 /**
@@ -2283,8 +2416,35 @@ bool Diagram::freezeNewConductors()
 void Diagram::adjustSceneRect()
 {
 	QRectF old_rect = sceneRect();
-	setSceneRect(border_and_titleblock.borderAndTitleBlockRect().united(
-			     itemsBoundingRect()));
+	QRectF content_rect;
+	
+	if (m_is_title_page_) {
+		// For title pages, use outsideBorderRect and account for the extended band
+		QRectF base_rect = border_and_titleblock.outsideBorderRect();
+		qreal page_width = base_rect.width();
+		qreal page_height = base_rect.height();
+		
+		// Account for the extended band that goes beyond the border on left/right
+		qreal band_extension = border_and_titleblock.rowsHeaderWidth();
+		
+		// The content rect includes the base border plus the extended band
+		content_rect = QRectF(
+			base_rect.x() - band_extension,
+			base_rect.y(),
+			page_width + (2 * band_extension),
+			page_height
+		);
+	} else {
+		// For regular folios, use borderAndTitleBlockRect which includes the title block
+		content_rect = border_and_titleblock.borderAndTitleBlockRect();
+	}
+	
+	// Add padding around the content for better visual spacing in the view
+	// This creates breathing room between the folio content and the view edges
+	qreal padding = Diagram::margin * 5.0;  // 50 pixels of padding for better visual spacing
+	content_rect.adjust(-padding, -padding, padding, padding);
+	
+	setSceneRect(content_rect);
 	
 	// Apply canvas scale transform to items when border/scale changes
 	applyCanvasScaleToItems();

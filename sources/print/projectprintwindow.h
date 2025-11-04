@@ -85,10 +85,11 @@ class ProjectPrintWindow : public QMainWindow
 		 * @brief Calculate anchored target rectangle for rendering
 		 * Calculates the target rectangle with content anchored according to user selection
 		 * @param available_rect The available area (after margins)
-		 * @param content_size The size of content to render
-		 * @return Anchored target rectangle
+		 * @param content_size The size of content to render (after scaling with aspect ratio)
+		 * @param diagram The diagram to get anchor settings from
+		 * @return Anchored target rectangle positioned to achieve desired anchor point
 		 */
-		QRectF calculateAnchoredRect(const QRectF &available_rect, const QSizeF &content_size) const;
+		QRectF calculateAnchoredRect(const QRectF &available_rect, const QSizeF &content_size, Diagram *diagram) const;
 		int horizontalPagesCount(Diagram *diagram, const ExportProperties &option, bool full_page) const;
 		int verticalPagesCount(Diagram *diagram, const ExportProperties &option, bool full_page) const;
 		ExportProperties exportProperties() const;

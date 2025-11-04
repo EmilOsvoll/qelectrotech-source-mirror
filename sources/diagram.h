@@ -136,6 +136,7 @@ class Diagram : public QGraphicsScene
 	// METHODS
 	protected:
 		void drawBackground(QPainter *, const QRectF &) override;
+		void drawForeground(QPainter *, const QRectF &) override;
 
 		void mouseDoubleClickEvent (
 				QGraphicsSceneMouseEvent *event) override;

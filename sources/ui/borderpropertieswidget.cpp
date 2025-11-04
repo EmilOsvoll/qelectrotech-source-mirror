@@ -185,6 +185,15 @@ void BorderPropertiesWidget::setProperties(const BorderProperties &bp)
 	ui -> m_header_thickness_sp->setValue(m_properties.header_thickness);
 	ui -> m_enable_column_header_spacers_cb ->setChecked(m_properties.enable_column_header_spacers);
 	ui -> m_column_header_spacer_percentage_sp ->setValue(m_properties.column_header_spacer_percentage);
+	
+	// Set printer margin
+	qDebug() << "[BorderPropertiesWidget::setProperties] Setting printer_margin from properties:" << m_properties.printer_margin;
+	ui -> m_printer_margin_sp ->setValue(m_properties.printer_margin);
+	qDebug() << "[BorderPropertiesWidget::setProperties] After setting, UI value is:" << ui->m_printer_margin_sp->value();
+	
+	// Set print anchors
+	ui -> m_print_anchor_horizontal_cb ->setCurrentIndex(m_properties.print_anchor_horizontal);
+	ui -> m_print_anchor_vertical_cb ->setCurrentIndex(m_properties.print_anchor_vertical);
 
 	// Initialize intermediary counts used for calculations - use actual values from properties
 	m_pendingColumnsCount = m_properties.columns_count;
@@ -224,8 +233,22 @@ const BorderProperties &BorderPropertiesWidget::properties ()
 	m_properties.header_thickness = ui->m_header_thickness_sp->value();
 	m_properties.enable_column_header_spacers = ui->m_enable_column_header_spacers_cb->isChecked();
 	m_properties.column_header_spacer_percentage = ui->m_column_header_spacer_percentage_sp->value();
+	
+	// Get printer margin
+	qreal old_margin = m_properties.printer_margin;
+	m_properties.printer_margin = ui->m_printer_margin_sp->value();
+	qDebug() << "[BorderPropertiesWidget::properties] Getting printer_margin from UI:" << m_properties.printer_margin;
+	qDebug() << "[BorderPropertiesWidget::properties] Old margin was:" << old_margin << "New margin is:" << m_properties.printer_margin;
+	qDebug() << "[BorderPropertiesWidget::properties] UI spinbox value:" << ui->m_printer_margin_sp->value();
+	qDebug() << "[BorderPropertiesWidget::properties] UI spinbox text:" << ui->m_printer_margin_sp->text();
+	
+	// Get print anchors
+	m_properties.print_anchor_horizontal = ui->m_print_anchor_horizontal_cb->currentIndex();
+	m_properties.print_anchor_vertical = ui->m_print_anchor_vertical_cb->currentIndex();
+	
 	m_properties.calculateDimensions();
 	
+	qDebug() << "[BorderPropertiesWidget::properties] Returning properties with printer_margin:" << m_properties.printer_margin;
 	return m_properties;
 }
 

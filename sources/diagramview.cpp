@@ -918,8 +918,10 @@ void DiagramView::editDiagramProperties()
 void DiagramView::adjustSceneRect()
 {
 	QRectF scene_rect = m_diagram->sceneRect();
-	scene_rect.adjust(-Diagram::margin, -Diagram::margin, Diagram::margin, Diagram::margin);
-
+	// The diagram's scene rect already includes padding, so we just need to ensure
+	// the view's scene rect is at least as large. No need to add more padding here.
+	// However, if "zoom-out-beyond-of-folio" is enabled, we may need to extend it further.
+	
 	QSettings settings;
 	if (settings.value("diagrameditor/zoom-out-beyond-of-folio", false).toBool())
 	{

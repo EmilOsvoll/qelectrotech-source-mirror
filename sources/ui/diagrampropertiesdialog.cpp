@@ -97,8 +97,13 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 	// if dialog is accepted
 	if (this -> exec() == QDialog::Accepted && !diagram_is_read_only)
 	{
+		qDebug() << "[DiagramPropertiesDialog] Dialog accepted, getting new properties...";
 		TitleBlockProperties new_titleblock = titleblock_infos  -> properties();
 		BorderProperties     new_border     = border_infos -> properties();
+		
+		qDebug() << "[DiagramPropertiesDialog] Original border printer_margin:" << border.printer_margin;
+		qDebug() << "[DiagramPropertiesDialog] New border printer_margin:" << new_border.printer_margin;
+		qDebug() << "[DiagramPropertiesDialog] Border properties equal?" << (new_border == border);
 
 		// Title block have change
 		if (new_titleblock != titleblock) {
@@ -107,7 +112,11 @@ DiagramPropertiesDialog::DiagramPropertiesDialog(Diagram *diagram, QWidget *pare
 
 		// Border have change
 		if (new_border != border) {
+			qDebug() << "[DiagramPropertiesDialog] Border changed, pushing ChangeBorderCommand";
+			qDebug() << "[DiagramPropertiesDialog] Old margin:" << border.printer_margin << "New margin:" << new_border.printer_margin;
 			diagram -> undoStack().push(new ChangeBorderCommand(diagram, border, new_border));
+		} else {
+			qDebug() << "[DiagramPropertiesDialog] Border properties unchanged, no command pushed";
 		}
 
 		// Conducteur have change (only for regular folios)

@@ -50,7 +50,10 @@ BorderProperties::BorderProperties() :
 	header_line_thickness(1.0),
 	header_thickness(12.0),
 	enable_column_header_spacers(false),
-	column_header_spacer_percentage(10.0)
+	column_header_spacer_percentage(10.0),
+	printer_margin(10.0),  // Default 10mm margin
+	print_anchor_horizontal(1),  // Default: Center horizontally
+	print_anchor_vertical(2)     // Default: Bottom vertically
 {
 	qDebug() << "[BorderProperties::Constructor] Initializing with:"
 	         << "base_area=" << base_area
@@ -100,7 +103,10 @@ bool BorderProperties::operator==(const BorderProperties &bp) {
 		bp.base_area == base_area &&\
 		bp.scale == scale &&\
 		bp.enable_column_header_spacers == enable_column_header_spacers &&\
-		bp.column_header_spacer_percentage == column_header_spacer_percentage
+		bp.column_header_spacer_percentage == column_header_spacer_percentage &&\
+		bp.printer_margin == printer_margin &&\
+		bp.print_anchor_horizontal == print_anchor_horizontal &&\
+		bp.print_anchor_vertical == print_anchor_vertical
 	);
 }
 
@@ -152,6 +158,20 @@ void BorderProperties::toXml(QDomElement &e) const
 	// Save column header spacer settings
 	e.setAttribute("enable_column_header_spacers", enable_column_header_spacers ? "true" : "false");
 	e.setAttribute("column_header_spacer_percentage", QString("%1").arg(column_header_spacer_percentage));
+	
+	// Save printer margin
+	if (printer_margin != 0.0) {
+		e.setAttribute("printer_margin", QString("%1").arg(printer_margin));
+	}
+	
+	// Save print anchors
+	if (print_anchor_horizontal != 1 || print_anchor_vertical != 2) {
+		e.setAttribute("print_anchor_horizontal", QString("%1").arg(print_anchor_horizontal));
+		e.setAttribute("print_anchor_vertical", QString("%1").arg(print_anchor_vertical));
+	}
+	
+	// Legacy support: also save individual margins if they exist in old format (for backward compatibility)
+	// This handles old files that might have individual margins
 }
 
 /**
@@ -273,6 +293,55 @@ void BorderProperties::fromXml(QDomElement &e) {
 			column_header_spacer_percentage = 10.0;
 		}
 	}
+	
+	// Load printer margin
+	if (e.hasAttribute("printer_margin")) {
+		printer_margin = e.attribute("printer_margin").toDouble();
+		qDebug() << "[BorderProperties::fromXml] Loaded printer_margin from XML:" << printer_margin;
+	} else {
+		// Legacy support: try loading individual margins and use average
+		bool has_legacy = false;
+		qreal avg_margin = 0.0;
+		int margin_count = 0;
+		if (e.hasAttribute("printer_margin_left")) {
+			avg_margin += e.attribute("printer_margin_left").toDouble();
+			margin_count++;
+			has_legacy = true;
+		}
+		if (e.hasAttribute("printer_margin_top")) {
+			avg_margin += e.attribute("printer_margin_top").toDouble();
+			margin_count++;
+			has_legacy = true;
+		}
+		if (e.hasAttribute("printer_margin_right")) {
+			avg_margin += e.attribute("printer_margin_right").toDouble();
+			margin_count++;
+			has_legacy = true;
+		}
+		if (e.hasAttribute("printer_margin_bottom")) {
+			avg_margin += e.attribute("printer_margin_bottom").toDouble();
+			margin_count++;
+			has_legacy = true;
+		}
+		if (has_legacy && margin_count > 0) {
+			printer_margin = avg_margin / margin_count;
+			qDebug() << "[BorderProperties::fromXml] Loaded legacy individual margins, averaged to:" << printer_margin;
+		}
+	}
+	
+	// Load print anchors
+	if (e.hasAttribute("print_anchor_horizontal")) {
+		print_anchor_horizontal = e.attribute("print_anchor_horizontal").toInt();
+		if (print_anchor_horizontal < 0 || print_anchor_horizontal > 2) {
+			print_anchor_horizontal = 1; // Default to center
+		}
+	}
+	if (e.hasAttribute("print_anchor_vertical")) {
+		print_anchor_vertical = e.attribute("print_anchor_vertical").toInt();
+		if (print_anchor_vertical < 0 || print_anchor_vertical > 2) {
+			print_anchor_vertical = 1; // Default to center
+		}
+	}
 }
 
 /**
@@ -310,6 +379,17 @@ void BorderProperties::toSettings(QSettings &settings, const QString &prefix) co
 	// Save column header spacer settings
 	settings.setValue(prefix % "enable_column_header_spacers", enable_column_header_spacers);
 	settings.setValue(prefix % "column_header_spacer_percentage", column_header_spacer_percentage);
+	
+	// Save printer margin
+	if (printer_margin != 0.0) {
+		settings.setValue(prefix % "printer_margin", printer_margin);
+	}
+	
+	// Save print anchors
+	if (print_anchor_horizontal != 1 || print_anchor_vertical != 2) {
+		settings.setValue(prefix % "print_anchor_horizontal", print_anchor_horizontal);
+		settings.setValue(prefix % "print_anchor_vertical", print_anchor_vertical);
+	}
 }
 
 /**
@@ -413,6 +493,28 @@ void BorderProperties::fromSettings(QSettings &settings, const QString &prefix) 
 	column_header_spacer_percentage = settings.value(prefix % "column_header_spacer_percentage", column_header_spacer_percentage).toDouble();
 	if (column_header_spacer_percentage < 0.0 || column_header_spacer_percentage > 100.0) {
 		column_header_spacer_percentage = 10.0;
+	}
+	
+	// Load printer margin
+	if (settings.contains(prefix % "printer_margin")) {
+		printer_margin = settings.value(prefix % "printer_margin", printer_margin).toDouble();
+		qDebug() << "[BorderProperties::fromSettings] Loaded printer_margin from settings:" << printer_margin;
+	} else {
+		qDebug() << "[BorderProperties::fromSettings] No printer_margin in settings, using default:" << printer_margin;
+	}
+	
+	// Load print anchors
+	if (settings.contains(prefix % "print_anchor_horizontal")) {
+		print_anchor_horizontal = settings.value(prefix % "print_anchor_horizontal", print_anchor_horizontal).toInt();
+		if (print_anchor_horizontal < 0 || print_anchor_horizontal > 2) {
+			print_anchor_horizontal = 1; // Default to center
+		}
+	}
+	if (settings.contains(prefix % "print_anchor_vertical")) {
+		print_anchor_vertical = settings.value(prefix % "print_anchor_vertical", print_anchor_vertical).toInt();
+		if (print_anchor_vertical < 0 || print_anchor_vertical > 2) {
+			print_anchor_vertical = 2; // Default to bottom
+		}
 	}
 }
 

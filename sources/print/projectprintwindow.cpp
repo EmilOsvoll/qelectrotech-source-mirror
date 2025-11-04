@@ -234,6 +234,16 @@ ProjectPrintWindow::ProjectPrintWindow(QETProject *project, QPrinter *printer, Q
 	m_backup_diagram_background_color = Diagram::background_color;
 	Diagram::background_color = Qt::white;
 	
+	// Since margins are now per-folio, hide the redundant margin UI in print dialog
+	ui->m_margin_label->setVisible(false);
+	ui->m_margin_sp->setVisible(false);
+	ui->m_use_full_page_cb->setVisible(false);
+	
+	// Hide anchor controls since they're now in folio properties
+	ui->m_content_anchor_label->setVisible(false);
+	ui->m_anchor_horizontal_cb->setVisible(false);
+	ui->m_anchor_vertical_cb->setVisible(false);
+	
 	// Connect "Use the whole paper" checkbox to enable/disable margin input
 	connect(ui->m_use_full_page_cb, &QCheckBox::toggled, this, [this](bool checked) {
 		ui->m_margin_label->setEnabled(checked);
@@ -376,10 +386,23 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 	auto full_page = printer->fullPage();
 	auto diagram_rect = QRectF(diagramRect(diagram, option));
 	
+	// Get folio margins from diagram border properties (if set)
+	BorderProperties bp = diagram->border_and_titleblock.exportBorder();
+	qDebug() << "[ProjectPrintWindow::printDiagram] Diagram printer_margin:" << bp.printer_margin;
+	qDebug() << "[ProjectPrintWindow::printDiagram] Diagram print_anchor_horizontal:" << bp.print_anchor_horizontal << "vertical:" << bp.print_anchor_vertical;
+	bool use_folio_margins = (bp.printer_margin != 0.0);
+	
 	// Apply printer margin when "Use the whole paper" is enabled
+	// Prefer folio-specific margin if set, otherwise use dialog margin
 	qreal margin_mm = 0.0;
 	if (full_page && ui->m_use_full_page_cb->isChecked()) {
-		margin_mm = ui->m_margin_sp->value();
+		if (use_folio_margins) {
+			margin_mm = bp.printer_margin;
+			qDebug() << "[ProjectPrintWindow::printDiagram] Using folio margin:" << margin_mm << "mm";
+		} else {
+			margin_mm = ui->m_margin_sp->value();
+			qDebug() << "[ProjectPrintWindow::printDiagram] Using dialog margin:" << margin_mm << "mm";
+		}
 	}
 	
 	if (fit_page) {
@@ -481,7 +504,7 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 		// will be the desired size. The target rect will be positioned within available_rect.
 		
 		// Calculate anchored target rectangle in points (printer coordinates)
-		QRectF target_rect_pt = calculateAnchoredRect(available_rect, target_size_pt);
+		QRectF target_rect_pt = calculateAnchoredRect(available_rect, target_size_pt, diagram);
 		qDebug() << "Final target rect (points):" << target_rect_pt;
 		qDebug() << "Source diagram rect (DIPs):" << diagram_rect;
 		qDebug() << "=== End Debug ===";
@@ -695,11 +718,18 @@ int ProjectPrintWindow::verticalPagesCount(
  * @param content_size The size of content to render (after scaling with aspect ratio)
  * @return Anchored target rectangle positioned to achieve desired anchor point
  */
-QRectF ProjectPrintWindow::calculateAnchoredRect(const QRectF &available_rect, const QSizeF &content_size) const
+QRectF ProjectPrintWindow::calculateAnchoredRect(const QRectF &available_rect, const QSizeF &content_size, Diagram *diagram) const
 {
-	// Get anchor selections from UI (0=Left/Top, 1=Center, 2=Right/Bottom)
-	int h_anchor = ui->m_anchor_horizontal_cb->currentIndex();
-	int v_anchor = ui->m_anchor_vertical_cb->currentIndex();
+	// Get anchor selections from folio properties (stored in BorderProperties)
+	int h_anchor = 1; // Default: Center
+	int v_anchor = 2; // Default: Bottom
+	
+	if (diagram) {
+		BorderProperties bp = diagram->border_and_titleblock.exportBorder();
+		h_anchor = bp.print_anchor_horizontal;
+		v_anchor = bp.print_anchor_vertical;
+		qDebug() << "[ProjectPrintWindow::calculateAnchoredRect] Using anchors from folio properties - H:" << h_anchor << "V:" << v_anchor;
+	}
 	
 	// Calculate horizontal position
 	qreal x = available_rect.left();

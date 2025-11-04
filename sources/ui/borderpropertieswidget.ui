@@ -280,7 +280,90 @@
         </property>
        </widget>
       </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_printer_margin">
+        <property name="text">
+         <string>Printer margin (mm):</string>
+        </property>
+       </widget>
+      </item>
       <item row="10" column="1">
+       <widget class="QDoubleSpinBox" name="m_printer_margin_sp">
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="suffix">
+         <string> mm</string>
+        </property>
+        <property name="toolTip">
+         <string>Margin applied uniformly to all sides when printing/exporting</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_content_anchor">
+        <property name="text">
+         <string>Content anchor:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
+       <widget class="QComboBox" name="m_print_anchor_horizontal_cb">
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>Left</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Center</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Right</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="11" column="2">
+       <widget class="QComboBox" name="m_print_anchor_vertical_cb">
+        <property name="currentIndex">
+         <number>2</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>Top</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Center</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Bottom</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="12" column="1">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>

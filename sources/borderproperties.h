@@ -72,5 +72,12 @@ class BorderProperties {
 	// Column header spacers
 	bool enable_column_header_spacers;      ///< Whether to show spacer columns before first and after last column
 	qreal column_header_spacer_percentage;  ///< Percentage of total width each spacer column should take (0-100)
+	
+	// Printer margin (in millimeters) - uniform margin for all sides
+	qreal printer_margin;  ///< Margin for printing/export (mm), applied uniformly to all sides
+	
+	// Print anchor (content positioning when fitting to page)
+	int print_anchor_horizontal;  ///< Horizontal anchor: 0=Left, 1=Center, 2=Right
+	int print_anchor_vertical;   ///< Vertical anchor: 0=Top, 1=Center, 2=Bottom
 };
 #endif
