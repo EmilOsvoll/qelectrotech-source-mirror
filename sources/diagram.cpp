@@ -188,38 +188,164 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 	// Only draw gray background outside paper area in editor view (not when printing/exporting)
 	QPaintDevice *device = p->device();
 	if (!device || !dynamic_cast<QPrinter *>(device)) {
-		// Get border properties to access margins
+		// Get border properties to access margins and anchors
 		BorderProperties bp = border_and_titleblock.exportBorder();
 		
-		// Convert margin from millimeters to pixels (assuming 96 DPI: 1 mm = 96/25.4 pixels ≈ 3.779 pixels)
-		const qreal mm_to_px = 96.0 / 25.4;
-		qreal margin_px = bp.printer_margin * mm_to_px;
-		
-		QRectF paper_rect;
+		// Get diagram content rectangle (what will be printed)
+		QRectF content_rect;
 		Diagram *diagram = qobject_cast<Diagram *>(border_and_titleblock.parent());
 		if (diagram && diagram->isTitlePage()) {
-			// For title pages, account for the custom title page band that extends beyond the border
+			// For title pages, use outsideBorderRect (the base border without title block)
+			// The custom title page band extends beyond this, but we'll account for that
 			QRectF base_rect = border_and_titleblock.outsideBorderRect();
-			qreal page_width = base_rect.width();
-			qreal page_height = base_rect.height();
 			qreal band_extension = border_and_titleblock.rowsHeaderWidth();
-			
-			paper_rect = QRectF(
-				base_rect.x() - band_extension - margin_px,
-				base_rect.y() - margin_px,
-				page_width + (2 * band_extension) + (2 * margin_px),
-				page_height + (2 * margin_px)
+			content_rect = QRectF(
+				base_rect.x() - band_extension,
+				base_rect.y(),
+				base_rect.width() + (2 * band_extension),
+				base_rect.height()
 			);
 		} else {
 			// For regular folios, use borderAndTitleBlockRect which includes the title block
-			QRectF base_rect = border_and_titleblock.borderAndTitleBlockRect();
-			paper_rect = QRectF(
-				base_rect.x() - margin_px,
-				base_rect.y() - margin_px,
-				base_rect.width() + (2 * margin_px),
-				base_rect.height() + (2 * margin_px)
-			);
+			content_rect = border_and_titleblock.borderAndTitleBlockRect();
 		}
+		
+		// Get paper size (default to A3 landscape for PDF exports, which matches the print preview)
+		// A3 landscape: 420mm x 297mm (aspect ratio ≈ 1.414)
+		QSizeF paper_size_mm(420.0, 297.0); // A3 landscape in millimeters
+		
+		// Check if there's a saved paper size preference
+		QSettings settings;
+		if (settings.contains("papersize")) {
+			int paper_size_enum = settings.value("papersize").toInt();
+			// QPrinter::A4 = 0, QPrinter::A3 = 4
+			if (paper_size_enum == 0) { // QPrinter::A4
+				paper_size_mm = QSizeF(297.0, 210.0); // A4 landscape
+			} else if (paper_size_enum == 4) { // QPrinter::A3
+				paper_size_mm = QSizeF(420.0, 297.0); // A3 landscape
+			} else if (paper_size_enum == 11 && settings.contains("customwidthmm") && settings.contains("customheightmm")) {
+				// QPrinter::Custom = 11 - Custom paper size
+				paper_size_mm = QSizeF(
+					settings.value("customwidthmm").toDouble(),
+					settings.value("customheightmm").toDouble()
+				);
+			}
+			// Check orientation (stored as string: "landscape" or "portrait")
+			if (settings.contains("orientation")) {
+				QString orientation = settings.value("orientation", "landscape").toString();
+				if (orientation == "portrait") {
+					// Portrait orientation - swap width and height
+					qreal temp = paper_size_mm.width();
+					paper_size_mm.setWidth(paper_size_mm.height());
+					paper_size_mm.setHeight(temp);
+				}
+			}
+		}
+		
+		// Convert paper size from millimeters to pixels (using 96 DPI for screen: 1 mm = 96/25.4 pixels)
+		// PDF export uses points (72 DPI), but for screen preview we use pixels (96 DPI)
+		const qreal mm_to_px = 96.0 / 25.4;
+		qreal base_paper_width_px = paper_size_mm.width() * mm_to_px;
+		qreal base_paper_height_px = paper_size_mm.height() * mm_to_px;
+		qreal paper_aspect = base_paper_width_px / base_paper_height_px;
+		
+		// Convert margin from millimeters to pixels (same conversion as paper)
+		// printer_margin is the total margin (left + right), so divide by 2 for each side
+		qreal margin_px = (bp.printer_margin / 2.0) * mm_to_px;
+		
+		// Calculate paper size maintaining aspect ratio, scaled to fit content with margins
+		// We need: paper_size - 2*margin >= content_size (to fit content)
+		// So: paper_size >= content_size + 2*margin
+		// Scale paper maintaining aspect ratio to be large enough
+		qreal min_paper_width = content_rect.width() + (2 * margin_px);
+		qreal min_paper_height = content_rect.height() + (2 * margin_px);
+		
+		qreal paper_width_px, paper_height_px;
+		if (min_paper_width / min_paper_height > paper_aspect) {
+			// Content aspect ratio is wider than paper - fit to width
+			paper_width_px = min_paper_width;
+			paper_height_px = paper_width_px / paper_aspect;
+			if (paper_height_px < min_paper_height) {
+				paper_height_px = min_paper_height;
+				paper_width_px = paper_height_px * paper_aspect;
+			}
+		} else {
+			// Content aspect ratio is taller than paper - fit to height
+			paper_height_px = min_paper_height;
+			paper_width_px = paper_height_px * paper_aspect;
+			if (paper_width_px < min_paper_width) {
+				paper_width_px = min_paper_width;
+				paper_height_px = paper_width_px / paper_aspect;
+			}
+		}
+		
+		// Calculate paper rectangle (like PDF export: paperRect() gives full paper size)
+		// Paper is positioned at (0, 0) initially, we'll position it later
+		QRectF paper_rect(0, 0, paper_width_px, paper_height_px);
+		
+		qDebug() << "[Diagram::drawBackground] Paper preview calculation:";
+		qDebug() << "  printer_margin (mm):" << bp.printer_margin;
+		qDebug() << "  margin_px:" << margin_px << "pixels";
+		qDebug() << "  mm_to_px conversion:" << mm_to_px << "(96 DPI)";
+		qDebug() << "  Expected: 10mm = 37.8px, 5mm = 18.9px";
+		qDebug() << "  content_rect:" << content_rect;
+		qDebug() << "  paper_rect (before positioning):" << paper_rect;
+		
+		// Apply margins to get available rect (like PDF export does)
+		// This matches: available_rect = printer->paperRect(); available_rect.adjust(margin_pt, margin_pt, -margin_pt, -margin_pt);
+		QRectF available_rect = paper_rect;
+		if (margin_px > 0.0) {
+			available_rect.adjust(margin_px, margin_px, -margin_px, -margin_px);
+		}
+		
+		// Scale content to fit available rect (maintaining aspect ratio)
+		// This matches: scale = qMin(scale_x, scale_y) where scale_x/y = available_rect.size() / diagram_rect.size()
+		qreal scale_x = available_rect.width() / content_rect.width();
+		qreal scale_y = available_rect.height() / content_rect.height();
+		qreal scale = qMin(scale_x, scale_y);
+		QSizeF scaled_content_size(
+			content_rect.width() * scale,
+			content_rect.height() * scale
+		);
+		
+		// Calculate anchored position within available rect (matching PDF export logic exactly)
+		int h_anchor = bp.print_anchor_horizontal;
+		int v_anchor = bp.print_anchor_vertical;
+		
+		qreal anchored_x = available_rect.left();
+		if (h_anchor == 1) { // Center
+			anchored_x = available_rect.left() + (available_rect.width() - scaled_content_size.width()) / 2.0;
+		} else if (h_anchor == 2) { // Right
+			anchored_x = available_rect.right() - scaled_content_size.width();
+		}
+		
+		qreal anchored_y = available_rect.top();
+		if (v_anchor == 1) { // Center
+			anchored_y = available_rect.top() + (available_rect.height() - scaled_content_size.height()) / 2.0;
+		} else if (v_anchor == 2) { // Bottom
+			anchored_y = available_rect.bottom() - scaled_content_size.height();
+		}
+		
+		// Position paper_rect so that content_rect aligns with where the scaled/anchored content would be
+		// anchored_x and anchored_y are absolute positions relative to paper_rect
+		// (since available_rect.left() = margin_px and available_rect.top() = margin_px)
+		// We position paper_rect such that: content_rect.topLeft() - paper_rect.topLeft() = (anchored_x, anchored_y)
+		// Therefore: paper_rect.topLeft() = content_rect.topLeft() - QPointF(anchored_x, anchored_y)
+		paper_rect.moveTopLeft(
+			content_rect.topLeft() - QPointF(anchored_x, anchored_y)
+		);
+		
+		qDebug() << "  paper_rect (after positioning):" << paper_rect;
+		qDebug() << "  available_rect:" << available_rect;
+		qDebug() << "  anchored_x:" << anchored_x << "anchored_y:" << anchored_y;
+		qDebug() << "  scaled_content_size:" << scaled_content_size;
+		// Visual margin is the space between paper edge and scaled content edge
+		// Scaled content starts at: paper_rect.left() + anchored_x
+		// Visual margin left = scaled_content_start - paper_left = anchored_x
+		// Visual margin right = paper_right - scaled_content_right = (paper_rect.width() - anchored_x - scaled_content_size.width())
+		qreal scaled_content_left = paper_rect.left() + anchored_x;
+		qreal scaled_content_right = scaled_content_left + scaled_content_size.width();
+		qDebug() << "  Visual margin check - left:" << anchored_x << "right:" << (paper_rect.right() - scaled_content_right);
 		
 		// Use a standard light gray color for the viewport background (outside paper area)
 		// This matches the typical Qt widget background color
@@ -322,74 +448,10 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 	\~French Le rectangle de la zone a dessiner
 */
 void Diagram::drawForeground(QPainter *p, const QRectF &r) {
+	Q_UNUSED(p);
 	Q_UNUSED(r);
-	
-	if (!use_border_) {
-		return;
-	}
-	
-	// Draw paper edge preview (thin gray border showing where the paper edge will be when printed)
-	// Only draw in editor view, not when exporting to PDF or printing
-	QPaintDevice *device = p->device();
-	if (!device || !dynamic_cast<QPrinter *>(device)) {
-		p->save();
-		QRectF paper_rect;
-		
-		// Get border properties to access margins
-		BorderProperties bp = border_and_titleblock.exportBorder();
-		qDebug() << "[Diagram::drawForeground] Border properties printer_margin:" << bp.printer_margin;
-		
-		// Convert margin from millimeters to pixels (assuming 96 DPI: 1 mm = 96/25.4 pixels ≈ 3.779 pixels)
-		const qreal mm_to_px = 96.0 / 25.4;
-		qreal margin_px = bp.printer_margin * mm_to_px;
-		qDebug() << "[Diagram::drawForeground] Margin in pixels:" << margin_px << "from margin in mm:" << bp.printer_margin;
-		
-		// For title pages, we need to account for the custom title page band that extends beyond the border
-		Diagram *diagram = qobject_cast<Diagram *>(border_and_titleblock.parent());
-		if (diagram && diagram->isTitlePage()) {
-			// Get the base border rectangle
-			QRectF base_rect = border_and_titleblock.outsideBorderRect();
-			qreal page_width = base_rect.width();
-			qreal page_height = base_rect.height();
-			
-			// Calculate the band dimensions (same as in renderTitlePageContent)
-			qreal base_band_height = page_height * 0.15;
-			qreal band_height = base_band_height + 2 * border_and_titleblock.columnsHeaderHeight();
-			
-			// The band extends beyond the border by rows_header_width_ on each side
-			qreal band_extension = border_and_titleblock.rowsHeaderWidth();
-			
-			// Calculate the full paper rectangle including the extended band and margins
-			paper_rect = QRectF(
-				base_rect.x() - band_extension - margin_px,
-				base_rect.y() - margin_px,
-				page_width + (2 * band_extension) + (2 * margin_px),
-				page_height + (2 * margin_px)
-			);
-		} else {
-			// For regular folios, use borderAndTitleBlockRect which includes the title block
-			QRectF base_rect = border_and_titleblock.borderAndTitleBlockRect();
-			
-			// Apply margins to expand the paper rectangle outward
-			paper_rect = QRectF(
-				base_rect.x() - margin_px,
-				base_rect.y() - margin_px,
-				base_rect.width() + (2 * margin_px),
-				base_rect.height() + (2 * margin_px)
-			);
-		}
-		
-		qDebug() << "[Diagram::drawForeground] Paper rect calculated:" << paper_rect;
-		
-		QPen paperEdgePen(QColor(128, 128, 128, 180)); // Light gray with some transparency
-		paperEdgePen.setWidthF(1.0);
-		paperEdgePen.setStyle(Qt::DashLine);
-		paperEdgePen.setCosmetic(true); // Make it scale-independent
-		p->setPen(paperEdgePen);
-		p->setBrush(Qt::NoBrush);
-		p->drawRect(paper_rect);
-		p->restore();
-	}
+	// The dashed border around the workarea has been removed.
+	// The contrast between white paper area and gray background provides sufficient visual separation.
 }
 
 /**
