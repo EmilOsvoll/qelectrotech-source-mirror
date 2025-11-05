@@ -210,86 +210,32 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 			content_rect = border_and_titleblock.borderAndTitleBlockRect();
 		}
 		
-		// Get paper size (default to A3 landscape for PDF exports, which matches the print preview)
-		// A3 landscape: 420mm x 297mm (aspect ratio ≈ 1.414)
+		// For workarea preview, use A3 landscape (420 x 297 mm) to match PDF export
 		QSizeF paper_size_mm(420.0, 297.0); // A3 landscape in millimeters
-		
-		// Check if there's a saved paper size preference
-		QSettings settings;
-		if (settings.contains("papersize")) {
-			int paper_size_enum = settings.value("papersize").toInt();
-			// QPrinter::A4 = 0, QPrinter::A3 = 4
-			if (paper_size_enum == 0) { // QPrinter::A4
-				paper_size_mm = QSizeF(297.0, 210.0); // A4 landscape
-			} else if (paper_size_enum == 4) { // QPrinter::A3
-				paper_size_mm = QSizeF(420.0, 297.0); // A3 landscape
-			} else if (paper_size_enum == 11 && settings.contains("customwidthmm") && settings.contains("customheightmm")) {
-				// QPrinter::Custom = 11 - Custom paper size
-				paper_size_mm = QSizeF(
-					settings.value("customwidthmm").toDouble(),
-					settings.value("customheightmm").toDouble()
-				);
-			}
-			// Check orientation (stored as string: "landscape" or "portrait")
-			if (settings.contains("orientation")) {
-				QString orientation = settings.value("orientation", "landscape").toString();
-				if (orientation == "portrait") {
-					// Portrait orientation - swap width and height
-					qreal temp = paper_size_mm.width();
-					paper_size_mm.setWidth(paper_size_mm.height());
-					paper_size_mm.setHeight(temp);
-				}
-			}
-		}
 		
 		// Convert paper size from millimeters to pixels (using 96 DPI for screen: 1 mm = 96/25.4 pixels)
 		// PDF export uses points (72 DPI), but for screen preview we use pixels (96 DPI)
 		const qreal mm_to_px = 96.0 / 25.4;
-		qreal base_paper_width_px = paper_size_mm.width() * mm_to_px;
-		qreal base_paper_height_px = paper_size_mm.height() * mm_to_px;
-		qreal paper_aspect = base_paper_width_px / base_paper_height_px;
+		
+		// Use exact paper dimensions (A3 = 420 x 297 mm for landscape)
+		// Don't scale paper to fit content - use fixed dimensions like PDF export does
+		qreal paper_width_px = paper_size_mm.width() * mm_to_px;
+		qreal paper_height_px = paper_size_mm.height() * mm_to_px;
+		
+		// Paper always starts at (0, 0) - top-left corner of the scene
+		QRectF paper_rect(0, 0, paper_width_px, paper_height_px);
 		
 		// Convert margin from millimeters to pixels (same conversion as paper)
-		// printer_margin is the total margin (left + right), so divide by 2 for each side
-		qreal margin_px = (bp.printer_margin / 2.0) * mm_to_px;
-		
-		// Calculate paper size maintaining aspect ratio, scaled to fit content with margins
-		// We need: paper_size - 2*margin >= content_size (to fit content)
-		// So: paper_size >= content_size + 2*margin
-		// Scale paper maintaining aspect ratio to be large enough
-		qreal min_paper_width = content_rect.width() + (2 * margin_px);
-		qreal min_paper_height = content_rect.height() + (2 * margin_px);
-		
-		qreal paper_width_px, paper_height_px;
-		if (min_paper_width / min_paper_height > paper_aspect) {
-			// Content aspect ratio is wider than paper - fit to width
-			paper_width_px = min_paper_width;
-			paper_height_px = paper_width_px / paper_aspect;
-			if (paper_height_px < min_paper_height) {
-				paper_height_px = min_paper_height;
-				paper_width_px = paper_height_px * paper_aspect;
-			}
-		} else {
-			// Content aspect ratio is taller than paper - fit to height
-			paper_height_px = min_paper_height;
-			paper_width_px = paper_height_px * paper_aspect;
-			if (paper_width_px < min_paper_width) {
-				paper_width_px = min_paper_width;
-				paper_height_px = paper_width_px / paper_aspect;
-			}
-		}
-		
-		// Calculate paper rectangle (like PDF export: paperRect() gives full paper size)
-		// Paper is positioned at (0, 0) initially, we'll position it later
-		QRectF paper_rect(0, 0, paper_width_px, paper_height_px);
+		// Now using same paper size as PDF export, so use full margin value
+		qreal margin_px = bp.printer_margin * mm_to_px;
 		
 		qDebug() << "[Diagram::drawBackground] Paper preview calculation:";
 		qDebug() << "  printer_margin (mm):" << bp.printer_margin;
 		qDebug() << "  margin_px:" << margin_px << "pixels";
 		qDebug() << "  mm_to_px conversion:" << mm_to_px << "(96 DPI)";
-		qDebug() << "  Expected: 10mm = 37.8px, 5mm = 18.9px";
+		qDebug() << "  Expected: 10mm = 37.8px";
 		qDebug() << "  content_rect:" << content_rect;
-		qDebug() << "  paper_rect (before positioning):" << paper_rect;
+		qDebug() << "  paper_rect (at origin):" << paper_rect;
 		
 		// Apply margins to get available rect (like PDF export does)
 		// This matches: available_rect = printer->paperRect(); available_rect.adjust(margin_pt, margin_pt, -margin_pt, -margin_pt);
@@ -326,19 +272,22 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 			anchored_y = available_rect.bottom() - scaled_content_size.height();
 		}
 		
-		// Position paper_rect so that content_rect aligns with where the scaled/anchored content would be
-		// anchored_x and anchored_y are absolute positions relative to paper_rect
-		// (since available_rect.left() = margin_px and available_rect.top() = margin_px)
-		// We position paper_rect such that: content_rect.topLeft() - paper_rect.topLeft() = (anchored_x, anchored_y)
-		// Therefore: paper_rect.topLeft() = content_rect.topLeft() - QPointF(anchored_x, anchored_y)
-		paper_rect.moveTopLeft(
-			content_rect.topLeft() - QPointF(anchored_x, anchored_y)
-		);
+		// Paper is fixed at (0, 0). Content is drawn at content_rect.topLeft() in scene coordinates.
+		// We want content to appear at (anchored_x, anchored_y) relative to paper.
+		// Currently content appears at content_rect.topLeft() relative to paper (since paper is at 0,0).
+		// The difference is: offset = (anchored_x, anchored_y) - content_rect.topLeft()
+		// We need to adjust the scene rect or apply a transform to shift content by this offset.
+		// For now, paper stays at (0, 0) and we'll need to handle content positioning separately.
 		
-		qDebug() << "  paper_rect (after positioning):" << paper_rect;
+		qDebug() << "  Paper stays at (0, 0)";
+		qDebug() << "  Content currently at:" << content_rect.topLeft() / mm_to_px << "mm from scene origin";
+		qDebug() << "  Content should be at:" << QPointF(anchored_x, anchored_y) / mm_to_px << "mm from scene origin";
+		qDebug() << "  Offset needed:" << (QPointF(anchored_x, anchored_y) - content_rect.topLeft()) / mm_to_px << "mm";
 		qDebug() << "  available_rect:" << available_rect;
 		qDebug() << "  anchored_x:" << anchored_x << "anchored_y:" << anchored_y;
 		qDebug() << "  scaled_content_size:" << scaled_content_size;
+		qDebug() << "  content_rect.topLeft():" << content_rect.topLeft();
+		qDebug() << "  Calculated paper position:" << (content_rect.topLeft() - QPointF(anchored_x, anchored_y));
 		// Visual margin is the space between paper edge and scaled content edge
 		// Scaled content starts at: paper_rect.left() + anchored_x
 		// Visual margin left = scaled_content_start - paper_left = anchored_x
@@ -346,6 +295,8 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 		qreal scaled_content_left = paper_rect.left() + anchored_x;
 		qreal scaled_content_right = scaled_content_left + scaled_content_size.width();
 		qDebug() << "  Visual margin check - left:" << anchored_x << "right:" << (paper_rect.right() - scaled_content_right);
+		qDebug() << "  Content top-left in mm (from paper origin):" << (content_rect.topLeft() - paper_rect.topLeft()) / mm_to_px;
+		qDebug() << "  Content top-left in mm (from scene origin):" << content_rect.topLeft() / mm_to_px;
 		
 		// Use a standard light gray color for the viewport background (outside paper area)
 		// This matches the typical Qt widget background color
@@ -359,6 +310,29 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 		// Draw white (or user-selected background color) for the paper area
 		p -> setBrush(Diagram::background_color);
 		p -> drawRect(paper_rect.intersected(r));
+		
+		// Apply transform to scale and position content at anchored position relative to paper
+		// The anchored positions (anchored_x, anchored_y) are calculated for scaled content
+		// We need to scale the content first, then position it correctly
+		QPointF content_top_left = content_rect.topLeft();
+		
+		// Step 1: Scale content around its top-left corner
+		p -> translate(content_top_left);
+		p -> scale(scale, scale);
+		p -> translate(-content_top_left);
+		
+		// Step 2: After scaling around top-left, the top-left stays at content_top_left in scene coords
+		// We want the scaled content's top-left to appear at (anchored_x, anchored_y) relative to paper
+		// So we translate by (anchored_x - content_top_left.x, anchored_y - content_top_left.y)
+		QPointF content_offset = QPointF(anchored_x, anchored_y) - content_top_left;
+		
+		// Debug: log the offset to help diagnose
+		qDebug() << "  Content offset:" << content_offset / mm_to_px << "mm";
+		qDebug() << "  Scale factor:" << scale;
+		qDebug() << "  Content rect top-left:" << content_top_left / mm_to_px << "mm";
+		qDebug() << "  Anchored position:" << QPointF(anchored_x, anchored_y) / mm_to_px << "mm";
+		
+		p -> translate(content_offset);
 	} else {
 		// When printing/exporting, just draw the normal background
 		p -> setPen(Qt::NoPen);
@@ -2501,12 +2475,64 @@ void Diagram::adjustSceneRect()
 		content_rect = border_and_titleblock.borderAndTitleBlockRect();
 	}
 	
+	// Calculate where content should appear relative to paper (which is at 0,0)
+	// This matches the calculation in drawBackground()
+	BorderProperties bp = border_and_titleblock.exportBorder();
+	
+	// For workarea preview, use A3 landscape (420 x 297 mm) to match PDF export
+	QSizeF paper_size_mm(420.0, 297.0); // A3 landscape in millimeters
+	const qreal mm_to_px = 96.0 / 25.4;
+	
+	qreal paper_width_px = paper_size_mm.width() * mm_to_px;
+	qreal paper_height_px = paper_size_mm.height() * mm_to_px;
+	QRectF paper_rect(0, 0, paper_width_px, paper_height_px);
+	
+	// Convert margin from millimeters to pixels (same as PDF export)
+	qreal margin_px = bp.printer_margin * mm_to_px;
+	
+	// Apply margins to get available rect
+	QRectF available_rect = paper_rect;
+	if (margin_px > 0.0) {
+		available_rect.adjust(margin_px, margin_px, -margin_px, -margin_px);
+	}
+	
+	// Scale content to fit available rect (maintaining aspect ratio)
+	qreal scale_x = available_rect.width() / content_rect.width();
+	qreal scale_y = available_rect.height() / content_rect.height();
+	qreal scale = qMin(scale_x, scale_y);
+	QSizeF scaled_content_size(
+		content_rect.width() * scale,
+		content_rect.height() * scale
+	);
+	
+	// Calculate anchored position within available rect
+	int h_anchor = bp.print_anchor_horizontal;
+	int v_anchor = bp.print_anchor_vertical;
+	
+	qreal anchored_x = available_rect.left();
+	if (h_anchor == 1) { // Center
+		anchored_x = available_rect.left() + (available_rect.width() - scaled_content_size.width()) / 2.0;
+	} else if (h_anchor == 2) { // Right
+		anchored_x = available_rect.right() - scaled_content_size.width();
+	}
+	
+	qreal anchored_y = available_rect.top();
+	if (v_anchor == 1) { // Center
+		anchored_y = available_rect.top() + (available_rect.height() - scaled_content_size.height()) / 2.0;
+	} else if (v_anchor == 2) { // Bottom
+		anchored_y = available_rect.bottom() - scaled_content_size.height();
+	}
+	
+	// Scene rect should include both paper (at 0,0) and the content at its natural position
+	// The transform in drawBackground() will visually position the content at the anchored position
+	QRectF final_scene_rect = content_rect.united(paper_rect);
+	
 	// Add padding around the content for better visual spacing in the view
 	// This creates breathing room between the folio content and the view edges
 	qreal padding = Diagram::margin * 5.0;  // 50 pixels of padding for better visual spacing
-	content_rect.adjust(-padding, -padding, padding, padding);
+	final_scene_rect.adjust(-padding, -padding, padding, padding);
 	
-	setSceneRect(content_rect);
+	setSceneRect(final_scene_rect);
 	
 	// Apply canvas scale transform to items when border/scale changes
 	applyCanvasScaleToItems();
