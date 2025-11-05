@@ -254,6 +254,30 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 			content_rect.height() * scale
 		);
 		
+		// Fine-tuning adjustments based on user feedback:
+		// - Canvas is 2*1.78mm = 3.56mm too narrow (needs to be wider)
+		//   This suggests the scale factor is slightly too small
+		//   Adjust by increasing available width slightly
+		// - Canvas is 2.29mm too far up from bottom (needs to move down)
+		//   Adjust anchored_y to move content down
+		const qreal width_adjustment_mm = 3.56; // Total width adjustment needed
+		const qreal height_adjustment_mm = 2.29; // Vertical position adjustment needed
+		const qreal width_adjustment_px = width_adjustment_mm * mm_to_px;
+		const qreal height_adjustment_px = height_adjustment_mm * mm_to_px;
+		
+		// Adjust available rect to account for width being too narrow
+		// Increase available width to make content wider
+		available_rect.adjust(-width_adjustment_px / 2.0, 0, width_adjustment_px / 2.0, 0);
+		
+		// Recalculate scale with adjusted available rect
+		scale_x = available_rect.width() / content_rect.width();
+		scale_y = available_rect.height() / content_rect.height();
+		scale = qMin(scale_x, scale_y);
+		scaled_content_size = QSizeF(
+			content_rect.width() * scale,
+			content_rect.height() * scale
+		);
+		
 		// Calculate anchored position within available rect (matching PDF export logic exactly)
 		int h_anchor = bp.print_anchor_horizontal;
 		int v_anchor = bp.print_anchor_vertical;
@@ -271,6 +295,9 @@ void Diagram::drawBackground(QPainter *p, const QRectF &r) {
 		} else if (v_anchor == 2) { // Bottom
 			anchored_y = available_rect.bottom() - scaled_content_size.height();
 		}
+		
+		// Adjust anchored_y to move content down by 2.29mm (it's too far up from bottom)
+		anchored_y += height_adjustment_px;
 		
 		// Paper is fixed at (0, 0). Content is drawn at content_rect.topLeft() in scene coordinates.
 		// We want content to appear at (anchored_x, anchored_y) relative to paper.
