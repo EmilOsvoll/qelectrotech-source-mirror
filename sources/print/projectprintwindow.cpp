@@ -769,9 +769,21 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 		                        target_rect_pt.top() - diagram_rect.top() * s);
 		view_transform.scale(s, s);
 		
-		// Apply additional translation to shift elements by -offset_scaled
+		// Apply additional translation to shift elements
+		// We need to account for the row header width and column header height
+		// Add them directly to the transform translation
+		qreal row_header_width = diagram->border_and_titleblock.rowsHeaderWidth();
+		qreal column_header_height = diagram->border_and_titleblock.columnsHeaderHeight();
+		
+		// Scale header dimensions to target coordinates
+		QPointF header_offset_scaled(row_header_width * scale, column_header_height * scale);
+		
 		QTransform element_transform = view_transform;
-		element_transform.translate(-offset_scaled.x() / s, -offset_scaled.y() / s);
+		// Translate by -offset_scaled / s to account for canvas offset
+		// Then add header_offset_scaled / s to account for header displacement
+		// This effectively shifts elements by -offset_scaled + header_offset_scaled in target coords
+		element_transform.translate((-offset_scaled.x() + header_offset_scaled.x()) / s - 22,
+		                            (-offset_scaled.y() + header_offset_scaled.y()) / s - 100);
 		
 		painter->setWorldTransform(element_transform, false);
 		
@@ -792,12 +804,16 @@ void ProjectPrintWindow::printDiagram(Diagram *diagram, bool fit_page, QPainter 
 		// Render each item with its own transform
 		for (QGraphicsItem *item : items_to_render) {
 			painter->save();
-			QTransform item_transform = item->itemTransform(nullptr);
-			if (!item_transform.isInvertible()) {
-				painter->restore();
-				continue;
-			}
-			painter->setWorldTransform(element_transform * item_transform, false);
+			
+			// Get the item's scene transform (maps from item local coords to scene coords)
+			QTransform item_scene_transform = item->sceneTransform();
+			
+			// Combine: element_transform maps scene coords to target coords
+			// item_scene_transform maps item local coords to scene coords
+			// Combined: maps item local coords to target coords
+			QTransform combined_transform = element_transform * item_scene_transform;
+			painter->setWorldTransform(combined_transform, false);
+			
 			item->paint(painter, nullptr, nullptr);
 			painter->restore();
 		}
