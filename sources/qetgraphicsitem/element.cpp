@@ -38,6 +38,7 @@
 #include "qgraphicsitemutility.h"
 
 #include <QDomElement>
+#include <QPainterPath>
 #include <QPrinter>
 #include <utility>
 
@@ -262,11 +263,14 @@ QRectF Element::boundingRect() const
 			  dimensions));
 }
 
+
 /**
 	@brief Element::setSize
 	Define the size of the element.
 	The size must be a multiple of 10.
 	If not, the dimensions indicated will be arrrondies to higher tens.
+	The dimensions are scaled by BASE_SCALE_FACTOR to match the visual size of the element picture,
+	ensuring the clickable/draggable area matches the visual element size.
 	@param wid
 	@param hei
 */
@@ -276,7 +280,11 @@ void Element::setSize(int wid, int hei)
 
 	while (wid % 10) ++ wid;
 	while (hei % 10) ++ hei;
-	dimensions = QSize(wid, hei);
+	
+	// Scale dimensions by BASE_SCALE_FACTOR to match the visual size of the element picture
+	// The element picture is built with BASE_SCALE_FACTOR, so we need to scale dimensions accordingly
+	const qreal BASE_SCALE_FACTOR = (100.0 * 5.0) / 92.35;
+	dimensions = QSize(qRound(wid * BASE_SCALE_FACTOR), qRound(hei * BASE_SCALE_FACTOR));
 }
 
 /**
@@ -290,6 +298,8 @@ QSize Element::size() const
 /**
 	Definit le hotspot de l'element par rapport au coin superieur gauche de son rectangle delimitant.
 	Necessite que la taille ait deja ete definie
+	The hotspot is scaled by BASE_SCALE_FACTOR to match the scaled dimensions,
+	ensuring the relative position within the element is maintained.
 	@param hs Coordonnees du hotspot
 */
 QPoint Element::setHotspot(QPoint hs)
@@ -298,9 +308,13 @@ QPoint Element::setHotspot(QPoint hs)
 	prepareGeometryChange();
 	if (dimensions.isNull()) hotspot_coord = QPoint(0, 0);
 	else {
+		// Scale hotspot by BASE_SCALE_FACTOR to match scaled dimensions
+		const qreal BASE_SCALE_FACTOR = (100.0 * 5.0) / 92.35;
+		int hsx = qRound(hs.x() * BASE_SCALE_FACTOR);
+		int hsy = qRound(hs.y() * BASE_SCALE_FACTOR);
 		// les coordonnees indiquees ne doivent pas depasser les dimensions de l'element
-		int hsx = qMin(hs.x(), dimensions.width());
-		int hsy = qMin(hs.y(), dimensions.height());
+		hsx = qMin(hsx, dimensions.width());
+		hsy = qMin(hsy, dimensions.height());
 		hotspot_coord = QPoint(hsx, hsy);
 	}
 	return(hotspot_coord);
