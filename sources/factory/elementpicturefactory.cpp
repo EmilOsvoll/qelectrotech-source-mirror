@@ -523,7 +523,15 @@ void ElementPictureFactory::parseText(const QDomElement &dom, QPainter &painter,
 	text_document.setDefaultFont(font_);
 	text_document.setPlainText(dom.attribute("text"));
 
+	// Preserve the BASE_SCALE_FACTOR scale that was applied to the painter
+	// Get the current transform to extract the scale
+	QTransform current_transform = painter.transform();
+	qreal scale_x = current_transform.m11(); // Extract scale from transform
+	qreal scale_y = current_transform.m22();
+	
+	// Reset transform and reapply scale, then apply translation and rotation
 	painter.setTransform(QTransform(), false);
+	painter.scale(scale_x, scale_y); // Reapply the scale
 	painter.translate(dom.attribute("x").toDouble(), dom.attribute("y").toDouble());
 	painter.rotate(dom.attribute("rotation", "0").toDouble());
 

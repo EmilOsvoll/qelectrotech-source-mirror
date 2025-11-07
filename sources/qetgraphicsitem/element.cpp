@@ -42,6 +42,49 @@
 #include <QPrinter>
 #include <utility>
 
+// Base scale factor used to scale element dimensions and coordinates to match visual size
+static const qreal BASE_SCALE_FACTOR = (100.0 * 5.0) / 92.35;
+
+/**
+ * @brief applyTextScaleTransform
+ * Apply scale transform to text item to match element's visual scaling
+ * @param text_item The text item to scale
+ */
+static void applyTextScaleTransform(DynamicElementTextItem *text_item)
+{
+	if (!text_item) return;
+	
+	// Get current transform
+	QTransform current_transform = text_item->transform();
+	
+	// Create scale transform from origin (0, 0)
+	QTransform scale_transform;
+	scale_transform.scale(BASE_SCALE_FACTOR, BASE_SCALE_FACTOR);
+	
+	// Combine with existing transform (preserves rotation, etc.)
+	text_item->setTransform(scale_transform * current_transform, false);
+}
+
+/**
+ * @brief applyGroupScaleTransform
+ * Apply scale transform to text group to match element's visual scaling
+ * @param group The text group to scale
+ */
+static void applyGroupScaleTransform(ElementTextItemGroup *group)
+{
+	if (!group) return;
+	
+	// Get current transform
+	QTransform current_transform = group->transform();
+	
+	// Create scale transform from origin (0, 0)
+	QTransform scale_transform;
+	scale_transform.scale(BASE_SCALE_FACTOR, BASE_SCALE_FACTOR);
+	
+	// Combine with existing transform (preserves rotation, etc.)
+	group->setTransform(scale_transform * current_transform, false);
+}
+
 class ElementXmlRetroCompatibility
 {
 	friend class Element;
@@ -283,7 +326,6 @@ void Element::setSize(int wid, int hei)
 	
 	// Scale dimensions by BASE_SCALE_FACTOR to match the visual size of the element picture
 	// The element picture is built with BASE_SCALE_FACTOR, so we need to scale dimensions accordingly
-	const qreal BASE_SCALE_FACTOR = (100.0 * 5.0) / 92.35;
 	dimensions = QSize(qRound(wid * BASE_SCALE_FACTOR), qRound(hei * BASE_SCALE_FACTOR));
 }
 
@@ -309,7 +351,6 @@ QPoint Element::setHotspot(QPoint hs)
 	if (dimensions.isNull()) hotspot_coord = QPoint(0, 0);
 	else {
 		// Scale hotspot by BASE_SCALE_FACTOR to match scaled dimensions
-		const qreal BASE_SCALE_FACTOR = (100.0 * 5.0) / 92.35;
 		int hsx = qRound(hs.x() * BASE_SCALE_FACTOR);
 		int hsy = qRound(hs.y() * BASE_SCALE_FACTOR);
 		// les coordonnees indiquees ne doivent pas depasser les dimensions de l'element
@@ -607,8 +648,12 @@ bool Element::parseInput(const QDomElement &dom_element)
 										QString::number(0)).toDouble(),
 				  dom_element.attribute(QStringLiteral("y"),
 										QString::number(0)).toDouble());
+		// Scale text position by BASE_SCALE_FACTOR to match scaled element dimensions
+		p *= BASE_SCALE_FACTOR;
 		transform.translate(p.x(), p.y());
 		deti->setPos(transform.map(pos));
+		// Apply scale transform to match element's visual scaling
+		applyTextScaleTransform(deti);
 		m_dynamic_text_list.append(deti);
 		return true;
 	}
@@ -631,6 +676,10 @@ DynamicElementTextItem *Element::parseDynamicText(
 	QDomElement dom(dom_element.cloneNode(true).toElement());
 	dom.setTagName(DynamicElementTextItem::xmlTagName());
 	deti->fromXml(dom);
+	// Scale text position by BASE_SCALE_FACTOR to match scaled element dimensions
+	QPointF text_pos = deti->pos();
+	deti->setPos(text_pos * BASE_SCALE_FACTOR);
+	// Note: applyTextScaleTransform will be called by addDynamicTextItem
 	deti->m_uuid = QUuid::createUuid();
 	this->addDynamicTextItem(deti);
 	return deti;
@@ -812,8 +861,11 @@ bool Element::fromXml(QDomElement &e,
 			 DynamicElementTextItem::xmlTagName()))
 	{
 		DynamicElementTextItem *deti = new DynamicElementTextItem(this);
-		addDynamicTextItem(deti);
 		deti->fromXml(qde);
+		// Note: Text positions loaded from project files are already in scaled coordinates
+		// (they were scaled when the element was created from its definition)
+		// applyTextScaleTransform will be called by addDynamicTextItem
+		addDynamicTextItem(deti);
 	}
 
 	for (QDomElement qde : QET::findInDomElement(
@@ -823,7 +875,10 @@ bool Element::fromXml(QDomElement &e,
 	{
 		ElementTextItemGroup *group =
 				addTextGroup(QStringLiteral("loaded_from_xml_group"));
+		// Load group data (position, etc.) - note: positions are already in scaled coordinates
+		// (they were scaled when the element was created from its definition)
 		group->fromXml(qde);
+		// Note: applyGroupScaleTransform was already called by addTextGroup
 	}
 
 		//load informations
@@ -1039,12 +1094,16 @@ void Element::addDynamicTextItem(DynamicElementTextItem *deti)
 	{
 		m_dynamic_text_list.append(deti);
 		deti->setParentItem(this);
+		// Apply scale transform to match element's visual scaling
+		applyTextScaleTransform(deti);
 		emit textAdded(deti);
 	}
 	else
 	{
 		DynamicElementTextItem *text = new DynamicElementTextItem(this);
 		m_dynamic_text_list.append(text);
+		// Apply scale transform to match element's visual scaling
+		applyTextScaleTransform(text);
 		emit textAdded(text);
 	}
 }
@@ -1100,27 +1159,30 @@ QList<DynamicElementTextItem *> Element::dynamicTextItems() const
 */
 ElementTextItemGroup *Element::addTextGroup(const QString &name)
 {
+	ElementTextItemGroup *group = nullptr;
+	
 	if(m_texts_group.isEmpty())
 	{
-		ElementTextItemGroup *group = new ElementTextItemGroup(name,
-									   this);
+		group = new ElementTextItemGroup(name, this);
 		m_texts_group << group;
-		emit textsGroupAdded(group);
-		return group;
 	}
-
-		//Set a new name if name already exist
-	QString rename = name;
-	int i=1;
-	while (textGroup(rename))
+	else
 	{
-		rename = name+QString::number(i);
-		i++;
-	}
-
+		//Set a new name if name already exist
+		QString rename = name;
+		int i=1;
+		while (textGroup(rename))
+		{
+			rename = name+QString::number(i);
+			i++;
+		}
 		//Create the group
-	ElementTextItemGroup *group = new ElementTextItemGroup(rename, this);
-	m_texts_group << group;
+		group = new ElementTextItemGroup(rename, this);
+		m_texts_group << group;
+	}
+	
+	// Apply scale transform to match element's visual scaling
+	applyGroupScaleTransform(group);
 	emit textsGroupAdded(group);
 	return group;
 }
@@ -1137,6 +1199,8 @@ void Element::addTextGroup(ElementTextItemGroup *group)
 
 	m_texts_group << group;
 	group->setParentItem(this);
+	// Apply scale transform to match element's visual scaling
+	applyGroupScaleTransform(group);
 	emit textsGroupAdded(group);
 }
 
