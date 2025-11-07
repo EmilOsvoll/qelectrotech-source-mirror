@@ -38,6 +38,7 @@
 #include "qgraphicsitemutility.h"
 
 #include <QDomElement>
+#include <QPrinter>
 #include <utility>
 
 class ElementXmlRetroCompatibility
@@ -222,6 +223,17 @@ void Element::paint(
 		//This bug seems append only when the QPainter uses drawPicture method.
 		//See bug 175. https://qelectrotech.org/bugtracker/view.php?id=175
 	painter->save();
+	
+	// Apply compensating scale factor for workarea preview to match PDF export
+	// Elements appear ~4% larger in workarea (100mm -> 104mm), so reduce scale by 4%
+	// Only apply this compensation when NOT printing/exporting (i.e., in workarea view)
+	QPaintDevice *device = painter->device();
+	bool is_printing = (device && dynamic_cast<QPrinter *>(device));
+	if (!is_printing) {
+		const qreal scale_compensation = 100.0 / 102.45;
+		painter->scale(scale_compensation, scale_compensation);
+	}
+	
 	QPen pen;
 	QBrush brush;
 	painter->setPen(pen);
